@@ -28,5 +28,6 @@
 \glsXpageXglsnumberformat{}{2}}}\glsgroupskip
 \glsgroupheading{U}\relax\glsresetentrylist
 \glossentry{uav}{\glossaryentrynumbers{\relax 
-\glsXpageXglsnumberformat{}{2}}}%
+\glsXpageXglsnumberformat{}{2}\delimN 
+\glsXpageXglsnumberformat{}{4}}}%
 \end{theglossary}\glossarypostamble

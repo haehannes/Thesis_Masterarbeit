@@ -2370,8 +2370,17 @@
     <bcf:citekey order="3" intorder="1">Wu2021</bcf:citekey>
     <bcf:citekey order="4" intorder="1">holybro_x650</bcf:citekey>
     <bcf:citekey order="5" intorder="1">holybro_x650</bcf:citekey>
-    <bcf:citekey order="6" intorder="1">holybro_x650</bcf:citekey>
+    <bcf:citekey order="6" intorder="1">ISO8855</bcf:citekey>
     <bcf:citekey order="7" intorder="1">holybro_x650</bcf:citekey>
+    <bcf:citekey order="8" intorder="1">holybro_x650</bcf:citekey>
+    <bcf:citekey order="9" intorder="1">ISO9787</bcf:citekey>
+    <bcf:citekey order="10" intorder="1">PX4Frames</bcf:citekey>
+    <bcf:citekey order="11" intorder="1">Szeliski2022</bcf:citekey>
+    <bcf:citekey order="12" intorder="1">Siciliano2009</bcf:citekey>
+    <bcf:citekey order="13" intorder="1">holybro_x650</bcf:citekey>
+    <bcf:citekey order="14" intorder="1">holybro_x650</bcf:citekey>
+    <bcf:citekey order="15" intorder="1">2016</bcf:citekey>
+    <bcf:citekey order="16" intorder="1">Quan2017</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

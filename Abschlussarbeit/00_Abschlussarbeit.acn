@@ -2,3 +2,4 @@
 (indexentry :tkey (("UAV" "\\glossentry{uav}") ) :locref "{}{2}" :attr "pageglsnumberformat" ) 
 (indexentry :tkey (("UAV" "\\glossentry{uav}") ) :locref "{}{2}" :attr "pageglsnumberformat" ) 
 (indexentry :tkey (("LiPo" "\\glossentry{lipo}") ) :locref "{}{2}" :attr "pageglsnumberformat" ) 
+(indexentry :tkey (("UAV" "\\glossentry{uav}") ) :locref "{}{4}" :attr "pageglsnumberformat" ) 

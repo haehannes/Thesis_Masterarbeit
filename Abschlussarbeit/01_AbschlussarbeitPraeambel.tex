@@ -22,6 +22,12 @@
 \usepackage{float}      % für Tabellenpositionierung [H]
 \usepackage{xcolor, colortbl}
 \usepackage{caption}    % für \captionof
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+
+
+
 
 % Anpassung Seitenränder
 \usepackage[left= 3cm, right = 2cm, bottom = 3 cm, top = 2cm]{geometry} 
