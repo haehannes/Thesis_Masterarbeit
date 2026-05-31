@@ -1,0 +1,637 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global}
+    \entry{redmon2016you}{inproceedings}{}
+      \name{author}{4}{}{%
+        {{hash=99bced2e56a5253f3fe98a5f04e6d9b2}{%
+           family={Redmon},
+           familyi={R\bibinitperiod},
+           given={Joseph},
+           giveni={J\bibinitperiod}}}%
+        {{hash=05ca9f19da9ecbd2def4e5514f8043c8}{%
+           family={Divvala},
+           familyi={D\bibinitperiod},
+           given={Santosh},
+           giveni={S\bibinitperiod}}}%
+        {{hash=bd5dadbe57bedc5957c19a3154c4d424}{%
+           family={Girshick},
+           familyi={G\bibinitperiod},
+           given={Ross},
+           giveni={R\bibinitperiod}}}%
+        {{hash=396c6ddedb6f986906fc3e4994d19974}{%
+           family={Farhadi},
+           familyi={F\bibinitperiod},
+           given={Ali},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{fceadd5e0c88bc623c502d7999f124d7}
+      \strng{fullhash}{b5530443e433a4da53dbe3cf155225b4}
+      \strng{bibnamehash}{b5530443e433a4da53dbe3cf155225b4}
+      \strng{authorbibnamehash}{b5530443e433a4da53dbe3cf155225b4}
+      \strng{authornamehash}{fceadd5e0c88bc623c502d7999f124d7}
+      \strng{authorfullhash}{b5530443e433a4da53dbe3cf155225b4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the IEEE conference on computer vision and pattern recognition}
+      \field{title}{You only look once: Unified, real-time object detection}
+      \field{year}{2016}
+      \field{pages}{779\bibrangedash 788}
+      \range{pages}{10}
+    \endentry
+    \entry{online123}{online}{}
+      \name{author}{1}{}{%
+        {{hash=88f069848482a556e416f713d2819905}{%
+           family={Ultralytics},
+           familyi={U\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {Ultralytics}%
+      }
+      \strng{namehash}{88f069848482a556e416f713d2819905}
+      \strng{fullhash}{88f069848482a556e416f713d2819905}
+      \strng{bibnamehash}{88f069848482a556e416f713d2819905}
+      \strng{authorbibnamehash}{88f069848482a556e416f713d2819905}
+      \strng{authornamehash}{88f069848482a556e416f713d2819905}
+      \strng{authorfullhash}{88f069848482a556e416f713d2819905}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Ultralytics YOLOv8 Documentation - Training}
+      \field{urlday}{1}
+      \field{urlmonth}{2}
+      \field{urlyear}{2026}
+      \field{year}{2024}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://docs.ultralytics.com/modes/train/
+      \endverb
+      \verb{url}
+      \verb https://docs.ultralytics.com/modes/train/
+      \endverb
+    \endentry
+    \entry{everingham2010pascal}{misc}{}
+      \name{author}{5}{}{%
+        {{hash=655191b4f54a942147b118da2f50aeed}{%
+           family={Everingham},
+           familyi={E\bibinitperiod},
+           given={Mark},
+           giveni={M\bibinitperiod}}}%
+        {{hash=4e3c4333156c93f2e568db6387d4c7f1}{%
+           family={Gool},
+           familyi={G\bibinitperiod},
+           given={Luc\bibnamedelima Van},
+           giveni={L\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
+        {{hash=d34fdfcbfcb5412397b946351370db22}{%
+           family={Williams},
+           familyi={W\bibinitperiod},
+           given={Christopher\bibnamedelimb K.\bibnamedelimi I.},
+           giveni={C\bibinitperiod\bibinitdelim K\bibinitperiod\bibinitdelim I\bibinitperiod}}}%
+        {{hash=19dcf449a33f27289a006b0acf819975}{%
+           family={Winn},
+           familyi={W\bibinitperiod},
+           given={John},
+           giveni={J\bibinitperiod}}}%
+        {{hash=c72fc39e94030f67717052309266a44d}{%
+           family={Zisserman},
+           familyi={Z\bibinitperiod},
+           given={Andrew},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{cc3f7da0edfffd72f9d9f7114b65f7ce}
+      \strng{fullhash}{02081a1d316120dea2f3624b60838aa2}
+      \strng{bibnamehash}{02081a1d316120dea2f3624b60838aa2}
+      \strng{authorbibnamehash}{02081a1d316120dea2f3624b60838aa2}
+      \strng{authornamehash}{cc3f7da0edfffd72f9d9f7114b65f7ce}
+      \strng{authorfullhash}{02081a1d316120dea2f3624b60838aa2}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.CV}
+      \field{eprinttype}{arXiv}
+      \field{title}{The PASCAL Visual Object Classes (VOC) Challenge}
+      \field{year}{2010}
+      \verb{eprint}
+      \verb 0909.5206
+      \endverb
+      \verb{urlraw}
+      \verb https://docs.ultralytics.com/de/datasets/detect/voc/#what-is-the-pascal-voc-dataset-and-why-is-it-important-for-computer-vision-tasks
+      \endverb
+      \verb{url}
+      \verb https://docs.ultralytics.com/de/datasets/detect/voc/#what-is-the-pascal-voc-dataset-and-why-is-it-important-for-computer-vision-tasks
+      \endverb
+    \endentry
+    \entry{Elhanashi2026}{book}{}
+      \name{author}{2}{}{%
+        {{hash=46d78f39f6dec09bd0dca61f921e4508}{%
+           family={Elhanashi},
+           familyi={E\bibinitperiod},
+           given={Abdussalam},
+           giveni={A\bibinitperiod}}}%
+        {{hash=22c41a4f542b395aaa6413d3bf75d2b9}{%
+           family={Saponara},
+           familyi={S\bibinitperiod},
+           given={Sergio},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer Nature Singapore}%
+      }
+      \strng{namehash}{ed58e833f108621109ff95a3a4bdbdac}
+      \strng{fullhash}{ed58e833f108621109ff95a3a4bdbdac}
+      \strng{bibnamehash}{ed58e833f108621109ff95a3a4bdbdac}
+      \strng{authorbibnamehash}{ed58e833f108621109ff95a3a4bdbdac}
+      \strng{authornamehash}{ed58e833f108621109ff95a3a4bdbdac}
+      \strng{authorfullhash}{ed58e833f108621109ff95a3a4bdbdac}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9789819548460}
+      \field{title}{Deep Learning for Object Detection and Localization}
+      \field{year}{2026}
+      \verb{doi}
+      \verb 10.1007/978-981-95-4846-0
+      \endverb
+    \endentry
+    \entry{Wu2022}{article}{}
+      \name{author}{3}{}{%
+        {{hash=179d46976ac93e453532f021b25640ed}{%
+           family={Wu},
+           familyi={W\bibinitperiod},
+           given={ChienHsiang},
+           giveni={C\bibinitperiod}}}%
+        {{hash=f0df0f41654dd01c26d7990303de5e98}{%
+           family={Tai},
+           familyi={T\bibinitperiod},
+           given={TzuChi},
+           giveni={T\bibinitperiod}}}%
+        {{hash=bbc49e09029241f2994fd933d35e1a81}{%
+           family={Lai},
+           familyi={L\bibinitperiod},
+           given={ChinFeng},
+           giveni={C\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {MYU K.K.}%
+      }
+      \strng{namehash}{b070b1adf15f890824bdf02da4cf3d73}
+      \strng{fullhash}{b070b1adf15f890824bdf02da4cf3d73}
+      \strng{bibnamehash}{b070b1adf15f890824bdf02da4cf3d73}
+      \strng{authorbibnamehash}{b070b1adf15f890824bdf02da4cf3d73}
+      \strng{authornamehash}{b070b1adf15f890824bdf02da4cf3d73}
+      \strng{authorfullhash}{b070b1adf15f890824bdf02da4cf3d73}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{2435-0869}
+      \field{journaltitle}{Sensors and Materials}
+      \field{month}{2}
+      \field{number}{2}
+      \field{title}{Semantic Image Segmentation in Similar Fusion Background for Self-driving Vehicles}
+      \field{volume}{34}
+      \field{year}{2022}
+      \field{pages}{467\bibrangedash 491}
+      \range{pages}{25}
+      \verb{doi}
+      \verb 10.18494/sam3427
+      \endverb
+    \endentry
+    \entry{ISOIEC22989_2022}{report}{}
+      \name{author}{2}{}{%
+        {{hash=7058e4bd76f877c52b621c942b30613c}{%
+           family={{International Organization for Standardization}},
+           familyi={I\bibinitperiod}}}%
+        {{hash=1bfbc8812fd493bd4a6c196b196d1291}{%
+           family={{International Electrotechnical Commission}},
+           familyi={I\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {ISO/IEC}%
+      }
+      \list{location}{1}{%
+        {Geneva, Switzerland}%
+      }
+      \strng{namehash}{64f571336774620bb71aeea10e0e7eb7}
+      \strng{fullhash}{64f571336774620bb71aeea10e0e7eb7}
+      \strng{bibnamehash}{64f571336774620bb71aeea10e0e7eb7}
+      \strng{authorbibnamehash}{64f571336774620bb71aeea10e0e7eb7}
+      \strng{authornamehash}{64f571336774620bb71aeea10e0e7eb7}
+      \strng{authorfullhash}{64f571336774620bb71aeea10e0e7eb7}
+      \field{extraname}{1}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Artificial intelligence terminology standard}
+      \field{number}{ISO/IEC 22989:2022}
+      \field{title}{{Information technology -- Artificial intelligence -- Artificial intelligence concepts and terminology}}
+      \field{type}{International Standard}
+      \field{year}{2022}
+    \endentry
+    \entry{ISO8855_2011}{report}{}
+      \name{author}{1}{}{%
+        {{hash=7058e4bd76f877c52b621c942b30613c}{%
+           family={{International Organization for Standardization}},
+           familyi={I\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {ISO}%
+      }
+      \list{location}{1}{%
+        {Geneva, Switzerland}%
+      }
+      \strng{namehash}{7058e4bd76f877c52b621c942b30613c}
+      \strng{fullhash}{7058e4bd76f877c52b621c942b30613c}
+      \strng{bibnamehash}{7058e4bd76f877c52b621c942b30613c}
+      \strng{authorbibnamehash}{7058e4bd76f877c52b621c942b30613c}
+      \strng{authornamehash}{7058e4bd76f877c52b621c942b30613c}
+      \strng{authorfullhash}{7058e4bd76f877c52b621c942b30613c}
+      \field{extraname}{1}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{number}{ISO 8855:2011}
+      \field{title}{{Road vehicles -- Vehicle dynamics and road-holding ability -- Vocabulary}}
+      \field{type}{International Standard}
+      \field{year}{2011}
+    \endentry
+    \entry{LearnChannel_Coord}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=71eef35035fb58baffc20e44a0750d3a}{%
+           family={{Learnchannel-TV}},
+           familyi={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{71eef35035fb58baffc20e44a0750d3a}
+      \strng{fullhash}{71eef35035fb58baffc20e44a0750d3a}
+      \strng{bibnamehash}{71eef35035fb58baffc20e44a0750d3a}
+      \strng{authorbibnamehash}{71eef35035fb58baffc20e44a0750d3a}
+      \strng{authornamehash}{71eef35035fb58baffc20e44a0750d3a}
+      \strng{authorfullhash}{71eef35035fb58baffc20e44a0750d3a}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://learnchannel-tv.com/de/robotik/roboter-koordinatensysteme/}}
+      \field{note}{Zugriff am 04.05.2026}
+      \field{title}{{Roboter Koordinatensysteme}}
+    \endentry
+    \entry{ISO14539_2000}{report}{}
+      \name{author}{1}{}{%
+        {{hash=7058e4bd76f877c52b621c942b30613c}{%
+           family={{International Organization for Standardization}},
+           familyi={I\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {ISO}%
+      }
+      \list{location}{1}{%
+        {Geneva, Switzerland}%
+      }
+      \strng{namehash}{7058e4bd76f877c52b621c942b30613c}
+      \strng{fullhash}{7058e4bd76f877c52b621c942b30613c}
+      \strng{bibnamehash}{7058e4bd76f877c52b621c942b30613c}
+      \strng{authorbibnamehash}{7058e4bd76f877c52b621c942b30613c}
+      \strng{authornamehash}{7058e4bd76f877c52b621c942b30613c}
+      \strng{authorfullhash}{7058e4bd76f877c52b621c942b30613c}
+      \field{extraname}{2}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{number}{ISO 14539:2000}
+      \field{title}{{Road vehicles -- Vehicle dynamics and road-holding ability -- Vocabulary for the use of multi-body system simulation}}
+      \field{type}{International Standard}
+      \field{year}{2000}
+    \endentry
+    \entry{ISO8373_2021}{report}{}
+      \name{author}{1}{}{%
+        {{hash=7058e4bd76f877c52b621c942b30613c}{%
+           family={{International Organization for Standardization}},
+           familyi={I\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {ISO}%
+      }
+      \list{location}{1}{%
+        {Geneva, Switzerland}%
+      }
+      \strng{namehash}{7058e4bd76f877c52b621c942b30613c}
+      \strng{fullhash}{7058e4bd76f877c52b621c942b30613c}
+      \strng{bibnamehash}{7058e4bd76f877c52b621c942b30613c}
+      \strng{authorbibnamehash}{7058e4bd76f877c52b621c942b30613c}
+      \strng{authornamehash}{7058e4bd76f877c52b621c942b30613c}
+      \strng{authorfullhash}{7058e4bd76f877c52b621c942b30613c}
+      \field{extraname}{3}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{number}{ISO 8373:2021}
+      \field{title}{{Robotics -- Vocabulary}}
+      \field{type}{International Standard}
+      \field{year}{2021}
+    \endentry
+    \entry{Arun1987}{article}{}
+      \name{author}{3}{}{%
+        {{hash=f3bb627203fedeb344c2604e5b7879b5}{%
+           family={Arun},
+           familyi={A\bibinitperiod},
+           given={K.\bibnamedelimi S.},
+           giveni={K\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=680846e3138d113a525d898a748a2f9a}{%
+           family={Huang},
+           familyi={H\bibinitperiod},
+           given={T.\bibnamedelimi S.},
+           giveni={T\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=28c645c4e41b3cec8f2ed107d212a532}{%
+           family={Blostein},
+           familyi={B\bibinitperiod},
+           given={S.\bibnamedelimi D.},
+           giveni={S\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+      }
+      \strng{namehash}{8f477d2514b37647a748848fcd576113}
+      \strng{fullhash}{8f477d2514b37647a748848fcd576113}
+      \strng{bibnamehash}{8f477d2514b37647a748848fcd576113}
+      \strng{authorbibnamehash}{8f477d2514b37647a748848fcd576113}
+      \strng{authornamehash}{8f477d2514b37647a748848fcd576113}
+      \strng{authorfullhash}{8f477d2514b37647a748848fcd576113}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Pattern Analysis and Machine Intelligence}
+      \field{number}{5}
+      \field{title}{Least-Squares Fitting of Two 3-D Point Sets}
+      \field{volume}{PAMI-9}
+      \field{year}{1987}
+      \field{pages}{698\bibrangedash 700}
+      \range{pages}{3}
+      \verb{doi}
+      \verb 10.1109/TPAMI.1987.4767965
+      \endverb
+      \keyw{Economic indicators;Matrix decomposition;Singular value decomposition;Iterative algorithms;Motion estimation;Quaternions;Computer vision;Application software;Parameter estimation;Position measurement;Computer vision;least-squares;motion estimation;quaternion;singular value decomposition}
+    \endentry
+    \entry{SpringerRobotics2016}{book}{}
+      \list{publisher}{1}{%
+        {Springer International Publishing}%
+      }
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9783319325521}
+      \field{issn}{2522-8706}
+      \field{journaltitle}{Springer Handbooks}
+      \field{title}{Springer Handbook of Robotics}
+      \field{year}{2016}
+      \verb{doi}
+      \verb 10.1007/978-3-319-32552-1
+      \endverb
+    \endentry
+    \entry{Strang2003}{book}{}
+      \name{author}{1}{}{%
+        {{hash=93733dfde0c47db226efad798ab3b662}{%
+           family={Strang},
+           familyi={S\bibinitperiod},
+           given={Gilbert},
+           giveni={G\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer Berlin Heidelberg}%
+      }
+      \strng{namehash}{93733dfde0c47db226efad798ab3b662}
+      \strng{fullhash}{93733dfde0c47db226efad798ab3b662}
+      \strng{bibnamehash}{93733dfde0c47db226efad798ab3b662}
+      \strng{authorbibnamehash}{93733dfde0c47db226efad798ab3b662}
+      \strng{authornamehash}{93733dfde0c47db226efad798ab3b662}
+      \strng{authorfullhash}{93733dfde0c47db226efad798ab3b662}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9783642556319}
+      \field{issn}{0937-7433}
+      \field{journaltitle}{Springer-Lehrbuch}
+      \field{title}{Lineare Algebra}
+      \field{year}{2003}
+      \verb{doi}
+      \verb 10.1007/978-3-642-55631-9
+      \endverb
+    \endentry
+    \entry{MechMind_ProS_ProM_Specifications}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=91fdb79d4a66c9d6b5ccecf4bd97327a}{%
+           family={{Mech-Mind Robotics}},
+           familyi={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{91fdb79d4a66c9d6b5ccecf4bd97327a}
+      \strng{fullhash}{91fdb79d4a66c9d6b5ccecf4bd97327a}
+      \strng{bibnamehash}{91fdb79d4a66c9d6b5ccecf4bd97327a}
+      \strng{authorbibnamehash}{91fdb79d4a66c9d6b5ccecf4bd97327a}
+      \strng{authornamehash}{91fdb79d4a66c9d6b5ccecf4bd97327a}
+      \strng{authorfullhash}{91fdb79d4a66c9d6b5ccecf4bd97327a}
+      \field{extraname}{1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://docs.mech-mind.net/en/eye-3d-camera/2.3.1/hardware/specifications-pro-s-pro-m.html}}
+      \field{note}{Zugriff am 09.05.2026}
+      \field{title}{{Specifications of Mech-Eye PRO S and PRO M Series}}
+    \endentry
+    \entry{MechMind_MechEyeSDK240}{online}{}
+      \name{author}{1}{}{%
+        {{hash=91fdb79d4a66c9d6b5ccecf4bd97327a}{%
+           family={{Mech-Mind Robotics}},
+           familyi={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{91fdb79d4a66c9d6b5ccecf4bd97327a}
+      \strng{fullhash}{91fdb79d4a66c9d6b5ccecf4bd97327a}
+      \strng{bibnamehash}{91fdb79d4a66c9d6b5ccecf4bd97327a}
+      \strng{authorbibnamehash}{91fdb79d4a66c9d6b5ccecf4bd97327a}
+      \strng{authornamehash}{91fdb79d4a66c9d6b5ccecf4bd97327a}
+      \strng{authorfullhash}{91fdb79d4a66c9d6b5ccecf4bd97327a}
+      \field{extraname}{2}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Zugriff am 09.05.2026}
+      \field{title}{{Mech-Eye SDK 2.4.0 Download Center}}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://downloads.mech-mind.com/?tab=tab-history&parentCol=Mech-Eye+SDK&childCol=Mech-Eye+SDK+2.4.0
+      \endverb
+      \verb{url}
+      \verb https://downloads.mech-mind.com/?tab=tab-history&parentCol=Mech-Eye+SDK&childCol=Mech-Eye+SDK+2.4.0
+      \endverb
+    \endentry
+    \entry{RBTX_MechEyeProM}{online}{}
+      \name{author}{1}{}{%
+        {{hash=d4a21308a9fc539eb8c1fab626bb99e4}{%
+           family={{RBTX}},
+           familyi={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{d4a21308a9fc539eb8c1fab626bb99e4}
+      \strng{fullhash}{d4a21308a9fc539eb8c1fab626bb99e4}
+      \strng{bibnamehash}{d4a21308a9fc539eb8c1fab626bb99e4}
+      \strng{authorbibnamehash}{d4a21308a9fc539eb8c1fab626bb99e4}
+      \strng{authornamehash}{d4a21308a9fc539eb8c1fab626bb99e4}
+      \strng{authorfullhash}{d4a21308a9fc539eb8c1fab626bb99e4}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Zugriff am 09.05.2026}
+      \field{title}{{Mech-Eye PRO M}}
+      \verb{urlraw}
+      \verb https://rbtx.de/de-DE/components/vision-sensors/mech-eye-pro-m#slide-0
+      \endverb
+      \verb{url}
+      \verb https://rbtx.de/de-DE/components/vision-sensors/mech-eye-pro-m#slide-0
+      \endverb
+    \endentry
+    \entry{MechMind_IntrinsicParameterTool}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=91fdb79d4a66c9d6b5ccecf4bd97327a}{%
+           family={{Mech-Mind Robotics}},
+           familyi={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{91fdb79d4a66c9d6b5ccecf4bd97327a}
+      \strng{fullhash}{91fdb79d4a66c9d6b5ccecf4bd97327a}
+      \strng{bibnamehash}{91fdb79d4a66c9d6b5ccecf4bd97327a}
+      \strng{authorbibnamehash}{91fdb79d4a66c9d6b5ccecf4bd97327a}
+      \strng{authornamehash}{91fdb79d4a66c9d6b5ccecf4bd97327a}
+      \strng{authorfullhash}{91fdb79d4a66c9d6b5ccecf4bd97327a}
+      \field{extraname}{3}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://docs.mech-mind.net/en/eye-3d-camera/2.4.0/viewer/intrinsic-parameter-tool.html}}
+      \field{note}{Zugriff am 09.05.2026}
+      \field{title}{{Intrinsic Parameter Tool}}
+    \endentry
+    \entry{2019ImageAnalysis}{book}{}
+      \list{publisher}{1}{%
+        {Springer International Publishing}%
+      }
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9783030286033}
+      \field{issn}{2191-6594}
+      \field{journaltitle}{Advances in Computer Vision and Pattern Recognition}
+      \field{title}{RGB-D Image Analysis and Processing}
+      \field{year}{2019}
+      \verb{doi}
+      \verb 10.1007/978-3-030-28603-3
+      \endverb
+    \endentry
+    \entry{ISOIEC2382_2015}{report}{}
+      \name{author}{2}{}{%
+        {{hash=7058e4bd76f877c52b621c942b30613c}{%
+           family={{International Organization for Standardization}},
+           familyi={I\bibinitperiod}}}%
+        {{hash=1bfbc8812fd493bd4a6c196b196d1291}{%
+           family={{International Electrotechnical Commission}},
+           familyi={I\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {ISO/IEC}%
+      }
+      \list{location}{1}{%
+        {Geneva, Switzerland}%
+      }
+      \strng{namehash}{64f571336774620bb71aeea10e0e7eb7}
+      \strng{fullhash}{64f571336774620bb71aeea10e0e7eb7}
+      \strng{bibnamehash}{64f571336774620bb71aeea10e0e7eb7}
+      \strng{authorbibnamehash}{64f571336774620bb71aeea10e0e7eb7}
+      \strng{authornamehash}{64f571336774620bb71aeea10e0e7eb7}
+      \strng{authorfullhash}{64f571336774620bb71aeea10e0e7eb7}
+      \field{extraname}{2}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Relevant term: "real-time"}
+      \field{number}{ISO/IEC 2382:2015}
+      \field{title}{{Information technology -- Vocabulary}}
+      \field{type}{International Standard}
+      \field{year}{2015}
+    \endentry
+    \entry{Tan2021}{article}{}
+      \name{author}{4}{}{%
+        {{hash=80e05a716023bc7caa7bd9f454dd7042}{%
+           family={Tan},
+           familyi={T\bibinitperiod},
+           given={Lu},
+           giveni={L\bibinitperiod}}}%
+        {{hash=2a279e443a8227973094bc4a78358476}{%
+           family={Huangfu},
+           familyi={H\bibinitperiod},
+           given={Tianran},
+           giveni={T\bibinitperiod}}}%
+        {{hash=eb53af08e928623253ba16724b3dc193}{%
+           family={Wu},
+           familyi={W\bibinitperiod},
+           given={Liyao},
+           giveni={L\bibinitperiod}}}%
+        {{hash=36e65765bb6b8b51f91025bce78a0f0d}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Wenying},
+           giveni={W\bibinitperiod}}}%
+      }
+      \list{publisher}{2}{%
+        {Springer Science}%
+        {Business Media LLC}%
+      }
+      \strng{namehash}{86c42b97a7c4210578248a53b1de427d}
+      \strng{fullhash}{c027c36907eace97b529ff8412cfc443}
+      \strng{bibnamehash}{c027c36907eace97b529ff8412cfc443}
+      \strng{authorbibnamehash}{c027c36907eace97b529ff8412cfc443}
+      \strng{authornamehash}{86c42b97a7c4210578248a53b1de427d}
+      \strng{authorfullhash}{c027c36907eace97b529ff8412cfc443}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1472-6947}
+      \field{journaltitle}{BMC Medical Informatics and Decision Making}
+      \field{month}{11}
+      \field{number}{1}
+      \field{title}{Comparison of RetinaNet, SSD, and YOLO v3 for real-time pill identification}
+      \field{volume}{21}
+      \field{year}{2021}
+      \verb{doi}
+      \verb 10.1186/s12911-021-01691-8
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

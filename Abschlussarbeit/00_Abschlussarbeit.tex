@@ -1,0 +1,270 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% CC BY-NC-SA 4.0
+%
+% Template für die Erstellung einer Abschlussarbeit an der TH Nürnberg
+% Author: Prof. Dr. Christine Niebler, TH Nürnberg
+% Überarbeitung: Hannes Dippold, Fachschaft EFI
+%
+% Das Template muss mit pdflatex und biber kompiliert werden
+% Für Fragen stehe ich gerne zur Verfügung
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Definition des Dokumentenlayouts
+% parskip=half wurde entfernt, da wir klassischen Absatzeinzug verwenden möchten.
+\documentclass[
+  a4paper,
+  titlepage=yes,
+  11pt,
+  BCOR=12mm
+]{scrreprt}
+
+% Einbinden der Präambel
+\input{01_AbschlussarbeitPraeambel}
+
+% Römische Seitenzahlen für Verzeichnisse/Vorspann
+\pagenumbering{Roman}
+
+% Pakete
+\usepackage{placeins}
+
+% hyperref möglichst spät laden
+\usepackage{hyperref}
+\usepackage[ngerman,noabbrev]{cleveref}
+
+
+\crefname{figure}{Abbildung}{Abbildungen}
+\Crefname{figure}{Abbildung}{Abbildungen}
+
+\crefname{table}{Tabelle}{Tabellen}
+\Crefname{table}{Tabelle}{Tabellen}
+
+\crefname{section}{Abschnitt}{Abschnitte}
+\Crefname{section}{Abschnitt}{Abschnitte}
+
+\crefname{equation}{Gleichung}{Gleichungen}
+\Crefname{equation}{Gleichung}{Gleichungen}
+
+% Einstellungen für Quellcode
+
+\renewcommand*{\lstlistingname}{Quellcode}
+
+\lstset{
+    aboveskip=1.0\baselineskip,
+    belowskip=1.0\baselineskip,
+    numbers=left,
+    xleftmargin=10pt,
+    inputencoding=utf8,
+    extendedchars=true,
+    literate=
+        {ä}{{\"a}}1
+        {ö}{{\"o}}1
+        {ü}{{\"u}}1
+        {Ä}{{\"A}}1
+        {Ö}{{\"O}}1
+        {Ü}{{\"U}}1
+        {ß}{{\ss}}1
+}
+
+
+
+% -------------------------------------------------
+% Absatzformatierung
+% -------------------------------------------------
+
+\setlength{\parindent}{15pt}
+\setlength{\parskip}{0pt}
+
+\usepackage{etoolbox}
+
+% Erster Absatz nach Überschriften NICHT einrücken
+\RedeclareSectionCommand[afterindent=false]{chapter}
+\RedeclareSectionCommand[afterindent=false]{section}
+\RedeclareSectionCommand[afterindent=false]{subsection}
+\RedeclareSectionCommand[afterindent=false]{subsubsection}
+
+% Erster Absatz nach Abbildungen/Tabellen NICHT einrücken
+\usepackage{noindentafter}
+
+\NoIndentAfterEnv{figure}
+\NoIndentAfterEnv{table}
+\NoIndentAfterEnv{equation}
+\NoIndentAfterEnv{gather}
+\NoIndentAfterEnv{align}
+\NoIndentAfterEnv{verbatim}
+\NoIndentAfterEnv{lstlisting}
+\NoIndentAfterEnv{itemize}
+\NoIndentAfterEnv{enumerate}
+
+% \FloatBarrier so erweitern, dass danach kein Einzug kommt
+% Originalen FloatBarrier-Befehl sichern
+\makeatletter
+\let\OldFloatBarrier\FloatBarrier
+
+\renewcommand{\FloatBarrier}{%
+  \OldFloatBarrier
+  \@afterindentfalse
+  \@afterheading
+}
+\makeatother
+
+
+% Wichtig:
+% \usepackage{indentfirst} NICHT verwenden,
+% damit der erste Absatz nach einer Überschrift nicht eingerückt wird.
+
+% -------------------------------------------------
+% Abstände vor und nach Überschriften
+% KOMA-Script: scrreprt
+% -------------------------------------------------
+
+% Kapitelüberschriften
+\RedeclareSectionCommand[
+  beforeskip=0pt,
+  afterskip=1.1\baselineskip
+]{chapter}
+
+% Abschnittsüberschriften
+\RedeclareSectionCommand[
+  beforeskip=1.1\baselineskip,
+  afterskip=0.7\baselineskip
+]{section}
+
+% Unterabschnittsüberschriften
+\RedeclareSectionCommand[
+  beforeskip=1.0\baselineskip,
+  afterskip=0.7\baselineskip
+]{subsection}
+
+% Unterunterabschnittsüberschriften
+\RedeclareSectionCommand[
+  beforeskip=0.8\baselineskip,
+  afterskip=0.5\baselineskip
+]{subsubsection}
+
+%% Hier startet der Dokumenteninhalt
+\begin{document}
+
+\thispagestyle{empty}
+\null
+\newpage
+
+% Deckblatt einbinden
+\maketitle
+
+% Eigenständigkeitserklärung einbinden,
+% auskommentiert lassen, solange noch nicht existent
+\begin{center}
+  %\includepdf[scale=0.8,page=1]{Eigenstaendigkeitserklaerung.pdf}
+  \thispagestyle{empty}
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%              Hier Abstract einfügen          %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Abstract einbinden
+\input{02_Abstract}
+
+\selectlanguage{ngerman}
+\newpage
+
+% Inhaltsverzeichnis
+\pagestyle{plain}
+
+\begingroup
+\RedeclareSectionCommand[
+  afterskip=0.4\baselineskip
+]{chapter}
+
+\tableofcontents
+\endgroup
+
+\clearpage
+
+% Abkürzungsverzeichnis
+\input{03_Abkuerzungen}
+
+\begingroup
+\RedeclareSectionCommand[
+  afterskip=0.4\baselineskip
+]{chapter}
+
+\printglossary[
+  type=acronym,
+  style=acronymstyle,
+  title=Abkürzungsverzeichnis,
+  nogroupskip,
+  nonumberlist
+]
+\endgroup
+
+\clearpage
+
+
+
+% Symbolverzeichnis
+\input{04_Symbole}
+
+\begingroup
+\RedeclareSectionCommand[
+  afterskip=0.4\baselineskip
+]{chapter}
+
+\printglossary[
+  type=symbols,
+  style=symstyle,
+  title=Symbolverzeichnis,
+  nogroupskip,
+  nonumberlist
+]
+\endgroup
+
+\pagestyle{plain}
+\newpage
+\pagenumbering{arabic}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%                    Text                     %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Inhaltsdateien einbinden
+\input{10_Einleitung}
+\input{20_Hauptteil}
+\input{30_Schluss}
+
+
+% -------------------------------------------------
+% Verzeichnisse am Ende
+% Einheitlicher Abstand nach den Überschriften
+% -------------------------------------------------
+
+% Literaturverzeichnis
+\printbibliography
+
+
+\begingroup
+\RedeclareSectionCommand[
+  afterskip=0.4\baselineskip
+]{chapter}
+
+% Abbildungsverzeichnis
+\listoffigures
+
+% Tabellenverzeichnis
+\listoftables
+
+% Quellcodeverzeichnis
+\renewcommand*{\lstlistlistingname}{Quellcodeverzeichnis}
+\lstlistoflistings
+
+\endgroup
+
+
+
+% Anhang einbinden
+\input{40_Anhang}
+
+\end{document}

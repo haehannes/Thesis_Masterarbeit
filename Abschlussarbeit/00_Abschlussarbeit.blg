@@ -1,0 +1,18 @@
+[0] Config.pm:307> INFO - This is Biber 2.19
+[0] Config.pm:310> INFO - Logfile is '00_Abschlussarbeit.blg'
+[44] biber:340> INFO - === Sa Mai 30, 2026, 22:25:33
+[53] Biber.pm:419> INFO - Reading '00_Abschlussarbeit.bcf'
+[91] Biber.pm:979> INFO - Found 4 citekeys in bib section 0
+[99] Biber.pm:4419> INFO - Processing section 0
+[106] Biber.pm:4610> INFO - Looking for bibtex file 'Literatur.bib' for section 0
+[106] bibtex.pm:1713> INFO - LaTeX decoding ...
+[110] bibtex.pm:1519> INFO - Found BibTeX data source 'Literatur.bib'
+[146] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[146] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[146] Biber.pm:4239> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-US'
+[146] Biber.pm:4245> INFO - No sort tailoring available for locale 'en-US'
+[148] bbl.pm:660> INFO - Writing '00_Abschlussarbeit.bbl' with encoding 'UTF-8'
+[149] bbl.pm:763> INFO - Output to 00_Abschlussarbeit.bbl
+[149] Biber.pm:131> WARN - BibTeX subsystem: /tmp/biber_tmp_a6UY/fe6d16e8a0935a16f008a64fa11444f8_50881.utf8, line 17, warning: undefined macro "June"
+[149] Biber.pm:131> WARN - I didn't find a database entry for 'redmon2016you' (section 0)
+[149] Biber.pm:133> INFO - WARNINGS: 2

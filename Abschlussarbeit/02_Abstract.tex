@@ -1,0 +1,45 @@
+%!TeX root=00_Abschlussarbeit.tex
+
+\selectlanguage{english}
+\renewcommand{\abstractname}{Abstract}
+%\begin{abstract}
+
+
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+\noindent
+% TEXT ENGLISCH %
+This thesis describes the development of a visual localization system for unmanned aerial vehicles based on fiducial markers in indoor environments.
+The Robot Operating System 2 is used as the middleware framework; AprilTags are used as the marker framework.
+The system uses the RGB images from two cameras as its input data source—one facing forward and one facing downward.
+The image processing and navigation calculations are performed by a mini-computer mounted on the aircraft.
+Position determination is based on the mapping of fiducial markers using simultaneous localization and mapping.
+For the extrinsic calibration of the cameras, a custom-developed algorithm for determining the respective transformation matrix is described.
+Position determination itself is achieved by detecting the previously mapped markers and calculating the poses of the camera lenses.
+The position data from both sensors are processed, fused into a single pose, and transmitted to the flight controller.
+The overall system enables GPS-independent positioning designed for indoor use.
+Finally, a prototype application is presented that can be used to control the aircraft.
+
+%\end{abstract}
+
+
+\selectlanguage{ngerman}
+\renewcommand{\abstractname}{Kurzfassung}
+%\begin{abstract}
+\chapter*{Kurzfassung}
+\addcontentsline{toc}{chapter}{Kurzfassung}
+\noindent
+% TEXT DEUTSCH %
+Diese Arbeit beschreibt die Entwicklung eines visuellen Lokalisierungssystems für unbemannte Luftfahrzeuge auf Basis von Fiducial-Markern im Innenraum.
+Als Middleware-Framework wird das Robot Operating System 2 verwendet; als Marker-Framework kommen AprilTags zum Einsatz.
+Das System nutzt die RGB-Bilder zweier Kameras als Eingangsdatenquelle – eine frontal und eine nach unten ausgerichtet.
+Die Berechnungen zur Bildverarbeitung sowie zur Navigation werden durch einen am Luftfahrzeug montierten mini-Computer durchgeführt.
+Grundlage der Positionsbestimmung bildet die Kartierung der Fiducial-Marker mittels Simultaner Lokalisierung und Kartierung.
+Zur extrinsischen Kalibrierung der Kameras wird ein eigens entwickelter Algorithmus zur Bestimmung der jeweiligen Transformationsmatrix beschrieben.
+Die Positionsbestimmung selbst erfolgt durch die Erkennung der zuvor kartierten Marker sowie die Berechnung der Posen der Kameraoptiken.
+Die Positionsdaten beider Sensoren werden aufbereitet, zu einer einzigen Pose fusioniert und an den Flugcontroller übermittelt.
+Das Gesamtsystem ermöglicht eine GPS-unabhängige Lokalisierung, die für den Einsatz in Innenräumen ausgelegt ist.
+Abschließend wird eine prototypische Anwendung vorgestellt, die zur Steuerung des Luftfahrzeugs eingesetzt werden kann.
+
+
+%\end{abstract}

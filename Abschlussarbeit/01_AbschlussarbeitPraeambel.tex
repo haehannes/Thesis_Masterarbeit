@@ -1,0 +1,287 @@
+%!TeX root=00_Abschlussarbeit.tex
+% \pdfcompresslevel=0
+% \pdfobjcompresslevel=0
+
+% Pakete für die Darstellung und Eingabemöglichkeit von Umlauten
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+% \usepackage{fontspec}   ← auskommentiert lassen
+% \setmainfont{...}       ← auskommentiert lassen
+
+
+%Für Tabellen
+\usepackage{rotating}   % Drehen
+\usepackage{colortbl}   % Farben
+\usepackage{booktabs}   % dickere Linien
+\usepackage{longtable}  % für lange Tabellen
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{diagbox}    % für diagonale Linien in Tabellen
+\usepackage{float}      % für Tabellenpositionierung [H]
+\usepackage{xcolor, colortbl}
+\usepackage{caption}    % für \captionof
+
+% Anpassung Seitenränder
+\usepackage[left= 3cm, right = 2cm, bottom = 3 cm, top = 2cm]{geometry} 
+
+% Verwendung deutscher Begriffe für automatisch generierte Worte wie z.B. "Inhaltsverzeichnis"
+\usepackage[ngerman, english]{babel}
+
+% Anführungszeichen/Zitate
+\usepackage{csquotes}
+
+% Trennen wenn Latex es nicht richtig macht:
+% \hyphenation{}
+
+% Paket um Dummy-Text/Blindtext zu erzeugen
+\usepackage{blindtext}
+
+% Eigenes Titelblatt
+\usepackage{LTXKursTitel}
+
+% Zeilenabstand auf 1,5 setzen
+\usepackage[onehalfspacing]{setspace}
+    \AfterTOCHead{\singlespacing}
+    %\KOMAoptions{DIV=last}          % KOMA Klasse für europ. Layout
+\usepackage{scrdate, scrtime}       % Zeit und Datumsbefehle
+\usepackage{scrlayer-scrpage}       % Erweitere Layout-Optionen
+    \pagestyle{scrheadings}         % Seitenlayout selbst definieren
+
+% Belegung von KOMA Variablen für Kopf- und Fußzeilen Gestaltung
+    \newcommand{\footlinetext}{\footnotesize \textsf{\color{gray} Kapitel \thesection \  \normalsize}}
+    \KOMAoptions{headsepline = yes, footsepline = no}
+    \ihead{}
+    \chead{Kapitel \thesection}
+    \ohead{}
+    \ifoot{}
+    \cfoot{\pagemark}
+    \ofoot{}
+
+% Pakete zum Einbinden von Bildern und Farben
+\usepackage{xcolor}
+\definecolor{chapterblue}{RGB}{0,70,140}
+\setkomafont{chapter}{\color{chapterblue}\huge\sffamily\bfseries}
+\setkomafont{section}{\color{chapterblue}\Large\sffamily\bfseries}
+\setkomafont{subsection}{\color{chapterblue}\large\sffamily\bfseries}
+\setkomafont{subsubsection}{\color{chapterblue}\large\sffamily\bfseries}
+
+ 
+
+\usepackage{graphicx}
+\usepackage{pdfpages} %PDFs einbinden
+
+
+% Pakete für Mathematik
+\usepackage[free-standing-units,locale = DE]{siunitx}   % Befehle für SI-Einheiten
+\usepackage{amsmath}                                    % Mathematik Befehle
+\usepackage{amsfonts}
+
+% Paket und Spezifikation der Parameter zur Darstellung von Programmcode mit Courier-Schriftart
+\usepackage{listings}  % Darstellung von Quellcode
+\usepackage{courier}   % Schriftart laden
+    \lstset{
+    language=Python,                % Programmiersprache
+    basicstyle=\footnotesize\ttfamily,  % Standardschrift
+    numbers=left,                       % Ort der Zeilennummern
+    numberstyle=\tiny,                  % Stil der Zeilennummern
+    %stepnumber=2,  % Abstand zwischen den Zeilennummern
+    numbersep=5pt,  % Abstand der Nummern zum Text
+    tabsize=2,      % Groesse von Tabs
+    extendedchars=true, %
+    breaklines=true,    % Zeilen werden Umgebrochen
+    keywordstyle=\color{blue}\bfseries,
+    frame=b,
+    % keywordstyle=[1]\textbf, % Stil der Keywords
+    % keywordstyle=[2]\textbf, %
+    % keywordstyle=[3]\textbf, %
+    % keywordstyle=[4]\textbf, \sqrt{\sqrt{}} %
+    stringstyle=\color{magenta}\ttfamily, % Farbe der String
+    showspaces=false,   % Leerzeichen anzeigen ?
+    showtabs=false,     % Tabs anzeigen ?
+    %xleftmargin=17pt,  % Abstände
+    %framexleftmargin=17pt,
+    %framexrightmargin=5pt,
+    %framexbottommargin=4pt,
+    commentstyle=\color{gray},
+    %backgroundcolor=\color{grey},
+    showstringspaces=false,      % Leerzeichen in Strings anzeigen ?
+    morekeywords={__global__},  % additional language specific keywords
+    morecomment=[l]
+    }
+    \lstloadlanguages{% Check Dokumentation for further languages ...
+    %[Visual]Basic
+    %Pascal
+    C,
+    C++,
+    %XML
+    %HTML
+    %Matlab
+    %Java
+    }
+
+% Literaturverzeichnis mit BibLaTeX und Biber erstellen
+\usepackage[style=ieee, sorting=none, backend=biber]{biblatex}
+% bib-Datei einbinden
+\addbibresource{Literatur.bib}
+
+\usepackage{abstract}
+
+\usepackage[printonlyused]{acronym} %Abkürzungsverzeichnis
+
+\usepackage{tocbasic}
+\usepackage{textcmds}
+\usepackage{scrhack}    %gets rid of \float@addtolists error
+
+\allowdisplaybreaks[2]
+
+
+\usepackage{enumitem}
+\setlist{itemsep=0.05\baselineskip, leftmargin=1.4cm}
+
+% Punkte im Inhaltsverzeichnis einfügen (mit tocbasic)
+
+% Punkte ins Inhaltsverzeichnis
+\DeclareTOCStyleEntry[beforeskip=5pt, entryformat=\normalfont, pagenumberformat=\normalsize, linefill=\dotfill]{chapter}{chapter}
+\DeclareTOCStyleEntry[beforeskip=5pt, indent=1.5em, pagenumberformat=\normalsize, linefill=\dotfill]{tocline}{section}
+\DeclareTOCStyleEntry[beforeskip=5pt, indent=3.8em, pagenumberformat=\normalsize, linefill=\dotfill]{tocline}{subsection}
+
+
+
+
+\usepackage{hyperref}   % Layout im PDF Viewer. Muss als letztes Paket geladen werden
+    \hypersetup{%
+    plainpages=false,
+    linktocpage=false,%true,
+    breaklinks=true,
+    colorlinks=true,
+    linkcolor=black,%blue,
+    anchorcolor=black,
+    citecolor=black,%green,
+    filecolor=black,%blue,
+    urlcolor=black,%blue%
+    pdfstartview={FitV},
+    pdfview={FitH},
+    pdfpagelayout={SinglePage},
+    %pdfpagemode={None},   %unknown value "None"
+    }
+
+\usepackage[xindy, order=letter, acronym=true, toc]{glossaries} % muss nach hyperref geladen werden
+% \usepackage{glossaries-german} % verwendete Sprachen laden, https://www.ctan.org/pkg/glossaries-german, nötig?
+
+% Zusätzliches Symbolverzeichnis definieren, wichtig vor \makeglossaries
+\newglossary[slg]{symbols}{syi}{syg}{Symbolverzeichnis}
+
+
+\makeglossaries
+
+% Stil definieren (dein eigener Stil)
+% Wichtig: description-Umgebung braucht \item, sonst kommt "missing \item".
+\usepackage{longtable}
+
+% Kompakter, tabellenartiger Stil für das Symbolverzeichnis
+\newglossarystyle{symstyle}{
+  \renewenvironment{theglossary}
+    {\begin{longtable}{@{}p{1.3cm}p{\dimexpr\linewidth-1.6cm\relax}@{}}} % Abstand zwischen Symbol und Beschreibung
+    {\end{longtable}}
+
+  \renewcommand*{\glossentry}[2]{%
+    \glstarget{##1}{\glossentryname{##1}} &
+    \glossentrydesc{##1} \\[0.3em] % Abstand zwischen Einträgen
+  }
+
+  \renewcommand*{\subglossentry}[3]{%
+    \glossentry{##2}{##3}%
+  }
+
+  % Keine Gruppierungsüberschriften wie X, Y, Z
+  \renewcommand*{\glsgroupheading}[1]{}
+  \renewcommand*{\glsgroupskip}{}
+}
+
+
+% Eigener Stil für das Abkürzungsverzeichnis
+\newglossarystyle{acronymstyle}{
+  \renewenvironment{theglossary}
+    {\begin{longtable}{@{}p{3cm}p{\dimexpr\linewidth-3cm\relax}@{}}}
+    {\end{longtable}}
+
+  \renewcommand*{\glossentry}[2]{%
+    \glstarget{##1}{\glossentryname{##1}} &
+    \glossentrydesc{##1} \\[0.3em] % Abstand zwischen Einträgen
+  }
+
+  \renewcommand*{\subglossentry}[3]{%
+    \glossentry{##2}{##3}%
+  }
+
+  \renewcommand*{\glsgroupheading}[1]{}
+  \renewcommand*{\glsgroupskip}{}
+}
+
+
+\setacronymstyle{long-short}
+\setglossarystyle{list} %alternativ: tree, list, long3col, index weitere: https://www.dickimaw-books.com/gallery/glossaries-styles/#long
+
+\setcounter{tocdepth}{4} %Erweiterung des Inhaltsverzeichnisses um eine weitere Ebene
+\setcounter{secnumdepth}{4} %Erweiterung der Kapiteltiefe um eine weitere Ebene
+
+
+\renewcommand{\familydefault}{\sfdefault}
+%\usepackage{showframe}
+
+% Kopfzeilen-Abstand reduzieren
+\setlength{\headheight}{14pt}
+\setlength{\headsep}{10pt}
+ 
+% Kapitel oben beginnen lassen
+\RedeclareSectionCommand[
+  beforeskip=0pt,
+  afterskip=1\baselineskip
+]{chapter}
+ 
+\RedeclareSectionCommand[
+  beforeskip=1.5ex plus 0.5ex minus 0.2ex,
+  afterskip=0.5ex
+]{section}
+ 
+\RedeclareSectionCommand[
+  beforeskip=1ex plus 0.5ex minus 0.2ex,
+  afterskip=0.5ex
+]{subsection}
+
+ 
+ 
+% Abstract nicht mittig
+\setlength{\absleftindent}{0pt}
+\setlength{\absrightindent}{0pt}
+\setlength{\abstitleskip}{0pt}
+
+
+% Einheitliche Abstände um abgesetzte Gleichungen
+\AtBeginDocument{%
+  \setlength{\abovedisplayskip}{0.7\baselineskip}
+  \setlength{\belowdisplayskip}{0.7\baselineskip}
+  \setlength{\abovedisplayshortskip}{0.7\baselineskip}
+  \setlength{\belowdisplayshortskip}{0.7\baselineskip}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%          Variablen zum Belegen              %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Variables for title page
+    \DAAutor{\par Hannes Müller\par 3796115}
+    \DATyp{}
+    \DAAutorAdresse{Masterarbeit im Studiengang Elektronische und Mechatronische Systeme\par Vertiefungsrichtung Automatisierungstechnik}
+    \DAFachbereich{Elektrotechnik Feinwerktechnik Informationstechnik}
+    \DATitel{Implementierung einer fiducialbasierten Lokalisierungssystems für Luftfahrzeuge im Innenraum}
+    \DABetreuerTextA{Betreuer}
+    \DABetreuerTextB{Betreuer}
+    \DABetreuerA{Prof. Dr. rer. nat. Pfitzner}
+    \DABetreuerB{Noch nicht sicher}
+    \DAOrt{Abgabe: Nürnberg}
+    \DAAbgabedatum{10.\,Juni\,2026}
+    \DAAbgabesemester{Sommersemester 2026}

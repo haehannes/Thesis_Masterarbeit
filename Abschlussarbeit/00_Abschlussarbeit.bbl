@@ -1,0 +1,131 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global}
+    \entry{Studiawan2026}{book}{}
+      \name{author}{2}{}{%
+        {{hash=a18645fcac55a82cc4099e25e47cca9b}{%
+           family={Studiawan},
+           familyi={S\bibinitperiod},
+           given={Hudan},
+           giveni={H\bibinitperiod}}}%
+        {{hash=b93f2a310bb2c20e877f1ec4a985c4bd}{%
+           family={Choo},
+           familyi={C\bibinitperiod},
+           given={Kim-Kwang\bibnamedelima Raymond},
+           giveni={K\bibinithyphendelim K\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer Nature Switzerland}%
+      }
+      \strng{namehash}{f7265303e7045c0282a824761076fecb}
+      \strng{fullhash}{f7265303e7045c0282a824761076fecb}
+      \strng{bibnamehash}{f7265303e7045c0282a824761076fecb}
+      \strng{authorbibnamehash}{f7265303e7045c0282a824761076fecb}
+      \strng{authornamehash}{f7265303e7045c0282a824761076fecb}
+      \strng{authorfullhash}{f7265303e7045c0282a824761076fecb}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9783031935114}
+      \field{title}{Drone and UAV Forensics: A Hands-On Approach}
+      \field{year}{2026}
+      \verb{doi}
+      \verb 10.1007/978-3-031-93511-4
+      \endverb
+    \endentry
+    \entry{Wu2021}{article}{}
+      \name{author}{4}{}{%
+        {{hash=a89f6a025eff65e9fd782f9a5bfcb222}{%
+           family={Wu},
+           familyi={W\bibinitperiod},
+           given={Yu-Ting},
+           giveni={Y\bibinithyphendelim T\bibinitperiod}}}%
+        {{hash=5f5b3cfde3012c0d1635e3be3cd6e649}{%
+           family={Qin},
+           familyi={Q\bibinitperiod},
+           given={Zhen},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=0df2b1d12fb9eb6c1a8154d31137b3dd}{%
+           family={Eizad},
+           familyi={E\bibinitperiod},
+           given={Amre},
+           giveni={A\bibinitperiod}}}%
+        {{hash=c3ed2438c93e53d0748dbb14a1237e2a}{%
+           family={Lyu},
+           familyi={L\bibinitperiod},
+           given={Sung-Ki},
+           giveni={S\bibinithyphendelim K\bibinitperiod}}}%
+      }
+      \list{publisher}{2}{%
+        {Springer Science}%
+        {Business Media LLC}%
+      }
+      \strng{namehash}{82d608b5cf0bb9ac8f52180944dcc6ba}
+      \strng{fullhash}{948319bf50d7007324bd3184f00569f6}
+      \strng{bibnamehash}{948319bf50d7007324bd3184f00569f6}
+      \strng{authorbibnamehash}{948319bf50d7007324bd3184f00569f6}
+      \strng{authornamehash}{82d608b5cf0bb9ac8f52180944dcc6ba}
+      \strng{authorfullhash}{948319bf50d7007324bd3184f00569f6}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1976-3824}
+      \field{journaltitle}{Journal of Mechanical Science and Technology}
+      \field{number}{7}
+      \field{title}{Numerical investigation of the mechanical component design of a hexacopter drone for real-time fine dust monitoring}
+      \field{volume}{35}
+      \field{year}{2021}
+      \field{pages}{3101\bibrangedash 3111}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.1007/s12206-021-0632-y
+      \endverb
+    \endentry
+    \entry{holybro_x650}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=0f3272cc92131b5414d872cc91e521f9}{%
+           family={Modellbau},
+           familyi={M\bibinitperiod},
+           given={Premium},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{0f3272cc92131b5414d872cc91e521f9}
+      \strng{fullhash}{0f3272cc92131b5414d872cc91e521f9}
+      \strng{bibnamehash}{0f3272cc92131b5414d872cc91e521f9}
+      \strng{authorbibnamehash}{0f3272cc92131b5414d872cc91e521f9}
+      \strng{authornamehash}{0f3272cc92131b5414d872cc91e521f9}
+      \strng{authorfullhash}{0f3272cc92131b5414d872cc91e521f9}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{https://www.premium-modellbau.de/holybro-holybro-x650-development-kit-pixhawk-6c-m10-gps-433-mhz-30180}
+      \field{note}{Zugriff am 30.05.2026}
+      \field{title}{Holybro X650}
+      \field{year}{2026}
+    \endentry
+  \enddatalist
+  \missing{redmon2016you}
+\endrefsection
+\endinput
+
