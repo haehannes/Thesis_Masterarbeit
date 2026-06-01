@@ -277,22 +277,6 @@
       \verb 10.1007/978-1-84628-642-1
       \endverb
     \endentry
-    \entry{2016}{book}{}
-      \list{publisher}{1}{%
-        {Springer International Publishing}%
-      }
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
-      \field{labeltitlesource}{title}
-      \field{isbn}{9783319325521}
-      \field{issn}{2522-8706}
-      \field{journaltitle}{Springer Handbooks}
-      \field{title}{Springer Handbook of Robotics}
-      \field{year}{2016}
-      \verb{doi}
-      \verb 10.1007/978-3-319-32552-1
-      \endverb
-    \endentry
     \entry{Quan2017}{book}{}
       \name{author}{1}{}{%
         {{hash=c11034bc0e4d5832ffedafaabbd0f18a}{%
@@ -319,6 +303,22 @@
       \field{year}{2017}
       \verb{doi}
       \verb 10.1007/978-981-10-3382-7
+      \endverb
+    \endentry
+    \entry{2016}{book}{}
+      \list{publisher}{1}{%
+        {Springer International Publishing}%
+      }
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9783319325521}
+      \field{issn}{2522-8706}
+      \field{journaltitle}{Springer Handbooks}
+      \field{title}{Springer Handbook of Robotics}
+      \field{year}{2016}
+      \verb{doi}
+      \verb 10.1007/978-3-319-32552-1
       \endverb
     \endentry
   \enddatalist

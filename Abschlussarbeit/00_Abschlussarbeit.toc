@@ -12,59 +12,61 @@
 \contentsline {section}{\numberline {2.2}Koordinatensysteme und Transformationen}{3}{section.2.2}%
 \contentsline {subsection}{\numberline {2.2.1}Vergleich von Welt-, Roboter-, Kamera- und Fiducialkoordinatensystem}{3}{subsection.2.2.1}%
 \contentsline {subsection}{\numberline {2.2.2}Repräsentation von Position und Orientierung}{4}{subsection.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.2.1}Quaternione}{5}{subsubsection.2.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2.2}Rodriges-Parameter}{6}{subsubsection.2.2.2.2}%
 \contentsline {subsection}{\numberline {2.2.3}Transformation von Koordinatensystemen}{6}{subsection.2.2.3}%
-\contentsline {subsection}{\numberline {2.2.4}Repräsentation von Position}{6}{subsection.2.2.4}%
-\contentsline {subsection}{\numberline {2.2.5}Repräsentation von Orientierung}{6}{subsection.2.2.5}%
-\contentsline {section}{\numberline {2.3}Autopilot PX4-6C}{6}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}Architektur}{6}{subsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.3.2}Sensorintegration}{6}{subsection.2.3.2}%
-\contentsline {subsection}{\numberline {2.3.3}Kommunikationsschnittstellen}{6}{subsection.2.3.3}%
-\contentsline {subsection}{\numberline {2.3.4}Echtzeitfähikgkeit}{7}{subsection.2.3.4}%
-\contentsline {subsection}{\numberline {2.3.5}Vergleich von Kamera-, Roboter- und Weltkoordinatensystem}{7}{subsection.2.3.5}%
-\contentsline {subsection}{\numberline {2.3.6}Transformation von Koordinatensystemen}{7}{subsection.2.3.6}%
-\contentsline {section}{\numberline {2.4}Visuelle Navigation}{7}{section.2.4}%
-\contentsline {subsubsection}{\numberline {2.4.0.1}Sensorik zur visuellen Navigation}{7}{subsubsection.2.4.0.1}%
-\contentsline {subsubsection}{\numberline {2.4.0.2}Grundlagen der Fiduccial-Erkennung}{7}{subsubsection.2.4.0.2}%
-\contentsline {subsubsection}{\numberline {2.4.0.3}PNP-Fehler}{7}{subsubsection.2.4.0.3}%
-\contentsline {subsubsection}{\numberline {2.4.0.4}Visuelle Odometrie}{7}{subsubsection.2.4.0.4}%
-\contentsline {chapter}{\numberline {3}Stand der Technik}{8}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Relevanz ROS2 in der autonomen Robotik}{8}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Relevanz PX4}{8}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Simultane Lokalisierung und Kartierung}{8}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Algorithmen zur Bildverarbeitung}{8}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}Evaluationsmetriken für Objekterkennung}{8}{subsection.3.4.1}%
-\contentsline {subsection}{\numberline {3.4.2}YOLO}{8}{subsection.3.4.2}%
-\contentsline {subsection}{\numberline {3.4.3}SSD}{8}{subsection.3.4.3}%
-\contentsline {section}{\numberline {3.5}Datensatzkonzepte}{8}{section.3.5}%
-\contentsline {subsection}{\numberline {3.5.1}2D-Daten}{8}{subsection.3.5.1}%
-\contentsline {subsection}{\numberline {3.5.2}6D-Daten}{8}{subsection.3.5.2}%
-\contentsline {section}{\numberline {3.6}Algorithmen zur Bildverarbeitung}{8}{section.3.6}%
-\contentsline {subsection}{\numberline {3.6.1}Clustern von Punktewolken mithilfe von DBSCAN}{8}{subsection.3.6.1}%
-\contentsline {subsection}{\numberline {3.6.2}Tischentfernung mithilfe von RANSAC}{8}{subsection.3.6.2}%
-\contentsline {chapter}{\numberline {4}Konzeptentwicklung}{9}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Aufbau der Testumgebung}{9}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Softwarearchitektur}{9}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Systempipeline}{9}{section.4.3}%
-\contentsline {chapter}{\numberline {5}Implementierung der Echtzeiterkennung}{10}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Datensatz- und Objektauswahl}{10}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Training der Modelle}{10}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}Yolov8 Training}{10}{subsection.5.2.1}%
-\contentsline {chapter}{\numberline {6}Ansteuerung des KUKA iiwa 7 R800}{11}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Kommunikationsschnittstellen}{11}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Greifpunktberechnung}{11}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}Vortrainiertes Modell Dexnet}{11}{subsection.6.2.1}%
-\contentsline {subsection}{\numberline {6.2.2}Segmentierung mithilfe der Bounding Boxen und dbscan}{11}{subsection.6.2.2}%
-\contentsline {subsection}{\numberline {6.2.3}Segmentierungslogik je Objekt}{11}{subsection.6.2.3}%
-\contentsline {chapter}{\numberline {7}Systemintegration}{12}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Gesamtintegration von Echtzeiterkennung, Greifpunktberechnung und Robotersteuerung}{12}{section.7.1}%
-\contentsline {section}{\numberline {7.2}Entwicklung eines Debugging- und Visualisierungsinterfaces}{12}{section.7.2}%
-\contentsline {subsection}{\numberline {7.2.1}Definieren von Ablageslots}{12}{subsection.7.2.1}%
-\contentsline {section}{\numberline {7.3}Analyse des Echtzeitverhaltens}{12}{section.7.3}%
-\contentsline {chapter}{\numberline {8}Evaluation des Greifens}{13}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Erfolgskriterien - Erfolgsquote und Fehlerrate}{13}{section.8.1}%
-\contentsline {section}{\numberline {8.2}Erkennungsgenauigkeit}{13}{section.8.2}%
-\contentsline {section}{\numberline {8.3}Positioniergenauigkeit}{13}{section.8.3}%
-\contentsline {section}{\numberline {8.4}Zeitliche Performance und Echtzeitfähigkeit}{13}{section.8.4}%
-\contentsline {chapter}{\numberline {9}Zusammenfassung und Ausblick}{14}{chapter.9}%
-\contentsline {chapter}{\numberline {10}Anhang}{19}{chapter.10}%
+\contentsline {subsection}{\numberline {2.2.4}Repräsentation von Position}{7}{subsection.2.2.4}%
+\contentsline {subsection}{\numberline {2.2.5}Repräsentation von Orientierung}{7}{subsection.2.2.5}%
+\contentsline {section}{\numberline {2.3}Autopilot PX4-6C}{7}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Architektur}{7}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Sensorintegration}{7}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}Kommunikationsschnittstellen}{8}{subsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.3.4}Echtzeitfähikgkeit}{8}{subsection.2.3.4}%
+\contentsline {subsection}{\numberline {2.3.5}Vergleich von Kamera-, Roboter- und Weltkoordinatensystem}{8}{subsection.2.3.5}%
+\contentsline {subsection}{\numberline {2.3.6}Transformation von Koordinatensystemen}{8}{subsection.2.3.6}%
+\contentsline {section}{\numberline {2.4}Visuelle Navigation}{8}{section.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.0.1}Sensorik zur visuellen Navigation}{8}{subsubsection.2.4.0.1}%
+\contentsline {subsubsection}{\numberline {2.4.0.2}Grundlagen der Fiduccial-Erkennung}{8}{subsubsection.2.4.0.2}%
+\contentsline {subsubsection}{\numberline {2.4.0.3}PNP-Fehler}{8}{subsubsection.2.4.0.3}%
+\contentsline {subsubsection}{\numberline {2.4.0.4}Visuelle Odometrie}{8}{subsubsection.2.4.0.4}%
+\contentsline {chapter}{\numberline {3}Stand der Technik}{9}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Relevanz ROS2 in der autonomen Robotik}{9}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Relevanz PX4}{9}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Simultane Lokalisierung und Kartierung}{9}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Algorithmen zur Bildverarbeitung}{9}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Evaluationsmetriken für Objekterkennung}{9}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}YOLO}{9}{subsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.4.3}SSD}{9}{subsection.3.4.3}%
+\contentsline {section}{\numberline {3.5}Datensatzkonzepte}{9}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}2D-Daten}{9}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.2}6D-Daten}{9}{subsection.3.5.2}%
+\contentsline {section}{\numberline {3.6}Algorithmen zur Bildverarbeitung}{9}{section.3.6}%
+\contentsline {subsection}{\numberline {3.6.1}Clustern von Punktewolken mithilfe von DBSCAN}{9}{subsection.3.6.1}%
+\contentsline {subsection}{\numberline {3.6.2}Tischentfernung mithilfe von RANSAC}{9}{subsection.3.6.2}%
+\contentsline {chapter}{\numberline {4}Konzeptentwicklung}{10}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Aufbau der Testumgebung}{10}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Softwarearchitektur}{10}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Systempipeline}{10}{section.4.3}%
+\contentsline {chapter}{\numberline {5}Implementierung der Echtzeiterkennung}{11}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Datensatz- und Objektauswahl}{11}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Training der Modelle}{11}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Yolov8 Training}{11}{subsection.5.2.1}%
+\contentsline {chapter}{\numberline {6}Ansteuerung des KUKA iiwa 7 R800}{12}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Kommunikationsschnittstellen}{12}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Greifpunktberechnung}{12}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Vortrainiertes Modell Dexnet}{12}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}Segmentierung mithilfe der Bounding Boxen und dbscan}{12}{subsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.2.3}Segmentierungslogik je Objekt}{12}{subsection.6.2.3}%
+\contentsline {chapter}{\numberline {7}Systemintegration}{13}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Gesamtintegration von Echtzeiterkennung, Greifpunktberechnung und Robotersteuerung}{13}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Entwicklung eines Debugging- und Visualisierungsinterfaces}{13}{section.7.2}%
+\contentsline {subsection}{\numberline {7.2.1}Definieren von Ablageslots}{13}{subsection.7.2.1}%
+\contentsline {section}{\numberline {7.3}Analyse des Echtzeitverhaltens}{13}{section.7.3}%
+\contentsline {chapter}{\numberline {8}Evaluation des Greifens}{14}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Erfolgskriterien - Erfolgsquote und Fehlerrate}{14}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Erkennungsgenauigkeit}{14}{section.8.2}%
+\contentsline {section}{\numberline {8.3}Positioniergenauigkeit}{14}{section.8.3}%
+\contentsline {section}{\numberline {8.4}Zeitliche Performance und Echtzeitfähigkeit}{14}{section.8.4}%
+\contentsline {chapter}{\numberline {9}Zusammenfassung und Ausblick}{15}{chapter.9}%
+\contentsline {chapter}{\numberline {10}Anhang}{20}{chapter.10}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

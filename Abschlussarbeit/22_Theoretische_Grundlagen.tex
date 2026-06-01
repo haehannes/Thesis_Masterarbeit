@@ -111,8 +111,8 @@ Die Pfeilrichtung entspricht der positiven Drehrichtung im rechtshändigen Koord
 \end{figure}
 \FloatBarrier
 
-Die folgenden Ausführungen zu Quaternionen beziehen sich auf \cite[15-16]{2016}.
-Weiterhin kann die Orientierung als sogenanntes Quaternion dargestellt werden.
+\subsubsection{Quaternione}
+Die Orientierung im Raum kann auch als Quaternion dargestellt werden. 
 Quaternionen bieten gegenüber Euler-Winkeln den Vorteil, dass sie keine Singularitäten (Gimbal Lock) aufweisen.
 Quaternionen stellen eine Erweiterung des komplexen Zahlenraums dar und werden durch Gleichung \ref{eq:quaternion} definiert.
 \begin{equation}
@@ -173,7 +173,80 @@ Rotationsquaternion $\mathbf{q}$ kann nun die Gleichung \ref{eq:quaternion_rotat
 \label{eq:quaternion_rotation}
 \end{equation}
 
+Normalisierung eines Quaternions
+\begin{equation}
+\mathbf{q} \leftarrow \frac{\mathbf{q}}{\|\mathbf{q}\|}, \qquad \|\mathbf{q}\| = \sqrt{x^2 + y^2 + z^2 + w^2}
+\label{eq:quaternion_normalisierung}
+\end{equation}
+
+\subsubsection{Rodriges-Parameter}
+
 \subsection{Transformation von Koordinatensystemen}
+Um die genaue Position des \gls{uav}s bestimmen zu können, sind mehrere Koordinatensystem-Transformationen notwendig. 
+Transformationen sind besonders bei der Lokalisierung im Raum, als auch bei der extrinsischen Kalibrierung der Kameras notwendig. 
+Die folgenden Ausführungen beziehen sich auf \cite[S.~16--17]{2016}.
+
+Es ist möglich, einen Punkt $\boldsymbol{a}_r$, ausgedrückt relativ zum Koordinatensystem~$a$, relativ zum Koordinatensystem~$b$ auszudrücken,
+sofern Position und Orientierung des Systems~$a$ relativ zum System~$b$ bekannt sind.
+Ziel ist es, aus dieser Beziehung eine Transformations\-matrix abzuleiten, die zugleich die Rotation und die Translation zwischen den beiden Systemen beschreibt.
+
+Die Orientierung des Systems~$a$ relativ zum System~$b$ wird durch eine
+Rotationsmatrix $\boldsymbol{R}_{ba}$ beschrieben.
+Die Lage des Ursprungs von~$a$ relativ zu~$b$ wird durch den
+Translations\-vektor $\boldsymbol{t}_{ba} \in \mathbb{R}^{3}$ angegeben.
+Ein im System~$a$ ausgedrückter Punkt $\boldsymbol{a}_r$ lässt sich
+dann mittels
+\begin{equation}
+    \boldsymbol{b}_r
+    = \boldsymbol{R}_{ba}\,\boldsymbol{a}_r + \boldsymbol{t}_{ba}
+    \label{eq:trafo_punkt}
+\end{equation}
+in das System~$b$ überführen. Diese Vorschrift kombiniert eine reine
+Drehung und eine anschließende Verschiebung in einem einzigen Schritt.
+
+Die Drehung und Verschiebung kann in eine einzige Matrix überführt werden. 
+$\tilde{\boldsymbol{a}}_r = \begin{bmatrix} \boldsymbol{a}_r^\top & 1 \end{bmatrix}^\top$.
+Die zugehörige \emph{homogene Transformations\-matrix}
+$\boldsymbol{T}_{ba} \in \mathrm{SE}(3)$ ist definiert als
+\begin{equation}
+    \boldsymbol{T}_{ba}
+    =
+    \begin{bmatrix}
+        \boldsymbol{R}_{ba} & \boldsymbol{t}_{ba} \\
+        \boldsymbol{0}^{\top} & 1
+    \end{bmatrix}
+    \in \mathbb{R}^{4 \times 4}.
+    \label{eq:trafo_matrix}
+\end{equation}
+Damit lässt sich Gleichung~\eqref{eq:trafo_punkt} kompakt schreiben als
+\begin{equation}
+    \tilde{\boldsymbol{b}}_r = \boldsymbol{T}_{ba}\,\tilde{\boldsymbol{a}}_r.
+    \label{eq:trafo_homogen}
+\end{equation}
+
+mit
+
+\begin{equation}
+R(\mathbf{q}) = 
+\begin{bmatrix}
+1 - 2y^2 - 2z^2 & 2xy - 2zw & 2xz + 2yw \\
+2xy + 2zw & 1 - 2x^2 - 2z^2 & 2yz - 2xw \\
+2xz - 2yw & 2yz + 2xw & 1 - 2x^2 - 2y^2
+\end{bmatrix}
+\label{eq:rotationsmatrix_quaternion}
+\end{equation}
+
+Eine wesentliche Eigenschaft homogener Transformations\-matrizen ist ihre Verkettbarkeit. 
+Sind die Transformationen
+$\boldsymbol{T}_{cb}$ (von~$b$ nach~$c$) und
+$\boldsymbol{T}_{ba}$ (von~$a$ nach~$b$) bekannt, so ergibt sich die
+direkte Transformation von~$a$ nach~$c$ durch
+\begin{equation}
+    \boldsymbol{T}_{ca} = \boldsymbol{T}_{cb}\,\boldsymbol{T}_{ba}.
+    \label{eq:trafo_verkettung}
+\end{equation}
+
+
 
 \subsection{Repräsentation von Position}
 Ein Punkt in einem Raum wird durch einen Vektor 
