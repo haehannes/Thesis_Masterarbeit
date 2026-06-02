@@ -39,13 +39,11 @@ Das verbaute Power Module wandelt diese Spannung auf 5,2 V, mit welcher sowohl d
 \textbf{Nutzlast} Das maximale Abfluggewicht der Holybro X650 beträgt 6,3 kg, wobei der flugfertige Grundrahmen bereits ein Eigengewicht von 4,3 kg aufweist.
 Daraus ergibt sich eine maximale Nutzlast von 2 kg (ohne Akku). \cite{holybro_x650}
 
-\section{Koordinatensysteme und Transformationen}
+\section{Vergleich von Welt-, Roboter-, Kamera- und Fiducialkoordinatensystem}
 Dieses Kapitel behandelt die verschiedenen Koordinatensysteme, die in dieser Arbeit relevant sind.
 Dabei wird zwischen dem Welt-, Roboter-, Kamera- und Fiducialkoordinatensystem unterschieden.
 Weiterhin werden die grundlegenden Konzepte zur Repräsentation von Position und Orientierung im Raum erläutert.
-Abschließend wird auf die notwendigen Koordinatentransformationen eingegangen.
 
-\subsection{Vergleich von Welt-, Roboter-, Kamera- und Fiducialkoordinatensystem}
 Ein Koordinatensystem ist ein mathematisches Konstrukt, das zur eindeutigen Beschreibung der Lage von Punkten im Raum verwendet wird.
 Zur Beschreibung von Bewegungen ist die Festlegung eines Koordinatensystems von entscheidender Bedeutung.
 Es besteht aus einem Bezugspunkt, dem Ursprung, sowie drei orthogonalen Achsen, die als X-, Y- und Z-Achse bezeichnet werden.
@@ -55,10 +53,10 @@ Mathematisch wird der Zusammenhang durch
 \mathbf{Z} = \mathbf{X} \times \mathbf{Y}
 \label{eq:rechte_hand_regel}
 \end{equation}
+
 dargestellt.
 In dieser Arbeit werden die Achsen entsprechend des informellen Industriestandards wie folgt dargestellt: X-Achse in Rot, Y-Achse in Grün und Z-Achse in Blau.
 Ein Überblick über die in dieser Arbeit verwendeten Koordinatensysteme ist in Abbildung \ref{fig:Koordinatensysteme} dargestellt.
-
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=1.0\textwidth]{Bilder/Koordinatensysteme.png}
@@ -86,19 +84,18 @@ zeigt nach oben in der Markerebene.
 
 
 
-\subsection{Repräsentation von Position und Orientierung}
-In diesem unterkapitel wird das verwendetet \gls{uav} als starrer Körper betrachtet. 
-Die vollständige Beschreibung der Lage eines starren Körpers im Raum erfolgt durch seine Position und Orientierung \cite[38]{Siciliano2009}.
+\section{Repräsentation von Position und Orientierung}
+In diesem Unterkapitel wird das verwendete \gls{uav} als starrer Körper betrachtet.
+Die vollständige Beschreibung der Lage eines starren Körpers im Raum erfolgt durch seine Position und Orientierung \cite[S. 12]{Siciliano2009}.
 
 Die Position eines Körpers wird durch den Vektor
 \begin{equation}
 \mathbf{p} = (x, y, z)^T
 \label{eq:position_vektor}
 \end{equation}
-beschrieben. 
-Wobei die Koordinaten einen bestimmten Koordinatensystem zugeordnet sind. 
+beschrieben, wobei die Koordinaten einem bestimmten Koordinatensystem zugeordnet sind.
 
-Die Orientierung eines Körpers kann auf verschiedene Weisen dargestellt werden. 
+Die Orientierung eines Körpers kann auf verschiedene Weisen dargestellt werden.
 Im Folgenden werden die zum Verständnis dieser Arbeit relevanten Darstellungsformen erläutert.
 Grundsätzlich kann sich ein Körper um drei Achsen drehen, was durch die Euler-Winkel Roll ($\phi$), Pitch ($\theta$) und Yaw ($\psi$) beschrieben wird.
 Abbildung \ref{fig:roll_pitch_yaw} zeigt die Definition dieser Winkel am Beispiel der Holybro X650.
@@ -111,32 +108,30 @@ Die Pfeilrichtung entspricht der positiven Drehrichtung im rechtshändigen Koord
 \end{figure}
 \FloatBarrier
 
-\subsubsection{Quaternione}
-Die Orientierung im Raum kann auch als Quaternion dargestellt werden. 
+\subsection{Quaternionen}
+Die Orientierung im Raum kann ebenfalls als Quaternion dargestellt werden.
 Quaternionen bieten gegenüber Euler-Winkeln den Vorteil, dass sie keine Singularitäten (Gimbal Lock) aufweisen.
-Quaternionen stellen eine Erweiterung des komplexen Zahlenraums dar und werden durch Gleichung \ref{eq:quaternion} definiert.
+Quaternionen stellen eine Erweiterung des komplexen Zahlenraums dar und werden durch Gleichung \ref{eq:quaternion} definiert. \cite{Siciliano2009}
 \begin{equation}
 \mathbf{q} = w + ix + jy + kz
 \label{eq:quaternion}
 \end{equation}
-wobei die Komponenten $w$, $x$, $y$ und $z$ reelle Zahlen sind Skalare sind und $i$, $j$ und $k$ die imaginären Einheiten darstellen.
-Die Imaginären Einheiten erfüllen die folgenden Multiplikationsregeln:
+wobei die Komponenten $w$, $x$, $y$ und $z$ reelle Skalare sind und $i$, $j$ sowie $k$ die imaginären Einheiten darstellen.
+Die imaginären Einheiten erfüllen die folgenden Multiplikationsregeln:
 \begin{equation}
 ii = jj = kk = ijk = -1
 \label{eq:quaternion_regeln}
 \end{equation}
-
 \begin{equation}
 ij = k , \quad jk = i , \quad ki = j
 \label{eq:quaternion_regeln2}
 \end{equation}
-
 \begin{equation}
 ji = -k , \quad kj = -i , \quad ik = -j
 \label{eq:quaternion_regeln3}
 \end{equation}
 
-Addition und Multiplikation von Quaternionen werden entsprechend den Formeln \ref{eq:quaternion_addition} und \ref{eq:quaternion_multiplikation} definiert.
+Addition und Multiplikation von Quaternionen sind durch die Gleichungen \ref{eq:quaternion_addition} und \ref{eq:quaternion_multiplikation} definiert.
 \begin{equation}
 q_1 + q_2 = (w_1 + w_2) + i(x_1 + x_2) + j(y_1 + y_2) + k(z_1 + z_2)
 \label{eq:quaternion_addition}
@@ -151,111 +146,138 @@ q_1 \cdot q_2 = &(w_1 w_2 - x_1 x_2 - y_1 y_2 - z_1 z_2) \\
 \label{eq:quaternion_multiplikation}
 \end{equation}
 
-Das Einheitsquaternion oder auch Rotationsquaternion $\mathbf{q}$ beschreibt eine Rotation um den Winkel $\phi$ 
-um eine normierte Rotationsachse $\mathbf{v} = (v_x, v_y, v_z)^T$ und wird durch Gleichung \ref{eq:einheitsquaternion} beschrieben. 
-
+Das Einheitsquaternion $\mathbf{q}$ beschreibt eine Rotation um den Winkel $\phi$ um eine normierte Rotationsachse $\mathbf{v} = (v_x, v_y, v_z)^T$ und wird durch Gleichung \ref{eq:einheitsquaternion} beschrieben. \cite{2016}
 \begin{equation}
 \mathbf{q} = \left(\cos\frac{\phi}{2},\ \mathbf{v} \cdot \sin\frac{\phi}{2}\right) = \left(\cos\frac{\phi}{2},\ v_x \sin\frac{\phi}{2},\ v_y \sin\frac{\phi}{2},\ v_z \sin\frac{\phi}{2}\right)
 \label{eq:einheitsquaternion}
 \end{equation}
 
-Die Konjunktion eines Quaternions ist analog zu den komplexen Zahlen mit der Gleichung \ref{eq:quaternion_konjungiert} beschrieben. 
+Die Konjugation eines Quaternions ist analog zu den komplexen Zahlen durch Gleichung \ref{eq:quaternion_konjungiert} definiert.
 \begin{equation}
 \bar{\mathbf{q}} = (w, -x, -y, -z)
-\label{eq:quaternion_konjugiert}
+\label{eq:quaternion_konjungiert}
 \end{equation}
 
-Für die Rotation eines beliebigen Punktes $\mathbf{p} = (0, p_x, p_y, p_z)$ um ein 
-Rotationsquaternion $\mathbf{q}$ kann nun die Gleichung \ref{eq:quaternion_rotation} angewendet werden. \cite[S. 112]{Quan2017}
-
+Für die Rotation eines beliebigen Punktes $\mathbf{p} = (0, p_x, p_y, p_z)$ mittels eines Rotationsquaternions $\mathbf{q}$ wird Gleichung \ref{eq:quaternion_rotation} angewendet. \cite[S.~112]{Quan2017}
 \begin{equation}
 \mathbf{p}' = \mathbf{q} \cdot \mathbf{p} \cdot \bar{\mathbf{q}}
 \label{eq:quaternion_rotation}
 \end{equation}
 
-Normalisierung eines Quaternions
+Die Normalisierung eines Quaternions erfolgt gemäß
 \begin{equation}
 \mathbf{q} \leftarrow \frac{\mathbf{q}}{\|\mathbf{q}\|}, \qquad \|\mathbf{q}\| = \sqrt{x^2 + y^2 + z^2 + w^2}
 \label{eq:quaternion_normalisierung}
 \end{equation}
 
-\subsubsection{Rodriges-Parameter}
-
-\subsection{Transformation von Koordinatensystemen}
-Um die genaue Position des \gls{uav}s bestimmen zu können, sind mehrere Koordinatensystem-Transformationen notwendig. 
-Transformationen sind besonders bei der Lokalisierung im Raum, als auch bei der extrinsischen Kalibrierung der Kameras notwendig. 
-Die folgenden Ausführungen beziehen sich auf \cite[S.~16--17]{2016}.
-
-Es ist möglich, einen Punkt $\boldsymbol{a}_r$, ausgedrückt relativ zum Koordinatensystem~$a$, relativ zum Koordinatensystem~$b$ auszudrücken,
-sofern Position und Orientierung des Systems~$a$ relativ zum System~$b$ bekannt sind.
-Ziel ist es, aus dieser Beziehung eine Transformations\-matrix abzuleiten, die zugleich die Rotation und die Translation zwischen den beiden Systemen beschreibt.
-
-Die Orientierung des Systems~$a$ relativ zum System~$b$ wird durch eine
-Rotationsmatrix $\boldsymbol{R}_{ba}$ beschrieben.
-Die Lage des Ursprungs von~$a$ relativ zu~$b$ wird durch den
-Translations\-vektor $\boldsymbol{t}_{ba} \in \mathbb{R}^{3}$ angegeben.
-Ein im System~$a$ ausgedrückter Punkt $\boldsymbol{a}_r$ lässt sich
-dann mittels
+\subsection{Rodrigues-Parameter}
+Ein Rodrigues-Vektor ist eine alternative Möglichkeit, eine Rotation im Raum zu beschreiben.
+Die Rotation wird durch einen Vektor $\mathbf{r} = (r_x, r_y, r_z)^T$ beschrieben,
+dessen Richtung die Rotationsachse angibt und dessen Betrag den Rotationswinkel repräsentiert. \cite{Bradski2008}
+Der Rotationswinkel $\phi$ ergibt sich aus dem Betrag des Rodrigues-Vektors gemäß Gleichung \ref{eq:rodrigues_parameter_betrag} und wird gegen den Uhrzeigersinn um die Rotationsachse gemessen. \cite{Dai2015a}
 \begin{equation}
-    \boldsymbol{b}_r
-    = \boldsymbol{R}_{ba}\,\boldsymbol{a}_r + \boldsymbol{t}_{ba}
-    \label{eq:trafo_punkt}
+\phi = \|\mathbf{r}\| = \sqrt{r_x^2 + r_y^2 + r_z^2}
+\label{eq:rodrigues_parameter_betrag}
 \end{equation}
-in das System~$b$ überführen. Diese Vorschrift kombiniert eine reine
-Drehung und eine anschließende Verschiebung in einem einzigen Schritt.
 
-Die Drehung und Verschiebung kann in eine einzige Matrix überführt werden. 
-$\tilde{\boldsymbol{a}}_r = \begin{bmatrix} \boldsymbol{a}_r^\top & 1 \end{bmatrix}^\top$.
-Die zugehörige \emph{homogene Transformations\-matrix}
-$\boldsymbol{T}_{ba} \in \mathrm{SE}(3)$ ist definiert als
+Für die Umrechnung in ein Quaternion muss die Rotationsachse $\mathbf{v}$ zunächst normiert werden:
 \begin{equation}
-    \boldsymbol{T}_{ba}
-    =
-    \begin{bmatrix}
-        \boldsymbol{R}_{ba} & \boldsymbol{t}_{ba} \\
-        \boldsymbol{0}^{\top} & 1
-    \end{bmatrix}
-    \in \mathbb{R}^{4 \times 4}.
-    \label{eq:trafo_matrix}
+\hat{\mathbf{v}} = \frac{\mathbf{r}}{\phi} = \left(\frac{r_x}{\phi},\ \frac{r_y}{\phi},\ \frac{r_z}{\phi}\right)^T
+\label{eq:rodrigues_parameter_normierung}
+\end{equation}
+
+Die Umrechnung in ein Einheitsquaternion lässt sich folgendermaßen beschreiben:
+\begin{equation}
+\mathbf{q} = \left(\hat{v}_x \cdot \sin\frac{\phi}{2},\ \hat{v}_y \cdot \sin\frac{\phi}{2},\ \hat{v}_z \cdot \sin\frac{\phi}{2},\ \cos\frac{\phi}{2}\right)
+\label{eq:rodrigues_quaternion}
+\end{equation}
+
+Eingesetzt ergibt sich:
+\begin{equation}
+\mathbf{q} = \left(\frac{r_x}{\phi}\sin\frac{\phi}{2},\ \frac{r_y}{\phi}\sin\frac{\phi}{2},\ \frac{r_z}{\phi}\sin\frac{\phi}{2},\ \cos\frac{\phi}{2}\right)
+\label{eq:rodrigues_quaternion_eingesetzt}
+\end{equation}
+
+Mit Hilfe der Gleichungen \ref{eq:rodrigues_parameter_betrag} und \ref{eq:rodrigues_quaternion_eingesetzt} lässt sich die Umrechnung von Rodrigues-Parametern in ein Quaternion durchführen.
+
+\section{Transformation von Koordinatensystemen}
+Um die genaue Position des \gls{uav}s bestimmen zu können, sind mehrere Koordinatentransformationen notwendig.
+Transformationen sind sowohl bei der Lokalisierung im Raum als auch bei der extrinsischen Kalibrierung der Kameras erforderlich.
+Es ist möglich, einen Punkt $^a\mathbf{r}$, ausgedrückt relativ zum Koordinatensystem~$a$, relativ zum Koordinatensystem~$b$ auszudrücken,
+sofern Position und Orientierung des Systems~$a$ relativ zum System~$b$ bekannt sind.
+Ziel ist es, aus dieser Beziehung eine Transformationsmatrix abzuleiten, die zugleich die Rotation und die Translation zwischen den beiden Systemen beschreibt.
+\cite[S.~16--17]{2016}.
+Die Orientierung des Systems~$a$ relativ zum System~$b$ wird durch eine Rotationsmatrix $^b\mathbf{R}_a$ beschrieben.
+Die Lage des Ursprungs von~$a$ relativ zu~$b$ wird durch den Translationsvektor $^b\mathbf{t}_a \in \mathbb{R}^{3}$ angegeben.
+Ein im System~$a$ ausgedrückter Punkt $^a\mathbf{r}$ lässt sich dann mittels
+\begin{equation}
+^b\mathbf{r} = {^b\mathbf{R}_a}\,{^a\mathbf{r}} + {^b\mathbf{t}_a}
+\label{eq:trafo_punkt}
+\end{equation}
+
+in das System~$b$ überführen.
+Diese Vorschrift kombiniert eine Drehung und eine anschließende Verschiebung in einem einzigen Schritt.
+Durch Einführung homogener Koordinaten
+$^a\tilde{\mathbf{r}} = \begin{bmatrix} {^a\mathbf{r}}^\top & 1 \end{bmatrix}^\top$
+lässt sich die Drehung und Verschiebung in eine einzige Matrix überführen.
+Die zugehörige \emph{homogene Transformationsmatrix}
+$^b\mathbf{T}_a \in \mathrm{SE}(3)$ ist definiert als
+\begin{equation}
+^b\mathbf{T}_a =
+\begin{bmatrix}
+^b\mathbf{R}_a & ^b\mathbf{t}_a \\
+\mathbf{0}^{\top} & 1
+\end{bmatrix}
+\in \mathbb{R}^{4 \times 4}.
+\label{eq:trafo_matrix}
 \end{equation}
 Damit lässt sich Gleichung~\eqref{eq:trafo_punkt} kompakt schreiben als
 \begin{equation}
-    \tilde{\boldsymbol{b}}_r = \boldsymbol{T}_{ba}\,\tilde{\boldsymbol{a}}_r.
-    \label{eq:trafo_homogen}
+^b\tilde{\mathbf{r}} = {^b\mathbf{T}_a}\,{^a\tilde{\mathbf{r}}}.
+\label{eq:trafo_homogen}
 \end{equation}
-
-mit
-
+Die Rotationsmatrix $^b\mathbf{R}_a$ kann dabei aus einem Einheitsquaternion $\mathbf{q} = (w, x, y, z)$ berechnet werden:
 \begin{equation}
 R(\mathbf{q}) = 
 \begin{bmatrix}
 1 - 2y^2 - 2z^2 & 2xy - 2zw & 2xz + 2yw \\
 2xy + 2zw & 1 - 2x^2 - 2z^2 & 2yz - 2xw \\
 2xz - 2yw & 2yz + 2xw & 1 - 2x^2 - 2y^2
-\end{bmatrix}
+\end{bmatrix}.
 \label{eq:rotationsmatrix_quaternion}
 \end{equation}
-
-Eine wesentliche Eigenschaft homogener Transformations\-matrizen ist ihre Verkettbarkeit. 
-Sind die Transformationen
-$\boldsymbol{T}_{cb}$ (von~$b$ nach~$c$) und
-$\boldsymbol{T}_{ba}$ (von~$a$ nach~$b$) bekannt, so ergibt sich die
-direkte Transformation von~$a$ nach~$c$ durch
+Eine wesentliche Eigenschaft homogener Transformationsmatrizen ist ihre Verkettbarkeit.
+Sind die Transformationen $^c\mathbf{T}_b$ (von~$b$ nach~$c$) und $^b\mathbf{T}_a$ (von~$a$ nach~$b$) bekannt, so ergibt sich die direkte Transformation von~$a$ nach~$c$ durch
 \begin{equation}
-    \boldsymbol{T}_{ca} = \boldsymbol{T}_{cb}\,\boldsymbol{T}_{ba}.
-    \label{eq:trafo_verkettung}
+^c\mathbf{T}_a = {^c\mathbf{T}_b}\,{^b\mathbf{T}_a}.
+\label{eq:trafo_verkettung}
 \end{equation}
 
+\section{Sensorsysteme}
+Zum besseren Verständnis der Arbeit werden in diesem Unterkapitel die relevanten Sensortypen vorgestellt.
+
+Die zentrale Sensoreinheit für ein \gls{uav} ist die \gls{imu}, welche Beschleunigungen und Winkelgeschwindigkeiten misst.
+Die \gls{imu} besteht typischerweise aus einem 3-Achsen-Beschleunigungssensor und einem 3-Achsen-Gyroskop.
+In einigen Fällen kann auch ein 3-Achsen-Magnetometer integriert sein, um die Orientierung relativ zum Erdmagnetfeld zu bestimmen.
+Ein weiterer Sensortyp ist das Barometer zur Bestimmung der Höhe, indem es den aktuellen Luftdruck misst.
+Weiterhin kann auch die Motordrehzahl oder Motorlast als Sensorinformation genutzt werden, um Rückschlüsse auf den aktuellen Bewegungszustand zu ziehen.\cite{Siciliano2009}
+All diese Sensoren liefern nicht direkt die Position oder Orientierung des Roboters, reagieren jedoch schnell auf Bewegungsänderungen.
+Jeder dieser Sensoren ist mit einer gewissen Messunsicherheit behaftet, die durch Rauschen, Kalibrierungsfehler oder Umwelteinflüsse unterschiedlich stark ausgeprägt sein kann.
+Die Sensorfusion, also die Kombination der Daten mehrerer Sensoren, ermöglicht es, die Genauigkeit der Messungen zu verbessern.\cite{chen2024deep}
+
+Die Integration dieser Sensordaten über die Zeit ermöglicht es, die Bewegung des Roboters zu verfolgen und eine Schätzung seines Zustands zu erhalten, was als Odometrie bezeichnet wird.
+Da die Sensoren, wie zuvor beschrieben, trotz Fusion fehlerbehaftet sind, führt die Integration über die Zeit zu einer zunehmenden Unsicherheit.
+Die Odometrie eines Flugroboters ist besonders herausfordernd, da sich das \gls{uav} in drei Dimensionen frei bewegt.
+Der zunehmende Fehler der Odometrie kann durch die Verwendung von externen Referenzen, wie \gls{gps}, korrigiert werden.
 
 
-\subsection{Repräsentation von Position}
-Ein Punkt in einem Raum wird durch einen Vektor 
 
-\subsection{Repräsentation von Orientierung}
+\section{ROS2}
+
 
  
 
-\section{Autopilot PX4-6C}
+
 \label{sec:PX4 Autopilot}
 Hier einfach schreiben...
 \subsection{Architektur}

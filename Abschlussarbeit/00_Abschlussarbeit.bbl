@@ -277,6 +277,22 @@
       \verb 10.1007/978-1-84628-642-1
       \endverb
     \endentry
+    \entry{2016}{book}{}
+      \list{publisher}{1}{%
+        {Springer International Publishing}%
+      }
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9783319325521}
+      \field{issn}{2522-8706}
+      \field{journaltitle}{Springer Handbooks}
+      \field{title}{Springer Handbook of Robotics}
+      \field{year}{2016}
+      \verb{doi}
+      \verb 10.1007/978-3-319-32552-1
+      \endverb
+    \endentry
     \entry{Quan2017}{book}{}
       \name{author}{1}{}{%
         {{hash=c11034bc0e4d5832ffedafaabbd0f18a}{%
@@ -305,20 +321,112 @@
       \verb 10.1007/978-981-10-3382-7
       \endverb
     \endentry
-    \entry{2016}{book}{}
-      \list{publisher}{1}{%
-        {Springer International Publishing}%
+    \entry{Bradski2008}{book}{}
+      \name{author}{2}{}{%
+        {{hash=a780b2fbd99e4f7ce78d33324e39d4c2}{%
+           family={Bradski},
+           familyi={B\bibinitperiod},
+           given={Gary},
+           giveni={G\bibinitperiod}}}%
+        {{hash=656736e2b93f260c9619384b02d7cdf4}{%
+           family={Kaehler},
+           familyi={K\bibinitperiod},
+           given={Adrian},
+           giveni={A\bibinitperiod}}}%
       }
+      \list{publisher}{1}{%
+        {O'Reilly Media}%
+      }
+      \strng{namehash}{28773b192aefb3555440671fe8536f6c}
+      \strng{fullhash}{28773b192aefb3555440671fe8536f6c}
+      \strng{bibnamehash}{28773b192aefb3555440671fe8536f6c}
+      \strng{authorbibnamehash}{28773b192aefb3555440671fe8536f6c}
+      \strng{authornamehash}{28773b192aefb3555440671fe8536f6c}
+      \strng{authorfullhash}{28773b192aefb3555440671fe8536f6c}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{isbn}{9783319325521}
-      \field{issn}{2522-8706}
-      \field{journaltitle}{Springer Handbooks}
-      \field{title}{Springer Handbook of Robotics}
-      \field{year}{2016}
+      \field{isbn}{978-0596516130}
+      \field{title}{Learning OpenCV: Computer Vision with the OpenCV Library}
+      \field{year}{2008}
+      \verb{urlraw}
+      \verb https://learning.oreilly.com/library/view/learning-opencv/9780596516130/ch11s05.html
+      \endverb
+      \verb{url}
+      \verb https://learning.oreilly.com/library/view/learning-opencv/9780596516130/ch11s05.html
+      \endverb
+    \endentry
+    \entry{Dai2015a}{article}{}
+      \name{author}{1}{}{%
+        {{hash=4b89bdaf258b8a1ec4c768e087024ad8}{%
+           family={Dai},
+           familyi={D\bibinitperiod},
+           given={Jian\bibnamedelima S.},
+           giveni={J\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \strng{namehash}{4b89bdaf258b8a1ec4c768e087024ad8}
+      \strng{fullhash}{4b89bdaf258b8a1ec4c768e087024ad8}
+      \strng{bibnamehash}{4b89bdaf258b8a1ec4c768e087024ad8}
+      \strng{authorbibnamehash}{4b89bdaf258b8a1ec4c768e087024ad8}
+      \strng{authornamehash}{4b89bdaf258b8a1ec4c768e087024ad8}
+      \strng{authorfullhash}{4b89bdaf258b8a1ec4c768e087024ad8}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{This paper reviews the Euler–Rodrigues formula in the axis–angle representation of rotations, studies its variations and derivations in different mathematical forms as vectors, quaternions and Lie groups and investigates their intrinsic connections. The Euler–Rodrigues formula in the Taylor series expansion is presented and its use as an exponential map of Lie algebras is discussed particularly with a non-normalized vector. The connection between Euler–Rodrigues parameters and the Euler–Rodrigues formula is then demonstrated through quaternion conjugation and the equivalence between quaternion conjugation and an adjoint action of the Lie group is subsequently presented. The paper provides a rich reference for the Euler–Rodrigues formula, the variations and their connections and for their use in rigid body kinematics, dynamics and computer graphics.}
+      \field{issn}{0094-114X}
+      \field{journaltitle}{Mechanism and Machine Theory}
+      \field{title}{Euler–Rodrigues formula variations, quaternion conjugation and intrinsic connections}
+      \field{volume}{92}
+      \field{year}{2015}
+      \field{pages}{144\bibrangedash 152}
+      \range{pages}{9}
       \verb{doi}
-      \verb 10.1007/978-3-319-32552-1
+      \verb https://doi.org/10.1016/j.mechmachtheory.2015.03.004
+      \endverb
+      \verb{urlraw}
+      \verb https://www.sciencedirect.com/science/article/pii/S0094114X15000415
+      \endverb
+      \verb{url}
+      \verb https://www.sciencedirect.com/science/article/pii/S0094114X15000415
+      \endverb
+      \keyw{Euler–Rodrigues formula,Quaternions,Exponential map,Lie groups,Lie algebras,Kinematics}
+    \endentry
+    \entry{chen2024deep}{article}{}
+      \name{author}{2}{}{%
+        {{hash=8ca0e08e18e90fee8f3ab0c1c790f483}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Changhao},
+           giveni={C\bibinitperiod}}}%
+        {{hash=fd4ef7634780b41881f816655385c83a}{%
+           family={Pan},
+           familyi={P\bibinitperiod},
+           given={Xianfei},
+           giveni={X\bibinitperiod}}}%
+      }
+      \strng{namehash}{4ed8b605c67f6289bdde5b4741cf7dce}
+      \strng{fullhash}{4ed8b605c67f6289bdde5b4741cf7dce}
+      \strng{bibnamehash}{4ed8b605c67f6289bdde5b4741cf7dce}
+      \strng{authorbibnamehash}{4ed8b605c67f6289bdde5b4741cf7dce}
+      \strng{authornamehash}{4ed8b605c67f6289bdde5b4741cf7dce}
+      \strng{authorfullhash}{4ed8b605c67f6289bdde5b4741cf7dce}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.RO}
+      \field{eprinttype}{arXiv}
+      \field{journaltitle}{IEEE Transactions on Intelligent Transportation Systems}
+      \field{title}{Deep Learning for Inertial Positioning: A Survey}
+      \field{year}{2024}
+      \verb{doi}
+      \verb 10.1109/TITS.2024.3381161
+      \endverb
+      \verb{eprint}
+      \verb 2303.03757
       \endverb
     \endentry
   \enddatalist
