@@ -15,18 +15,19 @@
 \contentsline {subsection}{\numberline {2.3.2}Rodrigues-Parameter}{6}{subsection.2.3.2}%
 \contentsline {section}{\numberline {2.4}Transformation von Koordinatensystemen}{7}{section.2.4}%
 \contentsline {section}{\numberline {2.5}Sensorsysteme}{8}{section.2.5}%
-\contentsline {section}{\numberline {2.6}ROS2}{8}{section.2.6}%
-\contentsline {subsection}{\numberline {2.6.1}Architektur}{8}{subsection.2.6.1}%
-\contentsline {subsection}{\numberline {2.6.2}Sensorintegration}{8}{subsection.2.6.2}%
-\contentsline {subsection}{\numberline {2.6.3}Kommunikationsschnittstellen}{8}{subsection.2.6.3}%
-\contentsline {subsection}{\numberline {2.6.4}Echtzeitfähikgkeit}{9}{subsection.2.6.4}%
-\contentsline {subsection}{\numberline {2.6.5}Vergleich von Kamera-, Roboter- und Weltkoordinatensystem}{9}{subsection.2.6.5}%
-\contentsline {subsection}{\numberline {2.6.6}Transformation von Koordinatensystemen}{9}{subsection.2.6.6}%
-\contentsline {section}{\numberline {2.7}Visuelle Navigation}{9}{section.2.7}%
-\contentsline {subsubsection}{\numberline {2.7.0.1}Sensorik zur visuellen Navigation}{9}{subsubsection.2.7.0.1}%
-\contentsline {subsubsection}{\numberline {2.7.0.2}Grundlagen der Fiduccial-Erkennung}{9}{subsubsection.2.7.0.2}%
-\contentsline {subsubsection}{\numberline {2.7.0.3}PNP-Fehler}{9}{subsubsection.2.7.0.3}%
-\contentsline {subsubsection}{\numberline {2.7.0.4}Visuelle Odometrie}{9}{subsubsection.2.7.0.4}%
+\contentsline {section}{\numberline {2.6}Kallman-Filter}{8}{section.2.6}%
+\contentsline {section}{\numberline {2.7}Flugcontroller PX4 6C}{8}{section.2.7}%
+\contentsline {subsection}{\numberline {2.7.1}Architektur}{8}{subsection.2.7.1}%
+\contentsline {subsection}{\numberline {2.7.2}Sensorintegration}{8}{subsection.2.7.2}%
+\contentsline {subsection}{\numberline {2.7.3}Kommunikationsschnittstellen}{9}{subsection.2.7.3}%
+\contentsline {subsection}{\numberline {2.7.4}Echtzeitfähikgkeit}{9}{subsection.2.7.4}%
+\contentsline {subsection}{\numberline {2.7.5}Vergleich von Kamera-, Roboter- und Weltkoordinatensystem}{9}{subsection.2.7.5}%
+\contentsline {subsection}{\numberline {2.7.6}Transformation von Koordinatensystemen}{9}{subsection.2.7.6}%
+\contentsline {section}{\numberline {2.8}Visuelle Navigation}{9}{section.2.8}%
+\contentsline {subsubsection}{\numberline {2.8.0.1}Sensorik zur visuellen Navigation}{9}{subsubsection.2.8.0.1}%
+\contentsline {subsubsection}{\numberline {2.8.0.2}Grundlagen der Fiduccial-Erkennung}{9}{subsubsection.2.8.0.2}%
+\contentsline {subsubsection}{\numberline {2.8.0.3}PNP-Fehler}{9}{subsubsection.2.8.0.3}%
+\contentsline {subsubsection}{\numberline {2.8.0.4}Visuelle Odometrie}{9}{subsubsection.2.8.0.4}%
 \contentsline {chapter}{\numberline {3}Stand der Technik}{10}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Relevanz ROS2 in der autonomen Robotik}{10}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Relevanz PX4}{10}{section.3.2}%
