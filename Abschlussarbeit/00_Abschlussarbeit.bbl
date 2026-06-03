@@ -41,8 +41,8 @@
       \strng{authorbibnamehash}{f7265303e7045c0282a824761076fecb}
       \strng{authornamehash}{f7265303e7045c0282a824761076fecb}
       \strng{authorfullhash}{f7265303e7045c0282a824761076fecb}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{isbn}{9783031935114}
@@ -85,8 +85,8 @@
       \strng{authorbibnamehash}{948319bf50d7007324bd3184f00569f6}
       \strng{authornamehash}{82d608b5cf0bb9ac8f52180944dcc6ba}
       \strng{authorfullhash}{948319bf50d7007324bd3184f00569f6}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{1976-3824}
@@ -115,8 +115,8 @@
       \strng{authorbibnamehash}{0f3272cc92131b5414d872cc91e521f9}
       \strng{authornamehash}{0f3272cc92131b5414d872cc91e521f9}
       \strng{authorfullhash}{0f3272cc92131b5414d872cc91e521f9}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{https://www.premium-modellbau.de/holybro-holybro-x650-development-kit-pixhawk-6c-m10-gps-433-mhz-30180}
@@ -143,8 +143,8 @@
       \strng{authornamehash}{5b512ee8a59deb284ad0a6a035ba10b1}
       \strng{authorfullhash}{5b512ee8a59deb284ad0a6a035ba10b1}
       \field{extraname}{1}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{number}{ISO 8855:2011}
@@ -171,8 +171,8 @@
       \strng{authornamehash}{5b512ee8a59deb284ad0a6a035ba10b1}
       \strng{authorfullhash}{5b512ee8a59deb284ad0a6a035ba10b1}
       \field{extraname}{2}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{month}{05}
@@ -193,8 +193,8 @@
       \strng{authorbibnamehash}{b52b778c63203841cf2cbbd45551085d}
       \strng{authornamehash}{b52b778c63203841cf2cbbd45551085d}
       \strng{authorfullhash}{b52b778c63203841cf2cbbd45551085d}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://docs.px4.io/main/en/ros/external_position_estimation}}
@@ -429,8 +429,36 @@
       \verb 2303.03757
       \endverb
     \endentry
+    \entry{kalman1960}{article}{}
+      \name{author}{1}{}{%
+        {{hash=905a0fe021951b4ebc06e4e1bb70bd26}{%
+           family={Kalman},
+           familyi={K\bibinitperiod},
+           given={Rudolf\bibnamedelima E.},
+           giveni={R\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+      }
+      \strng{namehash}{905a0fe021951b4ebc06e4e1bb70bd26}
+      \strng{fullhash}{905a0fe021951b4ebc06e4e1bb70bd26}
+      \strng{bibnamehash}{905a0fe021951b4ebc06e4e1bb70bd26}
+      \strng{authorbibnamehash}{905a0fe021951b4ebc06e4e1bb70bd26}
+      \strng{authornamehash}{905a0fe021951b4ebc06e4e1bb70bd26}
+      \strng{authorfullhash}{905a0fe021951b4ebc06e4e1bb70bd26}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Transactions of the ASME -- Journal of Basic Engineering}
+      \field{number}{1}
+      \field{title}{A New Approach to Linear Filtering and Prediction Problems}
+      \field{volume}{82}
+      \field{year}{1960}
+      \field{pages}{35\bibrangedash 45}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.1115/1.3662552
+      \endverb
+    \endentry
   \enddatalist
-  \missing{redmon2016you}
 \endrefsection
 \endinput
 

@@ -271,8 +271,16 @@ Die Odometrie eines Flugroboters ist besonders herausfordernd, da sich das \gls{
 Der zunehmende Fehler der Odometrie kann durch die Verwendung von externen Referenzen, wie \gls{gps}, korrigiert werden.
 
 
+\section{Extended Kallman Filter 2}
+In dieser Arbeit wird nicht auf die Sensorfusionen eingegangen, der \gls{ekf2} ist bereits vollständig in dem Flight Controller implementiert.
+Zum Verständnis der Positionsbestimmung sowie Parametrierung des \gls{ekf2} ist es notwendig, die Grundlagen des Kalman Filters zu kennen.
 
-\section{Kallman-Filter}
+
+Ein Kalman Filter ist ein Algorithmus zur Schätzung des Zustands eines dynamischen Systems 
+durch die Kombination von Vorhersagen aus einem Modell und Messungen von Sensoren. \cite{kalman1960}
+
+
+
 
 \section{Flugcontroller PX4 6C}
 

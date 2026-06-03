@@ -1,21 +1,43 @@
 %!TeX root=00_Abschlussarbeit.tex
-
 \chapter{Einleitung}
 
-Diese Arbeit beschäftigt sich mit Echtzeiterkennung von Haushaltsgegenständen.
+Die vorliegende Arbeit beschäftigt sich mit der Entwicklung eines Fiducial-basierten Systems zur Positionserkennung eines Flugroboters im Innenraum.
+Als Grundgerüst des Systems dient eine Holybro X650 \gls{uav}, welche mit einem Pixhawk 6X Flight Controller ausgestattet ist.
+Es wird auf die Parametrierung und Kalibrierung des Flight Controllers eingegangen, sodass die 
+vom implementierten System bereitgestellte Position mit den übrigen Sensordaten durch einen Extended Kalman Filter fusioniert werden kann.
+Der Flight Controller ist seriell mit einem Jetson Orin NX verbunden, auf welchem ein 
+\gls{ros2} Humble System läuft, das die Implementierung der Algorithmen sowie die Kommunikation zwischen den Komponenten ermöglicht.
+Die Kommunikation zwischen dem Jetson Orin NX und dem Pixhawk 6X wird über das MAVROS-Paket realisiert.
 
-\begin{lstlisting}[language=Python, captionpos=b, caption=Beispiel, label={lst:beispiel}]
-def hallo_welt():
-    print("Hallo Welt! \n Masterarbeit in LaTeX.")
-\end{lstlisting}
+Als Sensoren zur Erkennung der Fiducials werden zwei Logitech-Kameras am Flugroboter 
+angebracht und mit dem Jetson Orin NX verbunden, wobei eine Kamera nach unten und eine 
+nach vorne ausgerichtet ist.
+Zur Auswahl der geeigneten Kameras werden die Logitech C920 Pro und die Logitech C922 Pro 
+anhand definierter Bewertungskriterien verglichen, die mithilfe eines Paarweisen Vergleichs 
+gewichtet und anschließend in einer Nutzwertanalyse bewertet werden.
+Aufgrund des Ergebnisses wird die Logitech C920 als nach vorne gerichtete Kamera und die 
+Logitech C922 als nach unten gerichtete Kamera ausgewählt.
+Die Kameras werden mittels extrinsicher Kalibrierung geometrisch aufeinander abgestimmt. 
 
+Um eine zuverlässige Positionserkennung zu gewährleisten, werden AprilTags, ArUco-Marker 
+und WhyCon-Marker ebenfalls anhand einer gewichteten Nutzwertanalyse verglichen.
+AprilTags gehen als geeignetstes Fiducial hervor.
+Für die Kartierung des Innenraums wird die Erkennung der AprilTags über die OpenCV-Bibliothek 
+implementiert, während die Live-Positionierung durch die hardwarebeschleunigte 
+NVIDIA Isaac \gls{ros2} AprilTag-Erkennung auf dem Jetson Orin NX realisiert wird.
 
+Die Kartierung des Innenraums erfolgt auf Basis einer Faktorgrafen-basierten Zustandsschätzung.
+Ein erster Ansatz der Echtzeit-Kartierung wird aufgrund der zu hohen Rechenlast verworfen.
+In einem zweiten Ansatz wird die Kartierung offline auf einem separaten Computer unter \gls{ros2} Jazzy durchgeführt.
+Die erstellten Karten werden anhand der realen Umgebung bewertet und mit verschiedenen Parametern optimiert.
 
-\begin{lstlisting}[language=Python, captionpos=b, caption=Beispiel, label={lst:beispiel1}]
-def hallo_welt():
-    print("Das ist ein weiteres Beispiel für einen Quellcode in Python.")
-\end{lstlisting}
+Die Positionserkennung relativ zur erstellten Karte wird ebenfalls in zwei Varianten untersucht.
+Zum einen die Faktorgrafen-basierte Zustandsschätzung, zum anderen die direkte geometrische Posenschätzung.
+Aufgrund der geringeren Rechenlast und der verfügbaren hardwarebeschleunigten 
+NVIDIA Isaac AprilTag-Unterstützung wird die direkte geometrische Posenschätzung 
+eingesetzt.
+Die erkannten Tags werden mithilfe von \gls{ema}-Glättung, Medianfilterung, \gls{ransac} 
+und Kovarianzschätzung aufbereitet und dem Flight Controller bereitgestellt. 
 
-
-Dies wurde bereits in \cite[S. xx]{redmon2016you} untersucht.
-Es steht auch in den Quellcodes \ref{lst:beispiel} und \ref{lst:beispiel1}.
+Abschließend werden Probleme und Schwachstellen des Systems diskutiert sowie 
+Verbesserungspotenziale aufgezeigt.

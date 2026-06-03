@@ -23,6 +23,11 @@
 \providecommand*\glsXpageXhyperemph[2]{\setentrycounter[#1]{page}\hyperemph{#2}}
 \providecommand*\glsXpageXglsignore[2]{\setentrycounter[#1]{page}\glsignore{#2}}
 \begin{theglossary}\glossaryheader
+\glsgroupheading{E}\relax\glsresetentrylist
+\glossentry{ekf2}{\glossaryentrynumbers{\relax 
+\glsXpageXglsnumberformat{}{8}}}\relax\glsresetentrylist
+\glossentry{ema}{\glossaryentrynumbers{\relax 
+\glsXpageXglsnumberformat{}{1}}}\glsgroupskip
 \glsgroupheading{G}\relax\glsresetentrylist
 \glossentry{gps}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{8}}}\glsgroupskip
@@ -32,8 +37,14 @@
 \glsgroupheading{L}\relax\glsresetentrylist
 \glossentry{lipo}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{2}}}\glsgroupskip
+\glsgroupheading{R}\relax\glsresetentrylist
+\glossentry{ransac}{\glossaryentrynumbers{\relax 
+\glsXpageXglsnumberformat{}{1}}}\relax\glsresetentrylist
+\glossentry{ros2}{\glossaryentrynumbers{\relax 
+\glsXpageXglsnumberformat{}{1}}}\glsgroupskip
 \glsgroupheading{U}\relax\glsresetentrylist
 \glossentry{uav}{\glossaryentrynumbers{\relax 
+\glsXpageXglsnumberformat{}{1}\delimN 
 \glsXpageXglsnumberformat{}{2}\delimN 
 \glsXpageXglsnumberformat{}{4}\delimN 
 \glsXpageXglsnumberformat{}{7}\delimN 

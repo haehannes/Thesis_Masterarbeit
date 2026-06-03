@@ -110,6 +110,118 @@ parent={},%
 %
 }%
 
+\glsdefs@newdocentry{ros2}%
+{%
+name={\acronymfont {\glsentryshort {ros2}}},%
+sort={ROS2},%
+type={acronym},%
+first={ROS2},%
+firstplural={ROS2s},%
+text={ROS2},%
+plural={ROS2s},%
+description={Robot Operating System 2},%
+descriptionplural={Robot Operating System 2},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Robot Operating System 2},%
+longplural={Robot Operating System 2s},%
+short={ROS2},%
+shortplural={ROS2s},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{ema}%
+{%
+name={\acronymfont {\glsentryshort {ema}}},%
+sort={EMA},%
+type={acronym},%
+first={EMA},%
+firstplural={EMAs},%
+text={EMA},%
+plural={EMAs},%
+description={Exponential Moving Average},%
+descriptionplural={Exponential Moving Average},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Exponential Moving Average},%
+longplural={Exponential Moving Averages},%
+short={EMA},%
+shortplural={EMAs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{ransac}%
+{%
+name={\acronymfont {\glsentryshort {ransac}}},%
+sort={RANSAC},%
+type={acronym},%
+first={RANSAC},%
+firstplural={RANSACs},%
+text={RANSAC},%
+plural={RANSACs},%
+description={Random Samle Consensus},%
+descriptionplural={Random Samle Consensus},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Random Samle Consensus},%
+longplural={Random Samle Consensuss},%
+short={RANSAC},%
+shortplural={RANSACs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{ekf2}%
+{%
+name={\acronymfont {\glsentryshort {ekf2}}},%
+sort={EKF2},%
+type={acronym},%
+first={EKF2},%
+firstplural={EKF2s},%
+text={EKF2},%
+plural={EKF2s},%
+description={Extended Kalman Filter 2},%
+descriptionplural={Extended Kalman Filter 2},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Extended Kalman Filter 2},%
+longplural={Extended Kalman Filter 2s},%
+short={EKF2},%
+shortplural={EKF2s},%
+counter={page},%
+parent={},%
+%
+}%
+
 \glsdefs@newdocentry{sym:xc}%
 {%
 name={$X_c$},%

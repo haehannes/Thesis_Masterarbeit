@@ -2,7 +2,14 @@
 
 \chapter{Stand der Technik}
 
-hier einfach schreiben ...
+Merker
+
+"Das vorgestellte Lokalisierungssystem ist nicht hart echtzeitfähig, da es auf einem Standard-Linux-Kernel mit Python-basierten ROS2-Nodes aufbaut, 
+die keine deterministischen Antwortzeiten garantieren. 
+Diese Anforderung besteht jedoch auch nicht: Die hart echtzeitfähige Flugregelung erfolgt auf dem Flight Controller (PX4/NuttX), 
+während das Jetson-System die Vision-Pose als weich echtzeitfähige Stützinformation an die Sensorfusion (EKF2) liefert. 
+Der EKF2 überbrückt kurzzeitige Ausfälle der Vision-Pose durch IMU-gestützte Prädiktion (Inertial Dead Reckoning), 
+wodurch gelegentliche Latenzschwankungen der Vision-Pipeline toleriert werden."
 
 
 \section{Relevanz ROS2 in der autonomen Robotik}
