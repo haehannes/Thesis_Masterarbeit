@@ -2,18 +2,18 @@
 
 \chapter{Theoretische Grundlagen}
 
-ZZum besseren Verständnis der vorliegenden Arbeit werden im folgenden Kapitel die theoretischen Grundlagen erläutert.
+Zum besseren Verständnis der vorliegenden Arbeit werden im folgenden Kapitel die theoretischen Grundlagen erläutert.
 Es werden grundlegende Begriffe aus den Bereichen der Robotik, der Sensorik sowie der visuellen Navigation eingeführt.
 Darüber hinaus wird gesondert auf den verwendeten Flugcontroller, die zugrundeliegenden Koordinatensysteme sowie die relevanten Transformationen eingegangen. 
 
 
-\section{Grundlagen Unbemannter Flugroboter am Beispiel der Holybro X650}
+\section{Grundlagen Unbemannter Flugroboter}
 Unter einem unbemannten Luftfahrzeug \gls{uav}, umgangssprachlich auch als Drohne bezeichnet, versteht man ein Fluggerät, welches ohne einen menschlichen Piloten an Bord betrieben werden kann.
 Dabei können \gls{uav}s entweder ferngesteuert von einem menschlichen Operator oder vollständig autonom durch einen bordeigenen Computer geführt werden.
 Die Anfänge unbemannter Luftfahrzeuge reichen bis in die 1910er Jahre zurück, wo sie vorrangig für militärische Zwecke eingesetzt wurden.
-Ab den 2000er Jahren fanden \gls{uav}s zunehmend Eingang in zivile Anwendungsgebiete, wie beispielsweise die Katastrophenhilfe. \cite[S. 1--3]{Studiawan2026}
+Ab den 2000er Jahren fanden \gls{uav}s zunehmend Eingang in zivile Anwendungsgebiete, wie beispielsweise die Katastrophenhilfe \cite[S. 1--3]{Studiawan2026}.
 
-\subsection{Aufbau der Holybro X650}
+\subsection{Mechanischer Aufbau am Beispiel der Holybro X650}
 \textbf{Grundrahmen} Der Grundrahmen eines UAV dient als mechanische Basis für die Montage aller weiteren Komponenten.
 Das Design des Rahmens beeinflusst maßgeblich die Flugeigenschaften des Geräts.
 Das in dieser Arbeit verwendete Modell ist als Senkrechtstarter konzipiert und basiert auf einem X-förmigen Quadcopter-Rahmen.
@@ -32,14 +32,14 @@ Er setzt eingehende Steuerbefehle in konkrete Ansteuersignale um, die an die Mot
 In Kapitel \ref{sec:PX4 Autopilot} wird näher auf den verwendeten Flugcontroller eingegangen.
 
 \noindent
-\textbf{Energieversorgung} Die Energieversorgung erfolgt über einen \gls{lipo} mit einer Nennspannung von 14,8 V.
-Das verbaute Power Module wandelt diese Spannung auf 5,2 V, mit welcher sowohl die Steuerelektronik als auch die Motoren versorgt werden.
+\textbf{Energieversorgung} Die Energieversorgung erfolgt über einen \gls{lipo}.
+Dieser versorgt die Steuerelektronik als auch die Motoren. 
 
 \noindent
 \textbf{Nutzlast} Das maximale Abfluggewicht der Holybro X650 beträgt 6,3 kg, wobei der flugfertige Grundrahmen bereits ein Eigengewicht von 4,3 kg aufweist.
-Daraus ergibt sich eine maximale Nutzlast von 2 kg (ohne Akku). \cite{holybro_x650}
+Daraus ergibt sich eine maximale Nutzlast von 2 kg (ohne Akku) \cite{holybro_x650}.
 
-\section{Vergleich von Welt-, Roboter-, Kamera- und Fiducialkoordinatensystem}
+\subsection{Vergleich von Welt-, Roboter-, Kamera- und Fiducialkoordinatensystem}
 Dieses Kapitel behandelt die verschiedenen Koordinatensysteme, die in dieser Arbeit relevant sind.
 Dabei wird zwischen dem Welt-, Roboter-, Kamera- und Fiducialkoordinatensystem unterschieden.
 Weiterhin werden die grundlegenden Konzepte zur Repräsentation von Position und Orientierung im Raum erläutert.
@@ -47,7 +47,7 @@ Weiterhin werden die grundlegenden Konzepte zur Repräsentation von Position und
 Ein Koordinatensystem ist ein mathematisches Konstrukt, das zur eindeutigen Beschreibung der Lage von Punkten im Raum verwendet wird.
 Zur Beschreibung von Bewegungen ist die Festlegung eines Koordinatensystems von entscheidender Bedeutung.
 Es besteht aus einem Bezugspunkt, dem Ursprung, sowie drei orthogonalen Achsen, die als X-, Y- und Z-Achse bezeichnet werden.
-In dieser Arbeit wird standardmäßig das rechtshändige Koordinatensystem verwendet. \cite[S. 17]{ISO8855}
+In dieser Arbeit wird standardmäßig das rechtshändige Koordinatensystem verwendet \cite[S. 17]{ISO8855}.
 Mathematisch wird der Zusammenhang durch
 \begin{equation}
 \mathbf{Z} = \mathbf{X} \times \mathbf{Y}
@@ -76,7 +76,7 @@ Der Ursprung dieses Koordinatensystems ($O_u$) befindet sich im Zentrum des Flug
 
 Das Kamerakoordinatensystem ist in der Regel so definiert, dass die Z-Achse ($Z_c$) entlang der optischen Achse der Kamera zeigt, 
 die X-Achse ($X_c$) nach rechts auf der Bildebene und die Y-Achse ($Y_c$) nach unten auf der Bildebene zeigt.
-Der Ursprung ($O_c$) befindet sich im optischen Zentrum der Kamera. \cite[S. 44]{Szeliski2022}
+Der Ursprung ($O_c$) befindet sich im optischen Zentrum der Kamera \cite[S. 44]{Szeliski2022}.
 
 Das Fiducialkoordinatensystem ist in dieser Arbeit so definiert, dass sich der Ursprung ($O_f$) im Mittelpunkt der Fiducialmarke befindet.
 Die Z-Achse ($Z_f$) zeigt senkrecht aus der Markerebene heraus, die X-Achse ($X_f$) zeigt nach rechts in der Markerebene und die Y-Achse ($Y_f$) 
@@ -111,7 +111,7 @@ Die Pfeilrichtung entspricht der positiven Drehrichtung im rechtshändigen Koord
 \subsection{Quaternionen}
 Die Orientierung im Raum kann ebenfalls als Quaternion dargestellt werden.
 Quaternionen bieten gegenüber Euler-Winkeln den Vorteil, dass sie keine Singularitäten (Gimbal Lock) aufweisen.
-Quaternionen stellen eine Erweiterung des komplexen Zahlenraums dar und werden durch Gleichung \ref{eq:quaternion} definiert. \cite{Siciliano2009}
+Quaternionen stellen eine Erweiterung des komplexen Zahlenraums dar und werden durch Gleichung \ref{eq:quaternion} definiert \cite{Siciliano2009}.
 \begin{equation}
 \mathbf{q} = w + ix + jy + kz
 \label{eq:quaternion}
@@ -146,7 +146,8 @@ q_1 \cdot q_2 = &(w_1 w_2 - x_1 x_2 - y_1 y_2 - z_1 z_2) \\
 \label{eq:quaternion_multiplikation}
 \end{equation}
 
-Das Einheitsquaternion $\mathbf{q}$ beschreibt eine Rotation um den Winkel $\phi$ um eine normierte Rotationsachse $\mathbf{v} = (v_x, v_y, v_z)^T$ und wird durch Gleichung \ref{eq:einheitsquaternion} beschrieben. \cite{2016}
+Das Einheitsquaternion $\mathbf{q}$ beschreibt eine Rotation um den Winkel $\phi$ um eine normierte Rotationsachse 
+$\mathbf{v} = (v_x, v_y, v_z)^T$ und wird durch Gleichung \ref{eq:einheitsquaternion} beschrieben \cite{2016}.
 \begin{equation}
 \mathbf{q} = \left(\cos\frac{\phi}{2},\ \mathbf{v} \cdot \sin\frac{\phi}{2}\right) = \left(\cos\frac{\phi}{2},\ v_x \sin\frac{\phi}{2},\ v_y \sin\frac{\phi}{2},\ v_z \sin\frac{\phi}{2}\right)
 \label{eq:einheitsquaternion}
@@ -173,7 +174,7 @@ Die Normalisierung eines Quaternions erfolgt gemäß
 \subsection{Rodrigues-Parameter}
 Ein Rodrigues-Vektor ist eine alternative Möglichkeit, eine Rotation im Raum zu beschreiben.
 Die Rotation wird durch einen Vektor $\mathbf{r} = (r_x, r_y, r_z)^T$ beschrieben,
-dessen Richtung die Rotationsachse angibt und dessen Betrag den Rotationswinkel repräsentiert. \cite{Bradski2008}
+dessen Richtung die Rotationsachse angibt und dessen Betrag den Rotationswinkel repräsentiert \cite{Bradski2008}.
 Der Rotationswinkel $\phi$ ergibt sich aus dem Betrag des Rodrigues-Vektors gemäß Gleichung \ref{eq:rodrigues_parameter_betrag} und wird gegen den Uhrzeigersinn um die Rotationsachse gemessen. \cite{Dai2015a}
 \begin{equation}
 \phi = \|\mathbf{r}\| = \sqrt{r_x^2 + r_y^2 + r_z^2}
@@ -260,10 +261,14 @@ Die zentrale Sensoreinheit für ein \gls{uav} ist die \gls{imu}, welche Beschleu
 Die \gls{imu} besteht typischerweise aus einem 3-Achsen-Beschleunigungssensor und einem 3-Achsen-Gyroskop.
 In einigen Fällen kann auch ein 3-Achsen-Magnetometer integriert sein, um die Orientierung relativ zum Erdmagnetfeld zu bestimmen.
 Ein weiterer Sensortyp ist das Barometer zur Bestimmung der Höhe, indem es den aktuellen Luftdruck misst.
-Weiterhin kann auch die Motordrehzahl oder Motorlast als Sensorinformation genutzt werden, um Rückschlüsse auf den aktuellen Bewegungszustand zu ziehen.\cite{Siciliano2009}
+Weiterhin kann auch die Motordrehzahl oder Motorlast als Sensorinformation genutzt werden, um Rückschlüsse auf den aktuellen Bewegungszustand zu ziehen \cite{Siciliano2009}.
 All diese Sensoren liefern nicht direkt die Position oder Orientierung des Roboters, reagieren jedoch schnell auf Bewegungsänderungen.
 Jeder dieser Sensoren ist mit einer gewissen Messunsicherheit behaftet, die durch Rauschen, Kalibrierungsfehler oder Umwelteinflüsse unterschiedlich stark ausgeprägt sein kann.
-Die Sensorfusion, also die Kombination der Daten mehrerer Sensoren, ermöglicht es, die Genauigkeit der Messungen zu verbessern.\cite{chen2024deep}
+Diese Messunsicherheiten lassen sich grundsätzlich in deterministische und stochastische Fehleranteile unterteilen \cite{Capuano2023}.
+Ein wesentlicher deterministischer Fehler ist der Bias, ein systematischer Messfehler in Form eines konstanten Versatzes, der die Messung auch dann verfälscht, wenn keine physikalische Größe anliegt.
+So gibt beispielsweise ein ruhendes Gyroskop trotz fehlender Drehung einen von null verschiedenen Wert aus.
+Dem gegenüber steht das Rauschen als stochastischer, mittelwertfreier Fehleranteil.
+Die Sensorfusion, also die Kombination der Daten mehrerer Sensoren, ermöglicht es, die Genauigkeit der Messungen zu verbessern \cite{chen2024deep}.
 
 Die Integration dieser Sensordaten über die Zeit ermöglicht es, die Bewegung des Roboters zu verfolgen und eine Schätzung seines Zustands zu erhalten, was als Odometrie bezeichnet wird.
 Da die Sensoren, wie zuvor beschrieben, trotz Fusion fehlerbehaftet sind, führt die Integration über die Zeit zu einer zunehmenden Unsicherheit.
@@ -271,50 +276,168 @@ Die Odometrie eines Flugroboters ist besonders herausfordernd, da sich das \gls{
 Der zunehmende Fehler der Odometrie kann durch die Verwendung von externen Referenzen, wie \gls{gps}, korrigiert werden.
 
 
-\section{Extended Kallman Filter 2}
-In dieser Arbeit wird nicht auf die Sensorfusionen eingegangen, der \gls{ekf2} ist bereits vollständig in dem Flight Controller implementiert.
-Zum Verständnis der Positionsbestimmung sowie Parametrierung des \gls{ekf2} ist es notwendig, die Grundlagen des Kalman Filters zu kennen.
-
-
-Ein Kalman Filter ist ein Algorithmus zur Schätzung des Zustands eines dynamischen Systems 
-durch die Kombination von Vorhersagen aus einem Modell und Messungen von Sensoren. \cite{kalman1960}
 
 
 
 
-\section{Flugcontroller PX4 6C}
 
 
- 
+\section{Extended Kallman Filter}
+
+In dieser Arbeit wird nicht näher auf die Sensorfusion eingegangen, da der \gls{ekf} bereits vollständig im Flugcontroller implementiert ist.
+Auch die speziell im \gls{px4} zugrundeliegenden mathematischen Modelle werden nicht weiter erläutert. 
+Zum Verständnis der Positionsbestimmung sowie der Parametrierung des \gls{ekf} ist es jedoch notwendig, die Grundlagen des Kalman-Filters zu kennen.
+
+Ein Kalman-Filter ist ein Algorithmus zur Schätzung des Zustands eines dynamischen Systems durch 
+die Kombination von Vorhersagen aus einem mathematischen Modell und Messungen von Sensoren \cite{kalman1960}.
+Der \gls{ekf} ist ein rekursiver Filter, wodurch er kontinuierlich neue Messwerte verarbeiten kann.
+Im Folgenden wird der grundlegende Aufbau des Filters geschildert.
+Der Filter besteht im Wesentlichen aus drei Phasen.
+Zu Beginn muss eine Anfangsbedingung festgelegt werden.
+Hierfür benötigt das System einen initialen Zustandsschätzwert $\hat{\mathbf{x}}_0^{+}$ sowie die zugehörige Unsicherheit in Form der 
+Zustandskovarianzmatrix $\mathbf{P}_0^{+}$ \cite{Bang18}.
+In der Prädiktionsphase wird der Zustand des Systems zum nächsten Zeitpunkt auf Basis eines mathematischen Modells berechnet.
+Der Zustand $\hat{\mathbf{x}}_k^{-}$ wird dabei aus dem vorherigen Zustand $\hat{\mathbf{x}}_{k-1}^{+}$ und der Steuereingabe 
+$\mathbf{u}_{k-1}$ über die nichtlineare Modellfunktion $f$ prädiziert:
+\begin{equation}
+    \hat{\mathbf{x}}_k^{-} = f\left(\hat{\mathbf{x}}_{k-1}^{+}, \mathbf{u}_{k-1}\right)
+\end{equation}
+
+Gleichzeitig wird die Zustandskovarianzmatrix $\mathbf{P}_k^{-}$ fortgeschrieben, die die Unsicherheit der Schätzung beschreibt.
+Sie wächst in dieser Phase durch das Prozessrauschen $\mathbf{Q}_{k-1}$ an:
+\begin{equation}
+    \mathbf{P}_k^{-} = \mathbf{F}_{k-1}\,\mathbf{P}_{k-1}^{+}\,\mathbf{F}_{k-1}^{\top} + \mathbf{Q}_{k-1}
+\end{equation}
+
+Dabei ist $\mathbf{F}_{k-1}$ die Jacobi-Matrix der Modellfunktion $f$, die durch Linearisierung um den aktuellen Schätzwert gebildet wird.
+Das Prozessrauschen $\mathbf{Q}$ beschreibt, wie stark das Systemmodell vom realen Verhalten abweicht: Ein hoher Wert bedeutet ein geringeres Vertrauen in das Modell.
+
+In der Korrekturphase wird der prädizierte Zustand auf Basis eines Messwerts $\mathbf{z}_k$ korrigiert.
+Zunächst wird der Kalman-Gain $\mathbf{K}_k$ berechnet, der bestimmt, wie stark die Messung in die Schätzung einfließt:
+\begin{equation}
+    \mathbf{K}_k = \mathbf{P}_k^{-}\,\mathbf{H}_k^{\top}\left(\mathbf{H}_k\,\mathbf{P}_k^{-}\,\mathbf{H}_k^{\top} + \mathbf{R}_k\right)^{-1}
+\end{equation}
+
+Hierbei ist $\mathbf{H}_k$ die Jacobi-Matrix der Messfunktion $h$ und $\mathbf{R}_k$ die Messrauschkovarianzmatrix.
+$\mathbf{R}$ beschreibt die Unsicherheit der Sensormessungen: Ein hoher Wert führt zu einem geringeren Vertrauen in die Messung und damit zu einer schwächeren Korrektur.
+Der Kalman-Gain gewichtet folglich Modellvorhersage und Messung anhand ihrer jeweiligen Unsicherheiten.
+
+Anschließend wird der korrigierte Zustand $\hat{\mathbf{x}}_k^{+}$ aus dem prädizierten Zustand und der gewichteten Differenz zwischen tatsächlicher Messung $\mathbf{z}_k$ und erwarteter Messung $h(\hat{\mathbf{x}}_k^{-})$ – der sogenannten Innovation – berechnet:
+\begin{equation}
+    \hat{\mathbf{x}}_k^{+} = \hat{\mathbf{x}}_k^{-} + \mathbf{K}_k\left(\mathbf{z}_k - h\left(\hat{\mathbf{x}}_k^{-}\right)\right)
+\end{equation}
+
+Abschließend wird die Zustandskovarianzmatrix aktualisiert und durch die Einbeziehung der Messung reduziert:
+\begin{equation}
+    \mathbf{P}_k^{+} = \left(\mathbf{I} - \mathbf{K}_k\,\mathbf{H}_k\right)\mathbf{P}_k^{-}
+\end{equation}
+
+Die aktualisierten Größen $\hat{\mathbf{x}}_k^{+}$ und $\mathbf{P}_k^{+}$ dienen im nächsten Zeitschritt wiederum als Ausgangswerte der Prädiktionsphase, wodurch sich der rekursive Charakter des Filters ergibt \cite{Bang18}.
 
 
-\label{sec:PX4 Autopilot}
-Hier einfach schreiben...
-\subsection{Architektur}
-Hier einfach schreiben...
+\section{Pixhawk 6X}
 
-\subsection{Sensorintegration}
-Hier einfach schreiben...
+\gls{px4} ist ein Open-Source-Autopilot-Flugstack, der die Flugsteuerung, Zustandsschätzung und Kommunikation eines \gls{uav} übernimmt.
+Das Pixhawk-Projekt wurde ursprünglich als studentisches Projekt an der ETH Zürich gestartet 
+\cite{MendozaMendoza2020} und hat sich seitdem zu einem weit verbreiteten Open-Source-Standard 
+in der \gls{uav}-Forschung und -Industrie entwickelt.
+Der in dieser Arbeit verwendete Pixhawk 6X basiert auf dem Pixhawk FMUv6X-Standard und wurde 
+von Holybro in Zusammenarbeit mit dem PX4-Entwicklerteam entwickelt.\cite{px4_pixhawk6x_doc}
+Er bildet das zentrale Steuerungselement des verwendeten \gls{uav}.
 
-\subsection{Kommunikationsschnittstellen}
-Hier einfach schreiben...
+Der Flugcontroller besteht aus zwei Teilen: dem Baseboard V2A und dem FMU-6X-Modul.
+Das \gls{fmu}-Modul wird auf das Baseboard aufgesteckt und verschraubt.
+Die Komponenten sind in Abbildung \ref{fig:aufbau_flugcontroller} dargestellt.
+Im weiteren Verlauf der Arbeit wird dieser Zusammenschluss als Flugcontroller bezeichnet.
+Das \gls{fmu} stellt die zentrale Recheneinheit des Flugcontrollers dar, auf der der Hauptprozessor (STM32H753) sowie die PX4-Firmware betrieben werden.
+Das Baseboard stellt vor allem die Schnittstellen zu Sensoren, anderen Komponenten und der Stromversorgung bereit.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1.0\textwidth]{Bilder/Basebord_und_cube.png}
+    \caption{Komponenten des Pixhawk 6X: FMU-Modul und Baseboard V2A \cite{holybro_x650}}
+    \label{fig:aufbau_flugcontroller}
+\end{figure}
+\FloatBarrier
+
+
+
+
+\subsection{Sensorik}
+Der Pixhawk 6X verfügt über eine dreifach redundante \gls{imu} sowie zwei redundante 
+Barometer, die auf getrennten Bussen mit unabhängiger Stromversorgung betrieben werden.
+Diese Redundanz erhöht die Zuverlässigkeit: Erkennt der \gls{px4} den Ausfall eines Sensors, 
+schaltet das System auf einen funktionierenden Sensor um, um die Flugsteuerung 
+aufrechtzuerhalten.\cite{px4_pixhawk6x_doc}
+Die Sensoren sind, wie in Abschnitt \ref{sec:sensorsysteme} beschrieben, mit einer 
+Messunsicherheit behaftet, weshalb die redundante Auslegung und die anschließende 
+Sensorfusion im \gls{ekf} erfolgen.
+
+Die in der eingesetzten Revision verbauten Sensoren sind in Tabelle 
+\ref{tab:pixhawk_sensoren} aufgeführt.
+
+\begin{table}[htbp]
+    \centering
+    \caption{Sensorbestückung des Pixhawk 6X \cite{px4_pixhawk6x_doc}}
+    \label{tab:pixhawk_sensoren}
+    \begin{tabular}{ll}
+        \toprule
+        \textbf{Sensortyp} & \textbf{Bauteil} \\
+        \midrule
+        Beschleunigung/Gyroskop & ICM-20649 / BMI088 \\
+        Beschleunigung/Gyroskop & ICM-42688-P \\
+        Beschleunigung/Gyroskop & ICM-42670-P \\
+        Barometer & 2$\times$ BMP388 \\
+        Magnetometer & BMM150 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+\FloatBarrier
+Zusätzlich sind die \gls{imu}s vibrationsisoliert gelagert und werden über 
+Heizwiderstände auf einer konstanten Betriebstemperatur gehalten, um temperaturbedingte 
+Messabweichungen zu reduzieren.\cite{px4_pixhawk6x_doc}
+Ein Magnetometer ist zwar verbaut, wird in dieser Arbeit jedoch nicht zur Lagebestimmung 
+verwendet (siehe Abschnitt \ref{sec:ekf2}).
+
+
+\subsection{Schnittstellen}
+Der Flugcontroller stellt über das Baseboard eine Vielzahl von Schnittstellen zur Anbindung 
+externer Komponenten bereit.
+Für diese Arbeit sind insbesondere die folgenden Schnittstellen relevant:
+
+Die serielle Schnittstelle (UART) der Telemetrie-Ports dient der Kommunikation zwischen dem 
+Flugcontroller und dem Jetson Orin NX, über welche die extern berechnete Positionsschätzung 
+an den \gls{ekf} übermittelt wird.
+Die genaue Anbindung wird in Kapitel \ref{sec:systemaufbau} beschrieben.
+Über den USB-Anschluss erfolgt die Parametrierung und Kalibrierung des Flugcontrollers 
+mittels der Bodenstationssoftware QGroundControl.
+Die PWM-Ausgänge des Baseboards steuern die Elektromotoren des \gls{uav} an.
+Darüber hinaus stehen weitere Schnittstellen wie CAN, I\textsuperscript{2}C und SPI zur 
+Anbindung zusätzlicher Sensoren und Peripherie zur Verfügung, die in dieser Arbeit jedoch 
+nicht verwendet werden.\cite{px4_pixhawk6x_doc}
+
+
+\subsection{EKF2 -- Zustandsschätzung und Sensorfusion}
+\label{sec:ekf2}
+Die Zustandsschätzung des \gls{px4} erfolgt über den \gls{ekf2}, dieser ist in \ref{sec:ekf} beschriebenen \gls{ekf}.
+Der \gls{ekf2} fusioniert die Messungen der bordeigenen Sensoren mit optionalen externen 
+Referenzen, um Lage, Geschwindigkeit und Position des \gls{uav} zu schätzen.
+Der Zustandsvektor des \gls{ekf2} umfasst 24 Zustände, darunter die Lage als Quaternion, 
+Geschwindigkeit, Position, die Bias-Werte von Gyroskop und Beschleunigungssensor, das 
+Erdmagnetfeld, den Magnetometer-Bias sowie die horizontale Windgeschwindigkeit.\cite{Ko2018}
+Da in dieser Arbeit kein \gls{gps} zur Verfügung steht, wird die Position des \gls{uav} 
+über eine externe visuelle Positionsschätzung bereitgestellt.
+Diese wird als externe Referenz in den \gls{ekf2} eingespeist und ersetzt dort die 
+Funktion, die andernfalls vom \gls{gps} übernommen würde.
+Das Verhalten des \gls{ekf2} lässt sich über eine Reihe von Parametern konfigurieren, 
+welche unter anderem festlegen, welche Sensorquellen zur Positions- und Höhenbestimmung 
+herangezogen werden.
+Die konkrete Parametrierung für den GPS-freien Betrieb mit externer Positionsreferenz 
+wird in Kapitel \ref{sec:systemaufbau} erläutert.
 
 \subsection{Echtzeitfähikgkeit}
 
 
-\subsection{Vergleich von Kamera-, Roboter- und Weltkoordinatensystem}
-
-\subsection{Transformation von Koordinatensystemen}
-
-\section{Visuelle Navigation}
-
-\subsubsection{Sensorik zur visuellen Navigation}
-
-\subsubsection{Grundlagen der Fiduccial-Erkennung}
 \subsubsection{PNP-Fehler}
-
-\subsubsection{Visuelle Odometrie}
-
-
 
 

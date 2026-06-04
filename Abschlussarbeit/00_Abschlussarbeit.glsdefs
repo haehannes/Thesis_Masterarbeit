@@ -222,6 +222,90 @@ parent={},%
 %
 }%
 
+\glsdefs@newdocentry{ekf}%
+{%
+name={\acronymfont {\glsentryshort {ekf}}},%
+sort={EKF},%
+type={acronym},%
+first={EKF},%
+firstplural={EKFs},%
+text={EKF},%
+plural={EKFs},%
+description={Extended Kalman Filter},%
+descriptionplural={Extended Kalman Filter},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Extended Kalman Filter},%
+longplural={Extended Kalman Filters},%
+short={EKF},%
+shortplural={EKFs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{px4}%
+{%
+name={\acronymfont {\glsentryshort {px4}}},%
+sort={PX4},%
+type={acronym},%
+first={PX4},%
+firstplural={PX4s},%
+text={PX4},%
+plural={PX4s},%
+description={Pixhawk},%
+descriptionplural={Pixhawk},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Pixhawk},%
+longplural={Pixhawks},%
+short={PX4},%
+shortplural={PX4s},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{fmu}%
+{%
+name={\acronymfont {\glsentryshort {fmu}}},%
+sort={FMU},%
+type={acronym},%
+first={FMU},%
+firstplural={FMUs},%
+text={FMU},%
+plural={FMUs},%
+description={Flight Management Unit},%
+descriptionplural={Flight Management Unit},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Flight Management Unit},%
+longplural={Flight Management Units},%
+short={FMU},%
+shortplural={FMUs},%
+counter={page},%
+parent={},%
+%
+}%
+
 \glsdefs@newdocentry{sym:xc}%
 {%
 name={$X_c$},%

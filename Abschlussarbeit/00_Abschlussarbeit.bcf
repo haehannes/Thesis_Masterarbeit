@@ -2385,8 +2385,21 @@
     <bcf:citekey order="18" intorder="1">Dai2015a</bcf:citekey>
     <bcf:citekey order="19" intorder="1">2016</bcf:citekey>
     <bcf:citekey order="20" intorder="1">Siciliano2009</bcf:citekey>
-    <bcf:citekey order="21" intorder="1">chen2024deep</bcf:citekey>
-    <bcf:citekey order="22" intorder="1">kalman1960</bcf:citekey>
+    <bcf:citekey order="21" intorder="1">Capuano2023</bcf:citekey>
+    <bcf:citekey order="22" intorder="1">chen2024deep</bcf:citekey>
+    <bcf:citekey order="23" intorder="1">kalman1960</bcf:citekey>
+    <bcf:citekey order="24" intorder="1">Bang18</bcf:citekey>
+    <bcf:citekey order="25" intorder="1">Bang18</bcf:citekey>
+    <bcf:citekey order="26" intorder="1">MendozaMendoza2020</bcf:citekey>
+    <bcf:citekey order="27" intorder="1">px4_pixhawk6x_doc</bcf:citekey>
+    <bcf:citekey order="28" intorder="1">holybro_x650</bcf:citekey>
+    <bcf:citekey order="29" intorder="1">holybro_x650</bcf:citekey>
+    <bcf:citekey order="30" intorder="1">px4_pixhawk6x_doc</bcf:citekey>
+    <bcf:citekey order="31" intorder="1">px4_pixhawk6x_doc</bcf:citekey>
+    <bcf:citekey order="32" intorder="1">px4_pixhawk6x_doc</bcf:citekey>
+    <bcf:citekey order="33" intorder="1">px4_pixhawk6x_doc</bcf:citekey>
+    <bcf:citekey order="34" intorder="1">px4_pixhawk6x_doc</bcf:citekey>
+    <bcf:citekey order="35" intorder="1">Ko2018</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">
