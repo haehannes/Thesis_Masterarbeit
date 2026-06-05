@@ -255,6 +255,7 @@ Sind die Transformationen $^c\mathbf{T}_b$ (von~$b$ nach~$c$) und $^b\mathbf{T}_
 \end{equation}
 
 \section{Sensorsysteme}
+\label{sec:sensorik}
 Zum besseren Verständnis der Arbeit werden in diesem Unterkapitel die relevanten Sensortypen vorgestellt.
 
 Die zentrale Sensoreinheit für ein \gls{uav} ist die \gls{imu}, welche Beschleunigungen und Winkelgeschwindigkeiten misst.
@@ -336,7 +337,7 @@ Die aktualisierten Größen $\hat{\mathbf{x}}_k^{+}$ und $\mathbf{P}_k^{+}$ dien
 
 
 \section{Pixhawk 6X}
-
+\label{sec:Pixhawk_6X}
 \gls{px4} ist ein Open-Source-Autopilot-Flugstack, der die Flugsteuerung, Zustandsschätzung und Kommunikation eines \gls{uav} übernimmt.
 Das Pixhawk-Projekt wurde ursprünglich als studentisches Projekt an der ETH Zürich gestartet 
 \cite{MendozaMendoza2020} und hat sich seitdem zu einem weit verbreiteten Open-Source-Standard 
@@ -378,7 +379,6 @@ Die in der eingesetzten Revision verbauten Sensoren sind in Tabelle
 
 \begin{table}[htbp]
     \centering
-    \caption{Sensorbestückung des Pixhawk 6X \cite{px4_pixhawk6x_doc}}
     \label{tab:pixhawk_sensoren}
     \begin{tabular}{ll}
         \toprule
@@ -391,6 +391,7 @@ Die in der eingesetzten Revision verbauten Sensoren sind in Tabelle
         Magnetometer & BMM150 \\
         \bottomrule
     \end{tabular}
+    \caption{Sensorbestückung des Pixhawk 6X \cite{px4_pixhawk6x_doc}}
 \end{table}
 \FloatBarrier
 Zusätzlich sind die \gls{imu}s vibrationsisoliert gelagert und werden über 
@@ -435,8 +436,9 @@ herangezogen werden.
 Die konkrete Parametrierung für den GPS-freien Betrieb mit externer Positionsreferenz 
 wird in Kapitel \ref{sec:systemaufbau} erläutert.
 
-\subsection{Echtzeitfähikgkeit}
-
+\subsection{Betriebssystem}
+Hier muss noch was übers betriebssystem geschrieben werden bzw. über mavlink und die shell usw. 
+auch über die Log-Files die zur verfügung gestellt werden. 
 
 \subsubsection{PNP-Fehler}
 

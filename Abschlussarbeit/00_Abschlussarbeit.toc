@@ -20,47 +20,39 @@
 \contentsline {subsection}{\numberline {2.6.1}Sensorik}{10}{subsection.2.6.1}%
 \contentsline {subsection}{\numberline {2.6.2}Schnittstellen}{10}{subsection.2.6.2}%
 \contentsline {subsection}{\numberline {2.6.3}EKF2 -- Zustandsschätzung und Sensorfusion}{10}{subsection.2.6.3}%
-\contentsline {subsection}{\numberline {2.6.4}Echtzeitfähikgkeit}{11}{subsection.2.6.4}%
+\contentsline {subsection}{\numberline {2.6.4}Betriebssystem}{11}{subsection.2.6.4}%
 \contentsline {subsubsection}{\numberline {2.6.4.1}PNP-Fehler}{11}{subsubsection.2.6.4.1}%
 \contentsline {chapter}{\numberline {3}Stand der Technik}{12}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Relevanz ROS2 in der autonomen Robotik}{12}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Relevanz PX4}{12}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Simultane Lokalisierung und Kartierung}{12}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Algorithmen zur Bildverarbeitung}{12}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}Evaluationsmetriken für Objekterkennung}{12}{subsection.3.4.1}%
-\contentsline {subsection}{\numberline {3.4.2}YOLO}{12}{subsection.3.4.2}%
-\contentsline {subsection}{\numberline {3.4.3}SSD}{12}{subsection.3.4.3}%
-\contentsline {section}{\numberline {3.5}Datensatzkonzepte}{12}{section.3.5}%
-\contentsline {subsection}{\numberline {3.5.1}2D-Daten}{12}{subsection.3.5.1}%
-\contentsline {subsection}{\numberline {3.5.2}6D-Daten}{12}{subsection.3.5.2}%
-\contentsline {section}{\numberline {3.6}Algorithmen zur Bildverarbeitung}{12}{section.3.6}%
-\contentsline {subsection}{\numberline {3.6.1}Clustern von Punktewolken mithilfe von DBSCAN}{12}{subsection.3.6.1}%
-\contentsline {subsection}{\numberline {3.6.2}Tischentfernung mithilfe von RANSAC}{12}{subsection.3.6.2}%
-\contentsline {chapter}{\numberline {4}Systembeschreibung}{13}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Aufbau der Testumgebung}{13}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Softwarearchitektur}{13}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Systempipeline}{13}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}elektrischer Aufbau der Holybro X650 mit Pixhawk 6X}{13}{subsection.4.3.1}%
-\contentsline {chapter}{\numberline {5}Implementierung der Echtzeiterkennung}{14}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Datensatz- und Objektauswahl}{14}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Training der Modelle}{14}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}Yolov8 Training}{14}{subsection.5.2.1}%
-\contentsline {chapter}{\numberline {6}Ansteuerung des KUKA iiwa 7 R800}{15}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Kommunikationsschnittstellen}{15}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Greifpunktberechnung}{15}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}Vortrainiertes Modell Dexnet}{15}{subsection.6.2.1}%
-\contentsline {subsection}{\numberline {6.2.2}Segmentierung mithilfe der Bounding Boxen und dbscan}{15}{subsection.6.2.2}%
-\contentsline {subsection}{\numberline {6.2.3}Segmentierungslogik je Objekt}{15}{subsection.6.2.3}%
-\contentsline {chapter}{\numberline {7}Systemintegration}{16}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Gesamtintegration von Echtzeiterkennung, Greifpunktberechnung und Robotersteuerung}{16}{section.7.1}%
-\contentsline {section}{\numberline {7.2}Entwicklung eines Debugging- und Visualisierungsinterfaces}{16}{section.7.2}%
-\contentsline {subsection}{\numberline {7.2.1}Definieren von Ablageslots}{16}{subsection.7.2.1}%
-\contentsline {section}{\numberline {7.3}Analyse des Echtzeitverhaltens}{16}{section.7.3}%
-\contentsline {chapter}{\numberline {8}Evaluation des Greifens}{17}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Erfolgskriterien - Erfolgsquote und Fehlerrate}{17}{section.8.1}%
-\contentsline {section}{\numberline {8.2}Erkennungsgenauigkeit}{17}{section.8.2}%
-\contentsline {section}{\numberline {8.3}Positioniergenauigkeit}{17}{section.8.3}%
-\contentsline {section}{\numberline {8.4}Zeitliche Performance und Echtzeitfähigkeit}{17}{section.8.4}%
-\contentsline {chapter}{\numberline {9}Zusammenfassung und Ausblick}{18}{chapter.9}%
-\contentsline {chapter}{\numberline {10}Anhang}{24}{chapter.10}%
+\contentsline {section}{\numberline {3.1}GNSS-freie Lokalisierung von \glspl {uav}}{12}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Absolute Lokalisierung}{12}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Relative Lokalisierung}{13}{subsection.3.1.2}%
+\contentsline {subsubsection}{\numberline {3.1.2.1}Dead Reckoning Localization}{13}{subsubsection.3.1.2.1}%
+\contentsline {subsubsection}{\numberline {3.1.2.2}Visuelle Odometrie und optischer Fluss}{13}{subsubsection.3.1.2.2}%
+\contentsline {section}{\numberline {3.2}Fiducial-Marker-Systeme}{14}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Simultane Lokalisierung und Kartierung}{14}{section.3.3}%
+\contentsline {section}{\numberline {3.4}GPS-Freie Lokalisierung von UAVs}{14}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Mustererkennung mit RANSAC}{14}{section.3.5}%
+\contentsline {chapter}{\numberline {4}Systembeschreibung}{15}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Aufbau der Testumgebung}{15}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Softwarearchitektur}{15}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Systempipeline}{15}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}elektrischer Aufbau der Holybro X650 mit Pixhawk 6X}{15}{subsection.4.3.1}%
+\contentsline {chapter}{\numberline {5}Implementierung der Kartierung}{16}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Datensatz- und Objektauswahl}{16}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Training der Modelle}{16}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Yolov8 Training}{16}{subsection.5.2.1}%
+\contentsline {chapter}{\numberline {6}Ansteuerung des KUKA iiwa 7 R800}{17}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Kommunikationsschnittstellen}{17}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Greifpunktberechnung}{17}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Vortrainiertes Modell Dexnet}{17}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}Segmentierung mithilfe der Bounding Boxen und dbscan}{17}{subsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.2.3}Segmentierungslogik je Objekt}{17}{subsection.6.2.3}%
+\contentsline {chapter}{\numberline {7}Systemintegration}{18}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Evaluation des Greifens}{19}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Erfolgskriterien - Erfolgsquote und Fehlerrate}{19}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Erkennungsgenauigkeit}{19}{section.8.2}%
+\contentsline {section}{\numberline {8.3}Positioniergenauigkeit}{19}{section.8.3}%
+\contentsline {section}{\numberline {8.4}Zeitliche Performance und Echtzeitfähigkeit}{19}{section.8.4}%
+\contentsline {chapter}{\numberline {9}Zusammenfassung und Ausblick}{20}{chapter.9}%
+\contentsline {chapter}{\numberline {10}Anhang}{26}{chapter.10}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

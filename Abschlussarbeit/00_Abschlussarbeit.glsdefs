@@ -306,6 +306,174 @@ parent={},%
 %
 }%
 
+\glsdefs@newdocentry{gnss}%
+{%
+name={\acronymfont {\glsentryshort {gnss}}},%
+sort={GNSS},%
+type={acronym},%
+first={GNSS},%
+firstplural={GNSSs},%
+text={GNSS},%
+plural={GNSSs},%
+description={Global Navigation Satllite System},%
+descriptionplural={Global Navigation Satllite System},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Global Navigation Satllite System},%
+longplural={Global Navigation Satllite Systems},%
+short={GNSS},%
+shortplural={GNSSs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{tbn}%
+{%
+name={\acronymfont {\glsentryshort {tbn}}},%
+sort={TBN},%
+type={acronym},%
+first={TBN},%
+firstplural={TBNs},%
+text={TBN},%
+plural={TBNs},%
+description={Terrain-Based Navigation},%
+descriptionplural={Terrain-Based Navigation},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Terrain-Based Navigation},%
+longplural={Terrain-Based Navigations},%
+short={TBN},%
+shortplural={TBNs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{drl}%
+{%
+name={\acronymfont {\glsentryshort {drl}}},%
+sort={DRL},%
+type={acronym},%
+first={DRL},%
+firstplural={DRLs},%
+text={DRL},%
+plural={DRLs},%
+description={Dead Reckoning Localization},%
+descriptionplural={Dead Reckoning Localization},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Dead Reckoning Localization},%
+longplural={Dead Reckoning Localizations},%
+short={DRL},%
+shortplural={DRLs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{iekf}%
+{%
+name={\acronymfont {\glsentryshort {iekf}}},%
+sort={IEKF},%
+type={acronym},%
+first={IEKF},%
+firstplural={IEKFs},%
+text={IEKF},%
+plural={IEKFs},%
+description={Invariant Extnded Kalman Filter},%
+descriptionplural={Invariant Extnded Kalman Filter},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Invariant Extnded Kalman Filter},%
+longplural={Invariant Extnded Kalman Filters},%
+short={IEKF},%
+shortplural={IEKFs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{vo}%
+{%
+name={\acronymfont {\glsentryshort {vo}}},%
+sort={VO},%
+type={acronym},%
+first={VO},%
+firstplural={VOs},%
+text={VO},%
+plural={VOs},%
+description={Visuelle Odometrie},%
+descriptionplural={Visuelle Odometrie},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Visuelle Odometrie},%
+longplural={Visuelle Odometries},%
+short={VO},%
+shortplural={VOs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{vio}%
+{%
+name={\acronymfont {\glsentryshort {vio}}},%
+sort={VIO},%
+type={acronym},%
+first={VIO},%
+firstplural={VIOs},%
+text={VIO},%
+plural={VIOs},%
+description={Visuelle Inertial Odometrie},%
+descriptionplural={Visuelle Inertial Odometrie},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Visuelle Inertial Odometrie},%
+longplural={Visuelle Inertial Odometries},%
+short={VIO},%
+shortplural={VIOs},%
+counter={page},%
+parent={},%
+%
+}%
+
 \glsdefs@newdocentry{sym:xc}%
 {%
 name={$X_c$},%

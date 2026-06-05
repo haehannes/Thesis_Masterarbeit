@@ -678,6 +678,203 @@
       \verb 10.3390/s18092855
       \endverb
     \endentry
+    \entry{Jarraya2025}{article}{}
+      \name{author}{7}{}{%
+        {{hash=87ee1c0a07e3a21c95257dfa33c938da}{%
+           family={Jarraya},
+           familyi={J\bibinitperiod},
+           given={Imen},
+           giveni={I\bibinitperiod}}}%
+        {{hash=5e4bf34f18f27b80491b02ad1049dee5}{%
+           family={Al-Batati},
+           familyi={A\bibinithyphendelim B\bibinitperiod},
+           given={Abdulrahman},
+           giveni={A\bibinitperiod}}}%
+        {{hash=04f0e1dfa0d87df535888a12fa029535}{%
+           family={Kadri},
+           familyi={K\bibinitperiod},
+           given={Muhammad\bibnamedelima Bilal},
+           giveni={M\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+        {{hash=3484e646476739c7a5f47f6939f4049a}{%
+           family={Abdelkader},
+           familyi={A\bibinitperiod},
+           given={Mohamed},
+           giveni={M\bibinitperiod}}}%
+        {{hash=ff3f137b2e899429d79cf352ba226d2b}{%
+           family={Ammar},
+           familyi={A\bibinitperiod},
+           given={Adel},
+           giveni={A\bibinitperiod}}}%
+        {{hash=4077563d5f30b669dd4fa8dad50899e4}{%
+           family={Boulila},
+           familyi={B\bibinitperiod},
+           given={Wadii},
+           giveni={W\bibinitperiod}}}%
+        {{hash=bfa7caea7320966a6a6bd9ef6a4bd029}{%
+           family={Koubaa},
+           familyi={K\bibinitperiod},
+           given={Anis},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{2}{%
+        {Springer Science}%
+        {Business Media LLC}%
+      }
+      \strng{namehash}{2b93b076cd4766a7164acbba340ebb0c}
+      \strng{fullhash}{319543a9a05a7d3110354b0e77fb574c}
+      \strng{bibnamehash}{2b93b076cd4766a7164acbba340ebb0c}
+      \strng{authorbibnamehash}{2b93b076cd4766a7164acbba340ebb0c}
+      \strng{authornamehash}{2b93b076cd4766a7164acbba340ebb0c}
+      \strng{authorfullhash}{319543a9a05a7d3110354b0e77fb574c}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{2662-1363}
+      \field{journaltitle}{Satellite Navigation}
+      \field{month}{4}
+      \field{number}{1}
+      \field{title}{Gnss-denied unmanned aerial vehicle navigation: analyzing computational complexity, sensor fusion, and localization methodologies}
+      \field{volume}{6}
+      \field{year}{2025}
+      \verb{doi}
+      \verb 10.1186/s43020-025-00162-z
+      \endverb
+    \endentry
+    \entry{9982087}{inproceedings}{}
+      \name{author}{5}{}{%
+        {{hash=0c3d4b55e7357f9926f171ace018696d}{%
+           family={Zhou},
+           familyi={Z\bibinitperiod},
+           given={Hang},
+           giveni={H\bibinitperiod}}}%
+        {{hash=622f0da5c5d31fbf10fc79788acfe3e1}{%
+           family={Zhao},
+           familyi={Z\bibinitperiod},
+           given={Yibo},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=22c951547a2c69585d1dd0c075eed41a}{%
+           family={Xiong},
+           familyi={X\bibinitperiod},
+           given={Xiaogang},
+           giveni={X\bibinitperiod}}}%
+        {{hash=df5be712a0b05d7540c9ca7e1e46f9ff}{%
+           family={Lou},
+           familyi={L\bibinitperiod},
+           given={Yunjiang},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=92e0a7bfac73f451e200c7bb7d4f06d2}{%
+           family={Kamal},
+           familyi={K\bibinitperiod},
+           given={Shyam},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{0928337ef998630a76fdd4f297c09c88}
+      \strng{fullhash}{dfd4f995fa6770fefde0d48514a5f615}
+      \strng{bibnamehash}{dfd4f995fa6770fefde0d48514a5f615}
+      \strng{authorbibnamehash}{dfd4f995fa6770fefde0d48514a5f615}
+      \strng{authornamehash}{0928337ef998630a76fdd4f297c09c88}
+      \strng{authorfullhash}{dfd4f995fa6770fefde0d48514a5f615}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2022 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)}
+      \field{title}{IMU Dead-Reckoning Localization with RNN-IEKF Algorithm}
+      \field{year}{2022}
+      \field{pages}{11382\bibrangedash 11387}
+      \range{pages}{6}
+      \verb{doi}
+      \verb 10.1109/IROS47612.2022.9982087
+      \endverb
+      \keyw{Location awareness;Estimation error;Dead reckoning;Recurrent neural networks;Heuristic algorithms;Urban areas;Trajectory}
+    \endentry
+    \entry{9172736}{inproceedings}{}
+      \name{author}{4}{}{%
+        {{hash=bce3a788bada4f11fea4346c673e4d3f}{%
+           family={Jang},
+           familyi={J\bibinitperiod},
+           given={Jong\bibnamedelima Tai},
+           giveni={J\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+        {{hash=30033694ceda68c042c1448a80f4fd27}{%
+           family={Santamaria-Navarro},
+           familyi={S\bibinithyphendelim N\bibinitperiod},
+           given={Angel},
+           giveni={A\bibinitperiod}}}%
+        {{hash=cdee0d57e28695064d16d73391d53331}{%
+           family={Lopez},
+           familyi={L\bibinitperiod},
+           given={Brett\bibnamedelima T.},
+           giveni={B\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+        {{hash=6ed5efddc9f3e49781cb4c64ae6135f7}{%
+           family={Agha-mohammadi},
+           familyi={A\bibinithyphendelim m\bibinitperiod},
+           given={Ali-akbar},
+           giveni={A\bibinithyphendelim a\bibinitperiod}}}%
+      }
+      \strng{namehash}{f1850162b792e5e29d0b2e5eaef28750}
+      \strng{fullhash}{fc4ce0bd0fa4f7155caabf2bdad8cadd}
+      \strng{bibnamehash}{fc4ce0bd0fa4f7155caabf2bdad8cadd}
+      \strng{authorbibnamehash}{fc4ce0bd0fa4f7155caabf2bdad8cadd}
+      \strng{authornamehash}{f1850162b792e5e29d0b2e5eaef28750}
+      \strng{authorfullhash}{fc4ce0bd0fa4f7155caabf2bdad8cadd}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2020 IEEE Aerospace Conference}
+      \field{title}{Analysis of State Estimation Drift on a MAV Using PX4 Autopilot and MEMS IMU During Dead-reckoning}
+      \field{year}{2020}
+      \field{pages}{1\bibrangedash 11}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.1109/AERO47225.2020.9172736
+      \endverb
+      \keyw{Micromechanical devices;Temperature dependence;Dead reckoning;Measurement units;White noise;Autopilot;Noise measurement}
+    \endentry
+    \entry{9836067}{inproceedings}{}
+      \name{author}{4}{}{%
+        {{hash=71b546355ad9190b28737f9486031971}{%
+           family={Bednář},
+           familyi={B\bibinitperiod},
+           given={Jan},
+           giveni={J\bibinitperiod}}}%
+        {{hash=b6bc0850682f6c84782ec95b79745703}{%
+           family={Petrlík},
+           familyi={P\bibinitperiod},
+           given={Matěj},
+           giveni={M\bibinitperiod}}}%
+        {{hash=af66098625d38a167f0f32f694d3f9ac}{%
+           family={Vivaldini},
+           familyi={V\bibinitperiod},
+           given={Kelen\bibnamedelimb Cristiane\bibnamedelima Teixeira},
+           giveni={K\bibinitperiod\bibinitdelim C\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+        {{hash=bf219f96a5ef126a473bacf7e7ce5aa2}{%
+           family={Saska},
+           familyi={S\bibinitperiod},
+           given={Martin},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{6a6f1d6c6b5a1e35528d0368fedae54f}
+      \strng{fullhash}{6790c564b345a5999993ffea68145cb3}
+      \strng{bibnamehash}{6790c564b345a5999993ffea68145cb3}
+      \strng{authorbibnamehash}{6790c564b345a5999993ffea68145cb3}
+      \strng{authornamehash}{6a6f1d6c6b5a1e35528d0368fedae54f}
+      \strng{authorfullhash}{6790c564b345a5999993ffea68145cb3}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2022 International Conference on Unmanned Aircraft Systems (ICUAS)}
+      \field{title}{Deployment of Reliable Visual Inertial Odometry Approaches for Unmanned Aerial Vehicles in Real-world Environment}
+      \field{year}{2022}
+      \field{pages}{167\bibrangedash 176}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1109/ICUAS54217.2022.9836067
+      \endverb
+      \keyw{Location awareness;Visualization;Feedback loop;Pose estimation;Autonomous aerial vehicles;Cameras;Control systems;Visual Inertial Odometry;Unmanned Aerial Vehicle;Trajectory Shaping;Feedback Control;Camera Orientation}
+    \endentry
   \enddatalist
 \endrefsection
 \endinput

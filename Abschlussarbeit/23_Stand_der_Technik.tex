@@ -2,45 +2,117 @@
 
 \chapter{Stand der Technik}
 
-Merker
+Dieses Kapitel gibt einen Überblick über den aktuellen Stand der Technik im Bereich 
+der \gls{gnss}-freien Lokalisierung von \glspl{uav} und ordnet die in dieser Arbeit 
+gewählten Methoden in den wissenschaftlichen Kontext ein.
+Zunächst werden bestehende Lokalisierungsansätze ohne \gls{gnss} vorgestellt und hinsichtlich ihrer Eignung für Innenraumanwendungen bewertet.
+Anschließend werden verschiedene Fiducial-Marker-Systeme verglichen und deren Eigenschaften im Hinblick auf die Anforderungen dieser Arbeit diskutiert.
+Abschließend wird auf die simultane Lokalisierung und Kartierung eingegangen, die die Grundlage für die in dieser Arbeit verwendete Kartierungsmethodik bildet.
 
-"Das vorgestellte Lokalisierungssystem ist nicht hart echtzeitfähig, da es auf einem Standard-Linux-Kernel mit Python-basierten ROS2-Nodes aufbaut, 
-die keine deterministischen Antwortzeiten garantieren. 
-Diese Anforderung besteht jedoch auch nicht: Die hart echtzeitfähige Flugregelung erfolgt auf dem Flight Controller (PX4/NuttX), 
-während das Jetson-System die Vision-Pose als weich echtzeitfähige Stützinformation an die Sensorfusion (EKF2) liefert. 
-Der EKF2 überbrückt kurzzeitige Ausfälle der Vision-Pose durch IMU-gestützte Prädiktion (Inertial Dead Reckoning), 
-wodurch gelegentliche Latenzschwankungen der Vision-Pipeline toleriert werden."
+\section{GNSS-freie Lokalisierung von \glspl{uav}}
+Die Navigation ohne \gls{gnss} stellt in der Luftfahrt eine erhebliche Herausforderung dar, da \gls{gnss} als primäre Quelle absoluter Positionsinformationen dient.
+In dessen Abwesenheit muss die Position aus der Integration fehlerbehafteter Inertialmessungen 
+geschätzt werden, was, wie in Abschnitt \ref{sec:Sensorsysteme} beschrieben, zu einem zeitlich anwachsenden Positionsfehler führt.
+Daher ist es notwendig, diesen Fehler durch absolute oder relative Lokalisierungsmethoden auszugleichen.\cite{Jarraya2025}
 
 
-\section{Relevanz ROS2 in der autonomen Robotik}
+\subsection{Absolute Lokalisierung}
+Absolute Lokalisierungsverfahren spielen eine wichtige Rolle, wenn die genaue Position eines \gls{uav} bezogen auf einen globalen Referenzrahmen bekannt sein muss.\cite{Jarraya2025}
+Die gängigste Methode zur Umsetzung einer absoluten Lokalisierung ist ein satellitengestütztes System wie \gls{gps} oder Galileo.
+Da in der für diese Arbeit relevanten Flugumgebung kein ausreichender Satellitenempfang herrscht, finden diese Systeme keine Anwendung.
+Eine weitere Möglichkeit der absoluten Lokalisierung bieten Template- und Feature-basierte Verfahren sowie Semantic Mapping.
 
-\section{Relevanz PX4}
+Bei Template- beziehungsweise Feature-basierten Verfahren werden Aufnahmen des \gls{uav} mit bekannten Referenzbildern oder gespeicherten Merkmalen verglichen.
+Diese Systeme berücksichtigen ausschließlich visuelle Merkmale, ohne semantische Beziehungen einzubeziehen.\cite{Jarraya2025}
+Ein verwandtes Konzept stellen Fiducial-Marker dar, bei denen anstelle natürlicher Bildmerkmale künstlich erzeugte, eindeutig kodierte Muster als Referenz dienen.
+Durch ihre definierte Geometrie und Kodierung ermöglichen sie eine präzisere und robustere Posenschätzung als natürliche Bildmerkmale, weshalb sie in dieser Arbeit 
+als Grundlage der Lokalisierung eingesetzt werden.
+Im Sinne einer globalen absoluten Lokalisierung im Weltkoordinatensystem sind Template- und Feature-basierte Verfahren für Innenraumanwendungen jedoch wenig geeignet, 
+da geeignete Referenzdaten schwer zu erfassen sind.\cite{Jarraya2025}
+
+Semantic Mapping verfolgt einen ähnlichen Ansatz: Auch hier werden zunächst Referenzdaten 
+erstellt, die anschließend mit aktuell erfassten Daten abgeglichen werden.
+Der Unterschied liegt darin, dass nicht nur visuelle Merkmale, sondern auch semantische 
+Beziehungen berücksichtigt werden, so wird beispielsweise ein Tisch als Tisch und eine 
+Treppe als Treppe interpretiert.\cite{Jarraya2025}
+Dieses Verfahren findet in der vorliegenden Arbeit keine Anwendung, da die Erkennungsleistung stark von der Stabilität der jeweiligen Umgebung abhängig ist.
+
+Da die einzige praktikabel umsetzbare Methode der absoluten Lokalisierung ein 
+satellitengestütztes System darstellt, welches wie bereits erwähnt in der vorliegenden Umgebung nicht verfügbar ist, wird in dieser Arbeit auf absolute Lokalisierungsverfahren verzichtet 
+und ausschließlich relative Lokalisierungsmethoden betrachtet.
+Die grundlegende Methodik der zuvor vorgestellten Verfahren findet dabei ebenfalls Anwendung, jedoch ohne Bezug zu einem globalen Referenzrahmen.
+
+\subsection{Relative Lokalisierung}
+Die relative Lokalisierung zielt darauf ab, die Position und Orientierung eines \gls{uav} innerhalb eines lokalen Koordinatensystems zu bestimmen.
+Die Position wird dabei bezogen auf einen definierten Referenzpunkt ermittelt.
+Im Folgenden werden die gängigsten Methoden vorgestellt und hinsichtlich ihrer Eignung für die vorliegende Innenraumanwendung bewertet.
+
+\subsubsection{Dead Reckoning Localization}
+Bei der \gls{drl} handelt es sich um ein Verfahren, bei dem die aktuelle Position eines 
+Objekts ausgehend von einem letzten bekannten Startpunkt kontinuierlich berechnet 
+wird.\cite{9982087}
+Die Berechnung erfolgt auf Basis der bereitgestellten \gls{imu}-Daten durch Integration 
+dieser.
+Wie in Abschnitt \ref{sec:sensorik} bereits beschrieben, wirken auf die Sensoren erhebliche 
+Fehler, sodass die direkte Integration der rohen \gls{imu}-Messdaten zu großen 
+Translationsfehlern führt.
+Aus diesem Grund ist eine Filterung der Eingangsdaten notwendig.
+Am weitesten verbreitet sind hierbei verschiedene Abwandlungen des Kalman-Filters.
+
+Experimentelle Untersuchungen mit dem \gls{px4}-Autopiloten und einem handelsüblichen 
+Pixhawk-Flugregler zeigen, dass der \gls{ekf2} bereits nach 7 Sekunden eine 
+Geschwindigkeitsabweichung von $\sigma_{\text{vel}} \approx 0{,}024$~m/s aufweist, was zu 
+einem zunehmenden Positionsfehler im Dezimeterbereich führt.\cite{9172736}
+Verschiedene Arbeiten zeigen, dass sich der Drift vor allem durch Nutzung verbesserter 
+Algorithmen wie dem \gls{iekf} minimieren, jedoch nicht vollständig vermeiden lässt.
+\cite{9982087}\cite{9172736}\cite{Ko2018}
+Da im verwendeten Flugcontroller, wie in Kapitel \ref{sec:Pixhawk_6X} beschrieben, der 
+\gls{ekf} implementiert ist, wird nicht weiter auf andere Abwandlungen des Algorithmus 
+eingegangen.
+
+Grundsätzlich ist \gls{drl} für den Innenraum nur zeitlich begrenzt geeignet und als 
+primäre Positionsquelle nicht ausreichend.
+Im Normalfall wird \gls{drl} daher als Fallback-Strategie genutzt, wenn die primäre 
+Positionsquelle nicht verfügbar ist.\cite{9172736}
+In dieser Arbeit wird der Flugcontroller entsprechend konfiguriert.
+
+
+\subsubsection{Visuelle Odometrie und optischer Fluss}
+Visuelle Odometrie sowie optischer Fluss sind grundlegende Verfahren zur Lokalisierung eines \gls{uav}.
+Die \gls{vo} schätzt die Bewegung einer Kamera anhand sequenzieller Bilddaten, ohne eine Karte der Umgebung zu erstellen.
+Dabei werden markante Bildpunkte zwischen aufeinanderfolgenden Frames verfolgt und aus deren Verschiebung auf die Kamerabewegung geschlossen.\cite{Jarraya2025}
+
+Darüber hinaus existieren \gls{vio}-Ansätze, die die Robustheit der \gls{vo} durch Einbeziehen von \gls{imu}-Informationen verbessern.\cite{9836067}
+Die visuellen Daten können dabei den Drift der \gls{imu} reduzieren, während die \gls{imu}-Daten den metrischen Maßstab sowie Roll- und Nickwinkel aus den visuellen 
+Daten wiederherstellen können.\cite{9836067}
+Es gibt sowohl mono- als auch stereokamerabasierte Ansätze, wobei Stereokameras aufgrund der direkten Tiefenschätzung eine höhere Genauigkeit erzielen.\cite{9836067}
+Die Fusion von \gls{imu} und \gls{vo} zu \gls{vio} erfolgt typischerweise über einen \gls{ekf}.\cite{9836067}
+
+Da \gls{vo} und \gls{vio} keinen absoluten Positionsbezug besitzen, akkumulieren diese Verfahren über die Zeit einen Drift und sind damit nur bedingt für eine langfristig stabile Innenraumlokalisierung geeignet.\cite{Jarraya2025}
+Zudem ist die Leistung kamerabasierter Verfahren stark von den Lichtverhältnissen der Umgebung abhängig.\cite{9836067}
+
+Der optische Fluss stellt ein verwandtes Verfahren dar, das im Gegensatz zur \gls{vo} 
+lediglich zweidimensionale Geschwindigkeitsinformationen liefert und keine vollständige 6-DOF-Posenschätzung ermöglicht.
+
+
+Da auch hier drift behaftet oft nur 2te Quelle für odometrie
+
+-optical flow
+\section{Fiducial-Marker-Systeme}
 
 \section{Simultane Lokalisierung und Kartierung}
 hier einfach schreiben
 
-\section{Algorithmen zur Bildverarbeitung}
+\section{GPS-Freie Lokalisierung von UAVs}
 
-\subsection{Evaluationsmetriken für Objekterkennung}
+\section{Mustererkennung mit RANSAC}
 
 hier einfach schreiben
 
-\subsection{YOLO}
 
-\subsection{SSD}
-
-
-
-\section{Datensatzkonzepte}
-
-\subsection{2D-Daten}
-
-\subsection{6D-Daten}
-
-
-
-\section{Algorithmen zur Bildverarbeitung}
-
-\subsection{Clustern von Punktewolken mithilfe von DBSCAN}
-
-\subsection{Tischentfernung mithilfe von RANSAC}
+3. Stand der Technik
+   3.1 GPS-freie Lokalisierung von UAVs
+   3.2 Fiducial-Marker-Systeme
+   3.3 Simultane Lokalisierung und Kartierung (SLAM)
+   3.4 Integration externer Positionsschätzung in Flugregler
+   3.5 Evaluationsmetriken für Lokalisierungsgenauigkeit
