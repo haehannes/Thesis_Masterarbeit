@@ -474,6 +474,90 @@ parent={},%
 %
 }%
 
+\glsdefs@newdocentry{slam}%
+{%
+name={\acronymfont {\glsentryshort {slam}}},%
+sort={SLAM},%
+type={acronym},%
+first={SLAM},%
+firstplural={SLAMs},%
+text={SLAM},%
+plural={SLAMs},%
+description={Simultaneous Localization and Mapping},%
+descriptionplural={Simultaneous Localization and Mapping},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Simultaneous Localization and Mapping},%
+longplural={Simultaneous Localization and Mappings},%
+short={SLAM},%
+shortplural={SLAMs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{vslam}%
+{%
+name={\acronymfont {\glsentryshort {vslam}}},%
+sort={vSLAM},%
+type={acronym},%
+first={vSLAM},%
+firstplural={vSLAMs},%
+text={vSLAM},%
+plural={vSLAMs},%
+description={Visual SLAM},%
+descriptionplural={Visual SLAM},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Visual SLAM},%
+longplural={Visual SLAMs},%
+short={vSLAM},%
+shortplural={vSLAMs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{orbslam}%
+{%
+name={\acronymfont {\glsentryshort {orbslam}}},%
+sort={ORB-SLAM},%
+type={acronym},%
+first={ORB-SLAM},%
+firstplural={ORB-SLAMs},%
+text={ORB-SLAM},%
+plural={ORB-SLAMs},%
+description={Oriented Fast and Rotated BRIEF-SLAM},%
+descriptionplural={Oriented Fast and Rotated BRIEF-SLAM},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Oriented Fast and Rotated BRIEF-SLAM},%
+longplural={Oriented Fast and Rotated BRIEF-SLAMs},%
+short={ORB-SLAM},%
+shortplural={ORB-SLAMs},%
+counter={page},%
+parent={},%
+%
+}%
+
 \glsdefs@newdocentry{sym:xc}%
 {%
 name={$X_c$},%

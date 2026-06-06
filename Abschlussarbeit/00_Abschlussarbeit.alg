@@ -1,11 +1,13 @@
 ;; This logfile was generated automatically by `xindy'
-;; at 05.06.2026  20:05:55
-;; Indexstyle: "/tmp/TmpDIqERGR", Rawindex: "/tmp/SpnH8dXcJa", Output: "00_Abschlussarbeit.acr"
+;; at 06.06.2026  22:17:46
+;; Indexstyle: "/tmp/9n3YB7MEBt", Rawindex: "/tmp/jUnSN4q8Oj", Output: "00_Abschlussarbeit.acr"
 
 
 Building indexentry-tree:
 Hierdepth of index is :TREE
 
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
@@ -40,6 +42,8 @@ Letter-group: "Ë´" -> "D"
 Letter-group: "¨—®œ" -> "I"
 Letter-group: "åÃ" -> "V"
 Letter-group: "å¨Ã" -> "V"
+Letter-group: "Ð´€»" -> "S"
+Letter-group: "åÐ´€»" -> "V"
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 Letter-group: "Ë´" -> "D"
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
@@ -57,7 +61,8 @@ Letter-group: "Èë4" -> "P"
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 Letter-group: "Ë€¼Ð€†" -> "R"
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+Letter-group: "Ð´€»" -> "S"
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 Letter-group: "à€å" -> "U"
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 Letter-group: "å¨Ã" -> "V"
-WARNING: location-reference "{}{V}" did match multiple location-classes! (taking first one)

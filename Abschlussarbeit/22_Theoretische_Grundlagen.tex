@@ -14,7 +14,7 @@ Die Anfänge unbemannter Luftfahrzeuge reichen bis in die 1910er Jahre zurück, 
 Ab den 2000er Jahren fanden \gls{uav}s zunehmend Eingang in zivile Anwendungsgebiete, wie beispielsweise die Katastrophenhilfe \cite[S. 1--3]{Studiawan2026}.
 
 \subsection{Mechanischer Aufbau am Beispiel der Holybro X650}
-\textbf{Grundrahmen} Der Grundrahmen eines UAV dient als mechanische Basis für die Montage aller weiteren Komponenten.
+\textbf{Grundrahmen:} Der Grundrahmen eines UAV dient als mechanische Basis für die Montage aller weiteren Komponenten.
 Das Design des Rahmens beeinflusst maßgeblich die Flugeigenschaften des Geräts.
 Das in dieser Arbeit verwendete Modell ist als Senkrechtstarter konzipiert und basiert auf einem X-förmigen Quadcopter-Rahmen.
 Die wesentlichen Bestandteile des Rahmens umfassen die Ausleger, das Landegestell sowie die zentrale Montageplattform für die Elektronik.
@@ -22,21 +22,17 @@ Die Holybro X650 weist eine Diagonale von 650 mm auf.
 Abbildung \ref{fig:roll_pitch_yaw} zeigt ein Bild der Holybro X650.
  \cite{Wu2021} \cite{holybro_x650}
 
-\noindent
-\textbf{Antriebssystem} Das Antriebssystem besteht aus vier Elektromotoren, die jeweils an einem der Ausleger montiert sind.
+\textbf{Antriebssystem:} Das Antriebssystem besteht aus vier Elektromotoren, die jeweils an einem der Ausleger montiert sind.
 An den Motoren sind Propeller befestigt, welche den erforderlichen Auftrieb erzeugen.
 
-\noindent
-\textbf{Flugcontroller} Der Flugcontroller bildet das zentrale Steuerungselement eines UAV.
+\textbf{Flugcontroller:} Der Flugcontroller bildet das zentrale Steuerungselement eines UAV.
 Er setzt eingehende Steuerbefehle in konkrete Ansteuersignale um, die an die Motoren weitergeleitet werden.
 In Kapitel \ref{sec:PX4 Autopilot} wird näher auf den verwendeten Flugcontroller eingegangen.
 
-\noindent
-\textbf{Energieversorgung} Die Energieversorgung erfolgt über einen \gls{lipo}.
+\textbf{Energieversorgung:} Die Energieversorgung erfolgt über einen \gls{lipo}.
 Dieser versorgt die Steuerelektronik als auch die Motoren. 
 
-\noindent
-\textbf{Nutzlast} Das maximale Abfluggewicht der Holybro X650 beträgt 6,3 kg, wobei der flugfertige Grundrahmen bereits ein Eigengewicht von 4,3 kg aufweist.
+\textbf{Nutzlast:} Das maximale Abfluggewicht der Holybro X650 beträgt 6,3 kg, wobei der flugfertige Grundrahmen bereits ein Eigengewicht von 4,3 kg aufweist.
 Daraus ergibt sich eine maximale Nutzlast von 2 kg (ohne Akku) \cite{holybro_x650}.
 
 \subsection{Vergleich von Welt-, Roboter-, Kamera- und Fiducialkoordinatensystem}
@@ -284,7 +280,7 @@ Der zunehmende Fehler der Odometrie kann durch die Verwendung von externen Refer
 
 
 \section{Extended Kallman Filter}
-
+\label{sec:ekf}
 In dieser Arbeit wird nicht näher auf die Sensorfusion eingegangen, da der \gls{ekf} bereits vollständig im Flugcontroller implementiert ist.
 Auch die speziell im \gls{px4} zugrundeliegenden mathematischen Modelle werden nicht weiter erläutert. 
 Zum Verständnis der Positionsbestimmung sowie der Parametrierung des \gls{ekf} ist es jedoch notwendig, die Grundlagen des Kalman-Filters zu kennen.
@@ -294,6 +290,11 @@ die Kombination von Vorhersagen aus einem mathematischen Modell und Messungen vo
 Der \gls{ekf} ist ein rekursiver Filter, wodurch er kontinuierlich neue Messwerte verarbeiten kann.
 Im Folgenden wird der grundlegende Aufbau des Filters geschildert.
 Der Filter besteht im Wesentlichen aus drei Phasen.
+In der Literatur wird zwischen zwei Arten von Zustandsschätzungen unterschieden: 
+Der \textit{Prior} $(\cdot)^{-}$ bezeichnet die durch das Systemmodell vorhergesagte Schätzung vor der Einbeziehung einer neuen Messung. 
+Der \textit{Posterior} $(\cdot)^{+}$ bezeichnet die korrigierte Schätzung nach der Einbeziehung der Messung \cite{Bang18}.
+Der Operator $\hat{(\cdot)}$ kennzeichnet dabei stets eine Schätzgröße -- $\hat{\mathbf{x}}$ ist demnach eine Schätzung des wahren Zustands $\mathbf{x}$ \cite{Bang18}.
+
 Zu Beginn muss eine Anfangsbedingung festgelegt werden.
 Hierfür benötigt das System einen initialen Zustandsschätzwert $\hat{\mathbf{x}}_0^{+}$ sowie die zugehörige Unsicherheit in Form der 
 Zustandskovarianzmatrix $\mathbf{P}_0^{+}$ \cite{Bang18}.

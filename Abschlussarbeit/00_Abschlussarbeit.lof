@@ -6,8 +6,10 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Vergleich der Koordinatensysteme \blx@tocontentsinit {0}\cite {holybro_x650}}}{3}{figure.caption.6}%
 \contentsline {figure}{\numberline {2.2}{\ignorespaces Roll, Pitch und Yaw am Beispiel Holybro X650 \blx@tocontentsinit {0}\cite {holybro_x650}}}{4}{figure.caption.7}%
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Komponenten des Pixhawk 6X: FMU-Modul und Baseboard V2A \blx@tocontentsinit {0}\cite {holybro_x650}}}{9}{figure.caption.8}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Komponenten des Pixhawk 6X: FMU-Modul und Baseboard V2A \blx@tocontentsinit {0}\cite {holybro_x650}}}{10}{figure.caption.8}%
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Veranschaulichung des Loop-Closure-Effekts: (a) Reale Trajektorie ohne akkumulierten Fehler. (b) Geschätzte Trajektorie mit akkumuliertem Drift ohne Loop Closure. (c) Korrigierte Trajektorie nach Anwendung von Loop Closure mit reduziertem akkumuliertem Drift. vgl. \blx@tocontentsinit {0}\cite {gong_loop_closure}}}{15}{figure.caption.10}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Vereinfachter Faktorgraph eines \gls {slam}-Problems, vgl.~\blx@tocontentsinit {0}\cite {Lai2022}, \blx@tocontentsinit {0}\cite {Dellaert2017}, \blx@tocontentsinit {0}\cite {Cai2024}}}{16}{figure.caption.11}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
