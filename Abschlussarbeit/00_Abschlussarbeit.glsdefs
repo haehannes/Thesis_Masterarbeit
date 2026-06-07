@@ -558,6 +558,230 @@ parent={},%
 %
 }%
 
+\glsdefs@newdocentry{orb-slam3}%
+{%
+name={\acronymfont {\glsentryshort {orb-slam3}}},%
+sort={ORB-SLAM 3},%
+type={acronym},%
+first={ORB-SLAM 3},%
+firstplural={ORB-SLAM 3s},%
+text={ORB-SLAM 3},%
+plural={ORB-SLAM 3s},%
+description={Oriented Fast and Rotated BRIEF-SLAM 3},%
+descriptionplural={Oriented Fast and Rotated BRIEF-SLAM 3},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Oriented Fast and Rotated BRIEF-SLAM 3},%
+longplural={Oriented Fast and Rotated BRIEF-SLAM 3s},%
+short={ORB-SLAM 3},%
+shortplural={ORB-SLAM 3s},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{rtos}%
+{%
+name={\acronymfont {\glsentryshort {rtos}}},%
+sort={RTOS},%
+type={acronym},%
+first={RTOS},%
+firstplural={RTOSs},%
+text={RTOS},%
+plural={RTOSs},%
+description={Real Time Operating System},%
+descriptionplural={Real Time Operating System},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Real Time Operating System},%
+longplural={Real Time Operating Systems},%
+short={RTOS},%
+shortplural={RTOSs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{udp}%
+{%
+name={\acronymfont {\glsentryshort {udp}}},%
+sort={UDP},%
+type={acronym},%
+first={UDP},%
+firstplural={UDPs},%
+text={UDP},%
+plural={UDPs},%
+description={User Datagram Protocol},%
+descriptionplural={User Datagram Protocol},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={User Datagram Protocol},%
+longplural={User Datagram Protocols},%
+short={UDP},%
+shortplural={UDPs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{gtsam}%
+{%
+name={\acronymfont {\glsentryshort {gtsam}}},%
+sort={GTSAM},%
+type={acronym},%
+first={GTSAM},%
+firstplural={GTSAMs},%
+text={GTSAM},%
+plural={GTSAMs},%
+description={Georgia Tech Smoothing and Mapping},%
+descriptionplural={Georgia Tech Smoothing and Mapping},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Georgia Tech Smoothing and Mapping},%
+longplural={Georgia Tech Smoothing and Mappings},%
+short={GTSAM},%
+shortplural={GTSAMs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{g2o}%
+{%
+name={\acronymfont {\glsentryshort {g2o}}},%
+sort={g2o},%
+type={acronym},%
+first={g2o},%
+firstplural={g2os},%
+text={g2o},%
+plural={g2os},%
+description={General Graph Optimization},%
+descriptionplural={General Graph Optimization},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={General Graph Optimization},%
+longplural={General Graph Optimizations},%
+short={g2o},%
+shortplural={g2os},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{lidar}%
+{%
+name={\acronymfont {\glsentryshort {lidar}}},%
+sort={LiDAR},%
+type={acronym},%
+first={LiDAR},%
+firstplural={LiDARs},%
+text={LiDAR},%
+plural={LiDARs},%
+description={Light Detection and Ranging},%
+descriptionplural={Light Detection and Ranging},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Light Detection and Ranging},%
+longplural={Light Detection and Rangings},%
+short={LiDAR},%
+shortplural={LiDARs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{loam}%
+{%
+name={\acronymfont {\glsentryshort {loam}}},%
+sort={LOAM},%
+type={acronym},%
+first={LOAM},%
+firstplural={LOAMs},%
+text={LOAM},%
+plural={LOAMs},%
+description={LiDAR Odometry and Mapping},%
+descriptionplural={LiDAR Odometry and Mapping},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={LiDAR Odometry and Mapping},%
+longplural={LiDAR Odometry and Mappings},%
+short={LOAM},%
+shortplural={LOAMs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{dds}%
+{%
+name={\acronymfont {\glsentryshort {dds}}},%
+sort={DDS},%
+type={acronym},%
+first={DDS},%
+firstplural={DDSs},%
+text={DDS},%
+plural={DDSs},%
+description={Data Distribution Service},%
+descriptionplural={Data Distribution Service},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Data Distribution Service},%
+longplural={Data Distribution Services},%
+short={DDS},%
+shortplural={DDSs},%
+counter={page},%
+parent={},%
+%
+}%
+
 \glsdefs@newdocentry{sym:xc}%
 {%
 name={$X_c$},%

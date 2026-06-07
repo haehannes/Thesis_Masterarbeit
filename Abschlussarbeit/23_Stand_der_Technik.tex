@@ -189,34 +189,139 @@ den über die Trajektorie akkumulierten Drift rückwirkend über alle Posen zu k
 Das Ziel der Optimierung ist die Maximum-a-posteriori-Schätzung -- also die Konfiguration aller Variablen (Posen und Landmarken) zu finden, die die 
 Gesamtwahrscheinlichkeit aller Beobachtungen maximiert. Äquivalent dazu wird der Gesamtfehler über alle Constraints minimiert.\cite{dellaert2012factor}
 Bildlich bedeutet das, dass der Optimierer die Variablen solange ``verschiebt'', bis der Gesamtfehler über allen Messungen minimal ist.
-
+Bekannte Faktorgraph Bibliotheken sind \gls{gtsam} und \gls{g2o}.
 
 
 \subsubsection{SLAM-Varianten}
-\textbf{\gls{vslam}} nutzt visuelle Sensordaten, um gleichzeitig die Pose eines Roboters zu schätzen und eine Karte der Umgebung zu erstellen.\cite{10169695}
+\textbf{Kamerabasierte \gls{vslam}} nutzt visuelle Sensordaten, um gleichzeitig die Pose eines Roboters zu schätzen und eine Karte der Umgebung zu erstellen.\cite{10169695}
 Es baut auf den Konzepten der \gls{vo} und \gls{vio} auf und erweitert diese um die Fähigkeit zur globalen Kartenkonsistenz durch Loop Closure.\cite{Cai2024}
+Durch die Erkennung bereits besuchter Orte kann das System akkumulierte Posenfehler korrigieren und eine global konsistente Karte aufbauen.
+\textbf{ORB-SLAM} ist ein weit verbreitetes Open-Source-SLAM-System, 
+das ORB-Merkmale zur Merkmalserkennung verwendet und Mono-, Stereo-, 
+RGB-D- sowie visuell-inertiale Kamerakonfigurationen unterstützt.\cite{10169695}
 
+\textbf{Kamerabasiertes \gls{vslam}} nutzt visuelle Sensordaten, um gleichzeitig die Pose eines Roboters zu schätzen und eine Karte der 
+Umgebung zu erstellen.\cite{10169695}
+Es baut auf den Konzepten der \gls{vo} und \gls{vio} auf und erweitert diese um die Fähigkeit zur globalen Kartenkonsistenz durch Loop Closure.\cite{Cai2024}
+Durch die Erkennung bereits besuchter Orte kann das System akkumulierte Posenfehler korrigieren und eine global konsistente Karte aufbauen.
+Ein weit verbreitetes Beispiel ist \textbf{orb-slam3}, ein Open-Source-System, das ORB-Merkmale zur Merkmalserkennung verwendet.\cite{10169695}
+Je nach Konfiguration unterstützt es Mono-, Stereo- und RGB-D-Kameras 
+als reines \gls{vslam} sowie die Kombination mit einer \gls{imu} als visuell-inertialen SLAM.
 
-\textbf{ORB-SLAM} ist ein weit verbreitetes Open-Source-\gls{vslam}-System, 
-das ORB-Merkmale (Oriented FAST and Rotated BRIEF) zur Merkmalserkennung 
-verwendet und sowohl Mono-, Stereo- als auch RGB-D-Kameras unterstützt.\cite{10169695}
-
-
-\textbf{TagSLAM} ist eine Spezialisierung von \gls{vslam} für Fiducial-Marker.
-Anstelle natürlicher Bildmerkmale werden AprilTag-Marker als definierte 
+\textbf{TagSLAM} ist eine Spezialisierung von \gls{vslam} für Fiducial-Marker.Anstelle natürlicher Bildmerkmale werden AprilTag-Marker als definierte 
 Referenzpunkte verwendet.
-TagSLAM nutzt den GTSAM-Faktorgrafen-Optimierer als Backend und ermöglicht 
-neben vollständigem SLAM auch extrinsische Kamerakalibrierung und 
-Posenschätzung.\cite{TagSLAM}
-In dieser Arbeit wird TagSLAM zur Offline-Kartierung der Versuchsumgebung 
-eingesetzt.
+Da die Geometrie der Marker bekannt ist, entfällt die aufwendige Merkmalsbeschreibung und das Matching; stattdessen liefert jede 
+Markerdetektion eine direkte Posenmessung relativ zur Kamera.
+TagSLAM nutzt den GTSAM zur Faktorgraph Optimierung als Backend und ermöglicht 
+neben vollständigem SLAM Posenschätzung.\cite{pfrommer2019tagslam}
+
+\textbf{ORB-SLAM} ist ein weit verbreitetes Open-Source-SLAM-System, 
+das ORB-Merkmale zur Merkmalserkennung verwendet und Mono-, Stereo-, 
+RGB-D- sowie visuell-inertiale Kamerakonfigurationen unterstützt.\cite{10169695}
+
+\textbf{\gls{lidar}-SLAM} verwendet einen Laserscanner anstelle einer Kamera als primären Sensor \cite{Yue2023}.
+Ein LiDAR misst Entfernungen durch Laufzeitmessung ausgesendeter Laserpulse 
+und erzeugt dabei eine dichte Punktwolke der Umgebung.
+Da die Tiefenmessung direkt und metrikgenau erfolgt, ist LiDAR-SLAM im 
+Vergleich zu monokularem \gls{vslam} nicht auf eine Skaleninitialisierung angewiesen und liefert in der Regel robustere Ergebnisse unter 
+wechselnden Lichtverhältnissen \cite{Yue2023}.
+Gegenüber kamerabasierten Verfahren sind LiDAR-Systeme jedoch deutlich 
+teurer, schwerer und energieintensiver, was ihren Einsatz auf kleinen 
+\glspl{uav} einschränkt.
 
 
-
-
-
+%Ab hier muss ich nochmal komplett drücer schauen!!!
 \section{Fiducial-Marker-Systeme}
+Im folgenden wird ein Überblick über die am weitest verbreitetsten FiducialMarker-Systeme gegeben werden. 
+Ficucial-Systeme wurden entwickelt um in wenig strukturierten Umgebungen einen \gls{vslam} bzw. eine visuelle Lokalisierung gewährleisten zu können. 
+Fiducial-Marker stellen ein gut unterscheidbares Muster mit starken visuellen Eigenschaften dar.
+Sie verfügen in den meisten Fällen auch über eine spezifische Kodierung, als Sicherheitsmechanisums gegen Fehlererkennung. \cite{Kalaitzakis2021}
+Im folgenden werden vier verbreitete Open-Soruce Pakete vorgesetllt. 
 
 
-\section{Mustererkennung mit RANSAC}
+\subsubsection{AprilTag}
+AprilTag wurde 2011 von Edwin Olson an der University of Michigan 
+vorgestellt.\cite{Olson2011}
+Ein AprilTag besteht aus einem schwarzen quadratischen Rand, der ein 
+binäres Raster aus schwarzen und weißen Zellen umschließt, welches eine 
+eindeutige ID kodiert.\cite{Olson2011}
+Das System ermöglicht die vollständige Bestimmung der sechs Freiheitsgrade 
+der Pose aus einem einzelnen Bild und ist robust gegenüber Verdeckung, 
+Verzerrung und Linsenverzeichnung.\cite{Olson2011}
+Marker sind in verschiedene Familien unterteilt; in dieser Arbeit wird 
+die Familie \texttt{tag36h11} verwendet, bei der die Daten in einem 
+6$\times$6-Raster (36 Bit) kodiert werden.\cite{Olson2011}
+Mit AprilTag~2 wurde 2016 eine vollständig überarbeitete Detektion 
+vorgestellt, die höhere Detektionsraten bei geringerem Rechenaufwand 
+erreicht.\cite{Wang2016}
 
+\subsubsection{ARTag}
+ARTag wurde 2005 von Mark Fiala als Weiterentwicklung von ARToolKit 
+vorgestellt.\cite{Fiala2005}
+Es verwendet digitale Kodierungsverfahren, wodurch ARTag im Vergleich zu 
+früheren Systemen niedrigere und quantifizierbare Fehlerraten aufweist 
+und keinen Graustufen-Schwellwert benötigt.\cite{Fiala2005}
+AprilTag stellt eine schnellere und robustere Neuimplementierung des 
+ARTag-Ansatzes dar.\cite{Olson2011}
+
+\subsubsection{ArUco}
+ArUco wurde 2014 von Garrido-Jurado et al. vorgestellt.\cite{GarridoJurado2014}
+Ein ArUco-Marker ist ein quadratischer Marker, der aus einem breiten 
+schwarzen Rand und einer inneren binären Matrix besteht, welche die 
+Identifikationsnummer des Markers bestimmt.\cite{GarridoJurado2014}
+Das System bietet einen Algorithmus zur automatischen Generierung 
+konfigurierbarer Marker-Wörterbücher unterschiedlicher Größe und 
+Anzahl sowie eine Methode zur zuverlässigen Detektion unter 
+Verdeckung.\cite{GarridoJurado2014}
+ArUco ist in die Bibliothek OpenCV integriert.\cite{GarridoJurado2014}
+
+\subsubsection{STag}
+STag wurde 2019 von Benligiray et al. vorgestellt.\cite{Benligiray2019}
+Im Gegensatz zu den rein quadratischen Systemen verwendet STag eine 
+kreisförmige Randstruktur, die eine stabilere Posenschätzung 
+ermöglicht.\cite{Benligiray2019}
+Im experimentellen Vergleich von Kalaitzakis et al. weist STag eine 
+hohe Genauigkeit bei der Posenschätzung auf.\cite{Kalaitzakis2021}
+
+
+
+\subsubsection{Detektion}
+Die Detektion eines Fiducial-Markers gliedert sich in zwei Hauptkomponenten: 
+den eigentlichen Detektor, der die Position möglicher Marker im Bild schätzt, 
+und das Kodierungssystem, das die ausgelesene ID auf Gültigkeit 
+prüft.\cite{Olson2011}
+Im Folgenden wird der Ablauf am Beispiel von AprilTag beschrieben.
+
+Der Detektor sucht im Bild nach viereckigen Regionen (\enquote{Quads}), 
+deren Inneres dunkler ist als ihr Äußeres.\cite{Olson2011}
+Zunächst werden Richtung und Betrag des Gradienten an jedem Pixel berechnet.
+Pixel mit ähnlicher Gradientenrichtung und -stärke werden anschließend mit 
+einem graphenbasierten Verfahren zu Komponenten zusammengefasst, an die 
+mittels gewichteter kleinster Quadrate jeweils ein Liniensegment angepasst 
+wird.\cite{Olson2011}
+Da die Detektion auf dem Bildgradienten beruht, ist sie robust gegenüber 
+Beleuchtungsänderungen.\cite{Olson2011}
+
+Aus den gerichteten Liniensegmenten werden über eine rekursive Tiefensuche 
+mit Tiefe vier die Quads gebildet, wobei die Robustheit gegenüber 
+Verdeckungen und Segmentierungsfehlern über einen Schwellwert für den 
+zulässigen Abstand zwischen den Liniensegmenten gesteuert wird.\cite{Olson2011}
+Die Ecken eines Quads ergeben sich aus den Schnittpunkten der zugehörigen 
+Linien und sind dadurch auf einen Bruchteil eines Pixels genau 
+bestimmbar.\cite{Olson2011}
+
+Für jedes Quad wird anschließend die 3$\times$3-Homographie-Matrix 
+berechnet, die Punkte aus dem Markerkoordinatensystem in das 
+Bildkoordinatensystem projiziert; sie wird über den Direct-Linear-Transform-Algorithmus 
+bestimmt.\cite{Olson2011}
+Aus der Homographie lassen sich zusammen mit der Brennweite der Kamera und 
+der bekannten physischen Markergröße die Position und Orientierung des 
+Markers ableiten.\cite{Olson2011}
+
+Zuletzt werden die Bits des Datenfeldes ausgelesen, indem ihre 
+markerrelativen Koordinaten über die Homographie in Bildkoordinaten 
+überführt und die resultierenden Pixel mit einem ortsabhängigen Schwellwert 
+binarisiert werden.\cite{Olson2011}
+Der ausgelesene Code wird abschließend vom Kodierungssystem auf Gültigkeit 
+geprüft, wodurch die hohe Falsch-Positiv-Rate des Detektors auf ein 
+nutzbares Maß reduziert wird.\cite{Olson2011}

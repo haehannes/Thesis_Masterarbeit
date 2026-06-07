@@ -437,10 +437,54 @@ herangezogen werden.
 Die konkrete Parametrierung für den GPS-freien Betrieb mit externer Positionsreferenz 
 wird in Kapitel \ref{sec:systemaufbau} erläutert.
 
-\subsection{Betriebssystem}
-Hier muss noch was übers betriebssystem geschrieben werden bzw. über mavlink und die shell usw. 
-auch über die Log-Files die zur verfügung gestellt werden. 
 
-\subsubsection{PNP-Fehler}
+\subsection{Betriebssystem}
+Der Pixhawk 6X betreibt auf dem Hauptprozessor STM32H753 das Echtzeitbetriebssystem 
+NuttX, auf dem die PX4-Firmware ausgeführt wird.
+NuttX ist ein Echtzeitbetriebssystem, das sicherstellt, dass zeitkritische 
+Steuerungsaufgaben innerhalb garantierter Zeitschranken ausgeführt werden. \cite{px4_architecture}
+
+Die Kommunikation mit externen Systemen in dieser Arbeit erfolgt über das MAVLink-Protokoll.
+MAVLink ist ein leichtgewichtiges Nachrichtenprotokoll, das speziell für die 
+Kommunikation zwischen Flugcontrollern und Bodenstationen bzw. Companion-Computern 
+entwickelt wurde. 
+Es serialisiert Telemetriedaten, Steuerbefehle und Sensorwerte in kompakte Binärpakete, 
+die über serielle Schnittstellen oder \gls{udp} übertragen werden. \cite{MAVLink,px4_mavlink}
+
+Zur Analyse des Flugverhaltens erzeugt der PX4 während des Betriebs ULog-Dateien, die auf der internen SD-Karte gespeichert werden.
+Diese Log-Dateien enthalten zeitgestempelte Aufzeichnungen aller relevanten Zustandsgrößen, Sensorwerte und EKF2-internen Größen und ermöglichen eine 
+detaillierte Nachanalyse des Systemverhaltens nach dem Flug. \cite{px4_ulog,px4_flight_reporting}
+
+\subsection{Robot Operating System 2 (ROS2)}
+\label{sec:ros2}
+
+\gls{ros2} ist ein Open-Source-Framework für die Entwicklung von Robotersoftware.
+Es stellt eine einheitliche Middleware bereit, über die verteilte Software-Komponenten -- sogenannte \textit{Nodes} -- miteinander kommunizieren können.
+%Im Gegensatz zu seinem Vorgänger \gls{ros1} verwendet \gls{ros2} das standardisierte \gls{dds}-Protokoll als Kommunikationsschicht, 
+wodurch kein zentraler Master-Prozess mehr benötigt wird und eine höhere Robustheit sowie Echtzeitfähigkeit erreicht werden.
+In dieser Arbeit wird \gls{ros2} Humble sowie \gls{ros2} Jazzy eingesetzt.\cite{ROS2MiddlewareHumble}
+
+\subsubsection{Nodes und Topics}
+Die grundlegende Kommunikationseinheit in \gls{ros2} ist der \textit{Node}: ein eigenständiger Prozess, der eine spezifische Aufgabe übernimmt, 
+beispielsweise die Kamerabildverarbeitung.
+Nodes tauschen Daten über \textit{Topics} nach dem Publish-Subscribe-Prinzip aus.
+Ein Node, der Daten erzeugt, veröffentlicht diese als \textit{Publisher} auf einem Topic; ein oder mehrere 
+\textit{Subscriber}-Nodes empfangen die Nachrichten asynchron.
+Topics sind typisiert, das heißt jedes Topic überträgt Nachrichten eines fest definierten Nachrichtentyps, beispielsweise 
+\texttt{geometry\_msgs/PoseStamped} für Positionsdaten oder \texttt{sensor\_msgs/Image} für Kamerabilder. \cite{ROS2Nodes,ROS2Topics}
+
+
+\subsubsection{Bag-Dateien}
+\gls{ros2} ermöglicht die Aufzeichnung von Topic-Daten in sogenannten \textit{Bag-Dateien} mittels des Werkzeugs \texttt{rosbag2}.
+Aufgezeichnete Bags können anschließend offline wiedergegeben werden, sodass das Systemverhalten ohne erneuten Flug reproduzierbar analysiert werden kann. \cite{ROS2Rosbag2}
+
+%Hier nochmal überlegen ob das bleiben sollte. außerdem brauch ich nochmal bessere quellen!!!
+\subsubsection{TF2 -- Koordinatentransformationen}
+Das \texttt{tf2}-Paket verwaltet in \gls{ros2} einen baumförmigen Graphen von Koordinatentransformationen zwischen den im System definierten Referenzrahmen.\cite{ROS2Humble}
+Jede Transformation beschreibt die räumliche Beziehung zwischen zwei Frames als homogene Transformation bestehend aus Translation und Rotation.
+Der TF-Baum wird kontinuierlich über die Topics \texttt{/tf} und \texttt{/tf\_static} aktualisiert, wobei statische Transformationen -- beispielsweise die feste Lage einer Kamera relativ zum \gls{uav}-Körper -- über \texttt{/tf\_static} einmalig veröffentlicht werden.
+Jeder Node kann zu jedem Zeitpunkt die Transformation zwischen zwei beliebigen Frames abfragen, sofern ein zusammenhängender Pfad im TF-Baum existiert.
+
+
 
 
