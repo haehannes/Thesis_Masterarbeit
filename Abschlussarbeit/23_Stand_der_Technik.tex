@@ -230,98 +230,99 @@ teurer, schwerer und energieintensiver, was ihren Einsatz auf kleinen
 \glspl{uav} einschränkt.
 
 
-%Ab hier muss ich nochmal komplett drücer schauen!!!
+
 \section{Fiducial-Marker-Systeme}
-Im folgenden wird ein Überblick über die am weitest verbreitetsten FiducialMarker-Systeme gegeben werden. 
-Ficucial-Systeme wurden entwickelt um in wenig strukturierten Umgebungen einen \gls{vslam} bzw. eine visuelle Lokalisierung gewährleisten zu können. 
+Im Folgenden wird ein Überblick über die am weitesten verbreiteten Fiducial-Marker-Systeme gegeben.
+Fiducial-Systeme wurden entwickelt, um in wenig strukturierten Umgebungen eine visuelle Lokalisierung gewährleisten zu können.
 Fiducial-Marker stellen ein gut unterscheidbares Muster mit starken visuellen Eigenschaften dar.
-Sie verfügen in den meisten Fällen auch über eine spezifische Kodierung, als Sicherheitsmechanisums gegen Fehlererkennung. \cite{Kalaitzakis2021}
-Im folgenden werden vier verbreitete Open-Soruce Pakete vorgesetllt. 
+Sie verfügen in den meisten Fällen auch über eine spezifische Kodierung 
+als Sicherheitsmechanismus gegen Fehlerkennung.\cite{Kalaitzakis2021}
+Im Folgenden werden die in Abbildung \ref{fig:Uebersicht_Marker} dargestellten gängigen Fiducial-Marker vorgestellt.
 
-
-\subsubsection{AprilTag}
-AprilTag wurde 2011 von Edwin Olson an der University of Michigan 
-vorgestellt.\cite{Olson2011}
-Ein AprilTag besteht aus einem schwarzen quadratischen Rand, der ein 
-binäres Raster aus schwarzen und weißen Zellen umschließt, welches eine 
-eindeutige ID kodiert.\cite{Olson2011}
-Das System ermöglicht die vollständige Bestimmung der sechs Freiheitsgrade 
-der Pose aus einem einzelnen Bild und ist robust gegenüber Verdeckung, 
-Verzerrung und Linsenverzeichnung.\cite{Olson2011}
-Marker sind in verschiedene Familien unterteilt; in dieser Arbeit wird 
-die Familie \texttt{tag36h11} verwendet, bei der die Daten in einem 
-6$\times$6-Raster (36 Bit) kodiert werden.\cite{Olson2011}
-Mit AprilTag~2 wurde 2016 eine vollständig überarbeitete Detektion 
-vorgestellt, die höhere Detektionsraten bei geringerem Rechenaufwand 
-erreicht.\cite{Wang2016}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1.0\textwidth]{Bilder/Uebersicht_Marker.png}
+    \caption{Übersicht gängiger Fiducial-Marker: a) ARTag; b) AprilTag; c) Aruco d) Stag \cite{STag_Loipfuehrer2022,Artag_Bild}}
+    \label{fig:Uebersicht_Marker}
+\end{figure}
+\FloatBarrier
 
 \subsubsection{ARTag}
-ARTag wurde 2005 von Mark Fiala als Weiterentwicklung von ARToolKit 
-vorgestellt.\cite{Fiala2005}
-Es verwendet digitale Kodierungsverfahren, wodurch ARTag im Vergleich zu 
-früheren Systemen niedrigere und quantifizierbare Fehlerraten aufweist 
-und keinen Graustufen-Schwellwert benötigt.\cite{Fiala2005}
-AprilTag stellt eine schnellere und robustere Neuimplementierung des 
-ARTag-Ansatzes dar.\cite{Olson2011}
+ARTag wurde 2005 von Mark Fiala als Weiterentwicklung von ARToolKit vorgestellt.\cite{Fiala1467495}
+Es verwendet digitale Kodierungsverfahren, wodurch ARTag im Vergleich zu früheren Systemen niedrigere und quantifizierbare Fehlerraten aufweist.\cite{Fiala1467495}
+Ein ARTag besteht aus einem quadratischen Rand, der ein binäres Raster aus schwarzen und weißen Zellen umschließt, welches eine eindeutige ID kodiert.\cite{Fiala1467495}
+Es lassen sich 2048 unterschiedliche IDs erzeugen, wobei 10 Bits für die Marker-ID und 26 Bits zur Redundanz genutzt werden.\cite{Fiala1467495}
+ARTag verwendet keine einheitliche minimale Hammingdistanz zwischen den Codewörtern.\cite{Fiala1467495}
+Aus einer Aufnahme des Markers lässt sich eine 6D-Pose bestimmen.\cite{Fiala1467495}
+Artag ist das einzige System, welches nicht vollständig Open-Source ist.
+
+\subsubsection{AprilTag}
+AprilTag wurde 2011 von Edwin Olson an der University of Michigan vorgestellt.\cite{Olson5979561}
+AprilTag stellt eine schnellere und robustere Neuimplementierung des ARTag-Ansatzes dar.\cite{Olson5979561}
+Ein AprilTag besteht aus einem schwarzen quadratischen Rand, der ein 
+binäres Raster aus schwarzen und weißen Zellen umschließt, welches eine eindeutige ID kodiert.\cite{Olson5979561}
+Das System ermöglicht die vollständige Bestimmung der sechs Freiheitsgrade der Pose aus einem einzelnen Bild und ist robust gegenüber Verdeckung, 
+Verzerrung und Linsenverzeichnung.\cite{Olson5979561}
+Marker sind in verschiedene Familien unterteilt; das Namensschema \texttt{TagNNhM} beschreibt dabei \texttt{NN} als die Gesamtzahl der 
+Datenbits und \texttt{hM} als die minimale Hammingdistanz.\cite{Olson5979561}
+Die Familie \texttt{tag36h11} verwendet ein 6$\times$6-Raster mit einer minimalen Hammingdistanz von 11, die Familie \texttt{tag16h5} ein 
+4$\times$4-Raster mit einer minimalen Hammingdistanz von 5.\cite{Olson5979561}
+\texttt{tag16h5} lässt sich aufgrund der größeren Pixelgröße prinzipiell aus größerer Entfernung erkennen, jedoch mit höherer Unsicherheit.\cite{Olson5979561}
+In dieser Arbeit wird die Familie \texttt{tag36h11} verwendet.\cite{Olson5979561}
+Mit AprilTag~2 wurde 2016 eine vollständig überarbeitete Detektion vorgestellt, die höhere Detektionsraten bei geringerem Rechenaufwand erreicht.\cite{Wang7759617}
+
 
 \subsubsection{ArUco}
-ArUco wurde 2014 von Garrido-Jurado et al. vorgestellt.\cite{GarridoJurado2014}
-Ein ArUco-Marker ist ein quadratischer Marker, der aus einem breiten 
-schwarzen Rand und einer inneren binären Matrix besteht, welche die 
-Identifikationsnummer des Markers bestimmt.\cite{GarridoJurado2014}
-Das System bietet einen Algorithmus zur automatischen Generierung 
-konfigurierbarer Marker-Wörterbücher unterschiedlicher Größe und 
-Anzahl sowie eine Methode zur zuverlässigen Detektion unter 
-Verdeckung.\cite{GarridoJurado2014}
-ArUco ist in die Bibliothek OpenCV integriert.\cite{GarridoJurado2014}
+ArUco wurde 2014 von Garrido-Jurado et al. vorgestellt.\cite{GARRIDOJURADO20142280}
+Ein ArUco-Marker ist ähnlich wie ARTag und AprilTag aufgebaut.
+Er ist ebenfalls quadratisch und besitzt einen breiten Rand, in dessen Innerem sich eine Binärmatrix befindet, welche die Identifikationsnummer 
+des Markers bestimmt.\cite{GARRIDOJURADO20142280}
+Das System bietet einen Algorithmus zur automatischen Generierung konfigurierbarer Marker.\cite{GARRIDOJURADO20142280}
+ArUco-Marker sind ebenfalls in Familien eingeteilt; das Namensschema \texttt{DICT\_NxN\_M} beschreibt dabei \texttt{NxN} als die Rastergröße 
+der Datenbits und \texttt{M} als die maximale Anzahl der Marker im Dictionary.\cite{GARRIDOJURADO20142280}
+Je kleiner das Dictionary, desto höher die Hammingdistanz zwischen den Markern.\cite{GARRIDOJURADO20142280}
+ArUco ist in die Bibliothek OpenCV integriert.\cite{GARRIDOJURADO20142280}
+
 
 \subsubsection{STag}
 STag wurde 2019 von Benligiray et al. vorgestellt.\cite{Benligiray2019}
-Im Gegensatz zu den rein quadratischen Systemen verwendet STag eine 
-kreisförmige Randstruktur, die eine stabilere Posenschätzung 
+Im Gegensatz zu den rein quadratischen Systemen verwendet STag eine kreisförmige Randstruktur, die eine stabilere Posenschätzung 
 ermöglicht.\cite{Benligiray2019}
-Im experimentellen Vergleich von Kalaitzakis et al. weist STag eine 
-hohe Genauigkeit bei der Posenschätzung auf.\cite{Kalaitzakis2021}
+Auch STags lassen sich in Familien unterteilen.
+So gibt es beispielsweise STag HD11, HD13 oder HD23, wobei HD für Hammingdistanz steht.\cite{Benligiray2019}
+Je höher die Hammingdistanz, desto kleiner ist die Anzahl an möglichen Tags.\cite{Benligiray2019}
+
 
 
 
 \subsubsection{Detektion}
+Alle vorgestellten Fiducial-Marker-Systeme stellen Bibliotheken zur Detektion bereit.
 Die Detektion eines Fiducial-Markers gliedert sich in zwei Hauptkomponenten: 
 den eigentlichen Detektor, der die Position möglicher Marker im Bild schätzt, 
-und das Kodierungssystem, das die ausgelesene ID auf Gültigkeit 
-prüft.\cite{Olson2011}
+und das Kodierungssystem, das die ausgelesene ID auf Gültigkeit prüft.\cite{Olson5979561}
 Im Folgenden wird der Ablauf am Beispiel von AprilTag beschrieben.
 
-Der Detektor sucht im Bild nach viereckigen Regionen (\enquote{Quads}), 
-deren Inneres dunkler ist als ihr Äußeres.\cite{Olson2011}
-Zunächst werden Richtung und Betrag des Gradienten an jedem Pixel berechnet.
-Pixel mit ähnlicher Gradientenrichtung und -stärke werden anschließend mit 
-einem graphenbasierten Verfahren zu Komponenten zusammengefasst, an die 
-mittels gewichteter kleinster Quadrate jeweils ein Liniensegment angepasst 
-wird.\cite{Olson2011}
-Da die Detektion auf dem Bildgradienten beruht, ist sie robust gegenüber 
-Beleuchtungsänderungen.\cite{Olson2011}
+Der Detektor sucht im Bild nach viereckigen, dunklen Flächen mit hellem 
+Rand --- den sogenannten Quads.\cite{Olson5979561}
+Dazu analysiert er, wo im Bild starke Helligkeitsübergänge auftreten, und 
+fasst Bereiche mit ähnlichen Übergängen zu geraden Linien zusammen.\cite{Olson5979561}
+Da das Verfahren auf diesen Helligkeitsunterschieden basiert, funktioniert 
+es auch bei wechselnden Lichtverhältnissen zuverlässig.\cite{Olson5979561}
 
-Aus den gerichteten Liniensegmenten werden über eine rekursive Tiefensuche 
-mit Tiefe vier die Quads gebildet, wobei die Robustheit gegenüber 
-Verdeckungen und Segmentierungsfehlern über einen Schwellwert für den 
-zulässigen Abstand zwischen den Liniensegmenten gesteuert wird.\cite{Olson2011}
-Die Ecken eines Quads ergeben sich aus den Schnittpunkten der zugehörigen 
-Linien und sind dadurch auf einen Bruchteil eines Pixels genau 
-bestimmbar.\cite{Olson2011}
+Aus je vier passenden Linien wird ein Quad gebildet; kleine Lücken oder 
+Verdeckungen werden dabei toleriert.\cite{Olson5979561}
+Die genauen Eckpunkte des Quads ergeben sich aus den Schnittpunkten der 
+Linien.\cite{Olson5979561}
 
-Für jedes Quad wird anschließend die 3$\times$3-Homographie-Matrix 
-berechnet, die Punkte aus dem Markerkoordinatensystem in das 
-Bildkoordinatensystem projiziert; sie wird über den Direct-Linear-Transform-Algorithmus 
-bestimmt.\cite{Olson2011}
-Aus der Homographie lassen sich zusammen mit der Brennweite der Kamera und 
-der bekannten physischen Markergröße die Position und Orientierung des 
-Markers ableiten.\cite{Olson2011}
+Für jeden gefundenen Quad wird anschließend berechnet, wie das Bild des 
+Markers entzerrt werden muss, um ihn frontal und unverzerrt 
+darzustellen.\cite{Olson5979561}
+Aus dieser Entzerrung lassen sich zusammen mit der Brennweite der Kamera 
+und der bekannten physischen Markergröße Position und Orientierung des 
+Markers im Raum ableiten.\cite{Olson5979561}
+Abschließend werden die Datenbits des Markers ausgelesen und gegen das 
+bekannte Dictionary geprüft~-- erst dieser Schritt bestätigt, dass es sich 
+tatsächlich um einen gültigen Marker handelt, und reduziert Falschdetektionen.\cite{Olson5979561}
 
-Zuletzt werden die Bits des Datenfeldes ausgelesen, indem ihre 
-markerrelativen Koordinaten über die Homographie in Bildkoordinaten 
-überführt und die resultierenden Pixel mit einem ortsabhängigen Schwellwert 
-binarisiert werden.\cite{Olson2011}
-Der ausgelesene Code wird abschließend vom Kodierungssystem auf Gültigkeit 
-geprüft, wodurch die hohe Falsch-Positiv-Rate des Detektors auf ein 
-nutzbares Maß reduziert wird.\cite{Olson2011}
+
+

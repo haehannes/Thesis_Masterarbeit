@@ -36,8 +36,8 @@
 \contentsline {subsubsection}{\numberline {3.1.3.2}Faktorgraph}{16}{subsubsection.3.1.3.2}%
 \contentsline {subsubsection}{\numberline {3.1.3.3}SLAM-Varianten}{17}{subsubsection.3.1.3.3}%
 \contentsline {section}{\numberline {3.2}Fiducial-Marker-Systeme}{18}{section.3.2}%
-\contentsline {subsubsection}{\numberline {3.2.0.1}AprilTag}{18}{subsubsection.3.2.0.1}%
-\contentsline {subsubsection}{\numberline {3.2.0.2}ARTag}{18}{subsubsection.3.2.0.2}%
+\contentsline {subsubsection}{\numberline {3.2.0.1}ARTag}{18}{subsubsection.3.2.0.1}%
+\contentsline {subsubsection}{\numberline {3.2.0.2}AprilTag}{19}{subsubsection.3.2.0.2}%
 \contentsline {subsubsection}{\numberline {3.2.0.3}ArUco}{19}{subsubsection.3.2.0.3}%
 \contentsline {subsubsection}{\numberline {3.2.0.4}STag}{19}{subsubsection.3.2.0.4}%
 \contentsline {subsubsection}{\numberline {3.2.0.5}Detektion}{19}{subsubsection.3.2.0.5}%

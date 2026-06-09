@@ -1472,13 +1472,263 @@
       \verb 10.1007/s10846-020-01307-9
       \endverb
     \endentry
+    \entry{STag_Loipfuehrer2022}{thesis}{}
+      \name{author}{1}{}{%
+        {{hash=c6125254a79af02a8918da63fa8ea72e}{%
+           family={Loipführer},
+           familyi={L\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {Technische Universität München}%
+      }
+      \strng{namehash}{c6125254a79af02a8918da63fa8ea72e}
+      \strng{fullhash}{c6125254a79af02a8918da63fa8ea72e}
+      \strng{bibnamehash}{c6125254a79af02a8918da63fa8ea72e}
+      \strng{authorbibnamehash}{c6125254a79af02a8918da63fa8ea72e}
+      \strng{authornamehash}{c6125254a79af02a8918da63fa8ea72e}
+      \strng{authorfullhash}{c6125254a79af02a8918da63fa8ea72e}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{5}
+      \field{note}{Supervisor: Prof. Dr. Daniel Cremers, Advisor: Nikolaus Demmel}
+      \field{title}{Efficient and Robust Circle Grids for Fiducial Detection}
+      \field{type}{Master's Thesis}
+      \field{year}{2022}
+      \verb{urlraw}
+      \verb https://cvg.cit.tum.de/_media/members/demmeln/loipfuehrer2022ma.pdf
+      \endverb
+      \verb{url}
+      \verb https://cvg.cit.tum.de/_media/members/demmeln/loipfuehrer2022ma.pdf
+      \endverb
+    \endentry
+    \entry{Artag_Bild}{article}{}
+      \name{author}{3}{}{%
+        {{hash=5c11b9d87d6ae5ac9f06116e02a24a12}{%
+           family={Siri},
+           familyi={S\bibinitperiod},
+           given={Fidelia},
+           giveni={F\bibinitperiod}}}%
+        {{hash=f47cc1ff1ed8ea8025326fb247ba534f}{%
+           family={Song},
+           familyi={S\bibinitperiod},
+           given={Jie},
+           giveni={J\bibinitperiod}}}%
+        {{hash=fabf01270f1eff72a015f136ceb6cf2b}{%
+           family={Svinin},
+           familyi={S\bibinitperiod},
+           given={Mikhail},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{862e73e9fd8d06467d53ea2c9dad8c02}
+      \strng{fullhash}{862e73e9fd8d06467d53ea2c9dad8c02}
+      \strng{bibnamehash}{862e73e9fd8d06467d53ea2c9dad8c02}
+      \strng{authorbibnamehash}{862e73e9fd8d06467d53ea2c9dad8c02}
+      \strng{authornamehash}{862e73e9fd8d06467d53ea2c9dad8c02}
+      \strng{authorfullhash}{862e73e9fd8d06467d53ea2c9dad8c02}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{The Journal of Engineering}
+      \field{month}{12}
+      \field{title}{Experimental verification of coverage control of multi‐agent systems with obstacle avoidance}
+      \field{volume}{2024}
+      \field{year}{2024}
+      \verb{doi}
+      \verb 10.1049/tje2.70045
+      \endverb
+    \endentry
+    \entry{Fiala1467495}{inproceedings}{}
+      \name{author}{1}{}{%
+        {{hash=094486b9bf66b2d238e3937cc49fca84}{%
+           family={Fiala},
+           familyi={F\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{094486b9bf66b2d238e3937cc49fca84}
+      \strng{fullhash}{094486b9bf66b2d238e3937cc49fca84}
+      \strng{bibnamehash}{094486b9bf66b2d238e3937cc49fca84}
+      \strng{authorbibnamehash}{094486b9bf66b2d238e3937cc49fca84}
+      \strng{authornamehash}{094486b9bf66b2d238e3937cc49fca84}
+      \strng{authorfullhash}{094486b9bf66b2d238e3937cc49fca84}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2005 IEEE Computer Society Conference on Computer Vision and Pattern Recognition (CVPR 05)}
+      \field{title}{ARTag, a fiducial marker system using digital techniques}
+      \field{volume}{2}
+      \field{year}{2005}
+      \field{pages}{590\bibrangedash 596}
+      \range{pages}{7}
+      \verb{doi}
+      \verb 10.1109/CVPR.2005.74
+      \endverb
+      \keyw{Robustness;Forward error correction;Digital cameras;Detection algorithms;Augmented reality;Robotics and automation;Navigation;Robot vision systems;Codes;Joining processes}
+    \endentry
+    \entry{Olson5979561}{inproceedings}{}
+      \name{author}{1}{}{%
+        {{hash=8f743eebb2f64f75592e54ba06f94320}{%
+           family={Olson},
+           familyi={O\bibinitperiod},
+           given={Edwin},
+           giveni={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{8f743eebb2f64f75592e54ba06f94320}
+      \strng{fullhash}{8f743eebb2f64f75592e54ba06f94320}
+      \strng{bibnamehash}{8f743eebb2f64f75592e54ba06f94320}
+      \strng{authorbibnamehash}{8f743eebb2f64f75592e54ba06f94320}
+      \strng{authornamehash}{8f743eebb2f64f75592e54ba06f94320}
+      \strng{authorfullhash}{8f743eebb2f64f75592e54ba06f94320}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2011 IEEE International Conference on Robotics and Automation}
+      \field{title}{AprilTag: A robust and flexible visual fiducial system}
+      \field{year}{2011}
+      \field{pages}{3400\bibrangedash 3407}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1109/ICRA.2011.5979561
+      \endverb
+      \keyw{Encoding;Visualization;Robustness;Payloads;Detectors;Image segmentation;Robots}
+    \endentry
+    \entry{Wang7759617}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=91b0ceddefe1df2be88f9c70c4507e4b}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={John},
+           giveni={J\bibinitperiod}}}%
+        {{hash=8f743eebb2f64f75592e54ba06f94320}{%
+           family={Olson},
+           familyi={O\bibinitperiod},
+           given={Edwin},
+           giveni={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{8f9eb108db0b2c60537d5a530b64d28a}
+      \strng{fullhash}{8f9eb108db0b2c60537d5a530b64d28a}
+      \strng{bibnamehash}{8f9eb108db0b2c60537d5a530b64d28a}
+      \strng{authorbibnamehash}{8f9eb108db0b2c60537d5a530b64d28a}
+      \strng{authornamehash}{8f9eb108db0b2c60537d5a530b64d28a}
+      \strng{authorfullhash}{8f9eb108db0b2c60537d5a530b64d28a}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2016 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)}
+      \field{title}{AprilTag 2: Efficient and robust fiducial detection}
+      \field{year}{2016}
+      \field{pages}{4193\bibrangedash 4198}
+      \range{pages}{6}
+      \verb{doi}
+      \verb 10.1109/IROS.2016.7759617
+      \endverb
+      \keyw{Detectors;Image edge detection;Image segmentation;Robustness;Robots;Decoding;Visualization}
+    \endentry
+    \entry{GARRIDOJURADO20142280}{article}{}
+      \name{author}{4}{}{%
+        {{hash=44ec790ad0d8d1885f7025ca564916b7}{%
+           family={Garrido-Jurado},
+           familyi={G\bibinithyphendelim J\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+        {{hash=01ab94d70063036d638ecc1309b82734}{%
+           family={Muñoz-Salinas},
+           familyi={M\bibinithyphendelim S\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod}}}%
+        {{hash=480809eea474a89e7a2db45cb3ef5073}{%
+           family={Madrid-Cuevas},
+           familyi={M\bibinithyphendelim C\bibinitperiod},
+           given={F.J.},
+           giveni={F\bibinitperiod}}}%
+        {{hash=3031e35f43e5fd0fa5002c390399b6ba}{%
+           family={Marín-Jiménez},
+           familyi={M\bibinithyphendelim J\bibinitperiod},
+           given={M.J.},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{8bb22dfdadf1d40228ea7f021e8b0711}
+      \strng{fullhash}{6b32e1bf9c7e7852ddf0c09f63d04590}
+      \strng{bibnamehash}{6b32e1bf9c7e7852ddf0c09f63d04590}
+      \strng{authorbibnamehash}{6b32e1bf9c7e7852ddf0c09f63d04590}
+      \strng{authornamehash}{8bb22dfdadf1d40228ea7f021e8b0711}
+      \strng{authorfullhash}{6b32e1bf9c7e7852ddf0c09f63d04590}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{This paper presents a fiducial marker system specially appropriated for camera pose estimation in applications such as augmented reality and robot localization. Three main contributions are presented. First, we propose an algorithm for generating configurable marker dictionaries (in size and number of bits) following a criterion to maximize the inter-marker distance and the number of bit transitions. In the process, we derive the maximum theoretical inter-marker distance that dictionaries of square binary markers can have. Second, a method for automatically detecting the markers and correcting possible errors is proposed. Third, a solution to the occlusion problem in augmented reality applications is shown. To that aim, multiple markers are combined with an occlusion mask calculated by color segmentation. The experiments conducted show that our proposal obtains dictionaries with higher inter-marker distances and lower false negative rates than state-of-the-art systems, and provides an effective solution to the occlusion problem.}
+      \field{issn}{0031-3203}
+      \field{journaltitle}{Pattern Recognition}
+      \field{number}{6}
+      \field{title}{Automatic generation and detection of highly reliable fiducial markers under occlusion}
+      \field{volume}{47}
+      \field{year}{2014}
+      \field{pages}{2280\bibrangedash 2292}
+      \range{pages}{13}
+      \verb{doi}
+      \verb https://doi.org/10.1016/j.patcog.2014.01.005
+      \endverb
+      \verb{urlraw}
+      \verb https://www.sciencedirect.com/science/article/pii/S0031320314000235
+      \endverb
+      \verb{url}
+      \verb https://www.sciencedirect.com/science/article/pii/S0031320314000235
+      \endverb
+      \keyw{Augmented reality,Fiducial marker,Computer vision}
+    \endentry
+    \entry{Benligiray2019}{article}{}
+      \name{author}{3}{}{%
+        {{hash=b47ea21300af9b69a2bd4f4ac33df0ac}{%
+           family={Benligiray},
+           familyi={B\bibinitperiod},
+           given={Burak},
+           giveni={B\bibinitperiod}}}%
+        {{hash=2bc11b5b9c6dc293ec0433c7b981900c}{%
+           family={Topal},
+           familyi={T\bibinitperiod},
+           given={Cihan},
+           giveni={C\bibinitperiod}}}%
+        {{hash=2aa52d1e3c29f91a6abdeeea4135bff2}{%
+           family={Akinlar},
+           familyi={A\bibinitperiod},
+           given={Cuneyt},
+           giveni={C\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier BV}%
+      }
+      \strng{namehash}{b3ef81b85b0ccccc4b9c20763eab8917}
+      \strng{fullhash}{b3ef81b85b0ccccc4b9c20763eab8917}
+      \strng{bibnamehash}{b3ef81b85b0ccccc4b9c20763eab8917}
+      \strng{authorbibnamehash}{b3ef81b85b0ccccc4b9c20763eab8917}
+      \strng{authornamehash}{b3ef81b85b0ccccc4b9c20763eab8917}
+      \strng{authorfullhash}{b3ef81b85b0ccccc4b9c20763eab8917}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0262-8856}
+      \field{journaltitle}{Image and Vision Computing}
+      \field{title}{STag: A stable fiducial marker system}
+      \field{volume}{89}
+      \field{year}{2019}
+      \field{pages}{158\bibrangedash 169}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.1016/j.imavis.2019.06.007
+      \endverb
+    \endentry
   \enddatalist
-  \missing{Benligiray2019}
-  \missing{Fiala2005}
-  \missing{GarridoJurado2014}
-  \missing{Olson2011}
   \missing{ROS2Humble}
-  \missing{Wang2016}
   \missing{vslam_core_modules_2024}
 \endrefsection
 \endinput

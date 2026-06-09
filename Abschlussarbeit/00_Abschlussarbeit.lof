@@ -10,6 +10,7 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Veranschaulichung des Loop-Closure-Effekts: (a) Reale Trajektorie ohne akkumulierten Fehler. (b) Geschätzte Trajektorie mit akkumuliertem Drift ohne Loop Closure. (c) Korrigierte Trajektorie nach Anwendung von Loop Closure mit reduziertem akkumuliertem Drift. vgl. \blx@tocontentsinit {0}\cite {gong_loop_closure}}}{16}{figure.caption.10}%
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Vereinfachter Faktorgraph eines \gls {slam}-Problems, vgl.~\blx@tocontentsinit {0}\cite {Lai2022}, \blx@tocontentsinit {0}\cite {Dellaert2017}, \blx@tocontentsinit {0}\cite {Cai2024}}}{17}{figure.caption.11}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Übersicht gängiger Fiducial-Marker: a) ARTag; b) AprilTag; c) Aruco d) Stag \blx@tocontentsinit {0}\cite {STag_Loipfuehrer2022,Artag_Bild}}}{18}{figure.caption.12}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
