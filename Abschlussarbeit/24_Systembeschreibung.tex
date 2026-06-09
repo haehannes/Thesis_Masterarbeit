@@ -7,16 +7,177 @@ Außerdem wird die Systempipeline erläutert, die zur Entwicklung der Echtzeiter
 Es werden die verschiedenen Konzepte vorgestellt, die zur Auswahl eines Echtzeitmodells geführt haben. 
 
 
+\section{Anforderungen an das Gesamtsystem}
+\label{sec:anforderungen}
+In diesem Teilkapitel werden die Anforderungen an das Gesamtsystem erläutert.
+Das Ziel der Arbeit ist es, ein \gls{uav} in einer GPS-freien 
+Innenraumumgebung zu lokalisieren und diese Positionsschätzung als 
+externe Referenz in die Flugsteuerung einzuspeisen.
+Das System soll dabei so ausgelegt sein, dass das \gls{uav} ohne 
+Rückgriff auf ein \gls{gps} eine stabile Pose im Raum bestimmen kann.
+Anstelle einer satellitengestützten Positionsbestimmung wird die Pose 
+des \gls{uav} aus einer externen, kamerabasierten Lokalisierung abgeleitet.
 
-\section{Aufbau der Testumgebung}
+DZur Lokalisierung soll eine Karte der Versuchsumgebung genutzt werden, 
+anhand derer die Position des \gls{uav} im Weltkoordinatensystem 
+bestimmt werden kann.
+Die Karte soll erweiterbar sein, sodass der nutzbare Flugbereich bei 
+Bedarf räumlich vergrößert werden kann.
+
+Das System soll kostengünstig aufgebaut sein.
+Aus diesem Grund sollen anstelle spezialisierter Sensorik handelsübliche 
+Kameras zur Lokalisierung eingesetzt werden.
+Die verwendete Software soll quelloffen und frei verfügbar sein.
+
+Als Softwaregrundlage soll \gls{ros2} eingesetzt werden, über das die 
+einzelnen Verarbeitungsschritte miteinander verbunden werden.
+Die Flugsteuerung soll durch \gls{px4} übernommen werden, der die extern 
+berechnete Positionsschätzung verarbeitet.
+
+Schließlich soll das System sicher betrieben werden können.
+Da es sich um ein fliegendes System handelt, muss sichergestellt sein, 
+dass das \gls{uav} bei einem Ausfall oder einer fehlerhaften 
+Positionsschätzung in einen sicheren Zustand übergehen kann.
+
+Die Hardwarekomponenten, wie das \gls{uav} Holybro X650, der 
+Flugcontroller Pixhawk 6X und der Companion-Computer Jetson Orin Nano, 
+sind zur Verfügung gestellt und werden nicht im Rahmen dieser Arbeit 
+entwickelt.
+
+Die Ansteuerung der Kameras, die Lokalisierung des \gls{uav}, die 
+Kartierung der Versuchsumgebung sowie die Anbindung der 
+Positionsschätzung an die Flugsteuerung sind jedoch Teil der Arbeit 
+und werden in dieser entwickelt.
+
+%\section{Hardwareaufbau}
+%Kurze Einleitung
+%Die Eckdaten von dem Jetson bzw. vom Re-Computer j3011.
+%Das Betriebssystem mit dem er ausgeliefert wurde, das neu geflashte Betriebssystem. 
+%Die version des PX6x bzw. mit welcher Version er betrieben wird.
+%Die zur verfügung stehenden Kameras 
+%- Ali-Kamera: (720P) https://de.aliexpress.com/item/1005005961893603.html?spm=a2g0o.detail.pcDetailTopMoreOtherSeller.7.731dFrM6FrM6IG&gps-id=pcDetailTopMoreOtherSeller&scm=1007.40050.354490.0&scm_id=1007.40050.354490.0&scm-url=1007.40050.354490.0&pvid=f54bce22-cd48-416b-8f2a-b098ab3a03b7&_t=gps-id%3ApcDetailTopMoreOtherSeller%2Cscm-url%3A1007.40050.354490.0%2Cpvid%3Af54bce22-cd48-416b-8f2a-b098ab3a03b7%2Ctpp_buckets%3A668%232846%238115%232000&pdp_ext_f=%7B%22order%22%3A%22272%22%2C%22spu_best_type%22%3A%22price%22%2C%22eval%22%3A%221%22%2C%22sceneId%22%3A%2230050%22%2C%22fromPage%22%3A%22recommend%22%7D&pdp_npi=6%40dis%21EUR%2126.53%2113.69%21%21%2129.90%2115.43%21%40210398e917810232268428109e1015%2112000035061993584%21rec%21DE%21%21ABXZ%211%210%21n_tag%3A-29910%3Bd%3Acb7ed6fc%3Bm03_new_user%3A-29895%3BpisId%3A5000000204872307&utparam-url=scene%3ApcDetailTopMoreOtherSeller%7Cquery_from%3A%7Cx_object_id%3A1005005961893603%7C_p_origin_prod%3A
+%- Logitech C920
+%- Logitech C922
+%- Fehrnbedienung + Transmitter (R9DS) / AT9S Pro https://www.amazon.de/Radiolink-Fernsteuerung-Empf%C3%A4nger-R9DS-Fernbedienung-Segelfugzeug/dp/B07DP118CK?th=1
+%- Powermodule https://holybro.com/products/pm02-v3-12s-power-module
+%- Strom verteilung: https://www.premium-modellbau.de/holybro-mini-pdb-mit-xt30-xt60-von-x500-v2-18069a
+%- Telemetry set: https://www.premium-modellbau.de/holybro-fpv-telemetrie-set-433mhz-v3-fuer-pixhawk
+%- GPS-Module: https://holybro.com/collections/gps/products/m9n-gps
+%- jetson wlan:https://www.reichelt.com/de/en/shop/product/wi-fi_adapter_m_2_2230_card_wi-fi_6-267572?utm_source=chatgpt.com
+%- jetson: https://www.seeedstudio.com/reComputer-Mini-J3011-p-6356.html
+%- Frame: https://holybro.com/collections/x650-kits/products/x650-kits?variant=43994378240189
+%
+%Am ende möchte ich noch eine tabellarische Aufstellung der Hardware-Komponenen mit Komponente, bezeichnung, Gewicht, Betriebssysem. 
+
+\section{Hardwareaufbau}
+\label{sec:hardwareaufbau}
+Im Folgenden werden die einzelnen Hardwarekomponenten des Gesamtsystems sowie deren elektrischer Anschluss beschrieben.
+Das System besteht aus der Flugplattform, dem Companion-Computer, der die 
+rechenintensive Bildverarbeitung übernimmt, und der Sensorik, die zur 
+Lokalisierung eingesetzt wird.
+
+\subsection*{Companion-Computer}
+Als Companion-Computer wird ein reComputer Mini J3011 von Seeed Studio eingesetzt.
+Dieser ist mit einem NVIDIA Jetson Orin Nano 8\,GB Modul ausgestattet 
+und erreicht eine KI-Rechenleistung von bis zu 40\,\gls{tops}.\cite{reComputerMiniJ3011}
+Der Companion-Computer übernimmt die Ansteuerung der Kameras, die 
+Bildverarbeitung sowie die Berechnung der Positionsschätzung.
+
+Das Modul wird ab Werk mit NVIDIA JetPack ausgeliefert, das auf einer 
+Ubuntu-Distribution basiert.
+Für den Einsatz in dieser Arbeit wurde das System mit JetPack~6.2.1 
+neu geflasht, das auf Ubuntu~22.04.5 LTS und L4T~R36.4.3 basiert, um die 
+benötigte ROS2- und Bildverarbeitungssoftware betreiben zu können.
+
+
+\subsection*{Flugcontroller}
+Die Flugsteuerung übernimmt der Flugcontroller Pixhawk 6X (FMU-V6X), auf 
+dem der Autopilot \gls{px4} ausgeführt wird.
+In dieser Arbeit wird \gls{px4} in der Version~1.16.0 betrieben, die auf 
+dem Echtzeitbetriebssystem NuttX~v11.0.0 aufsetzt.
+
+\subsection*{Kamerasystem}
+Zur Lokalisierung stehen mehrere handelsübliche \gls{usb}-Kameras zur 
+Verfügung, aus denen je nach Aufbau ausgewählt werden kann:
+\begin{itemize}
+    \item eine \gls{usb}-Kamera mit 720p-Auflösung\cite{ali_camera},
+    \item eine Logitech C920,
+    \item eine Logitech C922.
+\end{itemize}
+Die Kameras werden über \gls{usb} an den Companion-Computer angeschlossen.
+
+\subsection*{Fernsteuerung}
+Zur manuellen Steuerung des \gls{uav} sowie als Sicherheitsoption dient 
+eine Radiolink AT9S~Pro Fernsteuerung mit zugehörigem 
+R9DS-Empfänger.
+Der Empfänger ist mit dem Flugcontroller verbunden und ermöglicht es, 
+jederzeit manuell in den Flug einzugreifen.
+
+\subsection*{Elektrischer Anschluss}
+Die Energieversorgung des Systems erfolgt über einen LiPo-Akku 
+mit einer Kapazität von 5400\,mAh und einer 
+Nennspannung von 14,8\,V (4S).\cite{pichler_lipo}
+Der Akku ist über ein Holybro PM02 V3 Powermodul angebunden.\cite{holybro_pm02}
+Das Powermodul unterstützt Akkus von 2S bis 12S, stellt dem Flugcontroller 
+eine geregelte Spannung von 5,2\,V bereit und liefert zusätzlich Messwerte 
+zu Batteriespannung und Stromaufnahme.\cite{holybro_pm02}
+Die Verteilung der Motorströme erfolgt über ein Holybro 
+Mini-Power-Distribution-Board (PDB) mit XT30- und 
+XT60-Anschlüssen.\cite{holybro_pdb}
+
+
+Die Kommunikation zwischen dem Flugcontroller und der Bodenstation 
+erfolgt über ein Holybro Telemetrie-Set (433\,MHz).
+Als Bodenstation dient ein Laptop mit Ubuntu~24.04.4 LTS, auf dem die 
+Bodenstationssoftware QGroundControl betrieben wird.
+Zur satellitengestützten Positionsbestimmung ist ein Holybro M9N 
+GPS-Modul vorhanden; dieses wird in der vorliegenden Arbeit jedoch nicht 
+zur Lokalisierung verwendet.
+Die Verbindung zwischen dem Flugcontroller und dem Companion-Computer 
+wird über eine serielle UART-Schnittstelle hergestellt, über die die 
+extern berechnete Positionsschätzung an den \gls{px4} übermittelt wird.
+Für die drahtlose Anbindung des Companion-Computers ist dieser mit einer 
+M.2-WLAN-Karte (Wi-Fi~6) nachgerüstet.
+
+\subsection*{Flugplattform}
+Als Flugplattform dient der bereits in den Grundlagen vorgestellte 
+Holybro X650, der in der mit Motoren und Reglern vorkonfektionierten 
+ARF-Variante (Almost Ready to Fly) verwendet wird.
+Das Gesamtgewicht des Kits beträgt ohne Akku rund 2000\,g, die maximale 
+Nutzlast ohne Akku liegt bei etwa 4,3\,kg.\cite{holybro_x650}
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{llll}
+\toprule
+\textbf{Komponente} & \textbf{Bezeichnung} & \textbf{Gewicht} & \textbf{Betriebssystem} \\
+\midrule
+Flugplattform        & Holybro X650            & 2000\,g & NA \\
+Companion-Computer   & reComputer Mini J3011   & NA      & JetPack 6.2 (Ubuntu 22.04) \\
+Flugcontroller       & Pixhawk 6X              & NA      & PX4 v1.16.1 (NuttX) \\
+Kamera 1             & \gls{usb}-Kamera 720p   & NA      & NA \\
+Kamera 2             & Logitech C920           & NA      & NA \\
+Kamera 3             & Logitech C922           & NA      & NA \\
+Fernsteuerung        & Radiolink AT9S Pro / R9DS & NA    & NA \\
+Akku                 & Pichler RED POWER XT 5400 (4S) & NA & NA \\
+Powermodul           & Holybro PM02 V3         & 20\,g   & NA \\
+Stromverteilung      & Holybro Mini-PDB        & NA      & NA \\
+Telemetrie           & Holybro Telemetrie-Set 433\,MHz & NA & NA \\
+GPS-Modul            & Holybro M9N GPS         & NA      & NA \\
+WLAN-Karte           & M.2 Wi-Fi 6 Adapter     & NA      & NA \\
+Bodenstation         & Laptop / QGroundControl & NA      & Ubuntu 24.04.4 LTS \\
+\bottomrule
+\end{tabular}
+\caption{Übersicht der Hardwarekomponenten}
+\label{tab:hardwarekomponenten}
+\end{table}
+\FloatBarrier
+
 
 
 
 \section{Softwarearchitektur}
 
+\section{Systempipeline / Datenfluss}
 
-
-\section{Systempipeline}
-
-
-\subsection{elektrischer Aufbau der Holybro X650 mit Pixhawk 6X}
+\section{Versuchsumgebung}

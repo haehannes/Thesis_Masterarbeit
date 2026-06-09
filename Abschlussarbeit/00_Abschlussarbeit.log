@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.11.7)  9 JUN 2026 16:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.11.7)  9 JUN 2026 19:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1427,6 +1427,34 @@ Package biblatex Warning: The following entry could not be found
 
 Package biblatex Warning: The following entry could not be found
 (biblatex)                in the database:
+(biblatex)                ali_camera
+(biblatex)                Please verify the spelling and rerun
+(biblatex)                LaTeX afterwards.
+
+
+Package biblatex Warning: The following entry could not be found
+(biblatex)                in the database:
+(biblatex)                holybro_pdb
+(biblatex)                Please verify the spelling and rerun
+(biblatex)                LaTeX afterwards.
+
+
+Package biblatex Warning: The following entry could not be found
+(biblatex)                in the database:
+(biblatex)                holybro_pm02
+(biblatex)                Please verify the spelling and rerun
+(biblatex)                LaTeX afterwards.
+
+
+Package biblatex Warning: The following entry could not be found
+(biblatex)                in the database:
+(biblatex)                pichler_lipo
+(biblatex)                Please verify the spelling and rerun
+(biblatex)                LaTeX afterwards.
+
+
+Package biblatex Warning: The following entry could not be found
+(biblatex)                in the database:
 (biblatex)                vslam_core_modules_2024
 (biblatex)                Please verify the spelling and rerun
 (biblatex)                LaTeX afterwards.
@@ -1534,7 +1562,7 @@ Package cleveref Info: loaded `ngerman' language definitions on input line 6.
 \openout10 = `00_Abschlussarbeit.glsdefs'.
 
 ) (./00_Abschlussarbeit.acr
-Overfull \hbox (12.0pt too wide) in alignment at lines 25--109
+Overfull \hbox (12.0pt too wide) in alignment at lines 25--121
  [] [] 
  []
 
@@ -1556,181 +1584,13 @@ LaTeX Warning: Reference `sec:PX4 Autopilot' on page 2 undefined on input line 3
 [2
 
 ]
-<Bilder/Koordinatensysteme.png, id=224, 963.6pt x 542.025pt>
+<Bilder/Koordinatensysteme.png, id=228, 963.6pt x 542.025pt>
 File: Bilder/Koordinatensysteme.png Graphic file (type png)
 <use Bilder/Koordinatensysteme.png>
 Package pdftex.def Info: Bilder/Koordinatensysteme.png  used on input line 58.
 (pdftex.def)             Requested size: 455.24411pt x 256.07507pt.
  [3{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc} <./Bilder/Koordinatensysteme.png>]
-<Bilder/Roll_Yaw_Pitch.png, id=249, 963.6pt x 542.025pt>
+<Bilder/Roll_Yaw_Pitch.png, id=253, 963.6pt x 542.025pt>
 File: Bilder/Roll_Yaw_Pitch.png Graphic file (type png)
 <use Bilder/Roll_Yaw_Pitch.png>
-Package pdftex.def Info: Bilder/Roll_Yaw_Pitch.png  used on input line 101.
-(pdftex.def)             Requested size: 455.24411pt x 256.07507pt.
- [4 <./Bilder/Roll_Yaw_Pitch.png>] [5{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathex.enc}]
-LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10.95> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 220.
- [6] [7] [8]
-<Bilder/Basebord_und_cube.png, id=354, 560.64pt x 253.821pt>
-File: Bilder/Basebord_und_cube.png Graphic file (type png)
-<use Bilder/Basebord_und_cube.png>
-Package pdftex.def Info: Bilder/Basebord_und_cube.png  used on input line 359.
-(pdftex.def)             Requested size: 455.24411pt x 206.10898pt.
- [9]
-
-LaTeX Warning: Reference `sec:sensorsysteme' on page 10 undefined on input line 374.
-
-
-Package caption Warning: \label without proper reference on input line 383.
-See the caption package documentation for explanation.
-
-
-LaTeX Warning: Reference `tab:pixhawk_sensoren' on page 10 undefined on input line 379.
-
-
-LaTeX Warning: Reference `sec:systemaufbau' on page 10 undefined on input line 413.
-
-[10 <./Bilder/Basebord_und_cube.png>]
-
-LaTeX Warning: Reference `sec:systemaufbau' on page 11 undefined on input line 438.
-
-LaTeX Font Info:    Trying to load font information for T1+pcr on input line 474.
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
-File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-) [11]
-
-LaTeX Warning: Citation 'ROS2Humble' on page 12 undefined on input line 483.
-
-) (./23_Stand_der_Technik.tex [12{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}]
-chapter 3.
-
-LaTeX Warning: Reference `sec:Sensorsysteme' on page 13 undefined on input line 15.
-
-[13
-
-] [14]
-
-LaTeX Warning: Citation 'vslam_core_modules_2024' on page 15 undefined on input line 132.
-
-<Bilder/Loop_Closure.png, id=520, 438.219pt x 219.438pt>
-File: Bilder/Loop_Closure.png Graphic file (type png)
-<use Bilder/Loop_Closure.png>
-Package pdftex.def Info: Bilder/Loop_Closure.png  used on input line 141.
-(pdftex.def)             Requested size: 455.24411pt x 227.97908pt.
-[15] [16 <./Bilder/Loop_Closure.png>]
-<Bilder/Faktorgraph_vereinfacht.png, id=555, 813.804pt x 348.648pt>
-File: Bilder/Faktorgraph_vereinfacht.png Graphic file (type png)
-<use Bilder/Faktorgraph_vereinfacht.png>
-Package pdftex.def Info: Bilder/Faktorgraph_vereinfacht.png  used on input line 182.
-(pdftex.def)             Requested size: 455.24411pt x 195.03938pt.
- [17 <./Bilder/Faktorgraph_vereinfacht.png>]
-<Bilder/Uebersicht_Marker.png, id=600, 848.187pt x 225.57pt>
-File: Bilder/Uebersicht_Marker.png Graphic file (type png)
-<use Bilder/Uebersicht_Marker.png>
-Package pdftex.def Info: Bilder/Uebersicht_Marker.png  used on input line 244.
-(pdftex.def)             Requested size: 455.24411pt x 121.07285pt.
- [18 <./Bilder/Uebersicht_Marker.png>] [19]) (./24_Systembeschreibung.tex [20]
-chapter 4.
-) (./25_Implementierung_Kartierung.tex [21
-
-]
-chapter 5.
-) (./26_Implementierung_Positionierung.tex [22
-
-]
-chapter 6.
-) (./27_Evaluation.tex [23
-
-]
-chapter 7.
-) (./28_Evaluation_Greifen.tex [24
-
-]
-chapter 8.
-)) (./30_Schluss.tex [25
-
-]
-chapter 9.
-) [26
-
-]
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 245.
- (/usr/share/texmf/tex/latex/lm/t1lmr.fd
-File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-
-LaTeX Font Warning: Font shape `T1/lmss/m/sc' in size <10.95> not available
-(Font)              Font shape `T1/lmr/m/sc' tried instead on input line 245.
-
-
-Overfull \hbox (37.02814pt too wide) in paragraph at lines 246--246
-[]\T1/lmss/m/n/10.95 P. Mo-dell-bau, \T1/lmss/m/sl/10.95 Ho-ly-bro X650\T1/lmss/m/n/10.95 , https://www.premium-modellbau.de/holybro-holybro-x650-development-
- []
-
-[27
-
-] [28] [29] [30] (./00_Abschlussarbeit.lof
-Package cleveref Info: loaded `ngerman' language definitions on input line 3.
-Package cleveref Info: loaded `ngerman' language definitions on input line 4.
-)
-\tf@lof=\write11
-\openout11 = `00_Abschlussarbeit.lof'.
-
- [31
-
-] (./00_Abschlussarbeit.lot
-Package cleveref Info: loaded `ngerman' language definitions on input line 3.
-Package cleveref Info: loaded `ngerman' language definitions on input line 4.
-)
-\tf@lot=\write12
-\openout12 = `00_Abschlussarbeit.lot'.
-
- [32
-
-] (./00_Abschlussarbeit.lol
-Package cleveref Info: loaded `ngerman' language definitions on input line 3.
-Package cleveref Info: loaded `ngerman' language definitions on input line 4.
-)
-\tf@lol=\write13
-\openout13 = `00_Abschlussarbeit.lol'.
-
- (./40_Anhang.tex [33
-
-]
-chapter 10.
-) [34
-
-] (./00_Abschlussarbeit.aux
-Package cleveref Info: loaded `ngerman' language definitions on input line 24.
-Package cleveref Info: loaded `ngerman' language definitions on input line 27.
-)
- ***********
-LaTeX2e <2023-11-01> patch level 1
-L3 programming layer <2020/03/25>
- ***********
-
-
-LaTeX Warning: There were undefined references.
-
-Package rerunfilecheck Info: File `00_Abschlussarbeit.out' has not changed.
-(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package logreq Info: Writing requests to '00_Abschlussarbeit.run.xml'.
-\openout1 = `00_Abschlussarbeit.run.xml'.
-
- ) 
-Here is how much of TeX's memory you used:
- 44855 strings out of 474222
- 913671 string characters out of 5748733
- 1945975 words of memory out of 5000000
- 66212 multiletter control sequences out of 15000+600000
- 623449 words of font info for 85 fonts, out of 8000000 for 9000
- 1143 hyphenation exceptions out of 8191
- 108i,20n,107p,10958b,4079s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmss10.pfb></usr/share/texmf/fonts/type1/public/lm/lmss12.pfb></usr/share/texmf/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf/fonts/type1/public/lm/lmss8.pfb></usr/share/texmf/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsso10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on 00_Abschlussarbeit.pdf (42 pages, 3257785 bytes).
-PDF statistics:
- 1136 PDF objects out of 1200 (max. 8388607)
- 1024 compressed objects within 11 object streams
- 216 named destinations out of 1000 (max. 500000)
- 532 words of extra memory for PDF output out of 10000 (max. 10000000)
-
+Package pdftex.def Info: Bilder/Roll_Yaw_Pitch.png  used on input line 1

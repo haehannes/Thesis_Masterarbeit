@@ -1727,8 +1727,41 @@
       \verb 10.1016/j.imavis.2019.06.007
       \endverb
     \endentry
+    \entry{reComputerMiniJ3011}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=e47a5c22c3c2e012514c9d5a4141b8b9}{%
+           family={{Seeed Studio}},
+           familyi={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{e47a5c22c3c2e012514c9d5a4141b8b9}
+      \strng{fullhash}{e47a5c22c3c2e012514c9d5a4141b8b9}
+      \strng{bibnamehash}{e47a5c22c3c2e012514c9d5a4141b8b9}
+      \strng{authorbibnamehash}{e47a5c22c3c2e012514c9d5a4141b8b9}
+      \strng{authornamehash}{e47a5c22c3c2e012514c9d5a4141b8b9}
+      \strng{authorfullhash}{e47a5c22c3c2e012514c9d5a4141b8b9}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{reComputer Mini J3011 -- Intelligent Edge AI Computer with NVIDIA\textsuperscript{®} Jetson\texttrademark{} Orin\texttrademark{} Nano 8GB}}
+      \field{urlday}{9}
+      \field{urlmonth}{6}
+      \field{urlyear}{2026}
+      \field{year}{2024}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.seeedstudio.com/reComputer-Mini-J3011-p-6356.html
+      \endverb
+      \verb{url}
+      \verb https://www.seeedstudio.com/reComputer-Mini-J3011-p-6356.html
+      \endverb
+    \endentry
   \enddatalist
   \missing{ROS2Humble}
+  \missing{ali_camera}
+  \missing{holybro_pdb}
+  \missing{holybro_pm02}
+  \missing{pichler_lipo}
   \missing{vslam_core_modules_2024}
 \endrefsection
 \endinput

@@ -1,22 +1,26 @@
 [0] Config.pm:307> INFO - This is Biber 2.19
 [0] Config.pm:310> INFO - Logfile is '00_Abschlussarbeit.blg'
-[45] biber:340> INFO - === Di Jun  9, 2026, 16:33:19
+[45] biber:340> INFO - === Di Jun  9, 2026, 19:36:42
 [55] Biber.pm:419> INFO - Reading '00_Abschlussarbeit.bcf'
-[101] Biber.pm:979> INFO - Found 51 citekeys in bib section 0
-[109] Biber.pm:4419> INFO - Processing section 0
-[115] Biber.pm:4610> INFO - Looking for bibtex file 'Literatur.bib' for section 0
-[117] bibtex.pm:1713> INFO - LaTeX decoding ...
-[146] bibtex.pm:1519> INFO - Found BibTeX data source 'Literatur.bib'
-[340] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[340] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[340] Biber.pm:4239> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-US'
-[340] Biber.pm:4245> INFO - No sort tailoring available for locale 'en-US'
-[360] bbl.pm:660> INFO - Writing '00_Abschlussarbeit.bbl' with encoding 'UTF-8'
-[372] bbl.pm:763> INFO - Output to 00_Abschlussarbeit.bbl
-[372] Biber.pm:131> WARN - BibTeX subsystem: /tmp/biber_tmp_YBZ7/fe6d16e8a0935a16f008a64fa11444f8_28831.utf8, line 17, warning: undefined macro "June"
-[372] Biber.pm:131> WARN - BibTeX subsystem: /tmp/biber_tmp_YBZ7/fe6d16e8a0935a16f008a64fa11444f8_28831.utf8, line 205, warning: undefined macro "Sept"
-[372] Biber.pm:131> WARN - BibTeX subsystem: /tmp/biber_tmp_YBZ7/fe6d16e8a0935a16f008a64fa11444f8_28831.utf8, line 288, warning: undefined macro "July"
-[372] Biber.pm:131> WARN - BibTeX subsystem: /tmp/biber_tmp_YBZ7/fe6d16e8a0935a16f008a64fa11444f8_28831.utf8, line 504, warning: undefined macro "Sept"
-[372] Biber.pm:131> WARN - I didn't find a database entry for 'ROS2Humble' (section 0)
-[372] Biber.pm:131> WARN - I didn't find a database entry for 'vslam_core_modules_2024' (section 0)
-[372] Biber.pm:133> INFO - WARNINGS: 6
+[107] Biber.pm:979> INFO - Found 56 citekeys in bib section 0
+[116] Biber.pm:4419> INFO - Processing section 0
+[123] Biber.pm:4610> INFO - Looking for bibtex file 'Literatur.bib' for section 0
+[125] bibtex.pm:1713> INFO - LaTeX decoding ...
+[164] bibtex.pm:1519> INFO - Found BibTeX data source 'Literatur.bib'
+[386] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[386] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[386] Biber.pm:4239> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-US'
+[386] Biber.pm:4245> INFO - No sort tailoring available for locale 'en-US'
+[405] bbl.pm:660> INFO - Writing '00_Abschlussarbeit.bbl' with encoding 'UTF-8'
+[417] bbl.pm:763> INFO - Output to 00_Abschlussarbeit.bbl
+[417] Biber.pm:131> WARN - BibTeX subsystem: /tmp/biber_tmp_r5Z8/fe6d16e8a0935a16f008a64fa11444f8_65837.utf8, line 17, warning: undefined macro "June"
+[418] Biber.pm:131> WARN - BibTeX subsystem: /tmp/biber_tmp_r5Z8/fe6d16e8a0935a16f008a64fa11444f8_65837.utf8, line 205, warning: undefined macro "Sept"
+[418] Biber.pm:131> WARN - BibTeX subsystem: /tmp/biber_tmp_r5Z8/fe6d16e8a0935a16f008a64fa11444f8_65837.utf8, line 288, warning: undefined macro "July"
+[418] Biber.pm:131> WARN - BibTeX subsystem: /tmp/biber_tmp_r5Z8/fe6d16e8a0935a16f008a64fa11444f8_65837.utf8, line 504, warning: undefined macro "Sept"
+[418] Biber.pm:131> WARN - I didn't find a database entry for 'ROS2Humble' (section 0)
+[418] Biber.pm:131> WARN - I didn't find a database entry for 'vslam_core_modules_2024' (section 0)
+[418] Biber.pm:131> WARN - I didn't find a database entry for 'ali_camera' (section 0)
+[418] Biber.pm:131> WARN - I didn't find a database entry for 'pichler_lipo' (section 0)
+[418] Biber.pm:131> WARN - I didn't find a database entry for 'holybro_pm02' (section 0)
+[418] Biber.pm:131> WARN - I didn't find a database entry for 'holybro_pdb' (section 0)
+[418] Biber.pm:133> INFO - WARNINGS: 10

@@ -32,7 +32,7 @@ In Kapitel \ref{sec:PX4 Autopilot} wird näher auf den verwendeten Flugcontrolle
 \textbf{Energieversorgung:} Die Energieversorgung erfolgt über einen \gls{lipo}.
 Dieser versorgt die Steuerelektronik als auch die Motoren. 
 
-\textbf{Nutzlast:} Das maximale Abfluggewicht der Holybro X650 beträgt 6,3 kg, wobei der flugfertige Grundrahmen bereits ein Eigengewicht von 4,3 kg aufweist.
+\textbf{Nutzlast:} Das maximale Abfluggewicht der Holybro X650 beträgt 6,3 kg, wobei der flugfertige Grundrahmen mit Antriebssystem bereits ein Eigengewicht von 4,3 kg aufweist.
 Daraus ergibt sich eine maximale Nutzlast von 2 kg (ohne Akku) \cite{holybro_x650}.
 
 \subsection{Vergleich von Welt-, Roboter-, Kamera- und Fiducialkoordinatensystem}
@@ -408,7 +408,7 @@ externer Komponenten bereit.
 Für diese Arbeit sind insbesondere die folgenden Schnittstellen relevant:
 
 Die serielle Schnittstelle (UART) der Telemetrie-Ports dient der Kommunikation zwischen dem 
-Flugcontroller und dem Jetson Orin NX, über welche die extern berechnete Positionsschätzung 
+Flugcontroller und dem Jetson Orin Nano, über welche die extern berechnete Positionsschätzung 
 an den \gls{ekf} übermittelt wird.
 Die genaue Anbindung wird in Kapitel \ref{sec:systemaufbau} beschrieben.
 Über den USB-Anschluss erfolgt die Parametrierung und Kalibrierung des Flugcontrollers 

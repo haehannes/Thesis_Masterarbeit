@@ -782,6 +782,62 @@ parent={},%
 %
 }%
 
+\glsdefs@newdocentry{tops}%
+{%
+name={\acronymfont {\glsentryshort {tops}}},%
+sort={TOPS},%
+type={acronym},%
+first={TOPS},%
+firstplural={TOPSs},%
+text={TOPS},%
+plural={TOPSs},%
+description={Tera Operations Per Second},%
+descriptionplural={Tera Operations Per Second},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Tera Operations Per Second},%
+longplural={Tera Operations Per Seconds},%
+short={TOPS},%
+shortplural={TOPSs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{usb}%
+{%
+name={\acronymfont {\glsentryshort {usb}}},%
+sort={USB},%
+type={acronym},%
+first={USB},%
+firstplural={USBs},%
+text={USB},%
+plural={USBs},%
+description={Universal Serial Bus},%
+descriptionplural={Universal Serial Bus},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Universal Serial Bus},%
+longplural={Universal Serial Buss},%
+short={USB},%
+shortplural={USBs},%
+counter={page},%
+parent={},%
+%
+}%
+
 \glsdefs@newdocentry{sym:xc}%
 {%
 name={$X_c$},%
@@ -1323,134 +1379,4 @@ first={$x_s$},%
 firstplural={$x_s$s},%
 text={$x_s$},%
 plural={$x_s$s},%
-description={Greifbereich},%
-descriptionplural={Greifbereich},%
-symbol={\relax },%
-symbolplural={\relax },%
-user1={},%
-user2={},%
-user3={},%
-user4={},%
-user5={},%
-user6={},%
-long={},%
-longplural={},%
-short={},%
-shortplural={},%
-counter={page},%
-parent={},%
-%
-}%
-
-\glsdefs@newdocentry{sym:pA}%
-{%
-name={$p_A$},%
-sort={$p_A$},%
-type={symbols},%
-first={$p_A$},%
-firstplural={$p_A$s},%
-text={$p_A$},%
-plural={$p_A$s},%
-description={Arbeitsdruck},%
-descriptionplural={Arbeitsdruck},%
-symbol={\relax },%
-symbolplural={\relax },%
-user1={},%
-user2={},%
-user3={},%
-user4={},%
-user5={},%
-user6={},%
-long={},%
-longplural={},%
-short={},%
-shortplural={},%
-counter={page},%
-parent={},%
-%
-}%
-
-\glsdefs@newdocentry{sym:pG}%
-{%
-name={$p_G$},%
-sort={$p_G$},%
-type={symbols},%
-first={$p_G$},%
-firstplural={$p_G$s},%
-text={$p_G$},%
-plural={$p_G$s},%
-description={Gegendruck},%
-descriptionplural={Gegendruck},%
-symbol={\relax },%
-symbolplural={\relax },%
-user1={},%
-user2={},%
-user3={},%
-user4={},%
-user5={},%
-user6={},%
-long={},%
-longplural={},%
-short={},%
-shortplural={},%
-counter={page},%
-parent={},%
-%
-}%
-
-\glsdefs@newdocentry{sym:ps}%
-{%
-name={$p_S$},%
-sort={$p_S$},%
-type={symbols},%
-first={$p_S$},%
-firstplural={$p_S$s},%
-text={$p_S$},%
-plural={$p_S$s},%
-description={Speisedruck},%
-descriptionplural={Speisedruck},%
-symbol={\relax },%
-symbolplural={\relax },%
-user1={},%
-user2={},%
-user3={},%
-user4={},%
-user5={},%
-user6={},%
-long={},%
-longplural={},%
-short={},%
-shortplural={},%
-counter={page},%
-parent={},%
-%
-}%
-
-\glsdefs@newdocentry{sym:FG}%
-{%
-name={$F_G$},%
-sort={$F_G$},%
-type={symbols},%
-first={$F_G$},%
-firstplural={$F_G$s},%
-text={$F_G$},%
-plural={$F_G$s},%
-description={Greifkraft},%
-descriptionplural={Greifkraft},%
-symbol={\relax },%
-symbolplural={\relax },%
-user1={},%
-user2={},%
-user3={},%
-user4={},%
-user5={},%
-user6={},%
-long={},%
-longplural={},%
-short={},%
-shortplural={},%
-counter={page},%
-parent={},%
-%
-}%
-
+description={Greif
