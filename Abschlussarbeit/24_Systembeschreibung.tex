@@ -100,11 +100,16 @@ dem Echtzeitbetriebssystem NuttX~v11.0.0 aufsetzt.
 Zur Lokalisierung stehen mehrere handelsübliche \gls{usb}-Kameras zur 
 Verfügung, aus denen je nach Aufbau ausgewählt werden kann:
 \begin{itemize}
-    \item eine \gls{usb}-Kamera mit 720p-Auflösung\cite{ali_camera},
-    \item eine Logitech C920,
-    \item eine Logitech C922.
+\item eine \gls{usb}-Kamera mit 720p-Auflösung\cite{ali_camera},
+\item eine Logitech C920,
+\item eine Logitech C922.
 \end{itemize}
 Die Kameras werden über \gls{usb} an den Companion-Computer angeschlossen.
+
+Zusätzlich steht eine Stereolabs ZED Mini zur Verfügung.
+Im Gegensatz zu den zuvor genannten Mono-Kameras handelt es sich um eine Stereokamera und steht somit für einen Visual-SLAM zur Verfügung.
+Sie verfügt zudem über eine integrierte \gls{imu}.
+
 
 \subsection*{Fernsteuerung}
 Zur manuellen Steuerung des \gls{uav} sowie als Sicherheitsoption dient 
@@ -158,6 +163,7 @@ Flugcontroller       & Pixhawk 6X              & NA      & PX4 v1.16.1 (NuttX) \
 Kamera 1             & \gls{usb}-Kamera 720p   & NA      & NA \\
 Kamera 2             & Logitech C920           & NA      & NA \\
 Kamera 3             & Logitech C922           & NA      & NA \\
+Kamera 4             & Stereolabs ZED Mini     & 62,9\,g & NA \\
 Fernsteuerung        & Radiolink AT9S Pro / R9DS & NA    & NA \\
 Akku                 & Pichler RED POWER XT 5400 (4S) & NA & NA \\
 Powermodul           & Holybro PM02 V3         & 20\,g   & NA \\

@@ -126,6 +126,7 @@
 (indexentry :tkey (("USB" "\\glossentry{usb}") ) :locref "{}{22}" :attr "pageglsnumberformat" ) 
 (indexentry :tkey (("USB" "\\glossentry{usb}") ) :locref "{}{22}" :attr "pageglsnumberformat" ) 
 (indexentry :tkey (("USB" "\\glossentry{usb}") ) :locref "{}{22}" :attr "pageglsnumberformat" ) 
+(indexentry :tkey (("IMU" "\\glossentry{imu}") ) :locref "{}{22}" :attr "pageglsnumberformat" ) 
 (indexentry :tkey (("UAV" "\\glossentry{uav}") ) :locref "{}{22}" :attr "pageglsnumberformat" ) 
 (indexentry :tkey (("PX4" "\\glossentry{px4}") ) :locref "{}{23}" :attr "pageglsnumberformat" ) 
 (indexentry :tkey (("USB" "\\glossentry{usb}") ) :locref "{}{23}" :attr "pageglsnumberformat" ) 
