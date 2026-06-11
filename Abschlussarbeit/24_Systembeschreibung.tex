@@ -76,6 +76,15 @@ Das System besteht aus der Flugplattform, dem Companion-Computer, der die
 rechenintensive Bildverarbeitung übernimmt, und der Sensorik, die zur 
 Lokalisierung eingesetzt wird.
 
+
+
+\subsection*{Flugplattform}
+Als Flugplattform dient der bereits in den Grundlagen vorgestellte 
+Holybro X650, der in der mit Motoren und Reglern vorkonfektionierten 
+ARF-Variante (Almost Ready to Fly) verwendet wird.
+Das Gesamtgewicht des Kits beträgt ohne Akku rund 2000\,g, die maximale 
+Nutzlast ohne Akku liegt bei etwa 4,3\,kg.\cite{holybro_x650}
+
 \subsection*{Companion-Computer}
 Als Companion-Computer wird ein reComputer Mini J3011 von Seeed Studio eingesetzt.
 Dieser ist mit einem NVIDIA Jetson Orin Nano 8\,GB Modul ausgestattet 
@@ -88,7 +97,6 @@ Ubuntu-Distribution basiert.
 Für den Einsatz in dieser Arbeit wurde das System mit JetPack~6.2.1 
 neu geflasht, das auf Ubuntu~22.04.5 LTS und L4T~R36.4.3 basiert, um die 
 benötigte ROS2- und Bildverarbeitungssoftware betreiben zu können.
-
 
 \subsection*{Flugcontroller}
 Die Flugsteuerung übernimmt der Flugcontroller Pixhawk 6X (FMU-V6X), auf 
@@ -130,7 +138,6 @@ Die Verteilung der Motorströme erfolgt über ein Holybro
 Mini-Power-Distribution-Board (PDB) mit XT30- und 
 XT60-Anschlüssen.\cite{holybro_pdb}
 
-
 Die Kommunikation zwischen dem Flugcontroller und der Bodenstation 
 erfolgt über ein Holybro Telemetrie-Set (433\,MHz).
 Als Bodenstation dient ein Laptop mit Ubuntu~24.04.4 LTS, auf dem die 
@@ -139,17 +146,16 @@ Zur satellitengestützten Positionsbestimmung ist ein Holybro M9N
 GPS-Modul vorhanden; dieses wird in der vorliegenden Arbeit jedoch nicht 
 zur Lokalisierung verwendet.
 Die Verbindung zwischen dem Flugcontroller und dem Companion-Computer 
+%Das hier nochmal überarbeiten!!!!
 wird über eine serielle UART-Schnittstelle hergestellt, über die die 
+
 extern berechnete Positionsschätzung an den \gls{px4} übermittelt wird.
 Für die drahtlose Anbindung des Companion-Computers ist dieser mit einer 
 M.2-WLAN-Karte (Wi-Fi~6) nachgerüstet.
 
-\subsection*{Flugplattform}
-Als Flugplattform dient der bereits in den Grundlagen vorgestellte 
-Holybro X650, der in der mit Motoren und Reglern vorkonfektionierten 
-ARF-Variante (Almost Ready to Fly) verwendet wird.
-Das Gesamtgewicht des Kits beträgt ohne Akku rund 2000\,g, die maximale 
-Nutzlast ohne Akku liegt bei etwa 4,3\,kg.\cite{holybro_x650}
+
+Tabelle~\ref{tab:hardwarekomponenten} gibt eine Übersicht aller eingesetzten
+Komponenten mit Bezeichnung, Gewicht und Betriebssystem.
 
 \begin{table}[htbp]
 \centering
@@ -157,33 +163,100 @@ Nutzlast ohne Akku liegt bei etwa 4,3\,kg.\cite{holybro_x650}
 \toprule
 \textbf{Komponente} & \textbf{Bezeichnung} & \textbf{Gewicht} & \textbf{Betriebssystem} \\
 \midrule
-Flugplattform        & Holybro X650            & 2000\,g & NA \\
-Companion-Computer   & reComputer Mini J3011   & NA      & JetPack 6.2 (Ubuntu 22.04) \\
-Flugcontroller       & Pixhawk 6X              & NA      & PX4 v1.16.1 (NuttX) \\
-Kamera 1             & \gls{usb}-Kamera 720p   & NA      & NA \\
-Kamera 2             & Logitech C920           & NA      & NA \\
-Kamera 3             & Logitech C922           & NA      & NA \\
-Kamera 4             & Stereolabs ZED Mini     & 62,9\,g & NA \\
-Fernsteuerung        & Radiolink AT9S Pro / R9DS & NA    & NA \\
-Akku                 & Pichler RED POWER XT 5400 (4S) & NA & NA \\
-Powermodul           & Holybro PM02 V3         & 20\,g   & NA \\
-Stromverteilung      & Holybro Mini-PDB        & NA      & NA \\
-Telemetrie           & Holybro Telemetrie-Set 433\,MHz & NA & NA \\
-GPS-Modul            & Holybro M9N GPS         & NA      & NA \\
-WLAN-Karte           & M.2 Wi-Fi 6 Adapter     & NA      & NA \\
-Bodenstation         & Laptop / QGroundControl & NA      & Ubuntu 24.04.4 LTS \\
+Flugplattform        & Holybro X650                   & 2000\,g & --                          \\
+Companion-Computer   & reComputer Mini J3011          & --      & JetPack~6.2 (Ubuntu~22.04)  \\
+Flugcontroller       & Pixhawk 6X                     & --      & PX4~v1.16.1 (NuttX)         \\
+Kamera 1             & \gls{usb}-Kamera 720p          & --      & --                          \\
+Kamera 2             & Logitech C920                  & --      & --                          \\
+Kamera 3             & Logitech C922                  & --      & --                          \\
+Kamera 4             & Stereolabs ZED Mini            & 62,9\,g & --                          \\
+Fernsteuerung        & Radiolink AT9S Pro / R9DS      & --      & --                          \\
+Akku                 & Pichler RED POWER XT 5400 (4S) & --      & --                          \\
+Powermodul           & Holybro PM02 V3                & 20\,g   & --                          \\
+Stromverteilung      & Holybro Mini-PDB               & --      & --                          \\
+Telemetrie           & Holybro Telemetrie-Set 433\,MHz & --     & --                          \\
+GPS-Modul            & Holybro M9N GPS                & --      & --                          \\
+WLAN-Karte           & M.2 Wi-Fi~6 Adapter            & --      & --                          \\
+Bodenstation         & Laptop / QGroundControl        & --      & Ubuntu~24.04.4~LTS          \\
 \bottomrule
 \end{tabular}
-\caption{Übersicht der Hardwarekomponenten}
+\caption{Übersicht der eingesetzten Hardwarekomponenten}
 \label{tab:hardwarekomponenten}
 \end{table}
 \FloatBarrier
 
 
 
+In Abbildung~\ref{fig:Verkabelung} ist der Hardwareaufbau des Gesamtsystems als Blockschaltbild mit Anschlussverdrahtung dargestellt.
+Schwarze Linien kennzeichnen dabei Daten- und Signalverbindungen, rote Linien die Energieversorgung.
+
+Die drei Kameras können über \gls{usb} mit dem Companion-Computer verbunden.
+Der Companion-Computer kann sowohl über einen \gls{usb}-zu-Ethernet-Adapter an die Ethernet-Schnittstelle des Flugcontrollers angebunden werden, 
+als auch direkt via \gls{usb}.
+Am Flugcontroller sind weiterhin das Telemetriemodul, das GPS-Modul sowie der Empfänger der Fernsteuerung angeschlossen.
+Die Ansteuerung der vier Motoren erfolgt über die PWM-Ausgänge des Flugcontrollers.
+
+Die Energieversorgung erfolgt ausgehend vom LiPo-Akku.
+Der Akku ist über einen XT90-Stecker mit dem Powermodul verbunden, das die Versorgungsspannung an den Flugcontroller und das Verteilerboard weitergibt.
+Vom Verteilerboard wird die Energie über XT30-Anschlüsse an die vier Motoren verteilt.
+Parallel dazu wird der Companion-Computer über einen eigenen XT30-Anschluss mit Strom versorgt.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1.0\textwidth]{Bilder/Verkabelung.png}
+    \caption{Hardware-Blockschaltbild mit Anschlussverdrahtung}
+    \label{fig:Verkabelung}
+\end{figure}
+\FloatBarrier
+
 
 \section{Softwarearchitektur}
+In diesem Abschnitt wird die Softwarearchitektur des Gesamtsystems beschrieben.
+Die Verarbeitung gliedert sich in zwei Stränge: die Lokalisierung, die im Flug die Pose des Fluggeräts bestimmt 
+und die Kartierung, die vorab die dafür benötigte Karte erzeugt.
+Beide Stränge laufen auf dem Companion-Computer und teilen sich die vorgelagerten Schritte Bildaufnahme, Entzerrung und Bildverarbeitung.
+Die Flugsteuerung läuft getrennt davon auf dem Flugcontroller.
+Der Aufbau ist in Abbildung~\ref{fig:softwarearchitektur} dargestellt.
 
-\section{Systempipeline / Datenfluss}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1.0\textwidth]{Bilder/Softwarearchitektur.png}
+    \caption{Softwarearchitektur mit den Strängen zur Lokalisierung und zur Kartierung}
+    \label{fig:softwarearchitektur}
+\end{figure}
+\FloatBarrier
+
+Die Bildaufnahme bildet die Schnittstelle zu den am Fluggerät montierten Kameras.
+Über dieses Modul werden die Kamerabilder aufgenommen und für die weitere bereitgestellt.
+
+Die Entzerrung korrigiert die durch das Kameraobjektiv verursachte Verzeichnung anhand der zuvor bestimmten Kalibrierparameter.
+Ohne diese Korrektur würden die Bildkoordinaten der erkannten Merkmale systematisch verfälscht und die daraus berechnete Pose verzerrt.
+Die Grundlagen des Kameramodells und der Kalibrierung werden in Abschnitt~\ref{sec:kalibrieren_kamera} behandelt.
+
+Die Bildverarbeitung detektiert und extrahiert die markanten Bildmerkmale aus entzerrten Kamerastream. 
+Für jedes Merkmal liefert die Bildverarbeitung die relative Position zwischen Kamera und Merkmal.
+
+Die Kartierung erzeugt die Karte, auf die sich die Positionsbestimmung stützt.
+Sie nutzt dieselbe Aufnahme- und Verarbeitungskette wie die Lokalisierung, bestimmt daraus aber nicht die \gls{uav}-Pose, sondern die Lage der Merkmale zueinander.
+Das Ergebnis ist eine konsistente Karte aller Merkmale, die einmalig erzeugt und anschließend im Flug verwendet wird.
+Die Umsetzung wird in Kapitel~\ref{cap:kartierung} beschrieben.
+
+Die Positionsbestimmung bildet den Kern der Lokalisierung.
+Sie verknüpft die erkannten Merkmale mit der vorab erstellten Karte und berechnet daraus die Pose der Kamera im Kartenkoordinatensystem.
+Anschließend wird die Kamerapose zum Roboterkoordinatensystem transformiert.
+Die Umsetzung der Lokalisierung wird in Kapitel~\ref{cap:lokalisierung} erläutert.
+
+Die Kommunikation überführt die berechnete Pose vom Karten- in das Koordinatensystem der Flugsteuerung und versieht sie mit einem dazu konsistenten Zeitstempel.
+Für die Übergabe an den Flugcontroller wurden zwei Implementierungen umgesetzt.
+Die Umsetzung wird in Abschnitt~\ref{sec:kommunikation} beschrieben.
+
+Die Flugsteuerung läuft auf dem PX4-Flugcontroller und regelt das Fluggerät.
+Sie fusioniert die eingespeiste Pose im Zustandsschätzer mit den Daten der \gls{imu} und überbrückt damit kurze Phasen, in denen keine Position bestimmt werden kann.
+Der Aufbau der Zustandsschätzung wird in Abschnitt~\ref{sec:flugsteuerung} beschrieben.
+
+Das Senden der Sollpositionen läuft parallel zur Positionsbestimmung des \gls{uav}.
+Die Funktionsweise ist in Abschnitt~\ref{sec:bedienung} beschrieben.
+
 
 \section{Versuchsumgebung}

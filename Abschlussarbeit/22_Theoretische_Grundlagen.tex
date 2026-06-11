@@ -273,12 +273,6 @@ Die Odometrie eines Flugroboters ist besonders herausfordernd, da sich das \gls{
 Der zunehmende Fehler der Odometrie kann durch die Verwendung von externen Referenzen, wie \gls{gps}, korrigiert werden.
 
 
-
-
-
-
-
-
 \section{Extended Kallman Filter}
 \label{sec:ekf}
 In dieser Arbeit wird nicht näher auf die Sensorfusion eingegangen, da der \gls{ekf} bereits vollständig im Flugcontroller implementiert ist.
@@ -454,6 +448,12 @@ die über serielle Schnittstellen oder \gls{udp} übertragen werden. \cite{MAVLi
 Zur Analyse des Flugverhaltens erzeugt der PX4 während des Betriebs ULog-Dateien, die auf der internen SD-Karte gespeichert werden.
 Diese Log-Dateien enthalten zeitgestempelte Aufzeichnungen aller relevanten Zustandsgrößen, Sensorwerte und EKF2-internen Größen und ermöglichen eine 
 detaillierte Nachanalyse des Systemverhaltens nach dem Flug. \cite{px4_ulog,px4_flight_reporting}
+
+
+\subsection{Mustererkennung mit RANSAC}
+Hier muss noch Text zu RANSAC mit rein!!!!!
+
+
 
 \subsection{Robot Operating System 2 (ROS2)}
 \label{sec:ros2}

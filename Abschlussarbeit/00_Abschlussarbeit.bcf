@@ -2504,13 +2504,13 @@
     <bcf:citekey order="132" intorder="1">Olson5979561</bcf:citekey>
     <bcf:citekey order="133" intorder="1">Olson5979561</bcf:citekey>
     <bcf:citekey order="134" intorder="1">Olson5979561</bcf:citekey>
-    <bcf:citekey order="135" intorder="1">reComputerMiniJ3011</bcf:citekey>
-    <bcf:citekey order="136" intorder="1">ali_camera</bcf:citekey>
-    <bcf:citekey order="137" intorder="1">pichler_lipo</bcf:citekey>
-    <bcf:citekey order="138" intorder="1">holybro_pm02</bcf:citekey>
+    <bcf:citekey order="135" intorder="1">holybro_x650</bcf:citekey>
+    <bcf:citekey order="136" intorder="1">reComputerMiniJ3011</bcf:citekey>
+    <bcf:citekey order="137" intorder="1">ali_camera</bcf:citekey>
+    <bcf:citekey order="138" intorder="1">pichler_lipo</bcf:citekey>
     <bcf:citekey order="139" intorder="1">holybro_pm02</bcf:citekey>
-    <bcf:citekey order="140" intorder="1">holybro_pdb</bcf:citekey>
-    <bcf:citekey order="141" intorder="1">holybro_x650</bcf:citekey>
+    <bcf:citekey order="140" intorder="1">holybro_pm02</bcf:citekey>
+    <bcf:citekey order="141" intorder="1">holybro_pdb</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

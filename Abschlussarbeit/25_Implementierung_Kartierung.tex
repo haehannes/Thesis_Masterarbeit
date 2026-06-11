@@ -1,24 +1,224 @@
 %!TeX root=20_Hauptteil.tex
 
+%\chapter{Implementierung der Kartierung}
+%
+%\section{Bildaufnahme}
+%
+%\subsection{Kamerakalibrierung}
+%
+%\section{Entzerrung}
+%
+%\section{Bildverarbeitung}
+%
+%\section{Kartenerstellung}
+
+
+
+
+
+
+
 \chapter{Implementierung der Kartierung}
+\label{cap:kartierung}
+Die Karte wird nicht im Flug, sondern vorab in einem mehrstufigen Offline-Verfahren erstellt.
+Der Ablauf gliedert sich in drei aufeinanderfolgende Stufen, die jeweils als eigenes Launch-File umgesetzt sind und über ROS2-Bags miteinander verbunden werden.
+In der ersten Stufe werden die Kamerabilder aufgenommen, entzerrt und in einem Bag aufgezeichnet.
+In der zweiten Stufe werden die Marker offline aus den aufgezeichneten Bildern detektiert und gemeinsam mit den Bildern in einem zweiten Bag abgelegt.
+In der dritten Stufe werden die Markerlagen aus den Detektionen zu einer konsistenten Karte optimiert.
+Die Aufteilung in einen Offline-Ablauf erlaubt es, die Detektion mit reduzierter Abspielgeschwindigkeit auszuführen und den gesamten Vorgang reproduzierbar aus denselben Eingangsdaten zu wiederholen.
 
+% TODO: Abbildung -- Schema des dreistufigen Ablaufs (Bag -> Bag -> Karte).
 
+\section{Bildaufnahme}
+\label{sec:kartierung_bildaufnahme}
+Die Bildaufnahme erfolgt mit einer Logitech~C922 über das ROS2-Paket gscam.
+Die Kamera liefert einen MJPEG-Stream mit einer Auflösung von $1920 \times 1080$ Pixeln bei $15\,\text{fps}$.
+Die Dekodierung des MJPEG-Streams erfolgt über eine GStreamer-Pipeline auf der CPU mittels \texttt{jpegdec}.
+Da die Aufnahme auf einem Laptop ohne NVIDIA-Hardwaredecoder durchgeführt wird, ist die CPU-Dekodierung hier die geeignete Wahl.
+Das aufgenommene Bild wird als Topic \texttt{/camera/image\_raw} mit den zugehörigen Kameraparametern \texttt{/camera/camera\_info} bereitgestellt.
 
-\section{Datensatz- und Objektauswahl}
+Im Anschluss an die Aufnahme werden die Bilder direkt entzerrt (siehe Abschnitt~\ref{sec:kartierung_entzerrung}).
+Der erste Bag zeichnet die für die weitere Verarbeitung benötigten Topics auf:
+\begin{itemize}
+    \item \texttt{/camera/image\_rect} -- das entzerrte Bild,
+    \item \texttt{/camera/camera\_info} -- die zugehörigen Kameraparameter,
+    \item \texttt{/tf\_static} -- die statischen Koordinatentransformationen.
+\end{itemize}
+Dieser Bag bildet den Eingang der zweiten Stufe.
 
+\subsection{Kamerakalibrierung}
+\label{sec:kalibrieren_kamera}
+Die für die Entzerrung benötigten Parameter werden vorab durch eine intrinsische Kalibrierung bestimmt.
+Grundlage ist das Lochkameramodell, das die Abbildung eines Raumpunktes auf die Bildebene beschreibt.
+Ein Punkt $\mathbf{X} = [X, Y, Z]^\top$ im Kamerakoordinatensystem wird dabei auf den Bildpunkt $[u, v]^\top$ abgebildet:
+\begin{equation}
+    s
+    \begin{bmatrix} u \\ v \\ 1 \end{bmatrix}
+    =
+    \mathbf{K}
+    \begin{bmatrix} X \\ Y \\ Z \end{bmatrix},
+    \qquad
+    \mathbf{K} =
+    \begin{bmatrix}
+        f_x & 0   & c_x \\
+        0   & f_y & c_y \\
+        0   & 0   & 1
+    \end{bmatrix},
+    \label{eq:lochkamera}
+\end{equation}
+mit dem Skalierungsfaktor $s$, den Brennweiten $f_x, f_y$ und dem Bildhauptpunkt $(c_x, c_y)$.
+Die Matrix $\mathbf{K}$ wird als Kameramatrix bezeichnet und fasst die intrinsischen Parameter zusammen.
 
+Reale Objektive weichen vom idealen Lochkameramodell ab und erzeugen eine Verzeichnung.
+Diese wird über das Modell plumb\_bob beschrieben, das eine radiale und eine tangentiale Komponente umfasst.
+Für einen normierten Bildpunkt $(x, y)$ mit $r^2 = x^2 + y^2$ ergibt sich der verzeichnete Punkt $(x_d, y_d)$ zu:
+\begin{align}
+    x_d &= x\,(1 + k_1 r^2 + k_2 r^4 + k_3 r^6) + 2 p_1 x y + p_2 (r^2 + 2x^2), \\
+    y_d &= y\,(1 + k_1 r^2 + k_2 r^4 + k_3 r^6) + p_1 (r^2 + 2y^2) + 2 p_2 x y.
+    \label{eq:verzeichnung}
+\end{align}
+Dabei beschreiben $k_1, k_2, k_3$ die radiale und $p_1, p_2$ die tangentiale Verzeichnung.
 
+Die Kalibrierung bestimmt diese Parameter, indem ein Kalibriermuster bekannter Geometrie aus verschiedenen Blickwinkeln aufgenommen wird.
+Über alle erkannten Musterpunkte wird der Reprojektionsfehler minimiert, also die Abweichung zwischen den gemessenen Bildpunkten und den mit den geschätzten Parametern projizierten Punkten.
+% TODO: verwendetes Kalibriermuster und Anzahl der Aufnahmen ergaenzen.
+Die in dieser Arbeit ermittelten Parameter sind in Tabelle~\ref{tab:kalibrierung} zusammengefasst.
 
-\section{Training der Modelle}
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{lll}
+        \toprule
+        \textbf{Parameter} & \textbf{Symbol} & \textbf{Wert} \\
+        \midrule
+        Brennweite $x$       & $f_x$ & $1436{,}035$ \\
+        Brennweite $y$       & $f_y$ & $1435{,}631$ \\
+        Hauptpunkt $x$       & $c_x$ & $907{,}441$ \\
+        Hauptpunkt $y$       & $c_y$ & $529{,}629$ \\
+        Radiale Verzeichnung & $k_1$ & $0{,}020501$ \\
+                             & $k_2$ & $-0{,}076950$ \\
+                             & $k_3$ & $0{,}0$ \\
+        Tangentiale Verz.    & $p_1$ & $-0{,}000463$ \\
+                             & $p_2$ & $-0{,}005645$ \\
+        \bottomrule
+    \end{tabular}
+    \caption{Ergebnis der intrinsischen Kamerakalibrierung der Logitech~C922 bei $1920 \times 1080$}
+    \label{tab:kalibrierung}
+\end{table}
+\FloatBarrier
 
-\subsection{Yolov8 Training}
+Aus der Kalibrierung wird zusätzlich eine Projektionsmatrix abgeleitet, die die intrinsischen Parameter des entzerrten Bildes beschreibt:
+\begin{equation}
+    \mathbf{P} =
+    \begin{bmatrix}
+        1422{,}620 & 0          & 892{,}932 & 0 \\
+        0          & 1440{,}023 & 528{,}758 & 0 \\
+        0          & 0          & 1         & 0
+    \end{bmatrix}.
+    \label{eq:projektionsmatrix}
+\end{equation}
+Diese Matrix wird in den nachfolgenden Schritten anstelle der ursprünglichen Kameramatrix verwendet.
 
+\section{Entzerrung}
+\label{sec:kartierung_entzerrung}
+Die Entzerrung wird über den Knoten \texttt{rectify\_node} aus dem Paket image\_proc umgesetzt.
+Dieser berechnet aus den Kalibrierparametern für jeden Pixel des Ausgabebildes die zugehörige Position im verzeichneten Eingangsbild und entfernt so die durch das Objektiv verursachte Verzeichnung.
+Das Ergebnis wird als Topic \texttt{/camera/image\_rect} bereitgestellt.
 
+Nach diesem Schritt ist das Bild bereits entzerrt.
+Seine intrinsischen Parameter entsprechen damit der Projektionsmatrix aus Gleichung~\eqref{eq:projektionsmatrix}, und die Verzeichnungskoeffizienten sind null.
+Dieser Zusammenhang ist für die nachfolgende Markererkennung entscheidend: Würde dort erneut mit den ursprünglichen Verzeichnungskoeffizienten gerechnet, würde die bereits korrigierte Verzeichnung ein zweites Mal angewendet und die Markerlage systematisch verfälscht.
+Aus diesem Grund werden in der Konfiguration der Kartierung als Intrinsics die Werte der Projektionsmatrix eingetragen und die Verzeichnungskoeffizienten auf null gesetzt.
 
+% TODO: Abbildung -- Vergleich Rohbild (verzeichnet) und entzerrtes Bild.
 
+\section{Bildverarbeitung}
+\label{sec:kartierung_bildverarbeitung}
+Die Markererkennung wird offline auf den aufgezeichneten, entzerrten Bildern ausgeführt.
+Dazu wird der Bag der ersten Stufe abgespielt und der Detektionsknoten \texttt{sync\_and\_detect\_node} auf den Bildstrom angewendet.
 
+Das Abspielen erfolgt mit der Option \texttt{-{}-clock} und der Parameter \texttt{use\_sim\_time} ist aktiviert.
+Dadurch arbeitet die Detektion mit simulierter Zeit und ist an die Zeitstempel der aufgezeichneten Daten gekoppelt, nicht an die reale Systemzeit.
+Die Abspielgeschwindigkeit wird auf den Faktor $0{,}3$ reduziert.
+So steht der Detektion pro Bild ausreichend Rechenzeit zur Verfügung, sodass keine Bilder ungenutzt verworfen werden.
 
+Für jeden erkannten Marker werden die Identifikationsnummer sowie die Bildkoordinaten seiner vier Eckpunkte bestimmt und als Topic \texttt{/tagslam/tag\_detections} ausgegeben.
+Die Detektionen werden zusammen mit den Bildern, den Kameraparametern, den statischen Transformationen und der simulierten Zeit in einem zweiten, kombinierten Bag aufgezeichnet:
+\begin{itemize}
+    \item \texttt{/camera/image\_rect},
+    \item \texttt{/camera/camera\_info},
+    \item \texttt{/tagslam/tag\_detections},
+    \item \texttt{/tf\_static},
+    \item \texttt{/clock}.
+\end{itemize}
+Dieser kombinierte Bag enthält alle Eingangsdaten der eigentlichen Kartenerstellung.
 
+\section{Kartenerstellung}
+\label{sec:kartierung_tagslam}
+Die Kartenerstellung erfolgt mit TagSLAM über den Knoten \texttt{tagslam\_from\_bag}.
+Dieser liest den kombinierten Bag ein und schätzt aus den Markerdetektionen die Lage aller Marker zueinander.
+
+\subsection{Optimierungsverfahren}
+TagSLAM formuliert das Problem als Faktorgraph und löst es als nichtlineares Ausgleichsproblem.
+Gesucht werden die Posen aller Marker sowie die Kamerapose je Bild, die die beobachteten Markerecken bestmöglich erklären.
+Für jede beobachtete Markerecke wird der Reprojektionsfehler gebildet, also die Abweichung zwischen der gemessenen Bildkoordinate $\mathbf{z}_{ij}$ und der projizierten Eckposition:
+\begin{equation}
+    \min_{\{\mathbf{T}_c\}, \{\mathbf{T}_t\}}
+    \sum_{i} \sum_{j}
+    \left\lVert
+        \mathbf{z}_{ij} - \pi\!\left(\mathbf{K}, \mathbf{T}_{c_i}, \mathbf{T}_{t_j}\right)
+    \right\rVert^2_{\Sigma},
+    \label{eq:tagslam_kost}
+\end{equation}
+wobei $\mathbf{T}_{c_i}$ die Pose der Kamera im Bild $i$, $\mathbf{T}_{t_j}$ die Pose des Markers $j$ und $\pi(\cdot)$ die Projektion einer Markerecke in die Bildebene bezeichnet.
+Die Gewichtung $\Sigma$ ergibt sich aus dem angenommenen Messrauschen, das über den Parameter \texttt{pixel\_noise} mit $1{,}0$ Pixel festgelegt ist.
+
+\subsection{Konfiguration}
+Die Konfiguration erfolgt über drei Dateien: die Kameraparameter in \texttt{cameras.yaml}, die Kamerapose in \texttt{camera\_poses.yaml} und die TagSLAM-Konfiguration in \texttt{tagslam\_Lauf2.yaml}.
+Die wesentlichen Optimierungsparameter sind in Tabelle~\ref{tab:tagslam_params} zusammengefasst.
+
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{ll}
+        \toprule
+        \textbf{Parameter} & \textbf{Wert} \\
+        \midrule
+        \texttt{optimizer\_mode}                  & slow \\
+        \texttt{pixel\_noise}                      & $1{,}0$ \\
+        \texttt{minimum\_viewing\_angle}           & $15{,}0^\circ$ \\
+        \texttt{minimum\_tag\_area}                & $2500\,\text{px}^2$ \\
+        \texttt{max\_num\_incremental\_opt}        & $10$ \\
+        \texttt{max\_subgraph\_error}              & $10{,}0$ \\
+        \texttt{subgraph\_abs\_prior\_position\_noise} & $0{,}15$ \\
+        \texttt{subgraph\_abs\_prior\_rotation\_noise} & $0{,}15$ \\
+        \texttt{use\_approximate\_sync}            & true \\
+        \bottomrule
+    \end{tabular}
+    \caption{Verwendete TagSLAM-Optimierungsparameter}
+    \label{tab:tagslam_params}
+\end{table}
+\FloatBarrier
+
+Der Parameter \texttt{minimum\_viewing\_angle} verwirft Beobachtungen, bei denen der Marker zu schräg zur Kamera steht, da die Eckpunkte dann ungenau bestimmt werden.
+Analog schließt \texttt{minimum\_tag\_area} zu kleine und damit zu weit entfernte Marker aus.
+Da die Kamera während der Aufnahme bewegt wird und keine externe Odometrie vorliegt, wird sie als nicht-statischer Körper mit einer Pseudo-Odometrie hohen Rauschens (\texttt{fake\_odom}) modelliert, sodass aufeinanderfolgende Kameraposen nicht künstlich gekoppelt werden.
+
+\subsection{Initialisierung der Markerposen}
+Die Marker werden mit unterschiedlich starken Vorabinformationen in die Optimierung eingebracht.
+Hierbei werden drei Gruppen unterschieden, die sich in Tag-Größe und Stärke des Priors unterscheiden:
+\begin{itemize}
+    \item \textbf{Tags 0--12} (Größe $0{,}167\,\text{m}$): gut vermessene Startpositionen mit engem Positionsrauschen.
+    Tag~0 ist im Ursprung fixiert und definiert das Kartenkoordinatensystem.
+    \item \textbf{Tags 13--52} (Größe $0{,}167\,\text{m}$): grobe Startpositionen aus einer Vorabschätzung mit weichem Prior von $0{,}5\,\text{m}$, sodass ihre Lage während der Optimierung angepasst wird.
+    \item \textbf{Tags 120--130} (Größe $0{,}232\,\text{m}$): ohne Vorabposition, deren Lage vollständig aus den Beobachtungen bestimmt wird.
+\end{itemize}
+Bei allen Markern ist die $z$-Koordinate auf null fixiert und die Rotation um die $x$- und $y$-Achse gesperrt, da die Marker eben am Boden liegen.
+Lediglich die Position in der Ebene sowie die Rotation um die $z$-Achse bleiben frei.
+Diese Einschränkung reduziert die Zahl der freien Parameter und stabilisiert die Optimierung.
+
+\subsection{Ergebnis}
+Das Ergebnis ist eine konsistente Karte, die die Lage aller Marker im gemeinsamen Kartenkoordinatensystem beschreibt.
+Die optimierte Karte wird in einen Ausgabe-Bag geschrieben und anschließend im Flug für die Lokalisierung verwendet.
+% TODO: Abbildung -- optimierte Markerkarte (z. B. RViz-Darstellung der Tags).
 
 
 

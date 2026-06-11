@@ -7,8 +7,10 @@
 \contentsline {table}{\numberline {2.1}{\ignorespaces Sensorbestückung des Pixhawk 6X \blx@tocontentsinit {0}\cite {px4_pixhawk6x_doc}}}{10}{table.caption.9}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces Übersicht der Hardwarekomponenten}}{23}{table.caption.19}%
+\contentsline {table}{\numberline {4.1}{\ignorespaces Übersicht der eingesetzten Hardwarekomponenten}}{23}{table.caption.19}%
 \addvspace {10\p@ }
+\contentsline {table}{\numberline {5.1}{\ignorespaces Ergebnis der intrinsischen Kamerakalibrierung der Logitech~C922 bei $1920 \times 1080$}}{27}{table.caption.22}%
+\contentsline {table}{\numberline {5.2}{\ignorespaces Verwendete TagSLAM-Optimierungsparameter}}{29}{table.caption.23}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
