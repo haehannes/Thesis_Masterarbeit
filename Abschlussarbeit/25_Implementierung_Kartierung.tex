@@ -20,6 +20,123 @@
 
 \chapter{Implementierung der Kartierung}
 \label{cap:kartierung}
+In nachfolgenden Kapitel werden die Schritte, welche zur Implementierung der Kartierung notwendig sind, beschrieben.
+Hierbei werden Festlegungen getätigt, welche auch direkten Einfluss auf die in Kapitel \ref{cap:lokalisierung} haben. 
+
+
+\section{Auswahl der Algorithmik}
+\section{Auswahl der Algorithmik}
+Für die Kartierung werden in dieser Arbeit zwei Ansätze verfolgt.
+Zum einen die Live-Kartierung mittels \gls{slam} während des Flugs und zum anderen die Offline-Kartierung durch Aufzeichnung von \gls{ros2}-Bags.
+Da die Karte als spätere Referenz für die Lokalisierung des \gls{uav} dient, überträgt sich ihre Genauigkeit unmittelbar auf den Lokalisierungsfehler.
+Um eine möglichst genaue Karte zu erhalten und den relativen Fehler der Karte sowie der Lokalisierung gering zu halten, 
+kommen ausschließlich optimierungsbasierte \gls{slam}-Methoden zum Einsatz.
+Ausschlaggebend für diese Wahl sind die in Kapitel~\ref{sec:slam} beschriebenen Vorteile wie die globale Kartenkorrektur.
+Als Nachteil dieser Designentscheidung ist ein erhöhter Rechenaufwand zu nennen.
+Dieser macht sich vor allem bei der Live-Kartierung bemerkbar.
+
+In Abbildung \ref{fig:paarweiser_vergleich_slam} werden die in Kapitel \ref{sec:slam_varianten} vorgestellten \gls{slam}-Varianten miteinader verglichen.
+Wichtige Entscheidungskriterien sind: 
+- Kosten der Hardware
+- Gewicht der Hardware
+- Vorbereitung 
+- Kompatibilität der Versuchsumgebung
+- Driftanfälligkeit. 
+
+
+\begin{table}[htbp]
+    \centering
+    \footnotesize
+    \renewcommand{\arraystretch}{1.3}
+    \setlength{\tabcolsep}{4pt}
+    \begin{tabular}{l ccccccc c c}
+        \toprule
+        \textbf{wichtiger als $\rightarrow$}
+            & \rotatebox{90}{Kosten Hardware}
+            & \rotatebox{90}{Gewicht Hardware}
+            & \rotatebox{90}{Vorbereitung}
+            & \rotatebox{90}{Kompat. Umgebung}
+            & \rotatebox{90}{Driftanfälligkeit}
+            & \rotatebox{90}{ROS2-Verfügbarkeit}
+            & \rotatebox{90}{Rechenaufwand}
+            & \textbf{Summe} & \textbf{\%} \\
+        \midrule
+        Kosten Hardware        & \cellcolor{black} & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 4{,}8 \\
+        Gewicht Hardware       & 1 & \cellcolor{black} & 0 & 0 & 0 & 0 & 1 & 2 & 9{,}5 \\
+        Vorbereitung           & 1 & 1 & \cellcolor{black} & 0 & 0 & 1 & 1 & 4 & 19{,}0 \\
+        Kompat. Umgebung       & 1 & 1 & 1 & \cellcolor{black} & 1 & 1 & 1 & 6 & 28{,}6 \\
+        Driftanfälligkeit      & 1 & 1 & 1 & 0 & \cellcolor{black} & 1 & 1 & 5 & 23{,}8 \\
+        ROS2-Verfügbarkeit     & 1 & 1 & 0 & 0 & 0 & \cellcolor{black} & 1 & 3 & 14{,}3 \\
+        Rechenaufwand          & 0 & 0 & 0 & 0 & 0 & 0 & \cellcolor{black} & 0 & 0{,}0 \\
+        \midrule
+        \multicolumn{8}{r}{\textbf{Prüfsumme}} & \textbf{21} & \textbf{100{,}0} \\
+        \bottomrule
+    \end{tabular}
+    \caption{Paarweiser Vergleich zur Gewichtung der Auswahlkriterien.
+    Eine~1 bedeutet, dass das Kriterium der Zeile wichtiger ist als das der Spalte.}
+    \label{tab:paarweiser_vergleich}
+\end{table}
+\FloatBarrier
+
+
+\begin{table}[htbp]
+    \centering
+    \footnotesize
+    \renewcommand{\arraystretch}{1.3}
+    \setlength{\tabcolsep}{4pt}
+    \begin{tabular}{l ccccccc c c}
+        \toprule
+        \textbf{wichtiger als $\rightarrow$}
+            & \rotatebox{90}{Kosten Hardware}
+            & \rotatebox{90}{Gewicht Hardware}
+            & \rotatebox{90}{Vorbereitung}
+            & \rotatebox{90}{Kompat. Umgebung}
+            & \rotatebox{90}{Driftanfälligkeit}
+            & \rotatebox{90}{ROS2-Verfügbarkeit}
+            & \rotatebox{90}{Rechenaufwand}
+            & \textbf{Summe} & \textbf{\%} \\
+        \midrule
+        Kosten Hardware        & \cellcolor{black} & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 4{,}8 \\
+        Gewicht Hardware       & 1 & \cellcolor{black} & 0 & 0 & 0 & 0 & 1 & 2 & 9{,}5 \\
+        Vorbereitung           & 1 & 1 & \cellcolor{black} & 0 & 0 & 1 & 1 & 4 & 19{,}0 \\
+        Kompat. Umgebung       & 1 & 1 & 1 & \cellcolor{black} & 1 & 1 & 1 & 6 & 28{,}6 \\
+        Driftanfälligkeit      & 1 & 1 & 1 & 0 & \cellcolor{black} & 1 & 1 & 5 & 23{,}8 \\
+        ROS2-Verfügbarkeit     & 1 & 1 & 0 & 0 & 0 & \cellcolor{black} & 1 & 3 & 14{,}3 \\
+        Rechenaufwand          & 0 & 0 & 0 & 0 & 0 & 0 & \cellcolor{black} & 0 & 0{,}0 \\
+        \midrule
+        \multicolumn{8}{r}{\textbf{Prüfsumme}} & \textbf{21} & \textbf{100{,}0} \\
+        \bottomrule
+    \end{tabular}
+    \caption{Paarweiser Vergleich zur Gewichtung der Auswahlkriterien.
+    Eine~1 bedeutet, dass das Kriterium der Zeile wichtiger ist als das der Spalte.}
+    \label{tab:paarweiser_vergleich}
+\end{table}
+\FloatBarrier
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1.0\textwidth]{Bilder/Faktorgraph_vereinfacht.png}
+    \caption{Vereinfachter Faktorgraph eines \gls{slam}-Problems, 
+    vgl.~\cite{Lai2022}, \cite{Dellaert2017}, \cite{Cai2024}}
+    \label{fig:paarweiser_vergleich_slam}
+\end{figure}
+\FloatBarrier
+
+
+Für die Kartierung werden in dieser Arbeit zwei Ansätze verfolgt. Zum einen die Live-Kartierung mittels \gls{slam} Algorithmik und zum andern die 
+offline Kartierung.
+Bei der Live-Kartierung soll es möglich sein, eine Kartierung im Flugbetrieb aufzunehmen.
 Die Karte wird nicht im Flug, sondern vorab in einem mehrstufigen Offline-Verfahren erstellt.
 Der Ablauf gliedert sich in drei aufeinanderfolgende Stufen, die jeweils als eigenes Launch-File umgesetzt sind und über ROS2-Bags miteinander verbunden werden.
 In der ersten Stufe werden die Kamerabilder aufgenommen, entzerrt und in einem Bag aufgezeichnet.
@@ -28,6 +145,86 @@ In der dritten Stufe werden die Markerlagen aus den Detektionen zu einer konsist
 Die Aufteilung in einen Offline-Ablauf erlaubt es, die Detektion mit reduzierter Abspielgeschwindigkeit auszuführen und den gesamten Vorgang reproduzierbar aus denselben Eingangsdaten zu wiederholen.
 
 % TODO: Abbildung -- Schema des dreistufigen Ablaufs (Bag -> Bag -> Karte).
+
+
+\begin{table}[htbp]
+    \centering
+    \renewcommand{\arraystretch}{1.4}
+    \begin{tabularx}{\textwidth}{l X X X X}
+        \toprule
+        \textbf{Verfahren} & \textbf{Kosten} & \textbf{Vorbereitung} & \textbf{Kompatibilität Versuchsumgebung} & \textbf{ROS2-Pakete} \\
+        \midrule
+        \gls{vo} / \gls{vio}
+            & gering, nur Kamera bzw. Kamera mit \gls{imu}
+            & keine Umgebungsvorbereitung nötig
+            & gering, setzt strukturierte Umgebung voraus, driftbehaftet
+            & vorhanden \\
+        \addlinespace
+        Optimierungs\-basiertes \gls{slam}
+            & gering bis mittel, je nach Sensorik
+            & keine Umgebungsvorbereitung, hoher Konfigurationsaufwand
+            & eingeschränkt, abhängig von Textur und Wiedererkennung
+            & vorhanden \\
+        \addlinespace
+        Fiducial-Marker
+            & gering, gedruckte Marker und Kamera
+            & einmaliges Anbringen und Einmessen der Marker
+            & hoch, unabhängig von Umgebungstextur, absoluter Bezug
+            & vorhanden \\
+        \bottomrule
+    \end{tabularx}
+    \caption{Paarweiser Vergleich der betrachteten Lokalisierungsverfahren hinsichtlich der Auswahlkriterien}
+    \label{tab:verfahrensvergleich}
+\end{table}
+\FloatBarrier
+
+
+
+
+
+
+\section{Auswahl des Lokalisierungsverfahrens}
+\label{sec:auswahl_verfahren}
+Für die Innenraumlokalisierung des \gls{uav} kommen grundsätzlich mehrere der in den Grundlagen beschriebenen Verfahren in Frage.
+Im Folgenden werden ihre Vor- und Nachteile im Hinblick auf die konkrete Anwendung gegenübergestellt, um die Wahl des eingesetzten Verfahrens zu begründen.
+
+\subsection*{Visuelle Odometrie und visuell-inertiale Odometrie}
+Die visuelle Odometrie benötigt keine vorbereitete Umgebung und liefert ohne zusätzliche Infrastruktur eine fortlaufende Bewegungsschätzung.
+In der visuell-inertialen Variante wird die Robustheit durch die Inertialdaten weiter erhöht, die den metrischen Maßstab sowie Roll- und Nickwinkel stützen.
+Diesen Vorteilen stehen jedoch zwei für die vorliegende Anwendung wesentliche Nachteile gegenüber.
+Da beide Verfahren keinen absoluten Positionsbezug besitzen, akkumulieren sie über die Zeit einen Drift und sind damit für eine langfristig stabile Innenraumlokalisierung nur bedingt geeignet.
+Zudem setzen sie eine strukturierte, texturreiche Umgebung voraus, die in der Versuchsumgebung nicht zuverlässig gegeben ist.
+
+\subsection*{Simultane Lokalisierung und Kartierung}
+\gls{slam}-Verfahren erstellen eine Karte der Umgebung und bestimmen gleichzeitig die eigene Position darin.
+Durch Loop Closure und die anschließende globale Optimierung können sie den akkumulierten Drift korrigieren und erreichen so eine höhere Konsistenz als die reine Odometrie.
+Allerdings teilen optimierungsbasierte \gls{slam}-Verfahren die Abhängigkeit von einer texturreichen Umgebung und erfordern einen deutlich höheren Rechen- und Implementierungsaufwand.
+Der spiegelnde Hallenboden und die strukturarmen Flächen der Versuchsumgebung (siehe Abschnitt~\ref{sec:versuchsumgebung}) erschweren sowohl die Merkmalsextraktion als auch die zuverlässige Wiedererkennung bereits besuchter Orte.
+
+\subsection*{Fiducial-Marker}
+Fiducial-Marker stellen künstliche Landmarken mit bekannter Position dar und schaffen damit den absoluten Positionsbezug, der den zuvor genannten Verfahren fehlt.
+Da jeder Marker eindeutig identifizierbar ist und seine Lage in der Karte bekannt ist, akkumuliert sich kein Drift, solange Marker sichtbar sind.
+Die Erkennung ist robust gegenüber strukturarmen Flächen, da nicht die Umgebungstextur, sondern der Marker selbst das auszuwertende Merkmal bildet.
+Als Nachteil ist die Umgebung vorzubereiten, indem die Marker angebracht und eingemessen werden müssen.
+Für eine räumlich begrenzte, kontrollierte Versuchsumgebung ist dieser einmalige Aufwand jedoch vertretbar.
+
+\subsection*{Begründung der Verfahrenswahl}
+Die Gegenüberstellung zeigt, dass die rein relativen Verfahren an den Bedingungen der Versuchsumgebung scheitern: Sowohl visuelle Odometrie als auch optimierungsbasiertes \gls{slam} setzen eine strukturierte Umgebung voraus und liefern, im Fall der Odometrie, keinen driftfreien absoluten Bezug.
+Fiducial-Marker umgehen beide Einschränkungen, da sie einen absoluten Positionsbezug bereitstellen und unabhängig von der Umgebungstextur erkannt werden.
+Aus diesen Gründen wird die Lokalisierung in dieser Arbeit auf Basis von Fiducial-Markern umgesetzt.
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \section{Bildaufnahme}
 \label{sec:kartierung_bildaufnahme}

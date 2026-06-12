@@ -1,26 +1,26 @@
 [0] Config.pm:307> INFO - This is Biber 2.19
 [0] Config.pm:310> INFO - Logfile is '00_Abschlussarbeit.blg'
-[44] biber:340> INFO - === Do Jun 11, 2026, 23:06:14
+[45] biber:340> INFO - === Fr Jun 12, 2026, 11:30:51
 [54] Biber.pm:419> INFO - Reading '00_Abschlussarbeit.bcf'
-[99] Biber.pm:979> INFO - Found 56 citekeys in bib section 0
-[107] Biber.pm:4419> INFO - Processing section 0
-[113] Biber.pm:4610> INFO - Looking for bibtex file 'Literatur.bib' for section 0
-[115] bibtex.pm:1713> INFO - LaTeX decoding ...
-[142] bibtex.pm:1519> INFO - Found BibTeX data source 'Literatur.bib'
-[334] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[334] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[334] Biber.pm:4239> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-US'
-[335] Biber.pm:4245> INFO - No sort tailoring available for locale 'en-US'
-[352] bbl.pm:660> INFO - Writing '00_Abschlussarbeit.bbl' with encoding 'UTF-8'
-[364] bbl.pm:763> INFO - Output to 00_Abschlussarbeit.bbl
-[365] Biber.pm:131> WARN - BibTeX subsystem: /tmp/biber_tmp_9JPB/fe6d16e8a0935a16f008a64fa11444f8_23732.utf8, line 17, warning: undefined macro "June"
-[365] Biber.pm:131> WARN - BibTeX subsystem: /tmp/biber_tmp_9JPB/fe6d16e8a0935a16f008a64fa11444f8_23732.utf8, line 205, warning: undefined macro "Sept"
-[365] Biber.pm:131> WARN - BibTeX subsystem: /tmp/biber_tmp_9JPB/fe6d16e8a0935a16f008a64fa11444f8_23732.utf8, line 288, warning: undefined macro "July"
-[365] Biber.pm:131> WARN - BibTeX subsystem: /tmp/biber_tmp_9JPB/fe6d16e8a0935a16f008a64fa11444f8_23732.utf8, line 504, warning: undefined macro "Sept"
-[365] Biber.pm:131> WARN - I didn't find a database entry for 'ROS2Humble' (section 0)
-[365] Biber.pm:131> WARN - I didn't find a database entry for 'vslam_core_modules_2024' (section 0)
-[365] Biber.pm:131> WARN - I didn't find a database entry for 'ali_camera' (section 0)
-[365] Biber.pm:131> WARN - I didn't find a database entry for 'pichler_lipo' (section 0)
-[365] Biber.pm:131> WARN - I didn't find a database entry for 'holybro_pm02' (section 0)
-[365] Biber.pm:131> WARN - I didn't find a database entry for 'holybro_pdb' (section 0)
-[365] Biber.pm:133> INFO - WARNINGS: 10
+[102] Biber.pm:979> INFO - Found 58 citekeys in bib section 0
+[110] Biber.pm:4419> INFO - Processing section 0
+[116] Biber.pm:4610> INFO - Looking for bibtex file 'Literatur.bib' for section 0
+[118] bibtex.pm:1713> INFO - LaTeX decoding ...
+[147] bibtex.pm:1519> INFO - Found BibTeX data source 'Literatur.bib'
+[362] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[362] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[362] Biber.pm:4239> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-US'
+[362] Biber.pm:4245> INFO - No sort tailoring available for locale 'en-US'
+[381] bbl.pm:660> INFO - Writing '00_Abschlussarbeit.bbl' with encoding 'UTF-8'
+[393] bbl.pm:763> INFO - Output to 00_Abschlussarbeit.bbl
+[393] Biber.pm:131> WARN - BibTeX subsystem: /tmp/biber_tmp_SlEA/fe6d16e8a0935a16f008a64fa11444f8_14816.utf8, line 17, warning: undefined macro "June"
+[393] Biber.pm:131> WARN - BibTeX subsystem: /tmp/biber_tmp_SlEA/fe6d16e8a0935a16f008a64fa11444f8_14816.utf8, line 205, warning: undefined macro "Sept"
+[393] Biber.pm:131> WARN - BibTeX subsystem: /tmp/biber_tmp_SlEA/fe6d16e8a0935a16f008a64fa11444f8_14816.utf8, line 288, warning: undefined macro "July"
+[393] Biber.pm:131> WARN - BibTeX subsystem: /tmp/biber_tmp_SlEA/fe6d16e8a0935a16f008a64fa11444f8_14816.utf8, line 504, warning: undefined macro "Sept"
+[393] Biber.pm:131> WARN - I didn't find a database entry for 'ROS2Humble' (section 0)
+[393] Biber.pm:131> WARN - I didn't find a database entry for 'vslam_core_modules_2024' (section 0)
+[393] Biber.pm:131> WARN - I didn't find a database entry for 'ali_camera' (section 0)
+[393] Biber.pm:131> WARN - I didn't find a database entry for 'pichler_lipo' (section 0)
+[393] Biber.pm:131> WARN - I didn't find a database entry for 'holybro_pm02' (section 0)
+[393] Biber.pm:131> WARN - I didn't find a database entry for 'holybro_pdb' (section 0)
+[393] Biber.pm:133> INFO - WARNINGS: 10

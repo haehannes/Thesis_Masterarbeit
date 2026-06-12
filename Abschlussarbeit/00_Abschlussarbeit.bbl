@@ -787,6 +787,42 @@
       \field{title}{{Flight Reporting -- PX4 Autopilot Documentation}}
       \field{year}{2025}
     \endentry
+    \entry{RANSAC_Fischler1987}{inbook}{}
+      \name{author}{2}{}{%
+        {{hash=53af7a5ea8715d6c3922933be034062f}{%
+           family={Fischler},
+           familyi={F\bibinitperiod},
+           given={Martin\bibnamedelima A.},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=40bae40d0cc01a890e3631288dd8ffa2}{%
+           family={Bolles},
+           familyi={B\bibinitperiod},
+           given={Robert\bibnamedelima C.},
+           giveni={R\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{fd6cd035a6e3f6ec978ad866925826c7}
+      \strng{fullhash}{fd6cd035a6e3f6ec978ad866925826c7}
+      \strng{bibnamehash}{fd6cd035a6e3f6ec978ad866925826c7}
+      \strng{authorbibnamehash}{fd6cd035a6e3f6ec978ad866925826c7}
+      \strng{authornamehash}{fd6cd035a6e3f6ec978ad866925826c7}
+      \strng{authorfullhash}{fd6cd035a6e3f6ec978ad866925826c7}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Readings in Computer Vision}
+      \field{isbn}{9780080515816}
+      \field{title}{Random Sample Consensus: A Paradigm for Model Fitting with Applications to Image Analysis and Automated Cartography}
+      \field{year}{1987}
+      \field{pages}{726\bibrangedash 740}
+      \range{pages}{15}
+      \verb{doi}
+      \verb 10.1016/b978-0-08-051581-6.50070-2
+      \endverb
+    \endentry
     \entry{ROS2MiddlewareHumble}{misc}{}
       \name{author}{1}{}{%
         {{hash=6d2ee5676b068857db569005a9c6205a}{%
@@ -1058,8 +1094,8 @@
       \strng{authorbibnamehash}{6790c564b345a5999993ffea68145cb3}
       \strng{authornamehash}{6a6f1d6c6b5a1e35528d0368fedae54f}
       \strng{authorfullhash}{6790c564b345a5999993ffea68145cb3}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{2022 International Conference on Unmanned Aircraft Systems (ICUAS)}
@@ -1331,8 +1367,8 @@
       \strng{authorbibnamehash}{44074d3cb57c174a8b15ccc9a576ac0d}
       \strng{authornamehash}{44074d3cb57c174a8b15ccc9a576ac0d}
       \strng{authorfullhash}{44074d3cb57c174a8b15ccc9a576ac0d}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Factor Graphs and {GTSAM}: A Hands-on Introduction}
@@ -1457,8 +1493,8 @@
       \strng{authorbibnamehash}{1706de37ec1c6e8f22081681f5edb0cd}
       \strng{authornamehash}{288f14f017934f36c50a3331f71e78c6}
       \strng{authorfullhash}{1706de37ec1c6e8f22081681f5edb0cd}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{1573-0409}
@@ -1489,8 +1525,8 @@
       \strng{authorbibnamehash}{c6125254a79af02a8918da63fa8ea72e}
       \strng{authornamehash}{c6125254a79af02a8918da63fa8ea72e}
       \strng{authorfullhash}{c6125254a79af02a8918da63fa8ea72e}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{month}{5}
@@ -1529,8 +1565,8 @@
       \strng{authorbibnamehash}{862e73e9fd8d06467d53ea2c9dad8c02}
       \strng{authornamehash}{862e73e9fd8d06467d53ea2c9dad8c02}
       \strng{authorfullhash}{862e73e9fd8d06467d53ea2c9dad8c02}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{The Journal of Engineering}
@@ -1754,6 +1790,36 @@
       \endverb
       \verb{url}
       \verb https://www.seeedstudio.com/reComputer-Mini-J3011-p-6356.html
+      \endverb
+    \endentry
+    \entry{aerodrohm}{online}{}
+      \name{author}{1}{}{%
+        {{hash=df5d499327d90384fd66d50ad8a5a53a}{%
+           family={{Technische Hochschule Nürnberg Georg Simon Ohm}},
+           familyi={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{df5d499327d90384fd66d50ad8a5a53a}
+      \strng{fullhash}{df5d499327d90384fd66d50ad8a5a53a}
+      \strng{bibnamehash}{df5d499327d90384fd66d50ad8a5a53a}
+      \strng{authorbibnamehash}{df5d499327d90384fd66d50ad8a5a53a}
+      \strng{authornamehash}{df5d499327d90384fd66d50ad8a5a53a}
+      \strng{authorfullhash}{df5d499327d90384fd66d50ad8a5a53a}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Abgerufen am 12.~Juni~2026}
+      \field{title}{{AerodrOhm} -- {F}lugroboterhalle}
+      \field{urlday}{12}
+      \field{urlmonth}{6}
+      \field{urlyear}{2026}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.th-nuernberg.de/forschung-innovation/forschungseinrichtungen/ohm-innovation-center/forschung-am-oic/aerodrohm/
+      \endverb
+      \verb{url}
+      \verb https://www.th-nuernberg.de/forschung-innovation/forschungseinrichtungen/ohm-innovation-center/forschung-am-oic/aerodrohm/
       \endverb
     \endentry
   \enddatalist

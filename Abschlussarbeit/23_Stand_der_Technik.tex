@@ -99,6 +99,7 @@ Aus diesem Grund ist der optische Flow nicht zur Positionserkennung einer \gls{u
 
 
 \subsection{Simultane Lokalisierung und Kartierung}
+\label{sec:slam}
 \gls{slam} beschreibt eine Problemstellung an der Schnittstelle von Computer Vision und Robotik.
 Dabei geht es um die selbstständige Erstellung einer Karte einer unbekannten Umgebung bei gleichzeitiger Bestimmung der eigenen Position 
 innerhalb dieser Umgebung.\cite{10169695}
@@ -193,6 +194,7 @@ Bekannte Faktorgraph Bibliotheken sind \gls{gtsam} und \gls{g2o}.
 
 
 \subsubsection{SLAM-Varianten}
+\label{slam_varianten}
 \textbf{Kamerabasierte \gls{vslam}} nutzt visuelle Sensordaten, um gleichzeitig die Pose eines Roboters zu schätzen und eine Karte der Umgebung zu erstellen.\cite{10169695}
 Es baut auf den Konzepten der \gls{vo} und \gls{vio} auf und erweitert diese um die Fähigkeit zur globalen Kartenkonsistenz durch Loop Closure.\cite{Cai2024}
 Durch die Erkennung bereits besuchter Orte kann das System akkumulierte Posenfehler korrigieren und eine global konsistente Karte aufbauen.

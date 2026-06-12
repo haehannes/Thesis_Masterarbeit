@@ -450,9 +450,25 @@ Diese Log-Dateien enthalten zeitgestempelte Aufzeichnungen aller relevanten Zust
 detaillierte Nachanalyse des Systemverhaltens nach dem Flug. \cite{px4_ulog,px4_flight_reporting}
 
 
-\subsection{Mustererkennung mit RANSAC}
-Hier muss noch Text zu RANSAC mit rein!!!!!
+\subsection{Random Sample Consensus (RANSAC)}
+\label{sec:ransac}
+Der \gls{ransac} ist ein iteratives Verfahren zur robusten Schätzung von Modellparametern aus einem Datensatz, 
+der einen erheblichen Anteil an Ausreißern enthält.
+Der \gls{ransac} unterscheidet sich von klassischen Ausgleichsverfahren dadurch, dass es nicht versucht, 
+alle Datenpunkte gleichzeitig zu berücksichtigen~\cite{RANSAC_Fischler1987}.
+Stattdessen wird das Modell aus möglichst kleinen, zufällig gewählten Teilmengen bestimmt und anhand der übrigen Daten bewertet.
+Dadurch bleibt die Schätzung auch dann zuverlässig, wenn ein großer Teil der Daten fehlerhaft ist~\cite{RANSAC_Fischler1987}.
 
+Die Grundidee besteht darin, wiederholt eine minimale Teilmenge von Datenpunkten auszuwählen und daraus ein Modell zu berechnen.
+Die Größe dieser Teilmenge entspricht der minimalen Anzahl an Punkten, die zur eindeutigen Bestimmung der Modellparameter erforderlich ist.
+Für jedes so berechnete Modell wird anschließend geprüft, wie viele der übrigen Datenpunkte mit ihm übereinstimmen.
+Ein Datenpunkt gilt als konsistent, wenn sein Abstand zum Modell einen festgelegten Schwellenwert $t$ unterschreitet:
+\begin{equation}
+    d(\mathbf{x}_i, \mathcal{M}) < t,
+    \label{eq:ransac_inlier}
+\end{equation}
+wobei $d(\mathbf{x}_i, \mathcal{M})$ den Abstand des Punktes $\mathbf{x}_i$ zum Modell $\mathcal{M}$ bezeichnet.
+Die Menge aller konsistenten Punkte wird als Konsensmenge bezeichnet, ihre Elemente als Inlier; die übrigen Punkte gelten als Ausreißer~\cite{RANSAC_Fischler1987}.
 
 
 \subsection{Robot Operating System 2 (ROS2)}

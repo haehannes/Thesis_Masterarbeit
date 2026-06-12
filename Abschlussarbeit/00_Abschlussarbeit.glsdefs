@@ -838,6 +838,34 @@ parent={},%
 %
 }%
 
+\glsdefs@newdocentry{oic}%
+{%
+name={\acronymfont {\glsentryshort {oic}}},%
+sort={OIC},%
+type={acronym},%
+first={OIC},%
+firstplural={OICs},%
+text={OIC},%
+plural={OICs},%
+description={Ohm Innovation Center},%
+descriptionplural={Ohm Innovation Center},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Ohm Innovation Center},%
+longplural={Ohm Innovation Centers},%
+short={OIC},%
+shortplural={OICs},%
+counter={page},%
+parent={},%
+%
+}%
+
 \glsdefs@newdocentry{sym:xc}%
 {%
 name={$X_c$},%

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.11.7)  11 JUN 2026 23:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.11.7)  12 JUN 2026 11:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -969,7 +969,7 @@ Package: enumitem 2019/06/20 v3.9 Customized lists
 )
 Package scrhack Info: hyperref hack deactivated because of
 (scrhack)             detection of KOMA-Script class, that doesn't
-(scrhack)             need that hack, on input line 160.
+(scrhack)             need that hack, on input line 158.
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2024-01-20 v7.01h Hypertext links for LaTeX
  (/usr/share/texlive/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
@@ -1056,10 +1056,10 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 )
 \Hy@SectionHShift=\skip114
 )
-Package hyperref Info: Option `plainpages' set `false' on input line 174.
-Package hyperref Info: Option `linktocpage' set `false' on input line 174.
-Package hyperref Info: Option `breaklinks' set `true' on input line 174.
-Package hyperref Info: Option `colorlinks' set `true' on input line 174.
+Package hyperref Info: Option `plainpages' set `false' on input line 172.
+Package hyperref Info: Option `linktocpage' set `false' on input line 172.
+Package hyperref Info: Option `breaklinks' set `true' on input line 172.
+Package hyperref Info: Option `colorlinks' set `true' on input line 172.
  (/usr/share/texlive/texmf-dist/tex/latex/glossaries/base/glossaries.sty
 Package: glossaries 2023/09/29 v4.53 (NLCT)
  (/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
@@ -1180,15 +1180,15 @@ Package: glossary-tree 2023/09/29 v4.53 (NLCT)
 \glo@main@file=\write5
 \openout5 = `00_Abschlussarbeit.glo'.
 
-Package glossaries Info: Writing glossary file 00_Abschlussarbeit.glo on input line 183.
+Package glossaries Info: Writing glossary file 00_Abschlussarbeit.glo on input line 181.
 \glo@acronym@file=\write6
 \openout6 = `00_Abschlussarbeit.acn'.
 
-Package glossaries Info: Writing glossary file 00_Abschlussarbeit.acn on input line 183.
+Package glossaries Info: Writing glossary file 00_Abschlussarbeit.acn on input line 181.
 \glo@symbols@file=\write7
 \openout7 = `00_Abschlussarbeit.syg'.
 
-Package glossaries Info: Writing glossary file 00_Abschlussarbeit.syg on input line 183.
+Package glossaries Info: Writing glossary file 00_Abschlussarbeit.syg on input line 181.
 ) (/usr/share/texlive/texmf-dist/tex/latex/placeins/placeins.sty
 Package: placeins 2005/04/18  v 2.2
 ) (/usr/share/texlive/texmf-dist/tex/latex/cleveref/cleveref.sty
@@ -1216,7 +1216,20 @@ Package csquotes Info: Redefining alias 'default' -> 'english'.
 LaTeX Font Info:    Trying to load font information for T1+lmss on input line 148.
  (/usr/share/texmf/tex/latex/lm/t1lmss.fd
 File: t1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) (./00_Abschlussarbeit.aux)
+) (./00_Abschlussarbeit.aux
+
+LaTeX Warning: Label `fig:softwarearchitektur' multiply defined.
+
+
+LaTeX Warning: Label `fig:softwarearchitektur@cref' multiply defined.
+
+
+LaTeX Warning: Label `tab:paarweiser_vergleich' multiply defined.
+
+
+LaTeX Warning: Label `tab:paarweiser_vergleich@cref' multiply defined.
+
+)
 \openout1 = `00_Abschlussarbeit.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 148.
@@ -1561,8 +1574,12 @@ Package cleveref Info: loaded `ngerman' language definitions on input line 6.
 \@gls@deffile=\write10
 \openout10 = `00_Abschlussarbeit.glsdefs'.
 
+
+
+Package glossaries Warning: Entry `ransac' has already been defined in the document environment (ignoring new definition) on input line 36.
+
 ) (./00_Abschlussarbeit.acr
-Overfull \hbox (12.0pt too wide) in alignment at lines 25--124
+Overfull \hbox (12.0pt too wide) in alignment at lines 25--138
  [] [] 
  []
 
@@ -1584,13 +1601,13 @@ LaTeX Warning: Reference `sec:PX4 Autopilot' on page 2 undefined on input line 3
 [2
 
 ]
-<Bilder/Koordinatensysteme.png, id=264, 963.6pt x 542.025pt>
+<Bilder/Koordinatensysteme.png, id=271, 963.6pt x 542.025pt>
 File: Bilder/Koordinatensysteme.png Graphic file (type png)
 <use Bilder/Koordinatensysteme.png>
 Package pdftex.def Info: Bilder/Koordinatensysteme.png  used on input line 58.
 (pdftex.def)             Requested size: 455.24411pt x 256.07507pt.
  [3{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc} <./Bilder/Koordinatensysteme.png>]
-<Bilder/Roll_Yaw_Pitch.png, id=289, 963.6pt x 542.025pt>
+<Bilder/Roll_Yaw_Pitch.png, id=296, 963.6pt x 542.025pt>
 File: Bilder/Roll_Yaw_Pitch.png Graphic file (type png)
 <use Bilder/Roll_Yaw_Pitch.png>
 Package pdftex.def Info: Bilder/Roll_Yaw_Pitch.png  used on input line 101.
@@ -1599,7 +1616,7 @@ Package pdftex.def Info: Bilder/Roll_Yaw_Pitch.png  used on input line 101.
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10.95> not available
 (Font)              Font shape `T1/lmss/m/sl' tried instead on input line 220.
  [6] [7] [8]
-<Bilder/Basebord_und_cube.png, id=394, 560.64pt x 253.821pt>
+<Bilder/Basebord_und_cube.png, id=401, 560.64pt x 253.821pt>
 File: Bilder/Basebord_und_cube.png Graphic file (type png)
 <use Bilder/Basebord_und_cube.png>
 Package pdftex.def Info: Bilder/Basebord_und_cube.png  used on input line 353.
@@ -1623,44 +1640,44 @@ LaTeX Warning: Reference `sec:systemaufbau' on page 10 undefined on input line 4
 LaTeX Warning: Reference `sec:systemaufbau' on page 11 undefined on input line 432.
 
 [11]
-LaTeX Font Info:    Trying to load font information for T1+pcr on input line 474.
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 490.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
 
-LaTeX Warning: Citation 'ROS2Humble' on page 12 undefined on input line 483.
+LaTeX Warning: Citation 'ROS2Humble' on page 12 undefined on input line 499.
 
-) (./23_Stand_der_Technik.tex [12{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}]
+[12{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}]) (./23_Stand_der_Technik.tex [13]
 chapter 3.
 
-LaTeX Warning: Reference `sec:Sensorsysteme' on page 13 undefined on input line 15.
+LaTeX Warning: Reference `sec:Sensorsysteme' on page 14 undefined on input line 15.
 
-[13
+[14
 
-] [14]
+] [15]
 
-LaTeX Warning: Citation 'vslam_core_modules_2024' on page 15 undefined on input line 132.
+LaTeX Warning: Citation 'vslam_core_modules_2024' on page 16 undefined on input line 133.
 
-<Bilder/Loop_Closure.png, id=560, 438.219pt x 219.438pt>
+<Bilder/Loop_Closure.png, id=579, 438.219pt x 219.438pt>
 File: Bilder/Loop_Closure.png Graphic file (type png)
 <use Bilder/Loop_Closure.png>
-Package pdftex.def Info: Bilder/Loop_Closure.png  used on input line 141.
+Package pdftex.def Info: Bilder/Loop_Closure.png  used on input line 142.
 (pdftex.def)             Requested size: 455.24411pt x 227.97908pt.
-[15] [16 <./Bilder/Loop_Closure.png>]
-<Bilder/Faktorgraph_vereinfacht.png, id=596, 813.804pt x 348.648pt>
+[16] [17 <./Bilder/Loop_Closure.png>]
+<Bilder/Faktorgraph_vereinfacht.png, id=614, 813.804pt x 348.648pt>
 File: Bilder/Faktorgraph_vereinfacht.png Graphic file (type png)
 <use Bilder/Faktorgraph_vereinfacht.png>
-Package pdftex.def Info: Bilder/Faktorgraph_vereinfacht.png  used on input line 182.
+Package pdftex.def Info: Bilder/Faktorgraph_vereinfacht.png  used on input line 183.
 (pdftex.def)             Requested size: 455.24411pt x 195.03938pt.
- [17 <./Bilder/Faktorgraph_vereinfacht.png>]
-<Bilder/Uebersicht_Marker.png, id=640, 848.187pt x 225.57pt>
+ [18 <./Bilder/Faktorgraph_vereinfacht.png>]
+<Bilder/Uebersicht_Marker.png, id=658, 848.187pt x 225.57pt>
 File: Bilder/Uebersicht_Marker.png Graphic file (type png)
 <use Bilder/Uebersicht_Marker.png>
-Package pdftex.def Info: Bilder/Uebersicht_Marker.png  used on input line 244.
+Package pdftex.def Info: Bilder/Uebersicht_Marker.png  used on input line 246.
 (pdftex.def)             Requested size: 455.24411pt x 121.07285pt.
- [18 <./Bilder/Uebersicht_Marker.png>] [19]) (./24_Systembeschreibung.tex [20]
+ [19 <./Bilder/Uebersicht_Marker.png>] [20]) (./24_Systembeschreibung.tex [21]
 chapter 4.
-[21
+[22
 
 ]
 LaTeX Font Info:    Trying to load font information for TS1+lmss on input line 111.
@@ -1668,53 +1685,230 @@ LaTeX Font Info:    Trying to load font information for TS1+lmss on input line 1
 File: ts1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 
-LaTeX Warning: Citation 'ali_camera' on page 22 undefined on input line 111.
+LaTeX Warning: Citation 'ali_camera' on page 23 undefined on input line 111.
 
 
-LaTeX Warning: Citation 'pichler_lipo' on page 22 undefined on input line 132.
+LaTeX Warning: Citation 'pichler_lipo' on page 23 undefined on input line 132.
 
 
-LaTeX Warning: Citation 'holybro_pm02' on page 22 undefined on input line 133.
+LaTeX Warning: Citation 'holybro_pm02' on page 23 undefined on input line 133.
 
 
-LaTeX Warning: Citation 'holybro_pm02' on page 22 undefined on input line 136.
+LaTeX Warning: Citation 'holybro_pm02' on page 23 undefined on input line 136.
 
 
-LaTeX Warning: Citation 'holybro_pdb' on page 22 undefined on input line 139.
+LaTeX Warning: Citation 'holybro_pdb' on page 23 undefined on input line 139.
 
-[22{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}]
+[23{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}]
 Overfull \hbox (28.68596pt too wide) in paragraph at lines 162--183
  [][] 
  []
 
-[23]
-<Bilder/Verkabelung.png, id=754, 789.933pt x 401.427pt>
+[24]
+<Bilder/Verkabelung.png, id=772, 789.933pt x 401.427pt>
 File: Bilder/Verkabelung.png Graphic file (type png)
 <use Bilder/Verkabelung.png>
 Package pdftex.def Info: Bilder/Verkabelung.png  used on input line 206.
 (pdftex.def)             Requested size: 455.24411pt x 231.35162pt.
-<Bilder/Softwarearchitektur.png, id=756, 966.666pt x 282.072pt>
+<Bilder/Softwarearchitektur.png, id=774, 966.666pt x 282.072pt>
 File: Bilder/Softwarearchitektur.png Graphic file (type png)
 <use Bilder/Softwarearchitektur.png>
 Package pdftex.def Info: Bilder/Softwarearchitektur.png  used on input line 224.
 (pdftex.def)             Requested size: 455.24411pt x 132.8364pt.
- [24 <./Bilder/Verkabelung.png> <./Bilder/Softwarearchitektur.png>]
+ [25 <./Bilder/Verkabelung.png> <./Bilder/Softwarearchitektur.png>]
 
-LaTeX Warning: Reference `sec:bedienung' on page 25 undefined on input line 259.
+LaTeX Warning: Reference `sec:bedienung' on page 26 undefined on input line 259.
 
-) (./25_Implementierung_Kartierung.tex [25]
+<Bilder/aerodrohm.png, id=793, 1144.275pt x 572.1375pt>
+File: Bilder/aerodrohm.png Graphic file (type png)
+<use Bilder/aerodrohm.png>
+Package pdftex.def Info: Bilder/aerodrohm.png  used on input line 267.
+(pdftex.def)             Requested size: 455.24411pt x 227.62pt.
+[26]) (./25_Implementierung_Kartierung.tex [27 <./Bilder/aerodrohm.png>]
 chapter 5.
-[26
 
-] [27] [28]
-Overfull \hbox (62.19707pt too wide) in paragraph at lines 201--204
+LaTeX Warning: Reference `sec:slam_varianten' on page 28 undefined on input line 38.
+
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <9> on input line 52.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 52.
+[28
+
+]
+File: Bilder/Faktorgraph_vereinfacht.png Graphic file (type png)
+<use Bilder/Faktorgraph_vereinfacht.png>
+Package pdftex.def Info: Bilder/Faktorgraph_vereinfacht.png  used on input line 129.
+(pdftex.def)             Requested size: 455.24411pt x 195.03938pt.
+
+Overfull \hbox (6.2633pt too wide) in paragraph at lines 175--175
+[]|\T1/lmss/bx/n/10.95 Kompatibilität
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 175--175
+\T1/lmss/bx/n/10.95 Ver-such-sum-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 175--175
+[]|\T1/lmss/bx/n/10.95 ROS2-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 175--175
+[]|\T1/lmss/m/n/10.95 gering, nur
+ []
+
+
+Underfull \hbox (badness 2744) in paragraph at lines 175--175
+\T1/lmss/m/n/10.95 Ka-me-ra bzw.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 175--175
+\T1/lmss/m/n/10.95 Ka-me-ra mit
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 175--175
+[]|\T1/lmss/m/n/10.95 keine Um-ge-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 175--175
+\T1/lmss/m/n/10.95 bungs-vor-be-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 175--175
+[]|\T1/lmss/m/n/10.95 gering, setzt
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 175--175
+\T1/lmss/m/n/10.95 struk-tu-rier-te
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 175--175
+\T1/lmss/m/n/10.95 Um-ge-bung
+ []
+
+
+Underfull \hbox (badness 5147) in paragraph at lines 175--175
+\T1/lmss/m/n/10.95 vor-aus, drift-
+ []
+
+
+Underfull \hbox (badness 6284) in paragraph at lines 175--175
+\T1/lmss/m/n/10.95 tel, je nach
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 175--175
+[]|\T1/lmss/m/n/10.95 keine Um-ge-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 175--175
+\T1/lmss/m/n/10.95 bungs-vor-be-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 175--175
+\T1/lmss/m/n/10.95 Kon-fi-gu-ra-ti-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 175--175
+[]|\T1/lmss/m/n/10.95 eingeschränkt,
+ []
+
+
+Underfull \hbox (badness 1642) in paragraph at lines 175--175
+\T1/lmss/m/n/10.95 ab-hän-gig von
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 175--175
+\T1/lmss/m/n/10.95 Tex-tur und
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 175--175
+\T1/lmss/m/n/10.95 Wie-der-er-ken-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 175--175
+[]|\T1/lmss/m/n/10.95 gering, ge-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 175--175
+\T1/lmss/m/n/10.95 druck-te
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 175--175
+\T1/lmss/m/n/10.95 Mar-ker und
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 175--175
+[]|\T1/lmss/m/n/10.95 einmaliges
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 175--175
+\T1/lmss/m/n/10.95 An-brin-gen
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 175--175
+\T1/lmss/m/n/10.95 und Ein-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 175--175
+\T1/lmss/m/n/10.95 mes-sen der
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 175--175
+[]|\T1/lmss/m/n/10.95 hoch, un-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 175--175
+\T1/lmss/m/n/10.95 ab-hän-gig
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 175--175
+\T1/lmss/m/n/10.95 von Um-ge-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 175--175
+\T1/lmss/m/n/10.95 bungs-tex-tur,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 175--175
+\T1/lmss/m/n/10.95 ab-so-lu-ter
+ []
+
+[29] [30] [31] [32] [33]
+Overfull \hbox (62.19707pt too wide) in paragraph at lines 398--401
 \T1/lmss/m/n/10.95 schräg zur Ka-me-ra steht, da die Eck-punk-te dann un-ge-nau be-stimmt wer-den. Ana-log schlieÿt \T1/pcr/m/n/10.95 minimum_tag_area
  []
 
-[29]) (./26_Implementierung_Positionierung.tex [30]
+[34]) (./26_Implementierung_Positionierung.tex [35]
 chapter 6.
 
-LaTeX Warning: Reference `sec:softwarearchitektur' on page 31 undefined on input line 26.
+LaTeX Warning: Reference `sec:softwarearchitektur' on page 36 undefined on input line 26.
 
 
 Overfull \hbox (9.44745pt too wide) in paragraph at lines 46--50
@@ -1726,24 +1920,24 @@ Overfull \hbox (1.09221pt too wide) in paragraph at lines 46--50
 \T1/lmss/m/n/10.95 Ver-zeich-nung an-hand der Ka-li-brier-pa-ra-me-ter. Das ent-zerr-te Bild wird als \T1/pcr/m/n/10.95 /camera_1/image_rect
  []
 
-[31
+[36
 
-] [32]
+] [37]
 Overfull \hbox (18.3648pt too wide) in paragraph at lines 128--130
 \T1/lmss/m/n/10.95 la-tiv zum Droh-nen-mit-tel-punkt. Sie wird vor-ab über den Kno-ten \T1/pcr/m/n/10.95 drone_camera_calibration_node
  []
 
-[33]) (./27_Evaluation.tex [34]
+[38]) (./27_Evaluation.tex [39]
 chapter 7.
-) (./28_Evaluation_Greifen.tex [35
+) (./28_Evaluation_Greifen.tex [40
 
 ]
 chapter 8.
-)) (./30_Schluss.tex [36
+)) (./30_Schluss.tex [41
 
 ]
 chapter 9.
-) [37
+) [42
 
 ]
 LaTeX Font Info:    Trying to load font information for T1+lmr on input line 245.
@@ -1759,23 +1953,28 @@ Overfull \hbox (37.02814pt too wide) in paragraph at lines 246--246
 []\T1/lmss/m/n/10.95 P. Mo-dell-bau, \T1/lmss/m/sl/10.95 Ho-ly-bro X650\T1/lmss/m/n/10.95 , https://www.premium-modellbau.de/holybro-holybro-x650-development-
  []
 
-[38
+[43
 
-] [39] [40]
+] [44] [45]
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <8> not available
 (Font)              Font shape `T1/lmss/m/sl' tried instead on input line 245.
 LaTeX Font Info:    Font shape `TS1/lmss/m/it' in size <8> not available
 (Font)              Font shape `TS1/lmss/m/sl' tried instead on input line 245.
 LaTeX Font Info:    Font shape `TS1/lmss/m/it' in size <10.95> not available
 (Font)              Font shape `TS1/lmss/m/sl' tried instead on input line 245.
- [41] (./00_Abschlussarbeit.lof
+ [46]
+Overfull \hbox (14.67226pt too wide) in paragraph at lines 246--246
+\T1/pcr/m/n/10.95 forschung -[] innovation / forschungseinrichtungen / ohm -[] innovation -[] center /
+ []
+
+[47] (./00_Abschlussarbeit.lof
 Package cleveref Info: loaded `ngerman' language definitions on input line 3.
 Package cleveref Info: loaded `ngerman' language definitions on input line 4.
 )
 \tf@lof=\write11
 \openout11 = `00_Abschlussarbeit.lof'.
 
- [42
+ [48
 
 ] (./00_Abschlussarbeit.lot
 Package cleveref Info: loaded `ngerman' language definitions on input line 3.
@@ -1784,7 +1983,7 @@ Package cleveref Info: loaded `ngerman' language definitions on input line 4.
 \tf@lot=\write12
 \openout12 = `00_Abschlussarbeit.lot'.
 
- [43
+ [49
 
 ] (./00_Abschlussarbeit.lol
 Package cleveref Info: loaded `ngerman' language definitions on input line 3.
@@ -1793,11 +1992,11 @@ Package cleveref Info: loaded `ngerman' language definitions on input line 4.
 \tf@lol=\write13
 \openout13 = `00_Abschlussarbeit.lol'.
 
- (./40_Anhang.tex [44
+ (./40_Anhang.tex [50
 
 ]
 chapter 10.
-) [45
+) [51
 
 ] (./00_Abschlussarbeit.aux
 Package cleveref Info: loaded `ngerman' language definitions on input line 24.
@@ -1811,6 +2010,9 @@ L3 programming layer <2020/03/25>
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package rerunfilecheck Info: File `00_Abschlussarbeit.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 Package logreq Info: Writing requests to '00_Abschlussarbeit.run.xml'.
@@ -1818,18 +2020,18 @@ Package logreq Info: Writing requests to '00_Abschlussarbeit.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 45127 strings out of 474222
- 918607 string characters out of 5748733
- 1944975 words of memory out of 5000000
- 66419 multiletter control sequences out of 15000+600000
- 627459 words of font info for 89 fonts, out of 8000000 for 9000
+ 45247 strings out of 474222
+ 920620 string characters out of 5748733
+ 1951975 words of memory out of 5000000
+ 66506 multiletter control sequences out of 15000+600000
+ 646894 words of font info for 103 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
- 108i,20n,107p,10958b,4076s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx8.pfb></usr/share/texmf/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi6.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmss10.pfb></usr/share/texmf/fonts/type1/public/lm/lmss12.pfb></usr/share/texmf/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf/fonts/type1/public/lm/lmss8.pfb></usr/share/texmf/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsso10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsso8.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on 00_Abschlussarbeit.pdf (54 pages, 3647490 bytes).
+ 108i,20n,107p,10958b,4129s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx8.pfb></usr/share/texmf/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi6.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmss10.pfb></usr/share/texmf/fonts/type1/public/lm/lmss12.pfb></usr/share/texmf/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf/fonts/type1/public/lm/lmss8.pfb></usr/share/texmf/fonts/type1/public/lm/lmss9.pfb></usr/share/texmf/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsso10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsso8.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb>
+Output written on 00_Abschlussarbeit.pdf (60 pages, 3877485 bytes).
 PDF statistics:
- 1394 PDF objects out of 1440 (max. 8388607)
- 1256 compressed objects within 13 object streams
- 273 named destinations out of 1000 (max. 500000)
- 678 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1527 PDF objects out of 1728 (max. 8388607)
+ 1363 compressed objects within 14 object streams
+ 295 named destinations out of 1000 (max. 500000)
+ 707 words of extra memory for PDF output out of 10000 (max. 10000000)
 
