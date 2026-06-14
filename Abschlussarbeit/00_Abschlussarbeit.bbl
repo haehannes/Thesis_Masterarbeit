@@ -1493,8 +1493,8 @@
       \strng{authorbibnamehash}{1706de37ec1c6e8f22081681f5edb0cd}
       \strng{authornamehash}{288f14f017934f36c50a3331f71e78c6}
       \strng{authorfullhash}{1706de37ec1c6e8f22081681f5edb0cd}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{1573-0409}
@@ -1525,8 +1525,8 @@
       \strng{authorbibnamehash}{c6125254a79af02a8918da63fa8ea72e}
       \strng{authornamehash}{c6125254a79af02a8918da63fa8ea72e}
       \strng{authorfullhash}{c6125254a79af02a8918da63fa8ea72e}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{month}{5}
@@ -1565,8 +1565,8 @@
       \strng{authorbibnamehash}{862e73e9fd8d06467d53ea2c9dad8c02}
       \strng{authornamehash}{862e73e9fd8d06467d53ea2c9dad8c02}
       \strng{authorfullhash}{862e73e9fd8d06467d53ea2c9dad8c02}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{The Journal of Engineering}
@@ -1821,6 +1821,264 @@
       \verb{url}
       \verb https://www.th-nuernberg.de/forschung-innovation/forschungseinrichtungen/ohm-innovation-center/forschung-am-oic/aerodrohm/
       \endverb
+    \endentry
+    \entry{Tang2015_lidar}{article}{}
+      \name{author}{8}{}{%
+        {{hash=541194db9dac70af45a28c067d289c8d}{%
+           family={Tang},
+           familyi={T\bibinitperiod},
+           given={Jian},
+           giveni={J\bibinitperiod}}}%
+        {{hash=020623a227e58ca7ebf11166d6e34559}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Yuwei},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=de85234cf9cff979e89f35e2d73be031}{%
+           family={Niu},
+           familyi={N\bibinitperiod},
+           given={Xiaoji},
+           giveni={X\bibinitperiod}}}%
+        {{hash=944d21a090d2fc32d2cdd40c7a346126}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Li},
+           giveni={L\bibinitperiod}}}%
+        {{hash=ddc1e4faf59edc7d7675723be4296244}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Liang},
+           giveni={L\bibinitperiod}}}%
+        {{hash=5d54bfa1b4a1165c0374ea2728f3a9f0}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Jingbin},
+           giveni={J\bibinitperiod}}}%
+        {{hash=7419ac7634705e88a33b4b4d66cbfa18}{%
+           family={Shi},
+           familyi={S\bibinitperiod},
+           given={Chuang},
+           giveni={C\bibinitperiod}}}%
+        {{hash=1862e7cb352e20d0412562af162e8ee8}{%
+           family={Hyyppä},
+           familyi={H\bibinitperiod},
+           given={Juha},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {MDPI AG}%
+      }
+      \strng{namehash}{5fb2616e70cbca70b28656fcd1dd4f49}
+      \strng{fullhash}{ccee23f5dc876066661e4482a16148d2}
+      \strng{bibnamehash}{5fb2616e70cbca70b28656fcd1dd4f49}
+      \strng{authorbibnamehash}{5fb2616e70cbca70b28656fcd1dd4f49}
+      \strng{authornamehash}{5fb2616e70cbca70b28656fcd1dd4f49}
+      \strng{authorfullhash}{ccee23f5dc876066661e4482a16148d2}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1424-8220}
+      \field{journaltitle}{Sensors}
+      \field{number}{7}
+      \field{title}{LiDAR Scan Matching Aided Inertial Navigation System in GNSS-Denied Environments}
+      \field{volume}{15}
+      \field{year}{2015}
+      \field{pages}{16710\bibrangedash 16728}
+      \range{pages}{19}
+      \verb{doi}
+      \verb 10.3390/s150716710
+      \endverb
+    \endentry
+    \entry{10588822_RWT_SLAM}{inproceedings}{}
+      \name{author}{4}{}{%
+        {{hash=abf98479a41c8b2228733c4580fb015e}{%
+           family={Peng},
+           familyi={P\bibinitperiod},
+           given={Qihao},
+           giveni={Q\bibinitperiod}}}%
+        {{hash=8f038b31aab73cf09c26b0cb5de3f107}{%
+           family={Zhao},
+           familyi={Z\bibinitperiod},
+           given={Xijun},
+           giveni={X\bibinitperiod}}}%
+        {{hash=e9ee6caa9f98a67ac61ec185a6704417}{%
+           family={Dang},
+           familyi={D\bibinitperiod},
+           given={Ruina},
+           giveni={R\bibinitperiod}}}%
+        {{hash=61415201a35fdef46d998b7a4e27e1fb}{%
+           family={Xiang},
+           familyi={X\bibinitperiod},
+           given={Zhiyu},
+           giveni={Z\bibinitperiod}}}%
+      }
+      \strng{namehash}{1bf10ea682ee95f59d4c739767e245bf}
+      \strng{fullhash}{d6609028bf1b3d54ec8001775524f5c3}
+      \strng{bibnamehash}{d6609028bf1b3d54ec8001775524f5c3}
+      \strng{authorbibnamehash}{d6609028bf1b3d54ec8001775524f5c3}
+      \strng{authornamehash}{1bf10ea682ee95f59d4c739767e245bf}
+      \strng{authorfullhash}{d6609028bf1b3d54ec8001775524f5c3}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2024 IEEE Intelligent Vehicles Symposium (IV)}
+      \field{title}{RWT-SLAM: Robust Visual SLAM for Weakly Textured Environments}
+      \field{year}{2024}
+      \field{pages}{913\bibrangedash 919}
+      \range{pages}{7}
+      \verb{doi}
+      \verb 10.1109/IV55156.2024.10588822
+      \endverb
+      \keyw{Location awareness;Visualization;Simultaneous localization and mapping;Annotations;Interest point detection;Manuals;Feature extraction}
+    \endentry
+    \entry{livox_mid360s}{online}{}
+      \name{author}{1}{}{%
+        {{hash=41932d9cd626314a7b7d95d63adf4b54}{%
+           family={{Livox Technology}},
+           familyi={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{41932d9cd626314a7b7d95d63adf4b54}
+      \strng{fullhash}{41932d9cd626314a7b7d95d63adf4b54}
+      \strng{bibnamehash}{41932d9cd626314a7b7d95d63adf4b54}
+      \strng{authorbibnamehash}{41932d9cd626314a7b7d95d63adf4b54}
+      \strng{authornamehash}{41932d9cd626314a7b7d95d63adf4b54}
+      \strng{authorfullhash}{41932d9cd626314a7b7d95d63adf4b54}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Abgerufen am 13.~Juni~2026}
+      \field{title}{Livox {Mid-360S}}
+      \field{urlday}{13}
+      \field{urlmonth}{6}
+      \field{urlyear}{2026}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.livoxtech.com/de/mid-360s
+      \endverb
+      \verb{url}
+      \verb https://www.livoxtech.com/de/mid-360s
+      \endverb
+    \endentry
+    \entry{logitech_c922}{online}{}
+      \name{author}{1}{}{%
+        {{hash=ff70d460a420205ceeea16f1c13e51b1}{%
+           family={{Logitech}},
+           familyi={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{ff70d460a420205ceeea16f1c13e51b1}
+      \strng{fullhash}{ff70d460a420205ceeea16f1c13e51b1}
+      \strng{bibnamehash}{ff70d460a420205ceeea16f1c13e51b1}
+      \strng{authorbibnamehash}{ff70d460a420205ceeea16f1c13e51b1}
+      \strng{authornamehash}{ff70d460a420205ceeea16f1c13e51b1}
+      \strng{authorfullhash}{ff70d460a420205ceeea16f1c13e51b1}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Abgerufen am 13.~Juni~2026}
+      \field{title}{C922 Pro Stream Webcam}
+      \field{urlday}{13}
+      \field{urlmonth}{6}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.logitech.com/de-de/shop/p/c922-pro-stream-webcam
+      \endverb
+      \verb{url}
+      \verb https://www.logitech.com/de-de/shop/p/c922-pro-stream-webcam
+      \endverb
+    \endentry
+    \entry{zed_mini}{online}{}
+      \name{author}{1}{}{%
+        {{hash=c210095bbbea4834bd71f6c6c48dec3b}{%
+           family={{Stereolabs}},
+           familyi={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{c210095bbbea4834bd71f6c6c48dec3b}
+      \strng{fullhash}{c210095bbbea4834bd71f6c6c48dec3b}
+      \strng{bibnamehash}{c210095bbbea4834bd71f6c6c48dec3b}
+      \strng{authorbibnamehash}{c210095bbbea4834bd71f6c6c48dec3b}
+      \strng{authornamehash}{c210095bbbea4834bd71f6c6c48dec3b}
+      \strng{authorfullhash}{c210095bbbea4834bd71f6c6c48dec3b}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Abgerufen am 13.~Juni~2026}
+      \field{title}{{ZED Mini} Stereo Camera}
+      \field{urlday}{13}
+      \field{urlmonth}{6}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.stereolabs.com/en-de/store/products/zed-mini
+      \endverb
+      \verb{url}
+      \verb https://www.stereolabs.com/en-de/store/products/zed-mini
+      \endverb
+    \endentry
+    \entry{rcvisard_tagdetect}{online}{}
+      \name{author}{1}{}{%
+        {{hash=f02381fbde2aad9acbf3bcc7bf690cf4}{%
+           family={{Roboception GmbH}},
+           familyi={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{f02381fbde2aad9acbf3bcc7bf690cf4}
+      \strng{fullhash}{f02381fbde2aad9acbf3bcc7bf690cf4}
+      \strng{bibnamehash}{f02381fbde2aad9acbf3bcc7bf690cf4}
+      \strng{authorbibnamehash}{f02381fbde2aad9acbf3bcc7bf690cf4}
+      \strng{authornamehash}{f02381fbde2aad9acbf3bcc7bf690cf4}
+      \strng{authorfullhash}{f02381fbde2aad9acbf3bcc7bf690cf4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Abgerufen am 13.~Juni~2026}
+      \field{title}{TagDetect -- rc\_visard Documentation}
+      \field{urlday}{13}
+      \field{urlmonth}{6}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://doc.rc-visard.com/latest/en/tagdetect.html
+      \endverb
+      \verb{url}
+      \verb https://doc.rc-visard.com/latest/en/tagdetect.html
+      \endverb
+    \endentry
+    \entry{888718_Calibration_Zhang}{article}{}
+      \name{author}{1}{}{%
+        {{hash=5ee5d3d5470ac29a2e7c8df70ed54725}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Z.},
+           giveni={Z\bibinitperiod}}}%
+      }
+      \strng{namehash}{5ee5d3d5470ac29a2e7c8df70ed54725}
+      \strng{fullhash}{5ee5d3d5470ac29a2e7c8df70ed54725}
+      \strng{bibnamehash}{5ee5d3d5470ac29a2e7c8df70ed54725}
+      \strng{authorbibnamehash}{5ee5d3d5470ac29a2e7c8df70ed54725}
+      \strng{authornamehash}{5ee5d3d5470ac29a2e7c8df70ed54725}
+      \strng{authorfullhash}{5ee5d3d5470ac29a2e7c8df70ed54725}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Pattern Analysis and Machine Intelligence}
+      \field{number}{11}
+      \field{title}{A flexible new technique for camera calibration}
+      \field{volume}{22}
+      \field{year}{2000}
+      \field{pages}{1330\bibrangedash 1334}
+      \range{pages}{5}
+      \verb{doi}
+      \verb 10.1109/34.888718
+      \endverb
+      \keyw{Cameras;Calibration;Computer vision;Layout;Lenses;Nonlinear distortion;Closed-form solution;Maximum likelihood estimation;Computer simulation;Testing}
     \endentry
   \enddatalist
   \missing{ROS2Humble}

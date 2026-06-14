@@ -16,7 +16,8 @@
 \contentsline {figure}{\numberline {4.2}{\ignorespaces Softwarearchitektur mit den Strängen zur Lokalisierung und zur Kartierung}}{25}{figure.caption.21}%
 \contentsline {figure}{\numberline {4.3}{\ignorespaces Flughalle AerodrOhm am \gls {oic} der Technischen Hochschule Nürnberg \blx@tocontentsinit {0}\cite {aerodrohm}}}{27}{figure.caption.22}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Vereinfachter Faktorgraph eines \gls {slam}-Problems, vgl.~\blx@tocontentsinit {0}\cite {Lai2022}, \blx@tocontentsinit {0}\cite {Dellaert2017}, \blx@tocontentsinit {0}\cite {Cai2024}}}{29}{figure.caption.25}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Paarweiser Vergleich Bewertungskriterien der SLAM-Varianten}}{29}{figure.caption.23}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Nutzwertanalyse der SLAM-Varianten}}{31}{figure.caption.24}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

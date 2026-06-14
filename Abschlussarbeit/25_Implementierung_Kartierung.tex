@@ -16,413 +16,494 @@
 
 
 
-
-
 \chapter{Implementierung der Kartierung}
 \label{cap:kartierung}
-In nachfolgenden Kapitel werden die Schritte, welche zur Implementierung der Kartierung notwendig sind, beschrieben.
-Hierbei werden Festlegungen getätigt, welche auch direkten Einfluss auf die in Kapitel \ref{cap:lokalisierung} haben. 
-
+In diesem Kapitel werden die Schritte beschrieben, die zur Implementierung der Kartierung notwendig sind.
+Hierbei werden Festlegungen getroffen, die auch direkten Einfluss auf die in Kapitel~\ref{cap:lokalisierung} beschriebene Lokalisierung haben.
+Im weiteren Verlauf der Arbeit wird auf diese Abhängigkeiten hingewiesen.
 
 \section{Auswahl der Algorithmik}
-\section{Auswahl der Algorithmik}
-Für die Kartierung werden in dieser Arbeit zwei Ansätze verfolgt.
-Zum einen die Live-Kartierung mittels \gls{slam} während des Flugs und zum anderen die Offline-Kartierung durch Aufzeichnung von \gls{ros2}-Bags.
 Da die Karte als spätere Referenz für die Lokalisierung des \gls{uav} dient, überträgt sich ihre Genauigkeit unmittelbar auf den Lokalisierungsfehler.
 Um eine möglichst genaue Karte zu erhalten und den relativen Fehler der Karte sowie der Lokalisierung gering zu halten, 
-kommen ausschließlich optimierungsbasierte \gls{slam}-Methoden zum Einsatz.
-Ausschlaggebend für diese Wahl sind die in Kapitel~\ref{sec:slam} beschriebenen Vorteile wie die globale Kartenkorrektur.
-Als Nachteil dieser Designentscheidung ist ein erhöhter Rechenaufwand zu nennen.
-Dieser macht sich vor allem bei der Live-Kartierung bemerkbar.
-
-In Abbildung \ref{fig:paarweiser_vergleich_slam} werden die in Kapitel \ref{sec:slam_varianten} vorgestellten \gls{slam}-Varianten miteinader verglichen.
-Wichtige Entscheidungskriterien sind: 
-- Kosten der Hardware
-- Gewicht der Hardware
-- Vorbereitung 
-- Kompatibilität der Versuchsumgebung
-- Driftanfälligkeit. 
+kommen daher ausschließlich optimierungsbasierte \gls{slam}-Methoden zum Einsatz.
 
 
-\begin{table}[htbp]
-    \centering
-    \footnotesize
-    \renewcommand{\arraystretch}{1.3}
-    \setlength{\tabcolsep}{4pt}
-    \begin{tabular}{l ccccccc c c}
-        \toprule
-        \textbf{wichtiger als $\rightarrow$}
-            & \rotatebox{90}{Kosten Hardware}
-            & \rotatebox{90}{Gewicht Hardware}
-            & \rotatebox{90}{Vorbereitung}
-            & \rotatebox{90}{Kompat. Umgebung}
-            & \rotatebox{90}{Driftanfälligkeit}
-            & \rotatebox{90}{ROS2-Verfügbarkeit}
-            & \rotatebox{90}{Rechenaufwand}
-            & \textbf{Summe} & \textbf{\%} \\
-        \midrule
-        Kosten Hardware        & \cellcolor{black} & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 4{,}8 \\
-        Gewicht Hardware       & 1 & \cellcolor{black} & 0 & 0 & 0 & 0 & 1 & 2 & 9{,}5 \\
-        Vorbereitung           & 1 & 1 & \cellcolor{black} & 0 & 0 & 1 & 1 & 4 & 19{,}0 \\
-        Kompat. Umgebung       & 1 & 1 & 1 & \cellcolor{black} & 1 & 1 & 1 & 6 & 28{,}6 \\
-        Driftanfälligkeit      & 1 & 1 & 1 & 0 & \cellcolor{black} & 1 & 1 & 5 & 23{,}8 \\
-        ROS2-Verfügbarkeit     & 1 & 1 & 0 & 0 & 0 & \cellcolor{black} & 1 & 3 & 14{,}3 \\
-        Rechenaufwand          & 0 & 0 & 0 & 0 & 0 & 0 & \cellcolor{black} & 0 & 0{,}0 \\
-        \midrule
-        \multicolumn{8}{r}{\textbf{Prüfsumme}} & \textbf{21} & \textbf{100{,}0} \\
-        \bottomrule
-    \end{tabular}
-    \caption{Paarweiser Vergleich zur Gewichtung der Auswahlkriterien.
-    Eine~1 bedeutet, dass das Kriterium der Zeile wichtiger ist als das der Spalte.}
-    \label{tab:paarweiser_vergleich}
-\end{table}
-\FloatBarrier
+\subsection{Auswahl der Bewertungskriterien SLAM-Varianten}
+Die Bewertung erfolgt anhand von sieben Kriterien, die sich aus den Anforderungen dieser Arbeit ableiten.
+\textbf{Kostengünstigkeit} und \textbf{Leichtbau} beziehen sich auf die benötigte Sensorhardware.
+Beide sind relevant, da die Lokalisierung auf einem \gls{uav} mit begrenzter Nutzlast und mit geringem monetären Aufwand umgesetzt werden soll.
+Der \textbf{geringe Vorbereitungsaufwand} bewertet den einmaligen Aufwand, das System einsatzbereit zu machen, etwa das Anbringen von Markern.
+Die \textbf{Umgebungskompatibilität} beschreibt, wie zuverlässig ein Verfahren unter den Bedingungen der Versuchsumgebung arbeitet, insbesondere 
+bei strukturarmen Flächen und dem spiegelnden Hallenboden und Gegenlicht.
+Die \textbf{Driftfreiheit} bewertet, ob ein Verfahren über die Zeit einen absoluten Positionsbezug behält oder einen akkumulierenden Fehler aufweist.
+Die \textbf{ROS2-Verfügbarkeit} berücksichtigt, ob für das Verfahren einsatzfähige Implementierungen im verwendeten Framework vorliegen.
+Der \textbf{Rechenaufwand} bewertet die Belastung des Companion-Computers, da die Verarbeitung onboard erfolgt; 
+eine höhere Bewertung entspricht einem geringeren Rechenaufwand.
 
+\subsection{Gewichtung durch den paarweisen Vergleich der SLAM-Varianten}
+Im paarweisen Vergleich (Tabelle~\ref{tab:paarweiser_vergleich_slam}) wird jedes Kriterium einzeln gegen jedes andere abgewogen.
+Eine~1 bedeutet, dass das Kriterium der Zeile gegenüber dem der Spalte als wichtiger eingestuft wird.
+Aus der Zeilensumme ergibt sich die relative Gewichtung jedes Kriteriums.
 
-\begin{table}[htbp]
-    \centering
-    \footnotesize
-    \renewcommand{\arraystretch}{1.3}
-    \setlength{\tabcolsep}{4pt}
-    \begin{tabular}{l ccccccc c c}
-        \toprule
-        \textbf{wichtiger als $\rightarrow$}
-            & \rotatebox{90}{Kosten Hardware}
-            & \rotatebox{90}{Gewicht Hardware}
-            & \rotatebox{90}{Vorbereitung}
-            & \rotatebox{90}{Kompat. Umgebung}
-            & \rotatebox{90}{Driftanfälligkeit}
-            & \rotatebox{90}{ROS2-Verfügbarkeit}
-            & \rotatebox{90}{Rechenaufwand}
-            & \textbf{Summe} & \textbf{\%} \\
-        \midrule
-        Kosten Hardware        & \cellcolor{black} & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 4{,}8 \\
-        Gewicht Hardware       & 1 & \cellcolor{black} & 0 & 0 & 0 & 0 & 1 & 2 & 9{,}5 \\
-        Vorbereitung           & 1 & 1 & \cellcolor{black} & 0 & 0 & 1 & 1 & 4 & 19{,}0 \\
-        Kompat. Umgebung       & 1 & 1 & 1 & \cellcolor{black} & 1 & 1 & 1 & 6 & 28{,}6 \\
-        Driftanfälligkeit      & 1 & 1 & 1 & 0 & \cellcolor{black} & 1 & 1 & 5 & 23{,}8 \\
-        ROS2-Verfügbarkeit     & 1 & 1 & 0 & 0 & 0 & \cellcolor{black} & 1 & 3 & 14{,}3 \\
-        Rechenaufwand          & 0 & 0 & 0 & 0 & 0 & 0 & \cellcolor{black} & 0 & 0{,}0 \\
-        \midrule
-        \multicolumn{8}{r}{\textbf{Prüfsumme}} & \textbf{21} & \textbf{100{,}0} \\
-        \bottomrule
-    \end{tabular}
-    \caption{Paarweiser Vergleich zur Gewichtung der Auswahlkriterien.
-    Eine~1 bedeutet, dass das Kriterium der Zeile wichtiger ist als das der Spalte.}
-    \label{tab:paarweiser_vergleich}
-\end{table}
-\FloatBarrier
+Die höchste Gewichtung erhalten die \textbf{Umgebungskompatibilität} und die \textbf{Driftfreiheit} mit jeweils $23{,}81\,\%$.
+Diese Priorisierung ergibt sich direkt aus dem Ziel der Arbeit, ein Lokalisierungssystem für einen Multikopter im Innenraum zu implementieren.
+Ein Verfahren, das in der Versuchsumgebung nicht funktioniert oder stark driftbehaftet ist, wäre für den vorgesehenen Einsatz unabhängig 
+von seinen sonstigen Eigenschaften ungeeignet.
 
-
-
-
-
-
-
-
-
-
-
+Die \textbf{ROS2-Verfügbarkeit} und der \textbf{Rechenaufwand} folgen mit jeweils $19{,}05\,\%$.
+Beide sind für die praktische Umsetzbarkeit auf der verwendeten Plattform entscheidend, ordnen sich den Anforderungen 
+an die Lokalisierungsqualität jedoch unter.
+Die hardwarebezogenen Kriterien \textbf{Kostengünstigkeit}, \textbf{Leichtbau} und \textbf{geringer Vorbereitungsaufwand} 
+erhalten mit jeweils $4{,}76\,\%$ das geringste Gewicht.
+Kostengünstigkeit und geringer Vorbereitungsaufwand sind zwar wünschenswert, für die grundsätzliche Eignung des Verfahrens jedoch von untergeordneter Bedeutung.
+Auch der Leichtbau spielt eine geringere Rolle, da die Nutzlast des verwendeten \gls{uav}s ausreichend ist, um alle betrachteten Hardwarevarianten zu tragen.
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=1.0\textwidth]{Bilder/Faktorgraph_vereinfacht.png}
-    \caption{Vereinfachter Faktorgraph eines \gls{slam}-Problems, 
-    vgl.~\cite{Lai2022}, \cite{Dellaert2017}, \cite{Cai2024}}
-    \label{fig:paarweiser_vergleich_slam}
+    \includegraphics[width=1.0\textwidth]{Bilder/Paarweiser_Vergleich_SLAM.png}
+    \caption{Paarweiser Vergleich Bewertungskriterien der SLAM-Varianten}
+    \label{tab:paarweiser_vergleich_slam}
 \end{figure}
 \FloatBarrier
 
 
-Für die Kartierung werden in dieser Arbeit zwei Ansätze verfolgt. Zum einen die Live-Kartierung mittels \gls{slam} Algorithmik und zum andern die 
-offline Kartierung.
-Bei der Live-Kartierung soll es möglich sein, eine Kartierung im Flugbetrieb aufzunehmen.
-Die Karte wird nicht im Flug, sondern vorab in einem mehrstufigen Offline-Verfahren erstellt.
-Der Ablauf gliedert sich in drei aufeinanderfolgende Stufen, die jeweils als eigenes Launch-File umgesetzt sind und über ROS2-Bags miteinander verbunden werden.
-In der ersten Stufe werden die Kamerabilder aufgenommen, entzerrt und in einem Bag aufgezeichnet.
-In der zweiten Stufe werden die Marker offline aus den aufgezeichneten Bildern detektiert und gemeinsam mit den Bildern in einem zweiten Bag abgelegt.
-In der dritten Stufe werden die Markerlagen aus den Detektionen zu einer konsistenten Karte optimiert.
-Die Aufteilung in einen Offline-Ablauf erlaubt es, die Detektion mit reduzierter Abspielgeschwindigkeit auszuführen und den gesamten Vorgang reproduzierbar aus denselben Eingangsdaten zu wiederholen.
+\subsection{Nutzwertanalyse SLAM-Varianten}
+Zur Auswahl der SLAM-Variante werden die in Abschnitt~\ref{sec:slam_varianten} vorgestellten Verfahren \gls{vslam}, Tag\gls{slam} und LiDAR-\gls{slam} 
+anhand einer Nutzwertanalyse gegenübergestellt.
 
-% TODO: Abbildung -- Schema des dreistufigen Ablaufs (Bag -> Bag -> Karte).
+In der Nutzwertanalyse (Tabelle~\ref{tab:nutzwertanalyse_slam}) wird jede Variante in jedem Kriterium auf einer Skala von $0$ (Kriterium nicht erfüllt) 
+bis $5$ (Kriterium vollständig erfüllt) bewertet.
+Der gewichtete Wert ergibt sich aus dem Produkt von Bewertung und Kriteriengewicht, die Summe dieser Werte bildet den Gesamtnutzwert.
+Alle Verfahren werden dabei im Lokalisierungsmodus gegen eine zuvor erstellte Karte betrachtet.
 
+In der \textbf{Umgebungskompatibilität} erreichen TagSLAM und LiDAR-SLAM mit jeweils $4$ die höchste Bewertung.
+TagSLAM arbeitet unabhängig von der Umgebungstextur und wird daher von strukturarmen Flächen nicht beeinträchtigt, während LiDAR-SLAM unabhängig von der 
+Beleuchtung misst.
+VSLAM wird mit $3$ am niedrigsten bewertet, da es auf eine texturreiche Umgebung angewiesen ist, die in der Versuchsumgebung nicht zuverlässig vorliegt.
 
-\begin{table}[htbp]
+In der \textbf{Driftfreiheit} erreicht TagSLAM mit $5$ den höchsten Wert, da jede Markerdetektion eine direkte und absolute Posenmessung gegen die Karte liefert.
+LiDAR-SLAM bindet die Pose über das Registrieren der Punktwolke ebenfalls an die Karte, erhält mit $4$ aber eine geringere Bewertung, 
+da das Scan-Matching in strukturarmen Bereichen mehrdeutig werden kann~\cite{Tang2015_lidar}.
+VSLAM wird mit $3$ bewertet, da die Merkmalswiedererkennung in der strukturarmen Versuchsumgebung weniger zuverlässig gelingt und das Verfahren dadurch häufiger
+auf die inhärent driftbehaftete visuelle Odometrie angewiesen ist~\cite{10588822_RWT_SLAM}.
+
+Beim \textbf{Rechenaufwand} schneidet TagSLAM mit $4$ am besten ab, da durch die bekannte Markergeometrie die aufwendige Merkmalsbeschreibung entfällt.
+LiDAR-SLAM wird hier mit $2$ am niedrigsten bewertet, da die Verarbeitung dichter Punktwolken rechenintensiv ist.
+Diese Bewertung ist als qualitative Tendenz zu verstehen, da der tatsächliche Rechenaufwand stark von der jeweiligen Algorithmenimplementierung abhängt.
+Die \textbf{ROS2-Verfügbarkeit} ist für alle drei Verfahren mit $4$ gleich bewertet, da für jedes einsatzfähige Implementierungen vorliegen, 
+die gegebenenfalls noch angepasst werden müssen.
+
+LiDAR-SLAM wird bei \textbf{Kostengünstigkeit} und \textbf{Leichtbau} mit jeweils $2$ am niedrigsten bewertet, da ein kompakter 3D-LiDAR-Sensor 
+wie der Livox~Mid-360S mit 589~Euro~\cite{livox_mid360s} deutlich teurer und schwerer ist als eine vergleichbare Kamera.
+Für kamerabasierte Verfahren ist hingegen bereits eine Logitech~C922 für unter 100~Euro im Handel erhältlich~\cite{logitech_c922}.
+Ein für \gls{vslam} ausgelegtes Stereomodul wie die ZED~Mini liegt mit ab 399~USD~\cite{zed_mini} zwar höher, bleibt aber deutlich 
+unter dem Preisniveau eines LiDAR-Sensors.
+TagSLAM wird beim \textbf{geringen Vorbereitungsaufwand} mit $3$ bewertet, da die Marker einmalig angebracht werden müssen, 
+während VSLAM und LiDAR-SLAM mit $5$ keine Umgebungsvorbereitung erfordern.
+
+In Summe erreicht TagSLAM mit $4{,}24$ den höchsten Gesamtnutzwert, gefolgt von LiDAR-SLAM mit $3{,}48$ und VSLAM mit $3{,}38$.
+Ausschlaggebend ist die hohe Bewertung in den beiden am stärksten gewichteten Kriterien, der Umgebungskompatibilität und der Driftfreiheit.
+Der höhere Vorbereitungsaufwand als einziger nennenswerter Nachteil von TagSLAM fällt aufgrund der geringen Gewichtung dieses Kriteriums kaum ins Gewicht.
+Aus diesen Gründen wird die Kartierung und Lokalisierung in dieser Arbeit auf Basis von TagSLAM umgesetzt.
+
+\begin{figure}[htbp]
     \centering
-    \renewcommand{\arraystretch}{1.4}
-    \begin{tabularx}{\textwidth}{l X X X X}
-        \toprule
-        \textbf{Verfahren} & \textbf{Kosten} & \textbf{Vorbereitung} & \textbf{Kompatibilität Versuchsumgebung} & \textbf{ROS2-Pakete} \\
-        \midrule
-        \gls{vo} / \gls{vio}
-            & gering, nur Kamera bzw. Kamera mit \gls{imu}
-            & keine Umgebungsvorbereitung nötig
-            & gering, setzt strukturierte Umgebung voraus, driftbehaftet
-            & vorhanden \\
-        \addlinespace
-        Optimierungs\-basiertes \gls{slam}
-            & gering bis mittel, je nach Sensorik
-            & keine Umgebungsvorbereitung, hoher Konfigurationsaufwand
-            & eingeschränkt, abhängig von Textur und Wiedererkennung
-            & vorhanden \\
-        \addlinespace
-        Fiducial-Marker
-            & gering, gedruckte Marker und Kamera
-            & einmaliges Anbringen und Einmessen der Marker
-            & hoch, unabhängig von Umgebungstextur, absoluter Bezug
-            & vorhanden \\
-        \bottomrule
-    \end{tabularx}
-    \caption{Paarweiser Vergleich der betrachteten Lokalisierungsverfahren hinsichtlich der Auswahlkriterien}
-    \label{tab:verfahrensvergleich}
-\end{table}
+    \includegraphics[width=1.0\textwidth]{Bilder/Nutzwertanalyse_slam.png}
+    \caption{Nutzwertanalyse der SLAM-Varianten}
+    \label{tab:nutzwertanalyse_slam}
+\end{figure}
 \FloatBarrier
 
 
+\subsection{Auswahl der Fiducial-Marker}
+\label{sec:auswahl_marker}
+Als Fiducial-Marker-System kommen in dieser Arbeit ausschließlich AprilTags
+der Familie \texttt{tag36h11} zum Einsatz.
+Die Wahl ergibt sich aus drei zusammenwirkenden Gründen.
 
+\textbf{Kompatibilität mit TagSLAM.}
+TagSLAM von Bernd Pfrommer nutzt intern den AprilTag-Detektor und unterstützt
+ausschließlich AprilTag-Familien~\cite{pfrommer2019tagslam}.
+Ein Wechsel zu einem anderen Marker-System würde die Kompatibilität mit
+TagSLAM aufheben.
 
+\textbf{Hardwarebeschleunigte Detektion unter Isaac~ROS.}
+Für den Jetson Orin Nano steht mit dem Paket isaac\_ros\_apriltag eine
+\gls{gpu}-beschleunigte Implementierung zur Detektion von AprilTag-Markern zur Verfügung.
+Da AprilTag im Vergleich zu ArUco den höchsten Rechenaufwand bei einer
+CPU-basierten Implementierung aufweist~\cite{Kalaitzakis2021}, ist die
+Hardwarebeschleunigung für den echtzeitfähigen Betrieb auf dem Companion-Computer besonders relevant.
+Eine vergleichbare Beschleunigung für ArUco-Marker steht im Isaac~ROS-Framework nicht zur Verfügung.
 
+\textbf{Wahl der Familie \texttt{tag36h11}.}
+Innerhalb der AprilTag-Familien bietet \texttt{tag36h11} den besten Kompromiss
+aus Detektionsleistung und Robustheit gegenüber Falschdetektionen~\cite{rcvisard_tagdetect}.
+Die minimale Hammingdistanz von~11 stellt sicher, dass eine große Bitabweichung
+erforderlich ist, um einen ungültigen Marker als gültig zu akzeptieren, was
+die Verwechslungsrate gegenüber Familien mit geringerer Hammingdistanz wie
+\texttt{tag16h5} deutlich reduziert~\cite{Olson5979561}.
 
-\section{Auswahl des Lokalisierungsverfahrens}
-\label{sec:auswahl_verfahren}
-Für die Innenraumlokalisierung des \gls{uav} kommen grundsätzlich mehrere der in den Grundlagen beschriebenen Verfahren in Frage.
-Im Folgenden werden ihre Vor- und Nachteile im Hinblick auf die konkrete Anwendung gegenübergestellt, um die Wahl des eingesetzten Verfahrens zu begründen.
-
-\subsection*{Visuelle Odometrie und visuell-inertiale Odometrie}
-Die visuelle Odometrie benötigt keine vorbereitete Umgebung und liefert ohne zusätzliche Infrastruktur eine fortlaufende Bewegungsschätzung.
-In der visuell-inertialen Variante wird die Robustheit durch die Inertialdaten weiter erhöht, die den metrischen Maßstab sowie Roll- und Nickwinkel stützen.
-Diesen Vorteilen stehen jedoch zwei für die vorliegende Anwendung wesentliche Nachteile gegenüber.
-Da beide Verfahren keinen absoluten Positionsbezug besitzen, akkumulieren sie über die Zeit einen Drift und sind damit für eine langfristig stabile Innenraumlokalisierung nur bedingt geeignet.
-Zudem setzen sie eine strukturierte, texturreiche Umgebung voraus, die in der Versuchsumgebung nicht zuverlässig gegeben ist.
-
-\subsection*{Simultane Lokalisierung und Kartierung}
-\gls{slam}-Verfahren erstellen eine Karte der Umgebung und bestimmen gleichzeitig die eigene Position darin.
-Durch Loop Closure und die anschließende globale Optimierung können sie den akkumulierten Drift korrigieren und erreichen so eine höhere Konsistenz als die reine Odometrie.
-Allerdings teilen optimierungsbasierte \gls{slam}-Verfahren die Abhängigkeit von einer texturreichen Umgebung und erfordern einen deutlich höheren Rechen- und Implementierungsaufwand.
-Der spiegelnde Hallenboden und die strukturarmen Flächen der Versuchsumgebung (siehe Abschnitt~\ref{sec:versuchsumgebung}) erschweren sowohl die Merkmalsextraktion als auch die zuverlässige Wiedererkennung bereits besuchter Orte.
-
-\subsection*{Fiducial-Marker}
-Fiducial-Marker stellen künstliche Landmarken mit bekannter Position dar und schaffen damit den absoluten Positionsbezug, der den zuvor genannten Verfahren fehlt.
-Da jeder Marker eindeutig identifizierbar ist und seine Lage in der Karte bekannt ist, akkumuliert sich kein Drift, solange Marker sichtbar sind.
-Die Erkennung ist robust gegenüber strukturarmen Flächen, da nicht die Umgebungstextur, sondern der Marker selbst das auszuwertende Merkmal bildet.
-Als Nachteil ist die Umgebung vorzubereiten, indem die Marker angebracht und eingemessen werden müssen.
-Für eine räumlich begrenzte, kontrollierte Versuchsumgebung ist dieser einmalige Aufwand jedoch vertretbar.
-
-\subsection*{Begründung der Verfahrenswahl}
-Die Gegenüberstellung zeigt, dass die rein relativen Verfahren an den Bedingungen der Versuchsumgebung scheitern: Sowohl visuelle Odometrie als auch optimierungsbasiertes \gls{slam} setzen eine strukturierte Umgebung voraus und liefern, im Fall der Odometrie, keinen driftfreien absoluten Bezug.
-Fiducial-Marker umgehen beide Einschränkungen, da sie einen absoluten Positionsbezug bereitstellen und unabhängig von der Umgebungstextur erkannt werden.
-Aus diesen Gründen wird die Lokalisierung in dieser Arbeit auf Basis von Fiducial-Markern umgesetzt.
-
-
-
-
-
-
-
+\textbf{Anforderungen an das Anbringen der Marker.}
+Für eine präzise Posenschätzung müssen die Marker eben und ohne Verwölbung
+angebracht sein, da das Detektionsverfahren eine planare Markergeometrie voraussetzt~\cite{Olson5979561}.
+Verformungen des Untergrunds oder des Druckträgers führen zu systematischen Fehlern in der berechneten Pose.
+Weiterhin ist ein ausreichend hoher Kontrast zwischen den schwarzen und weißen
+Zellen des Markers entscheidend, da die Detektion auf Helligkeitsübergängen basiert~\cite{Kalaitzakis2021}.
+Glänzende Oberflächen sind zu vermeiden, da Reflexionen die Helligkeitsübergänge verfälschen und zu Detektionsfehlern führen können.
 
 
 
 
 
+\section{Ablauf der Kartierung}
+\label{sec:ablauf_kartierung}
+Für die Kartierung wurden in dieser Arbeit zwei Ansätze verfolgt.
+Zum einen die Live-Kartierung mittels Tag-\gls{slam} während des Flugs und zum anderen die Offline-Kartierung durch 
+Aufzeichnung von von \gls{ros2}-Bags (siehe Kapitel~\ref{sec:ros_bag}).
+
+Es hat sich gezeigt, dass die Live-Kartierung nur bei kleinen Karten zuverlässig funktioniert, da die Optimierung bei größeren Karten zu lange dauert.
+Es konnte keine Konfiguration gefunden werden, mit der TagSLAM die Live-Kartierung einer großen Karte in akzeptabler Zeit bewältigt.
+Aus diesem Grund wird die Karte vorab in einem dreistufigen Offline-Verfahren erstellt, das unter \gls{ros2} Jazzy umgesetzt ist.
+Jede Stufe ist als eigenes Launch-File umgesetzt, die Stufen sind über ROS2-Bags miteinander verbunden.
+
+In der ersten Stufe werden die Kamerabilder aufgenommen, entzerrt und gemeinsam mit den Kameraparametern in einem ROS2-Bag aufgezeichnet.
+In der zweiten Stufe werden die Marker offline aus den aufgezeichneten Bildern detektiert und die Detektionen zusammen 
+mit den Bildern in einem zweiten Bag abgelegt.
+In der dritten Stufe werden aus diesen Detektionen mit TagSLAM die Lagen aller Marker zu einer konsistenten Karte optimiert.
+
+Der Offline-Ablauf bietet zwei Vorteile.
+Da die aufgezeichneten Daten unabhängig von der Echtzeit verarbeitet werden, kann die Detektion mit reduzierter 
+Abspielgeschwindigkeit erfolgen, sodass jedes Bild ausgewertet wird und keine Detektionen verloren gehen.
+Zudem ist der gesamte Vorgang reproduzierbar, da er beliebig oft aus denselben Eingangsdaten wiederholt werden kann.
+Die einzelnen Schritte werden in den folgenden Abschnitten beschrieben.
+
+%hier evtl auf das hw-Kapitel verweisen!!!
+Die Kalibrierung sowie die Offline-Kartierung werden auf einem Lenovo ThinkPad
+mit einem Intel~Core~i5-1145G7 (11.\,Generation), $16\,\text{GB}$ Arbeitsspeicher
+und integrierter Intel~Iris~Xe-Grafik unter Ubuntu~24.04 mit ROS2~Jazzy durchgeführt.
 
 
-\section{Bildaufnahme}
-\label{sec:kartierung_bildaufnahme}
-Die Bildaufnahme erfolgt mit einer Logitech~C922 über das ROS2-Paket gscam.
-Die Kamera liefert einen MJPEG-Stream mit einer Auflösung von $1920 \times 1080$ Pixeln bei $15\,\text{fps}$.
-Die Dekodierung des MJPEG-Streams erfolgt über eine GStreamer-Pipeline auf der CPU mittels \texttt{jpegdec}.
-Da die Aufnahme auf einem Laptop ohne NVIDIA-Hardwaredecoder durchgeführt wird, ist die CPU-Dekodierung hier die geeignete Wahl.
-Das aufgenommene Bild wird als Topic \texttt{/camera/image\_raw} mit den zugehörigen Kameraparametern \texttt{/camera/camera\_info} bereitgestellt.
+\subsection{Kamera-Kalibrierung}
+\label{Kamera_Kalibrierung}
+Die Kamerakalibrierung ist die Voraussetzung für die in Abschnitt~\ref{sec:marker_detektion} beschriebene Posenbestimmung.
+Dort werden aus der Entzerrung des Markers zusammen mit der Brennweite der Kamera und der bekannten physischen Markergröße 
+Position und Orientierung des Markers im Raum abgeleitet.
+Die intrinsischen Parameter der Kamera (Brennweite, Hauptpunkt und Verzeichnungskoeffizienten) müssen daher vor der Detektion bekannt sein.
+Reale Objektive weichen vom idealen Lochkameramodell ab und erzeugen eine Linsenverzeichnung, durch die gerade Linien im Bild gekrümmt abgebildet werden.
+Ohne Kalibrierung würde diese Verzeichnung unmittelbar in die berechnete Markerpose eingehen und zu einem systematischen 
+Fehler in der Karte sowie in der späteren Lokalisierung führen~\cite{888718_Calibration_Zhang}.
+Die Kalibrierung erfolgt nach dem Verfahren von Zhang~\cite{888718_Calibration_Zhang} unter Verwendung 
+eines planaren Schachbrettmusters, das aus mehreren Blickwinkeln aufgenommen wird.
+Die Eckpunkte des Schachbretts werden dabei automatisch detektiert und zur Schätzung der intrinsischen Parameter 
+und der Verzeichnungskoeffizienten verwendet, wie es in der OpenCV-Bibliothek implementiert ist~\cite{Bradski2008}.
 
-Im Anschluss an die Aufnahme werden die Bilder direkt entzerrt (siehe Abschnitt~\ref{sec:kartierung_entzerrung}).
-Der erste Bag zeichnet die für die weitere Verarbeitung benötigten Topics auf:
-\begin{itemize}
-    \item \texttt{/camera/image\_rect} -- das entzerrte Bild,
-    \item \texttt{/camera/camera\_info} -- die zugehörigen Kameraparameter,
-    \item \texttt{/tf\_static} -- die statischen Koordinatentransformationen.
-\end{itemize}
-Dieser Bag bildet den Eingang der zweiten Stufe.
 
-\subsection{Kamerakalibrierung}
-\label{sec:kalibrieren_kamera}
-Die für die Entzerrung benötigten Parameter werden vorab durch eine intrinsische Kalibrierung bestimmt.
-Grundlage ist das Lochkameramodell, das die Abbildung eines Raumpunktes auf die Bildebene beschreibt.
-Ein Punkt $\mathbf{X} = [X, Y, Z]^\top$ im Kamerakoordinatensystem wird dabei auf den Bildpunkt $[u, v]^\top$ abgebildet:
+Die Kalibrierung wird mit dem ROS2-Paket \texttt{camera\_calibration} umgesetzt.
+Zunächst wird die Kamera über gscam gestartet:
+
+\begin{lstlisting}[language=bash, caption={Start des gscam-Knotens für die Kalibrierung}, label={lst:gscam_start}]
+ros2 run gscam gscam_node --ros-args \
+  -p gscam_config:="v4l2src device=/dev/video4 do-timestamp=true ! \
+     image/jpeg,width=1920,height=1080,framerate=30/1 ! \
+     jpegdec ! videoconvert ! video/x-raw,format=RGB" \
+  -p frame_id:=camera_optical_frame \
+  -p camera_name:=camera
+\end{lstlisting}
+
+In einem zweiten Terminal wird der Kalibrierknoten gestartet:
+
+\begin{lstlisting}[language=bash, caption={Start des Kalibrierknotens}, label={lst:cameracalibrator}]
+ros2 run camera_calibration cameracalibrator \
+  --size 9x6 \
+  --square 0.032 \
+  --no-service-check \
+  --ros-args \
+  --remap image:=/image_raw
+\end{lstlisting}
+
+Der Parameter \texttt{-{}-size 9x6} gibt die Anzahl der inneren Eckpunkte des
+Schachbretts an, \texttt{-{}-square 0.032} die Kantenlänge eines Schachbrettfelds
+in Metern.
+Aus mehreren Aufnahmen des Schachbretts in verschiedenen Lagen werden die
+Kameraparameter bestimmt.
+
+Das Ergebnis der Kalibrierung sind die folgenden Parameter:
+Die Kameramatrix $\mathbf{K}$ ordnet den ermittelten Werten die intrinsischen
+Parameter zu:
 \begin{equation}
-    s
-    \begin{bmatrix} u \\ v \\ 1 \end{bmatrix}
-    =
-    \mathbf{K}
-    \begin{bmatrix} X \\ Y \\ Z \end{bmatrix},
-    \qquad
     \mathbf{K} =
     \begin{bmatrix}
         f_x & 0   & c_x \\
         0   & f_y & c_y \\
         0   & 0   & 1
-    \end{bmatrix},
-    \label{eq:lochkamera}
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        1470{,}05 & 0         & 926{,}22 \\
+        0         & 1463{,}81 & 506{,}44 \\
+        0         & 0         & 1
+    \end{bmatrix}.
 \end{equation}
-mit dem Skalierungsfaktor $s$, den Brennweiten $f_x, f_y$ und dem Bildhauptpunkt $(c_x, c_y)$.
-Die Matrix $\mathbf{K}$ wird als Kameramatrix bezeichnet und fasst die intrinsischen Parameter zusammen.
 
-Reale Objektive weichen vom idealen Lochkameramodell ab und erzeugen eine Verzeichnung.
-Diese wird über das Modell plumb\_bob beschrieben, das eine radiale und eine tangentiale Komponente umfasst.
-Für einen normierten Bildpunkt $(x, y)$ mit $r^2 = x^2 + y^2$ ergibt sich der verzeichnete Punkt $(x_d, y_d)$ zu:
-\begin{align}
-    x_d &= x\,(1 + k_1 r^2 + k_2 r^4 + k_3 r^6) + 2 p_1 x y + p_2 (r^2 + 2x^2), \\
-    y_d &= y\,(1 + k_1 r^2 + k_2 r^4 + k_3 r^6) + p_1 (r^2 + 2y^2) + 2 p_2 x y.
-    \label{eq:verzeichnung}
-\end{align}
-Dabei beschreiben $k_1, k_2, k_3$ die radiale und $p_1, p_2$ die tangentiale Verzeichnung.
-
-Die Kalibrierung bestimmt diese Parameter, indem ein Kalibriermuster bekannter Geometrie aus verschiedenen Blickwinkeln aufgenommen wird.
-Über alle erkannten Musterpunkte wird der Reprojektionsfehler minimiert, also die Abweichung zwischen den gemessenen Bildpunkten und den mit den geschätzten Parametern projizierten Punkten.
-% TODO: verwendetes Kalibriermuster und Anzahl der Aufnahmen ergaenzen.
-Die in dieser Arbeit ermittelten Parameter sind in Tabelle~\ref{tab:kalibrierung} zusammengefasst.
-
-\begin{table}[htbp]
-    \centering
-    \begin{tabular}{lll}
-        \toprule
-        \textbf{Parameter} & \textbf{Symbol} & \textbf{Wert} \\
-        \midrule
-        Brennweite $x$       & $f_x$ & $1436{,}035$ \\
-        Brennweite $y$       & $f_y$ & $1435{,}631$ \\
-        Hauptpunkt $x$       & $c_x$ & $907{,}441$ \\
-        Hauptpunkt $y$       & $c_y$ & $529{,}629$ \\
-        Radiale Verzeichnung & $k_1$ & $0{,}020501$ \\
-                             & $k_2$ & $-0{,}076950$ \\
-                             & $k_3$ & $0{,}0$ \\
-        Tangentiale Verz.    & $p_1$ & $-0{,}000463$ \\
-                             & $p_2$ & $-0{,}005645$ \\
-        \bottomrule
-    \end{tabular}
-    \caption{Ergebnis der intrinsischen Kamerakalibrierung der Logitech~C922 bei $1920 \times 1080$}
-    \label{tab:kalibrierung}
-\end{table}
-\FloatBarrier
-
-Aus der Kalibrierung wird zusätzlich eine Projektionsmatrix abgeleitet, die die intrinsischen Parameter des entzerrten Bildes beschreibt:
+Der Verzeichnungsvektor $\mathbf{d}$ enthält die radialen und tangentialen
+Koeffizienten:
 \begin{equation}
+    \mathbf{d} =
+    \begin{bmatrix} k_1 & k_2 & p_1 & p_2 & k_3 \end{bmatrix}
+    =
+    \begin{bmatrix} 0{,}0178 & -0{,}0436 & -0{,}0015 & -0{,}0044 & 0 \end{bmatrix}.
+\end{equation}
+
+Die Rektifizierungsmatrix $\mathbf{R}$ entspricht bei einer Einzelkamera der
+Einheitsmatrix:
+\begin{equation}
+    \mathbf{R} =
+    \begin{bmatrix}
+        1 & 0 & 0 \\
+        0 & 1 & 0 \\
+        0 & 0 & 1
+    \end{bmatrix}.
+\end{equation}
+
+Die Projektionsmatrix $\mathbf{P}$ beschreibt die intrinsischen Parameter des
+entzerrten Bildes:
+\begin{equation}
+\label{eq:Projektionsmatrix}
     \mathbf{P} =
     \begin{bmatrix}
-        1422{,}620 & 0          & 892{,}932 & 0 \\
-        0          & 1440{,}023 & 528{,}758 & 0 \\
-        0          & 0          & 1         & 0
+        f_x' & 0    & c_x' & 0 \\
+        0    & f_y' & c_y' & 0 \\
+        0    & 0    & 1    & 0
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        1467{,}68 & 0         & 916{,}64 & 0 \\
+        0         & 1469{,}52 & 504{,}58 & 0 \\
+        0         & 0         & 1        & 0
     \end{bmatrix}.
-    \label{eq:projektionsmatrix}
 \end{equation}
-Diese Matrix wird in den nachfolgenden Schritten anstelle der ursprünglichen Kameramatrix verwendet.
 
-\section{Entzerrung}
+
+Die \textbf{Kameramatrix} enthält die intrinsischen Parameter und beschreibt, wie ein Punkt aus dem dreidimensionalen Raum auf die zweidimensionale
+Bildebene projiziert wird~\cite{Bradski2008}.
+Auf der Hauptdiagonalen stehen die Brennweiten $f_x = 1470{,}05$ und $f_y = 1463{,}81$, angegeben in Pixeln.
+Die Brennweite bestimmt den Abbildungsmaßstab, also wie stark ein Objekt abhängig von seiner Entfernung verkleinert auf den Sensor 
+abgebildet wird~\cite{Bradski2008}.
+In der dritten Spalte steht der Hauptpunkt $(c_x, c_y) = (926{,}22;\ 506{,}44)$,
+also der Punkt auf dem Bildsensor, an dem die optische Achse senkrecht auftrifft~\cite{Bradski2008}.
+Idealerweise läge dieser in der Bildmitte (bei $960;\ 540$), die reale Lage
+weicht jedoch fertigungsbedingt geringfügig davon ab.
+
+Der \textbf{Verzeichnungsvektor} beschreibt, wie stark das reale Objektiv vom
+idealen Lochkameramodell abweicht, in der Reihenfolge $(k_1, k_2, p_1, p_2, k_3)$.
+
+Die radialen Koeffizienten $k_1, k_2, k_3$ erfassen die zur Bildmitte symmetrische Verzeichnung, die durch die Krümmung der Linse entsteht.
+Sie bewirkt, dass gerade Linien zum Bildrand hin zunehmend gekrümmt erscheinen, während die Bildmitte nahezu unverzeichnet bleibt.
+$k_1$ beschreibt den dominanten Anteil dieser Verzeichnung, $k_2$ und $k_3$ korrigieren die verbleibende Abweichung bei stärkerer Krümmung am äußeren Bildrand.
+
+Die tangentialen Koeffizienten $p_1, p_2$ erfassen eine Verschiebung, die entsteht, wenn die Linse nicht exakt parallel zur Sensorebene montiert ist.
+Dadurch wird das Bild leicht asymmetrisch verzerrt, da der Abstand zwischen Linse und Sensor über die Bildfläche nicht konstant ist.
+
+Die \textbf{Rektifizierungsmatrix} dient der Ausrichtung mehrerer Kameras in einem Stereoaufbau~\cite{Bradski2008}.
+Da hier eine einzelne Kamera verwendet wird, entspricht sie der Einheitsmatrix und bewirkt keine Drehung.
+
+Die \textbf{Projektionsmatrix} beschreibt die intrinsischen Parameter, die für das bereits entzerrte Bild gelten ~\cite{Bradski2008}.
+Während die Kameramatrix die Abbildung des realen, verzeichneten Objektivs beschreibt, bezieht sich die Projektionsmatrix auf das Bild, nachdem die
+Verzeichnung rechnerisch entfernt wurde.
+Da das entzerrte Bild einem idealen Lochkameramodell entspricht, enthält die Projektionsmatrix keine Verzeichnungskoeffizienten mehr.
+
+Ihre ersten drei Spalten enthalten erneut Brennweite und Hauptpunkt, die durch die Entzerrung leicht von den Werten der ursprünglichen 
+Kameramatrix abweichen können.
+Die vierte Spalte ist bei einer Einzelkamera null und erhält nur im Stereoaufbau einen von null verschiedenen Eintrag, der die Verschiebung zur
+zweiten Kamera beschreibt.
+In der nachfolgenden Bildverarbeitung wird daher die Projektionsmatrix anstelle
+der Kameramatrix verwendet, da sie die tatsächliche Abbildung des entzerrten Bildes beschreibt.
+
+
+\subsection{Bildaufnahme}
+\label{sec:kartierung_bildaufnahme}
+Die Kartierung kann mit einer beliebigen Kamera druchgeführt werden, wichtig ist die in Abschnitt \ref{sec:Kamera_Kalibrierung} beschriebene Kalibrierung
+für die verwendete Kamera durchzuführen.
+In dieser Arbeit wird zur Kartierung eine Logitech~C922 genutzt, da sie die höchste Auflösung der zur verfügung stehenden Kameras bietet. 
+
+Die Bildaufnahme erfolgt über einen gscam-Knoten, der in das Launch-File der ersten Stufe eingebunden ist.
+Listing~\ref{lst:gscam_node} zeigt dessen Konfiguration.
+
+Die Bildaufnahme erfolgt über einen gscam-Knoten, der in das Launch-File der ersten Stufe eingebunden ist.
+Listing~\ref{lst:gscam_node} zeigt dessen Konfiguration.
+\begin{lstlisting}[language=Python, caption={Parameter des gscam-Knotens zur Bildaufnahme}, label={lst:gscam_node}]
+'gscam_config': (
+    'v4l2src device=/dev/video4 do-timestamp=true ! '
+    'image/jpeg,width=1920,height=1080,framerate=15/1 ! '
+    'queue leaky=downstream max-size-buffers=1 ! '
+    'jpegdec ! '
+    'queue leaky=downstream max-size-buffers=1 ! '
+    'videoconvert ! '
+    'video/x-raw,format=RGB ! '
+    'queue leaky=downstream max-size-buffers=1'
+),
+'camera_name': 'camera',
+'camera_info_url': camera_info_url,
+'frame_id': 'camera',
+'use_gst_timestamps': True,
+'sync_sink': False,
+'preroll': False,
+'image_encoding': 'rgb8',
+'use_sensor_data_qos': False,
+\end{lstlisting}
+
+Die wichtigsten Parameter sind die Auflösung von $1920 \times 1080$ Pixeln bei einer Bildfrequenz von $15$ \gls{fps}.
+Die Bildfrequenz ist bewusst niedrig gewählt, um die Dekodierung durch \texttt{jpegdec} auf der CPU
+nicht zu überfordern und eine stabile Bildrate zu erhalten.
+Über \texttt{camera\_info\_url} werden die zuvor ermittelten Kalibrierparameter
+geladen, die zusammen mit dem Bild auf den Topics \texttt{/camera/image\_raw}
+und \texttt{/camera/camera\_info} veröffentlicht werden.
+Im Anschluss an die Aufnahme werden die Bilder direkt entzerrt (siehe Abschnitt~\ref{sec:kartierung_entzerrung}).
+
+\subsection{Entzerrung}
 \label{sec:kartierung_entzerrung}
 Die Entzerrung wird über den Knoten \texttt{rectify\_node} aus dem Paket image\_proc umgesetzt.
-Dieser berechnet aus den Kalibrierparametern für jeden Pixel des Ausgabebildes die zugehörige Position im verzeichneten Eingangsbild und entfernt so die durch das Objektiv verursachte Verzeichnung.
+Anhand der Kalibrierparameter ordnet er jedem Pixel des Ausgabebildes die zugehörige Position im verzeichneten 
+Eingangsbild zu und entfernt dadurch die Linsenverzeichnung.
 Das Ergebnis wird als Topic \texttt{/camera/image\_rect} bereitgestellt.
 
 Nach diesem Schritt ist das Bild bereits entzerrt.
-Seine intrinsischen Parameter entsprechen damit der Projektionsmatrix aus Gleichung~\eqref{eq:projektionsmatrix}, und die Verzeichnungskoeffizienten sind null.
-Dieser Zusammenhang ist für die nachfolgende Markererkennung entscheidend: Würde dort erneut mit den ursprünglichen Verzeichnungskoeffizienten gerechnet, würde die bereits korrigierte Verzeichnung ein zweites Mal angewendet und die Markerlage systematisch verfälscht.
-Aus diesem Grund werden in der Konfiguration der Kartierung als Intrinsics die Werte der Projektionsmatrix eingetragen und die Verzeichnungskoeffizienten auf null gesetzt.
-
-% TODO: Abbildung -- Vergleich Rohbild (verzeichnet) und entzerrtes Bild.
-
-\section{Bildverarbeitung}
-\label{sec:kartierung_bildverarbeitung}
-Die Markererkennung wird offline auf den aufgezeichneten, entzerrten Bildern ausgeführt.
-Dazu wird der Bag der ersten Stufe abgespielt und der Detektionsknoten \texttt{sync\_and\_detect\_node} auf den Bildstrom angewendet.
-
-Das Abspielen erfolgt mit der Option \texttt{-{}-clock} und der Parameter \texttt{use\_sim\_time} ist aktiviert.
-Dadurch arbeitet die Detektion mit simulierter Zeit und ist an die Zeitstempel der aufgezeichneten Daten gekoppelt, nicht an die reale Systemzeit.
-Die Abspielgeschwindigkeit wird auf den Faktor $0{,}3$ reduziert.
-So steht der Detektion pro Bild ausreichend Rechenzeit zur Verfügung, sodass keine Bilder ungenutzt verworfen werden.
-
-Für jeden erkannten Marker werden die Identifikationsnummer sowie die Bildkoordinaten seiner vier Eckpunkte bestimmt und als Topic \texttt{/tagslam/tag\_detections} ausgegeben.
-Die Detektionen werden zusammen mit den Bildern, den Kameraparametern, den statischen Transformationen und der simulierten Zeit in einem zweiten, kombinierten Bag aufgezeichnet:
+Seine intrinsischen Parameter entsprechen damit der Projektionsmatrix aus Gleichung~\eqref{eq:Projektionsmatrix}, und die Verzeichnungskoeffizienten sind null.
+Anschließend wird ein ROS2-Bag aufgezeichnet, der die für die nachfolgende Stufe
+benötigten Topics enthält:
 \begin{itemize}
-    \item \texttt{/camera/image\_rect},
-    \item \texttt{/camera/camera\_info},
-    \item \texttt{/tagslam/tag\_detections},
-    \item \texttt{/tf\_static},
-    \item \texttt{/clock}.
+    \item \texttt{/camera/image\_rect} -- das entzerrte Bild,
+    \item \texttt{/camera/camera\_info} -- die zugehörigen Kameraparameter,
+    \item \texttt{/tf\_static} -- die statischen Koordinatentransformationen.
 \end{itemize}
-Dieser kombinierte Bag enthält alle Eingangsdaten der eigentlichen Kartenerstellung.
 
-\section{Kartenerstellung}
+
+\subsection{Offline Detektion von AprilTags}
+\label{sec:offline_detektion_apriltags}
+Die Markererkennung wird offline auf dem in der ersten Stufe aufgezeichneten Bag mit den entzerrten Bildern ausgeführt.
+Die Detektion ist absichtlich von Aufnahme und Entzerrung entkoppelt, um die genutzte Hardware nicht zu überfordern.
+Es wurden auch Versuche durchgeführt, bei denen die Detektion Teil der ersten Bag-Aufzeichnung war.
+Dabei führte die zu hohe Rechenlast bei Echtzeit-Abspielgeschwindigkeit dazu, dass Frames verworfen wurden und die Detektion nicht mehr zuverlässig funktionierte.
+Bei leistungsfähigerer Hardware könnten beide Schritte gegebenenfalls gleichzeitig durchgeführt werden.
+
+Aus diesem Grund wird der Eingangs-Bag mit einer Abspielgeschwindigkeit von $0{,}3$ abgespielt.
+Dadurch steht der Hardware pro Bild mehr Zeit zur Berechnung der Detektion zur Verfügung. 
+
+Für die Detektion wird der Knoten \texttt{sync\_and\_detect\_node} aus dem Paket TagSLAM verwendet.
+Dieser benötigt zwei Konfigurationsdateien, auf diese wird in Abschnitt \ref{sec:kartierung_tagslam} nochmals genauer eingegangen.
+Die Datei \texttt{cameras.yaml} enthält die Intrinsics der Kamera.
+Da der Knoten auf dem bereits entzerrten Bild \texttt{/camera/image\_rect} arbeitet, werden hier die Werte der Projektionsmatrix aus 
+Abschnitt~\ref{sec:kalibrieren_kamera} eingetragen und die Verzeichnungskoeffizienten auf null gesetzt.
+Neben den Intrinsics legt die Datei die Auflösung, die verwendeten Topics (\texttt{image\_topic}, \texttt{camera\_info\_topic}, 
+\texttt{tag\_topic}) sowie den Referenzframe der Kamera (\texttt{rig\_body}) fest.
+Aus der TagSLAM-Konfiguration \texttt{tagslam.yaml} liest der Knoten die Liste der bekannten Marker mit ihren 
+Identifikationsnummern und physischen Größen aus.
+Diese Information macht es möglich, Karten mit verschieden großen Tags aufzunehmen. 
+Der Knoten synchronisiert die Topics \texttt{/camera/image\_rect} und \texttt{/camera/camera\_info\_rect} anhand ihrer Zeitstempel 
+und detektiert auf den zugehörigen Bildern die AprilTag-Marker.
+Für jeden erkannten Marker werden Identifikationsnummer und Bildkoordinaten der vier Eckpunkte 
+bestimmt und als Topic \texttt{/tagslam/tag\_detections} ausgegeben.
+
+Die Detektionen werden zusammen mit den Bildern, den Kameraparametern, den statischen Transformationen 
+und der Zeit aus dem Eingangs-Bag (anstelle der Systemzeit) in einem zweiten, kombinierten Bag aufgezeichnet:
+\begin{itemize}
+    \item \texttt{/camera/image\_rect} -- das entzerrte Bild,
+    \item \texttt{/camera/camera\_info} -- die zugehörigen Kameraparameter,
+    \item \texttt{/tagslam/tag\_detections} -- die Markerdetektionen,
+    \item \texttt{/tf\_static} -- die statischen Koordinatentransformationen,
+    \item \texttt{/clock} -- die Zeit aus dem Eingangs-Bag, anstelle der Systemzeit.
+\end{itemize}
+Dieser kombinierte Bag enthält alle Eingangsdaten für die nachfolgende Kartenerstellung.
+
+
+
+
+
+\section{ab hier vorsicht!}
+
+\subsection{Kartenerstellung mit Tagslam}
 \label{sec:kartierung_tagslam}
-Die Kartenerstellung erfolgt mit TagSLAM über den Knoten \texttt{tagslam\_from\_bag}.
-Dieser liest den kombinierten Bag ein und schätzt aus den Markerdetektionen die Lage aller Marker zueinander.
+Die eigentliche Karte wird mit dem Knoten \texttt{tagslam\_from\_bag} aus dem Paket TagSLAM erstellt.
+Dieser liest den kombinierten Bag aus der vorigen Stufe ein und schätzt aus den enthaltenen Markerdetektionen die Lage aller Marker zueinander.
+Die Optimierung der Karte erfolgt nach dem in den Abschnitten~\ref{sec:Faktorgraph} und~\ref{sec:slam_varianten} beschriebenen Prinzip.
+Der Knoten ist ausschließlich für \gls{ros2} Jazzy implementiert, weshalb die Kartenerstellung unter dieser Version durchgeführt wird.
 
-\subsection{Optimierungsverfahren}
-TagSLAM formuliert das Problem als Faktorgraph und löst es als nichtlineares Ausgleichsproblem.
-Gesucht werden die Posen aller Marker sowie die Kamerapose je Bild, die die beobachteten Markerecken bestmöglich erklären.
-Für jede beobachtete Markerecke wird der Reprojektionsfehler gebildet, also die Abweichung zwischen der gemessenen Bildkoordinate $\mathbf{z}_{ij}$ und der projizierten Eckposition:
-\begin{equation}
-    \min_{\{\mathbf{T}_c\}, \{\mathbf{T}_t\}}
-    \sum_{i} \sum_{j}
-    \left\lVert
-        \mathbf{z}_{ij} - \pi\!\left(\mathbf{K}, \mathbf{T}_{c_i}, \mathbf{T}_{t_j}\right)
-    \right\rVert^2_{\Sigma},
-    \label{eq:tagslam_kost}
-\end{equation}
-wobei $\mathbf{T}_{c_i}$ die Pose der Kamera im Bild $i$, $\mathbf{T}_{t_j}$ die Pose des Markers $j$ und $\pi(\cdot)$ die Projektion einer Markerecke in die Bildebene bezeichnet.
-Die Gewichtung $\Sigma$ ergibt sich aus dem angenommenen Messrauschen, das über den Parameter \texttt{pixel\_noise} mit $1{,}0$ Pixel festgelegt ist.
+Der Knoten benötigt drei Konfigurationsdateien: \texttt{cameras.yaml} mit den Kamera-Intrinsics, \texttt{camera\_poses.yaml} mit der Pose 
+der Kamera sowie \texttt{tagslam.yaml} mit den Parametern der Optimierung und den Startwerten der Marker.
+Die Datei \texttt{cameras.yaml} entspricht der bereits in Abschnitt~\ref{sec:kartierung_entzerrung} beschriebenen Datei.
 
-\subsection{Konfiguration}
-Die Konfiguration erfolgt über drei Dateien: die Kameraparameter in \texttt{cameras.yaml}, die Kamerapose in \texttt{camera\_poses.yaml} und die TagSLAM-Konfiguration in \texttt{tagslam\_Lauf2.yaml}.
-Die wesentlichen Optimierungsparameter sind in Tabelle~\ref{tab:tagslam_params} zusammengefasst.
+\subsubsection{Konfiguration der Kamerapose in Tagslam}
+Die Datei \texttt{camera\_poses.yaml} gibt über eine $6 \times 6$-Kovarianzmatrix \texttt{R} an, wie starr die Kamera während der Kartierung gehalten wird.
+Die sechs Dimensionen entsprechen den drei translatorischen und drei rotatorischen Freiheitsgraden der Kamerapose.
+Da die Kamera bewegt wird und ihre Pose nicht vorab bekannt ist, sind Position und Rotation auf null gesetzt, während 
+die Diagonalwerte der Matrix sehr groß gewählt sind.
+Ein großer Wert entspricht einer großen Unsicherheit, sodass die vorgegebene Nullpose die Optimierung nicht einschränkt 
+und die Kamerapose allein aus den Markerbeobachtungen bestimmt wird.
+
+\subsubsection{Konfiguration der Optimierung in Tagslam}
+Die Datei \texttt{tagslam.yaml} enthält neben den bereits in Abschnitt~\ref{sec:kartierung_entzerrung} beschriebenen Angaben 
+(Tag-Identifikationsnummer und zugehörige Größe) die Parameter der Optimierung.
+Die wesentlichen Parameter sind in Tabelle~\ref{tab:tagslam_params} zusammengefasst.
 
 \begin{table}[htbp]
     \centering
     \begin{tabular}{ll}
         \toprule
-        \textbf{Parameter} & \textbf{Wert} \\
+        \textbf{Parameter} & \textbf{Bedeutung} \\
         \midrule
-        \texttt{optimizer\_mode}                  & slow \\
-        \texttt{pixel\_noise}                      & $1{,}0$ \\
-        \texttt{minimum\_viewing\_angle}           & $15{,}0^\circ$ \\
-        \texttt{minimum\_tag\_area}                & $2500\,\text{px}^2$ \\
-        \texttt{max\_num\_incremental\_opt}        & $10$ \\
-        \texttt{max\_subgraph\_error}              & $10{,}0$ \\
-        \texttt{subgraph\_abs\_prior\_position\_noise} & $0{,}15$ \\
-        \texttt{subgraph\_abs\_prior\_rotation\_noise} & $0{,}15$ \\
-        \texttt{use\_approximate\_sync}            & true \\
+        \texttt{optimizer\_mode}           & Wahl zwischen schneller und genauerer Optimierung \\
+        \texttt{minimum\_viewing\_angle}   & Mindestwinkel, unter dem ein Marker noch verwertet wird \\
+        \texttt{minimum\_tag\_area}        & Mindestfläche eines Markers im Bild in Pixeln \\
+        \texttt{max\_num\_incremental\_opt}& Anzahl der inkrementellen Optimierungsschritte \\
+        \texttt{pixel\_noise}              & Angenommenes Messrauschen der Eckpunkte in Pixeln \\
+        \texttt{max\_subgraph\_error}      & Zulässiger Fehler, bis zu dem eine Teillösung akzeptiert wird \\
+        \texttt{use\_approximate\_sync}    & Zeitliche Synchronisierung mit Toleranz \\
         \bottomrule
     \end{tabular}
-    \caption{Verwendete TagSLAM-Optimierungsparameter}
+    \caption{Wesentliche Parameter der Optimierung in \texttt{tagslam.yaml}}
     \label{tab:tagslam_params}
 \end{table}
 \FloatBarrier
 
-Der Parameter \texttt{minimum\_viewing\_angle} verwirft Beobachtungen, bei denen der Marker zu schräg zur Kamera steht, da die Eckpunkte dann ungenau bestimmt werden.
-Analog schließt \texttt{minimum\_tag\_area} zu kleine und damit zu weit entfernte Marker aus.
-Da die Kamera während der Aufnahme bewegt wird und keine externe Odometrie vorliegt, wird sie als nicht-statischer Körper mit einer Pseudo-Odometrie hohen Rauschens (\texttt{fake\_odom}) modelliert, sodass aufeinanderfolgende Kameraposen nicht künstlich gekoppelt werden.
+\subsubsection{Konfiguration der Markerlagen in Tagslam}
+\label{sec:konfiguration_der_markerlagen_tagslam}
+Für jeden Marker werden eine Startlage sowie das zugehörige Positions- und Rotationsrauschen (\texttt{position\_noise}, 
+\texttt{rotation\_noise}) jeweils für alle drei Achsen angegeben.
+Das Rauschen bestimmt, wie stark ein Marker an seine vorgegebene Lage gebunden wird: Ein kleines Rauschen hält den Marker 
+nahezu fest, ein großes Rauschen lässt seine Lage während der Optimierung frei.
+Über den Eintrag \texttt{fixed: true} kann ein Marker vollständig fixiert werden.
 
-\subsection{Initialisierung der Markerposen}
-Die Marker werden mit unterschiedlich starken Vorabinformationen in die Optimierung eingebracht.
-Hierbei werden drei Gruppen unterschieden, die sich in Tag-Größe und Stärke des Priors unterscheiden:
-\begin{itemize}
-    \item \textbf{Tags 0--12} (Größe $0{,}167\,\text{m}$): gut vermessene Startpositionen mit engem Positionsrauschen.
-    Tag~0 ist im Ursprung fixiert und definiert das Kartenkoordinatensystem.
-    \item \textbf{Tags 13--52} (Größe $0{,}167\,\text{m}$): grobe Startpositionen aus einer Vorabschätzung mit weichem Prior von $0{,}5\,\text{m}$, sodass ihre Lage während der Optimierung angepasst wird.
-    \item \textbf{Tags 120--130} (Größe $0{,}232\,\text{m}$): ohne Vorabposition, deren Lage vollständig aus den Beobachtungen bestimmt wird.
-\end{itemize}
-Bei allen Markern ist die $z$-Koordinate auf null fixiert und die Rotation um die $x$- und $y$-Achse gesperrt, da die Marker eben am Boden liegen.
-Lediglich die Position in der Ebene sowie die Rotation um die $z$-Achse bleiben frei.
-Diese Einschränkung reduziert die Zahl der freien Parameter und stabilisiert die Optimierung.
+Auf diese Weise wird ein Marker als fester Ursprung definiert, der als globale Referenz dient, auf die alle übrigen Marker bezogen werden.
+In dieser Arbeit übernimmt Tag~0 diese Rolle.
+Grundsätzlich können auch mehrere Marker fixiert werden, etwa wenn deren Lage bereits genau bekannt ist.
 
-\subsection{Ergebnis}
-Das Ergebnis ist eine konsistente Karte, die die Lage aller Marker im gemeinsamen Kartenkoordinatensystem beschreibt.
-Die optimierte Karte wird in einen Ausgabe-Bag geschrieben und anschließend im Flug für die Lokalisierung verwendet.
-% TODO: Abbildung -- optimierte Markerkarte (z. B. RViz-Darstellung der Tags).
+\subsubsection{Ausgabe der Karte durch Tagslam}
+\label{ausgabe_der_karte_tagslam}
+Das Ergebnis ist eine konsistente Karte, die für jeden Marker dessen Identifikationsnummer, Größe, Lage und das verbleibende Rauschen enthält.
+Listing~\ref{lst:karte} zeigt einen Auszug am Beispiel zweier Marker.
 
+\begin{lstlisting}[caption={Auszug einer erzeugten Karte}, label={lst:karte}]
+tags:
+  - id: 0
+    size: 0.16700000
+    pose:
+      position: {x: 0.0, y: 0.0, z: 0.0}
+      rotation: {x: 0.0, y: 0.0, z: 0.0}
+      position_noise: {x: 1.0e-06, y: 1.0e-06, z: 1.0e-06}
+      rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 1.0e-06}
+  - id: 1
+    size: 0.16700000
+    pose:
+      position: {x: 0.00499362, y: 0.60709535, z: -3.0e-08}
+      rotation: {x: 0.0, y: 0.0, z: 0.03398915}
+      position_noise: {x: 0.00012186, y: 0.00007138, z: 1.0e-06}
+      rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.00033940}
+\end{lstlisting}
 
-
-
-
-
-
+Die Position eines Markers ist in Metern relativ zum Ursprung angegeben, die Orientierung im Rodrigues-Format als Rotationsvektor 
+(siehe Abschnitt~\ref{sec:rodrigues_parameter}).
+Am Beispiel von Tag~0 ist die Wirkung der Fixierung erkennbar: Seine Lage liegt exakt im Ursprung, und das zugehörige Rauschen ist sehr klein.
+Das zu jedem Marker ausgegebene Rauschen beschreibt die verbleibende Unsicherheit der geschätzten Lage und bildet die Referenz für die spätere Lokalisierung.
 
 
 

@@ -112,7 +112,7 @@ Filterbasierte \gls{slam} Algorithmen verarbeiten Messungen sequenziell und lass
 Insbesondere fehlt filterbasierten Methoden die Fähigkeit zur globalen Kartenkorrektur durch Loop Closure, 
 was zu einer geringeren Kartierungsgenauigkeit im Vergleich zu optimierungsbasierten Methoden führt.
 In der Lokalisierung sind filterbasierte Methoden aufgrund ihrer geringeren Rechenkomplexität jedoch schneller.\cite{10169695}
-Der aktuelle Standard bei \gls{slam}-Algorithmen sind optimierungsbasierte Methoden.
+In der aktuellen Literatur dominieren optimierungsbasierte Methoden, und neuere Arbeiten orientieren sich zunehmend an diesem Ansatz.
  
 
 \subsubsection{Phasen optimierungsbasierter SLAM Methoden}
@@ -194,13 +194,13 @@ Bekannte Faktorgraph Bibliotheken sind \gls{gtsam} und \gls{g2o}.
 
 
 \subsubsection{SLAM-Varianten}
-\label{slam_varianten}
-\textbf{Kamerabasierte \gls{vslam}} nutzt visuelle Sensordaten, um gleichzeitig die Pose eines Roboters zu schätzen und eine Karte der Umgebung zu erstellen.\cite{10169695}
-Es baut auf den Konzepten der \gls{vo} und \gls{vio} auf und erweitert diese um die Fähigkeit zur globalen Kartenkonsistenz durch Loop Closure.\cite{Cai2024}
-Durch die Erkennung bereits besuchter Orte kann das System akkumulierte Posenfehler korrigieren und eine global konsistente Karte aufbauen.
-\textbf{ORB-SLAM} ist ein weit verbreitetes Open-Source-SLAM-System, 
-das ORB-Merkmale zur Merkmalserkennung verwendet und Mono-, Stereo-, 
-RGB-D- sowie visuell-inertiale Kamerakonfigurationen unterstützt.\cite{10169695}
+\label{sec:slam_varianten}
+%\textbf{Kamerabasierte \gls{vslam}} nutzt visuelle Sensordaten, um gleichzeitig die Pose eines Roboters zu schätzen und eine Karte der Umgebung zu erstellen.\cite{10169695}
+%Es baut auf den Konzepten der \gls{vo} und \gls{vio} auf und erweitert diese um die Fähigkeit zur globalen Kartenkonsistenz durch Loop Closure.\cite{Cai2024}
+%Durch die Erkennung bereits besuchter Orte kann das System akkumulierte Posenfehler korrigieren und eine global konsistente Karte aufbauen.
+%\textbf{ORB-SLAM} ist ein weit verbreitetes Open-Source-SLAM-System, 
+%das ORB-Merkmale zur Merkmalserkennung verwendet und Mono-, Stereo-, 
+%RGB-D- sowie visuell-inertiale Kamerakonfigurationen unterstützt.\cite{10169695}
 
 \textbf{Kamerabasiertes \gls{vslam}} nutzt visuelle Sensordaten, um gleichzeitig die Pose eines Roboters zu schätzen und eine Karte der 
 Umgebung zu erstellen.\cite{10169695}
@@ -210,20 +210,22 @@ Ein weit verbreitetes Beispiel ist \textbf{orb-slam3}, ein Open-Source-System, d
 Je nach Konfiguration unterstützt es Mono-, Stereo- und RGB-D-Kameras 
 als reines \gls{vslam} sowie die Kombination mit einer \gls{imu} als visuell-inertialen SLAM.
 
-\textbf{TagSLAM} ist eine Spezialisierung von \gls{vslam} für Fiducial-Marker.Anstelle natürlicher Bildmerkmale werden AprilTag-Marker als definierte 
+\textbf{Tag\gls{slam}} ist eine Spezialisierung von \gls{vslam} für Fiducial-Marker.Anstelle natürlicher Bildmerkmale werden AprilTag-Marker als definierte 
 Referenzpunkte verwendet.
 Da die Geometrie der Marker bekannt ist, entfällt die aufwendige Merkmalsbeschreibung und das Matching; stattdessen liefert jede 
 Markerdetektion eine direkte Posenmessung relativ zur Kamera.
 TagSLAM nutzt den GTSAM zur Faktorgraph Optimierung als Backend und ermöglicht 
 neben vollständigem SLAM Posenschätzung.\cite{pfrommer2019tagslam}
 
-\textbf{ORB-SLAM} ist ein weit verbreitetes Open-Source-SLAM-System, 
-das ORB-Merkmale zur Merkmalserkennung verwendet und Mono-, Stereo-, 
-RGB-D- sowie visuell-inertiale Kamerakonfigurationen unterstützt.\cite{10169695}
+%\textbf{ORB-SLAM} ist ein weit verbreitetes Open-Source-SLAM-System, 
+%das ORB-Merkmale zur Merkmalserkennung verwendet und Mono-, Stereo-, 
+%RGB-D- sowie visuell-inertiale Kamerakonfigurationen unterstützt.\cite{10169695}
 
 \textbf{\gls{lidar}-SLAM} verwendet einen Laserscanner anstelle einer Kamera als primären Sensor \cite{Yue2023}.
 Ein LiDAR misst Entfernungen durch Laufzeitmessung ausgesendeter Laserpulse 
 und erzeugt dabei eine dichte Punktwolke der Umgebung.
+Die Lokalisierung erfolgt über Scan-Matching, bei dem die aktuell aufgenommene Punktwolke mit der gespeicherten Kartenpunktwolke zur 
+Deckung gebracht wird, um daraus die aktuelle Pose zu bestimmen.
 Da die Tiefenmessung direkt und metrikgenau erfolgt, ist LiDAR-SLAM im 
 Vergleich zu monokularem \gls{vslam} nicht auf eine Skaleninitialisierung angewiesen und liefert in der Regel robustere Ergebnisse unter 
 wechselnden Lichtverhältnissen \cite{Yue2023}.
@@ -249,7 +251,7 @@ Im Folgenden werden die in Abbildung \ref{fig:Uebersicht_Marker} dargestellten g
 \end{figure}
 \FloatBarrier
 
-\subsubsection{ARTag}
+\subsection{ARTag}
 ARTag wurde 2005 von Mark Fiala als Weiterentwicklung von ARToolKit vorgestellt.\cite{Fiala1467495}
 Es verwendet digitale Kodierungsverfahren, wodurch ARTag im Vergleich zu früheren Systemen niedrigere und quantifizierbare Fehlerraten aufweist.\cite{Fiala1467495}
 Ein ARTag besteht aus einem quadratischen Rand, der ein binäres Raster aus schwarzen und weißen Zellen umschließt, welches eine eindeutige ID kodiert.\cite{Fiala1467495}
@@ -258,7 +260,7 @@ ARTag verwendet keine einheitliche minimale Hammingdistanz zwischen den Codewör
 Aus einer Aufnahme des Markers lässt sich eine 6D-Pose bestimmen.\cite{Fiala1467495}
 Artag ist das einzige System, welches nicht vollständig Open-Source ist.
 
-\subsubsection{AprilTag}
+\subsection{AprilTag}
 AprilTag wurde 2011 von Edwin Olson an der University of Michigan vorgestellt.\cite{Olson5979561}
 AprilTag stellt eine schnellere und robustere Neuimplementierung des ARTag-Ansatzes dar.\cite{Olson5979561}
 Ein AprilTag besteht aus einem schwarzen quadratischen Rand, der ein 
@@ -274,7 +276,7 @@ In dieser Arbeit wird die Familie \texttt{tag36h11} verwendet.\cite{Olson5979561
 Mit AprilTag~2 wurde 2016 eine vollständig überarbeitete Detektion vorgestellt, die höhere Detektionsraten bei geringerem Rechenaufwand erreicht.\cite{Wang7759617}
 
 
-\subsubsection{ArUco}
+\subsection{ArUco}
 ArUco wurde 2014 von Garrido-Jurado et al. vorgestellt.\cite{GARRIDOJURADO20142280}
 Ein ArUco-Marker ist ähnlich wie ARTag und AprilTag aufgebaut.
 Er ist ebenfalls quadratisch und besitzt einen breiten Rand, in dessen Innerem sich eine Binärmatrix befindet, welche die Identifikationsnummer 
@@ -286,7 +288,7 @@ Je kleiner das Dictionary, desto höher die Hammingdistanz zwischen den Markern.
 ArUco ist in die Bibliothek OpenCV integriert.\cite{GARRIDOJURADO20142280}
 
 
-\subsubsection{STag}
+\subsection{STag}
 STag wurde 2019 von Benligiray et al. vorgestellt.\cite{Benligiray2019}
 Im Gegensatz zu den rein quadratischen Systemen verwendet STag eine kreisförmige Randstruktur, die eine stabilere Posenschätzung 
 ermöglicht.\cite{Benligiray2019}
@@ -297,7 +299,8 @@ Je höher die Hammingdistanz, desto kleiner ist die Anzahl an möglichen Tags.\c
 
 
 
-\subsubsection{Detektion}
+\subsection{Detektion}
+\label{sec:marker_detektion}
 Alle vorgestellten Fiducial-Marker-Systeme stellen Bibliotheken zur Detektion bereit.
 Die Detektion eines Fiducial-Markers gliedert sich in zwei Hauptkomponenten: 
 den eigentlichen Detektor, der die Position möglicher Marker im Bild schätzt, 
@@ -317,7 +320,7 @@ Die genauen Eckpunkte des Quads ergeben sich aus den Schnittpunkten der
 Linien.\cite{Olson5979561}
 
 Für jeden gefundenen Quad wird anschließend berechnet, wie das Bild des 
-Markers entzerrt werden muss, um ihn frontal und unverzerrt 
+Markers entzerrt werden muss, um ihn frontal und perspektivisch unverzerrt 
 darzustellen.\cite{Olson5979561}
 Aus dieser Entzerrung lassen sich zusammen mit der Brennweite der Kamera 
 und der bekannten physischen Markergröße Position und Orientierung des 

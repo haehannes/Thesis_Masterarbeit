@@ -866,6 +866,62 @@ parent={},%
 %
 }%
 
+\glsdefs@newdocentry{gpu}%
+{%
+name={\acronymfont {\glsentryshort {gpu}}},%
+sort={GPU},%
+type={acronym},%
+first={GPU},%
+firstplural={GPUs},%
+text={GPU},%
+plural={GPUs},%
+description={Graphics Processing Unit},%
+descriptionplural={Graphics Processing Unit},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Graphics Processing Unit},%
+longplural={Graphics Processing Units},%
+short={GPU},%
+shortplural={GPUs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{fps}%
+{%
+name={\acronymfont {\glsentryshort {fps}}},%
+sort={fps},%
+type={acronym},%
+first={fps},%
+firstplural={fpss},%
+text={fps},%
+plural={fpss},%
+description={frames per second},%
+descriptionplural={frames per second},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={frames per second},%
+longplural={frames per seconds},%
+short={fps},%
+shortplural={fpss},%
+counter={page},%
+parent={},%
+%
+}%
+
 \glsdefs@newdocentry{sym:xc}%
 {%
 name={$X_c$},%
@@ -1307,234 +1363,4 @@ user5={},%
 user6={},%
 long={},%
 longplural={},%
-short={},%
-shortplural={},%
-counter={page},%
-parent={},%
-%
-}%
-
-\glsdefs@newdocentry{sym:F}%
-{%
-name={$F$},%
-sort={$F$},%
-type={symbols},%
-first={$F$},%
-firstplural={$F$s},%
-text={$F$},%
-plural={$F$s},%
-description={Festhaltekraft},%
-descriptionplural={Festhaltekraft},%
-symbol={\relax },%
-symbolplural={\relax },%
-user1={},%
-user2={},%
-user3={},%
-user4={},%
-user5={},%
-user6={},%
-long={},%
-longplural={},%
-short={},%
-shortplural={},%
-counter={page},%
-parent={},%
-%
-}%
-
-\glsdefs@newdocentry{sym:S}%
-{%
-name={$S$},%
-sort={$S$},%
-type={symbols},%
-first={$S$},%
-firstplural={$S$s},%
-text={$S$},%
-plural={$S$s},%
-description={Sicherheitsfaktor bei Vakuumgreifern},%
-descriptionplural={Sicherheitsfaktor bei Vakuumgreifern},%
-symbol={\relax },%
-symbolplural={\relax },%
-user1={},%
-user2={},%
-user3={},%
-user4={},%
-user5={},%
-user6={},%
-long={},%
-longplural={},%
-short={},%
-shortplural={},%
-counter={page},%
-parent={},%
-%
-}%
-
-\glsdefs@newdocentry{sym:p}%
-{%
-name={$p$},%
-sort={$p$},%
-type={symbols},%
-first={$p$},%
-firstplural={$p$s},%
-text={$p$},%
-plural={$p$s},%
-description={Vakuum in Prozent},%
-descriptionplural={Vakuum in Prozent},%
-symbol={\relax },%
-symbolplural={\relax },%
-user1={},%
-user2={},%
-user3={},%
-user4={},%
-user5={},%
-user6={},%
-long={},%
-longplural={},%
-short={},%
-shortplural={},%
-counter={page},%
-parent={},%
-%
-}%
-
-\glsdefs@newdocentry{sym:xs}%
-{%
-name={$x_s$},%
-sort={$x_s$},%
-type={symbols},%
-first={$x_s$},%
-firstplural={$x_s$s},%
-text={$x_s$},%
-plural={$x_s$s},%
-description={Greifbereich},%
-descriptionplural={Greifbereich},%
-symbol={\relax },%
-symbolplural={\relax },%
-user1={},%
-user2={},%
-user3={},%
-user4={},%
-user5={},%
-user6={},%
-long={},%
-longplural={},%
-short={},%
-shortplural={},%
-counter={page},%
-parent={},%
-%
-}%
-
-\glsdefs@newdocentry{sym:pA}%
-{%
-name={$p_A$},%
-sort={$p_A$},%
-type={symbols},%
-first={$p_A$},%
-firstplural={$p_A$s},%
-text={$p_A$},%
-plural={$p_A$s},%
-description={Arbeitsdruck},%
-descriptionplural={Arbeitsdruck},%
-symbol={\relax },%
-symbolplural={\relax },%
-user1={},%
-user2={},%
-user3={},%
-user4={},%
-user5={},%
-user6={},%
-long={},%
-longplural={},%
-short={},%
-shortplural={},%
-counter={page},%
-parent={},%
-%
-}%
-
-\glsdefs@newdocentry{sym:pG}%
-{%
-name={$p_G$},%
-sort={$p_G$},%
-type={symbols},%
-first={$p_G$},%
-firstplural={$p_G$s},%
-text={$p_G$},%
-plural={$p_G$s},%
-description={Gegendruck},%
-descriptionplural={Gegendruck},%
-symbol={\relax },%
-symbolplural={\relax },%
-user1={},%
-user2={},%
-user3={},%
-user4={},%
-user5={},%
-user6={},%
-long={},%
-longplural={},%
-short={},%
-shortplural={},%
-counter={page},%
-parent={},%
-%
-}%
-
-\glsdefs@newdocentry{sym:ps}%
-{%
-name={$p_S$},%
-sort={$p_S$},%
-type={symbols},%
-first={$p_S$},%
-firstplural={$p_S$s},%
-text={$p_S$},%
-plural={$p_S$s},%
-description={Speisedruck},%
-descriptionplural={Speisedruck},%
-symbol={\relax },%
-symbolplural={\relax },%
-user1={},%
-user2={},%
-user3={},%
-user4={},%
-user5={},%
-user6={},%
-long={},%
-longplural={},%
-short={},%
-shortplural={},%
-counter={page},%
-parent={},%
-%
-}%
-
-\glsdefs@newdocentry{sym:FG}%
-{%
-name={$F_G$},%
-sort={$F_G$},%
-type={symbols},%
-first={$F_G$},%
-firstplural={$F_G$s},%
-text={$F_G$},%
-plural={$F_G$s},%
-description={Greifkraft},%
-descriptionplural={Greifkraft},%
-symbol={\relax },%
-symbolplural={\relax },%
-user1={},%
-user2={},%
-user3={},%
-user4={},%
-user5={},%
-user6={},%
-long={},%
-longplural={},%
-short={},%
-shortplural={},%
-counter={page},%
-parent={},%
-%
-}%
-
+short

@@ -210,7 +210,9 @@ Parallel dazu wird der Companion-Computer über einen eigenen XT30-Anschluss mit
 \FloatBarrier
 
 
-\section{Softwarearchitektur}
+\section{Softwarearchitektur nochmal drüber schauen!!! ich nehme ja auch das thinkpad!!!}
+%schreiben dass ros2 jazzy genutzt werden muss, schreiben dass thinkpad genutzt wird.
+%passt hardware hier besser dazu??? Nochmal anschauen!!!
 In diesem Abschnitt wird die Softwarearchitektur des Gesamtsystems beschrieben.
 Die Verarbeitung gliedert sich in zwei Stränge: die Lokalisierung, die im Flug die Pose des Fluggeräts bestimmt 
 und die Kartierung, die vorab die dafür benötigte Karte erzeugt.
@@ -263,9 +265,14 @@ Die Funktionsweise ist in Abschnitt~\ref{sec:bedienung} beschrieben.
 Die Versuche werden im AerodrOhm der Technischen Hochschule Nürnberg durchgeführt, einer Indoor-Flughalle am Ohm Innovation Center.\cite{aerodrohm}
 Die Halle bietet eine Grundfläche von $280\,\text{m}^2$ bei einer nutzbaren Flughöhe von bis zu $12\,\text{m}$.
 \begin{figure}[htbp]
-    \centering
-    \includegraphics[width=1.0\textwidth]{Bilder/aerodrohm.png}
-    \caption{Flughalle AerodrOhm am \gls{oic} der Technischen Hochschule Nürnberg \cite{aerodrohm}}
-    \label{fig:softwarearchitektur}
+\centering
+\includegraphics[width=1.0\textwidth]{Bilder/aerodrohm.png}
+\caption{Flughalle AerodrOhm am \gls{oic} der Technischen Hochschule Nürnberg \cite{aerodrohm}}
+\label{fig:softwarearchitektur}
 \end{figure}
 \FloatBarrier
+Der Hallenboden ist mit einem spiegelnden Belag ausgestattet.
+Zwei der vier Hallenwände bestehen aus unverputztem Ziegelmauerwerk und weisen daher eine strukturierte Oberfläche auf.
+Die übrigen zwei Wände sind mit großflächigen Fenstern versehen, deren Jalousien je nach Zustand geöffnet oder geschlossen sein können.
+Dies hat unmittelbaren Einfluss auf die Lichtverhältnisse in der Halle: Bei geöffneten Jalousien kann einfallender Tageslicht zu Gegenlicht führen, 
+sobald die Kamera in Richtung der Fensterflächen ausgerichtet ist.

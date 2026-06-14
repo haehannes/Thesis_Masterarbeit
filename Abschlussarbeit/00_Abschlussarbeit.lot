@@ -9,11 +9,7 @@
 \addvspace {10\p@ }
 \contentsline {table}{\numberline {4.1}{\ignorespaces Übersicht der eingesetzten Hardwarekomponenten}}{24}{table.caption.19}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces Paarweiser Vergleich zur Gewichtung der Auswahlkriterien. Eine~1 bedeutet, dass das Kriterium der Zeile wichtiger ist als das der Spalte.}}{28}{table.caption.23}%
-\contentsline {table}{\numberline {5.2}{\ignorespaces Paarweiser Vergleich zur Gewichtung der Auswahlkriterien. Eine~1 bedeutet, dass das Kriterium der Zeile wichtiger ist als das der Spalte.}}{29}{table.caption.24}%
-\contentsline {table}{\numberline {5.3}{\ignorespaces Paarweiser Vergleich der betrachteten Lokalisierungsverfahren hinsichtlich der Auswahlkriterien}}{30}{table.caption.26}%
-\contentsline {table}{\numberline {5.4}{\ignorespaces Ergebnis der intrinsischen Kamerakalibrierung der Logitech~C922 bei $1920 \times 1080$}}{32}{table.caption.31}%
-\contentsline {table}{\numberline {5.5}{\ignorespaces Verwendete TagSLAM-Optimierungsparameter}}{34}{table.caption.32}%
+\contentsline {table}{\numberline {5.1}{\ignorespaces Wesentliche Parameter der Optimierung in \texttt {tagslam.yaml}}}{37}{table.caption.25}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
