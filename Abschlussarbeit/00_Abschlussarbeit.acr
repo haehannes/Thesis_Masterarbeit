@@ -42,7 +42,8 @@
 \glossentry{fmu}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{9}}}\relax\glsresetentrylist
 \glossentry{fps}{\glossaryentrynumbers{\relax 
-\glsXpageXglsnumberformat{}{35}}}\glsgroupskip
+\glsXpageXglsnumberformat{}{35}\delimN 
+\glsXpageXglsnumberformat{}{40}}}\glsgroupskip
 \glsgroupheading{G}\relax\glsresetentrylist
 \glossentry{g2o}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{18}}}\relax\glsresetentrylist
@@ -54,7 +55,9 @@
 \glsXpageXglsnumberformat{}{14}\delimN 
 \glsXpageXglsnumberformat{}{22}}}\relax\glsresetentrylist
 \glossentry{gpu}{\glossaryentrynumbers{\relax 
-\glsXpageXglsnumberformat{}{31}}}\relax\glsresetentrylist
+\glsXpageXglsnumberformat{}{31}\delimN 
+\glsXpageXglsnumberformat{}{39}\delimN 
+\glsXpageXglsnumberformat{}{40}}}\relax\glsresetentrylist
 \glossentry{gtsam}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{18}}}\glsgroupskip
 \glsgroupheading{I}\relax\glsresetentrylist
@@ -68,7 +71,7 @@
 \glsXpageXglsnumberformat{}{18}\delimN 
 \glsXpageXglsnumberformat{}{23}\delimN 
 \glsXpageXglsnumberformat{}{26}\delimN 
-\glsXpageXglsnumberformat{}{42}}}\glsgroupskip
+\glsXpageXglsnumberformat{}{44}}}\glsgroupskip
 \glsgroupheading{L}\relax\glsresetentrylist
 \glossentry{lidar}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{19}}}\relax\glsresetentrylist
@@ -77,7 +80,7 @@
 \glsgroupheading{O}\relax\glsresetentrylist
 \glossentry{oic}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{27}\delimN 
-\glsXpageXglsnumberformat{}{51}}}\glsgroupskip
+\glsXpageXglsnumberformat{}{53}}}\glsgroupskip
 \glsgroupheading{P}\relax\glsresetentrylist
 \glossentry{px4}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{8}\delimR 
@@ -102,7 +105,7 @@
 \glsXpageXglsnumberformat{}{28}\delimN 
 \glsXpageXglsnumberformat{}{29}\delimN 
 \glsXpageXglsnumberformat{}{32}\delimN 
-\glsXpageXglsnumberformat{}{51}}}\glsgroupskip
+\glsXpageXglsnumberformat{}{53}}}\glsgroupskip
 \glsgroupheading{T}\relax\glsresetentrylist
 \glossentry{tops}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{23}}}\glsgroupskip

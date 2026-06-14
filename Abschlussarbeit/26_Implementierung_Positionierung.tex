@@ -22,24 +22,103 @@
 \chapter{Implementierung der Positionierung}
 \label{cap:lokalisierung}
 Dieses Kapitel beschreibt die im Flug ablaufende Positionsbestimmung des Fluggeräts.
-Im Gegensatz zur Kartierung (Kapitel~\ref{cap:kartierung}) läuft die Verarbeitung hier in Echtzeit auf dem Companion-Computer.
-Die Kette folgt dem in Abschnitt~\ref{sec:softwarearchitektur} dargestellten Datenfluss: Bildaufnahme, Entzerrung, Bildverarbeitung, Positionsbestimmung, Kommunikation mit der Flugsteuerung und schließlich die Flugsteuerung selbst.
+Im Gegensatz zur Kartierung (Kapitel~\ref{cap:kartierung}) läuft die Verarbeitung hier zur Laufzeit auf dem Companion-Computer.
+Die Kette folgt dem in Abschnitt~\ref{sec:softwarearchitektur} dargestellten Datenfluss: Bildaufnahme, Entzerrung, Bildverarbeitung, Positionsbestimmung, 
+Kommunikation mit der Flugsteuerung und schließlich die Flugsteuerung selbst.
 Die ersten drei Schritte entsprechen methodisch denen der Kartierung, werden aber mit höherer Bildrate und auf der GPU des Jetson ausgeführt.
+In nachfolgenden Abschnitt wird auf die konkrete Softwarearchitektur zur Positionierung eingegangen. 
 
-\section{Bildaufnahme}
+\section{Softwarearchitektur der Positionierung}
+\label{sec:softwarearchitektur_positionierung}
+Die Positionierung ist auf zwei Ausführungsumgebungen aufgeteilt: den Host des Companion-Computers und einen Container.
+Diese Trennung ergibt sich aus der Verwendung von Isaac~ROS für die hardwarebeschleunigten Schritte.
+Isaac~ROS ist eine von NVIDIA bereitgestellte Sammlung von ROS2-Paketen, die für die Ausführung auf den \glspl{gpu} der Jetson-Plattform optimiert sind.
+Die Pakete werden in einem vorkonfigurierten Container ausgeführt, der die benötigten Bibliotheken und Treiber bereitstellt.
+Innerhalb dieses Containers werden die Entzerrung und die Markererkennung auf der \gls{gpu} ausgeführt, was gegenüber 
+einer CPU-basierten Verarbeitung eine höhere Bildrate ermöglicht.
+Die übrigen Schritte laufen direkt auf dem Host des Jetson.
+Dort erfolgen die Bildaufnahme über gscam, die Positionsbestimmung aus den Markerdetektionen sowie die Kommunikation mit der Flugsteuerung.
+Container und Host kommunizieren über ROS2-Topics.
+Der Datenfluss zwischen den Knoten ist in Abbildung~\ref{fig:architektur_positionierung} dargestellt.
+Die Bildaufnahme stellt das Kamerabild auf \topic{/camera_1/image_raw} mit den zugehörigen Parametern auf \topic{/camera_1/camera_info} bereit.
+Im Container entzerrt der Knoten \texttt{RectifyNode} das Bild und gibt es als \topic{/camera_1/image_rect} aus.
+Der Knoten \texttt{AprilTagNode} detektiert darauf die Marker und veröffentlicht die Detektionen auf \topic{/camera_1/tag_detections}.
+Auf dem Host bestimmt der Knoten \texttt{vision\_pose\_uxrce\_node} aus diesen Detektionen die Pose des Fluggeräts und übergibt sie über \topic{/fmu/in/vehicle_visual_odometry} an die Flugsteuerung.
+
+% TODO: Abbildung -- Knoten und Topics, getrennt nach Host und Container.
+\begin{figure}[htbp]
+    \centering
+    % \includegraphics[width=\textwidth]{Bilder/Architektur_Positionierung.png}
+    \caption{Knoten und Topics der Positionierung, aufgeteilt nach Host und Container}
+    \label{fig:architektur_positionierung}
+\end{figure}
+\FloatBarrier
+
+
+
+
+
+\section{Bildaufnahme Positionierung}
 \label{sec:pos_bildaufnahme}
-Die Bildaufnahme erfolgt mit einer nach unten gerichteten Logitech~C920 über das Paket gscam.
-Im Flugbetrieb wird die Kamera mit einer Auflösung von $1280 \times 720$ Pixeln bei $60\,\text{fps}$ betrieben.
-Die Dekodierung des MJPEG-Streams erfolgt hardwarebeschleunigt über \texttt{nvv4l2decoder} und \texttt{nvvidconv} auf dem Jetson.
-Gegenüber der CPU-Dekodierung der Kartierung ist dies notwendig, um die höhere Bildrate bei geringer Latenz zu erreichen.
-Das Bild wird als Topic \texttt{/camera\_1/image\_raw} mit den Kameraparametern \texttt{/camera\_1/camera\_info} bereitgestellt.
+Die Bildaufnahme erfolgt wie bei der Kartierung (Abschnitt~\ref{sec:kartierung_bildaufnahme}) über einen gscam-Knoten.
+Auch hier wird wie bei der Implementierung der Kartierung exemplarisch die Logitech~C922 verwendet.
+Wie in Abschnitt~\ref{Kamera_Kalibrierung} beschrieben, muss die Kalibrierung für jede Kamera und für die hier verwendete 
+Auflösung von $1280 \times 720$ Pixeln durchgeführt werden.
 
-\subsection{Kamerakalibrierung}
+
+Listing~\ref{lst:gscam_node_pos} zeigt die geänderte Konfiguration.
+
+
+\begin{lstlisting}[language=Python, caption={Parameter des gscam-Knotens zur Bildaufnahme im Flug}, label={lst:gscam_node_pos}]
+'gscam_config': (
+    'v4l2src device=/dev/video0 do-timestamp=true ! '
+    'image/jpeg,width=1280,height=720,framerate=60/1 ! '
+    'queue leaky=downstream max-size-buffers=1 ! '
+    'nvv4l2decoder mjpeg=1 ! '
+    'queue leaky=downstream max-size-buffers=1 ! '
+    'nvvidconv ! '
+    'video/x-raw,format=BGRx ! '
+    'videoconvert ! '
+    'video/x-raw,format=RGB,framerate=60/1'
+),
+'camera_name': 'camera_1',
+'frame_id': 'camera_1_optical_frame',
+'camera_info_url': camera_info_url,
+'use_gst_timestamps': True,
+'sync_sink': False,
+'preroll': False,
+'image_encoding': 'rgb8',
+'use_sensor_data_qos': False,
+\end{lstlisting}
+
+Die beiden wesentlichen Unterschiede betreffen die Bildrate und die Dekodierung.
+Die Kamera wird hier mit einer Auflösung von $1280 \times 720$ Pixeln bei $60$ \gls{fps} betrieben.
+Die deutlich höhere Bildrate ist notwendig, da die Positionsbestimmung im Flug fortlaufend erfolgt und eine geringe Latenz erfordert.
+Die Auflösung von $1280 \times 720$ Pixeln wurde gewählt, da die Logitech~C922 nur bei dieser Auflösung $60$ \gls{fps} liefert.
+Möglich wird die hohe Bildrate durch die hardwarebeschleunigte Dekodierung des MJPEG-Streams über \texttt{nvv4l2decoder} und \texttt{nvvidconv} 
+auf der \gls{gpu} des Jetson.
+Ohne die hardwarebeschleunigte Dekodierung sinkt die Bildrate über die Zeit, da die CPU mit der Dekodierung 
+nicht hinterherkommt und ein Puffer in der Pipeline volläuft.
+
+
+\subsection{Kamerakalibrierung Positionierung}
+\label{sec:pos_kalibrierung}
+Schreibe mir den Abschnitt zur Kalibrierung.
+sag dass für die neue Auflösung neue Parameter nach dem referenzierten Abschnitt ermittelt werden müssen. 
+
+
+
+\subsection{Kamerakalibrierung Positionierung}
 \label{sec:pos_kalibrierung}
 Die intrinsische Kalibrierung der Flugkamera folgt demselben Lochkameramodell und Verzeichnungsmodell wie in Abschnitt~\ref{sec:kalibrieren_kamera} beschrieben.
 Die Kalibrierung wird für das im Flug verwendete $1280 \times 720$-Profil separat durchgeführt, da Brennweite und Hauptpunkt von der Auflösung abhängen.
 % TODO: Kalibrierwerte der Flugkamera (1280x720) ergaenzen.
 Das Ergebnis wird als \texttt{camera\_info} bereitgestellt und in der nachfolgenden Entzerrung verwendet.
+
+
+\section{ab hier ist vorsicht geboten}
+
+
 
 \section{Entzerrung}
 \label{sec:pos_entzerrung}

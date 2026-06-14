@@ -2440,7 +2440,7 @@
     <bcf:citekey order="70" intorder="1">10169695</bcf:citekey>
     <bcf:citekey order="71" intorder="1">10169695</bcf:citekey>
     <bcf:citekey order="72" intorder="1">10169695</bcf:citekey>
-    <bcf:citekey order="73" intorder="1">vslam_core_modules_2024</bcf:citekey>
+    <bcf:citekey order="73" intorder="1">CAI2024127760_core_modules_slam</bcf:citekey>
     <bcf:citekey order="74" intorder="1">10169695</bcf:citekey>
     <bcf:citekey order="75" intorder="1">gong_loop_closure</bcf:citekey>
     <bcf:citekey order="76" intorder="1">gong_loop_closure</bcf:citekey>
@@ -2487,4 +2487,68 @@
     <bcf:citekey order="115" intorder="1">GARRIDOJURADO20142280</bcf:citekey>
     <bcf:citekey order="116" intorder="1">GARRIDOJURADO20142280</bcf:citekey>
     <bcf:citekey order="117" intorder="1">GARRIDOJURADO20142280</bcf:citekey>
-    <bcf:citekey order="118" i
+    <bcf:citekey order="118" intorder="1">GARRIDOJURADO20142280</bcf:citekey>
+    <bcf:citekey order="119" intorder="1">GARRIDOJURADO20142280</bcf:citekey>
+    <bcf:citekey order="120" intorder="1">GARRIDOJURADO20142280</bcf:citekey>
+    <bcf:citekey order="121" intorder="1">Benligiray2019</bcf:citekey>
+    <bcf:citekey order="122" intorder="1">Benligiray2019</bcf:citekey>
+    <bcf:citekey order="123" intorder="1">Benligiray2019</bcf:citekey>
+    <bcf:citekey order="124" intorder="1">Benligiray2019</bcf:citekey>
+    <bcf:citekey order="125" intorder="1">Olson5979561</bcf:citekey>
+    <bcf:citekey order="126" intorder="1">Olson5979561</bcf:citekey>
+    <bcf:citekey order="127" intorder="1">Olson5979561</bcf:citekey>
+    <bcf:citekey order="128" intorder="1">Olson5979561</bcf:citekey>
+    <bcf:citekey order="129" intorder="1">Olson5979561</bcf:citekey>
+    <bcf:citekey order="130" intorder="1">Olson5979561</bcf:citekey>
+    <bcf:citekey order="131" intorder="1">Olson5979561</bcf:citekey>
+    <bcf:citekey order="132" intorder="1">Olson5979561</bcf:citekey>
+    <bcf:citekey order="133" intorder="1">Olson5979561</bcf:citekey>
+    <bcf:citekey order="134" intorder="1">holybro_x650</bcf:citekey>
+    <bcf:citekey order="135" intorder="1">reComputerMiniJ3011</bcf:citekey>
+    <bcf:citekey order="136" intorder="1">ali_camera</bcf:citekey>
+    <bcf:citekey order="137" intorder="1">pichler_redpower_xt5400</bcf:citekey>
+    <bcf:citekey order="138" intorder="1">holybro_pm02</bcf:citekey>
+    <bcf:citekey order="139" intorder="1">holybro_pm02</bcf:citekey>
+    <bcf:citekey order="140" intorder="1">aerodrohm</bcf:citekey>
+    <bcf:citekey order="141" intorder="1">aerodrohm</bcf:citekey>
+    <bcf:citekey order="142" intorder="1">aerodrohm</bcf:citekey>
+    <bcf:citekey order="143" intorder="1">Tang2015_lidar</bcf:citekey>
+    <bcf:citekey order="144" intorder="1">10588822_RWT_SLAM</bcf:citekey>
+    <bcf:citekey order="145" intorder="1">livox_mid360s</bcf:citekey>
+    <bcf:citekey order="146" intorder="1">logitech_c922</bcf:citekey>
+    <bcf:citekey order="147" intorder="1">zed_mini</bcf:citekey>
+    <bcf:citekey order="148" intorder="1">pfrommer2019tagslam</bcf:citekey>
+    <bcf:citekey order="149" intorder="1">Kalaitzakis2021</bcf:citekey>
+    <bcf:citekey order="150" intorder="1">rcvisard_tagdetect</bcf:citekey>
+    <bcf:citekey order="151" intorder="1">Olson5979561</bcf:citekey>
+    <bcf:citekey order="152" intorder="1">Olson5979561</bcf:citekey>
+    <bcf:citekey order="153" intorder="1">Kalaitzakis2021</bcf:citekey>
+    <bcf:citekey order="154" intorder="1">888718_Calibration_Zhang</bcf:citekey>
+    <bcf:citekey order="155" intorder="1">888718_Calibration_Zhang</bcf:citekey>
+    <bcf:citekey order="156" intorder="1">Bradski2008</bcf:citekey>
+    <bcf:citekey order="157" intorder="1">Bradski2008</bcf:citekey>
+    <bcf:citekey order="158" intorder="1">Bradski2008</bcf:citekey>
+    <bcf:citekey order="159" intorder="1">Bradski2008</bcf:citekey>
+    <bcf:citekey order="160" intorder="1">Bradski2008</bcf:citekey>
+    <bcf:citekey order="161" intorder="1">Bradski2008</bcf:citekey>
+  </bcf:section>
+  <!-- SORTING TEMPLATES -->
+  <bcf:sortingtemplate name="none">
+    <bcf:sort order="1">
+      <bcf:sortitem order="1">citeorder</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="2">
+      <bcf:sortitem order="1">intciteorder</bcf:sortitem>
+    </bcf:sort>
+  </bcf:sortingtemplate>
+  <!-- DATALISTS -->
+  <bcf:datalist section="0"
+                name="none/global//global/global"
+                type="entry"
+                sortingtemplatename="none"
+                sortingnamekeytemplatename="global"
+                labelprefix=""
+                uniquenametemplatename="global"
+                labelalphanametemplatename="global">
+  </bcf:datalist>
+</bcf:controlfile>

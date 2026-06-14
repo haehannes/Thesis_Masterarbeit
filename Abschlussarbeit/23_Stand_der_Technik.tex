@@ -130,7 +130,7 @@ Beispiele dieser Methoden werden in Abschnitt \ref{sec:relative_lokalisierung} b
 Dabei werden zunächst markante Bildmerkmale aus den ersten Frames extrahiert und 
 einander zugeordnet, um die initiale Struktur der Umgebung zu schätzen.
 Aus diesen Zuordnungen werden erste Kartenpunkte sowie deren räumliche Positionen im dreidimensionalen Raum bestimmt.
-Die Map Initialization bildet die Grundlage, auf der alle weiteren Kartenpunkte und Posenschätzungen aufgebaut werden. \cite{vslam_core_modules_2024}
+Die Map Initialization bildet die Grundlage, auf der alle weiteren Kartenpunkte und Posenschätzungen aufgebaut werden. \cite{CAI2024127760_core_modules_slam}
 
 \textbf{Loop Closure} bezeichnet die Erkennung bereits besuchter Orte.
 Wird ein solcher Ort erkannt, wird die akkumuliert Abweichung anhand gespeicherter Merkmale berechnet und als zusätzlicher Constraint den Faktorgraphen eingetragen. 
@@ -152,7 +152,7 @@ Die Funktion des Faktorgraph wird in Abschschnitt \ref{sec:Faktorgraph} näher b
 
 
 
-\subsubsection{Faktorgraph}
+\subsubsection{Faktorgraph Optmierung}
 \label{sec:Faktorgraph}
 Im folgenden Abschnitt wird der Faktorgraph nur schematisch erläutert, um ein grundsätzliches Verständnis dieser Methodik zu erlangen.
 Genaue Herleitungen sowie die Mathematik hinter dem Prinzip können den Quellen \cite{Lai2022}, \cite{Dellaert2017} und \cite{Cai2024} entnommen werden.
@@ -206,7 +206,7 @@ Bekannte Faktorgraph Bibliotheken sind \gls{gtsam} und \gls{g2o}.
 Umgebung zu erstellen.\cite{10169695}
 Es baut auf den Konzepten der \gls{vo} und \gls{vio} auf und erweitert diese um die Fähigkeit zur globalen Kartenkonsistenz durch Loop Closure.\cite{Cai2024}
 Durch die Erkennung bereits besuchter Orte kann das System akkumulierte Posenfehler korrigieren und eine global konsistente Karte aufbauen.
-Ein weit verbreitetes Beispiel ist \textbf{orb-slam3}, ein Open-Source-System, das ORB-Merkmale zur Merkmalserkennung verwendet.\cite{10169695}
+Ein weit verbreitetes Beispiel ist orb-slam3, ein Open-Source-System, das ORB-Merkmale zur Merkmalserkennung verwendet.\cite{10169695}
 Je nach Konfiguration unterstützt es Mono-, Stereo- und RGB-D-Kameras 
 als reines \gls{vslam} sowie die Kombination mit einer \gls{imu} als visuell-inertialen SLAM.
 
@@ -251,7 +251,7 @@ Im Folgenden werden die in Abbildung \ref{fig:Uebersicht_Marker} dargestellten g
 \end{figure}
 \FloatBarrier
 
-\subsection{ARTag}
+\subsection{ARTag Marker}
 ARTag wurde 2005 von Mark Fiala als Weiterentwicklung von ARToolKit vorgestellt.\cite{Fiala1467495}
 Es verwendet digitale Kodierungsverfahren, wodurch ARTag im Vergleich zu früheren Systemen niedrigere und quantifizierbare Fehlerraten aufweist.\cite{Fiala1467495}
 Ein ARTag besteht aus einem quadratischen Rand, der ein binäres Raster aus schwarzen und weißen Zellen umschließt, welches eine eindeutige ID kodiert.\cite{Fiala1467495}
@@ -260,7 +260,7 @@ ARTag verwendet keine einheitliche minimale Hammingdistanz zwischen den Codewör
 Aus einer Aufnahme des Markers lässt sich eine 6D-Pose bestimmen.\cite{Fiala1467495}
 Artag ist das einzige System, welches nicht vollständig Open-Source ist.
 
-\subsection{AprilTag}
+\subsection{AprilTag Marker}
 AprilTag wurde 2011 von Edwin Olson an der University of Michigan vorgestellt.\cite{Olson5979561}
 AprilTag stellt eine schnellere und robustere Neuimplementierung des ARTag-Ansatzes dar.\cite{Olson5979561}
 Ein AprilTag besteht aus einem schwarzen quadratischen Rand, der ein 
@@ -276,7 +276,7 @@ In dieser Arbeit wird die Familie \texttt{tag36h11} verwendet.\cite{Olson5979561
 Mit AprilTag~2 wurde 2016 eine vollständig überarbeitete Detektion vorgestellt, die höhere Detektionsraten bei geringerem Rechenaufwand erreicht.\cite{Wang7759617}
 
 
-\subsection{ArUco}
+\subsection{ArUco Marker}
 ArUco wurde 2014 von Garrido-Jurado et al. vorgestellt.\cite{GARRIDOJURADO20142280}
 Ein ArUco-Marker ist ähnlich wie ARTag und AprilTag aufgebaut.
 Er ist ebenfalls quadratisch und besitzt einen breiten Rand, in dessen Innerem sich eine Binärmatrix befindet, welche die Identifikationsnummer 
@@ -288,7 +288,7 @@ Je kleiner das Dictionary, desto höher die Hammingdistanz zwischen den Markern.
 ArUco ist in die Bibliothek OpenCV integriert.\cite{GARRIDOJURADO20142280}
 
 
-\subsection{STag}
+\subsection{STag Marker}
 STag wurde 2019 von Benligiray et al. vorgestellt.\cite{Benligiray2019}
 Im Gegensatz zu den rein quadratischen Systemen verwendet STag eine kreisförmige Randstruktur, die eine stabilere Posenschätzung 
 ermöglicht.\cite{Benligiray2019}
@@ -299,7 +299,7 @@ Je höher die Hammingdistanz, desto kleiner ist die Anzahl an möglichen Tags.\c
 
 
 
-\subsection{Detektion}
+\subsection{Detektion von Fiducial-Markern}
 \label{sec:marker_detektion}
 Alle vorgestellten Fiducial-Marker-Systeme stellen Bibliotheken zur Detektion bereit.
 Die Detektion eines Fiducial-Markers gliedert sich in zwei Hauptkomponenten: 

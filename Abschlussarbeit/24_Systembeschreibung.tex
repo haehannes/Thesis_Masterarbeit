@@ -104,7 +104,7 @@ dem der Autopilot \gls{px4} ausgeführt wird.
 In dieser Arbeit wird \gls{px4} in der Version~1.16.0 betrieben, die auf 
 dem Echtzeitbetriebssystem NuttX~v11.0.0 aufsetzt.
 
-\subsection*{Kamerasystem}
+\subsection*{Kamerasysteme}
 Zur Lokalisierung stehen mehrere handelsübliche \gls{usb}-Kameras zur 
 Verfügung, aus denen je nach Aufbau ausgewählt werden kann:
 \begin{itemize}
@@ -126,17 +126,17 @@ R9DS-Empfänger.
 Der Empfänger ist mit dem Flugcontroller verbunden und ermöglicht es, 
 jederzeit manuell in den Flug einzugreifen.
 
-\subsection*{Elektrischer Anschluss}
+\subsection*{Elektrischer Anschluss der Hardware}
 Die Energieversorgung des Systems erfolgt über einen LiPo-Akku 
 mit einer Kapazität von 5400\,mAh und einer 
-Nennspannung von 14,8\,V (4S).\cite{pichler_lipo}
+Nennspannung von 14,8\,V (4S).\cite{pichler_redpower_xt5400}
 Der Akku ist über ein Holybro PM02 V3 Powermodul angebunden.\cite{holybro_pm02}
 Das Powermodul unterstützt Akkus von 2S bis 12S, stellt dem Flugcontroller 
 eine geregelte Spannung von 5,2\,V bereit und liefert zusätzlich Messwerte 
 zu Batteriespannung und Stromaufnahme.\cite{holybro_pm02}
 Die Verteilung der Motorströme erfolgt über ein Holybro 
 Mini-Power-Distribution-Board (PDB) mit XT30- und 
-XT60-Anschlüssen.\cite{holybro_pdb}
+XT60-Anschlüssen.
 
 Die Kommunikation zwischen dem Flugcontroller und der Bodenstation 
 erfolgt über ein Holybro Telemetrie-Set (433\,MHz).
@@ -210,7 +210,7 @@ Parallel dazu wird der Companion-Computer über einen eigenen XT30-Anschluss mit
 \FloatBarrier
 
 
-\section{Softwarearchitektur nochmal drüber schauen!!! ich nehme ja auch das thinkpad!!!}
+\section{Softwarearchitektur Kartierung und Positionierung nochmal drüber schauen!!! ich nehme ja auch das thinkpad!!!}
 %schreiben dass ros2 jazzy genutzt werden muss, schreiben dass thinkpad genutzt wird.
 %passt hardware hier besser dazu??? Nochmal anschauen!!!
 In diesem Abschnitt wird die Softwarearchitektur des Gesamtsystems beschrieben.
@@ -234,7 +234,7 @@ Die Bildaufnahme bildet die Schnittstelle zu den am Fluggerät montierten Kamera
 
 Die Entzerrung korrigiert die durch das Kameraobjektiv verursachte Verzeichnung anhand der zuvor bestimmten Kalibrierparameter.
 Ohne diese Korrektur würden die Bildkoordinaten der erkannten Merkmale systematisch verfälscht und die daraus berechnete Pose verzerrt.
-Die Grundlagen des Kameramodells und der Kalibrierung werden in Abschnitt~\ref{sec:kalibrieren_kamera} behandelt.
+Die Grundlagen des Kameramodells und der Kalibrierung werden in Abschnitt~\ref{sec:kartierung_entzerrung} behandelt.
 
 Die Bildverarbeitung detektiert und extrahiert die markanten Bildmerkmale aus entzerrten Kamerastream. 
 Für jedes Merkmal liefert die Bildverarbeitung die relative Position zwischen Kamera und Merkmal.

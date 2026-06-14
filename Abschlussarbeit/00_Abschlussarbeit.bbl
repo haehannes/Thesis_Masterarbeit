@@ -1151,6 +1151,69 @@
       \endverb
       \keyw{Location awareness;Visualization;Simultaneous localization and mapping;Real-time systems;Hardware;Complexity theory;Mobile robots;Simultaneous Localization and Mapping;Deep Learning Visual Odometry;Features;Localization;Mapping;Local Bundle Adjustment;Extended Kalman Filter}
     \endentry
+    \entry{CAI2024127760_core_modules_slam}{article}{}
+      \name{author}{6}{}{%
+        {{hash=c0fb0e97bbe68cad763a8e7f5c8d97d9}{%
+           family={Cai},
+           familyi={C\bibinitperiod},
+           given={Dupeng},
+           giveni={D\bibinitperiod}}}%
+        {{hash=23ab5ab77febd7209f4236130fc79811}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Ruoqing},
+           giveni={R\bibinitperiod}}}%
+        {{hash=5b1b8abf90087af91842785abef93392}{%
+           family={Hu},
+           familyi={H\bibinitperiod},
+           given={Zhuhua},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=388339acf6d209ea2f6dfb8c3a605dc3}{%
+           family={Lu},
+           familyi={L\bibinitperiod},
+           given={Junlin},
+           giveni={J\bibinitperiod}}}%
+        {{hash=bdc284c8ef8bcf1cb6af181afe9e54c2}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Shijiang},
+           giveni={S\bibinitperiod}}}%
+        {{hash=9180952e76327f0d2a2bc849cf4fe88e}{%
+           family={Zhao},
+           familyi={Z\bibinitperiod},
+           given={Yaochi},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \strng{namehash}{5f0619841020e468c25afad60a614d1f}
+      \strng{fullhash}{c7e838524599fd5df0d661fc41d28306}
+      \strng{bibnamehash}{c7e838524599fd5df0d661fc41d28306}
+      \strng{authorbibnamehash}{c7e838524599fd5df0d661fc41d28306}
+      \strng{authornamehash}{5f0619841020e468c25afad60a614d1f}
+      \strng{authorfullhash}{c7e838524599fd5df0d661fc41d28306}
+      \field{extraname}{1}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Visual Simultaneous Localization and Mapping (VSLAM) technology has become a key technology in autonomous driving and robot navigation. Relying on camera sensors, VSLAM can provide a richer and more precise perception means, and its advancement has accelerated in recent years. However, current review studies are often limited to in-depth analysis of a specific module and lack a comprehensive review of the entire VSLAM framework. The VSLAM system consists of five core components: (1) The camera sensor module is responsible for capturing visual information about the surrounding environment. (2) The front-end module uses image data to roughly estimate the camera’s position and orientation. (3) The back-end module optimizes and processes the pose information estimated by the front-end. (4) The loop detection module is used to correct accumulated errors in the system. (5) The mapping module is responsible for generating environmental maps. This review provides a systematic and comprehensive analysis of the SLAM framework by taking the core components of VSLAM as the entry point. Deep learning brings new development opportunities for VSLAM, but it still needs to solve the problems of data dependence, cost and real-time in practical application. We deeply explore the challenges of combining VSLAM with deep learning and feasible solutions. This review provides a valuable reference for the development of VSLAM. This will help push VSLAM technology to become smarter and more efficient. Thus, it can better meet the needs of future intelligent autonomous systems in multiple fields.}
+      \field{issn}{0925-2312}
+      \field{journaltitle}{Neurocomputing}
+      \field{title}{A comprehensive overview of core modules in visual SLAM framework}
+      \field{volume}{590}
+      \field{year}{2024}
+      \field{pages}{127760}
+      \range{pages}{1}
+      \verb{doi}
+      \verb https://doi.org/10.1016/j.neucom.2024.127760
+      \endverb
+      \verb{urlraw}
+      \verb https://www.sciencedirect.com/science/article/pii/S0925231224005319
+      \endverb
+      \verb{url}
+      \verb https://www.sciencedirect.com/science/article/pii/S0925231224005319
+      \endverb
+      \keyw{Visual SLAM,SLAM framework,Localization and mapping,Navigation,Environmental sensing}
+    \endentry
     \entry{gong_loop_closure}{misc}{}
       \name{author}{1}{}{%
         {{hash=affdab3a604f89e98e239aa8dab684cf}{%
@@ -1281,6 +1344,7 @@
       \strng{authorbibnamehash}{c7e838524599fd5df0d661fc41d28306}
       \strng{authornamehash}{5f0619841020e468c25afad60a614d1f}
       \strng{authorfullhash}{c7e838524599fd5df0d661fc41d28306}
+      \field{extraname}{2}
       \field{sortinit}{7}
       \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
@@ -1792,6 +1856,67 @@
       \verb https://www.seeedstudio.com/reComputer-Mini-J3011-p-6356.html
       \endverb
     \endentry
+    \entry{pichler_redpower_xt5400}{online}{}
+      \name{author}{1}{}{%
+        {{hash=58b0113f41097b8f191a815affbf2856}{%
+           family={{PICHLER GmbH}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{58b0113f41097b8f191a815affbf2856}
+      \strng{fullhash}{58b0113f41097b8f191a815affbf2856}
+      \strng{bibnamehash}{58b0113f41097b8f191a815affbf2856}
+      \strng{authorbibnamehash}{58b0113f41097b8f191a815affbf2856}
+      \strng{authornamehash}{58b0113f41097b8f191a815affbf2856}
+      \strng{authorfullhash}{58b0113f41097b8f191a815affbf2856}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Abgerufen am 14.~Juni~2026}
+      \field{title}{LiPo Akku {RED POWER XT} 5400 -- 11,1\,V}
+      \field{urlday}{14}
+      \field{urlmonth}{6}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://pichler.de/LiPo-Akku-RED-POWER-XT-5400-111V
+      \endverb
+      \verb{url}
+      \verb https://pichler.de/LiPo-Akku-RED-POWER-XT-5400-111V
+      \endverb
+    \endentry
+    \entry{holybro_pm02}{online}{}
+      \name{author}{1}{}{%
+        {{hash=d46501ffe44acace5a42144aac4ae5ca}{%
+           family={{Holybro}},
+           familyi={H\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {{PX4} User Guide}%
+      }
+      \strng{namehash}{d46501ffe44acace5a42144aac4ae5ca}
+      \strng{fullhash}{d46501ffe44acace5a42144aac4ae5ca}
+      \strng{bibnamehash}{d46501ffe44acace5a42144aac4ae5ca}
+      \strng{authorbibnamehash}{d46501ffe44acace5a42144aac4ae5ca}
+      \strng{authornamehash}{d46501ffe44acace5a42144aac4ae5ca}
+      \strng{authorfullhash}{d46501ffe44acace5a42144aac4ae5ca}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Abgerufen am 14.~Juni~2026}
+      \field{title}{{PM02} (V3) Power Module}
+      \field{urlday}{14}
+      \field{urlmonth}{6}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://docs.px4.io/main/en/power_module/holybro_pm02.html
+      \endverb
+      \verb{url}
+      \verb https://docs.px4.io/main/en/power_module/holybro_pm02.html
+      \endverb
+    \endentry
     \entry{aerodrohm}{online}{}
       \name{author}{1}{}{%
         {{hash=df5d499327d90384fd66d50ad8a5a53a}{%
@@ -2083,10 +2208,6 @@
   \enddatalist
   \missing{ROS2Humble}
   \missing{ali_camera}
-  \missing{holybro_pdb}
-  \missing{holybro_pm02}
-  \missing{pichler_lipo}
-  \missing{vslam_core_modules_2024}
 \endrefsection
 \endinput
 
