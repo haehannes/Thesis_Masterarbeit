@@ -1,11 +1,16 @@
 ;; This logfile was generated automatically by `xindy'
-;; at 14.06.2026  19:32:40
-;; Indexstyle: "/tmp/107K2TjaBn", Rawindex: "/tmp/UrWjR6yCdm", Output: "00_Abschlussarbeit.acr"
+;; at 16.06.2026  23:22:54
+;; Indexstyle: "/tmp/FiZ_HaiWm5", Rawindex: "/tmp/5dqq4jarEf", Output: "00_Abschlussarbeit.acr"
 
 
 Building indexentry-tree:
 Hierdepth of index is :TREE
 
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
@@ -40,6 +45,9 @@ Letter-group: "ËÃÐ2" -> "R"
 Letter-group: "—»€" -> "E"
 Letter-group: "Ë€¼Ð€†" -> "R"
 Letter-group: "´¨ÈÃ" -> "L"
+Letter-group: "¼—" -> "N"
+Letter-group: "—¼à" -> "E"
+Letter-group: "Ð´—ËÈ" -> "S"
 Letter-group: "¨»à" -> "I"
 Letter-group: "ÈÐ" -> "G"
 Letter-group: "—®œ" -> "E"
@@ -62,18 +70,22 @@ Letter-group: "àÐ„" -> "U"
 Letter-group: "Ã¨†" -> "O"
 Letter-group: "Èà" -> "G"
 Letter-group: "œÈÐ" -> "F"
+Letter-group: "œ´à" -> "F"
+Letter-group: "œË" -> "F"
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 Letter-group: "Ë´" -> "D"
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 Letter-group: "—®œ" -> "E"
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
-Letter-group: "œ»à" -> "F"
+Letter-group: "œ´à" -> "F"
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 Letter-group: "2Ã" -> "G"
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 Letter-group: "¨—®œ" -> "I"
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 Letter-group: "´¨€Ë" -> "L"
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+Letter-group: "¼—" -> "N"
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 Letter-group: "Ã¨†" -> "O"
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)

@@ -1,4 +1,20 @@
 %!TeX root=20_Hauptteil.tex
 
-\chapter{Systemintegration}
+\chapter{Versuchsdurchführung und Evaluation}
 
+\section{Bedienkonsole}
+\label{sec:bedienkonsole}
+Zum Betrieb des Fluggeräts während der Versuche dient eine textbasierte Bedienkonsole, die über uXRCE-DDS direkt mit \gls{px4} kommuniziert.
+Sie zeigt den Fahrzeugstatus, die aktuelle Position sowie an, ob die Kameras Bilder liefern, und sendet kontinuierlich Positions-Sollwerte.
+Über die Tastatur lässt sich das Fluggerät armen sowie der Sollwert in Position und Gierwinkel verschieben.
+Ist das Fluggerät bereits armiert, löst dieselbe Taste eine Landung an Ort und Stelle aus, bei der die horizontale Position und der Gierwinkel gehalten und die Höhe langsam abgesenkt werden, bis bei Bodenkontakt automatisch disarmiert wird.
+
+Der Offboard-Modus wird dabei nicht von der Konsole gesetzt, sondern extern über die Fernsteuerung oder die Bodenstation geschaltet.
+Damit \gls{px4} diesen Wechsel akzeptiert, streamt die Konsole von Beginn an kontinuierlich Sollwerte, da \gls{px4} hierfür einen Sollwertstrom von mindestens \SI{2}{\hertz} voraussetzt.
+Sobald sich \gls{px4} nicht mehr im Offboard-Modus befindet, stellt die Konsole das Senden ein und übergibt die Kontrolle vollständig an den Piloten.
+Da die Konsole intern in der ENU-Konvention der Karte arbeitet, werden die Sollwerte vor dem Senden nach NED gedreht und die angezeigte Position entsprechend zurückgerechnet.
+
+Die Konsole empfängt von \gls{px4} den Fahrzeugstatus auf \topic{/fmu/out/vehicle_status_v1} (unter anderem Arm-Zustand und Navigationsmodus), die aktuelle Position auf \topic{/fmu/out/vehicle_local_position} sowie die Bodenkontakterkennung auf \topic{/fmu/out/vehicle_land_detected}.
+Die Kamerabilder werden zur Verfügbarkeitsanzeige auf \topic{/camera_1/image_raw} und \topic{/camera_2/image_raw} sowie den zugehörigen entzerrten Topics \topic{/camera_1/image_rect} und \topic{/camera_2/image_rect} abonniert.
+An \gls{px4} sendet die Konsole den Positions-Sollwert auf \topic{/fmu/in/trajectory_setpoint} und den zugehörigen Offboard-Steuermodus auf \topic{/fmu/in/offboard_control_mode}.
+Arm- und Disarm-Befehle werden auf \topic{/fmu/in/vehicle_command} übergeben.

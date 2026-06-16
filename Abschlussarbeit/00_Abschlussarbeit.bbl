@@ -322,6 +322,100 @@
       \verb 10.1007/978-981-10-3382-7
       \endverb
     \endentry
+    \entry{Markley2007}{article}{}
+      \name{author}{4}{}{%
+        {{hash=d1abf4423327696d755c812e2ed525d9}{%
+           family={Markley},
+           familyi={M\bibinitperiod},
+           given={F.\bibnamedelimi Landis},
+           giveni={F\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=a00c5050f276cbfa0ac70050e61ef474}{%
+           family={Cheng},
+           familyi={C\bibinitperiod},
+           given={Yang},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=48ea8afa3bafbcb32103577ab2c63700}{%
+           family={Crassidis},
+           familyi={C\bibinitperiod},
+           given={John\bibnamedelima L.},
+           giveni={J\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=137e02c303c52b05e5d51abcc35a6f73}{%
+           family={Oshman},
+           familyi={O\bibinitperiod},
+           given={Yaakov},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \list{publisher}{2}{%
+        {American Institute of Aeronautics}%
+        {Astronautics (AIAA)}%
+      }
+      \strng{namehash}{d30101ffdda39a7f772ad0149b4b0992}
+      \strng{fullhash}{9e2c8ab1a0cd4688b715992ed831a6a2}
+      \strng{bibnamehash}{9e2c8ab1a0cd4688b715992ed831a6a2}
+      \strng{authorbibnamehash}{9e2c8ab1a0cd4688b715992ed831a6a2}
+      \strng{authornamehash}{d30101ffdda39a7f772ad0149b4b0992}
+      \strng{authorfullhash}{9e2c8ab1a0cd4688b715992ed831a6a2}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1533-3884}
+      \field{journaltitle}{Journal of Guidance, Control, and Dynamics}
+      \field{number}{4}
+      \field{title}{Averaging Quaternions}
+      \field{volume}{30}
+      \field{year}{2007}
+      \field{pages}{1193\bibrangedash 1197}
+      \range{pages}{5}
+      \verb{doi}
+      \verb 10.2514/1.28949
+      \endverb
+    \endentry
+    \entry{Shoemake1985}{article}{}
+      \name{author}{1}{}{%
+        {{hash=9fd9e5679f436b146a68cd07db44781b}{%
+           family={Shoemake},
+           familyi={S\bibinitperiod},
+           given={Ken},
+           giveni={K\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York, NY, USA}%
+      }
+      \list{publisher}{1}{%
+        {Association for Computing Machinery}%
+      }
+      \strng{namehash}{9fd9e5679f436b146a68cd07db44781b}
+      \strng{fullhash}{9fd9e5679f436b146a68cd07db44781b}
+      \strng{bibnamehash}{9fd9e5679f436b146a68cd07db44781b}
+      \strng{authorbibnamehash}{9fd9e5679f436b146a68cd07db44781b}
+      \strng{authornamehash}{9fd9e5679f436b146a68cd07db44781b}
+      \strng{authorfullhash}{9fd9e5679f436b146a68cd07db44781b}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Solid bodies roll and tumble through space. In computer animation, so do cameras. The rotations of these objects are best described using a four coordinate system, quaternions, as is shown in this paper. Of all quaternions, those on the unit sphere are most suitable for animation, but the question of how to construct curves on spheres has not been much explored. This paper gives one answer by presenting a new kind of spline curve, created on a sphere, suitable for smoothly in-betweening (i.e. interpolating) sequences of arbitrary rotations. Both theory and experiment show that the motion generated is smooth and natural, without quirks found in earlier methods.}
+      \field{issn}{0097-8930}
+      \field{journaltitle}{SIGGRAPH Comput. Graph.}
+      \field{month}{7}
+      \field{number}{3}
+      \field{title}{Animating rotation with quaternion curves}
+      \field{volume}{19}
+      \field{year}{1985}
+      \field{pages}{245\bibrangedash 254}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1145/325165.325242
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1145/325165.325242
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1145/325165.325242
+      \endverb
+      \keyw{spline,spherical geometry,rotation,quaternion,interpolation,in-betweening,approximation,animation,B-spline,Bézier curve}
+    \endentry
     \entry{Bradski2008}{book}{}
       \name{author}{2}{}{%
         {{hash=a780b2fbd99e4f7ce78d33324e39d4c2}{%
@@ -372,8 +466,8 @@
       \strng{authorbibnamehash}{4b89bdaf258b8a1ec4c768e087024ad8}
       \strng{authornamehash}{4b89bdaf258b8a1ec4c768e087024ad8}
       \strng{authorfullhash}{4b89bdaf258b8a1ec4c768e087024ad8}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{This paper reviews the Euler–Rodrigues formula in the axis–angle representation of rotations, studies its variations and derivations in different mathematical forms as vectors, quaternions and Lie groups and investigates their intrinsic connections. The Euler–Rodrigues formula in the Taylor series expansion is presented and its use as an exponential map of Lie algebras is discussed particularly with a non-normalized vector. The connection between Euler–Rodrigues parameters and the Euler–Rodrigues formula is then demonstrated through quaternion conjugation and the equivalence between quaternion conjugation and an adjoint action of the Lie group is subsequently presented. The paper provides a rich reference for the Euler–Rodrigues formula, the variations and their connections and for their use in rigid body kinematics, dynamics and computer graphics.}
@@ -592,8 +686,8 @@
       \strng{authorbibnamehash}{f9acef8bdf9a20bf4d9efb1e56dd256a}
       \strng{authornamehash}{d7925c68a9f3bb6a89d0ce88db90df3a}
       \strng{authorfullhash}{f9acef8bdf9a20bf4d9efb1e56dd256a}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{isbn}{9781484255315}
@@ -616,8 +710,8 @@
       \strng{authornamehash}{b52b778c63203841cf2cbbd45551085d}
       \strng{authorfullhash}{b52b778c63203841cf2cbbd45551085d}
       \field{extraname}{2}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://docs.px4.io/v1.16/en/flight_controller/pixhawk6x}}
@@ -661,8 +755,8 @@
       \strng{authorbibnamehash}{786a3de92dbad58f2dcddcb05d904683}
       \strng{authornamehash}{a4e73360316c89c960965f44afdc0e98}
       \strng{authorfullhash}{786a3de92dbad58f2dcddcb05d904683}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{1424-8220}
@@ -691,8 +785,8 @@
       \strng{authornamehash}{b52b778c63203841cf2cbbd45551085d}
       \strng{authorfullhash}{b52b778c63203841cf2cbbd45551085d}
       \field{extraname}{3}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://docs.px4.io/main/en/concept/architecture.html}}
@@ -712,8 +806,8 @@
       \strng{authorbibnamehash}{064e5723b786627483d345a99909d5b6}
       \strng{authornamehash}{064e5723b786627483d345a99909d5b6}
       \strng{authorfullhash}{064e5723b786627483d345a99909d5b6}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://mavlink.io/en/}}
@@ -734,8 +828,8 @@
       \strng{authornamehash}{b52b778c63203841cf2cbbd45551085d}
       \strng{authorfullhash}{b52b778c63203841cf2cbbd45551085d}
       \field{extraname}{4}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://docs.px4.io/main/en/middleware/mavlink.html}}
@@ -959,8 +1053,8 @@
       \strng{authorbibnamehash}{2b93b076cd4766a7164acbba340ebb0c}
       \strng{authornamehash}{2b93b076cd4766a7164acbba340ebb0c}
       \strng{authorfullhash}{319543a9a05a7d3110354b0e77fb574c}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{2662-1363}
@@ -1137,8 +1231,8 @@
       \strng{authorbibnamehash}{2b0f513cdec97ee1d11644fe8685ff6c}
       \strng{authornamehash}{6d889dfff619fc56e5c6d4dfa26fd301}
       \strng{authorfullhash}{2b0f513cdec97ee1d11644fe8685ff6c}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{2023 International Conference on Sustainable Computing and Smart Systems (ICSCSS)}
@@ -1253,8 +1347,8 @@
       \strng{authorbibnamehash}{f2c9c94d1dbe372b9b6191a7eceaaef5}
       \strng{authornamehash}{f2c9c94d1dbe372b9b6191a7eceaaef5}
       \strng{authorfullhash}{f2c9c94d1dbe372b9b6191a7eceaaef5}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{A Review on Visual-SLAM: Advancements from Geometric Modelling to Learning-based Semantic Scene Understanding}
@@ -1286,8 +1380,8 @@
       \strng{authorbibnamehash}{7b6ad450e7cf8eeab89aae7c5c0847e6}
       \strng{authornamehash}{7b6ad450e7cf8eeab89aae7c5c0847e6}
       \strng{authorfullhash}{7b6ad450e7cf8eeab89aae7c5c0847e6}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{1935-8261}
@@ -1345,8 +1439,8 @@
       \strng{authornamehash}{5f0619841020e468c25afad60a614d1f}
       \strng{authorfullhash}{c7e838524599fd5df0d661fc41d28306}
       \field{extraname}{2}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{0925-2312}
@@ -1557,8 +1651,8 @@
       \strng{authorbibnamehash}{1706de37ec1c6e8f22081681f5edb0cd}
       \strng{authornamehash}{288f14f017934f36c50a3331f71e78c6}
       \strng{authorfullhash}{1706de37ec1c6e8f22081681f5edb0cd}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{1573-0409}
@@ -1589,8 +1683,8 @@
       \strng{authorbibnamehash}{c6125254a79af02a8918da63fa8ea72e}
       \strng{authornamehash}{c6125254a79af02a8918da63fa8ea72e}
       \strng{authorfullhash}{c6125254a79af02a8918da63fa8ea72e}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{month}{5}
@@ -1629,8 +1723,8 @@
       \strng{authorbibnamehash}{862e73e9fd8d06467d53ea2c9dad8c02}
       \strng{authornamehash}{862e73e9fd8d06467d53ea2c9dad8c02}
       \strng{authorfullhash}{862e73e9fd8d06467d53ea2c9dad8c02}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{The Journal of Engineering}
@@ -2206,6 +2300,7 @@
       \keyw{Cameras;Calibration;Computer vision;Layout;Lenses;Nonlinear distortion;Closed-form solution;Maximum likelihood estimation;Computer simulation;Testing}
     \endentry
   \enddatalist
+  \missing{Lynch2017}
   \missing{ROS2Humble}
   \missing{ali_camera}
 \endrefsection

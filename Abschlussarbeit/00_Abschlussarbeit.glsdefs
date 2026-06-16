@@ -922,6 +922,146 @@ parent={},%
 %
 }%
 
+\glsdefs@newdocentry{slerp}%
+{%
+name={\acronymfont {\glsentryshort {slerp}}},%
+sort={SLERP},%
+type={acronym},%
+first={SLERP},%
+firstplural={SLERPs},%
+text={SLERP},%
+plural={SLERPs},%
+description={Sphärische lineare Interolation},%
+descriptionplural={Sphärische lineare Interolation},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Sphärische lineare Interolation},%
+longplural={Sphärische lineare Interolations},%
+short={SLERP},%
+shortplural={SLERPs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{ned}%
+{%
+name={\acronymfont {\glsentryshort {ned}}},%
+sort={NED},%
+type={acronym},%
+first={NED},%
+firstplural={NEDs},%
+text={NED},%
+plural={NEDs},%
+description={North-Eeast-Down},%
+descriptionplural={North-Eeast-Down},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={North-Eeast-Down},%
+longplural={North-Eeast-Downs},%
+short={NED},%
+shortplural={NEDs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{frd}%
+{%
+name={\acronymfont {\glsentryshort {frd}}},%
+sort={FRD},%
+type={acronym},%
+first={FRD},%
+firstplural={FRDs},%
+text={FRD},%
+plural={FRDs},%
+description={Forward-Right-Down},%
+descriptionplural={Forward-Right-Down},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Forward-Right-Down},%
+longplural={Forward-Right-Downs},%
+short={FRD},%
+shortplural={FRDs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{enu}%
+{%
+name={\acronymfont {\glsentryshort {enu}}},%
+sort={ENU},%
+type={acronym},%
+first={ENU},%
+firstplural={ENUs},%
+text={ENU},%
+plural={ENUs},%
+description={East-North-Up},%
+descriptionplural={East-North-Up},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={East-North-Up},%
+longplural={East-North-Ups},%
+short={ENU},%
+shortplural={ENUs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{flu}%
+{%
+name={\acronymfont {\glsentryshort {flu}}},%
+sort={FLU},%
+type={acronym},%
+first={FLU},%
+firstplural={FLUs},%
+text={FLU},%
+plural={FLUs},%
+description={Forward-Left-Up},%
+descriptionplural={Forward-Left-Up},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Forward-Left-Up},%
+longplural={Forward-Left-Ups},%
+short={FLU},%
+shortplural={FLUs},%
+counter={page},%
+parent={},%
+%
+}%
+
 \glsdefs@newdocentry{sym:xc}%
 {%
 name={$X_c$},%

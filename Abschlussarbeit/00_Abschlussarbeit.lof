@@ -6,20 +6,21 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Vergleich der Koordinatensysteme \blx@tocontentsinit {0}\cite {holybro_x650}}}{3}{figure.caption.6}%
 \contentsline {figure}{\numberline {2.2}{\ignorespaces Roll, Pitch und Yaw am Beispiel Holybro X650 \blx@tocontentsinit {0}\cite {holybro_x650}}}{4}{figure.caption.7}%
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Komponenten des Pixhawk 6X: FMU-Modul und Baseboard V2A \blx@tocontentsinit {0}\cite {holybro_x650}}}{10}{figure.caption.8}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Komponenten des Pixhawk 6X: FMU-Modul und Baseboard V2A \blx@tocontentsinit {0}\cite {holybro_x650}}}{11}{figure.caption.8}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Veranschaulichung des Loop-Closure-Effekts: (a) Reale Trajektorie ohne akkumulierten Fehler. (b) Geschätzte Trajektorie mit akkumuliertem Drift ohne Loop Closure. (c) Korrigierte Trajektorie nach Anwendung von Loop Closure mit reduziertem akkumuliertem Drift. vgl. \blx@tocontentsinit {0}\cite {gong_loop_closure}}}{17}{figure.caption.10}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Vereinfachter Faktorgraph eines \gls {slam}-Problems, vgl.~\blx@tocontentsinit {0}\cite {Lai2022}, \blx@tocontentsinit {0}\cite {Dellaert2017}, \blx@tocontentsinit {0}\cite {Cai2024}}}{18}{figure.caption.11}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Übersicht gängiger Fiducial-Marker: a) ARTag; b) AprilTag; c) Aruco d) Stag \blx@tocontentsinit {0}\cite {STag_Loipfuehrer2022,Artag_Bild}}}{19}{figure.caption.12}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Veranschaulichung des Loop-Closure-Effekts: (a) Reale Trajektorie ohne akkumulierten Fehler. (b) Geschätzte Trajektorie mit akkumuliertem Drift ohne Loop Closure. (c) Korrigierte Trajektorie nach Anwendung von Loop Closure mit reduziertem akkumuliertem Drift. vgl. \blx@tocontentsinit {0}\cite {gong_loop_closure}}}{18}{figure.caption.10}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Vereinfachter Faktorgraph eines \gls {slam}-Problems, vgl.~\blx@tocontentsinit {0}\cite {Lai2022}, \blx@tocontentsinit {0}\cite {Dellaert2017}, \blx@tocontentsinit {0}\cite {Cai2024}}}{19}{figure.caption.11}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Übersicht gängiger Fiducial-Marker: a) ARTag; b) AprilTag; c) Aruco d) Stag \blx@tocontentsinit {0}\cite {STag_Loipfuehrer2022,Artag_Bild}}}{20}{figure.caption.12}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Hardware-Blockschaltbild mit Anschlussverdrahtung}}{25}{figure.caption.20}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Softwarearchitektur mit den Strängen zur Lokalisierung und zur Kartierung}}{25}{figure.caption.21}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Flughalle AerodrOhm am \gls {oic} der Technischen Hochschule Nürnberg \blx@tocontentsinit {0}\cite {aerodrohm}}}{27}{figure.caption.22}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Physischer Aufbau des Fluggeräts mit den verbauten Komponenten}}{24}{figure.caption.13}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Hardware-Blockschaltbild mit Anschlussverdrahtung}}{27}{figure.caption.23}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Softwarearchitektur mit den Strängen zur Lokalisierung und zur Kartierung}}{27}{figure.caption.24}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Flughalle AerodrOhm am \gls {oic} der Technischen Hochschule Nürnberg \blx@tocontentsinit {0}\cite {aerodrohm}}}{29}{figure.caption.25}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Paarweiser Vergleich Bewertungskriterien der SLAM-Varianten}}{29}{figure.caption.23}%
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Nutzwertanalyse der SLAM-Varianten}}{31}{figure.caption.24}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Paarweiser Vergleich Bewertungskriterien der SLAM-Varianten}}{31}{figure.caption.26}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Nutzwertanalyse der SLAM-Varianten}}{33}{figure.caption.27}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Knoten und Topics der Positionierung, aufgeteilt nach Host und Container}}{39}{figure.caption.26}%
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Knoten und Topics der Positionierung, aufgeteilt nach Host und Container}}{43}{figure.caption.30}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

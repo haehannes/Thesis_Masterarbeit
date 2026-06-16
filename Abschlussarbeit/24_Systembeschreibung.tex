@@ -76,6 +76,17 @@ Das System besteht aus der Flugplattform, dem Companion-Computer, der die
 rechenintensive Bildverarbeitung übernimmt, und der Sensorik, die zur 
 Lokalisierung eingesetzt wird.
 
+Abbildung~\ref{fig:drohnenaufbau} zeigt den physischen Aufbau des Fluggeräts mit den verbauten Komponenten.
+
+\begin{figure}[htbp]
+    \centering
+    % \includegraphics[width=1.0\textwidth]{Bilder/Drohnenaufbau.png}
+    \caption{Physischer Aufbau des Fluggeräts mit den verbauten Komponenten}
+    \label{fig:drohnenaufbau}
+\end{figure}
+\FloatBarrier
+
+\subsection*{Flugplattform}
 
 
 \subsection*{Flugplattform}
@@ -103,6 +114,13 @@ Die Flugsteuerung übernimmt der Flugcontroller Pixhawk 6X (FMU-V6X), auf
 dem der Autopilot \gls{px4} ausgeführt wird.
 In dieser Arbeit wird \gls{px4} in der Version~1.16.0 betrieben, die auf 
 dem Echtzeitbetriebssystem NuttX~v11.0.0 aufsetzt.
+
+\subsection*{Flugcontroller}
+Die Flugsteuerung übernimmt der Flugcontroller Pixhawk 6X (FMU-V6X), auf
+dem der Autopilot \gls{px4} ausgeführt wird.
+In dieser Arbeit wird \gls{px4} in der Version~1.16.0 betrieben, die auf
+dem Echtzeitbetriebssystem NuttX~v11.0.0 aufsetzt.
+\gls{px4} verwendet die \gls{ned}/{frd}-Konvention.
 
 \subsection*{Kamerasysteme}
 Zur Lokalisierung stehen mehrere handelsübliche \gls{usb}-Kameras zur 

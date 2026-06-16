@@ -36,9 +36,9 @@ Dieser versorgt die Steuerelektronik als auch die Motoren.
 Daraus ergibt sich eine maximale Nutzlast von 2 kg (ohne Akku) \cite{holybro_x650}.
 
 \subsection{Vergleich von Welt-, Roboter-, Kamera- und Fiducialkoordinatensystem}
+\label{sec:vergleich_koordinatensysteme}
 Dieses Kapitel behandelt die verschiedenen Koordinatensysteme, die in dieser Arbeit relevant sind.
 Dabei wird zwischen dem Welt-, Roboter-, Kamera- und Fiducialkoordinatensystem unterschieden.
-Weiterhin werden die grundlegenden Konzepte zur Repräsentation von Position und Orientierung im Raum erläutert.
 
 Ein Koordinatensystem ist ein mathematisches Konstrukt, das zur eindeutigen Beschreibung der Lage von Punkten im Raum verwendet wird.
 Zur Beschreibung von Bewegungen ist die Festlegung eines Koordinatensystems von entscheidender Bedeutung.
@@ -66,18 +66,18 @@ Der Ursprung dieses Koordinatensystems kann frei gewählt werden und wird durch 
 Die Achsen werden durch $X_0$, $Y_0$ und $Z_0$ dargestellt \cite[S. 4]{ISO9787}.
 
 Das UAV-Koordinatensystem ist in der Regel vom Hersteller vorgegeben und richtet sich in diesem konkreten Fall nach dem Flugregler.
-In der zugehörigen Dokumentation wird angegeben, dass die X-Achse ($X_u$) nach vorne, die Y-Achse ($Y_u$) 
-nach rechts und die Z-Achse ($Z_u$) nach unten zeigt.
-Der Ursprung dieses Koordinatensystems ($O_u$) befindet sich im Zentrum des Flugreglers \cite{PX4Frames}.
+Der Flugregler verwendet die \gls{ned}/gls{frd}-Konvention. 
+Das körperfeste Koordinatensystem hat seinen Ursprung ($O_u$) im Mittelpunkt des Flugreglers, ausgehend von der Flugrichtung 
+entlang der X-Achse ($X_u$) zeigt diese nach vorne, die Y-Achse ($Y_u$) nach rechts und die Z-Achse ($Z_u$) nach unten \cite{PX4Frames}.
 
 Das Kamerakoordinatensystem ist in der Regel so definiert, dass die Z-Achse ($Z_c$) entlang der optischen Achse der Kamera zeigt, 
 die X-Achse ($X_c$) nach rechts auf der Bildebene und die Y-Achse ($Y_c$) nach unten auf der Bildebene zeigt.
 Der Ursprung ($O_c$) befindet sich im optischen Zentrum der Kamera \cite[S. 44]{Szeliski2022}.
 
 Das Fiducialkoordinatensystem ist in dieser Arbeit so definiert, dass sich der Ursprung ($O_f$) im Mittelpunkt der Fiducialmarke befindet.
-Die Z-Achse ($Z_f$) zeigt senkrecht aus der Markerebene heraus, die X-Achse ($X_f$) zeigt nach rechts in der Markerebene und die Y-Achse ($Y_f$) 
+Die Z-Achse ($Z_f$) zeigt senkrecht aus der Markerebene heraus, die X-Achse ($X_f$) zeigt nach rechts in der Markerebene und die Y-Achse ($Y_f$)
 zeigt nach oben in der Markerebene.
-
+TagSLAM und die darauf aufbauende Positionierung folgen der in ROS standardisierten \gls{enu}/gls{flu}-Konvention.
 
 
 \section{Repräsentation von Position und Orientierung}
@@ -149,6 +149,12 @@ $\mathbf{v} = (v_x, v_y, v_z)^T$ und wird durch Gleichung \ref{eq:einheitsquater
 \label{eq:einheitsquaternion}
 \end{equation}
 
+Der Winkel $\theta$ zwischen zwei Einheitsquaternionen $\mathbf{q}_1$ und $\mathbf{q}_2$ ergibt sich aus deren Skalarprodukt gemäß Gleichung~\ref{eq:quaternion_winkel}.
+\begin{equation}
+\theta = \arccos\!\left(w_1 w_2 + x_1 x_2 + y_1 y_2 + z_1 z_2\right)
+\label{eq:quaternion_winkel}
+\end{equation}
+
 Die Konjugation eines Quaternions ist analog zu den komplexen Zahlen durch Gleichung \ref{eq:quaternion_konjungiert} definiert.
 \begin{equation}
 \bar{\mathbf{q}} = (w, -x, -y, -z)
@@ -166,6 +172,57 @@ Die Normalisierung eines Quaternions erfolgt gemäß
 \mathbf{q} \leftarrow \frac{\mathbf{q}}{\|\mathbf{q}\|}, \qquad \|\mathbf{q}\| = \sqrt{x^2 + y^2 + z^2 + w^2}
 \label{eq:quaternion_normalisierung}
 \end{equation}
+
+
+\subsection{Mittelung von Quaternionen}
+\label{sec:quaternionen_mittelung}
+Liegen für dieselbe Orientierung mehrere Schätzungen als Einheitsquaternionen vor, müssen diese zu einer einzigen Orientierung zusammengefasst werden.
+Eine komponentenweise Mittelung der Quaternionen ist dabei nicht ohne Weiteres möglich.
+Da ein Quaternion $\mathbf{q}$ und sein Negatives $-\mathbf{q}$ dieselbe Rotation beschreiben, können sich entgegengesetzt notierte Quaternionen bei einer direkten Summenbildung gegenseitig aufheben.
+Vor der Mittelung wird daher das Vorzeichen aller Quaternionen an ein Referenzquaternion $\mathbf{q}_{\mathrm{ref}}$ angeglichen.
+Maßgeblich ist das Skalarprodukt
+Zur Angleichung werden die Quaternionen als Vektoren aufgefasst.
+Als Maß für ihre Ausrichtung dient das Skalarprodukt:
+\begin{equation}
+\langle \mathbf{q}_i, \mathbf{q}_{\mathrm{ref}} \rangle =
+\begin{pmatrix} w_i \\ x_i \\ y_i \\ z_i \end{pmatrix}
+\bullet
+\begin{pmatrix} w_{\mathrm{ref}} \\ x_{\mathrm{ref}} \\ y_{\mathrm{ref}} \\ z_{\mathrm{ref}} \end{pmatrix}
+= w_i w_{\mathrm{ref}} + x_i x_{\mathrm{ref}} + y_i y_{\mathrm{ref}} + z_i z_{\mathrm{ref}}.
+\label{eq:quaternion_skalarprodukt}
+\end{equation}
+Ist dieses negativ, weist $\mathbf{q}_i$ in die entgegengesetzte Richtung wie $\mathbf{q}_{\mathrm{ref}}$ und wird durch $-\mathbf{q}_i$ ersetzt:
+\begin{equation}
+\mathbf{q}_i \leftarrow
+\begin{cases}
+\mathbf{q}_i & \text{falls } \langle \mathbf{q}_i, \mathbf{q}_{\mathrm{ref}} \rangle \ge 0,\\
+-\mathbf{q}_i & \text{sonst.}
+\end{cases}
+\label{eq:quaternion_vorzeichen}
+\end{equation}
+Nach dieser Angleichung weisen alle Quaternionen in dieselbe Richtung und können gewichtet gemittelt werden.
+Mit den Gewichten $w_i \ge 0$ ergibt sich das gemittelte Quaternion $\bar{\mathbf{q}}$ aus der gewichteten Summe, die anschließend gemäß Gleichung~\eqref{eq:quaternion_normalisierung} normiert wird:
+\begin{equation}
+\bar{\mathbf{q}} = \frac{\displaystyle\sum_{i} w_i\,\mathbf{q}_i}{\left\lVert \displaystyle\sum_{i} w_i\,\mathbf{q}_i \right\rVert}.
+\label{eq:quaternion_mittelung}
+\end{equation}
+Diese lineare Mittelung ist lediglich eine lineare Näherung, die für eng beieinanderliegende Orientierungen gute Ergebnisse liefert \cite{Markley2007}.
+
+\subsection{Sphärische lineare Interpolation von Quaternionen}
+\label{sec:quaternionen_slerp}
+Durch die \gls{slerp} ist es möglich, zwei Quaternionen ineinander zu überführen.
+Die nachfolgende Formel beschreibt diese Operation \cite{Shoemake1985}.
+\begin{equation}
+\operatorname{slerp}(\mathbf{q}_0, \mathbf{q}_1, \alpha) = \frac{\sin\!\bigl((1-\alpha)\,\theta\bigr)}{\sin\theta}\,\mathbf{q}_0 + \frac{\sin(\alpha\,\theta)}{\sin\theta}\,\mathbf{q}_1.
+\label{eq:slerp}
+\end{equation}
+Dabei ist $\theta$ der Winkel zwischen den beiden Quaternionen und $\alpha \in [0,1]$ der Interpolationsparameter.
+Für $\alpha = 0$ liefert sie $\mathbf{q}_0$, für $\alpha = 1$ entsprechend $\mathbf{q}_1$.
+Da ein Quaternion und sein Negatives dieselbe Rotation beschreiben, wird zunächst sichergestellt, dass
+entlang des kürzeren Bogens interpoliert wird, indem das Vorzeichen von $\mathbf{q}_1$ bei negativem
+Skalarprodukt nach Gleichung~\eqref{eq:quaternion_vorzeichen} an $\mathbf{q}_0$ angeglichen wird.
+Für sehr kleine Winkel $\theta$ geht $\sin\theta$ gegen null, wodurch Gleichung~\eqref{eq:slerp} numerisch instabil wird.
+
 
 \subsection{Rodrigues-Parameter}
 \label{sec:rodrigues_parameter}
@@ -219,7 +276,7 @@ Durch Einführung homogener Koordinaten
 $^a\tilde{\mathbf{r}} = \begin{bmatrix} {^a\mathbf{r}}^\top & 1 \end{bmatrix}^\top$
 lässt sich die Drehung und Verschiebung in eine einzige Matrix überführen.
 Die zugehörige \emph{homogene Transformationsmatrix}
-$^b\mathbf{T}_a \in \mathrm{SE}(3)$ ist definiert als
+$^b\mathbf{T}_a$ ist definiert als
 \begin{equation}
 ^b\mathbf{T}_a =
 \begin{bmatrix}
@@ -229,6 +286,16 @@ $^b\mathbf{T}_a \in \mathrm{SE}(3)$ ist definiert als
 \in \mathbb{R}^{4 \times 4}.
 \label{eq:trafo_matrix}
 \end{equation}
+Ihre Inverse $\left(^b\mathbf{T}_a\right)^{-1} = {^a\mathbf{T}_b}$ ergibt sich in geschlossener Form zu
+\begin{equation}
+\left(^b\mathbf{T}_a\right)^{-1} =
+\begin{bmatrix}
+{^b\mathbf{R}_a}^{\top} & -\,{^b\mathbf{R}_a}^{\top}\,{^b\mathbf{t}_a} \\
+\mathbf{0}^{\top} & 1
+\end{bmatrix},
+\label{eq:trafo_inverse}
+\end{equation}
+sodass keine allgemeine Matrixinversion erforderlich ist \cite{Lynch2017}.
 Damit lässt sich Gleichung~\eqref{eq:trafo_punkt} kompakt schreiben als
 \begin{equation}
 ^b\tilde{\mathbf{r}} = {^b\mathbf{T}_a}\,{^a\tilde{\mathbf{r}}}.
@@ -250,6 +317,7 @@ Sind die Transformationen $^c\mathbf{T}_b$ (von~$b$ nach~$c$) und $^b\mathbf{T}_
 ^c\mathbf{T}_a = {^c\mathbf{T}_b}\,{^b\mathbf{T}_a}.
 \label{eq:trafo_verkettung}
 \end{equation}
+
 
 \section{Sensorsysteme}
 \label{sec:sensorik}
@@ -351,7 +419,7 @@ Das Baseboard stellt vor allem die Schnittstellen zu Sensoren, anderen Komponent
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=1.0\textwidth]{Bilder/Basebord_und_cube.png}
+    \includegraphics[width=0.8\textwidth]{Bilder/Basebord_und_cube.png}
     \caption{Komponenten des Pixhawk 6X: FMU-Modul und Baseboard V2A \cite{holybro_x650}}
     \label{fig:aufbau_flugcontroller}
 \end{figure}
@@ -397,7 +465,7 @@ Ein Magnetometer ist zwar verbaut, wird in dieser Arbeit jedoch nicht zur Lagebe
 verwendet (siehe Abschnitt \ref{sec:ekf2}).
 
 
-\subsection{Schnittstellen}
+\subsection{Schnittstellen PX4 6X}
 Der Flugcontroller stellt über das Baseboard eine Vielzahl von Schnittstellen zur Anbindung 
 externer Komponenten bereit.
 Für diese Arbeit sind insbesondere die folgenden Schnittstellen relevant:
@@ -433,7 +501,7 @@ Die konkrete Parametrierung für den GPS-freien Betrieb mit externer Positionsre
 wird in Kapitel \ref{sec:systemaufbau} erläutert.
 
 
-\subsection{Betriebssystem}
+\subsection{Betriebssystem PX4 6X}
 Der Pixhawk 6X betreibt auf dem Hauptprozessor STM32H753 das Echtzeitbetriebssystem 
 NuttX, auf dem die PX4-Firmware ausgeführt wird.
 NuttX ist ein Echtzeitbetriebssystem, das sicherstellt, dass zeitkritische 

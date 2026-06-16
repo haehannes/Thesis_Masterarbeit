@@ -507,4 +507,7 @@ Am Beispiel von Tag~0 ist die Wirkung der Fixierung erkennbar: Seine Lage liegt 
 Das zu jedem Marker ausgegebene Rauschen beschreibt die verbleibende Unsicherheit der geschätzten Lage und bildet die Referenz für die spätere Lokalisierung.
 
 
-
+Die von TagSLAM erzeugte Karte ist im selben ROS-standardisierten ENU-Weltkoordinatensystem angelegt, dem auch die Positionierung folgt unter \ref{sec:pos_detektion_apriltags}.
+Die Position eines Markers ist in Metern relativ zum Ursprung angegeben, die Orientierung im Rodrigues-Format als Rotationsvektor
+(siehe Abschnitt~\ref{sec:rodrigues_parameter}).
+Das zu jedem Marker ausgegebene Rauschen beschreibt die verbleibende Unsicherheit der geschätzten Lage und bildet die Referenz für die spätere Lokalisierung.

@@ -12,78 +12,81 @@
 \contentsline {subsection}{\numberline {2.1.2}Vergleich von Welt-, Roboter-, Kamera- und Fiducialkoordinatensystem}{2}{subsection.2.1.2}%
 \contentsline {section}{\numberline {2.2}Repräsentation von Position und Orientierung}{4}{section.2.2}%
 \contentsline {subsection}{\numberline {2.2.1}Quaternionen}{4}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}Rodrigues-Parameter}{6}{subsection.2.2.2}%
-\contentsline {section}{\numberline {2.3}Transformation von Koordinatensystemen}{6}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Sensorsysteme}{7}{section.2.4}%
-\contentsline {section}{\numberline {2.5}Extended Kallman Filter}{8}{section.2.5}%
-\contentsline {section}{\numberline {2.6}Flugcontroller Pixhawk 6X}{9}{section.2.6}%
-\contentsline {subsection}{\numberline {2.6.1}Sensorik}{10}{subsection.2.6.1}%
-\contentsline {subsection}{\numberline {2.6.2}Schnittstellen}{10}{subsection.2.6.2}%
-\contentsline {subsection}{\numberline {2.6.3}EKF2 -- Zustandsschätzung und Sensorfusion}{11}{subsection.2.6.3}%
-\contentsline {subsection}{\numberline {2.6.4}Betriebssystem}{11}{subsection.2.6.4}%
-\contentsline {subsection}{\numberline {2.6.5}Random Sample Consensus (RANSAC)}{11}{subsection.2.6.5}%
-\contentsline {subsection}{\numberline {2.6.6}Robot Operating System 2 (ROS2)}{12}{subsection.2.6.6}%
-\contentsline {subsection}{\numberline {2.6.7}Nodes und Topics}{12}{subsection.2.6.7}%
-\contentsline {subsection}{\numberline {2.6.8}Bag-Dateien}{12}{subsection.2.6.8}%
-\contentsline {subsection}{\numberline {2.6.9}TF2 -- Koordinatentransformationen}{12}{subsection.2.6.9}%
-\contentsline {chapter}{\numberline {3}Stand der Technik}{14}{chapter.3}%
-\contentsline {section}{\numberline {3.1}GNSS-freie Lokalisierung von UAVs}{14}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Absolute Lokalisierung}{14}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}Relative Lokalisierung}{15}{subsection.3.1.2}%
-\contentsline {subsubsection}{\numberline {3.1.2.1}Dead Reckoning Localization}{15}{subsubsection.3.1.2.1}%
-\contentsline {subsubsection}{\numberline {3.1.2.2}Visuelle Odometrie und optischer Fluss}{15}{subsubsection.3.1.2.2}%
-\contentsline {subsection}{\numberline {3.1.3}Simultane Lokalisierung und Kartierung}{16}{subsection.3.1.3}%
-\contentsline {subsubsection}{\numberline {3.1.3.1}Phasen optimierungsbasierter SLAM Methoden}{16}{subsubsection.3.1.3.1}%
-\contentsline {subsubsection}{\numberline {3.1.3.2}Faktorgraph Optmierung}{17}{subsubsection.3.1.3.2}%
-\contentsline {subsubsection}{\numberline {3.1.3.3}SLAM-Varianten}{18}{subsubsection.3.1.3.3}%
-\contentsline {section}{\numberline {3.2}Fiducial-Marker-Systeme}{19}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}ARTag Marker}{19}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}AprilTag Marker}{20}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.2.3}ArUco Marker}{20}{subsection.3.2.3}%
-\contentsline {subsection}{\numberline {3.2.4}STag Marker}{20}{subsection.3.2.4}%
-\contentsline {subsection}{\numberline {3.2.5}Detektion von Fiducial-Markern}{20}{subsection.3.2.5}%
-\contentsline {chapter}{\numberline {4}Systembeschreibung}{22}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Anforderungen an das Gesamtsystem}{22}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Hardwareaufbau}{22}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Softwarearchitektur Kartierung und Positionierung nochmal drüber schauen!!! ich nehme ja auch das thinkpad!!!}{25}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Versuchsumgebung}{26}{section.4.4}%
-\contentsline {chapter}{\numberline {5}Implementierung der Kartierung}{28}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Auswahl der Algorithmik}{28}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}Auswahl der Bewertungskriterien SLAM-Varianten}{28}{subsection.5.1.1}%
-\contentsline {subsection}{\numberline {5.1.2}Gewichtung durch den paarweisen Vergleich der SLAM-Varianten}{28}{subsection.5.1.2}%
-\contentsline {subsection}{\numberline {5.1.3}Nutzwertanalyse SLAM-Varianten}{29}{subsection.5.1.3}%
-\contentsline {subsection}{\numberline {5.1.4}Auswahl der Fiducial-Marker}{31}{subsection.5.1.4}%
-\contentsline {section}{\numberline {5.2}Ablauf der Kartierung}{32}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}Kamera-Kalibrierung}{32}{subsection.5.2.1}%
-\contentsline {subsection}{\numberline {5.2.2}Bildaufnahme Kartierung}{35}{subsection.5.2.2}%
-\contentsline {subsection}{\numberline {5.2.3}Entzerrung}{35}{subsection.5.2.3}%
-\contentsline {subsection}{\numberline {5.2.4}Offline Detektion von AprilTags}{36}{subsection.5.2.4}%
-\contentsline {subsection}{\numberline {5.2.5}Kartenerstellung und Konfiguration von Tagslam}{37}{subsection.5.2.5}%
-\contentsline {chapter}{\numberline {6}Implementierung der Positionierung}{39}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Softwarearchitektur der Positionierung}{39}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Bildaufnahme Positionierung}{39}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}Kamerakalibrierung Positionierung}{40}{subsection.6.2.1}%
-\contentsline {subsection}{\numberline {6.2.2}Kamerakalibrierung Positionierung}{40}{subsection.6.2.2}%
-\contentsline {section}{\numberline {6.3}ab hier ist vorsicht geboten}{41}{section.6.3}%
-\contentsline {section}{\numberline {6.4}Entzerrung}{41}{section.6.4}%
-\contentsline {section}{\numberline {6.5}Bildverarbeitung}{41}{section.6.5}%
-\contentsline {section}{\numberline {6.6}Positionsbestimmung}{41}{section.6.6}%
-\contentsline {subsection}{\numberline {6.6.1}Posenberechnung je Marker}{41}{subsection.6.6.1}%
-\contentsline {subsection}{\numberline {6.6.2}Ausreißerfilterung}{42}{subsection.6.6.2}%
-\contentsline {subsection}{\numberline {6.6.3}Gewichtete Fusion}{42}{subsection.6.6.3}%
-\contentsline {subsection}{\numberline {6.6.4}Umrechnung auf den Drohnenmittelpunkt}{42}{subsection.6.6.4}%
-\contentsline {subsection}{\numberline {6.6.5}Kovarianzschätzung}{42}{subsection.6.6.5}%
-\contentsline {subsection}{\numberline {6.6.6}Extrinsische Kamerakalibrierung}{43}{subsection.6.6.6}%
-\contentsline {section}{\numberline {6.7}Kommunikation mit der Flugsteuerung}{43}{section.6.7}%
-\contentsline {subsection}{\numberline {6.7.1}Koordinatentransformation}{43}{subsection.6.7.1}%
-\contentsline {subsection}{\numberline {6.7.2}Zeitbezug und Ausgabe}{43}{subsection.6.7.2}%
-\contentsline {section}{\numberline {6.8}Flugsteuerung}{44}{section.6.8}%
-\contentsline {chapter}{\numberline {7}Systemintegration}{45}{chapter.7}%
-\contentsline {chapter}{\numberline {8}Evaluation des Greifens}{46}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Erfolgskriterien - Erfolgsquote und Fehlerrate}{46}{section.8.1}%
-\contentsline {section}{\numberline {8.2}Erkennungsgenauigkeit}{46}{section.8.2}%
-\contentsline {section}{\numberline {8.3}Positioniergenauigkeit}{46}{section.8.3}%
-\contentsline {section}{\numberline {8.4}Zeitliche Performance und Echtzeitfähigkeit}{46}{section.8.4}%
-\contentsline {chapter}{\numberline {9}Zusammenfassung und Ausblick}{47}{chapter.9}%
-\contentsline {chapter}{\numberline {10}Anhang}{56}{chapter.10}%
+\contentsline {subsection}{\numberline {2.2.2}Mittelung von Quaternionen}{6}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Sphärische lineare Interpolation von Quaternionen}{6}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.4}Rodrigues-Parameter}{7}{subsection.2.2.4}%
+\contentsline {section}{\numberline {2.3}Transformation von Koordinatensystemen}{7}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Sensorsysteme}{8}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Extended Kallman Filter}{9}{section.2.5}%
+\contentsline {section}{\numberline {2.6}Flugcontroller Pixhawk 6X}{10}{section.2.6}%
+\contentsline {subsection}{\numberline {2.6.1}Sensorik}{11}{subsection.2.6.1}%
+\contentsline {subsection}{\numberline {2.6.2}Schnittstellen PX4 6X}{11}{subsection.2.6.2}%
+\contentsline {subsection}{\numberline {2.6.3}EKF2 -- Zustandsschätzung und Sensorfusion}{12}{subsection.2.6.3}%
+\contentsline {subsection}{\numberline {2.6.4}Betriebssystem PX4 6X}{12}{subsection.2.6.4}%
+\contentsline {subsection}{\numberline {2.6.5}Random Sample Consensus (RANSAC)}{12}{subsection.2.6.5}%
+\contentsline {subsection}{\numberline {2.6.6}Robot Operating System 2 (ROS2)}{13}{subsection.2.6.6}%
+\contentsline {subsection}{\numberline {2.6.7}Nodes und Topics}{13}{subsection.2.6.7}%
+\contentsline {subsection}{\numberline {2.6.8}Bag-Dateien}{13}{subsection.2.6.8}%
+\contentsline {subsection}{\numberline {2.6.9}TF2 -- Koordinatentransformationen}{13}{subsection.2.6.9}%
+\contentsline {chapter}{\numberline {3}Stand der Technik}{15}{chapter.3}%
+\contentsline {section}{\numberline {3.1}GNSS-freie Lokalisierung von UAVs}{15}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Absolute Lokalisierung}{15}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Relative Lokalisierung}{16}{subsection.3.1.2}%
+\contentsline {subsubsection}{\numberline {3.1.2.1}Dead Reckoning Localization}{16}{subsubsection.3.1.2.1}%
+\contentsline {subsubsection}{\numberline {3.1.2.2}Visuelle Odometrie und optischer Fluss}{16}{subsubsection.3.1.2.2}%
+\contentsline {subsection}{\numberline {3.1.3}Simultane Lokalisierung und Kartierung}{17}{subsection.3.1.3}%
+\contentsline {subsubsection}{\numberline {3.1.3.1}Phasen optimierungsbasierter SLAM Methoden}{17}{subsubsection.3.1.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.3.2}Faktorgraph Optmierung}{18}{subsubsection.3.1.3.2}%
+\contentsline {subsubsection}{\numberline {3.1.3.3}SLAM-Varianten}{19}{subsubsection.3.1.3.3}%
+\contentsline {section}{\numberline {3.2}Fiducial-Marker-Systeme}{20}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}ARTag Marker}{20}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}AprilTag Marker}{21}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}ArUco Marker}{21}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.2.4}STag Marker}{21}{subsection.3.2.4}%
+\contentsline {subsection}{\numberline {3.2.5}Detektion von Fiducial-Markern}{21}{subsection.3.2.5}%
+\contentsline {chapter}{\numberline {4}Systembeschreibung}{23}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Anforderungen an das Gesamtsystem}{23}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Hardwareaufbau}{23}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Softwarearchitektur Kartierung und Positionierung nochmal drüber schauen!!! ich nehme ja auch das thinkpad!!!}{27}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Versuchsumgebung}{28}{section.4.4}%
+\contentsline {chapter}{\numberline {5}Implementierung der Kartierung}{30}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Auswahl der Algorithmik}{30}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Auswahl der Bewertungskriterien SLAM-Varianten}{30}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Gewichtung durch den paarweisen Vergleich der SLAM-Varianten}{30}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.3}Nutzwertanalyse SLAM-Varianten}{31}{subsection.5.1.3}%
+\contentsline {subsection}{\numberline {5.1.4}Auswahl der Fiducial-Marker}{33}{subsection.5.1.4}%
+\contentsline {section}{\numberline {5.2}Ablauf der Kartierung}{34}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Kamera-Kalibrierung}{34}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Bildaufnahme Kartierung}{37}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.2.3}Entzerrung}{37}{subsection.5.2.3}%
+\contentsline {subsection}{\numberline {5.2.4}Offline Detektion von AprilTags}{38}{subsection.5.2.4}%
+\contentsline {subsection}{\numberline {5.2.5}Kartenerstellung und Konfiguration von Tagslam}{39}{subsection.5.2.5}%
+\contentsline {chapter}{\numberline {6}Implementierung der Positionierung}{41}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Konfiguration des PX4 zur visionsgestützten Zustandsschätzung}{41}{section.6.1}%
+\contentsline {paragraph}{\numberline {6.1.0.0.1}Vision-Stützung}{41}{paragraph.6.1.0.0.1}%
+\contentsline {paragraph}{\numberline {6.1.0.0.2}Höhenreferenz}{42}{paragraph.6.1.0.0.2}%
+\contentsline {paragraph}{\numberline {6.1.0.0.3}Deaktivierte Sensoren}{42}{paragraph.6.1.0.0.3}%
+\contentsline {section}{\numberline {6.2}Softwarearchitektur der Positionsbestimmung}{42}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Kommunikation zwischen ROS2 und PX4 muss nochmal gelesen Werden!!!}{44}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}Bildaufnahme Positionierung}{44}{subsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.2.3}Entzerrung}{45}{subsection.6.2.3}%
+\contentsline {subsection}{\numberline {6.2.4}Detektion von AprilTags}{45}{subsection.6.2.4}%
+\contentsline {subsubsection}{\numberline {6.2.4.1}Extrinsische Kalibrierung zweier Kameras auf den PX4-Mittelpunkt}{45}{subsubsection.6.2.4.1}%
+\contentsline {subsubsection}{\numberline {6.2.4.2}Positionsbestimmung durch AprilTags}{46}{subsubsection.6.2.4.2}%
+\contentsline {subsubsection}{\numberline {6.2.4.3}Posenberechnung je Marker}{47}{subsubsection.6.2.4.3}%
+\contentsline {subsubsection}{\numberline {6.2.4.4}Ausreißerfilterung durch RANSAC}{49}{subsubsection.6.2.4.4}%
+\contentsline {subsubsection}{\numberline {6.2.4.5}Gewichtete Fusion der Konsensmenge}{50}{subsubsection.6.2.4.5}%
+\contentsline {subsubsection}{\numberline {6.2.4.6}Transformation der Kameraposen zu Drohnenmittelpunkt}{50}{subsubsection.6.2.4.6}%
+\contentsline {subsubsection}{\numberline {6.2.4.7}Fusion der Kameraposen}{51}{subsubsection.6.2.4.7}%
+\contentsline {subsubsection}{\numberline {6.2.4.8}Zeitliche Glättung der fusionierten Pose}{52}{subsubsection.6.2.4.8}%
+\contentsline {subsubsection}{\numberline {6.2.4.9}Transformation in das PX4-Koordinatensystem und Ausgabe hier muss noch korrektur gelesen werden!!!}{52}{subsubsection.6.2.4.9}%
+\contentsline {chapter}{\numberline {7}Versuchsdurchführung und Evaluation}{54}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Bedienkonsole}{54}{section.7.1}%
+\contentsline {chapter}{\numberline {8}Evaluation des Greifens}{55}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Erfolgskriterien - Erfolgsquote und Fehlerrate}{55}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Erkennungsgenauigkeit}{55}{section.8.2}%
+\contentsline {section}{\numberline {8.3}Positioniergenauigkeit}{55}{section.8.3}%
+\contentsline {section}{\numberline {8.4}Zeitliche Performance und Echtzeitfähigkeit}{55}{section.8.4}%
+\contentsline {chapter}{\numberline {9}Zusammenfassung und Ausblick}{56}{chapter.9}%
+\contentsline {chapter}{\numberline {10}Anhang}{65}{chapter.10}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
