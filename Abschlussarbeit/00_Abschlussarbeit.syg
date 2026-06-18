@@ -46,3 +46,6 @@
 (indexentry :tkey (("R2" "\\glossentry{sym:Rmeas}") ) :locref "{}{10}" :attr "pageglsnumberformat" ) 
 (indexentry :tkey (("t2" "\\glossentry{sym:tthr}") ) :locref "{}{13}" :attr "pageglsnumberformat" ) 
 (indexentry :tkey (("M" "\\glossentry{sym:model}") ) :locref "{}{13}" :attr "pageglsnumberformat" ) 
+(indexentry :tkey (("sigmavel" "\\glossentry{sym:sigmavel}") ) :locref "{}{16}" :attr "pageglsnumberformat" ) 
+(indexentry :tkey (("xpose" "\\glossentry{sym:pose}") ) :locref "{}{18}" :attr "pageglsnumberformat" ) 
+(indexentry :tkey (("tlandmark" "\\glossentry{sym:landmark}") ) :locref "{}{18}" :attr "pageglsnumberformat" ) 

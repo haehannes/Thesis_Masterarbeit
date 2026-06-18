@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.11.7)  18 JUN 2026 21:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.11.7)  18 JUN 2026 21:51
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1933,10 +1933,10 @@ Package logreq Info: Writing requests to '00_Abschlussarbeit.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 47100 strings out of 474222
- 951712 string characters out of 5748733
+ 47190 strings out of 474222
+ 953686 string characters out of 5748733
  2035975 words of memory out of 5000000
- 68183 multiletter control sequences out of 15000+600000
+ 68273 multiletter control sequences out of 15000+600000
  638615 words of font info for 101 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  108i,20n,107p,10958b,4127s stack positions out of 10000i,1000n,20000p,200000b,200000s

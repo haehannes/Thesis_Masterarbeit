@@ -2378,3 +2378,87 @@ parent={},%
 %
 }%
 
+\glsdefs@newdocentry{sym:sigmavel}%
+{%
+name={\ensuremath {\sigma _{\text {vel}}}},%
+sort={sigmavel},%
+type={symbols},%
+first={\protect \ensuremath  {\sigma _{\protect \text  {vel}}}},%
+firstplural={\protect \ensuremath  {\sigma _{\protect \text  {vel}}}s},%
+text={\protect \ensuremath  {\sigma _{\protect \text  {vel}}}},%
+plural={\protect \ensuremath  {\sigma _{\protect \text  {vel}}}s},%
+description={Standardabweichung der geschätzten Geschwindigkeit},%
+descriptionplural={Standardabweichung der geschätzten Geschwindigkeit},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{sym:pose}%
+{%
+name={\ensuremath {x_j}},%
+sort={xpose},%
+type={symbols},%
+first={\protect \ensuremath  {x_j}},%
+firstplural={\protect \ensuremath  {x_j}s},%
+text={\protect \ensuremath  {x_j}},%
+plural={\protect \ensuremath  {x_j}s},%
+description={Variablenknoten einer UAV-Pose im Faktorgraphen},%
+descriptionplural={Variablenknoten einer UAV-Pose im Faktorgraphen},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{sym:landmark}%
+{%
+name={\ensuremath {t_i}},%
+sort={tlandmark},%
+type={symbols},%
+first={\protect \ensuremath  {t_i}},%
+firstplural={\protect \ensuremath  {t_i}s},%
+text={\protect \ensuremath  {t_i}},%
+plural={\protect \ensuremath  {t_i}s},%
+description={Variablenknoten einer Landmarke (Tag) im Faktorgraphen},%
+descriptionplural={Variablenknoten einer Landmarke (Tag) im Faktorgraphen},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+

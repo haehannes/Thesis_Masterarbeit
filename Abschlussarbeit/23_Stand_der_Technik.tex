@@ -62,7 +62,7 @@ Am weitesten verbreitet sind hierbei verschiedene Abwandlungen des Kalman-Filter
 
 Experimentelle Untersuchungen mit dem \gls{px4}-Autopiloten und einem handelsüblichen 
 Pixhawk-Flugregler zeigen, dass der \gls{ekf2} bereits nach 7 Sekunden eine 
-Geschwindigkeitsabweichung von $\sigma_{\text{vel}} \approx 0{,}024$~m/s aufweist, was zu 
+Geschwindigkeitsabweichung von \glsadd{sym:sigmavel}$\sigma_{\text{vel}} \approx 0{,}024$~m/s aufweist, was zu 
 einem zunehmenden Positionsfehler im Dezimeterbereich führt.\cite{9172736}
 Verschiedene Arbeiten zeigen, dass sich der Drift vor allem durch Nutzung verbesserter 
 Algorithmen wie dem \gls{iekf} minimieren, jedoch nicht vollständig vermeiden lässt.
@@ -163,9 +163,9 @@ Die Faktorknoten verbinden diese Variablen und repräsentieren die Messungen ode
 
 Der Faktorgraph in Abbildung~\ref{fig:Faktorgraph_vereinfacht} zeigt die grundlegende Struktur eines \gls{slam}-Problems.
 Hierbei ist der Faktorgraph stark vereinfacht; auf mathematische Beziehungen wird verzichtet.
-Die blauen Kreise repräsentieren die Variablenknoten der \gls{uav}-Posen $x_1$ bis $x_4$, also die gesuchten Positionen und Orientierungen des \gls{uav} 
+Die blauen Kreise repräsentieren die Variablenknoten der \gls{uav}-Posen \glsadd{sym:pose}$x_1$ bis $x_4$, also die gesuchten Positionen und Orientierungen des \gls{uav} 
 zu aufeinanderfolgenden Zeitpunkten.
-Die grünen Kreise $t_1$ bis $t_3$ stellen die Landmarken dar, deren Positionen im Weltkoordinatensystem ebenfalls als Variablenknoten geschätzt werden.
+Die grünen Kreise \glsadd{sym:landmark}$t_1$ bis $t_3$ stellen die Landmarken dar, deren Positionen im Weltkoordinatensystem ebenfalls als Variablenknoten geschätzt werden.
 
 Es werden zwei Arten von Faktorknoten (Constraints) unterschieden:
 Die violetten Quadrate repräsentieren Odometrie-Constraints, die jeweils zwei 
