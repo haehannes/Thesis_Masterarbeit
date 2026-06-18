@@ -77,7 +77,7 @@
 \contentsline {subsubsection}{\numberline {6.2.4.3}Posenberechnung je Marker}{46}{subsubsection.6.2.4.3}%
 \contentsline {subsubsection}{\numberline {6.2.4.4}Ausreißerfilterung durch RANSAC}{48}{subsubsection.6.2.4.4}%
 \contentsline {subsubsection}{\numberline {6.2.4.5}Gewichtete Fusion der Konsensmenge}{49}{subsubsection.6.2.4.5}%
-\contentsline {subsubsection}{\numberline {6.2.4.6}Transformation der Kameraposen zu Drohnenmittelpunkt}{49}{subsubsection.6.2.4.6}%
+\contentsline {subsubsection}{\numberline {6.2.4.6}Transformation der Kameraposen zum Drohnenmittelpunkt}{49}{subsubsection.6.2.4.6}%
 \contentsline {subsubsection}{\numberline {6.2.4.7}Fusion der Kameraposen}{50}{subsubsection.6.2.4.7}%
 \contentsline {subsubsection}{\numberline {6.2.4.8}Zeitliche Glättung der fusionierten Pose}{51}{subsubsection.6.2.4.8}%
 \contentsline {subsubsection}{\numberline {6.2.4.9}Transformation in das PX4-Koordinatensystem und Ausgabe hier muss noch korrektur gelesen werden!!!}{51}{subsubsection.6.2.4.9}%

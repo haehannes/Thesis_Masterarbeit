@@ -75,7 +75,7 @@ Innerhalb dieses Containers werden die Entzerrung und die Markererkennung auf de
 einer CPU-basierten Verarbeitung eine höhere Bildrate ermöglicht.
 Die übrigen Schritte laufen direkt auf dem Host des Jetson.
 Dort erfolgen die Bildaufnahme über gscam, die Positionsbestimmung aus den Markerdetektionen sowie die Kommunikation mit der Flugsteuerung.
-Vor der Eigentlichen Positionierung wird eine extrinische Kalibrierung der verwendeten Kameras durchgeführt.
+Vor der eigentlichen Positionierung wird eine extrinsische Kalibrierung der verwendeten Kameras durchgeführt.
 Container und Host kommunizieren über ROS2-Topics.
 Die Bildaufnahme stellt das Kamerabild auf \topic{/camera_1/image_raw} mit den zugehörigen Parametern auf \topic{/camera_1/camera_info} bereit.
 Im Container entzerrt der Knoten \texttt{RectifyNode} das Bild und gibt es als \topic{/camera_1/image_rect} aus.
@@ -110,7 +110,7 @@ So kann der Positionierungs-Node die geschätzte Pose als \texttt{VehicleOdometr
 \label{sec:pos_bildaufnahme}
 Die Bildaufnahme erfolgt wie bei der Kartierung (Abschnitt~\ref{sec:kartierung_bildaufnahme}) über einen gscam-Knoten.
 Auch hier wird wie bei der Implementierung der Kartierung exemplarisch die Logitech~C922 verwendet.
-Wie in Abschnitt~\ref{Kamera_Kalibrierung} beschrieben, muss die Kalibrierung für jede Kamera und für die hier verwendete 
+Wie in Abschnitt~\ref{sec:Kamera_Kalibrierung} beschrieben, muss die Kalibrierung für jede Kamera und für die hier verwendete 
 Auflösung von $1280 \times 720$ Pixeln durchgeführt werden.
 
 
@@ -170,13 +170,13 @@ Dieser läuft ebenfalls \gls{gpu}-beschleunigt innerhalb des Isaac-Containers un
 Der Knoten liest das entzerrte Bild von \topic{/camera_1/image_rect} mit den Parametern von \topic{/camera_1/camera_info_rect} ein und detektiert
 darauf die AprilTag-Marker.
 Über die Parameter werden die Markerfamilie \texttt{tag36h11}, die physische Markergröße von $0{,}167$ Metern sowie die maximale Anzahl von $40$ Markern
-pro Bild festgelegt. Der hardwarebeschleunigte Detektor ist in der Lage nur eine einzige Markergröße zu detektieren, weshalb in Abschnitt
+pro Bild festgelegt. Der hardwarebeschleunigte Detektor ist in der Lage, nur eine einzige Markergröße zu detektieren, weshalb in Abschnitt
 \ref{sec:pos_positionsbestimmung} eine Umrechnung anderer Größen erfolgt.
 Für jeden erkannten Marker liefert der Knoten dessen Identifikationsnummer, den Mittelpunkt sowie die Bildkoordinaten der vier Eckpunkte.
 Aus den Eckpunkten und der bekannten Markergröße schätzt der Detektor zusätzlich die relative Pose des Markers im Kamerakoordinatensystem.
 Marker, die im Bild groß dargestellt werden, lassen sich dabei zuverlässiger detektieren als kleine.
 Diese Pose setzt sich aus einem Translationsvektor und einer als Quaternion kodierten
-Orientierung zusammen. Der Node gibt (abweichend von dem in \gls{ros2} Standardpaket) keine Kovarianzmatrix aus, die angibt, wie vertrauenswürdig die Schätzung ist.
+Orientierung zusammen. Der Node gibt (abweichend vom \gls{ros2} Standardpaket) keine Kovarianzmatrix aus, die angibt, wie vertrauenswürdig die Schätzung ist.
 Alle genannten Größen werden gebündelt als Nachricht vom Typ \texttt{AprilTagDetectionArray} auf dem Topic \topic{/camera_1/tag_detections} ausgegeben.
 Die so bestimmte relative Markerpose bildet die Eingangsgröße für die Positionsbestimmung in Abschnitt~\ref{sec:pos_positionsbestimmung}.
 
@@ -185,7 +185,7 @@ Die so bestimmte relative Markerpose bildet die Eingangsgröße für die Positio
 \subsubsection{Extrinsische Kalibrierung zweier Kameras auf den PX4-Mittelpunkt}
 \label{subsec:extrinsische_kalibrierung}
 Die extrinsische Kalibrierung bestimmt für beide Kameras die statische Transformation vom \gls{px4}-Mittelpunkt zur Kamera, 
-$^{\mathrm{D}}\mathbf{T}_{\mathrm{C}}$.
+\glsadd{sym:TDC}$^{\mathrm{D}}\mathbf{T}_{\mathrm{C}}$.
 Diese Transformationsmatrizen werden zur Laufzeit von der Positionsbestimmung (Abschnitt~\ref{sec:pos_positionsbestimmung}) benötigt.
 Die Kalibrierung findet zur Reproduzierbarkeit in einer Kalibrierbox statt.
 Der Multikopter wird in dieser Box an einer fest vorgegebenen Position platziert und anhand von Wandmarkierungen ausgerichtet 
@@ -308,7 +308,7 @@ Hier fehlt noch, welche Dateien zum Start benötigt werden.
 %außerdem fehlt calibraiton_file
 die ausrichtung des koordinatensystems fehlt auch noch. (z nach unten, oder z nach oben)
 
-Im Folgenden werden die wichtigesten Opterationen nach und nach erläutert. 
+Im Folgenden werden die wichtigsten Opterationen nach und nach erläutert. 
 
 \subsubsection{Posenberechnung je Marker}
 \label{subsec:pos_posenberechnung}
@@ -324,7 +324,7 @@ Einheitsquaternion $^{\mathrm{C}}\mathbf{q}_{\mathrm{M}}$.
 Im ersten Schritt wird aus dem detektierten Translationsvektor $^{\mathrm{C}}\tilde{\mathbf{t}}_{\mathrm{M}}$
 der skalierte Vektor $^{\mathrm{C}}\mathbf{t}_{\mathrm{M}}$ berechnet, der für Marker, deren Größe von der
 Referenz-Markergröße abweicht, entsprechend korrigiert wird.
-Bezeichnet $a_{\mathrm{M}}$ die Kantenlänge des Markers und $a_{\mathrm{ref}}$ die Referenz-Markergröße, ergibt sich der skalierte Vektor zu
+Bezeichnet \glsadd{sym:aM}$a_{\mathrm{M}}$ die Kantenlänge des Markers und \glsadd{sym:aref}$a_{\mathrm{ref}}$ die Referenz-Markergröße, ergibt sich der skalierte Vektor zu
 \begin{equation}
 ^{\mathrm{C}}\mathbf{t}_{\mathrm{M}} = \frac{a_{\mathrm{M}}}{a_{\mathrm{ref}}}\,{^{\mathrm{C}}\tilde{\mathbf{t}}_{\mathrm{M}}}.
 \label{eq:pos_skalierung}
@@ -340,11 +340,11 @@ Bezeichnet $a_{\mathrm{M}}$ die Kantenlänge des Markers und $a_{\mathrm{ref}}$ 
 %\end{equation}
 Die Referenz-Markergröße $a_{\mathrm{ref}}$ wird über den Parameter \texttt{isaac\_reference\_size} übergeben.
 Die Orientierung bleibt dabei unberührt, da die Größe des Markers keinen Einfluss darauf hat.
-Der Isaac-Ros Detektor gibt die Orientierung in einer anderen Konvention aus als das in TagSlam verwendete \gls{ros2} standard paket.
+Der Isaac~Ros Detektor gibt die Orientierung in einer anderen Konvention aus als das in TagSlam verwendete \gls{ros2}-Standardpaket.
 Daher muss vor der weiteren Verarbeitung die detektierte Orientierung $^{\mathrm{C}}\mathbf{q}_{\mathrm{M}}$ durch eine feste
 Drehung um $180^\circ$ um die $x$-Achse des Markers an die Konvention der Karte angeglichen werden.
 
-Zur Positionsbestimmung  ist die Pose der Kamera im Kartenkoordinatensystem, $^{\mathrm{K}}\mathbf{T}_{\mathrm{C}}$ gesucht.
+Zur Positionsbestimmung ist die Pose der Kamera im Kartenkoordinatensystem, $^{\mathrm{K}}\mathbf{T}_{\mathrm{C}}$ gesucht.
 Konzeptionell entspricht dies der Verkettung der bekannten Markerpose mit der invertierten Detektion gemäß den
 Gleichungen~\eqref{eq:trafo_verkettung} und~\eqref{eq:trafo_inverse}:
 \begin{equation}
@@ -378,9 +378,9 @@ Als Maß hierfür dient die Norm der unmittelbar detektierten, \emph{unskalierte
 \end{equation}
 Da der Detektor die Translation für alle Marker mit der festen Referenzgröße $a_{\mathrm{ref}}$ berechnet, 
 ist die Norm $\tilde{d}$ kein Maß für die tatsächliche Entfernung, sondern für die scheinbare Größe des Markers im Bild.
-So wird abgebildet, dass im Bild große Marker aufgrund der höheren Genauigkeit mit einem größeren Gewicht in die Schätzung einfließt, 
+So wird abgebildet, dass im Bild große Marker aufgrund der höheren Genauigkeit mit einem größeren Gewicht in die Schätzung einfließen, 
 als kleinere Marker mit geringerer Genauigkeit.
-Die Gewichtung der Marker erfolgt dadurch nur auf Basis der Pixelgröße, unabhängig von der tatsächlichen Entfernung des markers zum Objektiv.
+Die Gewichtung der Marker erfolgt dadurch nur auf Basis der Pixelgröße, unabhängig von der tatsächlichen Entfernung des Markers zum Objektiv.
 
 
 
@@ -399,8 +399,8 @@ Die minimale Teilmenge zur Modellbestimmung der Position besteht aus einer einze
 Als Abstand $d(\mathbf{x}_i, \mathcal{M})$ nach Gleichung~\eqref{eq:ransac_inlier} dient die euklidische Distanz zwischen einer Schätzung und der Hypothese.
 Da das \gls{uav} sehr unterschiedlich weit von Tags entfernt sein kann und mit der Entfernung die Positioniergenauigkeit in Metern abnimmt,
 wird der Inlier-Schwellwert variabel zur mittleren Markerdistanz gestaltet.
-Bezeichnet $\bar{d}$ die mittlere Markerdistanz, $d_{\mathrm{ref}}$ die Referenzdistanz (Parameter \texttt{ransac\_reference\_\-distance\_m})
-und $\tau_0$ die Basisschwelle (Parameter \texttt{ransac\_base\_\-threshold\_m}), ergibt sich der adaptive Schwellenwert $\tau$ zu
+Bezeichnet \glsadd{sym:dbar}$\bar{d}$ die mittlere Markerdistanz, \glsadd{sym:dref}$d_{\mathrm{ref}}$ die Referenzdistanz (Parameter \texttt{ransac\_reference\_\-distance\_m})
+und \glsadd{sym:tau0}$\tau_0$ die Basisschwelle (Parameter \texttt{ransac\_base\_\-threshold\_m}), ergibt sich der adaptive Schwellenwert \glsadd{sym:tau}$\tau$ zu
 \begin{equation}
 \tau = \tau_0 \cdot f, \qquad
 f =
@@ -415,7 +415,7 @@ Die untere Schranke verhindert einen unrealistisch kleinen Schwellenwert bei seh
 die obere Schranke $f_{\max}$ (Parameter \texttt{ransac\_max\_distance\_factor}) begrenzt ihn bei großer Distanz.
 Die weitere Verarbeitung hängt von der Anzahl~$n$ der vorliegenden Schätzungen ab.
 
-Wird in einem Bild nur ein einzelner Marker detektiert, ist kein vergleich möglich. 
+Wird in einem Bild nur ein einzelner Marker detektiert, ist kein Vergleich möglich. 
 Die Schätzung wird unverändert weitergegeben.
 
 Bei genau zwei Schätzungen wird geprüft, ob ihr Abstand den Schwellenwert~$\tau$ unterschreitet. 
@@ -444,7 +444,7 @@ Wird $n_{\min}$ nicht erreicht, gilt der Konsens als unzuverlässig und es wird 
 Die aus der Ausreißerfilterung hervorgegangene Konsensmenge $\mathcal{I}$ enthält die als zuverlässig eingestuften Schätzungen der Kamerapose.
 Diese werden zu einer einzigen Schätzung $\bigl(^{\mathrm{K}}\mathbf{t}_{\mathrm{C}},\,{^{\mathrm{K}}\mathbf{q}_{\mathrm{C}}}\bigr)$ zusammengefasst.
 Da sich Position und Orientierung unterschiedlich mitteln lassen, werden beide getrennt behandelt.
-In beide Fälle gehen die Schätzungen mit den Gewichten $w_i$ aus Gleichung~\eqref{eq:pos_gewicht} ein, sodass im Bild größer erscheinende Marker stärker zur fusionierten Pose beitragen.
+In beiden Fälle gehen die Schätzungen mit den Gewichten $w_i$ aus Gleichung~\eqref{eq:pos_gewicht} ein, sodass im Bild größer erscheinende Marker stärker zur fusionierten Pose beitragen.
 
 Die Position ergibt sich als gewichteter Mittelwert der einzelnen Positionsschätzungen $^{\mathrm{K}}\mathbf{t}_{\mathrm{C}}^{(i)}$:
 \begin{equation}
@@ -465,7 +465,7 @@ Kamerapose $\bigl(^{\mathrm{K}}\mathbf{t}_{\mathrm{C}},\,{^{\mathrm{K}}\mathbf{q
 
 
 
-\subsubsection{Transformation der Kameraposen zu Drohnenmittelpunkt}
+\subsubsection{Transformation der Kameraposen zum Drohnenmittelpunkt}
 \label{subsec:pos_drohnenmittelpunkt}
 Die fusionierte Pose aus den Gleichungen~\eqref{eq:pos_fusion_t} und~\eqref{eq:pos_fusion_q} beschreibt die Lage der Kamera im Kartenkoordinatensystem.
 Für die Regelung des \gls{uav} ist jedoch die Pose des Drohnenmittelpunkts~$\mathrm{D}$ maßgeblich.
@@ -522,7 +522,7 @@ Die nach Gleichung~\eqref{eq:pos_kamerafusion_t} und~\eqref{eq:pos_kamerafusion_
 Taktzeitpunkt aus den jeweils aktuellsten Kameraschätzungen neu bestimmt.
 Dadurch übertragen sich das Rauschen der einzelnen Detektionen und kleine Sprünge zwischen aufeinanderfolgenden Schätzungen unmittelbar auf die ausgegebene Pose.
 Um diese hochfrequenten Anteile zu dämpfen, wird die fusionierte Pose vor der Ausgabe zeitlich geglättet.
-Die Gelättung von Position und Orientierung getrennt. 
+Die Glättung von Position und Orientierung getrennt. 
 
 Die Position wird durch einen exponentiell gewichteten gleitenden Mittelwert, \gls{ema} geglättet.
 Bezeichnet $^{\mathrm{K}}\mathbf{t}_{\mathrm{D}}[k]$ die fusionierte Position zum Taktzeitpunkt~$k$ und $^{\mathrm{K}}\hat{\mathbf{t}}_{\mathrm{D}}[k]$ die geglättete Position, so ergibt sich diese rekursiv aus dem vorherigen geglätteten Wert und der aktuellen Schätzung:
@@ -547,7 +547,7 @@ festgelegt und wirkt analog zu $\alpha_{\mathrm{t}}$.
 \subsubsection{Transformation in das PX4-Koordinatensystem und Ausgabe hier muss noch korrektur gelesen werden!!!}
 \label{subsec:pos_frame_ausgabe}
 Die bisher bestimmte geglättete Pose $\bigl(^{\mathrm{K}}\hat{\mathbf{t}}_{\mathrm{D}},\,{^{\mathrm{K}}\hat{\mathbf{q}}_{\mathrm{D}}}\bigr)$
-liegt im Kartenkoordinatensystem vor, das der in Abschnitt~\ref{sec:koordinatensysteme} eingeführten ENU/FLU-Konvention folgt.
+liegt im Kartenkoordinatensystem vor, das der in Abschnitt~\ref{sec:vergleich_koordinatensysteme} eingeführten ENU/FLU-Konvention folgt.
 Da PX4 die Pose im NED/FRD-System benötigt, wird sie vor der Ausgabe von ENU/FLU nach NED/FRD umgerechnet.
 
 Zusätzlich zur Pose wird der Nachricht eine Unsicherheit in Form von Varianzen für Position und Orientierung beigegeben.

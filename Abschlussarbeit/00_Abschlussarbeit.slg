@@ -1,11 +1,18 @@
 ;; This logfile was generated automatically by `xindy'
-;; at 18.06.2026  22:19:19
-;; Indexstyle: "/tmp/YKxZP96cgH", Rawindex: "/tmp/hGefRVVejy", Output: "00_Abschlussarbeit.syi"
+;; at 18.06.2026  22:43:34
+;; Indexstyle: "/tmp/UdcTECho7c", Rawindex: "/tmp/0Cfk0vjcBw", Output: "00_Abschlussarbeit.syi"
 
 
 Building indexentry-tree:
 Hierdepth of index is :TREE
 
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
@@ -114,6 +121,13 @@ Letter-group: "®†€»" -> "K"
 Letter-group: "" -> "D"
 Letter-group: "Ë3" -> "R"
 Letter-group: "È2" -> "P"
+Letter-group: "Ú†" -> "T"
+Letter-group: "€»" -> "A"
+Letter-group: "€Ë—œ" -> "A"
+Letter-group: "„€Ë" -> "D"
+Letter-group: "Ë—œ" -> "D"
+Letter-group: "Ú€à0" -> "T"
+Letter-group: "Ú€à" -> "T"
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 Letter-group: "€´È¤€" -> "A"
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)

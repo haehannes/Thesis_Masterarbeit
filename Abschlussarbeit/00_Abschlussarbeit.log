@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.11.7)  18 JUN 2026 22:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.11.7)  18 JUN 2026 22:43
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1561,7 +1561,7 @@ Overfull \hbox (12.0pt too wide) in alignment at lines 25--173
 
 
 ] (./04_Symbole.tex) (./00_Abschlussarbeit.syi
-Overfull \hbox (3.46408pt too wide) in alignment at lines 25--152
+Overfull \hbox (3.46408pt too wide) in alignment at lines 25--166
  [] [] 
  []
 
@@ -1578,7 +1578,7 @@ chapter 2.
 [2
 
 ]
-<Bilder/Koordinatensysteme.png, id=355, 963.6pt x 542.025pt>
+<Bilder/Koordinatensysteme.png, id=362, 963.6pt x 542.025pt>
 File: Bilder/Koordinatensysteme.png Graphic file (type png)
 <use Bilder/Koordinatensysteme.png>
 Package pdftex.def Info: Bilder/Koordinatensysteme.png  used on input line 57.
@@ -1589,7 +1589,7 @@ Overfull \hbox (0.76779pt too wide) in paragraph at lines 67--71
  []
 
 [3 <./Bilder/Koordinatensysteme.png>]
-<Bilder/Roll_Yaw_Pitch.png, id=399, 963.6pt x 542.025pt>
+<Bilder/Roll_Yaw_Pitch.png, id=406, 963.6pt x 542.025pt>
 File: Bilder/Roll_Yaw_Pitch.png Graphic file (type png)
 <use Bilder/Roll_Yaw_Pitch.png>
 Package pdftex.def Info: Bilder/Roll_Yaw_Pitch.png  used on input line 100.
@@ -1602,7 +1602,7 @@ LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10.95> not available
 LaTeX Warning: Citation 'Lynch2017' on page 8 undefined on input line 295.
 
 [8] [9] [10]
-<Bilder/Basebord_und_cube.png, id=542, 560.64pt x 253.821pt>
+<Bilder/Basebord_und_cube.png, id=549, 560.64pt x 253.821pt>
 File: Bilder/Basebord_und_cube.png Graphic file (type png)
 <use Bilder/Basebord_und_cube.png>
 Package pdftex.def Info: Bilder/Basebord_und_cube.png  used on input line 419.
@@ -1634,19 +1634,19 @@ LaTeX Warning: Reference `sec:Sensorsysteme' on page 15 undefined on input line 
 [15
 
 ] [16]
-<Bilder/Loop_Closure.png, id=710, 438.219pt x 219.438pt>
+<Bilder/Loop_Closure.png, id=717, 438.219pt x 219.438pt>
 File: Bilder/Loop_Closure.png Graphic file (type png)
 <use Bilder/Loop_Closure.png>
 Package pdftex.def Info: Bilder/Loop_Closure.png  used on input line 142.
 (pdftex.def)             Requested size: 455.24411pt x 227.97908pt.
  [17] [18 <./Bilder/Loop_Closure.png>]
-<Bilder/Faktorgraph_vereinfacht.png, id=745, 813.804pt x 348.648pt>
+<Bilder/Faktorgraph_vereinfacht.png, id=752, 813.804pt x 348.648pt>
 File: Bilder/Faktorgraph_vereinfacht.png Graphic file (type png)
 <use Bilder/Faktorgraph_vereinfacht.png>
 Package pdftex.def Info: Bilder/Faktorgraph_vereinfacht.png  used on input line 183.
 (pdftex.def)             Requested size: 455.24411pt x 195.03938pt.
  [19 <./Bilder/Faktorgraph_vereinfacht.png>]
-<Bilder/Uebersicht_Marker.png, id=785, 848.187pt x 225.57pt>
+<Bilder/Uebersicht_Marker.png, id=792, 848.187pt x 225.57pt>
 File: Bilder/Uebersicht_Marker.png Graphic file (type png)
 <use Bilder/Uebersicht_Marker.png>
 Package pdftex.def Info: Bilder/Uebersicht_Marker.png  used on input line 248.
@@ -1674,43 +1674,43 @@ Overfull \hbox (1.03612pt too wide) in paragraph at lines 207--212
  []
 
 [25]
-<Bilder/Verkabelung.png, id=908, 789.933pt x 401.427pt>
+<Bilder/Verkabelung.png, id=915, 789.933pt x 401.427pt>
 File: Bilder/Verkabelung.png Graphic file (type png)
 <use Bilder/Verkabelung.png>
 Package pdftex.def Info: Bilder/Verkabelung.png  used on input line 220.
 (pdftex.def)             Requested size: 455.24411pt x 231.35162pt.
-<Bilder/Softwarearchitektur.png, id=910, 966.666pt x 282.072pt>
+<Bilder/Softwarearchitektur.png, id=917, 966.666pt x 282.072pt>
 File: Bilder/Softwarearchitektur.png Graphic file (type png)
 <use Bilder/Softwarearchitektur.png>
-Package pdftex.def Info: Bilder/Softwarearchitektur.png  used on input line 240.
+Package pdftex.def Info: Bilder/Softwarearchitektur.png  used on input line 241.
 (pdftex.def)             Requested size: 455.24411pt x 132.8364pt.
  [26 <./Bilder/Verkabelung.png>]
 
-LaTeX Warning: Reference `sec:kommunikation' on page 27 undefined on input line 268.
+LaTeX Warning: Reference `sec:kommunikation' on page 27 undefined on input line 269.
 
 
-LaTeX Warning: Reference `sec:flugsteuerung' on page 27 undefined on input line 272.
+LaTeX Warning: Reference `sec:flugsteuerung' on page 27 undefined on input line 273.
 
 
-LaTeX Warning: Reference `sec:bedienung' on page 27 undefined on input line 275.
+LaTeX Warning: Reference `sec:bedienung' on page 27 undefined on input line 276.
 
-<Bilder/aerodrohm.png, id=924, 1144.275pt x 572.1375pt>
+<Bilder/aerodrohm.png, id=931, 1144.275pt x 572.1375pt>
 File: Bilder/aerodrohm.png Graphic file (type png)
 <use Bilder/aerodrohm.png>
-Package pdftex.def Info: Bilder/aerodrohm.png  used on input line 283.
+Package pdftex.def Info: Bilder/aerodrohm.png  used on input line 284.
 (pdftex.def)             Requested size: 455.24411pt x 227.62pt.
 [27 <./Bilder/Softwarearchitektur.png>]) (./25_Implementierung_Kartierung.tex [28 <./Bilder/aerodrohm.png>]
 chapter 5.
 [29
 
 ]
-<Bilder/Paarweiser_Vergleich_SLAM.png, id=952, 1509.64pt x 907.39pt>
+<Bilder/Paarweiser_Vergleich_SLAM.png, id=959, 1509.64pt x 907.39pt>
 File: Bilder/Paarweiser_Vergleich_SLAM.png Graphic file (type png)
 <use Bilder/Paarweiser_Vergleich_SLAM.png>
 Package pdftex.def Info: Bilder/Paarweiser_Vergleich_SLAM.png  used on input line 63.
 (pdftex.def)             Requested size: 455.24411pt x 273.63135pt.
  [30 <./Bilder/Paarweiser_Vergleich_SLAM.png>]
-<Bilder/Nutzwertanalyse_slam.png, id=971, 1364.09625pt x 970.62625pt>
+<Bilder/Nutzwertanalyse_slam.png, id=978, 1364.09625pt x 970.62625pt>
 File: Bilder/Nutzwertanalyse_slam.png Graphic file (type png)
 <use Bilder/Nutzwertanalyse_slam.png>
 Package pdftex.def Info: Bilder/Nutzwertanalyse_slam.png  used on input line 111.
@@ -1742,9 +1742,6 @@ Overfull \hbox (1.67583pt too wide) in paragraph at lines 392--406
 
 [37] [38]) (./26_Implementierung_Positionierung.tex [39]
 chapter 6.
-
-LaTeX Warning: Reference `sec:softwarearchitektur' on page 40 undefined on input line 6.
-
 [40
 
 ]
@@ -1752,7 +1749,7 @@ Overfull \hbox (9.87581pt too wide) in paragraph at lines 69--87
 \T1/lmss/m/n/10.95 Die Po-si-tio-nie-rung ist auf zwei Aus-füh-rungs-um-ge-bun-gen auf-ge-teilt: den Host des Companion-Computers
  []
 
-<Bilder/Architektur_Positionierung.png, id=1131, 529.104pt x 910.164pt>
+<Bilder/Architektur_Positionierung.png, id=1139, 529.104pt x 910.164pt>
 File: Bilder/Architektur_Positionierung.png Graphic file (type png)
 <use Bilder/Architektur_Positionierung.png>
 Package pdftex.def Info: Bilder/Architektur_Positionierung.png  used on input line 91.
@@ -1760,11 +1757,7 @@ Package pdftex.def Info: Bilder/Architektur_Positionierung.png  used on input li
 
 LaTeX Warning: Float too large for page by 25.61731pt on input line 94.
 
-[41] [42 <./Bilder/Architektur_Positionierung.png>]
-
-LaTeX Warning: Reference `Kamera_Kalibrierung' on page 43 undefined on input line 113.
-
-[43]
+[41] [42 <./Bilder/Architektur_Positionierung.png>] [43]
 
 LaTeX Warning: Reference `fig:kalibrierbox' on page 44 undefined on input line 192.
 
@@ -1791,10 +1784,6 @@ LaTeX Font Info:    Trying to load font information for OT1+lmtt on input line 4
  (/usr/share/texmf/tex/latex/lm/ot1lmtt.fd
 File: ot1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) [50{/usr/share/texmf/fonts/enc/dvips/lm/lm-rmtt.enc}]
-
-LaTeX Warning: Reference `sec:koordinatensysteme' on page 51 undefined on input line 550.
-
-
 Overfull \hbox (43.00185pt too wide) in paragraph at lines 553--558
 \T1/lmss/m/n/10.95 Standardabweichung (\T1/pcr/m/n/10.95 covariance_pos_base_sigma_m \T1/lmss/m/n/10.95 bzw. \T1/pcr/m/n/10.95 covariance_rot_base_sigma_rad\T1/lmss/m/n/10.95 )
  []
@@ -1919,18 +1908,18 @@ Package logreq Info: Writing requests to '00_Abschlussarbeit.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 47315 strings out of 474222
- 956134 string characters out of 5748733
- 2035975 words of memory out of 5000000
- 68394 multiletter control sequences out of 15000+600000
+ 48371 strings out of 474222
+ 977059 string characters out of 5748733
+ 2034975 words of memory out of 5000000
+ 69443 multiletter control sequences out of 15000+600000
  638615 words of font info for 101 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  108i,20n,107p,10958b,4127s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmss10.pfb></usr/share/texmf/fonts/type1/public/lm/lmss12.pfb></usr/share/texmf/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf/fonts/type1/public/lm/lmss8.pfb></usr/share/texmf/fonts/type1/public/lm/lmss9.pfb></usr/share/texmf/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsso10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsso8.pfb></usr/share/texmf/fonts/type1/public/lm/lmsso9.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on 00_Abschlussarbeit.pdf (74 pages, 4475671 bytes).
+Output written on 00_Abschlussarbeit.pdf (74 pages, 4476307 bytes).
 PDF statistics:
- 1958 PDF objects out of 2073 (max. 8388607)
- 1782 compressed objects within 18 object streams
- 467 named destinations out of 1000 (max. 500000)
+ 1970 PDF objects out of 2073 (max. 8388607)
+ 1794 compressed objects within 18 object streams
+ 474 named destinations out of 1000 (max. 500000)
  746 words of extra memory for PDF output out of 10000 (max. 10000000)
 

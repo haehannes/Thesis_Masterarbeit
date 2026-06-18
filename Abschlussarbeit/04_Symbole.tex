@@ -87,3 +87,50 @@
 
 
 
+% ===== Frames der Positionierung =====
+\newglossaryentry{sym:frameK}{type=symbols, name={\ensuremath{\mathrm{K}}}, description={Kartenkoordinatensystem (ENU)}, sort={frameK}}
+\newglossaryentry{sym:frameC}{type=symbols, name={\ensuremath{\mathrm{C}}}, description={Kamerakoordinatensystem}, sort={frameC}}
+\newglossaryentry{sym:frameM}{type=symbols, name={\ensuremath{\mathrm{M}}}, description={Markerkoordinatensystem}, sort={frameM}}
+\newglossaryentry{sym:frameD}{type=symbols, name={\ensuremath{\mathrm{D}}}, description={Koordinatensystem des Drohnenmittelpunkts}, sort={frameD}}
+\newglossaryentry{sym:frameW}{type=symbols, name={\ensuremath{\mathrm{W}}}, description={Koordinatensystem der Kalibrierbox}, sort={frameW}}
+
+%extrinsische Kalibrierung
+\newglossaryentry{sym:TDC}{type=symbols, name={\ensuremath{^{\mathrm{D}}\mathbf{T}_{\mathrm{C}}}}, description={Transformation vom Drohnenmittelpunkt zur Kamera}, sort={TDC}}
+\newglossaryentry{sym:TWD}{type=symbols, name={\ensuremath{^{\mathrm{W}}\mathbf{T}_{\mathrm{D}}}}, description={Pose des Drohnenmittelpunkts im Kalibrierbox-Koordinatensystem}, sort={TWD}}
+\newglossaryentry{sym:TWC}{type=symbols, name={\ensuremath{^{\mathrm{W}}\mathbf{T}_{\mathrm{C}}}}, description={Pose der Kamera im Kalibrierbox-Koordinatensystem}, sort={TWC}}
+
+
+%Posenberechnung je marker
+\newglossaryentry{sym:TKM}{type=symbols, name={\ensuremath{^{\mathrm{K}}\mathbf{T}_{\mathrm{M}}}}, description={Lage des Markers im Kartenkoordinatensystem}, sort={TKM}}
+\newglossaryentry{sym:TKC}{type=symbols, name={\ensuremath{^{\mathrm{K}}\mathbf{T}_{\mathrm{C}}}}, description={Pose der Kamera im Kartenkoordinatensystem}, sort={TKC}}
+\newglossaryentry{sym:TMC}{type=symbols, name={\ensuremath{^{\mathrm{M}}\mathbf{T}_{\mathrm{C}}}}, description={Lage der Kamera relativ zum Marker}, sort={TMC}}
+\newglossaryentry{sym:tCMtilde}{type=symbols, name={\ensuremath{^{\mathrm{C}}\tilde{\mathbf{t}}_{\mathrm{M}}}}, description={detektierter (unskalierter) Translationsvektor Kamera--Marker}, sort={tCMtilde}}
+\newglossaryentry{sym:tCM}{type=symbols, name={\ensuremath{^{\mathrm{C}}\mathbf{t}_{\mathrm{M}}}}, description={skalierter Translationsvektor Kamera--Marker}, sort={tCM}}
+\newglossaryentry{sym:qCM}{type=symbols, name={\ensuremath{^{\mathrm{C}}\mathbf{q}_{\mathrm{M}}}}, description={detektierte Orientierung des Markers im Kamerakoordinatensystem}, sort={qCM}}
+\newglossaryentry{sym:aM}{type=symbols, name={\ensuremath{a_{\mathrm{M}}}}, description={Kantenlänge des Markers}, sort={aM}}
+\newglossaryentry{sym:aref}{type=symbols, name={\ensuremath{a_{\mathrm{ref}}}}, description={Referenz-Markergröße}, sort={aref}}
+\newglossaryentry{sym:dtilde}{type=symbols, name={\ensuremath{\tilde{d}}}, description={Pixel-Proxy-Distanz (Norm der unskalierten Translation)}, sort={dtilde}}
+\newglossaryentry{sym:wgewicht}{type=symbols, name={\ensuremath{w}}, description={Gewicht einer Markerschätzung nach scheinbarer Bildgröße}, sort={wgew}}
+
+
+%Ausreißerfilterung mit Ransac
+\newglossaryentry{sym:dbar}{type=symbols, name={\ensuremath{\bar{d}}}, description={mittlere Markerdistanz}, sort={dbar}}
+\newglossaryentry{sym:dref}{type=symbols, name={\ensuremath{d_{\mathrm{ref}}}}, description={Referenzdistanz des adaptiven Schwellenwerts}, sort={dref}}
+\newglossaryentry{sym:tau0}{type=symbols, name={\ensuremath{\tau_0}}, description={Basisschwelle der Inlier-Zuordnung}, sort={tau0}}
+\newglossaryentry{sym:tau}{type=symbols, name={\ensuremath{\tau}}, description={adaptiver Inlier-Schwellenwert}, sort={tau}}
+\newglossaryentry{sym:fscale}{type=symbols, name={\ensuremath{f}}, description={distanzabhängiger Skalierungsfaktor des Schwellenwerts}, sort={fscale}}
+\newglossaryentry{sym:fmax}{type=symbols, name={\ensuremath{f_{\max}}}, description={obere Schranke des Skalierungsfaktors}, sort={fmax}}
+\newglossaryentry{sym:nschaetz}{type=symbols, name={\ensuremath{n}}, description={Anzahl der vorliegenden Schätzungen}, sort={n}}
+\newglossaryentry{sym:nmin}{type=symbols, name={\ensuremath{n_{\min}}}, description={erforderliche Mindestgröße der Konsensmenge}, sort={nmin}}
+\newglossaryentry{sym:nTags}{type=symbols, name={\ensuremath{n_{\mathrm{Tags}}}}, description={Mindestmarkeranzahl pro Frame}, sort={nTags}}
+\newglossaryentry{sym:rratio}{type=symbols, name={\ensuremath{r}}, description={Mindestanteil konsistenter Schätzungen}, sort={rratio}}
+\newglossaryentry{sym:Iset}{type=symbols, name={\ensuremath{\mathcal{I}}}, description={Konsensmenge (Inlier)}, sort={Iset}}
+
+
+%Kamerafusion und Glättung
+\newglossaryentry{sym:TKD}{type=symbols, name={\ensuremath{^{\mathrm{K}}\mathbf{T}_{\mathrm{D}}}}, description={Pose des Drohnenmittelpunkts im Kartenkoordinatensystem}, sort={TKD}}
+\newglossaryentry{sym:TCD}{type=symbols, name={\ensuremath{^{\mathrm{C}}\mathbf{T}_{\mathrm{D}}}}, description={feste Transformation von der Kamera zum Drohnenmittelpunkt}, sort={TCD}}
+\newglossaryentry{sym:wcam}{type=symbols, name={\ensuremath{w_1,\,w_2}}, description={feste Gewichtungsfaktoren der beiden Kameras}, sort={wcam}}
+\newglossaryentry{sym:alphat}{type=symbols, name={\ensuremath{\alpha_{\mathrm{t}}}}, description={Glättungsfaktor des EMA-Filters (Position)}, sort={alphat}}
+\newglossaryentry{sym:alphaq}{type=symbols, name={\ensuremath{\alpha_{\mathrm{q}}}}, description={Interpolationsfaktor der SLERP-Glättung (Orientierung)}, sort={alphaq}}
+\newglossaryentry{sym:ktakt}{type=symbols, name={\ensuremath{k}}, description={Taktindex der Ausgabe}, sort={ktakt}}
