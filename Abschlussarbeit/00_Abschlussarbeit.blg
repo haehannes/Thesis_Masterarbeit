@@ -1,25 +1,25 @@
 [0] Config.pm:307> INFO - This is Biber 2.19
 [0] Config.pm:310> INFO - Logfile is '00_Abschlussarbeit.blg'
-[45] biber:340> INFO - === Do Jun 18, 2026, 21:46:33
-[55] Biber.pm:419> INFO - Reading '00_Abschlussarbeit.bcf'
-[111] Biber.pm:979> INFO - Found 67 citekeys in bib section 0
-[120] Biber.pm:4419> INFO - Processing section 0
-[127] Biber.pm:4610> INFO - Looking for bibtex file 'Literatur.bib' for section 0
-[130] bibtex.pm:1713> INFO - LaTeX decoding ...
-[170] bibtex.pm:1519> INFO - Found BibTeX data source 'Literatur.bib'
-[442] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[442] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[442] Biber.pm:4239> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-US'
-[442] Biber.pm:4245> INFO - No sort tailoring available for locale 'en-US'
-[466] bbl.pm:660> INFO - Writing '00_Abschlussarbeit.bbl' with encoding 'UTF-8'
-[481] bbl.pm:763> INFO - Output to 00_Abschlussarbeit.bbl
-[481] Biber.pm:131> WARN - BibTeX subsystem: /tmp/biber_tmp_Cxry/fe6d16e8a0935a16f008a64fa11444f8_24386.utf8, line 17, warning: undefined macro "June"
-[481] Biber.pm:131> WARN - BibTeX subsystem: /tmp/biber_tmp_Cxry/fe6d16e8a0935a16f008a64fa11444f8_24386.utf8, line 205, warning: undefined macro "Sept"
-[481] Biber.pm:131> WARN - BibTeX subsystem: /tmp/biber_tmp_Cxry/fe6d16e8a0935a16f008a64fa11444f8_24386.utf8, line 288, warning: undefined macro "July"
-[481] Biber.pm:131> WARN - BibTeX subsystem: /tmp/biber_tmp_Cxry/fe6d16e8a0935a16f008a64fa11444f8_24386.utf8, line 504, warning: undefined macro "Sept"
-[481] Biber.pm:131> WARN - BibTeX subsystem: /tmp/biber_tmp_Cxry/fe6d16e8a0935a16f008a64fa11444f8_24386.utf8, line 566, warning: undefined macro "July"
-[481] Biber.pm:131> WARN - BibTeX subsystem: /tmp/biber_tmp_Cxry/fe6d16e8a0935a16f008a64fa11444f8_24386.utf8, line 666, warning: undefined macro "July"
-[481] Biber.pm:131> WARN - I didn't find a database entry for 'Lynch2017' (section 0)
-[481] Biber.pm:131> WARN - I didn't find a database entry for 'ROS2Humble' (section 0)
-[481] Biber.pm:131> WARN - I didn't find a database entry for 'ali_camera' (section 0)
-[481] Biber.pm:133> INFO - WARNINGS: 9
+[48] biber:340> INFO - === Do Jun 18, 2026, 22:03:02
+[58] Biber.pm:419> INFO - Reading '00_Abschlussarbeit.bcf'
+[109] Biber.pm:979> INFO - Found 67 citekeys in bib section 0
+[118] Biber.pm:4419> INFO - Processing section 0
+[125] Biber.pm:4610> INFO - Looking for bibtex file 'Literatur.bib' for section 0
+[128] bibtex.pm:1713> INFO - LaTeX decoding ...
+[165] bibtex.pm:1519> INFO - Found BibTeX data source 'Literatur.bib'
+[422] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[422] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[422] Biber.pm:4239> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-US'
+[422] Biber.pm:4245> INFO - No sort tailoring available for locale 'en-US'
+[446] bbl.pm:660> INFO - Writing '00_Abschlussarbeit.bbl' with encoding 'UTF-8'
+[461] bbl.pm:763> INFO - Output to 00_Abschlussarbeit.bbl
+[462] Biber.pm:131> WARN - BibTeX subsystem: /tmp/biber_tmp_Lgkt/fe6d16e8a0935a16f008a64fa11444f8_25065.utf8, line 17, warning: undefined macro "June"
+[462] Biber.pm:131> WARN - BibTeX subsystem: /tmp/biber_tmp_Lgkt/fe6d16e8a0935a16f008a64fa11444f8_25065.utf8, line 205, warning: undefined macro "Sept"
+[462] Biber.pm:131> WARN - BibTeX subsystem: /tmp/biber_tmp_Lgkt/fe6d16e8a0935a16f008a64fa11444f8_25065.utf8, line 288, warning: undefined macro "July"
+[462] Biber.pm:131> WARN - BibTeX subsystem: /tmp/biber_tmp_Lgkt/fe6d16e8a0935a16f008a64fa11444f8_25065.utf8, line 504, warning: undefined macro "Sept"
+[462] Biber.pm:131> WARN - BibTeX subsystem: /tmp/biber_tmp_Lgkt/fe6d16e8a0935a16f008a64fa11444f8_25065.utf8, line 566, warning: undefined macro "July"
+[462] Biber.pm:131> WARN - BibTeX subsystem: /tmp/biber_tmp_Lgkt/fe6d16e8a0935a16f008a64fa11444f8_25065.utf8, line 666, warning: undefined macro "July"
+[462] Biber.pm:131> WARN - I didn't find a database entry for 'Lynch2017' (section 0)
+[462] Biber.pm:131> WARN - I didn't find a database entry for 'ROS2Humble' (section 0)
+[462] Biber.pm:131> WARN - I didn't find a database entry for 'ali_camera' (section 0)
+[462] Biber.pm:133> INFO - WARNINGS: 9

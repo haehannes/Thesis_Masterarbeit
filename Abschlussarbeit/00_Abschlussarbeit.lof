@@ -13,14 +13,14 @@
 \contentsline {figure}{\numberline {3.3}{\ignorespaces Übersicht gängiger Fiducial-Marker: a) ARTag; b) AprilTag; c) Aruco d) Stag \blx@tocontentsinit {0}\cite {STag_Loipfuehrer2022,Artag_Bild}}}{20}{figure.caption.14}%
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {4.1}{\ignorespaces Physischer Aufbau des Fluggeräts mit den verbauten Komponenten}}{24}{figure.caption.15}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Hardware-Blockschaltbild mit Anschlussverdrahtung}}{27}{figure.caption.25}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Softwarearchitektur mit den Strängen zur Lokalisierung und zur Kartierung}}{27}{figure.caption.26}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Flughalle AerodrOhm am \gls {oic} der Technischen Hochschule Nürnberg \blx@tocontentsinit {0}\cite {aerodrohm}}}{29}{figure.caption.27}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Hardware-Blockschaltbild mit Anschlussverdrahtung}}{26}{figure.caption.23}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Softwarearchitektur mit den Strängen zur Lokalisierung und zur Kartierung}}{27}{figure.caption.24}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Flughalle AerodrOhm am \gls {oic} der Technischen Hochschule Nürnberg \blx@tocontentsinit {0}\cite {aerodrohm}}}{28}{figure.caption.25}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Paarweiser Vergleich Bewertungskriterien der SLAM-Varianten}}{31}{figure.caption.28}%
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Nutzwertanalyse der SLAM-Varianten}}{33}{figure.caption.29}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Paarweiser Vergleich Bewertungskriterien der SLAM-Varianten}}{30}{figure.caption.26}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Nutzwertanalyse der SLAM-Varianten}}{32}{figure.caption.27}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Knoten und Topics der Positionierung, aufgeteilt nach Host und Container}}{43}{figure.caption.32}%
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Knoten und Topics der Positionierung, aufgeteilt nach Host und Container}}{42}{figure.caption.30}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

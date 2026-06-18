@@ -18,7 +18,7 @@ Rückgriff auf ein \gls{gps} eine stabile Pose im Raum bestimmen kann.
 Anstelle einer satellitengestützten Positionsbestimmung wird die Pose 
 des \gls{uav} aus einer externen, kamerabasierten Lokalisierung abgeleitet.
 
-DZur Lokalisierung soll eine Karte der Versuchsumgebung genutzt werden, 
+Zur Lokalisierung soll eine Karte der Versuchsumgebung genutzt werden, 
 anhand derer die Position des \gls{uav} im Weltkoordinatensystem 
 bestimmt werden kann.
 Die Karte soll erweiterbar sein, sodass der nutzbare Flugbereich bei 
@@ -86,7 +86,7 @@ Abbildung~\ref{fig:drohnenaufbau} zeigt den physischen Aufbau des Fluggeräts mi
 \end{figure}
 \FloatBarrier
 
-\subsection*{Flugplattform}
+
 
 
 \subsection*{Flugplattform}
@@ -95,6 +95,7 @@ Holybro X650, der in der mit Motoren und Reglern vorkonfektionierten
 ARF-Variante (Almost Ready to Fly) verwendet wird.
 Das Gesamtgewicht des Kits beträgt ohne Akku rund 2000\,g, die maximale 
 Nutzlast ohne Akku liegt bei etwa 4,3\,kg.\cite{holybro_x650}
+\textcolor{red}{nochmal gegenchecken mit Grundlagen kapitel}
 
 \subsection*{Companion-Computer}
 Als Companion-Computer wird ein reComputer Mini J3011 von Seeed Studio eingesetzt.
@@ -109,18 +110,13 @@ Für den Einsatz in dieser Arbeit wurde das System mit JetPack~6.2.1
 neu geflasht, das auf Ubuntu~22.04.5 LTS und L4T~R36.4.3 basiert, um die 
 benötigte ROS2- und Bildverarbeitungssoftware betreiben zu können.
 
-\subsection*{Flugcontroller}
-Die Flugsteuerung übernimmt der Flugcontroller Pixhawk 6X (FMU-V6X), auf 
-dem der Autopilot \gls{px4} ausgeführt wird.
-In dieser Arbeit wird \gls{px4} in der Version~1.16.0 betrieben, die auf 
-dem Echtzeitbetriebssystem NuttX~v11.0.0 aufsetzt.
 
 \subsection*{Flugcontroller}
 Die Flugsteuerung übernimmt der Flugcontroller Pixhawk 6X (FMU-V6X), auf
 dem der Autopilot \gls{px4} ausgeführt wird.
-In dieser Arbeit wird \gls{px4} in der Version~1.16.0 betrieben, die auf
+In dieser Arbeit wird \gls{px4} in der Version~1.16.1 betrieben, die auf
 dem Echtzeitbetriebssystem NuttX~v11.0.0 aufsetzt.
-\gls{px4} verwendet die \gls{ned}/{frd}-Konvention.
+\gls{px4} verwendet die \gls{ned}/\gls{frd}-Konvention.
 
 \subsection*{Kamerasysteme}
 Zur Lokalisierung stehen mehrere handelsübliche \gls{usb}-Kameras zur 
@@ -208,7 +204,7 @@ Bodenstation         & Laptop / QGroundControl        & --      & Ubuntu~24.04.4
 In Abbildung~\ref{fig:Verkabelung} ist der Hardwareaufbau des Gesamtsystems als Blockschaltbild mit Anschlussverdrahtung dargestellt.
 Schwarze Linien kennzeichnen dabei Daten- und Signalverbindungen, rote Linien die Energieversorgung.
 
-Die drei Kameras können über \gls{usb} mit dem Companion-Computer verbunden.
+Die drei Kameras können über \gls{usb} mit dem Companion-Computer verbunden werden.
 Der Companion-Computer kann sowohl über einen \gls{usb}-zu-Ethernet-Adapter an die Ethernet-Schnittstelle des Flugcontrollers angebunden werden, 
 als auch direkt via \gls{usb}.
 Am Flugcontroller sind weiterhin das Telemetriemodul, das GPS-Modul sowie der Empfänger der Fernsteuerung angeschlossen.
@@ -248,13 +244,13 @@ Der Aufbau ist in Abbildung~\ref{fig:softwarearchitektur} dargestellt.
 \FloatBarrier
 
 Die Bildaufnahme bildet die Schnittstelle zu den am Fluggerät montierten Kameras.
-Über dieses Modul werden die Kamerabilder aufgenommen und für die weitere bereitgestellt.
+Über dieses Modul werden die Kamerabilder aufgenommen und für die weiter Verarbeitung bereitgestellt.
 
 Die Entzerrung korrigiert die durch das Kameraobjektiv verursachte Verzeichnung anhand der zuvor bestimmten Kalibrierparameter.
 Ohne diese Korrektur würden die Bildkoordinaten der erkannten Merkmale systematisch verfälscht und die daraus berechnete Pose verzerrt.
 Die Grundlagen des Kameramodells und der Kalibrierung werden in Abschnitt~\ref{sec:kartierung_entzerrung} behandelt.
 
-Die Bildverarbeitung detektiert und extrahiert die markanten Bildmerkmale aus entzerrten Kamerastream. 
+Die Bildverarbeitung detektiert und extrahiert die markanten Bildmerkmale aus dem entzerrten Kamerastream. 
 Für jedes Merkmal liefert die Bildverarbeitung die relative Position zwischen Kamera und Merkmal.
 
 Die Kartierung erzeugt die Karte, auf die sich die Positionsbestimmung stützt.
@@ -286,11 +282,11 @@ Die Halle bietet eine Grundfläche von $280\,\text{m}^2$ bei einer nutzbaren Flu
 \centering
 \includegraphics[width=1.0\textwidth]{Bilder/aerodrohm.png}
 \caption{Flughalle AerodrOhm am \gls{oic} der Technischen Hochschule Nürnberg \cite{aerodrohm}}
-\label{fig:softwarearchitektur}
+\label{fig:aerodrohm}
 \end{figure}
 \FloatBarrier
 Der Hallenboden ist mit einem spiegelnden Belag ausgestattet.
 Zwei der vier Hallenwände bestehen aus unverputztem Ziegelmauerwerk und weisen daher eine strukturierte Oberfläche auf.
 Die übrigen zwei Wände sind mit großflächigen Fenstern versehen, deren Jalousien je nach Zustand geöffnet oder geschlossen sein können.
-Dies hat unmittelbaren Einfluss auf die Lichtverhältnisse in der Halle: Bei geöffneten Jalousien kann einfallender Tageslicht zu Gegenlicht führen, 
+Dies hat unmittelbaren Einfluss auf die Lichtverhältnisse in der Halle: Bei geöffneten Jalousien kann einfallendes Tageslicht zu Gegenlicht führen, 
 sobald die Kamera in Richtung der Fensterflächen ausgerichtet ist.

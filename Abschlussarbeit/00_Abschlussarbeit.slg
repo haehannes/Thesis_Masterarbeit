@@ -1,11 +1,14 @@
 ;; This logfile was generated automatically by `xindy'
-;; at 18.06.2026  21:46:34
-;; Indexstyle: "/tmp/uwpXN8eiiO", Rawindex: "/tmp/cFrmD3qwLd", Output: "00_Abschlussarbeit.syi"
+;; at 18.06.2026  22:03:03
+;; Indexstyle: "/tmp/A3ogGMdGeG", Rawindex: "/tmp/_IxIE3zAS8", Output: "00_Abschlussarbeit.syi"
 
 
 Building indexentry-tree:
 Hierdepth of index is :TREE
 
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
@@ -100,6 +103,9 @@ Letter-group: "¤" -> "H"
 Letter-group: "Ë2" -> "R"
 Letter-group: "Ú2" -> "T"
 Letter-group: "»" -> "M"
+Letter-group: "Ð¨»€å—´" -> "S"
+Letter-group: "ëÈÃÐ—" -> "X"
+Letter-group: "Ú´€¼»€Ë®" -> "T"
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 Letter-group: "€´È¤€" -> "A"
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
@@ -124,6 +130,8 @@ sort-other-runs: ("q") ("Q") (FORWARD FORWARD) 2.
 Letter-group: "Ê" -> "Q"
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 Letter-group: "Ë" -> "R"
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+Letter-group: "Ð¨»€å—´" -> "S"
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 Letter-group: "Ú" -> "T"
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)

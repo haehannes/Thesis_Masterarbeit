@@ -79,6 +79,9 @@
 \glsXpageXglsnumberformat{}{7}}}\relax\glsresetentrylist
 \glossentry{sym:Rmeas}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{10}}}\glsgroupskip
+\glsgroupheading{S}\relax\glsresetentrylist
+\glossentry{sym:sigmavel}{\glossaryentrynumbers{\relax 
+\glsXpageXglsnumberformat{}{16}}}\glsgroupskip
 \glsgroupheading{T}\relax\glsresetentrylist
 \glossentry{sym:Tmat}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{8}}}\relax\glsresetentrylist
@@ -90,7 +93,9 @@
 \glsXpageXglsnumberformat{}{4}}}\relax\glsresetentrylist
 \glossentry{sym:thetaQuat}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{5}\delimN 
-\glsXpageXglsnumberformat{}{6}}}\glsgroupskip
+\glsXpageXglsnumberformat{}{6}}}\relax\glsresetentrylist
+\glossentry{sym:landmark}{\glossaryentrynumbers{\relax 
+\glsXpageXglsnumberformat{}{18}}}\glsgroupskip
 \glsgroupheading{U}\relax\glsresetentrylist
 \glossentry{sym:u}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{9}}}\glsgroupskip
@@ -111,6 +116,8 @@
 \glsXpageXglsnumberformat{}{4}}}\relax\glsresetentrylist
 \glossentry{sym:stateHat}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{9}}}\relax\glsresetentrylist
+\glossentry{sym:pose}{\glossaryentrynumbers{\relax 
+\glsXpageXglsnumberformat{}{18}}}\relax\glsresetentrylist
 \glossentry{sym:Xu}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{3}}}\glsgroupskip
 \glsgroupheading{Y}\relax\glsresetentrylist
