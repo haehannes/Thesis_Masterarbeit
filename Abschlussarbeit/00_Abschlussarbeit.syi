@@ -28,6 +28,9 @@
 \glsXpageXglsnumberformat{}{6}}}\relax\glsresetentrylist
 \glossentry{sym:point}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{7}}}\glsgroupskip
+\glsgroupheading{D}\relax\glsresetentrylist
+\glossentry{sym:dvec}{\glossaryentrynumbers{\relax 
+\glsXpageXglsnumberformat{}{34}}}\glsgroupskip
 \glsgroupheading{F}\relax\glsresetentrylist
 \glossentry{sym:F}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{10}}}\relax\glsresetentrylist
@@ -40,7 +43,9 @@
 \glsXpageXglsnumberformat{}{10}}}\glsgroupskip
 \glsgroupheading{K}\relax\glsresetentrylist
 \glossentry{sym:K}{\glossaryentrynumbers{\relax 
-\glsXpageXglsnumberformat{}{10}}}\glsgroupskip
+\glsXpageXglsnumberformat{}{10}}}\relax\glsresetentrylist
+\glossentry{sym:Kcam}{\glossaryentrynumbers{\relax 
+\glsXpageXglsnumberformat{}{34}}}\glsgroupskip
 \glsgroupheading{M}\relax\glsresetentrylist
 \glossentry{sym:model}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{13}}}\glsgroupskip
@@ -56,6 +61,8 @@
 \glsgroupheading{P}\relax\glsresetentrylist
 \glossentry{sym:P}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{9}}}\relax\glsresetentrylist
+\glossentry{sym:Pproj}{\glossaryentrynumbers{\relax 
+\glsXpageXglsnumberformat{}{35}}}\relax\glsresetentrylist
 \glossentry{sym:roll}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{4}}}\relax\glsresetentrylist
 \glossentry{sym:phiRot}{\glossaryentrynumbers{\relax 
@@ -78,7 +85,9 @@
 \glossentry{sym:Rot}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{7}}}\relax\glsresetentrylist
 \glossentry{sym:Rmeas}{\glossaryentrynumbers{\relax 
-\glsXpageXglsnumberformat{}{10}}}\glsgroupskip
+\glsXpageXglsnumberformat{}{10}}}\relax\glsresetentrylist
+\glossentry{sym:Rrect}{\glossaryentrynumbers{\relax 
+\glsXpageXglsnumberformat{}{35}}}\glsgroupskip
 \glsgroupheading{S}\relax\glsresetentrylist
 \glossentry{sym:sigmavel}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{16}}}\glsgroupskip

@@ -49,3 +49,7 @@
 (indexentry :tkey (("sigmavel" "\\glossentry{sym:sigmavel}") ) :locref "{}{16}" :attr "pageglsnumberformat" ) 
 (indexentry :tkey (("xpose" "\\glossentry{sym:pose}") ) :locref "{}{18}" :attr "pageglsnumberformat" ) 
 (indexentry :tkey (("tlandmark" "\\glossentry{sym:landmark}") ) :locref "{}{18}" :attr "pageglsnumberformat" ) 
+(indexentry :tkey (("Kcam" "\\glossentry{sym:Kcam}") ) :locref "{}{34}" :attr "pageglsnumberformat" ) 
+(indexentry :tkey (("d" "\\glossentry{sym:dvec}") ) :locref "{}{34}" :attr "pageglsnumberformat" ) 
+(indexentry :tkey (("R3" "\\glossentry{sym:Rrect}") ) :locref "{}{35}" :attr "pageglsnumberformat" ) 
+(indexentry :tkey (("P2" "\\glossentry{sym:Pproj}") ) :locref "{}{35}" :attr "pageglsnumberformat" ) 

@@ -2462,3 +2462,115 @@ parent={},%
 %
 }%
 
+\glsdefs@newdocentry{sym:Kcam}%
+{%
+name={\ensuremath {\mathbf {K}}},%
+sort={Kcam},%
+type={symbols},%
+first={\protect \ensuremath  {\protect \mathbf  {K}}},%
+firstplural={\protect \ensuremath  {\protect \mathbf  {K}}s},%
+text={\protect \ensuremath  {\protect \mathbf  {K}}},%
+plural={\protect \ensuremath  {\protect \mathbf  {K}}s},%
+description={Kameramatrix (intrinsische Parameter)},%
+descriptionplural={Kameramatrix (intrinsische Parameter)},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{sym:dvec}%
+{%
+name={\ensuremath {\mathbf {d}}},%
+sort={d},%
+type={symbols},%
+first={\protect \ensuremath  {\protect \mathbf  {d}}},%
+firstplural={\protect \ensuremath  {\protect \mathbf  {d}}s},%
+text={\protect \ensuremath  {\protect \mathbf  {d}}},%
+plural={\protect \ensuremath  {\protect \mathbf  {d}}s},%
+description={Verzeichnungsvektor},%
+descriptionplural={Verzeichnungsvektor},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{sym:Rrect}%
+{%
+name={\ensuremath {\mathbf {R}}},%
+sort={R3},%
+type={symbols},%
+first={\protect \ensuremath  {\protect \mathbf  {R}}},%
+firstplural={\protect \ensuremath  {\protect \mathbf  {R}}s},%
+text={\protect \ensuremath  {\protect \mathbf  {R}}},%
+plural={\protect \ensuremath  {\protect \mathbf  {R}}s},%
+description={Rektifizierungsmatrix},%
+descriptionplural={Rektifizierungsmatrix},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{sym:Pproj}%
+{%
+name={\ensuremath {\mathbf {P}}},%
+sort={P2},%
+type={symbols},%
+first={\protect \ensuremath  {\protect \mathbf  {P}}},%
+firstplural={\protect \ensuremath  {\protect \mathbf  {P}}s},%
+text={\protect \ensuremath  {\protect \mathbf  {P}}},%
+plural={\protect \ensuremath  {\protect \mathbf  {P}}s},%
+description={Projektionsmatrix des entzerrten Bildes},%
+descriptionplural={Projektionsmatrix des entzerrten Bildes},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+

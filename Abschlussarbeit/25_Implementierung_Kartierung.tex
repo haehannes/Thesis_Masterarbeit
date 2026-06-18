@@ -28,7 +28,7 @@ Um eine möglichst genaue Karte zu erhalten und den relativen Fehler der Karte s
 kommen daher ausschließlich optimierungsbasierte \gls{slam}-Methoden zum Einsatz.
 
 
-\subsection{Auswahl der Bewertungskriterien SLAM-Varianten}
+\subsection{Auswahl der Bewertungskriterien der SLAM-Varianten}
 Die Bewertung erfolgt anhand von sieben Kriterien, die sich aus den Anforderungen dieser Arbeit ableiten.
 \textbf{Kostengünstigkeit} und \textbf{Leichtbau} beziehen sich auf die benötigte Sensorhardware.
 Beide sind relevant, da die Lokalisierung auf einem \gls{uav} mit begrenzter Nutzlast und mit geringem monetären Aufwand umgesetzt werden soll.
@@ -159,7 +159,7 @@ Glänzende Oberflächen sind zu vermeiden, da Reflexionen die Helligkeitsüberg�
 \label{sec:ablauf_kartierung}
 Für die Kartierung wurden in dieser Arbeit zwei Ansätze verfolgt.
 Zum einen die Live-Kartierung mittels Tag-\gls{slam} während des Flugs und zum anderen die Offline-Kartierung durch 
-Aufzeichnung von von \gls{ros2}-Bags (siehe Kapitel~\ref{sec:ros_bag}).
+Aufzeichnung von \gls{ros2}-Bags (siehe Kapitel~\ref{sec:ros_bag}).
 
 Es hat sich gezeigt, dass die Live-Kartierung nur bei kleinen Karten zuverlässig funktioniert, da die Optimierung bei größeren Karten zu lange dauert.
 Es konnte keine Konfiguration gefunden werden, mit der TagSLAM die Live-Kartierung einer großen Karte in akzeptabler Zeit bewältigt.
@@ -231,7 +231,7 @@ Aus mehreren Aufnahmen des Schachbretts in verschiedenen Lagen werden die
 Kameraparameter bestimmt.
 
 Das Ergebnis der Kalibrierung sind die folgenden Parameter:
-Die Kameramatrix $\mathbf{K}$ ordnet den ermittelten Werten die intrinsischen
+Die Kameramatrix \gls{sym:Kcam} ordnet den ermittelten Werten die intrinsischen
 Parameter zu:
 \begin{equation}
     \mathbf{K} =
@@ -248,7 +248,7 @@ Parameter zu:
     \end{bmatrix}.
 \end{equation}
 
-Der Verzeichnungsvektor $\mathbf{d}$ enthält die radialen und tangentialen
+Der Verzeichnungsvektor \gls{sym:dvec} enthält die radialen und tangentialen
 Koeffizienten:
 \begin{equation}
     \mathbf{d} =
@@ -257,7 +257,7 @@ Koeffizienten:
     \begin{bmatrix} 0{,}0178 & -0{,}0436 & -0{,}0015 & -0{,}0044 & 0 \end{bmatrix}.
 \end{equation}
 
-Die Rektifizierungsmatrix $\mathbf{R}$ entspricht bei einer Einzelkamera der
+Die Rektifizierungsmatrix \gls{sym:Rrect} entspricht bei einer Einzelkamera der
 Einheitsmatrix:
 \begin{equation}
     \mathbf{R} =
@@ -268,7 +268,7 @@ Einheitsmatrix:
     \end{bmatrix}.
 \end{equation}
 
-Die Projektionsmatrix $\mathbf{P}$ beschreibt die intrinsischen Parameter des
+Die Projektionsmatrix \gls{sym:Pproj} beschreibt die intrinsischen Parameter des
 entzerrten Bildes:
 \begin{equation}
 \label{eq:Projektionsmatrix}
@@ -325,13 +325,10 @@ der Kameramatrix verwendet, da sie die tatsächliche Abbildung des entzerrten Bi
 
 \subsection{Bildaufnahme Kartierung}
 \label{sec:kartierung_bildaufnahme}
-Die Kartierung kann mit einer beliebigen Kamera druchgeführt werden, wichtig ist die in Abschnitt \ref{sec:Kamera_Kalibrierung} beschriebene Kalibrierung
+Die Kartierung kann mit einer beliebigen Kamera durchgeführt werden, wichtig ist die in Abschnitt \ref{sec:Kamera_Kalibrierung} beschriebene Kalibrierung
 für die verwendete Kamera durchzuführen.
-Die Implementierung der Kartierung wird am Beispiel der Logitech~C922 im folgenden erläutert.
-Die Kartierung ist auch mit anderen Kameramodellen möglich, die Parameter müssen entsprechend der hardware angepasst werden. 
-
-Die Bildaufnahme erfolgt über einen gscam-Knoten, der in das Launch-File der ersten Stufe eingebunden ist.
-Listing~\ref{lst:gscam_node} zeigt dessen Konfiguration.
+Die Implementierung der Kartierung wird am Beispiel der Logitech~C922 im Folgenden erläutert.
+Die Kartierung ist auch mit anderen Kameramodellen möglich, die Parameter müssen entsprechend der Hardware angepasst werden. 
 
 Die Bildaufnahme erfolgt über einen gscam-Knoten, der in das Launch-File der ersten Stufe eingebunden ist.
 Listing~\ref{lst:gscam_node} zeigt dessen Konfiguration.
@@ -389,14 +386,14 @@ Die Detektion ist absichtlich von Aufnahme und Entzerrung entkoppelt, um die gen
 Es wurden auch Versuche durchgeführt, bei denen die Detektion Teil der ersten Bag-Aufzeichnung war.
 Dabei führte die zu hohe Rechenlast bei Echtzeit-Abspielgeschwindigkeit dazu, dass Frames verworfen wurden und die Detektion nicht mehr zuverlässig funktionierte.
 Bei leistungsfähigerer Hardware könnten beide Schritte gegebenenfalls gleichzeitig durchgeführt werden.
-Um der Hardware pro Bild mehr Zeit zur Berechnung zu geben, wird der Eingabsbag mit einer Abspielgeschwindigkeit von $0{,}3$ abgespielt.
+Um der Hardware pro Bild mehr Zeit zur Berechnung zu geben, wird der Eingangsbag mit einer Abspielgeschwindigkeit von $0{,}3$ abgespielt.
  
 
 Für die Detektion wird der Knoten \texttt{sync\_and\_detect\_node} aus dem Paket TagSLAM verwendet.
 Dieser benötigt zwei Konfigurationsdateien, auf diese wird in Abschnitt \ref{sec:kartierung_tagslam} nochmals genauer eingegangen.
 Die Datei \texttt{cameras.yaml} enthält die Intrinsics der Kamera.
 Da der Knoten auf dem bereits entzerrten Bild \topic{/camera/image_rect} arbeitet, werden hier die Werte der Projektionsmatrix aus 
-Abschnitt~\ref{sec:kalibrieren_kamera} eingetragen und die Verzeichnungskoeffizienten auf null gesetzt.
+Abschnitt~\ref{sec:Kamera_Kalibrierung} eingetragen und die Verzeichnungskoeffizienten auf null gesetzt.
 Neben den Intrinsics legt die Datei die Auflösung, die verwendeten Topics (\texttt{image\_topic}, \texttt{camera\_info\_topic}, 
 \texttt{tag\_topic}) sowie den Referenzframe der Kamera (\texttt{rig\_body}) fest.
 Aus der TagSLAM-Konfiguration \texttt{tagslam.yaml} liest der Knoten die Liste der bekannten Marker mit ihren 
@@ -433,7 +430,7 @@ Der Knoten benötigt drei Konfigurationsdateien: \texttt{cameras.yaml} mit den K
 der Kamera sowie \texttt{tagslam.yaml} mit den Parametern der Optimierung und den Startwerten der Marker.
 Die Datei \texttt{cameras.yaml} entspricht der bereits in Abschnitt~\ref{sec:kartierung_entzerrung} beschriebenen Datei.
 
-%\subsubsection{Konfiguration der Kamerapose in Tagslam}
+%\subsubsection{Konfiguration der Kamerapose in TagSLAM}
 Die Datei \texttt{camera\_poses.yaml} gibt über eine $6 \times 6$-Kovarianzmatrix \texttt{R} an, wie starr die Kamera während der Kartierung gehalten wird.
 Die sechs Dimensionen entsprechen den drei translatorischen und drei rotatorischen Freiheitsgraden der Kamerapose.
 Da die Kamera bewegt wird und ihre Pose nicht vorab bekannt ist, sind Position und Rotation auf null gesetzt, während 
@@ -441,7 +438,7 @@ die Diagonalwerte der Matrix sehr groß gewählt sind.
 Ein großer Wert entspricht einer großen Unsicherheit, sodass die vorgegebene Nullpose die Optimierung nicht einschränkt 
 und die Kamerapose allein aus den Markerbeobachtungen bestimmt wird.
 
-%\subsubsection{Konfiguration der Optimierung in Tagslam}
+%\subsubsection{Konfiguration der Optimierung in TagSLAM}
 Die Datei \texttt{tagslam.yaml} enthält neben den bereits in Abschnitt~\ref{sec:kartierung_entzerrung} beschriebenen Angaben 
 (Tag-Identifikationsnummer und zugehörige Größe) die Parameter der Optimierung.
 Die wesentlichen Parameter sind in Tabelle~\ref{tab:tagslam_params} zusammengefasst.
@@ -466,7 +463,7 @@ Die wesentlichen Parameter sind in Tabelle~\ref{tab:tagslam_params} zusammengefa
 \end{table}
 \FloatBarrier
 
-%\subsubsection{Konfiguration der Markerlagen in Tagslam}
+%\subsubsection{Konfiguration der Markerlagen in TagSLAM}
 %\label{sec:konfiguration_der_markerlagen_tagslam}
 Für jeden Marker werden eine Startlage sowie das zugehörige Positions- und Rotationsrauschen (\texttt{position\_noise}, 
 \texttt{rotation\_noise}) jeweils für alle drei Achsen angegeben.
@@ -478,7 +475,7 @@ Auf diese Weise wird ein Marker als fester Ursprung definiert, der als globale R
 In dieser Arbeit übernimmt Tag~0 diese Rolle.
 Grundsätzlich können auch mehrere Marker fixiert werden, etwa wenn deren Lage bereits genau bekannt ist.
 
-%\subsubsection{Ausgabe der Karte durch Tagslam}
+%\subsubsection{Ausgabe der Karte durch TagSLAM}
 %\label{ausgabe_der_karte_tagslam}
 Das Ergebnis ist eine konsistente Karte, die für jeden Marker dessen Identifikationsnummer, Größe, Lage und das verbleibende Rauschen enthält.
 Listing~\ref{lst:karte} zeigt einen Auszug am Beispiel zweier Marker.
@@ -501,13 +498,8 @@ tags:
       rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.00033940}
 \end{lstlisting}
 
-Die Position eines Markers ist in Metern relativ zum Ursprung angegeben, die Orientierung im Rodrigues-Format als Rotationsvektor 
-(siehe Abschnitt~\ref{sec:rodrigues_parameter}).
-Am Beispiel von Tag~0 ist die Wirkung der Fixierung erkennbar: Seine Lage liegt exakt im Ursprung, und das zugehörige Rauschen ist sehr klein.
-Das zu jedem Marker ausgegebene Rauschen beschreibt die verbleibende Unsicherheit der geschätzten Lage und bildet die Referenz für die spätere Lokalisierung.
 
-
-Die von TagSLAM erzeugte Karte ist im selben ROS-standardisierten ENU-Weltkoordinatensystem angelegt, dem auch die Positionierung folgt unter \ref{sec:pos_detektion_apriltags}.
+Die von TagSLAM erzeugte Karte ist im selben ROS-standardisierten ENU-Weltkoordinatensystem angelegt, dem auch die in Abschnitt~\ref{sec:pos_detektion_apriltags} beschriebene Positionierung folgt.
 Die Position eines Markers ist in Metern relativ zum Ursprung angegeben, die Orientierung im Rodrigues-Format als Rotationsvektor
 (siehe Abschnitt~\ref{sec:rodrigues_parameter}).
 Das zu jedem Marker ausgegebene Rauschen beschreibt die verbleibende Unsicherheit der geschätzten Lage und bildet die Referenz für die spätere Lokalisierung.

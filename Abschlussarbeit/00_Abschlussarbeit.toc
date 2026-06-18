@@ -52,7 +52,7 @@
 \contentsline {section}{\numberline {4.4}Versuchsumgebung}{28}{section.4.4}%
 \contentsline {chapter}{\numberline {5}Implementierung der Kartierung}{29}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Auswahl der Algorithmik}{29}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}Auswahl der Bewertungskriterien SLAM-Varianten}{29}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.1}Auswahl der Bewertungskriterien der SLAM-Varianten}{29}{subsection.5.1.1}%
 \contentsline {subsection}{\numberline {5.1.2}Gewichtung durch den paarweisen Vergleich der SLAM-Varianten}{29}{subsection.5.1.2}%
 \contentsline {subsection}{\numberline {5.1.3}Nutzwertanalyse SLAM-Varianten}{30}{subsection.5.1.3}%
 \contentsline {subsection}{\numberline {5.1.4}Auswahl der Fiducial-Marker}{32}{subsection.5.1.4}%
