@@ -1,151 +1,67 @@
-%!TeX root=00_Abschlussarbeit.tex
+% ===== Vergleich der Koordinatensysteme =====
+\newglossaryentry{sym:O0}{type=symbols, name={\ensuremath{O_0}}, description={Ursprung des Weltkoordinatensystems}, sort={O0}}
+\newglossaryentry{sym:X0}{type=symbols, name={\ensuremath{X_0}}, description={X-Achse des Weltkoordinatensystems}, sort={X0}}
+\newglossaryentry{sym:Y0}{type=symbols, name={\ensuremath{Y_0}}, description={Y-Achse des Weltkoordinatensystems}, sort={Y0}}
+\newglossaryentry{sym:Z0}{type=symbols, name={\ensuremath{Z_0}}, description={Z-Achse des Weltkoordinatensystems}, sort={Z0}}
 
-%chapter*{Symbolverzeichnis}
+\newglossaryentry{sym:Ou}{type=symbols, name={\ensuremath{O_u}}, description={Ursprung des körperfesten UAV-Koordinatensystems}, sort={Ou}}
+\newglossaryentry{sym:Xu}{type=symbols, name={\ensuremath{X_u}}, description={X-Achse des UAV-Koordinatensystems}, sort={Xu}}
+\newglossaryentry{sym:Yu}{type=symbols, name={\ensuremath{Y_u}}, description={Y-Achse des UAV-Koordinatensystems}, sort={Yu}}
+\newglossaryentry{sym:Zu}{type=symbols, name={\ensuremath{Z_u}}, description={Z-Achse des UAV-Koordinatensystems}, sort={Zu}}
 
-% \glsadd{sym:tp} 
+\newglossaryentry{sym:Oc}{type=symbols, name={\ensuremath{O_c}}, description={Ursprung des Kamerakoordinatensystems}, sort={Oc}}
+\newglossaryentry{sym:Xc}{type=symbols, name={\ensuremath{X_c}}, description={X-Achse des Kamerakoordinatensystems}, sort={Xc}}
+\newglossaryentry{sym:Yc}{type=symbols, name={\ensuremath{Y_c}}, description={Y-Achse des Kamerakoordinatensystems}, sort={Yc}}
+\newglossaryentry{sym:Zc}{type=symbols, name={\ensuremath{Z_c}}, description={Z-Achse des Kamerakoordinatensystems}, sort={Zc}}
 
+\newglossaryentry{sym:Of}{type=symbols, name={\ensuremath{O_f}}, description={Ursprung des Fiducialkoordinatensystems}, sort={Of}}
+\newglossaryentry{sym:Xf}{type=symbols, name={\ensuremath{X_f}}, description={X-Achse des Fiducialkoordinatensystems}, sort={Xf}}
+\newglossaryentry{sym:Yf}{type=symbols, name={\ensuremath{Y_f}}, description={Y-Achse des Fiducialkoordinatensystems}, sort={Yf}}
+\newglossaryentry{sym:Zf}{type=symbols, name={\ensuremath{Z_f}}, description={Z-Achse des Fiducialkoordinatensystems}, sort={Zf}}
 
-\newglossaryentry{sym:xc}{
-  type=symbols,
-  name={$X_c$},
-  description={X-Koordinate des Kamera-Koordinatensystems}
-}
+% ===== Repräsentation von Position und Orientierung =====
+\newglossaryentry{sym:roll}{type=symbols, name={\ensuremath{\phi}}, description={Roll-Winkel (Drehung um die X-Achse)}, sort={phi1}}
+\newglossaryentry{sym:pitch}{type=symbols, name={\ensuremath{\theta}}, description={Pitch-Winkel (Drehung um die Y-Achse)}, sort={theta1}}
+\newglossaryentry{sym:yaw}{type=symbols, name={\ensuremath{\psi}}, description={Yaw-Winkel (Drehung um die Z-Achse)}, sort={psi}}
 
-\newglossaryentry{sym:yc}{
-  type=symbols,
-  name={$Y_c$},
-  description={Y-Koordinate des Kamera-Koordinatensystems}
-}
+% ===== Quaternionen =====
+\newglossaryentry{sym:q}{type=symbols, name={\ensuremath{\mathbf{q}}}, description={Quaternion}, sort={q}}
+\newglossaryentry{sym:v}{type=symbols, name={\ensuremath{\mathbf{v}}}, description={normierte Rotationsachse}, sort={v}}
+\newglossaryentry{sym:phiRot}{type=symbols, name={\ensuremath{\phi}}, description={Rotationswinkel um die Rotationsachse}, sort={phi2}}
+\newglossaryentry{sym:thetaQuat}{type=symbols, name={\ensuremath{\theta}}, description={Winkel zwischen zwei Einheitsquaternionen}, sort={theta2}}
 
-\newglossaryentry{sym:zc}{
-  type=symbols,
-  name={$Z_c$},
-  description={Z-Koordinate des Kamera-Koordinatensystems}
-}
+% ===== Mittelung von Quaternionen =====
+\newglossaryentry{sym:qref}{type=symbols, name={\ensuremath{\mathbf{q}_{\mathrm{ref}}}}, description={Referenzquaternion zur Vorzeichenangleichung}, sort={qref}}
+\newglossaryentry{sym:weight}{type=symbols, name={\ensuremath{w_i}}, description={Gewicht der \(i\)-ten Orientierungsschätzung}, sort={wi}}
+\newglossaryentry{sym:qbar}{type=symbols, name={\ensuremath{\bar{\mathbf{q}}}}, description={gemitteltes Quaternion}, sort={qbar}}
 
-\newglossaryentry{sym:nullc}{
-  type=symbols,
-  name={$0_c$},
-  description={Ursprung des Kamera-Koordinatensystems}
-}
+% ===== Sphärische lineare Interpolation von Quaternionen =====
+\newglossaryentry{sym:alpha}{type=symbols, name={\ensuremath{\alpha}}, description={Interpolationsparameter der SLERP, \(\alpha \in [0,1]\)}, sort={alpha}}
 
-\newglossaryentry{sym:xt}{
-  type=symbols,
-  name={$X_t$},
-  description={X-Koordinate des Werkzeug-Koordinatensystems}
-}
+% ===== Rodrigues-Parameter =====
+\newglossaryentry{sym:r}{type=symbols, name={\ensuremath{\mathbf{r}}}, description={Rodrigues-Vektor}, sort={r}}
+\newglossaryentry{sym:vhat}{type=symbols, name={\ensuremath{\hat{\mathbf{v}}}}, description={normierte Rotationsachse}, sort={vhat}}
 
-\newglossaryentry{sym:yt}{
-  type=symbols,
-  name={$Y_t$},
-  description={Y-Koordinate des Werkzeug-Koordinatensystems}
-}
+% ===== Transformation von Koordinatensystemen =====
+\newglossaryentry{sym:point}{type=symbols, name={\ensuremath{^{a}\mathbf{r}}}, description={Punkt, ausgedrückt im Koordinatensystem \(a\)}, sort={ar}}
+\newglossaryentry{sym:Rot}{type=symbols, name={\ensuremath{^{b}\mathbf{R}_{a}}}, description={Rotationsmatrix von System \(a\) nach System \(b\)}, sort={R1}}
+\newglossaryentry{sym:trans}{type=symbols, name={\ensuremath{^{b}\mathbf{t}_{a}}}, description={Translationsvektor von System \(a\) nach System \(b\)}, sort={t1}}
+\newglossaryentry{sym:Tmat}{type=symbols, name={\ensuremath{^{b}\mathbf{T}_{a}}}, description={homogene Transformationsmatrix von System \(a\) nach System \(b\)}, sort={T}}
 
-\newglossaryentry{sym:zt}{
-  type=symbols,
-  name={$Z_t$},
-  description={Z-Koordinate des Werkzeug-Koordinatensystems}
-}
+% ===== Extended Kalman Filter =====
+\newglossaryentry{sym:state}{type=symbols, name={\ensuremath{\mathbf{x}}}, description={Zustandsvektor des Systems}, sort={x}}
+\newglossaryentry{sym:stateHat}{type=symbols, name={\ensuremath{\hat{\mathbf{x}}}}, description={Schätzung des Zustandsvektors}, sort={xhat}}
+\newglossaryentry{sym:P}{type=symbols, name={\ensuremath{\mathbf{P}}}, description={Zustandskovarianzmatrix}, sort={P}}
+\newglossaryentry{sym:u}{type=symbols, name={\ensuremath{\mathbf{u}}}, description={Steuereingabe}, sort={u}}
+\newglossaryentry{sym:f}{type=symbols, name={\ensuremath{f}}, description={nichtlineare Modellfunktion}, sort={f}}
+\newglossaryentry{sym:F}{type=symbols, name={\ensuremath{\mathbf{F}}}, description={Jacobi-Matrix der Modellfunktion}, sort={F}}
+\newglossaryentry{sym:Q}{type=symbols, name={\ensuremath{\mathbf{Q}}}, description={Prozessrauschkovarianzmatrix}, sort={Q}}
+\newglossaryentry{sym:z}{type=symbols, name={\ensuremath{\mathbf{z}}}, description={Messwert}, sort={z}}
+\newglossaryentry{sym:K}{type=symbols, name={\ensuremath{\mathbf{K}}}, description={Kalman-Gain}, sort={K}}
+\newglossaryentry{sym:H}{type=symbols, name={\ensuremath{\mathbf{H}}}, description={Jacobi-Matrix der Messfunktion}, sort={H}}
+\newglossaryentry{sym:Rmeas}{type=symbols, name={\ensuremath{\mathbf{R}}}, description={Messrauschkovarianzmatrix}, sort={R2}}
+\newglossaryentry{sym:h}{type=symbols, name={\ensuremath{h}}, description={Messfunktion}, sort={h}}
 
-\newglossaryentry{sym:nullt}{
-  type=symbols,
-  name={$0_t$},
-  description={Ursprung des Werkzeug-Koordinatensystems}
-}
-
-
-\newglossaryentry{sym:x1}{
-  type=symbols,
-  name={$X_1$},
-  description={X-Koordinate des Basis-Koordinatensystems}
-}
-
-\newglossaryentry{sym:y1}{
-  type=symbols,
-  name={$Y_1$},
-  description={Y-Koordinate des Basis-Koordinatensystems}
-}
-
-\newglossaryentry{sym:z1}{
-  type=symbols,
-  name={$Z_1$},
-  description={Z-Koordinate des Basis-Koordinatensystems}
-}
-
-\newglossaryentry{sym:null1}{
-  type=symbols,
-  name={$0_1$},
-  description={Ursprung des Basis-Koordinatensystems}
-}
-
-\newglossaryentry{sym:A}{
-  type=symbols,
-  name={$A$},
-  description={Saugerfläche}
-}
-
-\newglossaryentry{sym:a}{
-  type=symbols,
-  name={$a$},
-  description={Beschleunigung der Handhabungseinrichtung}
-}
-
-\newglossaryentry{sym:g}{
-  type=symbols,
-  name={$g$},
-  description={Erdbeschleunigung}
-}
-
-\newglossaryentry{sym:m}{
-  type=symbols,
-  name={$m$},
-  description={Masse eines Objekts}
-}
-
-\newglossaryentry{sym:F}{
-  type=symbols,
-  name={$F$},
-  description={Festhaltekraft}
-}
-
-\newglossaryentry{sym:S}{
-  type=symbols,
-  name={$S$},
-  description={Sicherheitsfaktor bei Vakuumgreifern}
-}
-
-\newglossaryentry{sym:p}{
-  type=symbols,
-  name={$p$},
-  description={Vakuum in Prozent}
-}
-
-\newglossaryentry{sym:xs}{
-  type=symbols,
-  name={$x_s$},
-  description={Greifbereich}
-}
-
-\newglossaryentry{sym:pA}{
-  type=symbols,
-  name={$p_A$},
-  description={Arbeitsdruck}
-}
-
-\newglossaryentry{sym:pG}{
-  type=symbols,
-  name={$p_G$},
-  description={Gegendruck}
-}
-
-\newglossaryentry{sym:ps}{
-  type=symbols,
-  name={$p_S$},
-  description={Speisedruck}
-}
-
-\newglossaryentry{sym:FG}{
-  type=symbols,
-  name={$F_G$},
-  description={Greifkraft}
-}
+% ===== Random Sample Consensus (RANSAC) =====
+\newglossaryentry{sym:tthr}{type=symbols, name={\ensuremath{t}}, description={Schwellenwert für die Inlier-Zuordnung}, sort={t2}}
+\newglossaryentry{sym:model}{type=symbols, name={\ensuremath{\mathcal{M}}}, description={geschätztes Modell}, sort={M}}

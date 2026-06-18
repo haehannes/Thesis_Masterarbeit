@@ -1062,17 +1062,17 @@ parent={},%
 %
 }%
 
-\glsdefs@newdocentry{sym:xc}%
+\glsdefs@newdocentry{sym:O0}%
 {%
-name={$X_c$},%
-sort={$X_c$},%
+name={\ensuremath {O_0}},%
+sort={O0},%
 type={symbols},%
-first={$X_c$},%
-firstplural={$X_c$s},%
-text={$X_c$},%
-plural={$X_c$s},%
-description={X-Koordinate des Kamera-Koordinatensystems},%
-descriptionplural={X-Koordinate des Kamera-Koordinatensystems},%
+first={\protect \ensuremath  {O_0}},%
+firstplural={\protect \ensuremath  {O_0}s},%
+text={\protect \ensuremath  {O_0}},%
+plural={\protect \ensuremath  {O_0}s},%
+description={Ursprung des Weltkoordinatensystems},%
+descriptionplural={Ursprung des Weltkoordinatensystems},%
 symbol={\relax },%
 symbolplural={\relax },%
 user1={},%
@@ -1090,17 +1090,17 @@ parent={},%
 %
 }%
 
-\glsdefs@newdocentry{sym:yc}%
+\glsdefs@newdocentry{sym:X0}%
 {%
-name={$Y_c$},%
-sort={$Y_c$},%
+name={\ensuremath {X_0}},%
+sort={X0},%
 type={symbols},%
-first={$Y_c$},%
-firstplural={$Y_c$s},%
-text={$Y_c$},%
-plural={$Y_c$s},%
-description={Y-Koordinate des Kamera-Koordinatensystems},%
-descriptionplural={Y-Koordinate des Kamera-Koordinatensystems},%
+first={\protect \ensuremath  {X_0}},%
+firstplural={\protect \ensuremath  {X_0}s},%
+text={\protect \ensuremath  {X_0}},%
+plural={\protect \ensuremath  {X_0}s},%
+description={X-Achse des Weltkoordinatensystems},%
+descriptionplural={X-Achse des Weltkoordinatensystems},%
 symbol={\relax },%
 symbolplural={\relax },%
 user1={},%
@@ -1118,17 +1118,17 @@ parent={},%
 %
 }%
 
-\glsdefs@newdocentry{sym:zc}%
+\glsdefs@newdocentry{sym:Y0}%
 {%
-name={$Z_c$},%
-sort={$Z_c$},%
+name={\ensuremath {Y_0}},%
+sort={Y0},%
 type={symbols},%
-first={$Z_c$},%
-firstplural={$Z_c$s},%
-text={$Z_c$},%
-plural={$Z_c$s},%
-description={Z-Koordinate des Kamera-Koordinatensystems},%
-descriptionplural={Z-Koordinate des Kamera-Koordinatensystems},%
+first={\protect \ensuremath  {Y_0}},%
+firstplural={\protect \ensuremath  {Y_0}s},%
+text={\protect \ensuremath  {Y_0}},%
+plural={\protect \ensuremath  {Y_0}s},%
+description={Y-Achse des Weltkoordinatensystems},%
+descriptionplural={Y-Achse des Weltkoordinatensystems},%
 symbol={\relax },%
 symbolplural={\relax },%
 user1={},%
@@ -1146,17 +1146,17 @@ parent={},%
 %
 }%
 
-\glsdefs@newdocentry{sym:nullc}%
+\glsdefs@newdocentry{sym:Z0}%
 {%
-name={$0_c$},%
-sort={$0_c$},%
+name={\ensuremath {Z_0}},%
+sort={Z0},%
 type={symbols},%
-first={$0_c$},%
-firstplural={$0_c$s},%
-text={$0_c$},%
-plural={$0_c$s},%
-description={Ursprung des Kamera-Koordinatensystems},%
-descriptionplural={Ursprung des Kamera-Koordinatensystems},%
+first={\protect \ensuremath  {Z_0}},%
+firstplural={\protect \ensuremath  {Z_0}s},%
+text={\protect \ensuremath  {Z_0}},%
+plural={\protect \ensuremath  {Z_0}s},%
+description={Z-Achse des Weltkoordinatensystems},%
+descriptionplural={Z-Achse des Weltkoordinatensystems},%
 symbol={\relax },%
 symbolplural={\relax },%
 user1={},%
@@ -1174,17 +1174,17 @@ parent={},%
 %
 }%
 
-\glsdefs@newdocentry{sym:xt}%
+\glsdefs@newdocentry{sym:Ou}%
 {%
-name={$X_t$},%
-sort={$X_t$},%
+name={\ensuremath {O_u}},%
+sort={Ou},%
 type={symbols},%
-first={$X_t$},%
-firstplural={$X_t$s},%
-text={$X_t$},%
-plural={$X_t$s},%
-description={X-Koordinate des Werkzeug-Koordinatensystems},%
-descriptionplural={X-Koordinate des Werkzeug-Koordinatensystems},%
+first={\protect \ensuremath  {O_u}},%
+firstplural={\protect \ensuremath  {O_u}s},%
+text={\protect \ensuremath  {O_u}},%
+plural={\protect \ensuremath  {O_u}s},%
+description={Ursprung des körperfesten UAV-Koordinatensystems},%
+descriptionplural={Ursprung des körperfesten UAV-Koordinatensystems},%
 symbol={\relax },%
 symbolplural={\relax },%
 user1={},%
@@ -1202,17 +1202,17 @@ parent={},%
 %
 }%
 
-\glsdefs@newdocentry{sym:yt}%
+\glsdefs@newdocentry{sym:Xu}%
 {%
-name={$Y_t$},%
-sort={$Y_t$},%
+name={\ensuremath {X_u}},%
+sort={Xu},%
 type={symbols},%
-first={$Y_t$},%
-firstplural={$Y_t$s},%
-text={$Y_t$},%
-plural={$Y_t$s},%
-description={Y-Koordinate des Werkzeug-Koordinatensystems},%
-descriptionplural={Y-Koordinate des Werkzeug-Koordinatensystems},%
+first={\protect \ensuremath  {X_u}},%
+firstplural={\protect \ensuremath  {X_u}s},%
+text={\protect \ensuremath  {X_u}},%
+plural={\protect \ensuremath  {X_u}s},%
+description={X-Achse des UAV-Koordinatensystems},%
+descriptionplural={X-Achse des UAV-Koordinatensystems},%
 symbol={\relax },%
 symbolplural={\relax },%
 user1={},%
@@ -1230,17 +1230,17 @@ parent={},%
 %
 }%
 
-\glsdefs@newdocentry{sym:zt}%
+\glsdefs@newdocentry{sym:Yu}%
 {%
-name={$Z_t$},%
-sort={$Z_t$},%
+name={\ensuremath {Y_u}},%
+sort={Yu},%
 type={symbols},%
-first={$Z_t$},%
-firstplural={$Z_t$s},%
-text={$Z_t$},%
-plural={$Z_t$s},%
-description={Z-Koordinate des Werkzeug-Koordinatensystems},%
-descriptionplural={Z-Koordinate des Werkzeug-Koordinatensystems},%
+first={\protect \ensuremath  {Y_u}},%
+firstplural={\protect \ensuremath  {Y_u}s},%
+text={\protect \ensuremath  {Y_u}},%
+plural={\protect \ensuremath  {Y_u}s},%
+description={Y-Achse des UAV-Koordinatensystems},%
+descriptionplural={Y-Achse des UAV-Koordinatensystems},%
 symbol={\relax },%
 symbolplural={\relax },%
 user1={},%
@@ -1258,17 +1258,17 @@ parent={},%
 %
 }%
 
-\glsdefs@newdocentry{sym:nullt}%
+\glsdefs@newdocentry{sym:Zu}%
 {%
-name={$0_t$},%
-sort={$0_t$},%
+name={\ensuremath {Z_u}},%
+sort={Zu},%
 type={symbols},%
-first={$0_t$},%
-firstplural={$0_t$s},%
-text={$0_t$},%
-plural={$0_t$s},%
-description={Ursprung des Werkzeug-Koordinatensystems},%
-descriptionplural={Ursprung des Werkzeug-Koordinatensystems},%
+first={\protect \ensuremath  {Z_u}},%
+firstplural={\protect \ensuremath  {Z_u}s},%
+text={\protect \ensuremath  {Z_u}},%
+plural={\protect \ensuremath  {Z_u}s},%
+description={Z-Achse des UAV-Koordinatensystems},%
+descriptionplural={Z-Achse des UAV-Koordinatensystems},%
 symbol={\relax },%
 symbolplural={\relax },%
 user1={},%
@@ -1286,17 +1286,17 @@ parent={},%
 %
 }%
 
-\glsdefs@newdocentry{sym:x1}%
+\glsdefs@newdocentry{sym:Oc}%
 {%
-name={$X_1$},%
-sort={$X_1$},%
+name={\ensuremath {O_c}},%
+sort={Oc},%
 type={symbols},%
-first={$X_1$},%
-firstplural={$X_1$s},%
-text={$X_1$},%
-plural={$X_1$s},%
-description={X-Koordinate des Basis-Koordinatensystems},%
-descriptionplural={X-Koordinate des Basis-Koordinatensystems},%
+first={\protect \ensuremath  {O_c}},%
+firstplural={\protect \ensuremath  {O_c}s},%
+text={\protect \ensuremath  {O_c}},%
+plural={\protect \ensuremath  {O_c}s},%
+description={Ursprung des Kamerakoordinatensystems},%
+descriptionplural={Ursprung des Kamerakoordinatensystems},%
 symbol={\relax },%
 symbolplural={\relax },%
 user1={},%
@@ -1314,17 +1314,17 @@ parent={},%
 %
 }%
 
-\glsdefs@newdocentry{sym:y1}%
+\glsdefs@newdocentry{sym:Xc}%
 {%
-name={$Y_1$},%
-sort={$Y_1$},%
+name={\ensuremath {X_c}},%
+sort={Xc},%
 type={symbols},%
-first={$Y_1$},%
-firstplural={$Y_1$s},%
-text={$Y_1$},%
-plural={$Y_1$s},%
-description={Y-Koordinate des Basis-Koordinatensystems},%
-descriptionplural={Y-Koordinate des Basis-Koordinatensystems},%
+first={\protect \ensuremath  {X_c}},%
+firstplural={\protect \ensuremath  {X_c}s},%
+text={\protect \ensuremath  {X_c}},%
+plural={\protect \ensuremath  {X_c}s},%
+description={X-Achse des Kamerakoordinatensystems},%
+descriptionplural={X-Achse des Kamerakoordinatensystems},%
 symbol={\relax },%
 symbolplural={\relax },%
 user1={},%
@@ -1342,17 +1342,17 @@ parent={},%
 %
 }%
 
-\glsdefs@newdocentry{sym:z1}%
+\glsdefs@newdocentry{sym:Yc}%
 {%
-name={$Z_1$},%
-sort={$Z_1$},%
+name={\ensuremath {Y_c}},%
+sort={Yc},%
 type={symbols},%
-first={$Z_1$},%
-firstplural={$Z_1$s},%
-text={$Z_1$},%
-plural={$Z_1$s},%
-description={Z-Koordinate des Basis-Koordinatensystems},%
-descriptionplural={Z-Koordinate des Basis-Koordinatensystems},%
+first={\protect \ensuremath  {Y_c}},%
+firstplural={\protect \ensuremath  {Y_c}s},%
+text={\protect \ensuremath  {Y_c}},%
+plural={\protect \ensuremath  {Y_c}s},%
+description={Y-Achse des Kamerakoordinatensystems},%
+descriptionplural={Y-Achse des Kamerakoordinatensystems},%
 symbol={\relax },%
 symbolplural={\relax },%
 user1={},%
@@ -1370,17 +1370,17 @@ parent={},%
 %
 }%
 
-\glsdefs@newdocentry{sym:null1}%
+\glsdefs@newdocentry{sym:Zc}%
 {%
-name={$0_1$},%
-sort={$0_1$},%
+name={\ensuremath {Z_c}},%
+sort={Zc},%
 type={symbols},%
-first={$0_1$},%
-firstplural={$0_1$s},%
-text={$0_1$},%
-plural={$0_1$s},%
-description={Ursprung des Basis-Koordinatensystems},%
-descriptionplural={Ursprung des Basis-Koordinatensystems},%
+first={\protect \ensuremath  {Z_c}},%
+firstplural={\protect \ensuremath  {Z_c}s},%
+text={\protect \ensuremath  {Z_c}},%
+plural={\protect \ensuremath  {Z_c}s},%
+description={Z-Achse des Kamerakoordinatensystems},%
+descriptionplural={Z-Achse des Kamerakoordinatensystems},%
 symbol={\relax },%
 symbolplural={\relax },%
 user1={},%
@@ -1398,17 +1398,17 @@ parent={},%
 %
 }%
 
-\glsdefs@newdocentry{sym:A}%
+\glsdefs@newdocentry{sym:Of}%
 {%
-name={$A$},%
-sort={$A$},%
+name={\ensuremath {O_f}},%
+sort={Of},%
 type={symbols},%
-first={$A$},%
-firstplural={$A$s},%
-text={$A$},%
-plural={$A$s},%
-description={Saugerfläche},%
-descriptionplural={Saugerfläche},%
+first={\protect \ensuremath  {O_f}},%
+firstplural={\protect \ensuremath  {O_f}s},%
+text={\protect \ensuremath  {O_f}},%
+plural={\protect \ensuremath  {O_f}s},%
+description={Ursprung des Fiducialkoordinatensystems},%
+descriptionplural={Ursprung des Fiducialkoordinatensystems},%
 symbol={\relax },%
 symbolplural={\relax },%
 user1={},%
@@ -1426,17 +1426,17 @@ parent={},%
 %
 }%
 
-\glsdefs@newdocentry{sym:a}%
+\glsdefs@newdocentry{sym:Xf}%
 {%
-name={$a$},%
-sort={$a$},%
+name={\ensuremath {X_f}},%
+sort={Xf},%
 type={symbols},%
-first={$a$},%
-firstplural={$a$s},%
-text={$a$},%
-plural={$a$s},%
-description={Beschleunigung der Handhabungseinrichtung},%
-descriptionplural={Beschleunigung der Handhabungseinrichtung},%
+first={\protect \ensuremath  {X_f}},%
+firstplural={\protect \ensuremath  {X_f}s},%
+text={\protect \ensuremath  {X_f}},%
+plural={\protect \ensuremath  {X_f}s},%
+description={X-Achse des Fiducialkoordinatensystems},%
+descriptionplural={X-Achse des Fiducialkoordinatensystems},%
 symbol={\relax },%
 symbolplural={\relax },%
 user1={},%
@@ -1454,17 +1454,17 @@ parent={},%
 %
 }%
 
-\glsdefs@newdocentry{sym:g}%
+\glsdefs@newdocentry{sym:Yf}%
 {%
-name={$g$},%
-sort={$g$},%
+name={\ensuremath {Y_f}},%
+sort={Yf},%
 type={symbols},%
-first={$g$},%
-firstplural={$g$s},%
-text={$g$},%
-plural={$g$s},%
-description={Erdbeschleunigung},%
-descriptionplural={Erdbeschleunigung},%
+first={\protect \ensuremath  {Y_f}},%
+firstplural={\protect \ensuremath  {Y_f}s},%
+text={\protect \ensuremath  {Y_f}},%
+plural={\protect \ensuremath  {Y_f}s},%
+description={Y-Achse des Fiducialkoordinatensystems},%
+descriptionplural={Y-Achse des Fiducialkoordinatensystems},%
 symbol={\relax },%
 symbolplural={\relax },%
 user1={},%
@@ -1482,17 +1482,633 @@ parent={},%
 %
 }%
 
-\glsdefs@newdocentry{sym:m}%
+\glsdefs@newdocentry{sym:Zf}%
 {%
-name={$m$},%
-sort={$m$},%
+name={\ensuremath {Z_f}},%
+sort={Zf},%
 type={symbols},%
-first={$m$},%
-firstplural={$m$s},%
-text={$m$},%
-plural={$m$s},%
-description={Masse eines Objekts},%
-descriptionplural={Masse eines Objekts},%
+first={\protect \ensuremath  {Z_f}},%
+firstplural={\protect \ensuremath  {Z_f}s},%
+text={\protect \ensuremath  {Z_f}},%
+plural={\protect \ensuremath  {Z_f}s},%
+description={Z-Achse des Fiducialkoordinatensystems},%
+descriptionplural={Z-Achse des Fiducialkoordinatensystems},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{sym:roll}%
+{%
+name={\ensuremath {\phi }},%
+sort={phi1},%
+type={symbols},%
+first={\protect \ensuremath  {\phi }},%
+firstplural={\protect \ensuremath  {\phi }s},%
+text={\protect \ensuremath  {\phi }},%
+plural={\protect \ensuremath  {\phi }s},%
+description={Roll-Winkel (Drehung um die X-Achse)},%
+descriptionplural={Roll-Winkel (Drehung um die X-Achse)},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{sym:pitch}%
+{%
+name={\ensuremath {\theta }},%
+sort={theta1},%
+type={symbols},%
+first={\protect \ensuremath  {\theta }},%
+firstplural={\protect \ensuremath  {\theta }s},%
+text={\protect \ensuremath  {\theta }},%
+plural={\protect \ensuremath  {\theta }s},%
+description={Pitch-Winkel (Drehung um die Y-Achse)},%
+descriptionplural={Pitch-Winkel (Drehung um die Y-Achse)},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{sym:yaw}%
+{%
+name={\ensuremath {\psi }},%
+sort={psi},%
+type={symbols},%
+first={\protect \ensuremath  {\psi }},%
+firstplural={\protect \ensuremath  {\psi }s},%
+text={\protect \ensuremath  {\psi }},%
+plural={\protect \ensuremath  {\psi }s},%
+description={Yaw-Winkel (Drehung um die Z-Achse)},%
+descriptionplural={Yaw-Winkel (Drehung um die Z-Achse)},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{sym:q}%
+{%
+name={\ensuremath {\mathbf {q}}},%
+sort={q},%
+type={symbols},%
+first={\protect \ensuremath  {\protect \mathbf  {q}}},%
+firstplural={\protect \ensuremath  {\protect \mathbf  {q}}s},%
+text={\protect \ensuremath  {\protect \mathbf  {q}}},%
+plural={\protect \ensuremath  {\protect \mathbf  {q}}s},%
+description={Quaternion},%
+descriptionplural={Quaternion},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{sym:v}%
+{%
+name={\ensuremath {\mathbf {v}}},%
+sort={v},%
+type={symbols},%
+first={\protect \ensuremath  {\protect \mathbf  {v}}},%
+firstplural={\protect \ensuremath  {\protect \mathbf  {v}}s},%
+text={\protect \ensuremath  {\protect \mathbf  {v}}},%
+plural={\protect \ensuremath  {\protect \mathbf  {v}}s},%
+description={normierte Rotationsachse},%
+descriptionplural={normierte Rotationsachse},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{sym:phiRot}%
+{%
+name={\ensuremath {\phi }},%
+sort={phi2},%
+type={symbols},%
+first={\protect \ensuremath  {\phi }},%
+firstplural={\protect \ensuremath  {\phi }s},%
+text={\protect \ensuremath  {\phi }},%
+plural={\protect \ensuremath  {\phi }s},%
+description={Rotationswinkel um die Rotationsachse},%
+descriptionplural={Rotationswinkel um die Rotationsachse},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{sym:thetaQuat}%
+{%
+name={\ensuremath {\theta }},%
+sort={theta2},%
+type={symbols},%
+first={\protect \ensuremath  {\theta }},%
+firstplural={\protect \ensuremath  {\theta }s},%
+text={\protect \ensuremath  {\theta }},%
+plural={\protect \ensuremath  {\theta }s},%
+description={Winkel zwischen zwei Einheitsquaternionen},%
+descriptionplural={Winkel zwischen zwei Einheitsquaternionen},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{sym:qref}%
+{%
+name={\ensuremath {\mathbf {q}_{\mathrm {ref}}}},%
+sort={qref},%
+type={symbols},%
+first={\protect \ensuremath  {\protect \mathbf  {q}_{\protect \mathrm  {ref}}}},%
+firstplural={\protect \ensuremath  {\protect \mathbf  {q}_{\protect \mathrm  {ref}}}s},%
+text={\protect \ensuremath  {\protect \mathbf  {q}_{\protect \mathrm  {ref}}}},%
+plural={\protect \ensuremath  {\protect \mathbf  {q}_{\protect \mathrm  {ref}}}s},%
+description={Referenzquaternion zur Vorzeichenangleichung},%
+descriptionplural={Referenzquaternion zur Vorzeichenangleichung},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{sym:weight}%
+{%
+name={\ensuremath {w_i}},%
+sort={wi},%
+type={symbols},%
+first={\protect \ensuremath  {w_i}},%
+firstplural={\protect \ensuremath  {w_i}s},%
+text={\protect \ensuremath  {w_i}},%
+plural={\protect \ensuremath  {w_i}s},%
+description={Gewicht der \(i\)-ten Orientierungsschätzung},%
+descriptionplural={Gewicht der \(i\)-ten Orientierungsschätzung},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{sym:qbar}%
+{%
+name={\ensuremath {\bar {\mathbf {q}}}},%
+sort={qbar},%
+type={symbols},%
+first={\protect \ensuremath  {\protect \bar  {\protect \mathbf  {q}}}},%
+firstplural={\protect \ensuremath  {\protect \bar  {\protect \mathbf  {q}}}s},%
+text={\protect \ensuremath  {\protect \bar  {\protect \mathbf  {q}}}},%
+plural={\protect \ensuremath  {\protect \bar  {\protect \mathbf  {q}}}s},%
+description={gemitteltes Quaternion},%
+descriptionplural={gemitteltes Quaternion},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{sym:alpha}%
+{%
+name={\ensuremath {\alpha }},%
+sort={alpha},%
+type={symbols},%
+first={\protect \ensuremath  {\alpha }},%
+firstplural={\protect \ensuremath  {\alpha }s},%
+text={\protect \ensuremath  {\alpha }},%
+plural={\protect \ensuremath  {\alpha }s},%
+description={Interpolationsparameter der SLERP, \(\alpha \in [0,1]\)},%
+descriptionplural={Interpolationsparameter der SLERP, \(\alpha \in [0,1]\)},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{sym:r}%
+{%
+name={\ensuremath {\mathbf {r}}},%
+sort={r},%
+type={symbols},%
+first={\protect \ensuremath  {\protect \mathbf  {r}}},%
+firstplural={\protect \ensuremath  {\protect \mathbf  {r}}s},%
+text={\protect \ensuremath  {\protect \mathbf  {r}}},%
+plural={\protect \ensuremath  {\protect \mathbf  {r}}s},%
+description={Rodrigues-Vektor},%
+descriptionplural={Rodrigues-Vektor},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{sym:vhat}%
+{%
+name={\ensuremath {\hat {\mathbf {v}}}},%
+sort={vhat},%
+type={symbols},%
+first={\protect \ensuremath  {\protect \hat  {\protect \mathbf  {v}}}},%
+firstplural={\protect \ensuremath  {\protect \hat  {\protect \mathbf  {v}}}s},%
+text={\protect \ensuremath  {\protect \hat  {\protect \mathbf  {v}}}},%
+plural={\protect \ensuremath  {\protect \hat  {\protect \mathbf  {v}}}s},%
+description={normierte Rotationsachse},%
+descriptionplural={normierte Rotationsachse},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{sym:point}%
+{%
+name={\ensuremath {^{a}\mathbf {r}}},%
+sort={ar},%
+type={symbols},%
+first={\protect \ensuremath  {^{a}\protect \mathbf  {r}}},%
+firstplural={\protect \ensuremath  {^{a}\protect \mathbf  {r}}s},%
+text={\protect \ensuremath  {^{a}\protect \mathbf  {r}}},%
+plural={\protect \ensuremath  {^{a}\protect \mathbf  {r}}s},%
+description={Punkt, ausgedrückt im Koordinatensystem \(a\)},%
+descriptionplural={Punkt, ausgedrückt im Koordinatensystem \(a\)},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{sym:Rot}%
+{%
+name={\ensuremath {^{b}\mathbf {R}_{a}}},%
+sort={R1},%
+type={symbols},%
+first={\protect \ensuremath  {^{b}\protect \mathbf  {R}_{a}}},%
+firstplural={\protect \ensuremath  {^{b}\protect \mathbf  {R}_{a}}s},%
+text={\protect \ensuremath  {^{b}\protect \mathbf  {R}_{a}}},%
+plural={\protect \ensuremath  {^{b}\protect \mathbf  {R}_{a}}s},%
+description={Rotationsmatrix von System \(a\) nach System \(b\)},%
+descriptionplural={Rotationsmatrix von System \(a\) nach System \(b\)},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{sym:trans}%
+{%
+name={\ensuremath {^{b}\mathbf {t}_{a}}},%
+sort={t1},%
+type={symbols},%
+first={\protect \ensuremath  {^{b}\protect \mathbf  {t}_{a}}},%
+firstplural={\protect \ensuremath  {^{b}\protect \mathbf  {t}_{a}}s},%
+text={\protect \ensuremath  {^{b}\protect \mathbf  {t}_{a}}},%
+plural={\protect \ensuremath  {^{b}\protect \mathbf  {t}_{a}}s},%
+description={Translationsvektor von System \(a\) nach System \(b\)},%
+descriptionplural={Translationsvektor von System \(a\) nach System \(b\)},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{sym:Tmat}%
+{%
+name={\ensuremath {^{b}\mathbf {T}_{a}}},%
+sort={T},%
+type={symbols},%
+first={\protect \ensuremath  {^{b}\protect \mathbf  {T}_{a}}},%
+firstplural={\protect \ensuremath  {^{b}\protect \mathbf  {T}_{a}}s},%
+text={\protect \ensuremath  {^{b}\protect \mathbf  {T}_{a}}},%
+plural={\protect \ensuremath  {^{b}\protect \mathbf  {T}_{a}}s},%
+description={homogene Transformationsmatrix von System \(a\) nach System \(b\)},%
+descriptionplural={homogene Transformationsmatrix von System \(a\) nach System \(b\)},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{sym:state}%
+{%
+name={\ensuremath {\mathbf {x}}},%
+sort={x},%
+type={symbols},%
+first={\protect \ensuremath  {\protect \mathbf  {x}}},%
+firstplural={\protect \ensuremath  {\protect \mathbf  {x}}s},%
+text={\protect \ensuremath  {\protect \mathbf  {x}}},%
+plural={\protect \ensuremath  {\protect \mathbf  {x}}s},%
+description={Zustandsvektor des Systems},%
+descriptionplural={Zustandsvektor des Systems},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{sym:stateHat}%
+{%
+name={\ensuremath {\hat {\mathbf {x}}}},%
+sort={xhat},%
+type={symbols},%
+first={\protect \ensuremath  {\protect \hat  {\protect \mathbf  {x}}}},%
+firstplural={\protect \ensuremath  {\protect \hat  {\protect \mathbf  {x}}}s},%
+text={\protect \ensuremath  {\protect \hat  {\protect \mathbf  {x}}}},%
+plural={\protect \ensuremath  {\protect \hat  {\protect \mathbf  {x}}}s},%
+description={Schätzung des Zustandsvektors},%
+descriptionplural={Schätzung des Zustandsvektors},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{sym:P}%
+{%
+name={\ensuremath {\mathbf {P}}},%
+sort={P},%
+type={symbols},%
+first={\protect \ensuremath  {\protect \mathbf  {P}}},%
+firstplural={\protect \ensuremath  {\protect \mathbf  {P}}s},%
+text={\protect \ensuremath  {\protect \mathbf  {P}}},%
+plural={\protect \ensuremath  {\protect \mathbf  {P}}s},%
+description={Zustandskovarianzmatrix},%
+descriptionplural={Zustandskovarianzmatrix},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{sym:u}%
+{%
+name={\ensuremath {\mathbf {u}}},%
+sort={u},%
+type={symbols},%
+first={\protect \ensuremath  {\protect \mathbf  {u}}},%
+firstplural={\protect \ensuremath  {\protect \mathbf  {u}}s},%
+text={\protect \ensuremath  {\protect \mathbf  {u}}},%
+plural={\protect \ensuremath  {\protect \mathbf  {u}}s},%
+description={Steuereingabe},%
+descriptionplural={Steuereingabe},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{sym:f}%
+{%
+name={\ensuremath {f}},%
+sort={f},%
+type={symbols},%
+first={\protect \ensuremath  {f}},%
+firstplural={\protect \ensuremath  {f}s},%
+text={\protect \ensuremath  {f}},%
+plural={\protect \ensuremath  {f}s},%
+description={nichtlineare Modellfunktion},%
+descriptionplural={nichtlineare Modellfunktion},%
 symbol={\relax },%
 symbolplural={\relax },%
 user1={},%
@@ -1512,15 +2128,15 @@ parent={},%
 
 \glsdefs@newdocentry{sym:F}%
 {%
-name={$F$},%
-sort={$F$},%
+name={\ensuremath {\mathbf {F}}},%
+sort={F},%
 type={symbols},%
-first={$F$},%
-firstplural={$F$s},%
-text={$F$},%
-plural={$F$s},%
-description={Festhaltekraft},%
-descriptionplural={Festhaltekraft},%
+first={\protect \ensuremath  {\protect \mathbf  {F}}},%
+firstplural={\protect \ensuremath  {\protect \mathbf  {F}}s},%
+text={\protect \ensuremath  {\protect \mathbf  {F}}},%
+plural={\protect \ensuremath  {\protect \mathbf  {F}}s},%
+description={Jacobi-Matrix der Modellfunktion},%
+descriptionplural={Jacobi-Matrix der Modellfunktion},%
 symbol={\relax },%
 symbolplural={\relax },%
 user1={},%
@@ -1538,17 +2154,17 @@ parent={},%
 %
 }%
 
-\glsdefs@newdocentry{sym:S}%
+\glsdefs@newdocentry{sym:Q}%
 {%
-name={$S$},%
-sort={$S$},%
+name={\ensuremath {\mathbf {Q}}},%
+sort={Q},%
 type={symbols},%
-first={$S$},%
-firstplural={$S$s},%
-text={$S$},%
-plural={$S$s},%
-description={Sicherheitsfaktor bei Vakuumgreifern},%
-descriptionplural={Sicherheitsfaktor bei Vakuumgreifern},%
+first={\protect \ensuremath  {\protect \mathbf  {Q}}},%
+firstplural={\protect \ensuremath  {\protect \mathbf  {Q}}s},%
+text={\protect \ensuremath  {\protect \mathbf  {Q}}},%
+plural={\protect \ensuremath  {\protect \mathbf  {Q}}s},%
+description={Prozessrauschkovarianzmatrix},%
+descriptionplural={Prozessrauschkovarianzmatrix},%
 symbol={\relax },%
 symbolplural={\relax },%
 user1={},%
@@ -1566,17 +2182,17 @@ parent={},%
 %
 }%
 
-\glsdefs@newdocentry{sym:p}%
+\glsdefs@newdocentry{sym:z}%
 {%
-name={$p$},%
-sort={$p$},%
+name={\ensuremath {\mathbf {z}}},%
+sort={z},%
 type={symbols},%
-first={$p$},%
-firstplural={$p$s},%
-text={$p$},%
-plural={$p$s},%
-description={Vakuum in Prozent},%
-descriptionplural={Vakuum in Prozent},%
+first={\protect \ensuremath  {\protect \mathbf  {z}}},%
+firstplural={\protect \ensuremath  {\protect \mathbf  {z}}s},%
+text={\protect \ensuremath  {\protect \mathbf  {z}}},%
+plural={\protect \ensuremath  {\protect \mathbf  {z}}s},%
+description={Messwert},%
+descriptionplural={Messwert},%
 symbol={\relax },%
 symbolplural={\relax },%
 user1={},%
@@ -1594,17 +2210,17 @@ parent={},%
 %
 }%
 
-\glsdefs@newdocentry{sym:xs}%
+\glsdefs@newdocentry{sym:K}%
 {%
-name={$x_s$},%
-sort={$x_s$},%
+name={\ensuremath {\mathbf {K}}},%
+sort={K},%
 type={symbols},%
-first={$x_s$},%
-firstplural={$x_s$s},%
-text={$x_s$},%
-plural={$x_s$s},%
-description={Greifbereich},%
-descriptionplural={Greifbereich},%
+first={\protect \ensuremath  {\protect \mathbf  {K}}},%
+firstplural={\protect \ensuremath  {\protect \mathbf  {K}}s},%
+text={\protect \ensuremath  {\protect \mathbf  {K}}},%
+plural={\protect \ensuremath  {\protect \mathbf  {K}}s},%
+description={Kalman-Gain},%
+descriptionplural={Kalman-Gain},%
 symbol={\relax },%
 symbolplural={\relax },%
 user1={},%
@@ -1622,17 +2238,17 @@ parent={},%
 %
 }%
 
-\glsdefs@newdocentry{sym:pA}%
+\glsdefs@newdocentry{sym:H}%
 {%
-name={$p_A$},%
-sort={$p_A$},%
+name={\ensuremath {\mathbf {H}}},%
+sort={H},%
 type={symbols},%
-first={$p_A$},%
-firstplural={$p_A$s},%
-text={$p_A$},%
-plural={$p_A$s},%
-description={Arbeitsdruck},%
-descriptionplural={Arbeitsdruck},%
+first={\protect \ensuremath  {\protect \mathbf  {H}}},%
+firstplural={\protect \ensuremath  {\protect \mathbf  {H}}s},%
+text={\protect \ensuremath  {\protect \mathbf  {H}}},%
+plural={\protect \ensuremath  {\protect \mathbf  {H}}s},%
+description={Jacobi-Matrix der Messfunktion},%
+descriptionplural={Jacobi-Matrix der Messfunktion},%
 symbol={\relax },%
 symbolplural={\relax },%
 user1={},%
@@ -1650,17 +2266,17 @@ parent={},%
 %
 }%
 
-\glsdefs@newdocentry{sym:pG}%
+\glsdefs@newdocentry{sym:Rmeas}%
 {%
-name={$p_G$},%
-sort={$p_G$},%
+name={\ensuremath {\mathbf {R}}},%
+sort={R2},%
 type={symbols},%
-first={$p_G$},%
-firstplural={$p_G$s},%
-text={$p_G$},%
-plural={$p_G$s},%
-description={Gegendruck},%
-descriptionplural={Gegendruck},%
+first={\protect \ensuremath  {\protect \mathbf  {R}}},%
+firstplural={\protect \ensuremath  {\protect \mathbf  {R}}s},%
+text={\protect \ensuremath  {\protect \mathbf  {R}}},%
+plural={\protect \ensuremath  {\protect \mathbf  {R}}s},%
+description={Messrauschkovarianzmatrix},%
+descriptionplural={Messrauschkovarianzmatrix},%
 symbol={\relax },%
 symbolplural={\relax },%
 user1={},%
@@ -1678,17 +2294,17 @@ parent={},%
 %
 }%
 
-\glsdefs@newdocentry{sym:ps}%
+\glsdefs@newdocentry{sym:h}%
 {%
-name={$p_S$},%
-sort={$p_S$},%
+name={\ensuremath {h}},%
+sort={h},%
 type={symbols},%
-first={$p_S$},%
-firstplural={$p_S$s},%
-text={$p_S$},%
-plural={$p_S$s},%
-description={Speisedruck},%
-descriptionplural={Speisedruck},%
+first={\protect \ensuremath  {h}},%
+firstplural={\protect \ensuremath  {h}s},%
+text={\protect \ensuremath  {h}},%
+plural={\protect \ensuremath  {h}s},%
+description={Messfunktion},%
+descriptionplural={Messfunktion},%
 symbol={\relax },%
 symbolplural={\relax },%
 user1={},%
@@ -1706,17 +2322,45 @@ parent={},%
 %
 }%
 
-\glsdefs@newdocentry{sym:FG}%
+\glsdefs@newdocentry{sym:tthr}%
 {%
-name={$F_G$},%
-sort={$F_G$},%
+name={\ensuremath {t}},%
+sort={t2},%
 type={symbols},%
-first={$F_G$},%
-firstplural={$F_G$s},%
-text={$F_G$},%
-plural={$F_G$s},%
-description={Greifkraft},%
-descriptionplural={Greifkraft},%
+first={\protect \ensuremath  {t}},%
+firstplural={\protect \ensuremath  {t}s},%
+text={\protect \ensuremath  {t}},%
+plural={\protect \ensuremath  {t}s},%
+description={Schwellenwert für die Inlier-Zuordnung},%
+descriptionplural={Schwellenwert für die Inlier-Zuordnung},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{sym:model}%
+{%
+name={\ensuremath {\mathcal {M}}},%
+sort={M},%
+type={symbols},%
+first={\protect \ensuremath  {\protect \mathcal  {M}}},%
+firstplural={\protect \ensuremath  {\protect \mathcal  {M}}s},%
+text={\protect \ensuremath  {\protect \mathcal  {M}}},%
+plural={\protect \ensuremath  {\protect \mathcal  {M}}s},%
+description={geschätztes Modell},%
+descriptionplural={geschätztes Modell},%
 symbol={\relax },%
 symbolplural={\relax },%
 user1={},%

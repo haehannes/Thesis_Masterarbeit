@@ -4,14 +4,14 @@
 \babel@toc {ngerman}{}\relax 
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {2.1}{\ignorespaces Sensorbestückung des Pixhawk 6X \blx@tocontentsinit {0}\cite {px4_pixhawk6x_doc}}}{11}{table.caption.9}%
+\contentsline {table}{\numberline {2.1}{\ignorespaces Sensorbestückung des Pixhawk 6X \blx@tocontentsinit {0}\cite {px4_pixhawk6x_doc}}}{11}{table.caption.11}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces Übersicht der eingesetzten Hardwarekomponenten}}{26}{table.caption.22}%
+\contentsline {table}{\numberline {4.1}{\ignorespaces Übersicht der eingesetzten Hardwarekomponenten}}{26}{table.caption.24}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces Wesentliche Parameter der Optimierung in \texttt {tagslam.yaml}}}{39}{table.caption.28}%
+\contentsline {table}{\numberline {5.1}{\ignorespaces Wesentliche Parameter der Optimierung in \texttt {tagslam.yaml}}}{39}{table.caption.30}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {6.1}{\ignorespaces Wesentliche EKF2-Parameter zur visionsgestützten Zustandsschätzung}}{41}{table.caption.29}%
+\contentsline {table}{\numberline {6.1}{\ignorespaces Wesentliche EKF2-Parameter zur visionsgestützten Zustandsschätzung}}{41}{table.caption.31}%
 \contentsline {table}{\numberline {6.2}{\ignorespaces Startparameter des Knotens \texttt {vision\_pose\_uxrce\_node}}}{46}{table.6.2}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
