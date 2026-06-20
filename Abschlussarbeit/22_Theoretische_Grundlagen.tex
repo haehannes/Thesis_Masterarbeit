@@ -4,46 +4,191 @@
 
 Zum besseren Verständnis der vorliegenden Arbeit werden im folgenden Kapitel die theoretischen Grundlagen erläutert.
 Es werden grundlegende Begriffe aus den Bereichen der Robotik, der Sensorik sowie der visuellen Navigation eingeführt.
-Darüber hinaus wird gesondert auf den verwendeten Flugcontroller, die zugrundeliegenden Koordinatensysteme sowie die relevanten Transformationen eingegangen. 
+Darüber hinaus wird auf den verwendeten Flugcontroller, die zugrundeliegenden Koordinatensysteme, mathematische Grundlagen sowie die relevanten Transformationen eingegangen. 
 
 
 \section{Grundlagen Unbemannter Flugroboter}
-Unter einem unbemannten Luftfahrzeug \gls{uav}, umgangssprachlich auch als Drohne bezeichnet, versteht man ein Fluggerät, welches ohne einen menschlichen Piloten an Bord betrieben werden kann.
+Unter einem \gls{uav}, umgangssprachlich auch als Drohne bezeichnet, versteht man ein Fluggerät, welches ohne einen menschlichen Piloten an Bord betrieben werden kann.
 Dabei können \gls{uav}s entweder ferngesteuert von einem menschlichen Operator oder vollständig autonom durch einen bordeigenen Computer geführt werden.
 Die Anfänge unbemannter Luftfahrzeuge reichen bis in die 1910er Jahre zurück, in denen sie vorrangig für militärische Zwecke eingesetzt wurden.
-Ab den 2000er Jahren fanden \gls{uav}s zunehmend Eingang in zivile Anwendungsgebiete, wie beispielsweise die Katastrophenhilfe \cite[1--3]{Studiawan2026}.
+Ab den 2000er Jahren fanden \gls{uav}s zunehmend Eingang in zivile Anwendungsgebiete, wie beispielsweise die Katastrophenhilfe.~\cite{Studiawan2026}
 
-\subsection{Mechanischer Aufbau am Beispiel der Holybro X650}
-\textbf{Grundrahmen:} Der Grundrahmen eines \gls{uav} dient als mechanische Basis für die Montage aller weiteren Komponenten.
+\subsection{Mechanischer Aufbau eines Flugroboters am Beispiel der Holybro X650}
+Der Grundrahmen eines \gls{uav} dient als mechanische Basis für die Montage aller weiteren Komponenten.
 Das Design des Rahmens beeinflusst maßgeblich die Flugeigenschaften des Geräts.
 Das in dieser Arbeit verwendete Modell ist als Senkrechtstarter konzipiert und basiert auf einem X-förmigen Quadcopter-Rahmen.
 Die wesentlichen Bestandteile des Rahmens umfassen die Ausleger, das Landegestell sowie die zentrale Montageplattform für die Elektronik.
 Die Holybro X650 weist eine Diagonale von 650\,mm auf.
-Abbildung~\ref{fig:roll_pitch_yaw} zeigt die Holybro X650.
- \cite{Wu2021, holybro_x650}
+Abbildung~\ref{fig:roll_pitch_yaw} zeigt unter anderem den in dieser Arbeit verwendeten Grundrahmen mit Anbauteilen.
+~\cite{Wu2021, holybro_x650}
 
-\textbf{Antriebssystem:} Das Antriebssystem besteht aus vier Elektromotoren, die jeweils an einem der Ausleger montiert sind.
+Das Antriebssystem besteht aus vier Elektromotoren, die jeweils an einem der Ausleger montiert sind.
 An den Motoren sind Propeller befestigt, welche den erforderlichen Auftrieb erzeugen.
 
-\textbf{Flugcontroller:} Der Flugcontroller bildet das zentrale Steuerungselement eines UAV.
+Der Flugcontroller bildet das zentrale Steuerungselement eines UAV.
 Er setzt eingehende Steuerbefehle in konkrete Ansteuersignale um, die an die Motoren weitergeleitet werden.
 In Abschnitt~\ref{sec:Pixhawk_6X} wird näher auf den verwendeten Flugcontroller eingegangen.
 
-\textbf{Energieversorgung:} Die Energieversorgung erfolgt über einen \gls{lipo}.
+Die Energieversorgung erfolgt über einen \gls{lipo}.
 Dieser versorgt sowohl die Steuerelektronik als auch die Motoren. 
 
-\textbf{Nutzlast:} Das maximale Abfluggewicht der Holybro X650 beträgt 6,3\,kg, wobei der flugfertige Grundrahmen mit Antriebssystem bereits ein Eigengewicht von 4,3\,kg aufweist.
-Daraus ergibt sich eine maximale Nutzlast von 2\,kg (ohne Akku) \cite{holybro_x650}.
+Das maximale Abfluggewicht der Holybro X650 beträgt 6,3\,kg, wobei der flugfertige Grundrahmen mit Antriebssystem bereits ein Eigengewicht von 4,3\,kg aufweist.
+Daraus ergibt sich eine maximale Nutzlast von 2\,kg (ohne Akku)~\cite{holybro_x650}.
+
+
+\section{Sensorsysteme eines Multikopters}
+\label{sec:sensorik}
+Zum besseren Verständnis der Arbeit werden in diesem Abschnitt die relevanten Sensortypen vorgestellt.
+
+Die zentrale Sensoreinheit für ein \gls{uav} ist die \gls{imu}, welche Beschleunigungen und Winkelgeschwindigkeiten misst.
+Die \gls{imu} besteht typischerweise aus einem 3-Achsen-Beschleunigungssensor und einem 3-Achsen-Gyroskop.
+In einigen Fällen kann auch ein 3-Achsen-Magnetometer integriert sein, um die Orientierung relativ zum Erdmagnetfeld zu bestimmen.
+Ein weiterer Sensortyp ist das Barometer zur Bestimmung der Höhe, indem es den aktuellen Luftdruck misst.
+Weiterhin kann auch die Motordrehzahl oder Motorlast als Sensorinformation genutzt werden, um Rückschlüsse auf den aktuellen Bewegungszustand zu ziehen~\cite{Siciliano2009}.
+All diese Sensoren liefern nicht direkt die Position oder Orientierung des Roboters, reagieren jedoch schnell auf Bewegungsänderungen.
+Jeder dieser Sensoren ist mit einer gewissen Messunsicherheit behaftet, die durch Rauschen, Kalibrierungsfehler oder Umwelteinflüsse unterschiedlich stark ausgeprägt sein kann.
+Diese Messunsicherheiten lassen sich grundsätzlich in deterministische und stochastische Fehleranteile unterteilen~\cite{Capuano2023}.
+Ein wesentlicher deterministischer Fehler ist der Bias, ein systematischer Messfehler in Form eines konstanten Versatzes, der die Messung selbst dann verfälscht, wenn keine physikalische Größe anliegt.
+Ein ruhendes Gyroskop gibt daher trotz fehlender Drehung einen von null abweichenden Wert aus.
+Dem gegenüber steht das Rauschen als stochastischer, mittelwertfreier Fehleranteil.
+Die Sensorfusion, also die Kombination der Daten mehrerer Sensoren, ermöglicht es, die Genauigkeit der Messungen insgesamt zu verbessern~\cite{chen2024deep}.
+
+Die Integration dieser Sensordaten über die Zeit ermöglicht es, die Bewegung des Roboters zu verfolgen und eine Schätzung seines Zustands zu erhalten, was als Odometrie bezeichnet wird.
+Da die Sensoren, wie zuvor beschrieben, trotz Fusion fehlerbehaftet sind, führt die Integration über die Zeit zu einer zunehmenden Unsicherheit.
+Die Berechnung der Odometrie eines Flugroboters ist besonders herausfordernd, da sich das \gls{uav} in drei Dimensionen frei bewegt.
+Der zunehmende Fehler der Odometrie kann durch die Verwendung von externen Referenzen, wie \gls{gps}, korrigiert werden.
+
+
+
+\section{Flugcontroller Pixhawk 6X}
+\label{sec:Pixhawk_6X}
+\gls{px4} ist ein Open-Source-Autopilot-Flugstack, der die Flugsteuerung, Zustandsschätzung und Kommunikation eines \gls{uav} übernimmt.
+Das Pixhawk-Projekt wurde ursprünglich als studentisches Projekt an der ETH Zürich gestartet 
+\cite{MendozaMendoza2020} und hat sich seitdem zu einem weit verbreiteten Open-Source-Standard 
+in der \gls{uav}-Forschung und -Industrie entwickelt.
+Der in dieser Arbeit verwendete Pixhawk 6X basiert auf dem Pixhawk FMUv6X-Standard und wurde 
+von Holybro in Zusammenarbeit mit dem PX4-Entwicklerteam entwickelt~\cite{px4_pixhawk6x_doc}.
+
+Der Flugcontroller besteht aus zwei Teilen: dem Baseboard V2A und dem FMU-6X-Modul.
+Das \gls{fmu}-Modul wird auf das Baseboard aufgesteckt und verschraubt.
+Die Komponenten sind in Abbildung~\ref{fig:aufbau_flugcontroller} dargestellt.
+Das \gls{fmu} stellt die zentrale Recheneinheit des Flugcontrollers dar, auf der der Hauptprozessor (STM32H753) sowie die PX4-Firmware betrieben werden.
+Das Baseboard stellt vor allem die Schnittstellen zu Sensoren, anderen Komponenten und der Stromversorgung bereit.
+Im weiteren Verlauf der Arbeit wird dieser Zusammenschluss als Flugcontroller bezeichnet.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Bilder/Basebord_und_cube.png}
+    \caption{Komponenten des Pixhawk 6X: FMU-Modul und Baseboard V2A~\cite{holybro_x650}}
+    \label{fig:aufbau_flugcontroller}
+\end{figure}
+\FloatBarrier
+
+\subsection{Betriebssystem PX4 6X}
+Der Pixhawk 6X betreibt auf dem Hauptprozessor STM32H753 das Echtzeitbetriebssystem 
+NuttX, auf dem die PX4-Firmware ausgeführt wird.
+NuttX ist ein Echtzeitbetriebssystem, das sicherstellt, dass zeitkritische 
+Steuerungsaufgaben innerhalb garantierter Zeitschranken ausgeführt werden~\cite{px4_architecture}.
+
+Die Kommunikation mit der Bodenstation erfolgt über das MAVLink-Protokoll.
+MAVLink ist ein leichtgewichtiges Nachrichtenprotokoll, das speziell für die 
+Kommunikation zwischen Flugcontrollern und Bodenstationen entwickelt wurde.
+Es serialisiert Telemetriedaten, Steuerbefehle und Sensorwerte in Binärpakete, 
+die über serielle Schnittstellen oder \gls{udp} übertragen werden~\cite{MAVLink,px4_mavlink}.
+Die Kommunikation mit dem Companion-Computer erfolgt dagegen über die uXRCE-DDS-Schnittstelle, 
+die die internen uORB-Topics von \gls{px4} als ROS2-Topics bereitstellt~\cite{px4_uxrce_dds}.
+
+
+Zur Analyse des Flugverhaltens erzeugt der PX4 während des Betriebs ULog-Dateien, die auf der internen SD-Karte gespeichert werden.
+Diese Log-Dateien enthalten zeitgestempelte Aufzeichnungen aller relevanten Zustandsgrößen, Sensorwerte und EKF2-internen Größen und ermöglichen eine 
+detaillierte Nachanalyse des Systemverhaltens nach dem Flug~\cite{px4_ulog,px4_flight_reporting}.
+
+
+
+\subsection{Sensorik}
+Der Pixhawk 6X verfügt über eine dreifach redundante \gls{imu} sowie zwei redundante 
+Barometer, die auf getrennten Bussen mit unabhängiger Stromversorgung betrieben werden.
+Diese Redundanz erhöht die Zuverlässigkeit. 
+Erkennt der \gls{px4} einen Sensorausfall, schaltet das System auf einen funktionierenden Sensor um, um die Flugsteuerung 
+aufrechtzuerhalten.\cite{px4_pixhawk6x_doc}
+Die Sensoren sind, wie in Abschnitt~\ref{sec:sensorik} beschrieben, mit einer 
+Messunsicherheit behaftet, weshalb die redundante Auslegung und die anschließende 
+Sensorfusion im \gls{ekf} erfolgen.
+
+Die in der eingesetzten Revision verbauten Sensoren sind in Tabelle 
+\ref{tab:pixhawk_sensoren} aufgeführt.
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{ll}
+\toprule
+\textbf{Sensortyp} & \textbf{Bauteil} \\
+\midrule
+        Beschleunigung/Gyroskop & ICM-20649 / BMI088 \\
+        Beschleunigung/Gyroskop & ICM-42688-P \\
+        Beschleunigung/Gyroskop & ICM-42670-P \\
+        Barometer & 2$\times$ BMP388 \\
+        Magnetometer & BMM150 \\
+\bottomrule
+\end{tabular}
+\caption{Sensorbestückung des Pixhawk 6X~\cite{px4_pixhawk6x_doc}}
+\label{tab:pixhawk_sensoren}
+\end{table}
+\FloatBarrier
+
+Die \gls{imu}s sind vibrationsisoliert gelagert und werden über 
+Heizwiderstände auf einer konstanten Betriebstemperatur gehalten, um temperaturbedingte 
+Messabweichungen zu reduzieren~\cite{px4_pixhawk6x_doc}.
+Ein Magnetometer ist zwar verbaut, wird in dieser Arbeit jedoch nicht zur Lagebestimmung 
+verwendet (siehe Abschnitt~\ref{sec:ekf2}).
+
+
+\subsection{Schnittstellen PX4 6X}
+Der Flugcontroller stellt über das Baseboard eine Vielzahl von Schnittstellen zur Anbindung 
+externer Komponenten bereit.
+Für diese Arbeit sind insbesondere die folgenden Schnittstellen relevant:
+Die Ethernet-Schnittstelle dient der Kommunikation zwischen dem 
+Flugcontroller und dem Companion-Computer, über welche die extern berechnete Positionsschätzung 
+an den \gls{ekf} übermittelt wird.
+Die genaue Anbindung wird in Abschnitt~\ref{cap:systembeschreibung} beschrieben.
+Über den USB-Anschluss erfolgt die Parametrierung und Kalibrierung des Flugcontrollers 
+mittels der Bodenstationssoftware QGroundControl.
+Die PWM-Ausgänge des Baseboards steuern die Elektromotoren des \gls{uav} an.
+Darüber hinaus stehen weitere Schnittstellen wie UART, CAN, I\textsuperscript{2}C und SPI zur 
+Anbindung zusätzlicher Sensoren und Peripherie zur Verfügung, die in dieser Arbeit jedoch 
+nicht verwendet werden.~\cite{px4_pixhawk6x_doc}
+
+
+\subsection{EKF2 -- Zustandsschätzung und Sensorfusion}
+\label{sec:ekf2}
+Die Zustandsschätzung des \gls{px4} erfolgt über den \gls{ekf2}, einen in Abschnitt~\ref{sec:ekf} beschriebenen \gls{ekf}.
+Der \gls{ekf2} fusioniert die Messungen der bordeigenen Sensoren mit optionalen externen 
+Referenzen, um Lage, Geschwindigkeit und Position des \gls{uav} zu schätzen.
+Der Zustandsvektor des \gls{ekf2} umfasst 24 Zustände, darunter die Lage als Quaternion, 
+Geschwindigkeit, Position, die Bias-Werte von Gyroskop und Beschleunigungssensor, das 
+Erdmagnetfeld, den Magnetometer-Bias sowie die horizontale Windgeschwindigkeit~\cite{Ko2018}.
+Da in dieser Arbeit kein \gls{gps} zur Verfügung steht, wird die Position des \gls{uav} 
+über eine externe visuelle Positionsschätzung bereitgestellt.
+Diese wird als externe Referenz in den \gls{ekf2} eingespeist und ersetzt dort die 
+Funktion, die andernfalls vom \gls{gps} übernommen würde.
+Das Verhalten des \gls{ekf2} lässt sich über eine Reihe von Parametern konfigurieren, 
+welche unter anderem festlegen, welche Sensorquellen zur Positions- und Höhenbestimmung 
+herangezogen werden.
+Die konkrete Parametrierung für den GPS-freien Betrieb mit externer Positionsreferenz 
+wird in Abschnitt~\ref{sec:pos_ekf2_konfiguration} erläutert.
+
+
+
 
 \subsection{Vergleich von Welt-, Roboter-, Kamera- und Fiducialkoordinatensystem}
 \label{sec:vergleich_koordinatensysteme}
-Dieser Abschnitt behandelt die verschiedenen Koordinatensysteme, die in dieser Arbeit relevant sind.
+Dieser Abschnitt behandelt die für diese Arbeit relevanten Koordinatensysteme.
 Dabei wird zwischen dem Welt-, Roboter-, Kamera- und Fiducialkoordinatensystem unterschieden.
 
 Ein Koordinatensystem ist ein mathematisches Konstrukt, das zur eindeutigen Beschreibung der Lage von Punkten im Raum verwendet wird.
 Zur Beschreibung von Bewegungen ist die Festlegung eines Koordinatensystems von entscheidender Bedeutung.
 Es besteht aus einem Bezugspunkt, dem Ursprung, sowie drei orthogonalen Achsen, die als X-, Y- und Z-Achse bezeichnet werden.
-In dieser Arbeit wird standardmäßig das rechtshändige Koordinatensystem verwendet \cite{ISO8855}.
+In dieser Arbeit wird standardmäßig das rechtshändige Koordinatensystem verwendet~\cite{ISO8855}.
 Mathematisch wird der Zusammenhang durch
 \begin{equation}
 \mathbf{Z} = \mathbf{X} \times \mathbf{Y}
@@ -55,33 +200,34 @@ Ein Überblick über die in dieser Arbeit verwendeten Koordinatensysteme ist in 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=1.0\textwidth]{Bilder/Koordinatensysteme.png}
-\caption{Vergleich der Koordinatensysteme \cite{holybro_x650}}
+\caption{Vergleich der Koordinatensysteme~\cite{holybro_x650}}
 \label{fig:Koordinatensysteme}
 \end{figure}
 \FloatBarrier
 
 Das Weltkoordinatensystem dient als globaler Referenzrahmen, in dem die Position aller Objekte beschrieben wird.
 Der Ursprung dieses Koordinatensystems kann frei gewählt werden und wird durch die Variable \gls{sym:O0} repräsentiert.
-Die Achsen werden durch \gls{sym:X0}, \gls{sym:Y0} und \gls{sym:Z0} dargestellt \cite[4]{ISO9787}.
+Die Achsen werden durch \gls{sym:X0}, \gls{sym:Y0} und \gls{sym:Z0} dargestellt~\cite[4]{ISO9787}.
 
 Das UAV-Koordinatensystem ist in der Regel vom Hersteller vorgegeben und richtet sich in diesem konkreten Fall nach dem Flugregler.
-Der Flugregler verwendet die \gls{ned}/\gls{frd}-Konvention. 
+Der verwendete Flugregler nutzt die North-East-Down (NED)/Forward-Right-Down (FRD)-Konvention, körperfestes Koordinatensystem nach Norden, Osten und unten ausgerichtet ist. 
 Das körperfeste Koordinatensystem hat seinen Ursprung (\gls{sym:Ou}) im Mittelpunkt des Flugreglers.
-Ausgehend von der Flugrichtung entlang der X-Achse (\gls{sym:Xu}) zeigt diese nach vorne, die Y-Achse (\gls{sym:Yu}) nach rechts und die Z-Achse (\gls{sym:Zu}) nach unten \cite{PX4Frames}.
+Ausgehend von der Flugrichtung entlang der X-Achse (\gls{sym:Xu}) zeigt diese nach vorne, die Y-Achse (\gls{sym:Yu}) nach rechts und die Z-Achse (\gls{sym:Zu}) nach unten~\cite{PX4Frames}.
 
-Das Kamerakoordinatensystem ist in der Regel so definiert, dass die Z-Achse (\gls{sym:Zc}) entlang der optischen Achse der Kamera zeigt, 
-die X-Achse (\gls{sym:Xc}) nach rechts auf der Bildebene und die Y-Achse (\gls{sym:Yc}) nach unten auf der Bildebene zeigt.
-Der Ursprung (\gls{sym:Oc}) befindet sich im optischen Zentrum der Kamera \cite[44]{Szeliski2022}.
+Das Kamerakoordinatensystem ist so definiert, dass die Z-Achse (\gls{sym:Zc}) entlang der optischen Achse der Kamera zeigt, 
+die X-Achse (\gls{sym:Xc}) nach rechts und die Y-Achse (\gls{sym:Yc}) nach unten auf der Bildebene zeigt.
+Der Ursprung (\gls{sym:Oc}) befindet sich im optischen Zentrum der Kamera~\cite[44]{Szeliski2022}.
 
 Das Fiducialkoordinatensystem ist in dieser Arbeit so definiert, dass sich der Ursprung (\gls{sym:Of}) im Mittelpunkt der Fiducialmarke befindet.
 Die Z-Achse (\gls{sym:Zf}) zeigt senkrecht aus der Markerebene heraus, die X-Achse (\gls{sym:Xf}) zeigt nach rechts in der Markerebene und die Y-Achse (\gls{sym:Yf})
 zeigt nach oben in der Markerebene.
-TagSLAM und die darauf aufbauende Positionierung folgen der in ROS standardisierten \gls{enu}/\gls{flu}-Konvention.
+Die in den Kapitel~\ref{cap:kartierung} und~\ref{cap:lokalisierung} beschriebenen Implementierungen 
+folgen der in ROS standardisierten \gls{enu}/\gls{flu}-Konvention.
 
 
 \section{Repräsentation von Position und Orientierung}
 In diesem Abschnitt wird das verwendete \gls{uav} als starrer Körper betrachtet.
-Die vollständige Beschreibung der Lage eines starren Körpers im Raum erfolgt durch seine Position und Orientierung \cite[12]{Siciliano2009}.
+Dessen Lage im Raum lässt sich vollständig durch Position und Orientierung beschreiben~\cite{Siciliano2009}.
 
 Die Position eines Körpers wird durch den Vektor
 \begin{equation}
@@ -97,8 +243,8 @@ Abbildung~\ref{fig:roll_pitch_yaw} zeigt die Definition dieser Winkel am Beispie
 Die Pfeilrichtung entspricht der positiven Drehrichtung im rechtshändigen Koordinatensystem.
 \begin{figure}[htbp]
    \centering
-   \includegraphics[width=1.0\textwidth]{Bilder/Roll_Yaw_Pitch.png}
-   \caption{Roll, Pitch und Yaw am Beispiel Holybro X650 \cite{holybro_x650}}
+   \includegraphics[width=0.85\textwidth]{Bilder/Roll_Yaw_Pitch.png}
+   \caption{Roll, Pitch und Yaw am Beispiel Holybro X650~\cite{holybro_x650}}
    \label{fig:roll_pitch_yaw}
 \end{figure}
 \FloatBarrier
@@ -106,7 +252,7 @@ Die Pfeilrichtung entspricht der positiven Drehrichtung im rechtshändigen Koord
 \subsection{Quaternionen}
 Die Orientierung im Raum kann ebenfalls als Quaternion dargestellt werden.
 Quaternionen bieten gegenüber Euler-Winkeln den Vorteil, dass sie keine Singularitäten (Gimbal Lock) aufweisen.
-Quaternionen stellen eine Erweiterung des komplexen Zahlenraums dar und werden durch Gleichung~\eqref{eq:quaternion} definiert \cite{Siciliano2009}.
+Quaternionen stellen eine Erweiterung des komplexen Zahlenraums dar und werden durch Gleichung~\eqref{eq:quaternion} definiert~\cite{Siciliano2009}.
 \begin{equation}
 \mathbf{q} = w + ix + jy + kz
 \label{eq:quaternion}
@@ -142,13 +288,13 @@ q_1 \cdot q_2 = &(w_1 w_2 - x_1 x_2 - y_1 y_2 - z_1 z_2) \\
 \end{equation}
 
 Das Einheitsquaternion \gls{sym:q} beschreibt eine Rotation um den Winkel \gls{sym:phiRot} um eine normierte Rotationsachse 
-$\mathbf{v} = (v_x, v_y, v_z)^T$ und wird durch Gleichung~\eqref{eq:einheitsquaternion} beschrieben \cite{2016}.
+$\mathbf{v} = (v_x, v_y, v_z)^T$ und wird durch Gleichung~\eqref{eq:einheitsquaternion} beschrieben~\cite{2016}.
 \begin{equation}
 \mathbf{q} = \left(\cos\frac{\phi}{2},\ \mathbf{v} \cdot \sin\frac{\phi}{2}\right) = \left(\cos\frac{\phi}{2},\ v_x \sin\frac{\phi}{2},\ v_y \sin\frac{\phi}{2},\ v_z \sin\frac{\phi}{2}\right)
 \label{eq:einheitsquaternion}
 \end{equation}
 
-er Winkel \gls{sym:thetaQuat} zwischen zwei Einheitsquaternionen $\mathbf{q}_1$ und $\mathbf{q}_2$ ergibt sich aus deren Skalarprodukt gemäß Gleichung~\eqref{eq:quaternion_winkel}.
+Der Winkel \gls{sym:thetaQuat} zwischen zwei Einheitsquaternionen $\mathbf{q}_1$ und $\mathbf{q}_2$ ergibt sich aus deren Skalarprodukt gemäß Gleichung~\eqref{eq:quaternion_winkel}.
 \begin{equation}
 \theta = \arccos\!\left(w_1 w_2 + x_1 x_2 + y_1 y_2 + z_1 z_2\right)
 \label{eq:quaternion_winkel}
@@ -160,7 +306,7 @@ Die Konjugation eines Quaternions ist analog zu den komplexen Zahlen durch Gleic
 \label{eq:quaternion_konjungiert}
 \end{equation}
 
-Für die Rotation eines beliebigen Punktes $\mathbf{p} = (0, p_x, p_y, p_z)$ mittels eines Rotationsquaternions $\mathbf{q}$ wird Gleichung~\eqref{eq:quaternion_rotation} angewendet. \cite{Quan2017}
+Für die Rotation eines beliebigen Punktes $\mathbf{p} = (0, p_x, p_y, p_z)$ mittels eines Rotationsquaternions $\mathbf{q}$ wird Gleichung~\eqref{eq:quaternion_rotation} angewendet.~\cite{Quan2017}
 \begin{equation}
 \mathbf{p}' = \mathbf{q} \cdot \mathbf{p} \cdot \bar{\mathbf{q}}
 \label{eq:quaternion_rotation}
@@ -204,12 +350,12 @@ Mit den Gewichten \gls{sym:weight} $\ge 0$ ergibt sich das gemittelte Quaternion
 \bar{\mathbf{q}} = \frac{\displaystyle\sum_{i} w_i\,\mathbf{q}_i}{\left\lVert \displaystyle\sum_{i} w_i\,\mathbf{q}_i \right\rVert}.
 \label{eq:quaternion_mittelung}
 \end{equation}
-Diese Mittelung ist lediglich eine lineare Näherung, die für eng beieinanderliegende Orientierungen gute Ergebnisse liefert \cite{Markley2007}.
+Diese Mittelung ist lediglich eine lineare Näherung, die für eng beieinanderliegende Orientierungen gute Ergebnisse liefert~\cite{Markley2007}.
 
 \subsection{Sphärische lineare Interpolation von Quaternionen}
 \label{sec:quaternionen_slerp}
 Durch die \gls{slerp} ist es möglich, zwei Quaternionen ineinander zu überführen.
-Die nachfolgende Formel beschreibt diese Operation \cite{Shoemake1985}.
+Die nachfolgende Formel beschreibt diese Operation~\cite{Shoemake1985}.
 \begin{equation}
 \operatorname{slerp}(\mathbf{q}_0, \mathbf{q}_1, \alpha) = \frac{\sin\!\bigl((1-\alpha)\,\theta\bigr)}{\sin\theta}\,\mathbf{q}_0 + \frac{\sin(\alpha\,\theta)}{\sin\theta}\,\mathbf{q}_1.
 \label{eq:slerp}
@@ -219,15 +365,15 @@ Für $\alpha = 0$ liefert sie $\mathbf{q}_0$, für $\alpha = 1$ entsprechend $\m
 Da ein Quaternion und sein Negatives dieselbe Rotation beschreiben, wird zunächst sichergestellt, dass
 entlang des kürzeren Bogens interpoliert wird, indem das Vorzeichen von $\mathbf{q}_1$ bei negativem
 Skalarprodukt nach Gleichung~\eqref{eq:quaternion_vorzeichen} an $\mathbf{q}_0$ angeglichen wird.
-Für sehr kleine Winkel $\theta$ geht $\sin\theta$ gegen null, wodurch Gleichung~\eqref{eq:slerp} numerisch instabil wird.
+Für sehr kleine Winkel $\theta$ geht $\sin\theta$ gegen null, wodurch Gleichung~\eqref{eq:slerp} numerisch instabil wird~\cite{Shoemake1985}.
 
 
 \subsection{Rodrigues-Parameter}
 \label{sec:rodrigues_parameter}
 Ein Rodrigues-Vektor ist eine alternative Möglichkeit, eine Rotation im Raum zu beschreiben.
 Die Rotation wird durch einen Vektor \glsadd{sym:r}$\mathbf{r} = (r_x, r_y, r_z)^T$ beschrieben,
-dessen Richtung die Rotationsachse angibt und dessen Betrag den Rotationswinkel repräsentiert \cite{Bradski2008}.
-Der Rotationswinkel \gls{sym:phiRot} ergibt sich aus dem Betrag des Rodrigues-Vektors gemäß Gleichung~\eqref{eq:rodrigues_parameter_betrag} und wird gegen den Uhrzeigersinn um die Rotationsachse gemessen. \cite{Dai2015a}
+dessen Richtung die Rotationsachse und dessen Betrag den Rotationswinkel angibt~\cite{Bradski2008}.
+Der Rotationswinkel \gls{sym:phiRot} ergibt sich aus dem Betrag des Rodrigues-Vektors gemäß Gleichung~\eqref{eq:rodrigues_parameter_betrag} und wird gegen den Uhrzeigersinn um die Rotationsachse gemessen~\cite{Dai2015a}.
 \begin{equation}
 \phi = \|\mathbf{r}\| = \sqrt{r_x^2 + r_y^2 + r_z^2}
 \label{eq:rodrigues_parameter_betrag}
@@ -292,7 +438,7 @@ Ihre Inverse $\left(^b\mathbf{T}_a\right)^{-1} = {^a\mathbf{T}_b}$ ergibt sich i
 \end{bmatrix},
 \label{eq:trafo_inverse}
 \end{equation}
-sodass keine allgemeine Matrixinversion erforderlich ist \cite{Lynch2017}.
+sodass keine allgemeine Matrixinversion erforderlich ist~\cite{Lynch2017}.
 Damit lässt sich Gleichung~\eqref{eq:trafo_punkt} kompakt schreiben als
 \begin{equation}
 ^b\tilde{\mathbf{r}} = {^b\mathbf{T}_a}\,{^a\tilde{\mathbf{r}}}.
@@ -316,28 +462,6 @@ Sind die Transformationen $^c\mathbf{T}_b$ (von~$b$ nach~$c$) und $^b\mathbf{T}_
 \end{equation}
 
 
-\section{Sensorsysteme eines Multikopters}
-\label{sec:sensorik}
-Zum besseren Verständnis der Arbeit werden in diesem Abschnitt die relevanten Sensortypen vorgestellt.
-
-Die zentrale Sensoreinheit für ein \gls{uav} ist die \gls{imu}, welche Beschleunigungen und Winkelgeschwindigkeiten misst.
-Die \gls{imu} besteht typischerweise aus einem 3-Achsen-Beschleunigungssensor und einem 3-Achsen-Gyroskop.
-In einigen Fällen kann auch ein 3-Achsen-Magnetometer integriert sein, um die Orientierung relativ zum Erdmagnetfeld zu bestimmen.
-Ein weiterer Sensortyp ist das Barometer zur Bestimmung der Höhe, indem es den aktuellen Luftdruck misst.
-Weiterhin kann auch die Motordrehzahl oder Motorlast als Sensorinformation genutzt werden, um Rückschlüsse auf den aktuellen Bewegungszustand zu ziehen \cite{Siciliano2009}.
-All diese Sensoren liefern nicht direkt die Position oder Orientierung des Roboters, reagieren jedoch schnell auf Bewegungsänderungen.
-Jeder dieser Sensoren ist mit einer gewissen Messunsicherheit behaftet, die durch Rauschen, Kalibrierungsfehler oder Umwelteinflüsse unterschiedlich stark ausgeprägt sein kann.
-Diese Messunsicherheiten lassen sich grundsätzlich in deterministische und stochastische Fehleranteile unterteilen \cite{Capuano2023}.
-Ein wesentlicher deterministischer Fehler ist der Bias, ein systematischer Messfehler in Form eines konstanten Versatzes, der die Messung auch dann verfälscht, wenn keine physikalische Größe anliegt.
-So gibt beispielsweise ein ruhendes Gyroskop trotz fehlender Drehung einen von null verschiedenen Wert aus.
-Dem gegenüber steht das Rauschen als stochastischer, mittelwertfreier Fehleranteil.
-Die Sensorfusion, also die Kombination der Daten mehrerer Sensoren, ermöglicht es, die Genauigkeit der Messungen zu verbessern \cite{chen2024deep}.
-
-Die Integration dieser Sensordaten über die Zeit ermöglicht es, die Bewegung des Roboters zu verfolgen und eine Schätzung seines Zustands zu erhalten, was als Odometrie bezeichnet wird.
-Da die Sensoren, wie zuvor beschrieben, trotz Fusion fehlerbehaftet sind, führt die Integration über die Zeit zu einer zunehmenden Unsicherheit.
-Die Odometrie eines Flugroboters ist besonders herausfordernd, da sich das \gls{uav} in drei Dimensionen frei bewegt.
-Der zunehmende Fehler der Odometrie kann durch die Verwendung von externen Referenzen, wie \gls{gps}, korrigiert werden.
-
 
 \section{Extended Kalman Filter}
 \label{sec:ekf}
@@ -346,18 +470,19 @@ Auch die speziell im \gls{px4} zugrundeliegenden mathematischen Modelle werden n
 Zum Verständnis der Positionsbestimmung sowie der Parametrierung des \gls{ekf} ist es jedoch notwendig, die Grundlagen des Kalman-Filters zu kennen.
 
 Ein Kalman-Filter ist ein Algorithmus zur Schätzung des Zustands eines dynamischen Systems durch 
-die Kombination von Vorhersagen aus einem mathematischen Modell und Messungen von Sensoren \cite{kalman1960}.
+die Kombination von Vorhersagen aus einem mathematischen Modell und Messungen von Sensoren~\cite{kalman1960}.
 Der \gls{ekf} ist ein rekursiver Filter, wodurch er kontinuierlich neue Messwerte verarbeiten kann.
 Im Folgenden wird der grundlegende Aufbau des Filters geschildert.
-Der Filter besteht im Wesentlichen aus drei Phasen.
+
+Der Filter besteht im Wesentlichen aus drei Phasen, der Initialisierung, der Prädiktion und der Korrektur.
 In der Literatur wird zwischen zwei Arten von Zustandsschätzungen unterschieden: 
 Der \textit{Prior} $(\cdot)^{-}$ bezeichnet die durch das Systemmodell vorhergesagte Schätzung vor der Einbeziehung einer neuen Messung. 
-Der \textit{Posterior} $(\cdot)^{+}$ bezeichnet die korrigierte Schätzung nach der Einbeziehung der Messung \cite{Bang18}.
-Der Operator $\hat{(\cdot)}$ kennzeichnet dabei stets eine Schätzgröße -- \glsadd{sym:stateHat}\glsadd{sym:state}$\hat{\mathbf{x}}$ ist demnach eine Schätzung des wahren Zustands $\mathbf{x}$ \cite{Bang18}.
+Der \textit{Posterior} $(\cdot)^{+}$ bezeichnet die korrigierte Schätzung nach der Einbeziehung der Messung~\cite{Bang18}.
+Der Operator $\hat{(\cdot)}$ kennzeichnet dabei stets eine Schätzgröße -- \glsadd{sym:stateHat}\glsadd{sym:state}$\hat{\mathbf{x}}$ ist demnach eine Schätzung des wahren Zustands $\mathbf{x}$~\cite{Bang18}.
 
 Zu Beginn muss eine Anfangsbedingung festgelegt werden.
 Hierfür benötigt das System einen initialen Zustandsschätzwert $\hat{\mathbf{x}}_0^{+}$ sowie die zugehörige Unsicherheit in Form der 
-Zustandskovarianzmatrix \glsadd{sym:P}$\mathbf{P}_0^{+}$ \cite{Bang18}.
+Zustandskovarianzmatrix \glsadd{sym:P}$\mathbf{P}_0^{+}$~\cite{Bang18}.
 In der Prädiktionsphase wird der Zustand des Systems zum nächsten Zeitpunkt auf Basis eines mathematischen Modells berechnet.
 Der Zustand $\hat{\mathbf{x}}_k^{-}$ wird dabei aus dem vorherigen Zustand $\hat{\mathbf{x}}_{k-1}^{+}$ und der Steuereingabe 
 \glsadd{sym:u}$\mathbf{u}_{k-1}$ über die nichtlineare Modellfunktion \glsadd{sym:f}$f$ prädiziert:
@@ -394,126 +519,8 @@ Abschließend wird die Zustandskovarianzmatrix aktualisiert und durch die Einbez
     \mathbf{P}_k^{+} = \left(\mathbf{I} - \mathbf{K}_k\,\mathbf{H}_k\right)\mathbf{P}_k^{-}
 \end{equation}
 
-Die aktualisierten Größen $\hat{\mathbf{x}}_k^{+}$ und $\mathbf{P}_k^{+}$ dienen im nächsten Zeitschritt wiederum als Ausgangswerte der Prädiktionsphase, wodurch sich der rekursive Charakter des Filters ergibt \cite{Bang18}.
+Die aktualisierten Größen $\hat{\mathbf{x}}_k^{+}$ und $\mathbf{P}_k^{+}$ dienen im nächsten Zeitschritt wiederum als Ausgangswerte der Prädiktionsphase, wodurch sich der rekursive Charakter des Filters ergibt~\cite{Bang18}.
 
-
-\section{Flugcontroller Pixhawk 6X}
-\label{sec:Pixhawk_6X}
-\gls{px4} ist ein Open-Source-Autopilot-Flugstack, der die Flugsteuerung, Zustandsschätzung und Kommunikation eines \gls{uav} übernimmt.
-Das Pixhawk-Projekt wurde ursprünglich als studentisches Projekt an der ETH Zürich gestartet 
-\cite{MendozaMendoza2020} und hat sich seitdem zu einem weit verbreiteten Open-Source-Standard 
-in der \gls{uav}-Forschung und -Industrie entwickelt.
-Der in dieser Arbeit verwendete Pixhawk 6X basiert auf dem Pixhawk FMUv6X-Standard und wurde 
-von Holybro in Zusammenarbeit mit dem PX4-Entwicklerteam entwickelt.\cite{px4_pixhawk6x_doc}
-Er bildet das zentrale Steuerungselement des verwendeten \gls{uav}.
-
-Der Flugcontroller besteht aus zwei Teilen: dem Baseboard V2A und dem FMU-6X-Modul.
-Das \gls{fmu}-Modul wird auf das Baseboard aufgesteckt und verschraubt.
-Die Komponenten sind in Abbildung~\ref{fig:aufbau_flugcontroller} dargestellt.
-Im weiteren Verlauf der Arbeit wird dieser Zusammenschluss als Flugcontroller bezeichnet.
-Das \gls{fmu} stellt die zentrale Recheneinheit des Flugcontrollers dar, auf der der Hauptprozessor (STM32H753) sowie die PX4-Firmware betrieben werden.
-Das Baseboard stellt vor allem die Schnittstellen zu Sensoren, anderen Komponenten und der Stromversorgung bereit.
-
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.8\textwidth]{Bilder/Basebord_und_cube.png}
-    \caption{Komponenten des Pixhawk 6X: FMU-Modul und Baseboard V2A \cite{holybro_x650}}
-    \label{fig:aufbau_flugcontroller}
-\end{figure}
-\FloatBarrier
-
-
-
-
-\subsection{Sensorik}
-Der Pixhawk 6X verfügt über eine dreifach redundante \gls{imu} sowie zwei redundante 
-Barometer, die auf getrennten Bussen mit unabhängiger Stromversorgung betrieben werden.
-Diese Redundanz erhöht die Zuverlässigkeit: Erkennt der \gls{px4} den Ausfall eines Sensors, 
-schaltet das System auf einen funktionierenden Sensor um, um die Flugsteuerung 
-aufrechtzuerhalten.\cite{px4_pixhawk6x_doc}
-Die Sensoren sind, wie in Abschnitt~\ref{sec:sensorik} beschrieben, mit einer 
-Messunsicherheit behaftet, weshalb die redundante Auslegung und die anschließende 
-Sensorfusion im \gls{ekf} erfolgen.
-
-Die in der eingesetzten Revision verbauten Sensoren sind in Tabelle 
-\ref{tab:pixhawk_sensoren} aufgeführt.
-
-\begin{table}[htbp]
-    \centering
-    \begin{tabular}{ll}
-        \toprule
-        \textbf{Sensortyp} & \textbf{Bauteil} \\
-        \midrule
-        Beschleunigung/Gyroskop & ICM-20649 / BMI088 \\
-        Beschleunigung/Gyroskop & ICM-42688-P \\
-        Beschleunigung/Gyroskop & ICM-42670-P \\
-        Barometer & 2$\times$ BMP388 \\
-        Magnetometer & BMM150 \\
-        \bottomrule
-    \end{tabular}
-    \caption{Sensorbestückung des Pixhawk 6X \cite{px4_pixhawk6x_doc}}
-\end{table}
-\FloatBarrier
-
-Zusätzlich sind die \gls{imu}s vibrationsisoliert gelagert und werden über 
-Heizwiderstände auf einer konstanten Betriebstemperatur gehalten, um temperaturbedingte 
-Messabweichungen zu reduzieren.\cite{px4_pixhawk6x_doc}
-Ein Magnetometer ist zwar verbaut, wird in dieser Arbeit jedoch nicht zur Lagebestimmung 
-verwendet (siehe Abschnitt~\ref{sec:ekf2}).
-
-
-\subsection{Schnittstellen PX4 6X}
-Der Flugcontroller stellt über das Baseboard eine Vielzahl von Schnittstellen zur Anbindung 
-externer Komponenten bereit.
-Für diese Arbeit sind insbesondere die folgenden Schnittstellen relevant:
-
-Die serielle Schnittstelle (UART) der Telemetrie-Ports dient der Kommunikation zwischen dem 
-Flugcontroller und dem Jetson Orin Nano, über welche die extern berechnete Positionsschätzung 
-an den \gls{ekf} übermittelt wird.
-Die genaue Anbindung wird in Abschnitt~\ref{sec:systemaufbau} beschrieben.
-Über den USB-Anschluss erfolgt die Parametrierung und Kalibrierung des Flugcontrollers 
-mittels der Bodenstationssoftware QGroundControl.
-Die PWM-Ausgänge des Baseboards steuern die Elektromotoren des \gls{uav} an.
-Darüber hinaus stehen weitere Schnittstellen wie CAN, I\textsuperscript{2}C und SPI zur 
-Anbindung zusätzlicher Sensoren und Peripherie zur Verfügung, die in dieser Arbeit jedoch 
-nicht verwendet werden.\cite{px4_pixhawk6x_doc}
-
-
-\subsection{EKF2 -- Zustandsschätzung und Sensorfusion}
-\label{sec:ekf2}
-Die Zustandsschätzung des \gls{px4} erfolgt über den \gls{ekf2}, einen in Abschnitt~\ref{sec:ekf} beschriebenen \gls{ekf}.
-Der \gls{ekf2} fusioniert die Messungen der bordeigenen Sensoren mit optionalen externen 
-Referenzen, um Lage, Geschwindigkeit und Position des \gls{uav} zu schätzen.
-Der Zustandsvektor des \gls{ekf2} umfasst 24 Zustände, darunter die Lage als Quaternion, 
-Geschwindigkeit, Position, die Bias-Werte von Gyroskop und Beschleunigungssensor, das 
-Erdmagnetfeld, den Magnetometer-Bias sowie die horizontale Windgeschwindigkeit.\cite{Ko2018}
-Da in dieser Arbeit kein \gls{gps} zur Verfügung steht, wird die Position des \gls{uav} 
-über eine externe visuelle Positionsschätzung bereitgestellt.
-Diese wird als externe Referenz in den \gls{ekf2} eingespeist und ersetzt dort die 
-Funktion, die andernfalls vom \gls{gps} übernommen würde.
-Das Verhalten des \gls{ekf2} lässt sich über eine Reihe von Parametern konfigurieren, 
-welche unter anderem festlegen, welche Sensorquellen zur Positions- und Höhenbestimmung 
-herangezogen werden.
-Die konkrete Parametrierung für den GPS-freien Betrieb mit externer Positionsreferenz 
-wird in Abschnitt~\ref{sec:systemaufbau} erläutert.
-
-
-\subsection{Betriebssystem PX4 6X}
-Der Pixhawk 6X betreibt auf dem Hauptprozessor STM32H753 das Echtzeitbetriebssystem 
-NuttX, auf dem die PX4-Firmware ausgeführt wird.
-NuttX ist ein Echtzeitbetriebssystem, das sicherstellt, dass zeitkritische 
-Steuerungsaufgaben innerhalb garantierter Zeitschranken ausgeführt werden. \cite{px4_architecture}
-
-Die Kommunikation mit externen Systemen in dieser Arbeit erfolgt über das MAVLink-Protokoll.
-MAVLink ist ein leichtgewichtiges Nachrichtenprotokoll, das speziell für die 
-Kommunikation zwischen Flugcontrollern und Bodenstationen bzw. Companion-Computern 
-entwickelt wurde. 
-Es serialisiert Telemetriedaten, Steuerbefehle und Sensorwerte in kompakte Binärpakete, 
-die über serielle Schnittstellen oder \gls{udp} übertragen werden. \cite{MAVLink,px4_mavlink}
-
-Zur Analyse des Flugverhaltens erzeugt der PX4 während des Betriebs ULog-Dateien, die auf der internen SD-Karte gespeichert werden.
-Diese Log-Dateien enthalten zeitgestempelte Aufzeichnungen aller relevanten Zustandsgrößen, Sensorwerte und EKF2-internen Größen und ermöglichen eine 
-detaillierte Nachanalyse des Systemverhaltens nach dem Flug. \cite{px4_ulog,px4_flight_reporting}
 
 
 \section{Random Sample Consensus (RANSAC)}
@@ -543,30 +550,29 @@ Die Menge aller konsistenten Punkte wird als Konsensmenge bezeichnet, ihre Eleme
 \gls{ros2} ist ein Open-Source-Framework für die Entwicklung von Robotersoftware.
 Es stellt eine einheitliche Middleware bereit, über die verteilte Software-Komponenten -- sogenannte \textit{Nodes} -- miteinander kommunizieren können.
 %Im Gegensatz zu seinem Vorgänger \gls{ros1} verwendet \gls{ros2} das standardisierte \gls{dds}-Protokoll als Kommunikationsschicht, 
-wodurch kein zentraler Master-Prozess mehr benötigt wird und eine höhere Robustheit sowie Echtzeitfähigkeit erreicht werden.
-In dieser Arbeit wird \gls{ros2} Humble sowie \gls{ros2} Jazzy eingesetzt.\cite{ROS2MiddlewareHumble}
+In dieser Arbeit wird \gls{ros2} Humble sowie \gls{ros2} Jazzy eingesetzt~\cite{ROS2MiddlewareHumble}.
 
 \subsection{Nodes und Topics}
-Die grundlegende Kommunikationseinheit in \gls{ros2} ist der \textit{Node}: ein eigenständiger Prozess, der eine spezifische Aufgabe übernimmt, 
+Die grundlegende Kommunikationseinheit in \gls{ros2} ist der \textit{Node}, der eine spezifische Aufgabe übernimmt, 
 beispielsweise die Kamerabildverarbeitung.
 Nodes tauschen Daten über \textit{Topics} nach dem Publish-Subscribe-Prinzip aus.
-Ein Node, der Daten erzeugt, veröffentlicht diese als \textit{Publisher} auf einem Topic; ein oder mehrere 
-\textit{Subscriber}-Nodes empfangen die Nachrichten asynchron.
+Ein Node, der Daten erzeugt, veröffentlicht diese als \textit{Publisher} auf einem Topic. 
+Ein oder mehrere \textit{Subscriber}-Nodes empfangen die Nachrichten asynchron.
 Topics sind typisiert, das heißt jedes Topic überträgt Nachrichten eines fest definierten Nachrichtentyps, beispielsweise 
-\texttt{geometry\_msgs/PoseStamped} für Positionsdaten oder \texttt{sensor\_msgs/Image} für Kamerabilder. \cite{ROS2Nodes,ROS2Topics}
+\texttt{geometry\_msgs/PoseStamped} für Positionsdaten oder \texttt{sensor\_msgs/Image} für Kamerabilder~\cite{ROS2Nodes,ROS2Topics}.
 
 
 \subsection{Bag-Dateien}
 \label{sec:ros_bag}
 \gls{ros2} ermöglicht die Aufzeichnung von Topic-Daten in sogenannten \textit{Bag-Dateien} mittels des Werkzeugs \texttt{rosbag2}.
-Aufgezeichnete Bags können anschließend offline wiedergegeben werden, sodass das Systemverhalten ohne erneuten Flug reproduzierbar analysiert werden kann. \cite{ROS2Rosbag2}
+Aufgezeichnete Bags können anschließend offline wiedergegeben werden, wobei die aufgezeichneten Topics wieder auf denselben Topics im System veröffentlicht werden~\cite{ROS2Rosbag2}.
 
-%Hier nochmal überlegen ob das bleiben sollte. außerdem brauch ich nochmal bessere quellen!!!
-\subsection{TF2 -- Koordinatentransformationen}
-Das \texttt{tf2}-Paket verwaltet in \gls{ros2} einen baumförmigen Graphen von Koordinatentransformationen zwischen den im System definierten Referenzrahmen.\cite{ROS2Humble}
-Jede Transformation beschreibt die räumliche Beziehung zwischen zwei Frames als homogene Transformation bestehend aus Translation und Rotation.
-Der TF-Baum wird kontinuierlich über die Topics \texttt{/tf} und \texttt{/tf\_static} aktualisiert, wobei statische Transformationen -- beispielsweise die feste Lage einer Kamera relativ zum \gls{uav}-Körper -- über \texttt{/tf\_static} einmalig veröffentlicht werden.
-Jeder Node kann zu jedem Zeitpunkt die Transformation zwischen zwei beliebigen Frames abfragen, sofern ein zusammenhängender Pfad im TF-Baum existiert.
+%%Hier nochmal überlegen ob das bleiben sollte. außerdem brauch ich nochmal bessere quellen!!!
+%\subsection{TF2 -- Koordinatentransformationen}
+%Das \texttt{tf2}-Paket verwaltet in \gls{ros2} einen baumförmigen Graphen von Koordinatentransformationen zwischen den im System definierten Referenzrahmen.\cite{ROS2Humble}
+%Jede Transformation beschreibt die räumliche Beziehung zwischen zwei Frames als homogene Transformation bestehend aus Translation und Rotation.
+%Der TF-Baum wird kontinuierlich über die Topics \texttt{/tf} und \texttt{/tf\_static} aktualisiert, wobei statische Transformationen -- beispielsweise die feste Lage einer Kamera relativ zum \gls{uav}-Körper -- über \texttt{/tf\_static} einmalig veröffentlicht werden.
+%Jeder Node kann zu jedem Zeitpunkt die Transformation zwischen zwei beliebigen Frames abfragen, sofern ein zusammenhängender Pfad im TF-Baum existiert.
 
 
 

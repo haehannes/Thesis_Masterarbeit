@@ -166,34 +166,6 @@ parent={},%
 %
 }%
 
-\glsdefs@newdocentry{ransac}%
-{%
-name={\acronymfont {\glsentryshort {ransac}}},%
-sort={RANSAC},%
-type={acronym},%
-first={RANSAC},%
-firstplural={RANSACs},%
-text={RANSAC},%
-plural={RANSACs},%
-description={Random Samle Consensus},%
-descriptionplural={Random Samle Consensus},%
-symbol={\relax },%
-symbolplural={\relax },%
-user1={},%
-user2={},%
-user3={},%
-user4={},%
-user5={},%
-user6={},%
-long={Random Samle Consensus},%
-longplural={Random Samle Consensuss},%
-short={RANSAC},%
-shortplural={RANSACs},%
-counter={page},%
-parent={},%
-%
-}%
-
 \glsdefs@newdocentry{ekf2}%
 {%
 name={\acronymfont {\glsentryshort {ekf2}}},%
@@ -315,8 +287,8 @@ first={GNSS},%
 firstplural={GNSSs},%
 text={GNSS},%
 plural={GNSSs},%
-description={Global Navigation Satllite System},%
-descriptionplural={Global Navigation Satllite System},%
+description={Global Navigation Satellite System},%
+descriptionplural={Global Navigation Satellite System},%
 symbol={\relax },%
 symbolplural={\relax },%
 user1={},%
@@ -325,8 +297,8 @@ user3={},%
 user4={},%
 user5={},%
 user6={},%
-long={Global Navigation Satllite System},%
-longplural={Global Navigation Satllite Systems},%
+long={Global Navigation Satellite System},%
+longplural={Global Navigation Satellite Systems},%
 short={GNSS},%
 shortplural={GNSSs},%
 counter={page},%
@@ -399,8 +371,8 @@ first={IEKF},%
 firstplural={IEKFs},%
 text={IEKF},%
 plural={IEKFs},%
-description={Invariant Extnded Kalman Filter},%
-descriptionplural={Invariant Extnded Kalman Filter},%
+description={Invariant Extended Kalman Filter},%
+descriptionplural={Invariant Extended Kalman Filter},%
 symbol={\relax },%
 symbolplural={\relax },%
 user1={},%
@@ -409,8 +381,8 @@ user3={},%
 user4={},%
 user5={},%
 user6={},%
-long={Invariant Extnded Kalman Filter},%
-longplural={Invariant Extnded Kalman Filters},%
+long={Invariant Extended Kalman Filter},%
+longplural={Invariant Extended Kalman Filters},%
 short={IEKF},%
 shortplural={IEKFs},%
 counter={page},%
@@ -838,6 +810,34 @@ parent={},%
 %
 }%
 
+\glsdefs@newdocentry{ransac}%
+{%
+name={\acronymfont {\glsentryshort {ransac}}},%
+sort={RANSAC},%
+type={acronym},%
+first={RANSAC},%
+firstplural={RANSACs},%
+text={RANSAC},%
+plural={RANSACs},%
+description={Random Sample Consensus},%
+descriptionplural={Random Sample Consensus},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Random Sample Consensus},%
+longplural={Random Sample Consensuss},%
+short={RANSAC},%
+shortplural={RANSACs},%
+counter={page},%
+parent={},%
+%
+}%
+
 \glsdefs@newdocentry{oic}%
 {%
 name={\acronymfont {\glsentryshort {oic}}},%
@@ -931,8 +931,8 @@ first={SLERP},%
 firstplural={SLERPs},%
 text={SLERP},%
 plural={SLERPs},%
-description={Sphärische lineare Interolation},%
-descriptionplural={Sphärische lineare Interolation},%
+description={Sphärische lineare Interpolation},%
+descriptionplural={Sphärische lineare Interpolation},%
 symbol={\relax },%
 symbolplural={\relax },%
 user1={},%
@@ -941,8 +941,8 @@ user3={},%
 user4={},%
 user5={},%
 user6={},%
-long={Sphärische lineare Interolation},%
-longplural={Sphärische lineare Interolations},%
+long={Sphärische lineare Interpolation},%
+longplural={Sphärische lineare Interpolations},%
 short={SLERP},%
 shortplural={SLERPs},%
 counter={page},%
@@ -959,8 +959,8 @@ first={NED},%
 firstplural={NEDs},%
 text={NED},%
 plural={NEDs},%
-description={North-Eeast-Down},%
-descriptionplural={North-Eeast-Down},%
+description={North-East-Down},%
+descriptionplural={North-East-Down},%
 symbol={\relax },%
 symbolplural={\relax },%
 user1={},%
@@ -969,8 +969,8 @@ user3={},%
 user4={},%
 user5={},%
 user6={},%
-long={North-Eeast-Down},%
-longplural={North-Eeast-Downs},%
+long={North-East-Down},%
+longplural={North-East-Downs},%
 short={NED},%
 shortplural={NEDs},%
 counter={page},%

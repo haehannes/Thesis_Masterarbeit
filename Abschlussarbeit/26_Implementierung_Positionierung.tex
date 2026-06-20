@@ -192,15 +192,15 @@ Der Multikopter wird in dieser Box an einer fest vorgegebenen Position platziert
 (Abbildung~\ref{fig:kalibrierbox}).
 In der Box befinden sich zwei Marker, die zueinander sowie zum \gls{px4}-Mittelpunkt von Hand vermessen wurden.
 Je eine Kamera ist auf je einen der Marker gerichtet.
-Die drei vermessenen Positionen werden dem Node über eine Datei übergeben.
-Zum Starten der Kalibrierung müssen zusätzlich \texttt{gscam} und \texttt{rectify} für beide Kameras gestartet werden.
-%\begin{figure}[htbp]
-%\centering
-%\includegraphics[width=1.0\textwidth]{Bilder/Kalibrierbox.png}
-%\caption{Drohne in der Kalibrierbox mit von Hand vermessenen Markern und den Wandmarkierungen zur Ausrichtung}
-%\label{fig:kalibrierbox}
-%\end{figure}
-%\FloatBarrier
+Die drei vermessenen Positionen werden de Node über eine Datei übergeben.
+Zum Starten der Kalibrierung müssen zusätlich \texttt{gscam} und \texttt{rectiy} für beide Kameras gestartet werden.
+\begin{figure}[htbp]   % ] und } gefehlt
+\centering             % war "\centerin" (fehlendes g)
+\includegraphics[width=1.0\textwidth]{Bilder/Kalibrierbox.png}
+\caption{Drohne in der Kalibrierbox mit von Hand vermessenen Markern und den Wandmarkierungen zur Ausrichtung}
+\label{fig:kalibrierbox}   % } gefehlt
+\end{figure}               % } gefehlt
+\FloatBarrier
 Sämtliche Posen werden im Koordinatensystem~$\mathrm{W}$ der Kalibrierbox angegeben.
 Die Pose des \gls{px4}-Mittelpunkts in diesem Koordinatensystem ist $^{\mathrm{W}}\mathbf{T}_{\mathrm{D}}$.
 Die in Abschnitt~\ref{subsec:pos_posenberechnung} beschriebene Posenberechnung liefert die Pose der jeweiligen Kamera in diesem Koordinatensystem, $^{\mathrm{W}}\mathbf{T}_{\mathrm{C}}$.
