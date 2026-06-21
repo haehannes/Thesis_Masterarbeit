@@ -1231,8 +1231,8 @@
       \strng{authorbibnamehash}{2b0f513cdec97ee1d11644fe8685ff6c}
       \strng{authornamehash}{6d889dfff619fc56e5c6d4dfa26fd301}
       \strng{authorfullhash}{2b0f513cdec97ee1d11644fe8685ff6c}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{2023 International Conference on Sustainable Computing and Smart Systems (ICSCSS)}
@@ -1347,8 +1347,8 @@
       \strng{authorbibnamehash}{f2c9c94d1dbe372b9b6191a7eceaaef5}
       \strng{authornamehash}{f2c9c94d1dbe372b9b6191a7eceaaef5}
       \strng{authorfullhash}{f2c9c94d1dbe372b9b6191a7eceaaef5}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{A Review on Visual-SLAM: Advancements from Geometric Modelling to Learning-based Semantic Scene Understanding}
@@ -1380,8 +1380,8 @@
       \strng{authorbibnamehash}{7b6ad450e7cf8eeab89aae7c5c0847e6}
       \strng{authornamehash}{7b6ad450e7cf8eeab89aae7c5c0847e6}
       \strng{authorfullhash}{7b6ad450e7cf8eeab89aae7c5c0847e6}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{1935-8261}
@@ -1439,8 +1439,8 @@
       \strng{authornamehash}{5f0619841020e468c25afad60a614d1f}
       \strng{authorfullhash}{c7e838524599fd5df0d661fc41d28306}
       \field{extraname}{2}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{0925-2312}
@@ -1525,8 +1525,8 @@
       \strng{authorbibnamehash}{44074d3cb57c174a8b15ccc9a576ac0d}
       \strng{authornamehash}{44074d3cb57c174a8b15ccc9a576ac0d}
       \strng{authorfullhash}{44074d3cb57c174a8b15ccc9a576ac0d}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Factor Graphs and {GTSAM}: A Hands-on Introduction}
@@ -1558,8 +1558,8 @@
       \strng{authorbibnamehash}{4881dcc47c24cb2150e496066d0b1461}
       \strng{authornamehash}{4881dcc47c24cb2150e496066d0b1461}
       \strng{authorfullhash}{4881dcc47c24cb2150e496066d0b1461}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{eprintclass}{cs.RO}
@@ -1597,8 +1597,8 @@
       \strng{authorbibnamehash}{e77c05ad6f12ef1e1fd1cba7c2771650}
       \strng{authornamehash}{e77c05ad6f12ef1e1fd1cba7c2771650}
       \strng{authorfullhash}{e77c05ad6f12ef1e1fd1cba7c2771650}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{LiDAR-based SLAM for robotic mapping: state of the art and new frontiers}
@@ -1651,8 +1651,8 @@
       \strng{authorbibnamehash}{1706de37ec1c6e8f22081681f5edb0cd}
       \strng{authornamehash}{288f14f017934f36c50a3331f71e78c6}
       \strng{authorfullhash}{1706de37ec1c6e8f22081681f5edb0cd}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{1573-0409}
@@ -1683,8 +1683,8 @@
       \strng{authorbibnamehash}{c6125254a79af02a8918da63fa8ea72e}
       \strng{authornamehash}{c6125254a79af02a8918da63fa8ea72e}
       \strng{authorfullhash}{c6125254a79af02a8918da63fa8ea72e}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{month}{5}
@@ -1723,8 +1723,8 @@
       \strng{authorbibnamehash}{862e73e9fd8d06467d53ea2c9dad8c02}
       \strng{authornamehash}{862e73e9fd8d06467d53ea2c9dad8c02}
       \strng{authorfullhash}{862e73e9fd8d06467d53ea2c9dad8c02}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{The Journal of Engineering}
@@ -1750,8 +1750,8 @@
       \strng{authorbibnamehash}{094486b9bf66b2d238e3937cc49fca84}
       \strng{authornamehash}{094486b9bf66b2d238e3937cc49fca84}
       \strng{authorfullhash}{094486b9bf66b2d238e3937cc49fca84}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{2005 IEEE Computer Society Conference on Computer Vision and Pattern Recognition (CVPR 05)}
@@ -1792,39 +1792,6 @@
       \verb 10.1109/ICRA.2011.5979561
       \endverb
       \keyw{Encoding;Visualization;Robustness;Payloads;Detectors;Image segmentation;Robots}
-    \endentry
-    \entry{Wang7759617}{inproceedings}{}
-      \name{author}{2}{}{%
-        {{hash=91b0ceddefe1df2be88f9c70c4507e4b}{%
-           family={Wang},
-           familyi={W\bibinitperiod},
-           given={John},
-           giveni={J\bibinitperiod}}}%
-        {{hash=8f743eebb2f64f75592e54ba06f94320}{%
-           family={Olson},
-           familyi={O\bibinitperiod},
-           given={Edwin},
-           giveni={E\bibinitperiod}}}%
-      }
-      \strng{namehash}{8f9eb108db0b2c60537d5a530b64d28a}
-      \strng{fullhash}{8f9eb108db0b2c60537d5a530b64d28a}
-      \strng{bibnamehash}{8f9eb108db0b2c60537d5a530b64d28a}
-      \strng{authorbibnamehash}{8f9eb108db0b2c60537d5a530b64d28a}
-      \strng{authornamehash}{8f9eb108db0b2c60537d5a530b64d28a}
-      \strng{authorfullhash}{8f9eb108db0b2c60537d5a530b64d28a}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{booktitle}{2016 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)}
-      \field{title}{AprilTag 2: Efficient and robust fiducial detection}
-      \field{year}{2016}
-      \field{pages}{4193\bibrangedash 4198}
-      \range{pages}{6}
-      \verb{doi}
-      \verb 10.1109/IROS.2016.7759617
-      \endverb
-      \keyw{Detectors;Image edge detection;Image segmentation;Robustness;Robots;Decoding;Visualization}
     \endentry
     \entry{GARRIDOJURADO20142280}{article}{}
       \name{author}{4}{}{%

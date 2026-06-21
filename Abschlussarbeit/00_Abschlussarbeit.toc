@@ -40,7 +40,7 @@
 \contentsline {subsubsection}{\numberline {3.1.3.3}SLAM-Varianten}{19}{subsubsection.3.1.3.3}%
 \contentsline {section}{\numberline {3.2}Fiducial-Marker-Systeme}{20}{section.3.2}%
 \contentsline {subsection}{\numberline {3.2.1}ARTag Marker}{20}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}AprilTag Marker}{21}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.2}AprilTag Marker}{20}{subsection.3.2.2}%
 \contentsline {subsection}{\numberline {3.2.3}ArUco Marker}{21}{subsection.3.2.3}%
 \contentsline {subsection}{\numberline {3.2.4}STag Marker}{21}{subsection.3.2.4}%
 \contentsline {subsection}{\numberline {3.2.5}Detektion von Fiducial-Markern}{21}{subsection.3.2.5}%

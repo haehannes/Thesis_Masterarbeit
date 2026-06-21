@@ -53,11 +53,6 @@ Ein ruhendes Gyroskop gibt daher trotz fehlender Drehung einen von null abweiche
 Dem gegenüber steht das Rauschen als stochastischer, mittelwertfreier Fehleranteil.
 Die Sensorfusion, also die Kombination der Daten mehrerer Sensoren, ermöglicht es, die Genauigkeit der Messungen insgesamt zu verbessern~\cite{chen2024deep}.
 
-Die Integration dieser Sensordaten über die Zeit ermöglicht es, die Bewegung des Roboters zu verfolgen und eine Schätzung seines Zustands zu erhalten, was als Odometrie bezeichnet wird.
-Da die Sensoren, wie zuvor beschrieben, trotz Fusion fehlerbehaftet sind, führt die Integration über die Zeit zu einer zunehmenden Unsicherheit.
-Die Berechnung der Odometrie eines Flugroboters ist besonders herausfordernd, da sich das \gls{uav} in drei Dimensionen frei bewegt.
-Der zunehmende Fehler der Odometrie kann durch die Verwendung von externen Referenzen, wie \gls{gps}, korrigiert werden.
-
 
 
 \section{Flugcontroller Pixhawk 6X}
