@@ -2,10 +2,9 @@
 
 \chapter{Systembeschreibung}
 \label{cap:systembeschreibung}
-
-In diesem Kapitel wird die Testumgebung beschrieben, sowie auf die Softwarearchitekturen eingegangen.
-Außerdem wird die Systempipeline erläutert, die zur Entwicklung der Echtzeiterkennung verwendet wurde. 
-Es werden die verschiedenen Konzepte vorgestellt, die zur Auswahl eines Echtzeitmodells geführt haben. 
+In diesem Kapitel werden zunächst die Anforderungen an das Gesamtsystem erläutert.
+Anschließend wird der Hardwareaufbau mit seinen Komponenten beschrieben und auf die Softwarearchitektur eingegangen.
+Abschließend wird die Versuchsumgebung vorgestellt, in der die Versuche durchgeführt werden.
 
 
 \section{Anforderungen an das Gesamtsystem}
@@ -15,60 +14,30 @@ Das Ziel der Arbeit ist es, ein \gls{uav} in einer GPS-freien
 Innenraumumgebung zu lokalisieren und diese Positionsschätzung als 
 externe Referenz in die Flugsteuerung einzuspeisen.
 Das System soll dabei so ausgelegt sein, dass das \gls{uav} ohne 
-Rückgriff auf ein \gls{gps} eine stabile Pose im Raum bestimmen kann.
+Rückgriff auf ein \gls{gnss} eine stabile Pose im Raum bestimmen kann.
 Anstelle einer satellitengestützten Positionsbestimmung wird die Pose 
-des \gls{uav} aus einer externen, kamerabasierten Lokalisierung abgeleitet.
+des \gls{uav} aus einer optischen Lokalisierung abgeleitet.
 
-Zur Lokalisierung soll eine Karte der Versuchsumgebung genutzt werden, 
-anhand derer die Position des \gls{uav} im Weltkoordinatensystem 
-bestimmt werden kann.
-Die Karte soll erweiterbar sein, sodass der nutzbare Flugbereich bei 
-Bedarf räumlich vergrößert werden kann.
-
-Das System soll kostengünstig aufgebaut sein.
-Aus diesem Grund sollen anstelle spezialisierter Sensorik handelsübliche 
-Kameras zur Lokalisierung eingesetzt werden.
-Die verwendete Software soll quelloffen und frei verfügbar sein.
-
-Als Softwaregrundlage soll \gls{ros2} eingesetzt werden, über das die 
-einzelnen Verarbeitungsschritte miteinander verbunden werden.
-Die Flugsteuerung soll durch \gls{px4} übernommen werden, der die extern 
-berechnete Positionsschätzung verarbeitet.
-
-Schließlich soll das System sicher betrieben werden können.
-Da es sich um ein fliegendes System handelt, muss sichergestellt sein, 
-dass das \gls{uav} bei einem Ausfall oder einer fehlerhaften 
-Positionsschätzung in einen sicheren Zustand übergehen kann.
+Daraus ergeben sich die folgenden Anforderungen an das Gesamtsystem:
+\begin{itemize}
+    \item Zur Lokalisierung soll eine Karte der Versuchsumgebung genutzt werden, anhand derer die Position des \gls{uav} im Weltkoordinatensystem bestimmt werden kann.
+    \item Die Karte soll erweiterbar sein, sodass der nutzbare Flugbereich bei Bedarf räumlich vergrößert werden kann.
+    \item Das System soll kostengünstig aufgebaut sein.
+    \item Die verwendete Software soll quelloffen und frei verfügbar sein.
+    \item Als Softwaregrundlage soll \gls{ros2} eingesetzt werden, über das die einzelnen Verarbeitungsschritte miteinander verbunden werden.
+    \item Die Flugsteuerung soll durch \gls{px4} übernommen werden, der die extern berechnete Positionsschätzung verarbeitet.
+    \item Das System soll sicher betrieben werden können. Da es sich um ein fliegendes System handelt, muss sichergestellt sein, dass das \gls{uav} bei einem Ausfall oder einer fehlerhaften Positionsschätzung in einen sicheren Zustand übergehen kann.
+\end{itemize}
 
 Die Hardwarekomponenten, wie das \gls{uav} Holybro X650, der 
-Flugcontroller Pixhawk 6X und der Companion-Computer Jetson Orin Nano, 
+Flugcontroller Pixhawk 6X und der Companion-Computer eComputer Mini J3011, 
 sind zur Verfügung gestellt und werden nicht im Rahmen dieser Arbeit 
 entwickelt.
 
-Die Ansteuerung der Kameras, die Lokalisierung des \gls{uav}, die 
-Kartierung der Versuchsumgebung sowie die Anbindung der 
-Positionsschätzung an die Flugsteuerung sind jedoch Teil der Arbeit 
-und werden in dieser entwickelt.
+Die Ansteuerung der Sensorik, die Lokalisierung des \gls{uav}, 
+die Kartierung der Versuchsumgebung sowie die Anbindung der Positionsschätzung an die Flugsteuerung 
+sind jedoch Teil der Arbeit und werden in dieser entwickelt.
 
-%\section{Hardwareaufbau}
-%Kurze Einleitung
-%Die Eckdaten von dem Jetson bzw. vom Re-Computer j3011.
-%Das Betriebssystem mit dem er ausgeliefert wurde, das neu geflashte Betriebssystem. 
-%Die version des PX6x bzw. mit welcher Version er betrieben wird.
-%Die zur verfügung stehenden Kameras 
-%- Ali-Kamera: (720P) https://de.aliexpress.com/item/1005005961893603.html?spm=a2g0o.detail.pcDetailTopMoreOtherSeller.7.731dFrM6FrM6IG&gps-id=pcDetailTopMoreOtherSeller&scm=1007.40050.354490.0&scm_id=1007.40050.354490.0&scm-url=1007.40050.354490.0&pvid=f54bce22-cd48-416b-8f2a-b098ab3a03b7&_t=gps-id%3ApcDetailTopMoreOtherSeller%2Cscm-url%3A1007.40050.354490.0%2Cpvid%3Af54bce22-cd48-416b-8f2a-b098ab3a03b7%2Ctpp_buckets%3A668%232846%238115%232000&pdp_ext_f=%7B%22order%22%3A%22272%22%2C%22spu_best_type%22%3A%22price%22%2C%22eval%22%3A%221%22%2C%22sceneId%22%3A%2230050%22%2C%22fromPage%22%3A%22recommend%22%7D&pdp_npi=6%40dis%21EUR%2126.53%2113.69%21%21%2129.90%2115.43%21%40210398e917810232268428109e1015%2112000035061993584%21rec%21DE%21%21ABXZ%211%210%21n_tag%3A-29910%3Bd%3Acb7ed6fc%3Bm03_new_user%3A-29895%3BpisId%3A5000000204872307&utparam-url=scene%3ApcDetailTopMoreOtherSeller%7Cquery_from%3A%7Cx_object_id%3A1005005961893603%7C_p_origin_prod%3A
-%- Logitech C920
-%- Logitech C922
-%- Fehrnbedienung + Transmitter (R9DS) / AT9S Pro https://www.amazon.de/Radiolink-Fernsteuerung-Empf%C3%A4nger-R9DS-Fernbedienung-Segelfugzeug/dp/B07DP118CK?th=1
-%- Powermodule https://holybro.com/products/pm02-v3-12s-power-module
-%- Strom verteilung: https://www.premium-modellbau.de/holybro-mini-pdb-mit-xt30-xt60-von-x500-v2-18069a
-%- Telemetry set: https://www.premium-modellbau.de/holybro-fpv-telemetrie-set-433mhz-v3-fuer-pixhawk
-%- GPS-Module: https://holybro.com/collections/gps/products/m9n-gps
-%- jetson wlan:https://www.reichelt.com/de/en/shop/product/wi-fi_adapter_m_2_2230_card_wi-fi_6-267572?utm_source=chatgpt.com
-%- jetson: https://www.seeedstudio.com/reComputer-Mini-J3011-p-6356.html
-%- Frame: https://holybro.com/collections/x650-kits/products/x650-kits?variant=43994378240189
-%
-%Am ende möchte ich noch eine tabellarische Aufstellung der Hardware-Komponenen mit Komponente, bezeichnung, Gewicht, Betriebssysem. 
 
 \section{Hardwareaufbau}
 \label{sec:hardwareaufbau}
@@ -81,7 +50,7 @@ Abbildung~\ref{fig:drohnenaufbau} zeigt den physischen Aufbau des Fluggeräts mi
 
 \begin{figure}[htbp]
     \centering
-    % \includegraphics[width=1.0\textwidth]{Bilder/Drohnenaufbau.png}
+    \includegraphics[width=0.8\textwidth]{Bilder/Hardwareaufbau_drohne.png}
     \caption{Physischer Aufbau des Fluggeräts mit den verbauten Komponenten}
     \label{fig:drohnenaufbau}
 \end{figure}
@@ -95,15 +64,19 @@ Als Flugplattform dient der bereits in den Grundlagen vorgestellte
 Holybro X650, der in der mit Motoren und Reglern vorkonfektionierten 
 ARF-Variante (Almost Ready to Fly) verwendet wird.
 Das Gesamtgewicht des Kits beträgt ohne Akku rund 2000\,g, die maximale 
-Nutzlast ohne Akku liegt bei etwa 4,3\,kg.\cite{holybro_x650}
-\textcolor{red}{nochmal gegenchecken mit Grundlagen kapitel}
+Nutzlast ohne Akku liegt bei etwa 4,3\,kg~\cite{holybro_x650}.
+
 
 \subsection*{Companion-Computer}
 Als Companion-Computer wird ein reComputer Mini J3011 von Seeed Studio eingesetzt.
 Dieser ist mit einem NVIDIA Jetson Orin Nano 8\,GB Modul ausgestattet 
-und erreicht eine KI-Rechenleistung von bis zu 40\,\gls{tops}.\cite{reComputerMiniJ3011}
+und erreicht eine KI-Rechenleistung von bis zu 40\,\gls{tops}~\cite{reComputerMiniJ3011}.
 Der Companion-Computer übernimmt die Ansteuerung der Kameras, die 
 Bildverarbeitung sowie die Berechnung der Positionsschätzung.
+Der Companion-Computer unterstützt eine direkte Eingangsspannung von \SI{12}{\volt} bis \SI{54}{\volt} DC 
+und eignet sich dadurch für den Betrieb an batteriebetriebenen Systemen~\cite{reComputerMiniJ3011}.
+Für die drahtlose Anbindung des Companion-Computers ist dieser mit einer 
+M.2-WLAN-Karte (Wi-Fi~6) nachgerüstet.
 
 Das Modul wird ab Werk mit NVIDIA JetPack ausgeliefert, das auf einer 
 Ubuntu-Distribution basiert.
@@ -123,15 +96,15 @@ dem Echtzeitbetriebssystem NuttX~v11.0.0 aufsetzt.
 Zur Lokalisierung stehen mehrere handelsübliche \gls{usb}-Kameras zur 
 Verfügung, aus denen je nach Aufbau ausgewählt werden kann:
 \begin{itemize}
-\item eine \gls{usb}-Kamera mit 720p-Auflösung \cite{ali_camera},
+\item eine \gls{usb}-Kamera mit 720p-Auflösung (Hersteller unbekannt),
 \item eine Logitech C920,
 \item eine Logitech C922.
 \end{itemize}
 Die Kameras werden über \gls{usb} an den Companion-Computer angeschlossen.
 
-Zusätzlich steht eine Stereolabs ZED Mini zur Verfügung.
-Im Gegensatz zu den zuvor genannten Mono-Kameras handelt es sich um eine Stereokamera und steht somit für einen Visual-SLAM zur Verfügung.
-Sie verfügt zudem über eine integrierte \gls{imu}.
+%Zusätzlich steht eine Stereolabs ZED Mini zur Verfügung.
+%Im Gegensatz zu den zuvor genannten Mono-Kameras handelt es sich um eine Stereokamera und steht somit für einen Visual-SLAM zur Verfügung.
+%Sie verfügt zudem über eine integrierte \gls{imu}.
 
 
 \subsection*{Fernsteuerung}
@@ -144,11 +117,11 @@ jederzeit manuell in den Flug einzugreifen.
 \subsection*{Elektrischer Anschluss der Hardware}
 Die Energieversorgung des Systems erfolgt über einen LiPo-Akku 
 mit einer Kapazität von 5400\,mAh und einer 
-Nennspannung von 14,8\,V (4S).\cite{pichler_redpower_xt5400}
-Der Akku ist über ein Holybro PM02 V3 Powermodul angebunden.\cite{holybro_pm02}
+Nennspannung von 14,8\,V (4S)~\cite{pichler_redpower_xt5400}.
+Der Akku ist über ein Holybro PM02 V3 Powermodul angebunden~\cite{holybro_pm02}.
 Das Powermodul unterstützt Akkus von 2S bis 12S, stellt dem Flugcontroller 
 eine geregelte Spannung von 5,2\,V bereit und liefert zusätzlich Messwerte 
-zu Batteriespannung und Stromaufnahme.\cite{holybro_pm02}
+zu Batteriespannung und Stromaufnahme~\cite{holybro_pm02}.
 Die Verteilung der Motorströme erfolgt über ein Holybro 
 Mini-Power-Distribution-Board (PDB) mit XT30- und 
 XT60-Anschlüssen.
@@ -158,15 +131,12 @@ erfolgt über ein Holybro Telemetrie-Set (433\,MHz).
 Als Bodenstation dient ein Laptop mit Ubuntu~24.04.4 LTS, auf dem die 
 Bodenstationssoftware QGroundControl betrieben wird.
 Zur satellitengestützten Positionsbestimmung ist ein Holybro M9N 
-GPS-Modul vorhanden; dieses wird in der vorliegenden Arbeit jedoch nicht 
+GPS-Modul vorhanden. 
+Dieses wird in der vorliegenden Arbeit jedoch nicht 
 zur Lokalisierung verwendet.
 Die Verbindung zwischen dem Flugcontroller und dem Companion-Computer 
-%Das hier nochmal überarbeiten!!!!
-wird über eine serielle UART-Schnittstelle hergestellt, über die die 
-
+wird über die Ethernet-Schnittstelle hergestellt, über die mittels uXRCE-DDS die 
 extern berechnete Positionsschätzung an den \gls{px4} übermittelt wird.
-Für die drahtlose Anbindung des Companion-Computers ist dieser mit einer 
-M.2-WLAN-Karte (Wi-Fi~6) nachgerüstet.
 
 
 Tabelle~\ref{tab:hardwarekomponenten} gibt eine Übersicht aller eingesetzten
@@ -202,19 +172,17 @@ Bodenstation         & Laptop / QGroundControl        & --      & Ubuntu~24.04.4
 
 
 
-In Abbildung~\ref{fig:Verkabelung} ist der Hardwareaufbau des Gesamtsystems als Blockschaltbild mit Anschlussverdrahtung dargestellt.
+In Abbildung~\ref{fig:Verkabelung} ist der zuvor beschriebene Hardwareaufbau des Gesamtsystems als Blockschaltbild mit Anschlussverdrahtung dargestellt.
 Schwarze Linien kennzeichnen dabei Daten- und Signalverbindungen, rote Linien die Energieversorgung.
+Auf der Signalseite werden die drei Kameras über \gls{usb} mit dem Companion-Computer verbunden, 
+der die berechnete Positionsschätzung über die Ethernet-Schnittstelle an den Flugcontroller übergibt.
+Am Flugcontroller sind zudem das Telemetriemodul, das GPS-Modul sowie der Empfänger der Fernsteuerung angeschlossen, 
+während die vier Motoren über dessen PWM-Ausgänge angesteuert werden.
 
-Die drei Kameras können über \gls{usb} mit dem Companion-Computer verbunden werden.
-Der Companion-Computer kann sowohl über einen \gls{usb}-zu-Ethernet-Adapter an die Ethernet-Schnittstelle des Flugcontrollers angebunden werden, 
-als auch direkt via \gls{usb}.
-Am Flugcontroller sind weiterhin das Telemetriemodul, das GPS-Modul sowie der Empfänger der Fernsteuerung angeschlossen.
-Die Ansteuerung der vier Motoren erfolgt über die PWM-Ausgänge des Flugcontrollers.
-
-Die Energieversorgung erfolgt ausgehend vom LiPo-Akku.
-Der Akku ist über einen XT90-Stecker mit dem Powermodul verbunden, das die Versorgungsspannung an den Flugcontroller und das Verteilerboard weitergibt.
-Vom Verteilerboard wird die Energie über XT30-Anschlüsse an die vier Motoren verteilt.
-Parallel dazu wird der Companion-Computer über einen eigenen XT30-Anschluss mit Strom versorgt.
+Auf der Energieseite versorgt der LiPo-Akku das Gesamtsystem.
+Er ist über einen XT90-Stecker mit dem Powermodul verbunden, das die Versorgungsspannung an den Flugcontroller und das Verteilerboard weitergibt.
+Vom Verteilerboard wird die Energie über XT30-Anschlüsse an die vier Motoren verteilt; 
+parallel dazu wird der Companion-Computer über einen eigenen XT30-Anschluss mit Strom versorgt.
 
 \begin{figure}[htbp]
     \centering
@@ -223,72 +191,60 @@ Parallel dazu wird der Companion-Computer über einen eigenen XT30-Anschluss mit
     \label{fig:Verkabelung}
 \end{figure}
 \FloatBarrier
+Bild nochmal anpassen, telemtrie,gps,rc-empfänger nicht zentrieren...
 
 
-\section{Softwarearchitektur Kartierung und Positionierung nochmal drüber schauen!!! ich nehme ja auch das thinkpad!!!}
+\section{Softwarearchitektur Kartierung und Positionierung}
 \label{sec:softwarearchitektur}
-%schreiben dass ros2 jazzy genutzt werden muss, schreiben dass thinkpad genutzt wird.
-%passt hardware hier besser dazu??? Nochmal anschauen!!!
 In diesem Abschnitt wird die Softwarearchitektur des Gesamtsystems beschrieben.
-Die Verarbeitung gliedert sich in zwei Stränge: die Lokalisierung, die im Flug die Pose des Fluggeräts bestimmt 
+Die Verarbeitung gliedert sich in zwei Stränge: die Lokalisierung, die im Flug die Pose des Fluggeräts bestimmt, 
 und die Kartierung, die vorab die dafür benötigte Karte erzeugt.
-Beide Stränge laufen auf dem Companion-Computer und teilen sich die vorgelagerten Schritte Bildaufnahme, Entzerrung und Bildverarbeitung.
+Die Kartierung läuft auf einem Laptop, die Lokalisierung auf dem Companion-Computer.
+Beide Stränge teilen sich die vorgelagerten Schritte Bildaufnahme, Entzerrung und Bildverarbeitung.
 Die Flugsteuerung läuft getrennt davon auf dem Flugcontroller.
 Der Aufbau ist in Abbildung~\ref{fig:softwarearchitektur} dargestellt.
-
-
 \begin{figure}[htbp]
-    \centering
-    \includegraphics[width=1.0\textwidth]{Bilder/Softwarearchitektur.png}
-    \caption{Softwarearchitektur mit den Strängen zur Lokalisierung und zur Kartierung}
-    \label{fig:softwarearchitektur}
+\centering
+\includegraphics[width=1.0\textwidth]{Bilder/Softwarearchitektur.png}
+\caption{Softwarearchitektur mit den Strängen zur Lokalisierung und zur Kartierung}
+\label{fig:softwarearchitektur}
 \end{figure}
 \FloatBarrier
-
 Die Bildaufnahme bildet die Schnittstelle zu den am Fluggerät montierten Kameras.
-Über dieses Modul werden die Kamerabilder aufgenommen und für die weiter Verarbeitung bereitgestellt.
-
+Über dieses Modul werden die Kamerabilder aufgenommen und für die weitere Verarbeitung bereitgestellt.
 Die Entzerrung korrigiert die durch das Kameraobjektiv verursachte Verzeichnung anhand der zuvor bestimmten Kalibrierparameter.
 Ohne diese Korrektur würden die Bildkoordinaten der erkannten Merkmale systematisch verfälscht und die daraus berechnete Pose verzerrt.
-Die Grundlagen des Kameramodells und der Kalibrierung werden in Abschnitt~\ref{sec:kartierung_entzerrung} behandelt.
-
+Die Grundlagen des Kameramodells und der Kalibrierung werden in Abschnitt~\ref{sec:Kamera_Kalibrierung} behandelt.
 Die Bildverarbeitung detektiert und extrahiert die markanten Bildmerkmale aus dem entzerrten Kamerastream. 
 Für jedes Merkmal liefert die Bildverarbeitung die relative Position zwischen Kamera und Merkmal.
-
 Die Kartierung erzeugt die Karte, auf die sich die Positionsbestimmung stützt.
 Sie nutzt dieselbe Aufnahme- und Verarbeitungskette wie die Lokalisierung, bestimmt daraus aber nicht die \gls{uav}-Pose, sondern die Lage der Merkmale zueinander.
 Das Ergebnis ist eine konsistente Karte aller Merkmale, die einmalig erzeugt und anschließend im Flug verwendet wird.
 Die Umsetzung wird in Kapitel~\ref{cap:kartierung} beschrieben.
-
 Die Positionsbestimmung bildet den Kern der Lokalisierung.
 Sie verknüpft die erkannten Merkmale mit der vorab erstellten Karte und berechnet daraus die Pose der Kamera im Kartenkoordinatensystem.
 Anschließend wird die Kamerapose zum Roboterkoordinatensystem transformiert.
 Die Umsetzung der Lokalisierung wird in Kapitel~\ref{cap:lokalisierung} erläutert.
-
-Die Kommunikation überführt die berechnete Pose vom Karten- in das Koordinatensystem der Flugsteuerung und versieht sie mit einem dazu konsistenten Zeitstempel.
-Für die Übergabe an den Flugcontroller wurden zwei Implementierungen umgesetzt.
-Die Umsetzung wird in Abschnitt~\ref{sec:kommunikation} beschrieben.
-
+Die Kommunikation übermittelt die endgültige Pose an die Flugsteuerung und versieht sie mit einem dazu konsistenten Zeitstempel.
 Die Flugsteuerung läuft auf dem PX4-Flugcontroller und regelt das Fluggerät.
 Sie fusioniert die eingespeiste Pose im Zustandsschätzer mit den Daten der \gls{imu} und überbrückt damit kurze Phasen, in denen keine Position bestimmt werden kann.
-Der Aufbau der Zustandsschätzung wird in Abschnitt~\ref{sec:flugsteuerung} beschrieben.
-
+Der Aufbau der Zustandsschätzung wird in Abschnitt~\ref{sec:nochmal überlegeen wo das hin passt.} beschrieben.
 Das Senden der Sollpositionen läuft parallel zur Positionsbestimmung des \gls{uav}.
-Die Funktionsweise ist in Abschnitt~\ref{sec:bedienung} beschrieben.
+Die Funktionsweise ist in Abschnitt~\ref{sec:bedienkonsole} beschrieben.
+
 
 \section{Versuchsumgebung}
 \label{sec:versuchsumgebung}
-Die Versuche werden im AerodrOhm der Technischen Hochschule Nürnberg durchgeführt, einer Indoor-Flughalle am Ohm Innovation Center.\cite{aerodrohm}
+Die Versuche werden im AerodrOhm der Technischen Hochschule Nürnberg durchgeführt, einer Indoor-Flughalle am Ohm Innovation Center~\cite{aerodrohm}.
 Die Halle bietet eine Grundfläche von $280\,\text{m}^2$ bei einer nutzbaren Flughöhe von bis zu $12\,\text{m}$.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=1.0\textwidth]{Bilder/aerodrohm.png}
-\caption{Flughalle AerodrOhm am \gls{oic} der Technischen Hochschule Nürnberg \cite{aerodrohm}}
+\caption{Flughalle AerodrOhm am \gls{oic} der Technischen Hochschule Nürnberg~\cite{aerodrohm}}
 \label{fig:aerodrohm}
 \end{figure}
 \FloatBarrier
 Der Hallenboden ist mit einem spiegelnden Belag ausgestattet.
 Zwei der vier Hallenwände bestehen aus unverputztem Ziegelmauerwerk und weisen daher eine strukturierte Oberfläche auf.
 Die übrigen zwei Wände sind mit großflächigen Fenstern versehen, deren Jalousien je nach Zustand geöffnet oder geschlossen sein können.
-Dies hat unmittelbaren Einfluss auf die Lichtverhältnisse in der Halle: Bei geöffneten Jalousien kann einfallendes Tageslicht zu Gegenlicht führen, 
-sobald die Kamera in Richtung der Fensterflächen ausgerichtet ist.
+Bei geöffneten Jalousien kann einfallendes Tageslicht zu Gegenlicht führen.

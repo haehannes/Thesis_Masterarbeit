@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.11.7)  21 JUN 2026 14:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.11.7)  22 JUN 2026 21:05
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1431,13 +1431,6 @@ Package biblatex Warning: The following entry could not be found
 
 Package biblatex Warning: The following entry could not be found
 (biblatex)                in the database:
-(biblatex)                ali_camera
-(biblatex)                Please verify the spelling and rerun
-(biblatex)                LaTeX afterwards.
-
-
-Package biblatex Warning: The following entry could not be found
-(biblatex)                in the database:
 (biblatex)                px4_uxrce_dds
 (biblatex)                Please verify the spelling and rerun
 (biblatex)                LaTeX afterwards.
@@ -1545,7 +1538,7 @@ Package cleveref Info: loaded `ngerman' language definitions on input line 6.
 \openout10 = `00_Abschlussarbeit.glsdefs'.
 
 ) (./00_Abschlussarbeit.acr
-Overfull \hbox (12.0pt too wide) in alignment at lines 25--169
+Overfull \hbox (12.0pt too wide) in alignment at lines 25--168
  [] [] 
  []
 
@@ -1571,124 +1564,117 @@ chapter 2.
 [2
 
 ]
-<Bilder/Basebord_und_cube.png, id=372, 560.64pt x 253.821pt>
+<Bilder/Basebord_und_cube.png, id=370, 560.64pt x 253.821pt>
 File: Bilder/Basebord_und_cube.png Graphic file (type png)
 <use Bilder/Basebord_und_cube.png>
-Package pdftex.def Info: Bilder/Basebord_und_cube.png  used on input line 76.
+Package pdftex.def Info: Bilder/Basebord_und_cube.png  used on input line 73.
 (pdftex.def)             Requested size: 364.19667pt x 164.88486pt.
- [3]
+ [3 <./Bilder/Basebord_und_cube.png>]
 
-LaTeX Warning: Citation 'px4_uxrce_dds' on page 4 undefined on input line 94.
+LaTeX Warning: Citation 'px4_uxrce_dds' on page 4 undefined on input line 91.
 
-[4 <./Bilder/Basebord_und_cube.png>] [5]
-<Bilder/Koordinatensysteme.png, id=442, 733.212pt x 453.768pt>
+[4]
+<Bilder/Koordinatensysteme.png, id=433, 733.212pt x 453.768pt>
 File: Bilder/Koordinatensysteme.png Graphic file (type png)
 <use Bilder/Koordinatensysteme.png>
-Package pdftex.def Info: Bilder/Koordinatensysteme.png  used on input line 197.
+Package pdftex.def Info: Bilder/Koordinatensysteme.png  used on input line 194.
 (pdftex.def)             Requested size: 455.24411pt x 281.74869pt.
- [6 <./Bilder/Koordinatensysteme.png>]
+ [5] [6 <./Bilder/Koordinatensysteme.png>]
 <Bilder/Roll_Yaw_Pitch.png, id=483, 726.204pt x 477.858pt>
 File: Bilder/Roll_Yaw_Pitch.png Graphic file (type png)
 <use Bilder/Roll_Yaw_Pitch.png>
-Package pdftex.def Info: Bilder/Roll_Yaw_Pitch.png  used on input line 241.
+Package pdftex.def Info: Bilder/Roll_Yaw_Pitch.png  used on input line 238.
 (pdftex.def)             Requested size: 386.96027pt x 254.62704pt.
- [7] [8 <./Bilder/Roll_Yaw_Pitch.png>] [9{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathex.enc}] [10]
+ [7 <./Bilder/Roll_Yaw_Pitch.png>] [8{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathex.enc}] [9]
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10.95> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 417.
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 414.
+ [10]
 
+LaTeX Warning: Citation 'Lynch2017' on page 11 undefined on input line 433.
 
-LaTeX Warning: Citation 'Lynch2017' on page 11 undefined on input line 436.
-
-[11] [12] [13]
-LaTeX Font Info:    Trying to load font information for T1+pcr on input line 557.
+[11] [12]
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 554.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-)) (./23_Stand_der_Technik.tex [14{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}]
+)) (./23_Stand_der_Technik.tex [13{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}]
 chapter 3.
-[15
+[14
 
 ]
 Overfull \hbox (0.61995pt too wide) in paragraph at lines 60--66
 []$\OML/lmm/m/it/10.95 ^^[[] \OMS/lmsy/m/n/10.95 ^^Y \OT1/lmr/m/n/10.95 0[]024$ \T1/lmss/m/n/10.95 m/s auf-weist, was zu ei-nem zu-neh-men-den Po-si-ti-ons-feh-ler im De-zi-me-ter-be-reich führt [[][]34[][]].
  []
 
-[16] [17]
-<Bilder/Loop_Closure.png, id=718, 438.219pt x 219.438pt>
+[15] [16]
+<Bilder/Loop_Closure.png, id=712, 438.219pt x 219.438pt>
 File: Bilder/Loop_Closure.png Graphic file (type png)
 <use Bilder/Loop_Closure.png>
 Package pdftex.def Info: Bilder/Loop_Closure.png  used on input line 133.
 (pdftex.def)             Requested size: 364.19667pt x 182.38126pt.
- [18 <./Bilder/Loop_Closure.png>]
-<Bilder/Faktorgraph_vereinfacht.png, id=746, 813.804pt x 348.648pt>
+ [17 <./Bilder/Loop_Closure.png>]
+<Bilder/Faktorgraph_vereinfacht.png, id=740, 813.804pt x 348.648pt>
 File: Bilder/Faktorgraph_vereinfacht.png Graphic file (type png)
 <use Bilder/Faktorgraph_vereinfacht.png>
 Package pdftex.def Info: Bilder/Faktorgraph_vereinfacht.png  used on input line 173.
 (pdftex.def)             Requested size: 455.24411pt x 195.03938pt.
- [19 <./Bilder/Faktorgraph_vereinfacht.png>]
-<Bilder/Uebersicht_Marker.png, id=784, 848.187pt x 225.57pt>
+ [18 <./Bilder/Faktorgraph_vereinfacht.png>]
+<Bilder/Uebersicht_Marker.png, id=778, 848.187pt x 225.57pt>
 File: Bilder/Uebersicht_Marker.png Graphic file (type png)
 <use Bilder/Uebersicht_Marker.png>
 Package pdftex.def Info: Bilder/Uebersicht_Marker.png  used on input line 240.
 (pdftex.def)             Requested size: 455.24411pt x 121.07285pt.
- [20 <./Bilder/Uebersicht_Marker.png>] [21]) (./24_Systembeschreibung.tex [22]
+ [19 <./Bilder/Uebersicht_Marker.png>] [20]) (./24_Systembeschreibung.tex [21]
 chapter 4.
-[23
-
-]
-LaTeX Font Info:    Trying to load font information for TS1+lmss on input line 126.
- (/usr/share/texmf/tex/latex/lm/ts1lmss.fd
+LaTeX Font Info:    Trying to load font information for TS1+lmss on input line 23.
+(/usr/share/texmf/tex/latex/lm/ts1lmss.fd
 File: ts1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
+) [22
 
-LaTeX Warning: Citation 'ali_camera' on page 24 undefined on input line 126.
-
-[24{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}]
-Overfull \hbox (28.68596pt too wide) in paragraph at lines 177--198
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}]
+<Bilder/Hardwareaufbau_drohne.png, id=854, 646.269pt x 308.352pt>
+File: Bilder/Hardwareaufbau_drohne.png Graphic file (type png)
+<use Bilder/Hardwareaufbau_drohne.png>
+Package pdftex.def Info: Bilder/Hardwareaufbau_drohne.png  used on input line 53.
+(pdftex.def)             Requested size: 364.19667pt x 173.77222pt.
+ [23 <./Bilder/Hardwareaufbau_drohne.png>]
+Overfull \hbox (28.68596pt too wide) in paragraph at lines 147--168
  [][] 
  []
 
-[25]
-Overfull \hbox (1.03612pt too wide) in paragraph at lines 208--213
-\T1/lmss/m/n/10.95 Companion-Computer kann so-wohl über einen [][][]USB[][]-zu-Ethernet-Adapter an die Ethernet-Schnittstelle
- []
-
-<Bilder/Verkabelung.png, id=905, 766.938pt x 397.485pt>
+[24]
+<Bilder/Verkabelung.png, id=898, 766.938pt x 397.485pt>
 File: Bilder/Verkabelung.png Graphic file (type png)
 <use Bilder/Verkabelung.png>
-Package pdftex.def Info: Bilder/Verkabelung.png  used on input line 221.
+Package pdftex.def Info: Bilder/Verkabelung.png  used on input line 189.
 (pdftex.def)             Requested size: 455.24411pt x 235.94548pt.
-<Bilder/Softwarearchitektur.png, id=907, 966.666pt x 282.072pt>
+ [25]
+<Bilder/Softwarearchitektur.png, id=905, 975.645pt x 317.331pt>
 File: Bilder/Softwarearchitektur.png Graphic file (type png)
 <use Bilder/Softwarearchitektur.png>
-Package pdftex.def Info: Bilder/Softwarearchitektur.png  used on input line 242.
-(pdftex.def)             Requested size: 455.24411pt x 132.8364pt.
-[26 <./Bilder/Verkabelung.png>]
-
-LaTeX Warning: Reference `sec:kommunikation' on page 27 undefined on input line 270.
+Package pdftex.def Info: Bilder/Softwarearchitektur.png  used on input line 208.
+(pdftex.def)             Requested size: 455.24411pt x 148.07063pt.
 
 
-LaTeX Warning: Reference `sec:flugsteuerung' on page 27 undefined on input line 274.
+LaTeX Warning: Reference `sec:nochmal Ã¼berlegeen wo das hin passt.' on page 26 undefined on input line 231.
 
-
-LaTeX Warning: Reference `sec:bedienung' on page 27 undefined on input line 277.
-
+[26 <./Bilder/Verkabelung.png> <./Bilder/Softwarearchitektur.png>]
 <Bilder/aerodrohm.png, id=921, 1144.275pt x 572.1375pt>
 File: Bilder/aerodrohm.png Graphic file (type png)
 <use Bilder/aerodrohm.png>
-Package pdftex.def Info: Bilder/aerodrohm.png  used on input line 285.
+Package pdftex.def Info: Bilder/aerodrohm.png  used on input line 242.
 (pdftex.def)             Requested size: 455.24411pt x 227.62pt.
-[27 <./Bilder/Softwarearchitektur.png>]) (./25_Implementierung_Kartierung.tex [28 <./Bilder/aerodrohm.png>]
+) [27 <./Bilder/aerodrohm.png>] (./25_Implementierung_Kartierung.tex [28]
 chapter 5.
 [29
 
 ]
-<Bilder/Paarweiser_Vergleich_SLAM.png, id=949, 1519.6775pt x 812.03375pt>
+<Bilder/Paarweiser_Vergleich_SLAM.png, id=948, 1519.6775pt x 812.03375pt>
 File: Bilder/Paarweiser_Vergleich_SLAM.png Graphic file (type png)
 <use Bilder/Paarweiser_Vergleich_SLAM.png>
 Package pdftex.def Info: Bilder/Paarweiser_Vergleich_SLAM.png  used on input line 63.
 (pdftex.def)             Requested size: 455.24411pt x 243.25267pt.
  [30 <./Bilder/Paarweiser_Vergleich_SLAM.png>]
-<Bilder/Nutzwertanalyse_slam.png, id=969, 1372.12625pt x 883.3pt>
+<Bilder/Nutzwertanalyse_slam.png, id=968, 1372.12625pt x 883.3pt>
 File: Bilder/Nutzwertanalyse_slam.png Graphic file (type png)
 <use Bilder/Nutzwertanalyse_slam.png>
 Package pdftex.def Info: Bilder/Nutzwertanalyse_slam.png  used on input line 111.
@@ -1727,7 +1713,7 @@ Overfull \hbox (9.87581pt too wide) in paragraph at lines 69--87
 \T1/lmss/m/n/10.95 Die Po-si-tio-nie-rung ist auf zwei Aus-füh-rungs-um-ge-bun-gen auf-ge-teilt: den Host des Companion-Computers
  []
 
-<Bilder/Architektur_Positionierung.png, id=1125, 529.104pt x 910.164pt>
+<Bilder/Architektur_Positionierung.png, id=1124, 529.104pt x 910.164pt>
 File: Bilder/Architektur_Positionierung.png Graphic file (type png)
 <use Bilder/Architektur_Positionierung.png>
 Package pdftex.def Info: Bilder/Architektur_Positionierung.png  used on input line 91.
@@ -1736,7 +1722,7 @@ Package pdftex.def Info: Bilder/Architektur_Positionierung.png  used on input li
 LaTeX Warning: Float too large for page by 25.61731pt on input line 94.
 
 [40] [41 <./Bilder/Architektur_Positionierung.png>] [42]
-<Bilder/Kalibrierbox.png, id=1182, 770.442pt x 427.269pt>
+<Bilder/Kalibrierbox.png, id=1181, 770.442pt x 427.269pt>
 File: Bilder/Kalibrierbox.png Graphic file (type png)
 <use Bilder/Kalibrierbox.png>
 Package pdftex.def Info: Bilder/Kalibrierbox.png  used on input line 199.
@@ -1888,18 +1874,18 @@ Package logreq Info: Writing requests to '00_Abschlussarbeit.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 48376 strings out of 474222
- 977138 string characters out of 5748733
- 2035975 words of memory out of 5000000
- 69449 multiletter control sequences out of 15000+600000
+ 48381 strings out of 474222
+ 977400 string characters out of 5748733
+ 2034975 words of memory out of 5000000
+ 69454 multiletter control sequences out of 15000+600000
  638615 words of font info for 101 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  108i,20n,107p,10958b,4148s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmss10.pfb></usr/share/texmf/fonts/type1/public/lm/lmss12.pfb></usr/share/texmf/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf/fonts/type1/public/lm/lmss8.pfb></usr/share/texmf/fonts/type1/public/lm/lmss9.pfb></usr/share/texmf/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsso10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsso8.pfb></usr/share/texmf/fonts/type1/public/lm/lmsso9.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on 00_Abschlussarbeit.pdf (74 pages, 13615007 bytes).
+Output written on 00_Abschlussarbeit.pdf (74 pages, 16420854 bytes).
 PDF statistics:
- 1962 PDF objects out of 2073 (max. 8388607)
- 1783 compressed objects within 18 object streams
+ 1961 PDF objects out of 2073 (max. 8388607)
+ 1780 compressed objects within 18 object streams
  473 named destinations out of 1000 (max. 500000)
- 743 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 748 words of extra memory for PDF output out of 10000 (max. 10000000)
 

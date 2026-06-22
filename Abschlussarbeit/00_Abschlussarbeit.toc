@@ -14,41 +14,41 @@
 \contentsline {section}{\numberline {2.3}Flugcontroller Pixhawk 6X}{3}{section.2.3}%
 \contentsline {subsection}{\numberline {2.3.1}Betriebssystem PX4 6X}{4}{subsection.2.3.1}%
 \contentsline {subsection}{\numberline {2.3.2}Sensorik}{4}{subsection.2.3.2}%
-\contentsline {subsection}{\numberline {2.3.3}Schnittstellen PX4 6X}{5}{subsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.3.3}Schnittstellen PX4 6X}{4}{subsection.2.3.3}%
 \contentsline {subsection}{\numberline {2.3.4}EKF2 -- Zustandsschätzung und Sensorfusion}{5}{subsection.2.3.4}%
-\contentsline {subsection}{\numberline {2.3.5}Vergleich von Welt-, Roboter-, Kamera- und Fiducialkoordinatensystem}{6}{subsection.2.3.5}%
-\contentsline {section}{\numberline {2.4}Repräsentation von Position und Orientierung}{7}{section.2.4}%
-\contentsline {subsection}{\numberline {2.4.1}Quaternionen}{8}{subsection.2.4.1}%
-\contentsline {subsection}{\numberline {2.4.2}Mittelung von Quaternionen}{9}{subsection.2.4.2}%
-\contentsline {subsection}{\numberline {2.4.3}Sphärische lineare Interpolation von Quaternionen}{10}{subsection.2.4.3}%
-\contentsline {subsection}{\numberline {2.4.4}Rodrigues-Parameter}{10}{subsection.2.4.4}%
-\contentsline {section}{\numberline {2.5}Transformation von Koordinatensystemen}{11}{section.2.5}%
-\contentsline {section}{\numberline {2.6}Extended Kalman Filter}{12}{section.2.6}%
-\contentsline {section}{\numberline {2.7}Random Sample Consensus (RANSAC)}{13}{section.2.7}%
-\contentsline {section}{\numberline {2.8}Robot Operating System 2 (ROS2)}{14}{section.2.8}%
-\contentsline {subsection}{\numberline {2.8.1}Nodes und Topics}{14}{subsection.2.8.1}%
-\contentsline {subsection}{\numberline {2.8.2}Bag-Dateien}{14}{subsection.2.8.2}%
-\contentsline {chapter}{\numberline {3}Stand der Technik}{15}{chapter.3}%
-\contentsline {section}{\numberline {3.1}GNSS-freie Lokalisierung von UAVs}{15}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Absolute Lokalisierung}{15}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}Relative Lokalisierung}{16}{subsection.3.1.2}%
-\contentsline {subsubsection}{\numberline {3.1.2.1}Dead Reckoning Localization}{16}{subsubsection.3.1.2.1}%
-\contentsline {subsubsection}{\numberline {3.1.2.2}Visuelle Odometrie und optischer Fluss}{16}{subsubsection.3.1.2.2}%
-\contentsline {subsection}{\numberline {3.1.3}Simultane Lokalisierung und Kartierung}{17}{subsection.3.1.3}%
-\contentsline {subsubsection}{\numberline {3.1.3.1}Phasen optimierungsbasierter SLAM Methoden}{17}{subsubsection.3.1.3.1}%
-\contentsline {subsubsection}{\numberline {3.1.3.2}Faktorgraph Optmierung}{18}{subsubsection.3.1.3.2}%
-\contentsline {subsubsection}{\numberline {3.1.3.3}SLAM-Varianten}{19}{subsubsection.3.1.3.3}%
-\contentsline {section}{\numberline {3.2}Fiducial-Marker-Systeme}{20}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}ARTag Marker}{20}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}AprilTag Marker}{20}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.2.3}ArUco Marker}{21}{subsection.3.2.3}%
-\contentsline {subsection}{\numberline {3.2.4}STag Marker}{21}{subsection.3.2.4}%
-\contentsline {subsection}{\numberline {3.2.5}Detektion von Fiducial-Markern}{21}{subsection.3.2.5}%
-\contentsline {chapter}{\numberline {4}Systembeschreibung}{23}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Anforderungen an das Gesamtsystem}{23}{section.4.1}%
+\contentsline {subsection}{\numberline {2.3.5}Vergleich von Welt-, Roboter-, Kamera- und Fiducialkoordinatensystem}{5}{subsection.2.3.5}%
+\contentsline {section}{\numberline {2.4}Repräsentation von Position und Orientierung}{6}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Quaternionen}{7}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}Mittelung von Quaternionen}{8}{subsection.2.4.2}%
+\contentsline {subsection}{\numberline {2.4.3}Sphärische lineare Interpolation von Quaternionen}{9}{subsection.2.4.3}%
+\contentsline {subsection}{\numberline {2.4.4}Rodrigues-Parameter}{9}{subsection.2.4.4}%
+\contentsline {section}{\numberline {2.5}Transformation von Koordinatensystemen}{10}{section.2.5}%
+\contentsline {section}{\numberline {2.6}Extended Kalman Filter}{11}{section.2.6}%
+\contentsline {section}{\numberline {2.7}Random Sample Consensus (RANSAC)}{12}{section.2.7}%
+\contentsline {section}{\numberline {2.8}Robot Operating System 2 (ROS2)}{13}{section.2.8}%
+\contentsline {subsection}{\numberline {2.8.1}Nodes und Topics}{13}{subsection.2.8.1}%
+\contentsline {subsection}{\numberline {2.8.2}Bag-Dateien}{13}{subsection.2.8.2}%
+\contentsline {chapter}{\numberline {3}Stand der Technik}{14}{chapter.3}%
+\contentsline {section}{\numberline {3.1}GNSS-freie Lokalisierung von UAVs}{14}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Absolute Lokalisierung}{14}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Relative Lokalisierung}{15}{subsection.3.1.2}%
+\contentsline {subsubsection}{\numberline {3.1.2.1}Dead Reckoning Localization}{15}{subsubsection.3.1.2.1}%
+\contentsline {subsubsection}{\numberline {3.1.2.2}Visuelle Odometrie und optischer Fluss}{15}{subsubsection.3.1.2.2}%
+\contentsline {subsection}{\numberline {3.1.3}Simultane Lokalisierung und Kartierung}{16}{subsection.3.1.3}%
+\contentsline {subsubsection}{\numberline {3.1.3.1}Phasen optimierungsbasierter SLAM Methoden}{16}{subsubsection.3.1.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.3.2}Faktorgraph Optmierung}{17}{subsubsection.3.1.3.2}%
+\contentsline {subsubsection}{\numberline {3.1.3.3}SLAM-Varianten}{18}{subsubsection.3.1.3.3}%
+\contentsline {section}{\numberline {3.2}Fiducial-Marker-Systeme}{19}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}ARTag Marker}{19}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}AprilTag Marker}{19}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}ArUco Marker}{20}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.2.4}STag Marker}{20}{subsection.3.2.4}%
+\contentsline {subsection}{\numberline {3.2.5}Detektion von Fiducial-Markern}{20}{subsection.3.2.5}%
+\contentsline {chapter}{\numberline {4}Systembeschreibung}{22}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Anforderungen an das Gesamtsystem}{22}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Hardwareaufbau}{23}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Softwarearchitektur Kartierung und Positionierung nochmal drüber schauen!!! ich nehme ja auch das thinkpad!!!}{26}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Versuchsumgebung}{28}{section.4.4}%
+\contentsline {section}{\numberline {4.3}Softwarearchitektur Kartierung und Positionierung}{26}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Versuchsumgebung}{27}{section.4.4}%
 \contentsline {chapter}{\numberline {5}Implementierung der Kartierung}{29}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Auswahl der Algorithmik}{29}{section.5.1}%
 \contentsline {subsection}{\numberline {5.1.1}Auswahl der Bewertungskriterien der SLAM-Varianten}{29}{subsection.5.1.1}%
