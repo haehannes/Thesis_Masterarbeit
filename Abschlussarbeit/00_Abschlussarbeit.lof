@@ -17,11 +17,9 @@
 \contentsline {figure}{\numberline {4.3}{\ignorespaces Softwarearchitektur mit den Strängen zur Lokalisierung und zur Kartierung}}{26}{figure.caption.24}%
 \contentsline {figure}{\numberline {4.4}{\ignorespaces Flughalle AerodrOhm am \gls {oic} der Technischen Hochschule Nürnberg~\blx@tocontentsinit {0}\cite {aerodrohm}}}{27}{figure.caption.25}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Paarweiser Vergleich Bewertungskriterien der SLAM-Varianten}}{30}{figure.caption.26}%
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Nutzwertanalyse der SLAM-Varianten}}{31}{figure.caption.27}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Knoten und Topics der Positionierung, aufgeteilt nach Host und Container}}{41}{figure.caption.30}%
-\contentsline {figure}{\numberline {6.2}{\ignorespaces Drohne in der Kalibrierbox mit von Hand vermessenen Markern und den Wandmarkierungen zur Ausrichtung}}{44}{figure.caption.31}%
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Knoten und Topics der Positionierung, aufgeteilt nach Host und Container}}{42}{figure.caption.30}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Drohne in der Kalibrierbox mit von Hand vermessenen Markern und den Wandmarkierungen zur Ausrichtung}}{45}{figure.caption.31}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
