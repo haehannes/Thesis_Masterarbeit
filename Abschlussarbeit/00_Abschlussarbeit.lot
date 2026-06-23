@@ -14,7 +14,7 @@
 \contentsline {table}{\numberline {5.3}{\ignorespaces Wesentliche Parameter der Optimierung in \texttt {tagslam.yaml}}}{38}{table.caption.28}%
 \addvspace {10\p@ }
 \contentsline {table}{\numberline {6.1}{\ignorespaces Wesentliche EKF2-Parameter zur visionsgestützten Zustandsschätzung}}{40}{table.caption.29}%
-\contentsline {table}{\numberline {6.2}{\ignorespaces Startparameter des Knotens \texttt {vision\_pose\_uxrce\_node}}}{46}{table.6.2}%
+\contentsline {table}{\numberline {6.2}{\ignorespaces Startparameter des Knotens \texttt {vision\_pose\_uxrce\_node}}}{47}{table.6.2}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

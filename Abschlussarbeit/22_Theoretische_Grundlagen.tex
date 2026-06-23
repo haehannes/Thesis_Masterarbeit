@@ -76,7 +76,8 @@ Im weiteren Verlauf der Arbeit wird dieser Zusammenschluss als Flugcontroller be
 \end{figure}
 \FloatBarrier
 
-\subsection{Betriebssystem PX4 6X}
+\subsection{Betriebssystem}
+\label{sec:Px4_Betriebssystem}
 Der Pixhawk 6X betreibt auf dem Hauptprozessor STM32H753 das Echtzeitbetriebssystem 
 NuttX, auf dem die PX4-Firmware ausgeführt wird.
 NuttX ist ein Echtzeitbetriebssystem, das sicherstellt, dass zeitkritische 
@@ -87,8 +88,14 @@ MAVLink ist ein leichtgewichtiges Nachrichtenprotokoll, das speziell für die
 Kommunikation zwischen Flugcontrollern und Bodenstationen entwickelt wurde.
 Es serialisiert Telemetriedaten, Steuerbefehle und Sensorwerte in Binärpakete, 
 die über serielle Schnittstellen oder \gls{udp} übertragen werden~\cite{MAVLink,px4_mavlink}.
-Die Kommunikation mit dem Companion-Computer erfolgt dagegen über die uXRCE-DDS-Schnittstelle, 
-die die internen uORB-Topics von \gls{px4} als ROS2-Topics bereitstellt~\cite{px4_uxrce_dds}.
+Innerhalb der PX4-Firmware kommunizieren die einzelnen Module nicht direkt miteinander, 
+sondern tauschen ihre Daten über das interne Publish-Subscribe-System \gls{uorb} aus.
+Ein Modul, das Daten erzeugt, veröffentlicht diese als Publisher auf einem \gls{uorb}-Topic, 
+während ein oder mehrere Module die Daten als Subscriber empfangen.
+Auf diese Weise werden beispielsweise Sensorwerte, die geschätzten Zustände des \gls{ekf2} 
+und die Steuerbefehle der Regler innerhalb von \gls{px4} ausgetauscht.
+Die Kommunikation mit dem Companion-Computer erfolgt dagegen über die \gls{uxrce}-Schnittstelle, 
+die die internen \gls{uorb}-Topics von \gls{px4} als ROS2-Topics bereitstellt~\cite{px4_uxrce_dds}.
 
 
 Zur Analyse des Flugverhaltens erzeugt der PX4 während des Betriebs ULog-Dateien, die auf der internen SD-Karte gespeichert werden.
@@ -97,7 +104,7 @@ detaillierte Nachanalyse des Systemverhaltens nach dem Flug~\cite{px4_ulog,px4_f
 
 
 
-\subsection{Sensorik}
+\subsection{Onbaord Sensorik}
 Der Pixhawk 6X verfügt über eine dreifach redundante \gls{imu} sowie zwei redundante 
 Barometer, die auf getrennten Bussen mit unabhängiger Stromversorgung betrieben werden.
 Diese Redundanz erhöht die Zuverlässigkeit. 
@@ -135,7 +142,7 @@ Ein Magnetometer ist zwar verbaut, wird in dieser Arbeit jedoch nicht zur Lagebe
 verwendet (siehe Abschnitt~\ref{sec:ekf2}).
 
 
-\subsection{Schnittstellen PX4 6X}
+\subsection{Schnittstellen}
 Der Flugcontroller stellt über das Baseboard eine Vielzahl von Schnittstellen zur Anbindung 
 externer Komponenten bereit.
 Für diese Arbeit sind insbesondere die folgenden Schnittstellen relevant:
@@ -172,7 +179,7 @@ wird in Abschnitt~\ref{sec:pos_ekf2_konfiguration} erläutert.
 
 
 
-\subsection{Vergleich von Welt-, Roboter-, Kamera- und Fiducialkoordinatensystem}
+\section{Vergleich von Welt-, Roboter-, Kamera- und Fiducialkoordinatensystem}
 \label{sec:vergleich_koordinatensysteme}
 Dieser Abschnitt behandelt die für diese Arbeit relevanten Koordinatensysteme.
 Dabei wird zwischen dem Welt-, Roboter-, Kamera- und Fiducialkoordinatensystem unterschieden.
@@ -501,7 +508,7 @@ Hierbei ist \glsadd{sym:H}$\mathbf{H}_k$ die Jacobi-Matrix der Messfunktion \gls
 $\mathbf{R}$ beschreibt die Unsicherheit der Sensormessungen: Ein hoher Wert führt zu einem geringeren Vertrauen in die Messung und damit zu einer schwächeren Korrektur.
 Der Kalman-Gain gewichtet folglich Modellvorhersage und Messung anhand ihrer jeweiligen Unsicherheiten.
 
-Anschließend wird der korrigierte Zustand $\hat{\mathbf{x}}_k^{+}$ aus dem prädizierten Zustand und der gewichteten Differenz zwischen tatsächlicher Messung $\mathbf{z}_k$ und erwarteter Messung $h(\hat{\mathbf{x}}_k^{-})$ – der sogenannten Innovation – berechnet:
+Anschließend wird der korrigierte Zustand $\hat{\mathbf{x}}_k^{+}$ aus dem prädizierten Zustand und der gewichteten Differenz zwischen tatsächlicher Messung $\mathbf{z}_k$ und erwarteter Messung $h(\hat{\mathbf{x}}_k^{-})$ – der Innovation – berechnet:
 \begin{equation}
     \hat{\mathbf{x}}_k^{+} = \hat{\mathbf{x}}_k^{-} + \mathbf{K}_k\left(\mathbf{z}_k - h\left(\hat{\mathbf{x}}_k^{-}\right)\right)
 \end{equation}
@@ -540,7 +547,7 @@ Die Menge aller konsistenten Punkte wird als Konsensmenge bezeichnet, ihre Eleme
 \label{sec:ros2}
 
 \gls{ros2} ist ein Open-Source-Framework für die Entwicklung von Robotersoftware.
-Es stellt eine einheitliche Middleware bereit, über die verteilte Software-Komponenten -- sogenannte \textit{Nodes} -- miteinander kommunizieren können.
+Es stellt eine einheitliche Middleware bereit, über die verteilte Software-Komponenten -- \textit{Nodes} -- miteinander kommunizieren können.
 %Im Gegensatz zu seinem Vorgänger \gls{ros1} verwendet \gls{ros2} das standardisierte \gls{dds}-Protokoll als Kommunikationsschicht, 
 In dieser Arbeit wird \gls{ros2} Humble sowie \gls{ros2} Jazzy eingesetzt~\cite{ROS2MiddlewareHumble}.
 
@@ -556,7 +563,7 @@ Topics sind typisiert, das heißt jedes Topic überträgt Nachrichten eines fest
 
 \subsection{Bag-Dateien}
 \label{sec:ros_bag}
-\gls{ros2} ermöglicht die Aufzeichnung von Topic-Daten in sogenannten \textit{Bag-Dateien} mittels des Werkzeugs \texttt{rosbag2}.
+\gls{ros2} ermöglicht die Aufzeichnung von Topic-Daten in \textit{Bag-Dateien} mittels des Werkzeugs \texttt{rosbag2}.
 Aufgezeichnete Bags können anschließend offline wiedergegeben werden, wobei die aufgezeichneten Topics wieder auf denselben Topics im System veröffentlicht werden~\cite{ROS2Rosbag2}.
 
 %%Hier nochmal überlegen ob das bleiben sollte. außerdem brauch ich nochmal bessere quellen!!!

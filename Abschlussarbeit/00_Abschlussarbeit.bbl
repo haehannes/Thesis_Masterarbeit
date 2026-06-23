@@ -381,6 +381,39 @@
       \field{title}{{MAVLink Messaging -- PX4 Autopilot Documentation}}
       \field{year}{2025}
     \endentry
+    \entry{px4_uxrce_dds}{online}{}
+      \name{author}{1}{}{%
+        {{hash=b52b778c63203841cf2cbbd45551085d}{%
+           family={{PX4 Development Team}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {PX4 Autopilot User Guide}%
+      }
+      \strng{namehash}{b52b778c63203841cf2cbbd45551085d}
+      \strng{fullhash}{b52b778c63203841cf2cbbd45551085d}
+      \strng{bibnamehash}{b52b778c63203841cf2cbbd45551085d}
+      \strng{authorbibnamehash}{b52b778c63203841cf2cbbd45551085d}
+      \strng{authornamehash}{b52b778c63203841cf2cbbd45551085d}
+      \strng{authorfullhash}{b52b778c63203841cf2cbbd45551085d}
+      \field{extraname}{4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{uXRCE-DDS (PX4-ROS 2/DDS Bridge)}
+      \field{urlday}{23}
+      \field{urlmonth}{6}
+      \field{urlyear}{2026}
+      \field{version}{v1.16}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://docs.px4.io/v1.16/en/middleware/uxrce_dds
+      \endverb
+      \verb{url}
+      \verb https://docs.px4.io/v1.16/en/middleware/uxrce_dds
+      \endverb
+    \endentry
     \entry{px4_ulog}{misc}{}
       \name{author}{1}{}{%
         {{hash=b52b778c63203841cf2cbbd45551085d}{%
@@ -393,7 +426,7 @@
       \strng{authorbibnamehash}{b52b778c63203841cf2cbbd45551085d}
       \strng{authornamehash}{b52b778c63203841cf2cbbd45551085d}
       \strng{authorfullhash}{b52b778c63203841cf2cbbd45551085d}
-      \field{extraname}{4}
+      \field{extraname}{5}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
@@ -415,7 +448,7 @@
       \strng{authorbibnamehash}{b52b778c63203841cf2cbbd45551085d}
       \strng{authornamehash}{b52b778c63203841cf2cbbd45551085d}
       \strng{authorfullhash}{b52b778c63203841cf2cbbd45551085d}
-      \field{extraname}{5}
+      \field{extraname}{6}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
@@ -548,7 +581,7 @@
       \strng{authorbibnamehash}{b52b778c63203841cf2cbbd45551085d}
       \strng{authornamehash}{b52b778c63203841cf2cbbd45551085d}
       \strng{authorfullhash}{b52b778c63203841cf2cbbd45551085d}
-      \field{extraname}{6}
+      \field{extraname}{7}
       \field{sortinit}{2}
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
@@ -2268,7 +2301,6 @@
     \endentry
   \enddatalist
   \missing{Lynch2017}
-  \missing{px4_uxrce_dds}
 \endrefsection
 \endinput
 

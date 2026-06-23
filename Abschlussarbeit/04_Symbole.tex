@@ -110,7 +110,14 @@
 \newglossaryentry{sym:aM}{type=symbols, name={\ensuremath{a_{\mathrm{M}}}}, description={Kantenlänge des Markers}, sort={aM}}
 \newglossaryentry{sym:aref}{type=symbols, name={\ensuremath{a_{\mathrm{ref}}}}, description={Referenz-Markergröße}, sort={aref}}
 \newglossaryentry{sym:dtilde}{type=symbols, name={\ensuremath{\tilde{d}}}, description={Pixel-Proxy-Distanz (Norm der unskalierten Translation)}, sort={dtilde}}
-\newglossaryentry{sym:wgewicht}{type=symbols, name={\ensuremath{w}}, description={Gewicht einer Markerschätzung nach scheinbarer Bildgröße}, sort={wgew}}
+\newglossaryentry{sym:wgeo}{type=symbols, name={\ensuremath{w^{\mathrm{geo}}}}, description={geometrisches Gewicht einer Markerschätzung nach scheinbarer Bildgröße}, sort={wgeo}}
+\newglossaryentry{sym:wgewicht}{type=symbols, name={\ensuremath{w}}, description={kombiniertes Gewicht einer Markerschätzung aus scheinbarer Bildgröße und Kartenunsicherheit}, sort={wgew}}
+
+
+%Kartenunsicherheit in der Gewichtung
+\newglossaryentry{sym:sigmamap}{type=symbols, name={\ensuremath{\sigma_{\mathrm{map}}}}, description={mittlere Positionsunsicherheit eines Markers in der TagSLAM-Karte}, sort={sigmamap}}
+\newglossaryentry{sym:sigmaref}{type=symbols, name={\ensuremath{\sigma_{\mathrm{ref}}}}, description={Referenz-Standardabweichung der Kartenunsicherheit}, sort={sigmaref}}
+\newglossaryentry{sym:qmap}{type=symbols, name={\ensuremath{q}}, description={Qualitätsfaktor eines Markers aus der Kartenunsicherheit}, sort={qmap}}
 
 
 %Ausreißerfilterung mit Ransac
@@ -134,3 +141,23 @@
 \newglossaryentry{sym:alphat}{type=symbols, name={\ensuremath{\alpha_{\mathrm{t}}}}, description={Glättungsfaktor des EMA-Filters (Position)}, sort={alphat}}
 \newglossaryentry{sym:alphaq}{type=symbols, name={\ensuremath{\alpha_{\mathrm{q}}}}, description={Interpolationsfaktor der SLERP-Glättung (Orientierung)}, sort={alphaq}}
 \newglossaryentry{sym:ktakt}{type=symbols, name={\ensuremath{k}}, description={Taktindex der Ausgabe}, sort={ktakt}}
+
+%Kovarianz berechnen
+\newglossaryentry{sym:sigmapos0}{
+  type=symbols,
+  name={\ensuremath{\sigma_{\mathrm{pos},0}}},
+  sort={sigma pos 0},
+  description={Basis-Standardabweichung der Position unter Referenzbedingungen}
+}
+\newglossaryentry{sym:dsigma}{
+  type=symbols,
+  name={\ensuremath{d_{\sigma}}},
+  sort={d sigma},
+  description={Referenzdistanz der Kovarianzschätzung}
+}
+\newglossaryentry{sym:asigma}{
+  type=symbols,
+  name={\ensuremath{a_{\sigma}}},
+  sort={a sigma},
+  description={Referenz-Tag-Größe der Kovarianzschätzung}
+}

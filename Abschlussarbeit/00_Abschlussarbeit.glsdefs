@@ -427,8 +427,8 @@ first={VIO},%
 firstplural={VIOs},%
 text={VIO},%
 plural={VIOs},%
-description={Visuelle Inertial Odometrie},%
-descriptionplural={Visuelle Inertial Odometrie},%
+description={Visuelle inertial odometrie},%
+descriptionplural={Visuelle inertial odometrie},%
 symbol={\relax },%
 symbolplural={\relax },%
 user1={},%
@@ -437,8 +437,8 @@ user3={},%
 user4={},%
 user5={},%
 user6={},%
-long={Visuelle Inertial Odometrie},%
-longplural={Visuelle Inertial Odometries},%
+long={Visuelle inertial odometrie},%
+longplural={Visuelle inertial odometries},%
 short={VIO},%
 shortplural={VIOs},%
 counter={page},%
@@ -1057,6 +1057,62 @@ long={Forward-Left-Up},%
 longplural={Forward-Left-Ups},%
 short={FLU},%
 shortplural={FLUs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{uxrce}%
+{%
+name={\acronymfont {\glsentryshort {uxrce}}},%
+sort={uXRCE-DDS},%
+type={acronym},%
+first={uXRCE-DDS},%
+firstplural={uXRCE-DDSs},%
+text={uXRCE-DDS},%
+plural={uXRCE-DDSs},%
+description={micro eXtremely Resource Constrained Environments Data Distribution Service},%
+descriptionplural={micro eXtremely Resource Constrained Environments Data Distribution Service},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={micro eXtremely Resource Constrained Environments Data Distribution Service},%
+longplural={micro eXtremely Resource Constrained Environments Data Distribution Services},%
+short={uXRCE-DDS},%
+shortplural={uXRCE-DDSs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{uorb}%
+{%
+name={\acronymfont {\glsentryshort {uorb}}},%
+sort={uORB},%
+type={acronym},%
+first={uORB},%
+firstplural={uORBs},%
+text={uORB},%
+plural={uORBs},%
+description={micro Object Request Broker},%
+descriptionplural={micro Object Request Broker},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={micro Object Request Broker},%
+longplural={micro Object Request Brokers},%
+short={uORB},%
+shortplural={uORBs},%
 counter={page},%
 parent={},%
 %
@@ -3050,6 +3106,34 @@ parent={},%
 %
 }%
 
+\glsdefs@newdocentry{sym:wgeo}%
+{%
+name={\ensuremath {w^{\mathrm {geo}}}},%
+sort={wgeo},%
+type={symbols},%
+first={\protect \ensuremath  {w^{\protect \mathrm  {geo}}}},%
+firstplural={\protect \ensuremath  {w^{\protect \mathrm  {geo}}}s},%
+text={\protect \ensuremath  {w^{\protect \mathrm  {geo}}}},%
+plural={\protect \ensuremath  {w^{\protect \mathrm  {geo}}}s},%
+description={geometrisches Gewicht einer Markerschätzung nach scheinbarer Bildgröße},%
+descriptionplural={geometrisches Gewicht einer Markerschätzung nach scheinbarer Bildgröße},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
 \glsdefs@newdocentry{sym:wgewicht}%
 {%
 name={\ensuremath {w}},%
@@ -3059,8 +3143,92 @@ first={\protect \ensuremath  {w}},%
 firstplural={\protect \ensuremath  {w}s},%
 text={\protect \ensuremath  {w}},%
 plural={\protect \ensuremath  {w}s},%
-description={Gewicht einer Markerschätzung nach scheinbarer Bildgröße},%
-descriptionplural={Gewicht einer Markerschätzung nach scheinbarer Bildgröße},%
+description={kombiniertes Gewicht einer Markerschätzung aus scheinbarer Bildgröße und Kartenunsicherheit},%
+descriptionplural={kombiniertes Gewicht einer Markerschätzung aus scheinbarer Bildgröße und Kartenunsicherheit},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{sym:sigmamap}%
+{%
+name={\ensuremath {\sigma _{\mathrm {map}}}},%
+sort={sigmamap},%
+type={symbols},%
+first={\protect \ensuremath  {\sigma _{\protect \mathrm  {map}}}},%
+firstplural={\protect \ensuremath  {\sigma _{\protect \mathrm  {map}}}s},%
+text={\protect \ensuremath  {\sigma _{\protect \mathrm  {map}}}},%
+plural={\protect \ensuremath  {\sigma _{\protect \mathrm  {map}}}s},%
+description={mittlere Positionsunsicherheit eines Markers in der TagSLAM-Karte},%
+descriptionplural={mittlere Positionsunsicherheit eines Markers in der TagSLAM-Karte},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{sym:sigmaref}%
+{%
+name={\ensuremath {\sigma _{\mathrm {ref}}}},%
+sort={sigmaref},%
+type={symbols},%
+first={\protect \ensuremath  {\sigma _{\protect \mathrm  {ref}}}},%
+firstplural={\protect \ensuremath  {\sigma _{\protect \mathrm  {ref}}}s},%
+text={\protect \ensuremath  {\sigma _{\protect \mathrm  {ref}}}},%
+plural={\protect \ensuremath  {\sigma _{\protect \mathrm  {ref}}}s},%
+description={Referenz-Standardabweichung der Kartenunsicherheit},%
+descriptionplural={Referenz-Standardabweichung der Kartenunsicherheit},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{sym:qmap}%
+{%
+name={\ensuremath {q}},%
+sort={qmap},%
+type={symbols},%
+first={\protect \ensuremath  {q}},%
+firstplural={\protect \ensuremath  {q}s},%
+text={\protect \ensuremath  {q}},%
+plural={\protect \ensuremath  {q}s},%
+description={Qualitätsfaktor eines Markers aus der Kartenunsicherheit},%
+descriptionplural={Qualitätsfaktor eines Markers aus der Kartenunsicherheit},%
 symbol={\relax },%
 symbolplural={\relax },%
 user1={},%
@@ -3537,6 +3705,90 @@ text={\protect \ensuremath  {k}},%
 plural={\protect \ensuremath  {k}s},%
 description={Taktindex der Ausgabe},%
 descriptionplural={Taktindex der Ausgabe},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{sym:sigmapos0}%
+{%
+name={\ensuremath {\sigma _{\mathrm {pos},0}}},%
+sort={sigma pos 0},%
+type={symbols},%
+first={\protect \ensuremath  {\sigma _{\protect \mathrm  {pos},0}}},%
+firstplural={\protect \ensuremath  {\sigma _{\protect \mathrm  {pos},0}}s},%
+text={\protect \ensuremath  {\sigma _{\protect \mathrm  {pos},0}}},%
+plural={\protect \ensuremath  {\sigma _{\protect \mathrm  {pos},0}}s},%
+description={Basis-Standardabweichung der Position unter Referenzbedingungen},%
+descriptionplural={Basis-Standardabweichung der Position unter Referenzbedingungen},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{sym:dsigma}%
+{%
+name={\ensuremath {d_{\sigma }}},%
+sort={d sigma},%
+type={symbols},%
+first={\protect \ensuremath  {d_{\sigma }}},%
+firstplural={\protect \ensuremath  {d_{\sigma }}s},%
+text={\protect \ensuremath  {d_{\sigma }}},%
+plural={\protect \ensuremath  {d_{\sigma }}s},%
+description={Referenzdistanz der Kovarianzschätzung},%
+descriptionplural={Referenzdistanz der Kovarianzschätzung},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{sym:asigma}%
+{%
+name={\ensuremath {a_{\sigma }}},%
+sort={a sigma},%
+type={symbols},%
+first={\protect \ensuremath  {a_{\sigma }}},%
+firstplural={\protect \ensuremath  {a_{\sigma }}s},%
+text={\protect \ensuremath  {a_{\sigma }}},%
+plural={\protect \ensuremath  {a_{\sigma }}s},%
+description={Referenz-Tag-Größe der Kovarianzschätzung},%
+descriptionplural={Referenz-Tag-Größe der Kovarianzschätzung},%
 symbol={\relax },%
 symbolplural={\relax },%
 user1={},%
