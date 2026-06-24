@@ -158,7 +158,7 @@ die Verwechslungsrate gegenüber Familien mit geringerer Hammingdistanz wie
 \texttt{tag16h5} deutlich reduziert~\cite{Olson5979561}.
 
 \textbf{Anforderungen an das Anbringen der Marker.}
-FFür eine präzise Posenschätzung müssen die Marker eben und ohne Verwölbung
+Für eine präzise Posenschätzung müssen die Marker eben und ohne Verwölbung
 angebracht sein, da das Detektionsverfahren eine planare Markergeometrie voraussetzt~\cite{Olson5979561}.
 Verformungen des Untergrunds führen zu systematischen Fehlern in der berechneten Pose.
 Aus demselben Grund müssen die Marker gegen den durch die Rotoren des \gls{uav} erzeugten Wind gesichert werden, um ein Flattern zu vermeiden.
@@ -174,7 +174,7 @@ Glänzende Oberflächen sind zu vermeiden, da Reflexionen die Helligkeitsüberg�
 \section{Ablauf der Kartierung}
 \label{sec:ablauf_kartierung}
 Für die Kartierung wurden in dieser Arbeit zwei Ansätze verfolgt.
-Zum einen die Live-Kartierung mittels Tag-\gls{slam} während des Flugs und zum anderen die Offline-Kartierung durch 
+Zum einen die Live-Kartierung mittels Tag\gls{slam} während des Flugs und zum anderen die Offline-Kartierung durch 
 Aufzeichnung von \gls{ros2}-Bags (siehe Kapitel~\ref{sec:ros_bag}).
 
 Der Ansatz der Live-Kartierung wurde nach ersten Versuchen nicht weiter verfolgt.
@@ -329,7 +329,7 @@ Die tangentialen Koeffizienten $p_1, p_2$ erfassen eine Verschiebung, die entste
 Dadurch wird das Bild leicht asymmetrisch verzerrt, da der Abstand zwischen Linse und Sensor über die Bildfläche nicht konstant ist.
 
 Die \textbf{Rektifizierungsmatrix} (Gleichung~\ref{eq:rektifizierungsmatirx}) dient der Ausrichtung mehrerer Kameras in einem Stereoaufbau~\cite{Bradski2008}.
-Da hier eine einzelne Kamera bzw. jede Kamera für sich betrieben wird wird, entspricht sie der Einheitsmatrix und bewirkt keine Drehung.
+Da hier eine einzelne Kamera bzw. jede Kamera für sich betrieben wird, entspricht sie der Einheitsmatrix und bewirkt keine Drehung.
 
 Die \textbf{Projektionsmatrix} (Gleichung~\ref{eq:Projektionsmatrix}) beschreibt die intrinsischen Parameter, die für das bereits entzerrte Bild gelten ~\cite{Bradski2008}.
 Während die Kameramatrix die Abbildung des realen, verzeichneten Objektivs beschreibt, bezieht sich die Projektionsmatrix auf das Bild, nachdem die
@@ -351,7 +351,7 @@ für die verwendete Kamera durchzuführen.
 Die Implementierung der Kartierung wird am Beispiel der Logitech~C922 im Folgenden erläutert.
 
 Die Bildaufnahme erfolgt über einen gscam-Knoten, der in das Launch-File der ersten Stufe eingebunden ist.
-der Quellcode~\ref{lst:gscam_node} zeigt dessen Konfiguration.
+Der Quellcode~\ref{lst:gscam_node} zeigt dessen Konfiguration.
 \begin{lstlisting}[language=Python, caption={Parameter des gscam-Knotens zur Bildaufnahme}, label={lst:gscam_node}]
 'gscam_config': (
     'v4l2src device=/dev/video4 do-timestamp=true ! '
@@ -388,7 +388,7 @@ Eingangsbild zu und entfernt dadurch die Linsenverzeichnung.
 Das Ergebnis wird als Topic \texttt{/camera/image\_rect} bereitgestellt.
 
 Nach diesem Schritt ist das Bild bereits entzerrt.
-Seine intrinsischen Parameter entsprechen damit der Projektionsmatrix aus Gleichung~\eqref{eq:Projektionsmatrix}, und die Verzeichnungskoeffizienten sind null.
+Seine intrinsischen Parameter entsprechen damit der Projektionsmatrix aus Gleichung~\ref{eq:Projektionsmatrix}, und die Verzeichnungskoeffizienten sind null.
 Anschließend wird ein ROS2-Bag aufgezeichnet, der die für die nachfolgende Stufe
 benötigten Topics enthält:
 \begin{itemize}

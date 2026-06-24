@@ -2411,9 +2411,9 @@
     <bcf:citekey order="41" intorder="1">Bang18</bcf:citekey>
     <bcf:citekey order="42" intorder="1">Bang18</bcf:citekey>
     <bcf:citekey order="43" intorder="1">Bang18</bcf:citekey>
-    <bcf:citekey order="44" intorder="1">RANSAC_Fischler1987</bcf:citekey>
-    <bcf:citekey order="45" intorder="1">RANSAC_Fischler1987</bcf:citekey>
-    <bcf:citekey order="46" intorder="1">RANSAC_Fischler1987</bcf:citekey>
+    <bcf:citekey order="44" intorder="1">RANSAC_fischler1981</bcf:citekey>
+    <bcf:citekey order="45" intorder="1">RANSAC_fischler1981</bcf:citekey>
+    <bcf:citekey order="46" intorder="1">RANSAC_fischler1981</bcf:citekey>
     <bcf:citekey order="47" intorder="1">ROS2MiddlewareHumble</bcf:citekey>
     <bcf:citekey order="48" intorder="1">ROS2Nodes</bcf:citekey>
     <bcf:citekey order="48" intorder="2">ROS2Topics</bcf:citekey>

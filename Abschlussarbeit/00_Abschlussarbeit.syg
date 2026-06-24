@@ -64,6 +64,3 @@
 (indexentry :tkey (("qmap" "\\glossentry{sym:qmap}") ) :locref "{}{51}" :attr "pageglsnumberformat" ) 
 (indexentry :tkey (("sigmaref" "\\glossentry{sym:sigmaref}") ) :locref "{}{51}" :attr "pageglsnumberformat" ) 
 (indexentry :tkey (("wgew" "\\glossentry{sym:wgewicht}") ) :locref "{}{51}" :attr "pageglsnumberformat" ) 
-(indexentry :tkey (("sigma pos 0" "\\glossentry{sym:sigmapos0}") ) :locref "{}{54}" :attr "pageglsnumberformat" ) 
-(indexentry :tkey (("d sigma" "\\glossentry{sym:dsigma}") ) :locref "{}{54}" :attr "pageglsnumberformat" ) 
-(indexentry :tkey (("a sigma" "\\glossentry{sym:asigma}") ) :locref "{}{54}" :attr "pageglsnumberformat" ) 

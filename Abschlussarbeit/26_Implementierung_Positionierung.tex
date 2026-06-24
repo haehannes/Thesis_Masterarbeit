@@ -1,7 +1,7 @@
 
 \chapter{Implementierung der Positionierung}
 \label{cap:lokalisierung}
-Dieses Kapitel beschreibt die im Flug ablaufende Positionsbestimmung des Mulitkopters.
+Dieses Kapitel beschreibt die im Flug ablaufende Positionsbestimmung des Multikopters.
 Im Gegensatz zur Kartierung (Kapitel~\ref{cap:kartierung}) läuft die Verarbeitung hier zur Laufzeit auf dem Companion-Computer.
 Die Kette folgt dem in Abschnitt~\ref{sec:softwarearchitektur} dargestellten Datenfluss: Bildaufnahme, Entzerrung, Bildverarbeitung, Positionsbestimmung, 
 Kommunikation mit der Flugsteuerung und schließlich die Flugsteuerung selbst.
@@ -84,7 +84,7 @@ Die übrigen Schritte laufen direkt auf dem Host des Jetson.
 Dort erfolgen die Bildaufnahme über gscam, die Positionsbestimmung aus den Markerdetektionen sowie die Kommunikation mit der Flugsteuerung.
 Vor der eigentlichen Positionierung wird eine extrinsische Kalibrierung der verwendeten Kameras durchgeführt.
 Container und Host kommunizieren über ROS2-Topics.
-Die Bildaufnahme stellt für jede der beiden Kameras das Kamerabild auf \topic{/camera_x/image_raw} bzw. \topic{/camera_2/image_raw} 
+Die Bildaufnahme stellt für jede der beiden Kameras das Kamerabild auf \topic{/camera_1/image_raw} bzw. \topic{/camera_2/image_raw} 
 mit den zugehörigen Parametern auf dem jeweiligen \topic{camera_info}-Topic bereit.
 Im Container entzerrt je ein \texttt{RectifyNode} das Bild und gibt es als \topic{/camera_x/image_rect} aus.
 Darauf detektiert je ein \texttt{AprilTagNode} die Marker und veröffentlicht die Detektionen auf \topic{/camera_x/tag_detections}.
@@ -177,7 +177,7 @@ Dieser läuft ebenfalls \gls{gpu}-beschleunigt innerhalb des Isaac-Containers un
 In Versuchen zeigte sich dabei nahezu kein Unterschied in der Bildrate und der Auslastung des Companion-Computers, unabhängig von der Anzahl der detektierten Tags.
 Der Knoten liest das entzerrte Bild von \topic{/camera_x/image_rect} mit den Parametern von \topic{/camera_x/camera_info_rect} ein und detektiert
 darauf die AprilTag-Marker.
-Über die Parameter werden die Markerfamilie \texttt{tag36h11}, die physische Markergröße von in Metern 
+Über die Parameter werden die Markerfamilie \texttt{tag36h11}, die physische Markergröße in Metern 
 sowie die maximale Anzahl an Detektionen pro Bild festgelegt. 
 Der Detektor von \texttt{isaac\_ros\_apriltag} ist in der Lage, nur eine einzige Markergröße zu detektieren, weshalb in Abschnitt
 \ref{sec:pos_positionsbestimmung} eine Umrechnung anderer Größen erfolgt.
@@ -202,14 +202,14 @@ Der Multikopter wird in dieser Box an einer fest vorgegebenen Position platziert
 In der Box befinden sich zwei Marker, die zueinander sowie zum \gls{px4}-Mittelpunkt von Hand vermessen wurden.
 Je eine Kamera ist auf je einen der Marker gerichtet.
 Die drei vermessenen Positionen werden dem Node in einer YAML-Datei übergeben.
-Zum Starten der Kalibrierung müssen zusätlich \texttt{gscam} und \texttt{rectiy} für beide Kameras gestartet werden.
+Zum Starten der Kalibrierung müssen zusätlich \texttt{gscam} und \texttt{rectify} für beide Kameras gestartet werden.
 
-\begin{figure}[htbp]   % ] und } gefehlt
-\centering             % war "\centerin" (fehlendes g)
+\begin{figure}[htbp]   
+\centering             
 \includegraphics[width=0.9\textwidth]{Bilder/Kalibrierbox.png}
 \caption{Drohne in der Kalibrierbox mit von Hand vermessenen Markern und den Wandmarkierungen zur Ausrichtung}
-\label{fig:kalibrierbox}   % } gefehlt
-\end{figure}               % } gefehlt
+\label{fig:kalibrierbox}   
+\end{figure}               
 \FloatBarrier
 
 Sämtliche Posen werden im Koordinatensystem~$\mathrm{W}$ der Kalibrierbox angegeben.
@@ -223,7 +223,7 @@ Die gesuchte Transformation ergibt sich durch Verkettung der Kamerapose mit der 
 Pro Kamera werden mehrere solcher Messungen gesammelt und gemittelt, um den Einfluss des Detektionsrauschens zu verringern.
 Die Translation wird dabei arithmetisch gemittelt, die Orientierung nach dem in Abschnitt~\ref{sec:quaternionen_mittelung} beschriebenen Verfahren gemäß Gleichung~\eqref{eq:quaternion_mittelung}.
 Das Ergebnis wird je Kamera als Transformation in einer YAML-Datei abgelegt.
-Aus diesem Vorgehen ergeben sich folgende Vorteile zwei Vorteile.
+Aus diesem Vorgehen ergeben sich folgende Vorteile.
 Die Kameras können an einer beliebigen Stelle und in beliebiger Ausrichtung an der Drohne montiert werden, solange ein Tag gesehen wird. 
 Wird eine Kamera getauscht oder neu an der Flugplattform positioniert, genügt ein neuer Kalibrierlauf, ohne die Kamera aufwändig neu einzumessen. 
 
@@ -308,7 +308,7 @@ Tabelle~\ref{tab:vision_pose_params} fasst diese Parameter thematisch geordnet z
 \end{longtable}
 }
 
-Im Folgenden werden die wichtigsten Opterationen nach und nach erläutert. 
+Im Folgenden werden die wichtigsten Operationen nach und nach erläutert. 
 
 \subsection{Posenberechnung je Marker}
 \label{subsec:pos_posenberechnung}
@@ -362,7 +362,7 @@ Marker, die im Bild größer erscheinen, erlauben eine genauere Schätzung als k
 Jeder Schätzung wird daher ein Gewicht zugeordnet, das mit der scheinbaren Größe des Markers im Bild zunimmt.
 Als Maß hierfür dient die Norm der unmittelbar detektierten, \emph{unskalierten} Translation $^{\mathrm{C}}\tilde{\mathbf{t}}_{\mathrm{M}}$:
 \begin{equation}
-\tilde{d} = \lVert{^{\mathrm{C}}\tilde{\mathbf{t}}_{\mathrm{M}}}\rVert, \qquad w = \frac{1}{\tilde{d}^{2}}.
+\tilde{d} = \lVert{^{\mathrm{C}}\tilde{\mathbf{t}}_{\mathrm{M}}}\rVert, \qquad w^{\mathrm{geo}} = \frac{1}{\tilde{d}^{2}}.
 \label{eq:pos_gewicht}
 \end{equation}
 Da der Detektor die Translation für alle Marker mit der festen Referenzgröße $a_{\mathrm{ref}}$ berechnet, 
@@ -382,7 +382,7 @@ Eine fehlerhafte Detektion oder eine ungenaue Karte führt dagegen zu einer abwe
 Zur Bestimmung der größten konsistenten Teilmenge wird das in Abschnitt~\ref{sec:ransac} beschriebene \gls{ransac}-Verfahren angewendet,
 das ausschließlich die Translationen vergleicht.
 Da die Translation nach Gleichung~\eqref{eq:pos_kompose_t} aus der Rotation berechnet wird, schlägt sich eine fehlerhafte Rotation
-unmittelbar in einer fehlerhaften Translation nieder, beide Fehlerarten berücksichtigt werden.
+unmittelbar in einer fehlerhaften Translation nieder, sodass beide Fehlerarten berücksichtigt werden.
 
 Die minimale Teilmenge zur Modellbestimmung der Position besteht aus einer einzelnen Schätzung, die als Hypothese für die Kameraposition dient.
 Als Abstand $d(\mathbf{x}_i, \mathcal{M})$ nach Gleichung~\eqref{eq:ransac_inlier} dient die euklidische Distanz zwischen einer Schätzung und der Hypothese.
@@ -554,40 +554,6 @@ Der Interpolationsfaktor $\alpha_{\mathrm{q}} \in [0,1]$ wird über den Paramete
 festgelegt und wirkt analog zu $\alpha_{\mathrm{t}}$.
 
 
-\subsection{Schätzung der Kovarianz}
-\label{subsec:pos_kovarianz}
-Damit \gls{ekf2} die Vision-Pose richtig gewichten kann, wird ihr je Achse eine Varianz für Position und Orientierung beigegeben.
-Diese wird aus den Tags der Konsensmenge geschätzt und spiegelt wider, wie zuverlässig die zugrunde liegenden Detektionen sind.
-Die Ausgabe der Varianzen lässt sich über den Parameter \texttt{use\_covariance} aktivieren; andernfalls verwendet \gls{ekf2} fest parametrierte Werte.
-
-Für jeden Tag~$i$ der Konsensmenge wird zunächst eine eigene Standardabweichung aus einer Basis-Standardabweichung abgeleitet.
-Diese hängt von zwei Faktoren ab: der tatsächlichen Tag-zu-Kamera-Distanz $d_i$ und der realen Tag-Größe $a_i$.
-Mit zunehmender Distanz wächst die Unsicherheit quadratisch, mit zunehmender Tag-Größe sinkt sie, da größere Tags auf mehr Pixel abgebildet werden.
-Bezeichnet \glsadd{sym:sigmapos0}$\sigma_{\mathrm{pos},0}$ die Basis-Standardabweichung der Position 
-(Parameter \texttt{covariance\_\-pos\_\-base\_\-sigma\_\-m}), \glsadd{sym:dsigma}$d_{\sigma}$ die Referenzdistanz 
-(Parameter \texttt{covariance\_\-reference\_\-distance\_\-m}) und \glsadd{sym:asigma}$a_{\sigma}$ die Referenz-Tag-Größe 
-(Parameter \texttt{covariance\_\-reference\_\-tag\_\-size\_\-m}), ergibt sich die Pro-Tag-Standardabweichung zu
-\begin{equation}
-\sigma_{\mathrm{pos},i} = \sigma_{\mathrm{pos},0} \cdot \underbrace{\left(\frac{d_i}{d_{\sigma}}\right)^{2}}_{\text{Distanzfaktor}} \cdot \underbrace{\frac{a_{\sigma}}{a_i}}_{\text{Größenfaktor}}.
-\label{eq:pos_kovarianz_sigma}
-\end{equation}
-Beide Faktoren sind nach oben begrenzt, der Distanzfaktor über \texttt{covariance\_\-max\_\-distance\_\-factor}, 
-der Größenfaktor über \texttt{covariance\_\-max\_\-size\_\-factor}, sowie nach unten, um bei sehr nahen oder sehr großen 
-Tags einen verbleibenden Kalibrier-Restfehler zu berücksichtigen.
-Die Standardabweichung der Orientierung $\sigma_{\mathrm{rot},i}$ wird in gleicher Weise aus der Basis-Standardabweichung \texttt{covariance\_rot\_base\_sigma\_rad} bestimmt.
-Die Varianz eines Tags ergibt sich jeweils als Quadrat der Standardabweichung, $\sigma_{\mathrm{pos},i}^{2}$ bzw. $\sigma_{\mathrm{rot},i}^{2}$.
-
-Anschließend werden die Pro-Tag-Varianzen über eine inverse-Varianz-Gewichtung zu einer Gesamtvarianz zusammengefasst.
-Dadurch dominieren genaue Tags mit kleiner Varianz, während ungenaue Tags kaum beitragen.
-Für die Position ergibt sich die kombinierte Varianz $\sigma_{\mathrm{pos}}^{2}$ aus den Pro-Tag-Varianzen der Konsensmenge $\mathcal{I}$ zu
-\begin{equation}
-\sigma_{\mathrm{pos}}^{2} = \left( \sum_{i \in \mathcal{I}} \frac{1}{\sigma_{\mathrm{pos},i}^{2}} \right)^{-1}.
-\label{eq:pos_kovarianz_kombi}
-\end{equation}
-Die kombinierte Varianz der Orientierung $\sigma_{\mathrm{rot}}^{2}$ wird analog gebildet.
-Beide Varianzen werden gleichmäßig auf alle drei Achsen gelegt, sodass für Position und Orientierung je ein Wert für die drei Raumrichtungen ausgegeben wird.
-
-
 \subsection{Transformation in das PX4-Koordinatensystem und Ausgabe hier muss noch korrektur gelesen werden!!!}
 \label{subsec:pos_frame_ausgabe}
 Die bisher bestimmte geglättete Pose $\bigl(^{\mathrm{K}}\hat{\mathbf{t}}_{\mathrm{D}},\,{^{\mathrm{K}}\hat{\mathbf{q}}_{\mathrm{D}}}\bigr)$
@@ -595,5 +561,5 @@ liegt im Kartenkoordinatensystem vor, das der in Abschnitt~\ref{sec:vergleich_ko
 Da PX4 die Pose im NED/FRD-System benötigt, wird sie vor der Ausgabe von ENU/FLU nach NED/FRD umgerechnet.
 
 Zusätzlich zur Pose wird der Nachricht eine Unsicherheit für Position und Orientierung beigegeben.
-Über den Parameter \texttt{use\_covariance} lässt sich ihre Ausgabe aktivieren; andernfalls verwendet \gls{ekf2} fest parametrierte Werte.
+Über den Parameter \texttt{use\_covariance} lässt sich ihre Ausgabe aktivieren, andernfalls verwendet \gls{ekf2} fest parametrierte Werte.
 Anschließend wird die umgerechnete Pose über die \gls{uxrce}-Schnittstelle auf dem Topic \topic{/fmu/in/vehicle\_visual\_odometry} an PX4 übergeben.

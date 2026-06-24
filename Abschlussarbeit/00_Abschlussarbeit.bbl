@@ -914,42 +914,6 @@
       \verb https://doi.org/10.5772/intechopen.80600
       \endverb
     \endentry
-    \entry{RANSAC_Fischler1987}{inbook}{}
-      \name{author}{2}{}{%
-        {{hash=53af7a5ea8715d6c3922933be034062f}{%
-           family={Fischler},
-           familyi={F\bibinitperiod},
-           given={Martin\bibnamedelima A.},
-           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
-        {{hash=40bae40d0cc01a890e3631288dd8ffa2}{%
-           family={Bolles},
-           familyi={B\bibinitperiod},
-           given={Robert\bibnamedelima C.},
-           giveni={R\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Elsevier}%
-      }
-      \strng{namehash}{fd6cd035a6e3f6ec978ad866925826c7}
-      \strng{fullhash}{fd6cd035a6e3f6ec978ad866925826c7}
-      \strng{bibnamehash}{fd6cd035a6e3f6ec978ad866925826c7}
-      \strng{authorbibnamehash}{fd6cd035a6e3f6ec978ad866925826c7}
-      \strng{authornamehash}{fd6cd035a6e3f6ec978ad866925826c7}
-      \strng{authorfullhash}{fd6cd035a6e3f6ec978ad866925826c7}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{booktitle}{Readings in Computer Vision}
-      \field{isbn}{9780080515816}
-      \field{title}{Random Sample Consensus: A Paradigm for Model Fitting with Applications to Image Analysis and Automated Cartography}
-      \field{year}{1987}
-      \field{pages}{726\bibrangedash 740}
-      \range{pages}{15}
-      \verb{doi}
-      \verb 10.1016/b978-0-08-051581-6.50070-2
-      \endverb
-    \endentry
     \entry{ROS2MiddlewareHumble}{misc}{}
       \name{author}{1}{}{%
         {{hash=6d2ee5676b068857db569005a9c6205a}{%
@@ -2301,6 +2265,7 @@
     \endentry
   \enddatalist
   \missing{Lynch2017}
+  \missing{RANSAC_fischler1981}
 \endrefsection
 \endinput
 

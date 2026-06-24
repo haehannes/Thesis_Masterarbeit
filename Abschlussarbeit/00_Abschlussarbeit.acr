@@ -37,8 +37,7 @@
 \glsXpageXglsnumberformat{}{5}\delimN 
 \glsXpageXglsnumberformat{}{15}\delimN 
 \glsXpageXglsnumberformat{}{40}\delimN 
-\glsXpageXglsnumberformat{}{54}\delimN 
-\glsXpageXglsnumberformat{}{55}}}\relax\glsresetentrylist
+\glsXpageXglsnumberformat{}{54}}}\relax\glsresetentrylist
 \glossentry{ema}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{1}\delimN 
 \glsXpageXglsnumberformat{}{53}}}\relax\glsresetentrylist
@@ -96,7 +95,9 @@
 \glsgroupheading{O}\relax\glsresetentrylist
 \glossentry{oic}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{27}\delimN 
-\glsXpageXglsnumberformat{}{65}}}\glsgroupskip
+\glsXpageXglsnumberformat{}{63}}}\relax\glsresetentrylist
+\glossentry{orb-slam3}{\glossaryentrynumbers{\relax 
+\glsXpageXglsnumberformat{}{18}}}\glsgroupskip
 \glsgroupheading{P}\relax\glsresetentrylist
 \glossentry{px4}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{3}\delimR 
@@ -108,7 +109,7 @@
 \glsXpageXglsnumberformat{}{41}\delimN 
 \glsXpageXglsnumberformat{}{44}\delimN 
 \glsXpageXglsnumberformat{}{46}\delimN 
-\glsXpageXglsnumberformat{}{56}}}\glsgroupskip
+\glsXpageXglsnumberformat{}{55}}}\glsgroupskip
 \glsgroupheading{R}\relax\glsresetentrylist
 \glossentry{ransac}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{1}\delimN 
@@ -132,8 +133,8 @@
 \glsXpageXglsnumberformat{}{37}\delimR 
 \glsXpageXglsnumberformat{}{39}\delimN 
 \glsXpageXglsnumberformat{}{51}\delimN 
-\glsXpageXglsnumberformat{}{65}\delimN 
-\glsXpageXglsnumberformat{}{66}}}\relax\glsresetentrylist
+\glsXpageXglsnumberformat{}{63}\delimN 
+\glsXpageXglsnumberformat{}{64}}}\relax\glsresetentrylist
 \glossentry{slerp}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{9}\delimN 
 \glsXpageXglsnumberformat{}{53}}}\glsgroupskip
@@ -169,7 +170,7 @@
 \glsXpageXglsnumberformat{}{4}\delimN 
 \glsXpageXglsnumberformat{}{44}\delimN 
 \glsXpageXglsnumberformat{}{47}\delimN 
-\glsXpageXglsnumberformat{}{55}}}\glsgroupskip
+\glsXpageXglsnumberformat{}{54}}}\glsgroupskip
 \glsgroupheading{V}\relax\glsresetentrylist
 \glossentry{vio}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{16}\delimN 

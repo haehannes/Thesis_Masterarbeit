@@ -209,7 +209,7 @@ Der Ursprung dieses Koordinatensystems kann frei gewählt werden und wird durch 
 Die Achsen werden durch \gls{sym:X0}, \gls{sym:Y0} und \gls{sym:Z0} dargestellt~\cite[4]{ISO9787}.
 
 Das UAV-Koordinatensystem ist in der Regel vom Hersteller vorgegeben und richtet sich in diesem konkreten Fall nach dem Flugregler.
-Der verwendete Flugregler nutzt die North-East-Down (NED)/Forward-Right-Down (FRD)-Konvention, körperfestes Koordinatensystem nach Norden, Osten und unten ausgerichtet ist. 
+Der verwendete Flugregler nutzt die North-East-Down (NED)/Forward-Right-Down (FRD)-Konvention, bei der das Navigationskoordinatensystem nach Norden, Osten und unten ausgerichtet ist.
 Das körperfeste Koordinatensystem hat seinen Ursprung (\gls{sym:Ou}) im Mittelpunkt des Flugreglers.
 Ausgehend von der Flugrichtung entlang der X-Achse (\gls{sym:Xu}) zeigt diese nach vorne, die Y-Achse (\gls{sym:Yu}) nach rechts und die Z-Achse (\gls{sym:Zu}) nach unten~\cite{PX4Frames}.
 
@@ -527,9 +527,9 @@ Die aktualisierten Größen $\hat{\mathbf{x}}_k^{+}$ und $\mathbf{P}_k^{+}$ dien
 Der \gls{ransac} ist ein iteratives Verfahren zur robusten Schätzung von Modellparametern aus einem Datensatz, 
 der einen erheblichen Anteil an Ausreißern enthält.
 Der \gls{ransac} unterscheidet sich von klassischen Ausgleichsverfahren dadurch, dass er nicht versucht, 
-alle Datenpunkte gleichzeitig zu berücksichtigen~\cite{RANSAC_Fischler1987}.
+alle Datenpunkte gleichzeitig zu berücksichtigen~\cite{RANSAC_fischler1981}.
 Stattdessen wird das Modell aus möglichst kleinen, zufällig gewählten Teilmengen bestimmt und anhand der übrigen Daten bewertet.
-Dadurch bleibt die Schätzung auch dann zuverlässig, wenn ein großer Teil der Daten fehlerhaft ist~\cite{RANSAC_Fischler1987}.
+Dadurch bleibt die Schätzung auch dann zuverlässig, wenn ein großer Teil der Daten fehlerhaft ist~\cite{RANSAC_fischler1981}.
 
 Die Grundidee besteht darin, wiederholt eine minimale Teilmenge von Datenpunkten auszuwählen und daraus ein Modell zu berechnen.
 Die Größe dieser Teilmenge entspricht der minimalen Anzahl an Punkten, die zur eindeutigen Bestimmung der Modellparameter erforderlich ist.
@@ -540,7 +540,7 @@ Ein Datenpunkt gilt als konsistent, wenn sein Abstand zum Modell einen festgeleg
     \label{eq:ransac_inlier}
 \end{equation}
 wobei $d(\mathbf{x}_i, \mathcal{M})$ den Abstand des Punktes $\mathbf{x}_i$ zum Modell \glsadd{sym:model}$\mathcal{M}$ bezeichnet.
-Die Menge aller konsistenten Punkte wird als Konsensmenge bezeichnet, ihre Elemente als Inlier; die übrigen Punkte gelten als Ausreißer~\cite{RANSAC_Fischler1987}.
+Die Menge aller konsistenten Punkte wird als Konsensmenge bezeichnet, ihre Elemente als Inlier; die übrigen Punkte gelten als Ausreißer~\cite{RANSAC_fischler1981}.
 
 
 \section{Robot Operating System 2 (ROS2)}

@@ -83,11 +83,11 @@ Es gibt sowohl mono- als auch stereokamerabasierte Ansätze, wobei Stereokameras
 Die Fusion von \gls{imu} und \gls{vo} zu \gls{vio} erfolgt typischerweise über einen \gls{ekf}~\cite{9836067}.
 
 Da \gls{vo} und \gls{vio} keinen absoluten Positionsbezug besitzen, akkumulieren diese Verfahren über die Zeit einen Drift und sind damit nur bedingt für eine langfristig stabile Innenraumlokalisierung geeignet~\cite{Jarraya2025}.
-Weiterhin setzt visuelle Odometrie auf strukturierte Umgebungen voraus, welche in der Versuchsumgebung nicht ohne weiteres gegeben sind. 
+Weiterhin setzt visuelle Odometrie strukturierte Umgebungen voraus, welche in der Versuchsumgebung nicht ohne weiteres gegeben sind. 
 
 Der optische Fluss stellt ein verwandtes Verfahren dar, das im Gegensatz zur \gls{vo} 
 lediglich zweidimensionale Geschwindigkeitsinformationen liefert~\cite{Jarraya2025}.
-Aus diesem Grund ist der optische Flow nicht zur Positionserkennung einer \gls{uav} geeignet.
+Aus diesem Grund ist der optische Fluss nicht zur Positionserkennung eines \gls{uav} geeignet.
 
 
 \subsection{Simultane Lokalisierung und Kartierung}
@@ -124,10 +124,10 @@ Aus diesen Zuordnungen werden erste Kartenpunkte sowie deren räumliche Position
 Die Map Initialization bildet die Grundlage, auf der alle weiteren Kartenpunkte und Posenschätzungen aufgebaut werden~\cite{CAI2024127760_core_modules_slam}.
 
 \textbf{Loop Closure} bezeichnet die Erkennung bereits besuchter Orte.
-Wird ein solcher Ort erkannt, wird die akkumuliert Abweichung anhand gespeicherter Merkmale berechnet und als zusätzlicher Constraint den Faktorgraphen eingetragen. 
+Wird ein solcher Ort erkannt, wird die akkumuliert Abweichung anhand gespeicherter Merkmale berechnet und als zusätzlicher Constraint in den Faktorgraphen eingetragen. 
 Die anschließende globale Optimierung verbessert die Konsistenz der gesamten Karte erheblich~\cite{10169695}. 
 Der schematische Ablauf von Loop Closure ist in Abbildung~\ref{fig:loop_closure} dargestellt.
-Die Funktion des Faktorgraph wird in Abschschnitt \ref{sec:Faktorgraph} näher beschrieben.
+Die Funktion des Faktorgraphen wird in Abschnitt \ref{sec:Faktorgraph} näher beschrieben.
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.8\textwidth]{Bilder/Loop_Closure.png}
@@ -143,7 +143,7 @@ Die Funktion des Faktorgraph wird in Abschschnitt \ref{sec:Faktorgraph} näher b
 
 
 
-\subsubsection{Faktorgraph Optmierung}
+\subsubsection{Faktorgraph Optimierung}
 \label{sec:Faktorgraph}
 Im folgenden Abschnitt wird der Faktorgraph nur schematisch erläutert, um ein grundsätzliches Verständnis dieser Methodik zu erlangen.
 Genaue Herleitungen sowie die Mathematik hinter dem Prinzip können den Quellen~\cite{Lai2022,Dellaert2017,Cai2024} entnommen werden.
@@ -198,7 +198,7 @@ Bekannte Faktorgraph Bibliotheken sind \gls{gtsam} und \gls{g2o}.
 Umgebung zu erstellen~\cite{10169695}.
 Es baut auf den Konzepten der \gls{vo} und \gls{vio} auf und erweitert diese um die Fähigkeit zur globalen Kartenkonsistenz durch Loop Closure~\cite{Cai2024}.
 Durch die Erkennung bereits besuchter Orte kann das System akkumulierte Posenfehler korrigieren und eine global konsistente Karte aufbauen.
-Ein weit verbreitetes Beispiel ist orb-slam3, ein Open-Source-System, das ORB-Merkmale zur Merkmalserkennung verwendet~\cite{10169695}.
+Ein weit verbreitetes Beispiel ist \gls{orb-slam3}, ein Open-Source-System, das ORB-Merkmale zur Merkmalserkennung verwendet~\cite{10169695}.
 Je nach Konfiguration unterstützt es Mono-, Stereo- und RGB-D-Kameras 
 als reines \gls{vslam} sowie die Kombination mit einer \gls{imu} als visuell-inertialen SLAM.
 
@@ -238,7 +238,7 @@ Im Folgenden werden die in Abbildung \ref{fig:Uebersicht_Marker} dargestellten g
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=1.0\textwidth]{Bilder/Uebersicht_Marker.png}
-    \caption{Übersicht gängiger Fiducial-Marker: a) ARTag; b) AprilTag; c) Aruco d) Stag~\cite{STag_Loipfuehrer2022,Artag_Bild}}
+    \caption{Übersicht gängiger Fiducial-Marker: a) ARTag; b) AprilTag; c) ArUco; d) STag~\cite{STag_Loipfuehrer2022,Artag_Bild}}
     \label{fig:Uebersicht_Marker}
 \end{figure}
 \FloatBarrier
@@ -247,7 +247,7 @@ Im Folgenden werden die in Abbildung \ref{fig:Uebersicht_Marker} dargestellten g
 ARTag wurde 2005 von Mark Fiala als Weiterentwicklung von ARToolKit vorgestellt~\cite{Fiala1467495}.
 Es verwendet digitale Kodierungsverfahren, wodurch ARTag im Vergleich zu früheren Systemen niedrigere und quantifizierbare Fehlerraten aufweist~\cite{Fiala1467495}.
 Ein ARTag besteht aus einem quadratischen Rand, der ein binäres Raster aus schwarzen und weißen Zellen umschließt, welches eine eindeutige ID kodiert~\cite{Fiala1467495}.
-Es lassen sich aus 36 Bits 2048 unterschiedliche IDs erzeugen, wobei 10 Bits für die Marker-ID und 26 Bits zur Redundanz genutzt werden~\cite{Fiala1467495}.
+Es lassen sich aus 36 Bits 2048 (Mit schwarzen bzw. weißen Rahmen) unterschiedliche IDs erzeugen, wobei 10 Bits für die Marker-ID und 26 Bits zur Redundanz genutzt werden~\cite{Fiala1467495}.
 ARTag verwendet keine einheitliche minimale Hammingdistanz zwischen den Codewörtern~\cite{Fiala1467495}.
 Aus einer Aufnahme des Markers lässt sich eine 6D-Pose bestimmen~\cite{Fiala1467495}.
 Artag ist das einzige vorgestellte System, welches nicht vollständig Open-Source ist.

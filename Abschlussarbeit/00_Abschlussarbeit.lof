@@ -10,7 +10,7 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Veranschaulichung des Loop-Closure-Effekts: (a) Reale Trajektorie ohne akkumulierten Fehler. (b) Geschätzte Trajektorie mit akkumuliertem Drift ohne Loop Closure. (c) Korrigierte Trajektorie nach Anwendung von Loop Closure mit reduziertem akkumuliertem Drift. vgl.~\blx@tocontentsinit {0}\cite {gong_loop_closure}}}{17}{figure.caption.12}%
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Vereinfachter Faktorgraph eines \gls {slam}-Problems, vgl.~\blx@tocontentsinit {0}\cite {Lai2022,Dellaert2017,Cai2024}}}{18}{figure.caption.13}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Übersicht gängiger Fiducial-Marker: a) ARTag; b) AprilTag; c) Aruco d) Stag~\blx@tocontentsinit {0}\cite {STag_Loipfuehrer2022,Artag_Bild}}}{19}{figure.caption.14}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Übersicht gängiger Fiducial-Marker: a) ARTag; b) AprilTag; c) ArUco; d) STag~\blx@tocontentsinit {0}\cite {STag_Loipfuehrer2022,Artag_Bild}}}{19}{figure.caption.14}%
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {4.1}{\ignorespaces Physischer Aufbau des Fluggeräts mit den verbauten Komponenten}}{23}{figure.caption.15}%
 \contentsline {figure}{\numberline {4.2}{\ignorespaces Hardware-Blockschaltbild mit Anschlussverdrahtung}}{26}{figure.caption.23}%
