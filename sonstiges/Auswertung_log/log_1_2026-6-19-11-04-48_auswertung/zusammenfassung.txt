@@ -1,0 +1,42 @@
+================================================================
+  FLUG-ZUSAMMENFASSUNG
+================================================================
+Logdauer gesamt         : 266.9 s
+Ausgewerteter Zeitraum  : 0.1 .. 267.0 s
+Arming / Landung        : 0.5 s / 264.0 s
+Max. Hoehe (-z)         : 1.99 m
+Bahn-Ausdehnung x/y/z   : 1.77 / 0.66 / 1.71 m
+Zurueckgelegte Strecke  : 30.2 m
+
+Flugmodus-Anteile (im Zeitraum):
+   OFFBOARD        :  98.0 %
+   AUTO_LAND       :   2.0 %
+
+External-Vision-Fusion (Position):
+   fused-Anteil         : 98.8 %
+   rejected-Anteil      : 0.00 %
+   Test-Ratio mittel/max: 0.0006 / 0.0119
+
+EV-Aussetzer (Luecke > 1.0 s):
+   Anzahl               : 4 (gesamt 10.0 s ohne Vision)
+       4.5 ..     6.0 s   (Dauer 1.46 s)
+     245.5 ..   248.5 s   (Dauer 2.99 s)
+     249.2 ..   252.4 s   (Dauer 3.27 s)
+     259.4 ..   261.7 s   (Dauer 2.24 s)
+
+EKF-Resets (Zeitpunkte im Zeitraum):
+   Pos NE :  6  @ [5.7, 248.3, 252.1, 259.5, 261.3, 265.7] s
+   Pos D  :  5  @ [5.7, 248.3, 252.1, 259.5, 261.3] s
+   Vel NE :  1  @ [265.7] s
+   Quat   :  0  @ [-] s
+
+EKF-Unsicherheit (1-sigma):
+   Position Nord        : mittel 0.028 m, max 0.431 m
+   Geschwindigkeit Nord : mittel 0.044 m/s, max 0.191 m/s
+   Kalman-Gewicht EV-Pos: median 0.049, max 0.891
+
+Tracking-Fehler (Sollwert - EKF), RMS im Zeitraum:
+   x: 0.077 m
+   y: 0.060 m
+   z: 0.374 m
+================================================================
