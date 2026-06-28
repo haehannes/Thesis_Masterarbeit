@@ -74,7 +74,7 @@
 \contentsline {section}{\numberline {6.7}Extrinsische Kalibrierung zweier Kameras auf den PX4-Mittelpunkt}{46}{section.6.7}%
 \contentsline {section}{\numberline {6.8}Positionsbestimmung durch AprilTags}{47}{section.6.8}%
 \contentsline {subsection}{\numberline {6.8.1}Posenberechnung je Marker}{48}{subsection.6.8.1}%
-\contentsline {subsection}{\numberline {6.8.2}Ausreißerfilterung durch RANSAC}{49}{subsection.6.8.2}%
+\contentsline {subsection}{\numberline {6.8.2}Ausreißerfilterung durch RANSAC}{50}{subsection.6.8.2}%
 \contentsline {subsection}{\numberline {6.8.3}Gewichtete Fusion der Konsensmenge}{51}{subsection.6.8.3}%
 \contentsline {subsection}{\numberline {6.8.4}Transformation der Kameraposen zum Drohnenmittelpunkt}{52}{subsection.6.8.4}%
 \contentsline {subsection}{\numberline {6.8.5}Fusion der Kameraposen}{52}{subsection.6.8.5}%

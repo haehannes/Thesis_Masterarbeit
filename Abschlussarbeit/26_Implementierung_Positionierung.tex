@@ -191,42 +191,47 @@ Die so bestimmte relative Markerpose bildet die Eingangsgröße für die Positio
 
 
 
+
 \section{Extrinsische Kalibrierung zweier Kameras auf den PX4-Mittelpunkt}
-\label{subsec:extrinsische_kalibrierung}
-Die extrinsische Kalibrierung bestimmt für beide Kameras die statische Transformation vom \gls{px4}-Mittelpunkt zur Kamera, 
+\label{subsec:extrinsische_kalibrierung_2}
+Die extrinsische Kalibrierung bestimmt für beide Kameras die statische Transformation vom \gls{px4}-Mittelpunkt zur Kamera,
 \glsadd{sym:TDC}$^{\mathrm{D}}\mathbf{T}_{\mathrm{C}}$.
 Diese Transformationsmatrizen werden zur Laufzeit von der Positionsbestimmung (Abschnitt~\ref{sec:pos_positionsbestimmung}) benötigt.
 Die Kalibrierung findet zur Reproduzierbarkeit in einer Kalibrierbox statt.
-Der Multikopter wird in dieser Box an einer fest vorgegebenen Position platziert und anhand von Wandmarkierungen ausgerichtet 
+Der Multikopter wird in dieser Box durch Markierungen an der Wand fest an einer vorgesehenen Position platziert und ausgerichtet
 (Abbildung~\ref{fig:kalibrierbox}).
-In der Box befinden sich zwei Marker, die zueinander sowie zum \gls{px4}-Mittelpunkt von Hand vermessen wurden.
-Je eine Kamera ist auf je einen der Marker gerichtet.
-Die drei vermessenen Positionen werden dem Node in einer YAML-Datei übergeben.
-Zum Starten der Kalibrierung müssen zusätlich \texttt{gscam} und \texttt{rectify} für beide Kameras gestartet werden.
-
-\begin{figure}[htbp]   
-\centering             
+In der Box befinden sich zwei Tags, ein Tag am Boden ($\mathrm{tag}_1$) und ein Tag an der Wand ($\mathrm{tag}_2$).
+Die untere Kamera~$\mathrm{C}_1$ ist auf den Boden-Tag gerichtet, die vordere Kamera~$\mathrm{C}_2$ auf den Wand-Tag.
+Die Lage der beiden Tags sowie des \gls{px4}-Mittelpunkts wurde von Hand vermessen.
+Die so bestimmten Koordinaten, bestehend aus Position und Orientierung, werden dem Node in einer YAML-Datei übergeben.
+Aus diesen Koordinaten berechnet der Kalibriernode anschließend die festen Transformationen $^{\mathrm{tag}_1}\mathbf{T}_{\mathrm{D}}$ und $^{\mathrm{tag}_2}\mathbf{T}_{\mathrm{D}}$ gemäß Gleichung~\eqref{eq:trafo_matrix}, wobei die Rotationsmatrix nach Gleichung~\eqref{eq:rotationsmatrix_quaternion} aus dem jeweiligen Quaternion gebildet wird.
+Zum Starten der Kalibrierung müssen zusätzlich \texttt{gscam} und \texttt{rectify} für beide Kameras gestartet werden.
+\begin{figure}[htbp]
+\centering
 \includegraphics[width=0.9\textwidth]{Bilder/Kalibrierbox.png}
-\caption{Drohne in der Kalibrierbox mit von Hand vermessenen Markern und den Wandmarkierungen zur Ausrichtung}
-\label{fig:kalibrierbox}   
-\end{figure}               
+\caption{Drohne in der Kalibrierbox mit von Hand vermessenen Tags und den Wandmarkierungen zur Ausrichtung}
+\label{fig:kalibrierbox}
+\end{figure}
 \FloatBarrier
-
-Sämtliche Posen werden im Koordinatensystem~$\mathrm{W}$ der Kalibrierbox angegeben.
-Die Pose des \gls{px4}-Mittelpunkts in diesem Koordinatensystem ist $^{\mathrm{W}}\mathbf{T}_{\mathrm{D}}$.
-Die in Abschnitt~\ref{subsec:pos_posenberechnung} beschriebene Posenberechnung liefert die Pose der jeweiligen Kamera in diesem Koordinatensystem, $^{\mathrm{W}}\mathbf{T}_{\mathrm{C}}$.
-Die gesuchte Transformation ergibt sich durch Verkettung der Kamerapose mit der invertierten Pose des \gls{px4}-Mittelpunkts gemäß den Gleichungen~\eqref{eq:trafo_inverse} und~\eqref{eq:trafo_verkettung}:
+Die Transformation zwischen Kamera und Drohne wird aus diesen bekannten Beziehungen und der jeweiligen Tag-Detektion bestimmt.
+Die AprilTag-Detektion liefert je Kamera die Pose des erkannten Tags im jeweiligen Kamerakoordinatensystem (Abschnitt~\ref{sec:vergleich_koordinatensysteme}), also $^{\mathrm{C}_1}\mathbf{T}_{\mathrm{tag}_1}$ bzw.\ $^{\mathrm{C}_2}\mathbf{T}_{\mathrm{tag}_2}$.
+Durch Verkettung der Tag-Detektion mit der Transformation gemäß Gleichung~\eqref{eq:trafo_verkettung} ergibt sich die Pose des \gls{px4}-Mittelpunkts im jeweiligen Kamerakoordinatensystem:
+\begin{align}
+^{\mathrm{C}_1}\mathbf{T}_{\mathrm{D}} &= {^{\mathrm{C}_1}\mathbf{T}_{\mathrm{tag}_1}}\,{^{\mathrm{tag}_1}\mathbf{T}_{\mathrm{D}}}, \label{eq:extrinsik_cam1}\\
+^{\mathrm{C}_2}\mathbf{T}_{\mathrm{D}} &= {^{\mathrm{C}_2}\mathbf{T}_{\mathrm{tag}_2}}\,{^{\mathrm{tag}_2}\mathbf{T}_{\mathrm{D}}}. \label{eq:extrinsik_cam2}
+\end{align}
+Die gesuchte Transformation vom \gls{px4}-Mittelpunkt zur Kamera folgt durch Invertieren gemäß Gleichung~\eqref{eq:trafo_inverse}:
 \begin{equation}
-^{\mathrm{D}}\mathbf{T}_{\mathrm{C}} = \left(^{\mathrm{W}}\mathbf{T}_{\mathrm{D}}\right)^{-1}\,{^{\mathrm{W}}\mathbf{T}_{\mathrm{C}}}.
+^{\mathrm{D}}\mathbf{T}_{\mathrm{C}} = \left(^{\mathrm{C}}\mathbf{T}_{\mathrm{D}}\right)^{-1}.
 \label{eq:extrinsik}
 \end{equation}
 Pro Kamera werden mehrere solcher Messungen gesammelt und gemittelt, um den Einfluss des Detektionsrauschens zu verringern.
 Die Translation wird dabei arithmetisch gemittelt, die Orientierung nach dem in Abschnitt~\ref{sec:quaternionen_mittelung} beschriebenen Verfahren gemäß Gleichung~\eqref{eq:quaternion_mittelung}.
 Das Ergebnis wird je Kamera als Transformation in einer YAML-Datei abgelegt.
 Aus diesem Vorgehen ergeben sich folgende Vorteile.
-Die Kameras können an einer beliebigen Stelle und in beliebiger Ausrichtung an der Drohne montiert werden, solange ein Tag gesehen wird. 
-Wird eine Kamera getauscht oder neu an der Flugplattform positioniert, genügt ein neuer Kalibrierlauf, ohne die Kamera aufwändig neu einzumessen. 
-
+Der initiale Messaufwand ist zwar höher, da die Lage der Tags sowie des \gls{px4}-Mittelpunkts von Hand vermessen werden muss.
+Wird eine Kamera jedoch umpositioniert oder ausgetauscht, genügt anschließend ein einzelner Kalibrierlauf.
+Die Kameras müssen dabei nicht aufwändig neu vermessen werden, insbesondere nicht hinsichtlich ihres Montagewinkels.
 
 
 \section{Positionsbestimmung durch AprilTags}
