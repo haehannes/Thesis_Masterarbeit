@@ -1,23 +1,11 @@
 ;; This logfile was generated automatically by `xindy'
-;; at 29.06.2026  00:00:21
-;; Indexstyle: "/tmp/qmYKK5wuFd", Rawindex: "/tmp/zA7fCSgkZP", Output: "00_Abschlussarbeit.syi"
+;; at 01.07.2026  22:57:53
+;; Indexstyle: "/tmp/NwnSo7UVd4", Rawindex: "/tmp/zSsRAFnl8A", Output: "00_Abschlussarbeit.syi"
 
 
 Building indexentry-tree:
 Hierdepth of index is :TREE
 
-sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
-sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
-sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
-sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
-sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
-sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
-sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
-sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
-sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
-sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
-sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
-sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
@@ -76,18 +64,6 @@ Letter-group: "Ã0" -> "O"
 Letter-group: "ë0" -> "X"
 Letter-group: "í0" -> "Y"
 Letter-group: "ð0" -> "Z"
-Letter-group: "Ãà" -> "O"
-Letter-group: "ëà" -> "X"
-Letter-group: "íà" -> "Y"
-Letter-group: "ðà" -> "Z"
-Letter-group: "ð†" -> "Z"
-Letter-group: "ë†" -> "X"
-Letter-group: "í†" -> "Y"
-Letter-group: "Ã†" -> "O"
-Letter-group: "Ãœ" -> "O"
-Letter-group: "ðœ" -> "Z"
-Letter-group: "ëœ" -> "X"
-Letter-group: "íœ" -> "Y"
 Letter-group: "È¤¨1" -> "P"
 Letter-group: "Ú¤—Ú€1" -> "T"
 Letter-group: "ÈÐ¨" -> "P"

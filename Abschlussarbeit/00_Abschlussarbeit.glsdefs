@@ -726,9 +726,9 @@ parent={},%
 %
 }%
 
-\glsdefs@newdocentry{dds}%
+\glsdefs@newdocentry{d}%
 {%
-name={\acronymfont {\glsentryshort {dds}}},%
+name={\acronymfont {\glsentryshort {d}}},%
 sort={DDS},%
 type={acronym},%
 first={DDS},%
@@ -1113,6 +1113,90 @@ long={micro Object Request Broker},%
 longplural={micro Object Request Brokers},%
 short={uORB},%
 shortplural={uORBs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{id}%
+{%
+name={\acronymfont {\glsentryshort {id}}},%
+sort={ID},%
+type={acronym},%
+first={ID},%
+firstplural={IDs},%
+text={ID},%
+plural={IDs},%
+description={Identifikationsnummer},%
+descriptionplural={Identifikationsnummer},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Identifikationsnummer},%
+longplural={Identifikationsnummers},%
+short={ID},%
+shortplural={IDs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{mjpeg}%
+{%
+name={\acronymfont {\glsentryshort {mjpeg}}},%
+sort={MJPEG},%
+type={acronym},%
+first={MJPEG},%
+firstplural={MJPEGs},%
+text={MJPEG},%
+plural={MJPEGs},%
+description={Motion JPEG},%
+descriptionplural={Motion JPEG},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Motion JPEG},%
+longplural={Motion JPEGs},%
+short={MJPEG},%
+shortplural={MJPEGs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{rgb}%
+{%
+name={\acronymfont {\glsentryshort {rgb}}},%
+sort={RGB},%
+type={acronym},%
+first={RGB},%
+firstplural={RGBs},%
+text={RGB},%
+plural={RGBs},%
+description={Rot-Grün-Blau},%
+descriptionplural={Rot-Grün-Blau},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Rot-Grün-Blau},%
+longplural={Rot-Grün-Blaus},%
+short={RGB},%
+shortplural={RGBs},%
 counter={page},%
 parent={},%
 %

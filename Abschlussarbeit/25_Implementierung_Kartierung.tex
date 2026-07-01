@@ -90,11 +90,11 @@ Die Bewertung von \gls{vslam} ließe sich steigern, indem die Umgebung künstlic
 In der \textbf{Driftfreiheit} erreicht Tag\gls{slam} mit $5$ den höchsten Wert, da jede Markerdetektion eine direkte und absolute Posenmessung gegen die Karte liefert.
 \gls{lidar}-\gls{slam} bindet die Pose über das Registrieren der Punktwolke ebenfalls an die Karte, erhält mit $4$ aber eine geringere Bewertung, 
 da das Scan-Matching in strukturarmen Bereichen mehrdeutig werden kann~\cite{Tang2015_lidar}.
-\gls{vslam} wird mit $3$ bewertet, da die Merkmalswiedererkennung in der strukturarmen Versuchsumgebung weniger zuverlässig gelingt und das Verfahren dadurch häufiger
-auf die inhärent driftbehaftete visuelle Odometrie angewiesen ist~\cite{10588822_RWT_SLAM}.
+Die Bewertung von \gls{vslam} mit $3$ ergibt sich daraus, dass die Merkmalswiedererkennung in der strukturarmen Versuchsumgebung weniger zuverlässig 
+gelingt und das Verfahren dadurch häufiger auf die inhärent driftbehaftete visuelle Odometrie angewiesen ist~\cite{10588822_RWT_SLAM}.
 
 Beim \textbf{Rechenaufwand} schneidet Tag\gls{slam} mit $4$ am besten ab, da durch die bekannte Markergeometrie die aufwendige Merkmalsbeschreibung entfällt.
-\gls{vslam} wird mit $3$ bewertet, da die Merkmalsextraktion und -beschreibung rechenintensiver ist als die Detektion bekannter Marker.
+Mit $3$ bewertet wird \gls{vslam}, da die Merkmalsextraktion und -beschreibung rechenintensiver ist als die Detektion bekannter Marker.
 \gls{lidar}-\gls{slam} wird hier mit $2$ am niedrigsten bewertet, da die Verarbeitung dichter Punktwolken rechenintensiv ist.
 Diese Bewertung ist als qualitative Tendenz zu verstehen, da der tatsächliche Rechenaufwand stark von der jeweiligen Algorithmenimplementierung abhängt.
 
@@ -106,7 +106,7 @@ wie der Livox~Mid-360S mit 589~Euro deutlich teurer und schwerer ist als eine ve
 Bei der \textbf{Kostengünstigkeit} erreicht Tag\gls{slam} mit $5$ die höchste Bewertung, da für kamerabasierte Verfahren bereits eine Logitech~C922 für unter 100~Euro im Handel erhältlich ist~\cite{logitech_c922}.
 \gls{vslam} wird mit $3$ bewertet, da ein für \gls{vslam} ausgelegtes Stereomodul wie die ZED~Mini mit ab 399~Euro zwar höher liegt, aber deutlich 
 unter dem Preisniveau eines \gls{lidar}-Sensors bleibt~\cite{zed_mini}.
-Beim \textbf{Leichtbau} erreicht \gls{vslam} mit $5$ die höchste Bewertung, da die ZED~Mini leichter ist als eine Logitech~C922.
+Beim \textbf{Leichtbau} erreicht \gls{vslam} mit $5$ die höchste Bewertung, da die ZED~Mini leichter ist als eine Logitech~C922 ist.
 Tag\gls{slam} wird mit $4$ bewertet.
 
 Tag\gls{slam} wird beim \textbf{geringen Vorbereitungsaufwand} mit $3$ bewertet, da die Marker einmalig angebracht werden müssen, 
@@ -137,7 +137,7 @@ Tag\gls{slam} von Bernd Pfrommer nutzt intern den AprilTag-Detektor und unterst�
 ausschließlich AprilTag-Familien~\cite{pfrommer2019tagslam}.
 Ein Wechsel zu einem anderen Marker-System würde die Kompatibilität mit
 Tag\gls{slam} aufheben.
-In diesem Fall müsste ein eigenes Paket zur faktorgraphbasierten Kartenerstellung implementiert werden.
+In diesem Fall müsste ein eigenes Paket zur faktorgraphbasierten Kartenerstellung oder ein Adapter implementiert werden.
 
 \textbf{Hardwarebeschleunigte Detektion unter Isaac~ROS.}
 Für den Jetson Orin Nano steht mit dem Paket isaac\_ros\_apriltag eine
@@ -175,13 +175,14 @@ Glänzende Oberflächen sind zu vermeiden, da Reflexionen die Helligkeitsüberg�
 \label{sec:ablauf_kartierung}
 Für die Kartierung wurden in dieser Arbeit zwei Ansätze verfolgt.
 Zum einen die Live-Kartierung mittels Tag\gls{slam} während des Flugs und zum anderen die Offline-Kartierung durch 
-Aufzeichnung von \gls{ros2}-Bags (siehe Kapitel~\ref{sec:ros_bag}).
+Aufzeichnung von \gls{ros2}-Bags.
 
 Der Ansatz der Live-Kartierung wurde nach ersten Versuchen nicht weiter verfolgt.
 Es hat sich gezeigt, dass sie nur bei kleinen Karten (bis etwa 10 Tags) zuverlässig funktioniert, da die Optimierung bei größeren Karten zu rechenintensiv wird.
-Die gleichzeitige Kartierung und Lokalisierung ist dann zu langsam, sodass zu viele Frames verworfen werden und die Qualität beider Vorgänge stark nachlässt und keine für den Flug nutzbaren Ergebnisse liefert.
+Die gleichzeitige Kartierung und Lokalisierung ist dann zu langsam, sodass zu viele Frames verworfen werden.
+Dadurch lässt die Qualität beider Vorgänge stark nach, sodass keine für den Flug nutzbaren Ergebnisse entstehen.
 Es konnte keine Konfiguration gefunden werden, mit der Tag\gls{slam} eine große Karte in akzeptabler Zeit bewältigt.
-Aus diesem Grund wird die Karte vorab in einem dreistufigen Offline-Verfahren erstellt, das unter \gls{ros2} Jazzy umgesetzt ist.
+Aus diesem Grund wird die Karte vorab in einem dreistufigen Offline-Verfahren erstellt.
 Jede Stufe ist als eigenes Launch-File umgesetzt, die Stufen sind über ROS2-Bags miteinander verbunden.
 
 In der ersten Stufe werden die Kamerabilder aufgenommen, entzerrt und gemeinsam mit den Kameraparametern in einem ROS2-Bag aufgezeichnet.
@@ -211,8 +212,8 @@ Die intrinsischen Parameter der Kamera (Brennweite, Hauptpunkt und Verzeichnungs
 Reale Objektive weichen vom idealen Lochkameramodell ab und erzeugen eine Linsenverzeichnung, durch die gerade Linien im Bild gekrümmt abgebildet werden.
 Ohne Kalibrierung würde diese Verzeichnung unmittelbar in die berechnete Markerpose eingehen und zu einem systematischen 
 Fehler in der Karte sowie in der späteren Lokalisierung führen~\cite{888718_Calibration_Zhang}.
-Die Kalibrierung erfolgt nach dem Verfahren von Zhang~\cite{888718_Calibration_Zhang} unter Verwendung 
-eines planaren Schachbrettmusters, das aus mehreren Blickwinkeln aufgenommen wird.
+Die Kalibrierung erfolgt nach dem Verfahren von Zhang unter Verwendung 
+eines planaren Schachbrettmusters, das aus mehreren Blickwinkeln aufgenommen wird~\cite{888718_Calibration_Zhang}.
 Die Eckpunkte des Schachbretts werden dabei automatisch detektiert und zur Schätzung der intrinsischen Parameter 
 und der Verzeichnungskoeffizienten verwendet, wie es in der OpenCV-Bibliothek implementiert ist~\cite{Bradski2008}.
 Die ermittelten Parameter gelten nur für die jeweils verwendete Kamera in der jeweils eingestellten Auflösung.
@@ -222,33 +223,14 @@ Die Kalibrierung wird in diesem Abschnitt beispielhaft mit der Logitech~C922 in 
 
 
 Die Kalibrierung wird mit dem ROS2-Paket \texttt{camera\_calibration} umgesetzt.
-Um den Kalibriervorgang zu starten, muss zunächst die Kamera gestartet werden.
-Hierfür wird dasselbe Paket genutzt, das für die Kartierung und später auch für die in Kapitel~\ref{cap:lokalisierung} implementierte Lokalisierung verwendet wird.
-\begin{lstlisting}[language=bash, caption={Start des gscam-Knotens für die Kalibrierung}, label={lst:gscam_start}]
-ros2 run gscam gscam_node --ros-args \
-  -p gscam_config:="v4l2src device=/dev/video4 do-timestamp=true ! \
-     image/jpeg,width=1920,height=1080,framerate=30/1 ! \
-     jpegdec ! videoconvert ! video/x-raw,format=RGB" \
-  -p frame_id:=camera_optical_frame \
-  -p camera_name:=camera
-\end{lstlisting}
+Um den Kalibriervorgang zu starten, muss zunächst die Kamera bereitgestellt werden.
+Hierfür wird das Paket \texttt{gscam} genutzt, das die Kamera über eine GStreamer-Pipeline anbindet und dasselbe Paket ist, das für die Kartierung und später auch für die Lokalisierung verwendet wird.
+Die wesentlichen Einstellungen legen dabei das Videogerät, die Auflösung von $1920\times1080$ sowie die Bildrate fest und bestimmen, dass das Bild vom \gls{mjpeg}-Format in ein \gls{rgb}-Rohbild dekodiert wird.
 
-In einem zweiten Terminal wird der Kalibrierknoten gestartet:
-
-\begin{lstlisting}[language=bash, caption={Start des Kalibrierknotens}, label={lst:cameracalibrator}]
-ros2 run camera_calibration cameracalibrator \
-  --size 9x6 \
-  --square 0.032 \
-  --no-service-check \
-  --ros-args \
-  --remap image:=/image_raw
-\end{lstlisting}
-
-Der Parameter \texttt{-{}-size 9x6} gibt die Anzahl der inneren Eckpunkte des
-Schachbretts an, \texttt{-{}-square 0.032} die Kantenlänge eines Schachbrettfelds
-in Metern.
-Aus mehreren Aufnahmen des Schachbretts in verschiedenen Lagen werden die
-Kameraparameter bestimmt.
+Anschließend wird in einem zweiten Terminal der Kalibrierknoten \texttt{cameracalibrator} aus dem Paket \texttt{camera\_calibration} gestartet.
+Die beiden wichtigsten Einstellungen sind die Geometrie des Schachbretts.
+Der Parameter für die Größe gibt mit $9\times6$ die Anzahl der inneren Eckpunkte an, der Parameter für die Kantenlänge mit $0{,}032$ die Seitenlänge eines Schachbrettfelds in Metern.
+Aus mehreren Aufnahmen des Schachbretts in verschiedenen Lagen werden daraus die Kameraparameter bestimmt.
 
 Das Ergebnis der Kalibrierung sind die folgenden Parameter:
 Die Kameramatrix \gls{sym:Kcam} ordnet den ermittelten Werten die intrinsischen
@@ -324,16 +306,15 @@ Der \textbf{Verzeichnungsvektor} (Geichung~\ref{eq:verzeichnungsvektor}) beschre
 idealen Lochkameramodell abweicht, in der Reihenfolge $(k_1, k_2, p_1, p_2, k_3)$~\cite{Bradski2008}.
 Die radialen Koeffizienten $k_1, k_2, k_3$ erfassen die zur Bildmitte symmetrische Verzeichnung, die durch die Krümmung der Linse entsteht~\cite{Bradski2008}.
 Sie bewirkt, dass gerade Linien zum Bildrand hin zunehmend gekrümmt erscheinen, während die Bildmitte nahezu unverzeichnet bleibt~\cite{Bradski2008}.
-$k_1$ beschreibt den dominanten Anteil dieser Verzeichnung, $k_2$ und $k_3$ korrigieren die verbleibende Abweichung bei stärkerer Krümmung am äußeren Bildrand~\cite{Bradski2008}.
+Von den radialen Koeffizienten beschreibt $k_1$ den dominanten Anteil dieser Verzeichnung, $k_2$ und $k_3$ korrigieren die verbleibende Abweichung bei stärkerer Krümmung am äußeren Bildrand~\cite{Bradski2008}.
 Die tangentialen Koeffizienten $p_1, p_2$ erfassen eine Verschiebung, die entsteht, wenn die Linse nicht exakt parallel zur Sensorebene montiert ist.
-Dadurch wird das Bild leicht asymmetrisch verzerrt, da der Abstand zwischen Linse und Sensor über die Bildfläche nicht konstant ist.
+Dadurch wird das Bild leicht asymmetrisch verzerrt.
 
 Die \textbf{Rektifizierungsmatrix} (Gleichung~\ref{eq:rektifizierungsmatirx}) dient der Ausrichtung mehrerer Kameras in einem Stereoaufbau~\cite{Bradski2008}.
 Da hier eine einzelne Kamera bzw. jede Kamera für sich betrieben wird, entspricht sie der Einheitsmatrix und bewirkt keine Drehung.
 
-Die \textbf{Projektionsmatrix} (Gleichung~\ref{eq:Projektionsmatrix}) beschreibt die intrinsischen Parameter, die für das bereits entzerrte Bild gelten ~\cite{Bradski2008}.
-Während die Kameramatrix die Abbildung des realen, verzeichneten Objektivs beschreibt, bezieht sich die Projektionsmatrix auf das Bild, nachdem die
-Verzeichnung rechnerisch entfernt wurde.
+Die \textbf{Projektionsmatrix} (Gleichung~\ref{eq:Projektionsmatrix}) enthält die intrinsischen Parameter in Form der Kameramatrix~\cite{Bradski2008}.
+Während die Kameramatrix die Abbildung des realen, verzeichneten Objektivs beschreibt, bezieht sich die Projektionsmatrix auf das Bild, nachdem die Verzeichnung rechnerisch entfernt wurde.
 Da das entzerrte Bild einem idealen Lochkameramodell entspricht, enthält die Projektionsmatrix keine Verzeichnungskoeffizienten mehr.
 
 Ihre ersten drei Spalten enthalten erneut Brennweite und Hauptpunkt, die durch die Entzerrung leicht von den Werten der ursprünglichen 
@@ -346,38 +327,12 @@ der Kameramatrix verwendet, da sie die tatsächliche Abbildung des entzerrten Bi
 
 \subsection{Bildaufnahme Kartierung}
 \label{sec:kartierung_bildaufnahme}
-Die Kartierung kann mit einer beliebigen Kamera durchgeführt werden, wichtig ist die in Abschnitt \ref{sec:Kamera_Kalibrierung} beschriebene Kalibrierung
-für die verwendete Kamera durchzuführen.
+Die Kartierung kann mit einer beliebigen Kamera durchgeführt werden, wichtig ist die in Abschnitt \ref{sec:Kamera_Kalibrierung} beschriebene Kalibrierung für die verwendete Kamera durchzuführen.
 Die Implementierung der Kartierung wird am Beispiel der Logitech~C922 im Folgenden erläutert.
-
 Die Bildaufnahme erfolgt über einen gscam-Knoten, der in das Launch-File der ersten Stufe eingebunden ist.
-Der Quellcode~\ref{lst:gscam_node} zeigt dessen Konfiguration.
-\begin{lstlisting}[language=Python, caption={Parameter des gscam-Knotens zur Bildaufnahme}, label={lst:gscam_node}]
-'gscam_config': (
-    'v4l2src device=/dev/video4 do-timestamp=true ! '
-    'image/jpeg,width=1920,height=1080,framerate=15/1 ! '
-    'queue leaky=downstream max-size-buffers=1 ! '
-    'jpegdec ! '
-    'queue leaky=downstream max-size-buffers=1 ! '
-    'videoconvert ! '
-    'video/x-raw,format=RGB ! '
-    'queue leaky=downstream max-size-buffers=1'
-),
-'camera_name': 'camera',
-'camera_info_url': camera_info_url,
-'frame_id': 'camera',
-'use_gst_timestamps': True,
-'sync_sink': False,
-'preroll': False,
-'image_encoding': 'rgb8',
-'use_sensor_data_qos': False,
-\end{lstlisting}
-
-Die wichtigsten Parameter sind die Auflösung von $1920 \times 1080$ Pixeln und die Bildfrequenz von $15$ \gls{fps}.
+Die wichtigsten Einstellungen sind die Auflösung von $1920 \times 1080$ Pixeln und die Bildfrequenz von $15$ \gls{fps}.
 Die Bildfrequenz ist bewusst niedrig gewählt, um die Dekodierung durch \texttt{jpegdec} auf der CPU nicht zu überfordern und eine stabile Bildrate zu erhalten.
-Über \texttt{camera\_info\_url} werden die zuvor ermittelten Kalibrierparameter
-geladen, die zusammen mit dem Bild auf den Topics \texttt{/camera/image\_raw}
-und \texttt{/camera/camera\_info} von gscam veröffentlicht werden.
+Über den Parameter \texttt{camera\_info\_url} werden die zuvor ermittelten Kalibrierparameter geladen, die zusammen mit dem Bild auf den Topics \texttt{/camera/image\_raw} und \texttt{/camera/camera\_info} von gscam veröffentlicht werden.
 Im Anschluss an die Aufnahme werden die Bilder direkt entzerrt.
 
 \subsection{Entzerrung}
@@ -412,9 +367,9 @@ Für die Detektion wird der Knoten \texttt{sync\_and\_detect\_node} aus dem Pake
 Dieser benötigt zwei Konfigurationsdateien, auf diese wird in Abschnitt \ref{sec:kartierung_konfiguration_tagslam} nochmals genauer eingegangen.
 Die Datei \texttt{cameras.yaml} enthält die Intrinsics der Kamera.
 Da der Knoten auf dem bereits entzerrten Bild \topic{/camera/image_rect} arbeitet, werden hier die Werte der Projektionsmatrix aus 
-Abschnitt~\ref{sec:Kamera_Kalibrierung} eingetragen und die Verzeichnungskoeffizienten auf null gesetzt.
+Abschnitt~\ref{sec:Kamera_Kalibrierung} eingetragen und die Verzeichnungskoeffizienten entsprechend des vorherigen Kapitels auf null gesetzt.
 Neben den Intrinsics legt die Datei die Auflösung, die verwendeten Topics (\texttt{image\_topic}, \texttt{camera\_info\_topic}, 
-\texttt{tag\_topic}) sowie den Referenzframe der Kamera (\texttt{rig\_body}) fest.
+\texttt{tag\_topic}) fest.
 Aus der Tag\gls{slam}-Konfiguration \texttt{tagslam.yaml} liest der Knoten die Liste der bekannten Marker mit ihren 
 Identifikationsnummern und physischen Größen aus.
 Diese Information macht es möglich, Karten mit verschieden großen Tags aufzunehmen. 
@@ -443,7 +398,7 @@ Dieser kombinierte Bag enthält alle Eingangsdaten für die nachfolgende Kartene
 Die eigentliche Karte wird mit dem Knoten \texttt{tagslam\_from\_bag} aus dem Paket Tag\gls{slam} erstellt.
 Dieser liest den kombinierten Bag aus der vorigen Stufe ein und schätzt aus den enthaltenen Markerdetektionen die Lage aller Marker zueinander.
 Die Optimierung der Karte erfolgt nach dem in den Abschnitten~\ref{sec:Faktorgraph} und~\ref{sec:slam_varianten} beschriebenen Prinzip.
-Dieser Knoten ist ausschließlich für \gls{ros2} Jazzy implementiert und lässt sich daher nicht auf dem Companion-Computer ausführen.
+Dieser Knoten ist ausschließlich für \gls{ros2} Jazzy implementiert und setzt diese Version zwingend voraus.
 
 Der Knoten benötigt drei Konfigurationsdateien: \texttt{cameras.yaml} mit den Kamera-Intrinsics, \texttt{camera\_poses.yaml} mit der Pose 
 der Kamera sowie \texttt{tagslam.yaml} mit den Parametern der Optimierung und den Startwerten der Marker.

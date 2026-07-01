@@ -8,19 +8,19 @@ Darüber hinaus wird auf den verwendeten Flugcontroller, die zugrundeliegenden K
 
 
 \section{Grundlagen Unbemannter Flugroboter}
+\label{sec:grundlagen_uav}
 Unter einem \gls{uav}, umgangssprachlich auch als Drohne bezeichnet, versteht man ein Fluggerät, welches ohne einen menschlichen Piloten an Bord betrieben werden kann.
 Dabei können \gls{uav}s entweder ferngesteuert von einem menschlichen Operator oder vollständig autonom durch einen bordeigenen Computer geführt werden.
 Die Anfänge unbemannter Luftfahrzeuge reichen bis in die 1910er Jahre zurück, in denen sie vorrangig für militärische Zwecke eingesetzt wurden.
-Ab den 2000er Jahren fanden \gls{uav}s zunehmend Eingang in zivile Anwendungsgebiete, wie beispielsweise die Katastrophenhilfe.~\cite{Studiawan2026}
+Ab den 2000er Jahren fanden \gls{uav}s zunehmend Eingang in zivile Anwendungsgebiete, wie beispielsweise die Katastrophenhilfe~\cite{Studiawan2026}.
 
 \subsection{Mechanischer Aufbau eines Flugroboters am Beispiel der Holybro X650}
 Der Grundrahmen eines \gls{uav} dient als mechanische Basis für die Montage aller weiteren Komponenten.
 Das Design des Rahmens beeinflusst maßgeblich die Flugeigenschaften des Geräts.
 Das in dieser Arbeit verwendete Modell ist als Senkrechtstarter konzipiert und basiert auf einem X-förmigen Quadcopter-Rahmen.
 Die wesentlichen Bestandteile des Rahmens umfassen die Ausleger, das Landegestell sowie die zentrale Montageplattform für die Elektronik.
-Die Holybro X650 weist eine Diagonale von 650\,mm auf.
-Abbildung~\ref{fig:roll_pitch_yaw} zeigt unter anderem den in dieser Arbeit verwendeten Grundrahmen mit Anbauteilen.
-~\cite{Wu2021, holybro_x650}
+Abbildung~\ref{fig:roll_pitch_yaw} zeigt unter anderem den in dieser Arbeit verwendeten Grundrahmen mit Anbauteilen
+~\cite{Wu2021, holybro_x650}.
 
 Das Antriebssystem besteht aus vier Elektromotoren, die jeweils an einem der Ausleger montiert sind.
 An den Motoren sind Propeller befestigt, welche den erforderlichen Auftrieb erzeugen.
@@ -58,15 +58,14 @@ Die Sensorfusion, also die Kombination der Daten mehrerer Sensoren, ermöglicht 
 Das Pixhawk-Projekt wurde ursprünglich als studentisches Projekt an der ETH Zürich gestartet 
 \cite{MendozaMendoza2020} und hat sich seitdem zu einem weit verbreiteten Open-Source-Standard 
 in der \gls{uav}-Forschung und -Industrie entwickelt.
-Der in dieser Arbeit verwendete Pixhawk 6X basiert auf dem Pixhawk FMUv6X-Standard und wurde 
-von Holybro in Zusammenarbeit mit dem PX4-Entwicklerteam entwickelt~\cite{px4_pixhawk6x_doc}.
+Der in dieser Arbeit verwendete Pixhawk 6X basiert auf dem Pixhawk FMUv6X-Standard~\cite{px4_pixhawk6x_doc}.
 
-Der Flugcontroller besteht aus zwei Teilen: dem Baseboard V2A und dem FMU-6X-Modul.
+Der Flugcontroller besteht aus zwei Teilen, dem Baseboard V2A und dem FMU-6X-Modul.
 Das \gls{fmu}-Modul wird auf das Baseboard aufgesteckt und verschraubt.
 Die Komponenten sind in Abbildung~\ref{fig:aufbau_flugcontroller} dargestellt.
 Das \gls{fmu} stellt die zentrale Recheneinheit des Flugcontrollers dar, auf der der Hauptprozessor (STM32H753) sowie die PX4-Firmware betrieben werden.
 Das Baseboard stellt vor allem die Schnittstellen zu Sensoren, anderen Komponenten und der Stromversorgung bereit.
-Im weiteren Verlauf der Arbeit wird dieser Zusammenschluss als Flugcontroller bezeichnet.
+Im weiteren Verlauf der Arbeit wird dieser Zusammenschluss als Flugcontroller oder \gls{px4} bezeichnet.
 
 \begin{figure}[htbp]
     \centering
@@ -78,10 +77,8 @@ Im weiteren Verlauf der Arbeit wird dieser Zusammenschluss als Flugcontroller be
 
 \subsection{Betriebssystem}
 \label{sec:Px4_Betriebssystem}
-Der Pixhawk 6X betreibt auf dem Hauptprozessor STM32H753 das Echtzeitbetriebssystem 
-NuttX, auf dem die PX4-Firmware ausgeführt wird.
-NuttX ist ein Echtzeitbetriebssystem, das sicherstellt, dass zeitkritische 
-Steuerungsaufgaben innerhalb garantierter Zeitschranken ausgeführt werden~\cite{px4_architecture}.
+Der Pixhawk 6X betreibt auf dem Hauptprozessor STM32H753 das Echtzeitbetriebssystem NuttX, auf dem die PX4-Firmware ausgeführt wird.
+Dieses stellt sicher, dass zeitkritische Steuerungsaufgaben innerhalb garantierter Zeitschranken ausgeführt werden~\cite{px4_architecture}.
 
 Die Kommunikation mit der Bodenstation erfolgt über das MAVLink-Protokoll.
 MAVLink ist ein leichtgewichtiges Nachrichtenprotokoll, das speziell für die 
@@ -94,25 +91,29 @@ Ein Modul, das Daten erzeugt, veröffentlicht diese als Publisher auf einem \gls
 während ein oder mehrere Module die Daten als Subscriber empfangen.
 Auf diese Weise werden beispielsweise Sensorwerte, die geschätzten Zustände des \gls{ekf2} 
 und die Steuerbefehle der Regler innerhalb von \gls{px4} ausgetauscht.
-Die Kommunikation mit dem Companion-Computer erfolgt dagegen über die \gls{uxrce}-Schnittstelle, 
-die die internen \gls{uorb}-Topics von \gls{px4} als ROS2-Topics bereitstellt~\cite{px4_uxrce_dds}.
+%Die Kommunikation mit dem Companion-Computer erfolgt dagegen über die \gls{uxrce}-Schnittstelle, 
+%die die internen \gls{uorb}-Topics von \gls{px4} als ROS2-Topics bereitstellt~\cite{px4_uxrce_dds}.
 
 
 Zur Analyse des Flugverhaltens erzeugt der PX4 während des Betriebs ULog-Dateien, die auf der internen SD-Karte gespeichert werden.
-Diese Log-Dateien enthalten zeitgestempelte Aufzeichnungen aller relevanten Zustandsgrößen, Sensorwerte und EKF2-internen Größen und ermöglichen eine 
-detaillierte Nachanalyse des Systemverhaltens nach dem Flug~\cite{px4_ulog,px4_flight_reporting}.
+Diese Log-Dateien enthalten zeitgestempelte Aufzeichnungen aller relevanten Zustandsgrößen, Sensorwerte und EKF2-internen Größen.
+Sie ermöglichen eine detaillierte Analyse des Systemverhaltens nach dem Flug~\cite{px4_ulog,px4_flight_reporting}.
 
 
 
 \subsection{Onbaord Sensorik}
-Der Pixhawk 6X verfügt über eine dreifach redundante \gls{imu} sowie zwei redundante 
+Um die Zuverlässigkeit zu erhöhen, verfügt der Pixhawk über eine dreifach redundante \gls{imu} sowie zwei redundante 
 Barometer, die auf getrennten Bussen mit unabhängiger Stromversorgung betrieben werden.
-Diese Redundanz erhöht die Zuverlässigkeit. 
+Die Messungen der \gls{imu} bilden die Grundlage der Odometrie.
+Unter Odometrie versteht man die Schätzung der Positions- und Lageänderung eines Systems aus dessen Bewegungssensoren über die Zeit.
 Erkennt der \gls{px4} einen Sensorausfall, schaltet das System auf einen funktionierenden Sensor um, um die Flugsteuerung 
-aufrechtzuerhalten.\cite{px4_pixhawk6x_doc}
+aufrechtzuerhalten~\cite{px4_pixhawk6x_doc}.
+Erkennt der PX4 einen Sensorausfall, wechselt das System auf einen funktionierenden Sensor, um die Flugsteuerung aufrechtzuerhalten~[8].
+Die IMUs sind vibrationsisoliert gelagert und werden über Heizwiderstände auf einer konstanten Betriebstemperatur gehalten, 
+wodurch temperaturbedingte Messabweichungen reduziert werden~[8].
+Weiterhin ist zur Lagebestimmung ein Magnetometer verbaut, dieses wird in dieser Arbeit jedoch verwendet (siehe Abschnitt~\ref{sec:ekf2}).
 Die Sensoren sind, wie in Abschnitt~\ref{sec:sensorik} beschrieben, mit einer 
-Messunsicherheit behaftet, weshalb die redundante Auslegung und die anschließende 
-Sensorfusion im \gls{ekf} erfolgen.
+Messunsicherheit behaftet, weshalb im \gls{ekf2} eine Sensorfusion mit externen Positionsdaten im \gls{ekf} notwendig ist.
 
 Die in der eingesetzten Revision verbauten Sensoren sind in Tabelle 
 \ref{tab:pixhawk_sensoren} aufgeführt.
@@ -135,17 +136,30 @@ Die in der eingesetzten Revision verbauten Sensoren sind in Tabelle
 \end{table}
 \FloatBarrier
 
-Die \gls{imu}s sind vibrationsisoliert gelagert und werden über 
-Heizwiderstände auf einer konstanten Betriebstemperatur gehalten, um temperaturbedingte 
-Messabweichungen zu reduzieren~\cite{px4_pixhawk6x_doc}.
-Ein Magnetometer ist zwar verbaut, wird in dieser Arbeit jedoch nicht zur Lagebestimmung 
-verwendet (siehe Abschnitt~\ref{sec:ekf2}).
+
+\subsection{EKF2 -- Zustandsschätzung und Sensorfusion}
+\label{sec:ekf2}
+Die Zustandsschätzung des \gls{px4} erfolgt über den \gls{ekf2}, einen in Abschnitt~\ref{sec:ekf} beschriebenen zeitdiskreten Zustandsschätzer.
+Der \gls{ekf2} fusioniert die Messungen der bordeigenen Sensoren mit externen 
+Referenzen, um Lage, Geschwindigkeit und Position des \gls{uav} zu schätzen.
+Der Zustandsvektor des \gls{ekf2} umfasst 24 Zustände, darunter die Lage als Quaternion, 
+Geschwindigkeit, Position, die Bias-Werte von \gls{imu}, das 
+Erdmagnetfeld, den Magnetometer-Bias sowie die horizontale Windgeschwindigkeit~\cite{Ko2018}.
+Im Standardfall bezieht der \gls{ekf2} seine externe Positionsreferenz aus einem \gls{gnss}.
+Ziel dieser Arbeit ist es, dem \gls{ekf2} \gls{uav} stattdessen eine alternative externe Positionsschätzung bereitzustellen
+und anstelle der \gls{gnss}-Daten als Referenz in den \gls{ekf2} einzuspeisen. 
+Das Verhalten des \gls{ekf2} lässt sich über eine Reihe von Parametern konfigurieren, 
+welche unter anderem festlegen, welche Sensorquellen zur Positions- und Höhenbestimmung 
+herangezogen werden.
+Die konkrete Parametrierung für den \gls{gnss}-freien Betrieb mit externer Positionsreferenz 
+wird in Abschnitt~\ref{sec:pos_ekf2_konfiguration} erläutert.
+
 
 
 \subsection{Schnittstellen}
 Der Flugcontroller stellt über das Baseboard eine Vielzahl von Schnittstellen zur Anbindung 
 externer Komponenten bereit.
-Für diese Arbeit sind insbesondere die folgenden Schnittstellen relevant:
+Für diese Arbeit sind insbesondere die folgenden Schnittstellen relevant.
 Die Ethernet-Schnittstelle dient der Kommunikation zwischen dem 
 Flugcontroller und dem Companion-Computer, über welche die extern berechnete Positionsschätzung 
 an den \gls{ekf} übermittelt wird.
@@ -156,28 +170,6 @@ Die PWM-Ausgänge des Baseboards steuern die Elektromotoren des \gls{uav} an.
 Darüber hinaus stehen weitere Schnittstellen wie UART, CAN, I\textsuperscript{2}C und SPI zur 
 Anbindung zusätzlicher Sensoren und Peripherie zur Verfügung, die in dieser Arbeit jedoch 
 nicht verwendet werden.~\cite{px4_pixhawk6x_doc}
-
-
-\subsection{EKF2 -- Zustandsschätzung und Sensorfusion}
-\label{sec:ekf2}
-Die Zustandsschätzung des \gls{px4} erfolgt über den \gls{ekf2}, einen in Abschnitt~\ref{sec:ekf} beschriebenen \gls{ekf}.
-Der \gls{ekf2} fusioniert die Messungen der bordeigenen Sensoren mit optionalen externen 
-Referenzen, um Lage, Geschwindigkeit und Position des \gls{uav} zu schätzen.
-Der Zustandsvektor des \gls{ekf2} umfasst 24 Zustände, darunter die Lage als Quaternion, 
-Geschwindigkeit, Position, die Bias-Werte von Gyroskop und Beschleunigungssensor, das 
-Erdmagnetfeld, den Magnetometer-Bias sowie die horizontale Windgeschwindigkeit~\cite{Ko2018}.
-Da in dieser Arbeit kein \gls{gps} zur Verfügung steht, wird die Position des \gls{uav} 
-über eine externe visuelle Positionsschätzung bereitgestellt.
-Diese wird als externe Referenz in den \gls{ekf2} eingespeist und ersetzt dort die 
-Funktion, die andernfalls vom \gls{gps} übernommen würde.
-Das Verhalten des \gls{ekf2} lässt sich über eine Reihe von Parametern konfigurieren, 
-welche unter anderem festlegen, welche Sensorquellen zur Positions- und Höhenbestimmung 
-herangezogen werden.
-Die konkrete Parametrierung für den GPS-freien Betrieb mit externer Positionsreferenz 
-wird in Abschnitt~\ref{sec:pos_ekf2_konfiguration} erläutert.
-
-
-
 
 \section{Vergleich von Welt-, Roboter-, Kamera- und Fiducialkoordinatensystem}
 \label{sec:vergleich_koordinatensysteme}
@@ -194,8 +186,8 @@ Mathematisch wird der Zusammenhang durch
 \label{eq:rechte_hand_regel}
 \end{equation}
 dargestellt.
-In dieser Arbeit werden die Achsen entsprechend des informellen Industriestandards wie folgt dargestellt: X-Achse in Rot, Y-Achse in Grün und Z-Achse in Blau.
-Ein Überblick über die in dieser Arbeit verwendeten Koordinatensysteme ist in Abbildung~\ref{fig:Koordinatensysteme} dargestellt.
+Die Achse werden entsprechend des informellen Industriestandards wie folgt dargestellt: X-Achse in Rot, Y-Achse in Grün und Z-Achse in Blau.
+Ein Überblick über die verwendeten Koordinatensysteme ist in Abbildung~\ref{fig:Koordinatensysteme} dargestellt.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=1.0\textwidth]{Bilder/Koordinatensysteme.png}
@@ -206,27 +198,25 @@ Ein Überblick über die in dieser Arbeit verwendeten Koordinatensysteme ist in 
 
 Das Weltkoordinatensystem dient als globaler Referenzrahmen, in dem die Position aller Objekte beschrieben wird.
 Der Ursprung dieses Koordinatensystems kann frei gewählt werden und wird durch die Variable \gls{sym:O0} repräsentiert.
-Die Achsen werden durch \gls{sym:X0}, \gls{sym:Y0} und \gls{sym:Z0} dargestellt~\cite[4]{ISO9787}.
+Die Achsen werden durch \gls{sym:X0}, \gls{sym:Y0} und \gls{sym:Z0} dargestellt~\cite{ISO9787}.
 
 Das UAV-Koordinatensystem ist in der Regel vom Hersteller vorgegeben und richtet sich in diesem konkreten Fall nach dem Flugregler.
 Der verwendete Flugregler nutzt die North-East-Down (NED)/Forward-Right-Down (FRD)-Konvention, bei der das Navigationskoordinatensystem nach Norden, Osten und unten ausgerichtet ist.
-Das körperfeste Koordinatensystem hat seinen Ursprung (\gls{sym:Ou}) im Mittelpunkt des Flugreglers.
-Ausgehend von der Flugrichtung entlang der X-Achse (\gls{sym:Xu}) zeigt diese nach vorne, die Y-Achse (\gls{sym:Yu}) nach rechts und die Z-Achse (\gls{sym:Zu}) nach unten~\cite{PX4Frames}.
+Das körperfeste Koordinatensystem hat seinen Ursprung im Mittelpunkt des Flugreglers.
+Ausgehend von der Flugrichtung entlang der X-Achse zeigt diese nach vorne, die Y-Achse nach rechts und die Z-Achse nach unten~\cite{PX4Frames}.
 
-Das Kamerakoordinatensystem ist so definiert, dass die Z-Achse (\gls{sym:Zc}) entlang der optischen Achse der Kamera zeigt, 
-die X-Achse (\gls{sym:Xc}) nach rechts und die Y-Achse (\gls{sym:Yc}) nach unten auf der Bildebene zeigt.
-Der Ursprung (\gls{sym:Oc}) befindet sich im optischen Zentrum der Kamera~\cite[44]{Szeliski2022}.
+Das Kamerakoordinatensystem ist so definiert, dass die Z-Achse entlang der optischen Achse der Kamera verläuft, 
+die X-Achse nach rechts und die Y-Achse nach unten auf der Bildebene zeigt.
+Der Ursprung befindet sich im optischen Zentrum der Kamera~\cite{Szeliski2022}.
 
-Das Fiducialkoordinatensystem ist in dieser Arbeit so definiert, dass sich der Ursprung (\gls{sym:Of}) im Mittelpunkt der Fiducialmarke befindet.
-Die Z-Achse (\gls{sym:Zf}) zeigt senkrecht aus der Markerebene heraus, die X-Achse (\gls{sym:Xf}) zeigt nach rechts in der Markerebene und die Y-Achse (\gls{sym:Yf})
-zeigt nach oben in der Markerebene.
+Das Fiducialkoordinatensystem ist in dieser Arbeit so definiert, dass sich der Ursprung im Mittelpunkt der Fiducialmarke befindet.
+Die Z-Achse zeigt senkrecht aus der Markerebene heraus, die X-Achse verläuft nach rechts und die Y-Achse nach oben in der Markerebene.
 Die in den Kapitel~\ref{cap:kartierung} und~\ref{cap:lokalisierung} beschriebenen Implementierungen 
-folgen der in ROS standardisierten \gls{enu}/\gls{flu}-Konvention.
+folgen der in \gls{ros2} standardisierten \gls{enu}/\gls{flu}-Konvention.
 
 
 \section{Repräsentation von Position und Orientierung}
-In diesem Abschnitt wird das verwendete \gls{uav} als starrer Körper betrachtet.
-Dessen Lage im Raum lässt sich vollständig durch Position und Orientierung beschreiben~\cite{Siciliano2009}.
+Die Lage eines Körpers lässt sich vollständig durch Position und Orientierung beschreiben~\cite{Siciliano2009}.
 
 Die Position eines Körpers wird durch den Vektor
 \begin{equation}
@@ -239,7 +229,7 @@ Die Orientierung eines Körpers kann auf verschiedene Weisen dargestellt werden.
 Im Folgenden werden die zum Verständnis dieser Arbeit relevanten Darstellungsformen erläutert.
 Grundsätzlich kann sich ein Körper um drei Achsen drehen, was durch die Euler-Winkel Roll (\gls{sym:roll}), Pitch (\gls{sym:pitch}) und Yaw (\gls{sym:yaw}) beschrieben wird.
 Abbildung~\ref{fig:roll_pitch_yaw} zeigt die Definition dieser Winkel am Beispiel der Holybro X650.
-Die Pfeilrichtung entspricht der positiven Drehrichtung im rechtshändigen Koordinatensystem.
+Die Pfeilrichtungen entsprechen der positiven Achs- oder Drehrichtung im rechtshändigen Koordinatensystem.
 \begin{figure}[htbp]
    \centering
    \includegraphics[width=0.85\textwidth]{Bilder/Roll_Yaw_Pitch.png}
@@ -286,7 +276,7 @@ q_1 \cdot q_2 = &(w_1 w_2 - x_1 x_2 - y_1 y_2 - z_1 z_2) \\
 \label{eq:quaternion_multiplikation}
 \end{equation}
 
-Das Einheitsquaternion \gls{sym:q} beschreibt eine Rotation um den Winkel \gls{sym:phiRot} um eine normierte Rotationsachse 
+Das Einheitsquaternion \gls{sym:q} beschreibt eine Rotation um den Winkel \gls{sym:phiRot} über eine normierte Rotationsachse
 $\mathbf{v} = (v_x, v_y, v_z)^T$ und wird durch Gleichung~\eqref{eq:einheitsquaternion} beschrieben~\cite{2016}.
 \begin{equation}
 \mathbf{q} = \left(\cos\frac{\phi}{2},\ \mathbf{v} \cdot \sin\frac{\phi}{2}\right) = \left(\cos\frac{\phi}{2},\ v_x \sin\frac{\phi}{2},\ v_y \sin\frac{\phi}{2},\ v_z \sin\frac{\phi}{2}\right)
@@ -321,8 +311,9 @@ Die Normalisierung eines Quaternions erfolgt gemäß
 \subsection{Mittelung von Quaternionen}
 \label{sec:quaternionen_mittelung}
 Liegen für dieselbe Orientierung mehrere Schätzungen als Einheitsquaternionen vor, müssen diese zu einer einzigen Orientierung zusammengefasst werden.
-Eine komponentenweise Mittelung der Quaternionen ist dabei nicht ohne Weiteres möglich.
-Da ein Quaternion $\mathbf{q}$ und sein Negatives $-\mathbf{q}$ dieselbe Rotation beschreiben, können sich entgegengesetzt notierte Quaternionen bei einer direkten Summenbildung gegenseitig aufheben.
+Eine komponentenweise Mittelung der Quaternionen ist dabei nicht ohne Weiteres möglich~\cite{Markley2007}.
+Da ein Quaternion $\mathbf{q}$ und sein Negatives $-\mathbf{q}$ dieselbe Rotation beschreiben, 
+können sich entgegengesetzt notierte Quaternionen bei einer direkten Summenbildung gegenseitig aufheben.
 Vor der Mittelung wird daher das Vorzeichen aller Quaternionen an ein Referenzquaternion \gls{sym:qref} angeglichen.
 Zur Angleichung werden die Quaternionen als Vektoren aufgefasst.
 Als Maß für ihre Ausrichtung dient das Skalarprodukt:
@@ -372,7 +363,8 @@ Für sehr kleine Winkel $\theta$ geht $\sin\theta$ gegen null, wodurch Gleichung
 Ein Rodrigues-Vektor ist eine alternative Möglichkeit, eine Rotation im Raum zu beschreiben.
 Die Rotation wird durch einen Vektor \glsadd{sym:r}$\mathbf{r} = (r_x, r_y, r_z)^T$ beschrieben,
 dessen Richtung die Rotationsachse und dessen Betrag den Rotationswinkel angibt~\cite{Bradski2008}.
-Der Rotationswinkel \gls{sym:phiRot} ergibt sich aus dem Betrag des Rodrigues-Vektors gemäß Gleichung~\eqref{eq:rodrigues_parameter_betrag} und wird gegen den Uhrzeigersinn um die Rotationsachse gemessen~\cite{Dai2015a}.
+Der Rotationswinkel \gls{sym:phiRot} ergibt sich aus dem Betrag des Rodrigues-Vektors gemäß Gleichung~\eqref{eq:rodrigues_parameter_betrag} und wird 
+gegen den Uhrzeigersinn um die Rotationsachse gemessen~\cite{Dai2015a}.
 \begin{equation}
 \phi = \|\mathbf{r}\| = \sqrt{r_x^2 + r_y^2 + r_z^2}
 \label{eq:rodrigues_parameter_betrag}
@@ -396,15 +388,15 @@ Eingesetzt ergibt sich:
 \label{eq:rodrigues_quaternion_eingesetzt}
 \end{equation}
 
-Mit Hilfe der Gleichungen~\eqref{eq:rodrigues_parameter_betrag} und~\eqref{eq:rodrigues_quaternion_eingesetzt} lässt sich die Umrechnung von Rodrigues-Parametern in ein Quaternion durchführen.
+Mit Hilfe der Gleichungen~\eqref{eq:rodrigues_parameter_betrag} und~\eqref{eq:rodrigues_quaternion_eingesetzt} lässt sich die Umrechnung 
+von Rodrigues-Parametern in ein Quaternion durchführen~\cite{Dai2015a}.
 
 \section{Transformation von Koordinatensystemen}
 Um die genaue Position des \gls{uav}s bestimmen zu können, sind mehrere Koordinatentransformationen notwendig.
 Transformationen sind sowohl bei der Lokalisierung im Raum als auch bei der extrinsischen Kalibrierung der Kameras erforderlich.
 Es ist möglich, einen Punkt \glsadd{sym:point}$^a\mathbf{r}$, ausgedrückt relativ zum Koordinatensystem~$a$, relativ zum Koordinatensystem~$b$ auszudrücken,
 sofern Position und Orientierung des Systems~$a$ relativ zum System~$b$ bekannt sind.
-Ziel ist es, aus dieser Beziehung eine Transformationsmatrix abzuleiten, die zugleich die Rotation und die Translation zwischen den beiden Systemen beschreibt.
-\cite{2016}.
+Ziel ist es, aus dieser Beziehung eine Transformationsmatrix abzuleiten, die zugleich die Rotation und die Translation zwischen den beiden Systemen beschreibt~\cite{2016}.
 Die Orientierung des Systems~$a$ relativ zum System~$b$ wird durch eine Rotationsmatrix \glsadd{sym:Rot}$^b\mathbf{R}_a$ beschrieben.
 Die Lage des Ursprungs von~$a$ relativ zu~$b$ wird durch den Translationsvektor \glsadd{sym:trans}$^b\mathbf{t}_a \in \mathbb{R}^{3}$ angegeben.
 Ein im System~$a$ ausgedrückter Punkt $^a\mathbf{r}$ lässt sich dann mittels
@@ -464,17 +456,16 @@ Sind die Transformationen $^c\mathbf{T}_b$ (von~$b$ nach~$c$) und $^b\mathbf{T}_
 
 \section{Extended Kalman Filter}
 \label{sec:ekf}
-In dieser Arbeit wird nicht näher auf die Sensorfusion eingegangen, da der \gls{ekf} bereits vollständig im Flugcontroller implementiert ist.
-Auch die speziell im \gls{px4} zugrundeliegenden mathematischen Modelle werden nicht weiter erläutert. 
-Zum Verständnis der Positionsbestimmung sowie der Parametrierung des \gls{ekf} ist es jedoch notwendig, die Grundlagen des Kalman-Filters zu kennen.
+In dieser Arbeit wird nicht näher auf die konkrete Umsetzung der Sensorfusion eingegangen, da der \gls{ekf} bereits vollständig im Flugcontroller implementiert ist.
+Auch die speziell im \gls{px4} zugrundeliegenden mathematischen Modelle werden nicht weiter erläutert.
+Zum Verständnis der Positionsbestimmung sowie der Parametrierung des \gls{ekf} ist es jedoch notwendig, die Grundlagen des Kalman-Filters als zugrundeliegendes Sensorfusionsverfahren zu kennen.
 
 Ein Kalman-Filter ist ein Algorithmus zur Schätzung des Zustands eines dynamischen Systems durch 
 die Kombination von Vorhersagen aus einem mathematischen Modell und Messungen von Sensoren~\cite{kalman1960}.
 Der \gls{ekf} ist ein rekursiver Filter, wodurch er kontinuierlich neue Messwerte verarbeiten kann.
-Im Folgenden wird der grundlegende Aufbau des Filters geschildert.
 
 Der Filter besteht im Wesentlichen aus drei Phasen, der Initialisierung, der Prädiktion und der Korrektur.
-In der Literatur wird zwischen zwei Arten von Zustandsschätzungen unterschieden: 
+In der Literatur wird zwischen zwei Arten von Zustandsschätzungen unterschieden.
 Der \textit{Prior} $(\cdot)^{-}$ bezeichnet die durch das Systemmodell vorhergesagte Schätzung vor der Einbeziehung einer neuen Messung. 
 Der \textit{Posterior} $(\cdot)^{+}$ bezeichnet die korrigierte Schätzung nach der Einbeziehung der Messung~\cite{Bang18}.
 Der Operator $\hat{(\cdot)}$ kennzeichnet dabei stets eine Schätzgröße -- \glsadd{sym:stateHat}\glsadd{sym:state}$\hat{\mathbf{x}}$ ist demnach eine Schätzung des wahren Zustands $\mathbf{x}$~\cite{Bang18}.
@@ -496,7 +487,8 @@ Sie wächst in dieser Phase durch das Prozessrauschen \glsadd{sym:Q}$\mathbf{Q}_
 \end{equation}
 
 Dabei ist \glsadd{sym:F}$\mathbf{F}_{k-1}$ die Jacobi-Matrix der Modellfunktion $f$, die durch Linearisierung um den aktuellen Schätzwert gebildet wird.
-Das Prozessrauschen $\mathbf{Q}$ beschreibt, wie stark das Systemmodell vom realen Verhalten abweicht: Ein hoher Wert bedeutet ein geringeres Vertrauen in das Modell.
+Das Prozessrauschen $\mathbf{Q}$ beschreibt, wie stark das Systemmodell vom realen Verhalten abweicht.
+Ein hoher Wert bedeutet ein geringeres Vertrauen in das Modell.
 
 In der Korrekturphase wird der prädizierte Zustand auf Basis eines Messwerts \glsadd{sym:z}$\mathbf{z}_k$ korrigiert.
 Zunächst wird der Kalman-Gain \glsadd{sym:K}$\mathbf{K}_k$ berechnet, der bestimmt, wie stark die Messung in die Schätzung einfließt:
@@ -505,7 +497,8 @@ Zunächst wird der Kalman-Gain \glsadd{sym:K}$\mathbf{K}_k$ berechnet, der besti
 \end{equation}
 
 Hierbei ist \glsadd{sym:H}$\mathbf{H}_k$ die Jacobi-Matrix der Messfunktion \glsadd{sym:h}$h$ und \glsadd{sym:Rmeas}$\mathbf{R}_k$ die Messrauschkovarianzmatrix.
-$\mathbf{R}$ beschreibt die Unsicherheit der Sensormessungen: Ein hoher Wert führt zu einem geringeren Vertrauen in die Messung und damit zu einer schwächeren Korrektur.
+$\mathbf{R}$ beschreibt die Unsicherheit der Sensormessungen. 
+Ein hoher Wert führt zu einem geringeren Vertrauen in die Messung und damit zu einer schwächeren Korrektur.
 Der Kalman-Gain gewichtet folglich Modellvorhersage und Messung anhand ihrer jeweiligen Unsicherheiten.
 
 Anschließend wird der korrigierte Zustand $\hat{\mathbf{x}}_k^{+}$ aus dem prädizierten Zustand und der gewichteten Differenz zwischen tatsächlicher Messung $\mathbf{z}_k$ und erwarteter Messung $h(\hat{\mathbf{x}}_k^{-})$ – der Innovation – berechnet:
@@ -527,9 +520,9 @@ Die aktualisierten Größen $\hat{\mathbf{x}}_k^{+}$ und $\mathbf{P}_k^{+}$ dien
 Der \gls{ransac} ist ein iteratives Verfahren zur robusten Schätzung von Modellparametern aus einem Datensatz, 
 der einen erheblichen Anteil an Ausreißern enthält.
 Der \gls{ransac} unterscheidet sich von klassischen Ausgleichsverfahren dadurch, dass er nicht versucht, 
-alle Datenpunkte gleichzeitig zu berücksichtigen~\cite{RANSAC_fischler1981}.
+alle Datenpunkte gleichzeitig zu berücksichtigen~\cite{RANSAC_Fischler1981}.
 Stattdessen wird das Modell aus möglichst kleinen, zufällig gewählten Teilmengen bestimmt und anhand der übrigen Daten bewertet.
-Dadurch bleibt die Schätzung auch dann zuverlässig, wenn ein großer Teil der Daten fehlerhaft ist~\cite{RANSAC_fischler1981}.
+Dadurch bleibt die Schätzung auch dann zuverlässig, wenn ein großer Teil der Daten fehlerhaft ist~\cite{RANSAC_Fischler1981}.
 
 Die Grundidee besteht darin, wiederholt eine minimale Teilmenge von Datenpunkten auszuwählen und daraus ein Modell zu berechnen.
 Die Größe dieser Teilmenge entspricht der minimalen Anzahl an Punkten, die zur eindeutigen Bestimmung der Modellparameter erforderlich ist.
@@ -540,16 +533,15 @@ Ein Datenpunkt gilt als konsistent, wenn sein Abstand zum Modell einen festgeleg
     \label{eq:ransac_inlier}
 \end{equation}
 wobei $d(\mathbf{x}_i, \mathcal{M})$ den Abstand des Punktes $\mathbf{x}_i$ zum Modell \glsadd{sym:model}$\mathcal{M}$ bezeichnet.
-Die Menge aller konsistenten Punkte wird als Konsensmenge bezeichnet, ihre Elemente als Inlier; die übrigen Punkte gelten als Ausreißer~\cite{RANSAC_fischler1981}.
+Die Menge aller konsistenten Punkte wird als Konsensmenge bezeichnet, ihre Elemente als Inlier, die übrigen Punkte gelten als Ausreißer~\cite{RANSAC_Fischler1981}.
 
 
 \section{Robot Operating System 2 (ROS2)}
 \label{sec:ros2}
 
 \gls{ros2} ist ein Open-Source-Framework für die Entwicklung von Robotersoftware.
-Es stellt eine einheitliche Middleware bereit, über die verteilte Software-Komponenten -- \textit{Nodes} -- miteinander kommunizieren können.
-%Im Gegensatz zu seinem Vorgänger \gls{ros1} verwendet \gls{ros2} das standardisierte \gls{dds}-Protokoll als Kommunikationsschicht, 
-In dieser Arbeit wird \gls{ros2} Humble sowie \gls{ros2} Jazzy eingesetzt~\cite{ROS2MiddlewareHumble}.
+Es stellt eine einheitliche Middleware bereit, über die verteilte Software-Komponenten -- \textit{Nodes} -- miteinander kommunizieren können~\cite{ROS2MiddlewareHumble}.
+In dieser Arbeit wird \gls{ros2} Humble sowie \gls{ros2} Jazzy eingesetzt.
 
 \subsection{Nodes und Topics}
 Die grundlegende Kommunikationseinheit in \gls{ros2} ist der \textit{Node}, der eine spezifische Aufgabe übernimmt, 
@@ -565,13 +557,6 @@ Topics sind typisiert, das heißt jedes Topic überträgt Nachrichten eines fest
 \label{sec:ros_bag}
 \gls{ros2} ermöglicht die Aufzeichnung von Topic-Daten in \textit{Bag-Dateien} mittels des Werkzeugs \texttt{rosbag2}.
 Aufgezeichnete Bags können anschließend offline wiedergegeben werden, wobei die aufgezeichneten Topics wieder auf denselben Topics im System veröffentlicht werden~\cite{ROS2Rosbag2}.
-
-%%Hier nochmal überlegen ob das bleiben sollte. außerdem brauch ich nochmal bessere quellen!!!
-%\subsection{TF2 -- Koordinatentransformationen}
-%Das \texttt{tf2}-Paket verwaltet in \gls{ros2} einen baumförmigen Graphen von Koordinatentransformationen zwischen den im System definierten Referenzrahmen.\cite{ROS2Humble}
-%Jede Transformation beschreibt die räumliche Beziehung zwischen zwei Frames als homogene Transformation bestehend aus Translation und Rotation.
-%Der TF-Baum wird kontinuierlich über die Topics \texttt{/tf} und \texttt{/tf\_static} aktualisiert, wobei statische Transformationen -- beispielsweise die feste Lage einer Kamera relativ zum \gls{uav}-Körper -- über \texttt{/tf\_static} einmalig veröffentlicht werden.
-%Jeder Node kann zu jedem Zeitpunkt die Transformation zwischen zwei beliebigen Frames abfragen, sofern ein zusammenhängender Pfad im TF-Baum existiert.
 
 
 
