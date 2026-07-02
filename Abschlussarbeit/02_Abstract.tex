@@ -22,12 +22,12 @@
 
 %\end{abstract}
 \chapter*{Abstract}
-This thesis addresses the implementation of a fiducial-based localization system for a \gls{uav} in indoor environments.
+This thesis addresses the implementation of a fiducial-based localization system for an \gls{uav} in indoor environments.
 Indoors, no \gls{gnss} is available, so the absolute position reference usually relied upon by the flight controller is absent.
 The aim of this work is to localize a \gls{uav} in a GPS-denied indoor environment and to feed this position estimate into the flight controller as an external reference.
 The system is based on AprilTag markers of the \texttt{tag36h11} family, whose poses are stored in a map created beforehand.
 The map is generated in a three-stage offline process using \gls{slam}.
-During flight, the companion computer continuously determines the pose of the aircraft from the marker detections of two cameras and transmits it via \gls{uxrce}-DDS to the \gls{px4} flight controller, where it is processed in the \gls{ekf2} as an external position reference.
+During flight, the companion computer continuously determines the pose of the aircraft from the marker detections of two cameras and transmits it via \gls{uxrce} to the \gls{px4} flight controller, where it is processed in the \gls{ekf2} as an external position reference.
 The system is built entirely from open-source software and off-the-shelf hardware.
 The thesis describes the selection of the mapping and marker methodology, the camera calibration, the map creation, and the in-flight pose estimation together with its integration into the flight controller.
 

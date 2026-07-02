@@ -115,123 +115,14 @@
       \strng{authorbibnamehash}{0f3272cc92131b5414d872cc91e521f9}
       \strng{authornamehash}{0f3272cc92131b5414d872cc91e521f9}
       \strng{authorfullhash}{0f3272cc92131b5414d872cc91e521f9}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{https://www.premium-modellbau.de/holybro-holybro-x650-development-kit-pixhawk-6c-m10-gps-433-mhz-30180}
       \field{note}{Zugriff am 30.05.2026}
       \field{title}{Holybro X650}
       \field{year}{2026}
-    \endentry
-    \entry{ISO8855}{report}{}
-      \name{author}{1}{}{%
-        {{hash=5b512ee8a59deb284ad0a6a035ba10b1}{%
-           family={{ISO}},
-           familyi={I\bibinitperiod}}}%
-      }
-      \list{institution}{1}{%
-        {International Organization for Standardization}%
-      }
-      \list{location}{1}{%
-        {Geneva, Switzerland}%
-      }
-      \strng{namehash}{5b512ee8a59deb284ad0a6a035ba10b1}
-      \strng{fullhash}{5b512ee8a59deb284ad0a6a035ba10b1}
-      \strng{bibnamehash}{5b512ee8a59deb284ad0a6a035ba10b1}
-      \strng{authorbibnamehash}{5b512ee8a59deb284ad0a6a035ba10b1}
-      \strng{authornamehash}{5b512ee8a59deb284ad0a6a035ba10b1}
-      \strng{authorfullhash}{5b512ee8a59deb284ad0a6a035ba10b1}
-      \field{extraname}{1}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{number}{ISO 8855:2011}
-      \field{title}{Road Vehicles -- Vehicle Dynamics and Road-Holding Ability -- Vocabulary}
-      \field{type}{Standard}
-      \field{year}{2011}
-    \endentry
-    \entry{ISO9787}{report}{}
-      \name{author}{1}{}{%
-        {{hash=5b512ee8a59deb284ad0a6a035ba10b1}{%
-           family={{ISO}},
-           familyi={I\bibinitperiod}}}%
-      }
-      \list{institution}{1}{%
-        {International Organization for Standardization}%
-      }
-      \list{location}{1}{%
-        {Geneva, Switzerland}%
-      }
-      \strng{namehash}{5b512ee8a59deb284ad0a6a035ba10b1}
-      \strng{fullhash}{5b512ee8a59deb284ad0a6a035ba10b1}
-      \strng{bibnamehash}{5b512ee8a59deb284ad0a6a035ba10b1}
-      \strng{authorbibnamehash}{5b512ee8a59deb284ad0a6a035ba10b1}
-      \strng{authornamehash}{5b512ee8a59deb284ad0a6a035ba10b1}
-      \strng{authorfullhash}{5b512ee8a59deb284ad0a6a035ba10b1}
-      \field{extraname}{2}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{month}{05}
-      \field{number}{ISO 9787:2013}
-      \field{title}{Robots and Robotic Devices -- Coordinate Systems and Motion Nomenclatures}
-      \field{type}{Standard}
-      \field{year}{2013}
-    \endentry
-    \entry{PX4Frames}{misc}{}
-      \name{author}{1}{}{%
-        {{hash=b52b778c63203841cf2cbbd45551085d}{%
-           family={{PX4 Development Team}},
-           familyi={P\bibinitperiod}}}%
-      }
-      \strng{namehash}{b52b778c63203841cf2cbbd45551085d}
-      \strng{fullhash}{b52b778c63203841cf2cbbd45551085d}
-      \strng{bibnamehash}{b52b778c63203841cf2cbbd45551085d}
-      \strng{authorbibnamehash}{b52b778c63203841cf2cbbd45551085d}
-      \strng{authornamehash}{b52b778c63203841cf2cbbd45551085d}
-      \strng{authorfullhash}{b52b778c63203841cf2cbbd45551085d}
-      \field{extraname}{1}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{howpublished}{\url{https://docs.px4.io/main/en/ros/external_position_estimation}}
-      \field{note}{Zugriff am 31.05.2026}
-      \field{title}{Using Vision or Motion Capture Systems for Position Estimation}
-      \field{year}{2024}
-    \endentry
-    \entry{Szeliski2022}{book}{}
-      \name{author}{1}{}{%
-        {{hash=f2e556c93256e7d70895d67702e14f1a}{%
-           family={Szeliski},
-           familyi={S\bibinitperiod},
-           given={Richard},
-           giveni={R\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Springer International Publishing}%
-      }
-      \strng{namehash}{f2e556c93256e7d70895d67702e14f1a}
-      \strng{fullhash}{f2e556c93256e7d70895d67702e14f1a}
-      \strng{bibnamehash}{f2e556c93256e7d70895d67702e14f1a}
-      \strng{authorbibnamehash}{f2e556c93256e7d70895d67702e14f1a}
-      \strng{authornamehash}{f2e556c93256e7d70895d67702e14f1a}
-      \strng{authorfullhash}{f2e556c93256e7d70895d67702e14f1a}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{isbn}{9783030343729}
-      \field{issn}{1868-095X}
-      \field{journaltitle}{Texts in Computer Science}
-      \field{title}{Computer Vision: Algorithms and Applications}
-      \field{year}{2022}
-      \verb{doi}
-      \verb 10.1007/978-3-030-34372-9
-      \endverb
     \endentry
     \entry{Siciliano2009}{book}{}
       \name{author}{4}{}{%
@@ -265,8 +156,8 @@
       \strng{authorbibnamehash}{ee90168e098b65fb796c51b65c7348da}
       \strng{authornamehash}{abc7d060ecb5ddb10fbe1463bcfbedb8}
       \strng{authorfullhash}{ee90168e098b65fb796c51b65c7348da}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{isbn}{9781846286421}
@@ -277,123 +168,6 @@
       \verb{doi}
       \verb 10.1007/978-1-84628-642-1
       \endverb
-    \endentry
-    \entry{2016}{book}{}
-      \list{publisher}{1}{%
-        {Springer International Publishing}%
-      }
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
-      \field{labeltitlesource}{title}
-      \field{isbn}{9783319325521}
-      \field{issn}{2522-8706}
-      \field{journaltitle}{Springer Handbooks}
-      \field{title}{Springer Handbook of Robotics}
-      \field{year}{2016}
-      \verb{doi}
-      \verb 10.1007/978-3-319-32552-1
-      \endverb
-    \endentry
-    \entry{Quan2017}{book}{}
-      \name{author}{1}{}{%
-        {{hash=c11034bc0e4d5832ffedafaabbd0f18a}{%
-           family={Quan},
-           familyi={Q\bibinitperiod},
-           given={Quan},
-           giveni={Q\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Springer Singapore}%
-      }
-      \strng{namehash}{c11034bc0e4d5832ffedafaabbd0f18a}
-      \strng{fullhash}{c11034bc0e4d5832ffedafaabbd0f18a}
-      \strng{bibnamehash}{c11034bc0e4d5832ffedafaabbd0f18a}
-      \strng{authorbibnamehash}{c11034bc0e4d5832ffedafaabbd0f18a}
-      \strng{authornamehash}{c11034bc0e4d5832ffedafaabbd0f18a}
-      \strng{authorfullhash}{c11034bc0e4d5832ffedafaabbd0f18a}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{isbn}{9789811033827}
-      \field{title}{Introduction to Multicopter Design and Control}
-      \field{year}{2017}
-      \verb{doi}
-      \verb 10.1007/978-981-10-3382-7
-      \endverb
-    \endentry
-    \entry{Bradski2008}{book}{}
-      \name{author}{2}{}{%
-        {{hash=a780b2fbd99e4f7ce78d33324e39d4c2}{%
-           family={Bradski},
-           familyi={B\bibinitperiod},
-           given={Gary},
-           giveni={G\bibinitperiod}}}%
-        {{hash=656736e2b93f260c9619384b02d7cdf4}{%
-           family={Kaehler},
-           familyi={K\bibinitperiod},
-           given={Adrian},
-           giveni={A\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {O'Reilly Media}%
-      }
-      \strng{namehash}{28773b192aefb3555440671fe8536f6c}
-      \strng{fullhash}{28773b192aefb3555440671fe8536f6c}
-      \strng{bibnamehash}{28773b192aefb3555440671fe8536f6c}
-      \strng{authorbibnamehash}{28773b192aefb3555440671fe8536f6c}
-      \strng{authornamehash}{28773b192aefb3555440671fe8536f6c}
-      \strng{authorfullhash}{28773b192aefb3555440671fe8536f6c}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{isbn}{978-0596516130}
-      \field{title}{Learning OpenCV: Computer Vision with the OpenCV Library}
-      \field{year}{2008}
-      \verb{urlraw}
-      \verb https://learning.oreilly.com/library/view/learning-opencv/9780596516130/ch11s05.html
-      \endverb
-      \verb{url}
-      \verb https://learning.oreilly.com/library/view/learning-opencv/9780596516130/ch11s05.html
-      \endverb
-    \endentry
-    \entry{Dai2015a}{article}{}
-      \name{author}{1}{}{%
-        {{hash=4b89bdaf258b8a1ec4c768e087024ad8}{%
-           family={Dai},
-           familyi={D\bibinitperiod},
-           given={Jian\bibnamedelima S.},
-           giveni={J\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
-      }
-      \strng{namehash}{4b89bdaf258b8a1ec4c768e087024ad8}
-      \strng{fullhash}{4b89bdaf258b8a1ec4c768e087024ad8}
-      \strng{bibnamehash}{4b89bdaf258b8a1ec4c768e087024ad8}
-      \strng{authorbibnamehash}{4b89bdaf258b8a1ec4c768e087024ad8}
-      \strng{authornamehash}{4b89bdaf258b8a1ec4c768e087024ad8}
-      \strng{authorfullhash}{4b89bdaf258b8a1ec4c768e087024ad8}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{This paper reviews the Euler–Rodrigues formula in the axis–angle representation of rotations, studies its variations and derivations in different mathematical forms as vectors, quaternions and Lie groups and investigates their intrinsic connections. The Euler–Rodrigues formula in the Taylor series expansion is presented and its use as an exponential map of Lie algebras is discussed particularly with a non-normalized vector. The connection between Euler–Rodrigues parameters and the Euler–Rodrigues formula is then demonstrated through quaternion conjugation and the equivalence between quaternion conjugation and an adjoint action of the Lie group is subsequently presented. The paper provides a rich reference for the Euler–Rodrigues formula, the variations and their connections and for their use in rigid body kinematics, dynamics and computer graphics.}
-      \field{issn}{0094-114X}
-      \field{journaltitle}{Mechanism and Machine Theory}
-      \field{title}{Euler–Rodrigues formula variations, quaternion conjugation and intrinsic connections}
-      \field{volume}{92}
-      \field{year}{2015}
-      \field{pages}{144\bibrangedash 152}
-      \range{pages}{9}
-      \verb{doi}
-      \verb https://doi.org/10.1016/j.mechmachtheory.2015.03.004
-      \endverb
-      \verb{urlraw}
-      \verb https://www.sciencedirect.com/science/article/pii/S0094114X15000415
-      \endverb
-      \verb{url}
-      \verb https://www.sciencedirect.com/science/article/pii/S0094114X15000415
-      \endverb
-      \keyw{Euler–Rodrigues formula,Quaternions,Exponential map,Lie groups,Lie algebras,Kinematics}
     \endentry
     \entry{Capuano2023}{article}{}
       \name{author}{3}{}{%
@@ -422,8 +196,8 @@
       \strng{authorbibnamehash}{0363228180ebaea816eecd472770f70e}
       \strng{authornamehash}{0363228180ebaea816eecd472770f70e}
       \strng{authorfullhash}{0363228180ebaea816eecd472770f70e}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{1424-8220}
@@ -457,8 +231,8 @@
       \strng{authorbibnamehash}{4ed8b605c67f6289bdde5b4741cf7dce}
       \strng{authornamehash}{4ed8b605c67f6289bdde5b4741cf7dce}
       \strng{authorfullhash}{4ed8b605c67f6289bdde5b4741cf7dce}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{eprintclass}{cs.RO}
@@ -471,6 +245,592 @@
       \endverb
       \verb{eprint}
       \verb 2303.03757
+      \endverb
+    \endentry
+    \entry{MendozaMendoza2020}{book}{}
+      \name{author}{5}{}{%
+        {{hash=0c7e63f89d053b8cd29f091f80ef3a51}{%
+           family={Mendoza-Mendoza},
+           familyi={M\bibinithyphendelim M\bibinitperiod},
+           given={Julio\bibnamedelima Alberto},
+           giveni={J\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=7ec06a628448daf9b068ae9184aced67}{%
+           family={Gonzalez-Villela},
+           familyi={G\bibinithyphendelim V\bibinitperiod},
+           given={Victor\bibnamedelima Javier},
+           giveni={V\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=a5bbc18bc5098d4c3f6a5f22ee5c4678}{%
+           family={Sepulveda-Cervantes},
+           familyi={S\bibinithyphendelim C\bibinitperiod},
+           given={Gabriel},
+           giveni={G\bibinitperiod}}}%
+        {{hash=6bff8fe51c8c7ed9da7371b4d2a93815}{%
+           family={Mendez-Martinez},
+           familyi={M\bibinithyphendelim M\bibinitperiod},
+           given={Mauricio},
+           giveni={M\bibinitperiod}}}%
+        {{hash=fd9f9fa39791a7ecc4ecd9289b7bb574}{%
+           family={Sossa-Azuela},
+           familyi={S\bibinithyphendelim A\bibinitperiod},
+           given={Humberto},
+           giveni={H\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Apress}%
+      }
+      \strng{namehash}{d7925c68a9f3bb6a89d0ce88db90df3a}
+      \strng{fullhash}{f9acef8bdf9a20bf4d9efb1e56dd256a}
+      \strng{bibnamehash}{f9acef8bdf9a20bf4d9efb1e56dd256a}
+      \strng{authorbibnamehash}{f9acef8bdf9a20bf4d9efb1e56dd256a}
+      \strng{authornamehash}{d7925c68a9f3bb6a89d0ce88db90df3a}
+      \strng{authorfullhash}{f9acef8bdf9a20bf4d9efb1e56dd256a}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9781484255315}
+      \field{title}{Advanced Robotic Vehicles Programming: An Ardupilot and Pixhawk Approach}
+      \field{year}{2020}
+      \verb{doi}
+      \verb 10.1007/978-1-4842-5531-5
+      \endverb
+    \endentry
+    \entry{px4_pixhawk6x_doc}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=b52b778c63203841cf2cbbd45551085d}{%
+           family={{PX4 Development Team}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{b52b778c63203841cf2cbbd45551085d}
+      \strng{fullhash}{b52b778c63203841cf2cbbd45551085d}
+      \strng{bibnamehash}{b52b778c63203841cf2cbbd45551085d}
+      \strng{authorbibnamehash}{b52b778c63203841cf2cbbd45551085d}
+      \strng{authornamehash}{b52b778c63203841cf2cbbd45551085d}
+      \strng{authorfullhash}{b52b778c63203841cf2cbbd45551085d}
+      \field{extraname}{1}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://docs.px4.io/v1.16/en/flight_controller/pixhawk6x}}
+      \field{note}{Abgerufen am 04.06.2026}
+      \field{title}{Holybro Pixhawk 6X}
+    \endentry
+    \entry{px4_architecture}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=b52b778c63203841cf2cbbd45551085d}{%
+           family={{PX4 Development Team}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{b52b778c63203841cf2cbbd45551085d}
+      \strng{fullhash}{b52b778c63203841cf2cbbd45551085d}
+      \strng{bibnamehash}{b52b778c63203841cf2cbbd45551085d}
+      \strng{authorbibnamehash}{b52b778c63203841cf2cbbd45551085d}
+      \strng{authornamehash}{b52b778c63203841cf2cbbd45551085d}
+      \strng{authorfullhash}{b52b778c63203841cf2cbbd45551085d}
+      \field{extraname}{2}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://docs.px4.io/main/en/concept/architecture.html}}
+      \field{note}{Abgerufen am 07.06.2026}
+      \field{title}{{PX4 Architectural Overview}}
+      \field{year}{2025}
+    \endentry
+    \entry{MAVLink}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=064e5723b786627483d345a99909d5b6}{%
+           family={{MAVLink Development Team}},
+           familyi={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{064e5723b786627483d345a99909d5b6}
+      \strng{fullhash}{064e5723b786627483d345a99909d5b6}
+      \strng{bibnamehash}{064e5723b786627483d345a99909d5b6}
+      \strng{authorbibnamehash}{064e5723b786627483d345a99909d5b6}
+      \strng{authornamehash}{064e5723b786627483d345a99909d5b6}
+      \strng{authorfullhash}{064e5723b786627483d345a99909d5b6}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://mavlink.io/en/}}
+      \field{note}{Erstveröffentlichung 2009 durch Lorenz Meier; abgerufen am 07.06.2026}
+      \field{title}{{MAVLink Developer Guide}}
+      \field{year}{2009}
+    \endentry
+    \entry{px4_mavlink}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=b52b778c63203841cf2cbbd45551085d}{%
+           family={{PX4 Development Team}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{b52b778c63203841cf2cbbd45551085d}
+      \strng{fullhash}{b52b778c63203841cf2cbbd45551085d}
+      \strng{bibnamehash}{b52b778c63203841cf2cbbd45551085d}
+      \strng{authorbibnamehash}{b52b778c63203841cf2cbbd45551085d}
+      \strng{authornamehash}{b52b778c63203841cf2cbbd45551085d}
+      \strng{authorfullhash}{b52b778c63203841cf2cbbd45551085d}
+      \field{extraname}{3}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://docs.px4.io/main/en/middleware/mavlink.html}}
+      \field{note}{Abgerufen am 07.06.2026}
+      \field{title}{{MAVLink Messaging -- PX4 Autopilot Documentation}}
+      \field{year}{2025}
+    \endentry
+    \entry{px4_ulog}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=b52b778c63203841cf2cbbd45551085d}{%
+           family={{PX4 Development Team}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{b52b778c63203841cf2cbbd45551085d}
+      \strng{fullhash}{b52b778c63203841cf2cbbd45551085d}
+      \strng{bibnamehash}{b52b778c63203841cf2cbbd45551085d}
+      \strng{authorbibnamehash}{b52b778c63203841cf2cbbd45551085d}
+      \strng{authornamehash}{b52b778c63203841cf2cbbd45551085d}
+      \strng{authorfullhash}{b52b778c63203841cf2cbbd45551085d}
+      \field{extraname}{4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://docs.px4.io/main/en/dev_log/ulog_file_format.html}}
+      \field{note}{Abgerufen am 07.06.2026}
+      \field{title}{{ULog File Format -- PX4 Autopilot Documentation}}
+      \field{year}{2025}
+    \endentry
+    \entry{px4_flight_reporting}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=b52b778c63203841cf2cbbd45551085d}{%
+           family={{PX4 Development Team}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{b52b778c63203841cf2cbbd45551085d}
+      \strng{fullhash}{b52b778c63203841cf2cbbd45551085d}
+      \strng{bibnamehash}{b52b778c63203841cf2cbbd45551085d}
+      \strng{authorbibnamehash}{b52b778c63203841cf2cbbd45551085d}
+      \strng{authornamehash}{b52b778c63203841cf2cbbd45551085d}
+      \strng{authorfullhash}{b52b778c63203841cf2cbbd45551085d}
+      \field{extraname}{5}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://docs.px4.io/main/en/getting_started/flight_reporting.html}}
+      \field{note}{Abgerufen am 07.06.2026}
+      \field{title}{{Flight Reporting -- PX4 Autopilot Documentation}}
+      \field{year}{2025}
+    \endentry
+    \entry{Ko2018}{article}{}
+      \name{author}{5}{}{%
+        {{hash=e5c38b60ae281563c6334925c5e32b7d}{%
+           family={Ko},
+           familyi={K\bibinitperiod},
+           given={Nak\bibnamedelima Yong},
+           giveni={N\bibinitperiod\bibinitdelim Y\bibinitperiod}}}%
+        {{hash=96194ba726ce60c889169fd18758d910}{%
+           family={Youn},
+           familyi={Y\bibinitperiod},
+           given={Wonkeun},
+           giveni={W\bibinitperiod}}}%
+        {{hash=5766fba07e5f150c3186d2ed97fd8ca9}{%
+           family={Choi},
+           familyi={C\bibinitperiod},
+           given={In\bibnamedelima Ho},
+           giveni={I\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=834bc0824945ad46bb4237af8fcbeb37}{%
+           family={Song},
+           familyi={S\bibinitperiod},
+           given={Gyeongsub},
+           giveni={G\bibinitperiod}}}%
+        {{hash=ee617ba89509a340d9eda824b945169f}{%
+           family={Kim},
+           familyi={K\bibinitperiod},
+           given={Tae\bibnamedelima Sik},
+           giveni={T\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {MDPI AG}%
+      }
+      \strng{namehash}{a4e73360316c89c960965f44afdc0e98}
+      \strng{fullhash}{786a3de92dbad58f2dcddcb05d904683}
+      \strng{bibnamehash}{786a3de92dbad58f2dcddcb05d904683}
+      \strng{authorbibnamehash}{786a3de92dbad58f2dcddcb05d904683}
+      \strng{authornamehash}{a4e73360316c89c960965f44afdc0e98}
+      \strng{authorfullhash}{786a3de92dbad58f2dcddcb05d904683}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1424-8220}
+      \field{journaltitle}{Sensors}
+      \field{month}{8}
+      \field{number}{9}
+      \field{title}{Features of Invariant Extended Kalman Filter Applied to Unmanned Aerial Vehicle Navigation}
+      \field{volume}{18}
+      \field{year}{2018}
+      \field{pages}{2855}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.3390/s18092855
+      \endverb
+    \endentry
+    \entry{ISO8855}{report}{}
+      \name{author}{1}{}{%
+        {{hash=5b512ee8a59deb284ad0a6a035ba10b1}{%
+           family={{ISO}},
+           familyi={I\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {International Organization for Standardization}%
+      }
+      \list{location}{1}{%
+        {Geneva, Switzerland}%
+      }
+      \strng{namehash}{5b512ee8a59deb284ad0a6a035ba10b1}
+      \strng{fullhash}{5b512ee8a59deb284ad0a6a035ba10b1}
+      \strng{bibnamehash}{5b512ee8a59deb284ad0a6a035ba10b1}
+      \strng{authorbibnamehash}{5b512ee8a59deb284ad0a6a035ba10b1}
+      \strng{authornamehash}{5b512ee8a59deb284ad0a6a035ba10b1}
+      \strng{authorfullhash}{5b512ee8a59deb284ad0a6a035ba10b1}
+      \field{extraname}{1}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{number}{ISO 8855:2011}
+      \field{title}{Road Vehicles -- Vehicle Dynamics and Road-Holding Ability -- Vocabulary}
+      \field{type}{Standard}
+      \field{year}{2011}
+    \endentry
+    \entry{ISO9787}{report}{}
+      \name{author}{1}{}{%
+        {{hash=5b512ee8a59deb284ad0a6a035ba10b1}{%
+           family={{ISO}},
+           familyi={I\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {International Organization for Standardization}%
+      }
+      \list{location}{1}{%
+        {Geneva, Switzerland}%
+      }
+      \strng{namehash}{5b512ee8a59deb284ad0a6a035ba10b1}
+      \strng{fullhash}{5b512ee8a59deb284ad0a6a035ba10b1}
+      \strng{bibnamehash}{5b512ee8a59deb284ad0a6a035ba10b1}
+      \strng{authorbibnamehash}{5b512ee8a59deb284ad0a6a035ba10b1}
+      \strng{authornamehash}{5b512ee8a59deb284ad0a6a035ba10b1}
+      \strng{authorfullhash}{5b512ee8a59deb284ad0a6a035ba10b1}
+      \field{extraname}{2}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{05}
+      \field{number}{ISO 9787:2013}
+      \field{title}{Robots and Robotic Devices -- Coordinate Systems and Motion Nomenclatures}
+      \field{type}{Standard}
+      \field{year}{2013}
+    \endentry
+    \entry{PX4Frames}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=b52b778c63203841cf2cbbd45551085d}{%
+           family={{PX4 Development Team}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{b52b778c63203841cf2cbbd45551085d}
+      \strng{fullhash}{b52b778c63203841cf2cbbd45551085d}
+      \strng{bibnamehash}{b52b778c63203841cf2cbbd45551085d}
+      \strng{authorbibnamehash}{b52b778c63203841cf2cbbd45551085d}
+      \strng{authornamehash}{b52b778c63203841cf2cbbd45551085d}
+      \strng{authorfullhash}{b52b778c63203841cf2cbbd45551085d}
+      \field{extraname}{6}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://docs.px4.io/main/en/ros/external_position_estimation}}
+      \field{note}{Zugriff am 31.05.2026}
+      \field{title}{Using Vision or Motion Capture Systems for Position Estimation}
+      \field{year}{2024}
+    \endentry
+    \entry{Szeliski2022}{book}{}
+      \name{author}{1}{}{%
+        {{hash=f2e556c93256e7d70895d67702e14f1a}{%
+           family={Szeliski},
+           familyi={S\bibinitperiod},
+           given={Richard},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer International Publishing}%
+      }
+      \strng{namehash}{f2e556c93256e7d70895d67702e14f1a}
+      \strng{fullhash}{f2e556c93256e7d70895d67702e14f1a}
+      \strng{bibnamehash}{f2e556c93256e7d70895d67702e14f1a}
+      \strng{authorbibnamehash}{f2e556c93256e7d70895d67702e14f1a}
+      \strng{authornamehash}{f2e556c93256e7d70895d67702e14f1a}
+      \strng{authorfullhash}{f2e556c93256e7d70895d67702e14f1a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9783030343729}
+      \field{issn}{1868-095X}
+      \field{journaltitle}{Texts in Computer Science}
+      \field{title}{Computer Vision: Algorithms and Applications}
+      \field{year}{2022}
+      \verb{doi}
+      \verb 10.1007/978-3-030-34372-9
+      \endverb
+    \endentry
+    \entry{2016}{book}{}
+      \list{publisher}{1}{%
+        {Springer International Publishing}%
+      }
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9783319325521}
+      \field{issn}{2522-8706}
+      \field{journaltitle}{Springer Handbooks}
+      \field{title}{Springer Handbook of Robotics}
+      \field{year}{2016}
+      \verb{doi}
+      \verb 10.1007/978-3-319-32552-1
+      \endverb
+    \endentry
+    \entry{Quan2017}{book}{}
+      \name{author}{1}{}{%
+        {{hash=c11034bc0e4d5832ffedafaabbd0f18a}{%
+           family={Quan},
+           familyi={Q\bibinitperiod},
+           given={Quan},
+           giveni={Q\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer Singapore}%
+      }
+      \strng{namehash}{c11034bc0e4d5832ffedafaabbd0f18a}
+      \strng{fullhash}{c11034bc0e4d5832ffedafaabbd0f18a}
+      \strng{bibnamehash}{c11034bc0e4d5832ffedafaabbd0f18a}
+      \strng{authorbibnamehash}{c11034bc0e4d5832ffedafaabbd0f18a}
+      \strng{authornamehash}{c11034bc0e4d5832ffedafaabbd0f18a}
+      \strng{authorfullhash}{c11034bc0e4d5832ffedafaabbd0f18a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9789811033827}
+      \field{title}{Introduction to Multicopter Design and Control}
+      \field{year}{2017}
+      \verb{doi}
+      \verb 10.1007/978-981-10-3382-7
+      \endverb
+    \endentry
+    \entry{Markley2007}{article}{}
+      \name{author}{4}{}{%
+        {{hash=d1abf4423327696d755c812e2ed525d9}{%
+           family={Markley},
+           familyi={M\bibinitperiod},
+           given={F.\bibnamedelimi Landis},
+           giveni={F\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=a00c5050f276cbfa0ac70050e61ef474}{%
+           family={Cheng},
+           familyi={C\bibinitperiod},
+           given={Yang},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=48ea8afa3bafbcb32103577ab2c63700}{%
+           family={Crassidis},
+           familyi={C\bibinitperiod},
+           given={John\bibnamedelima L.},
+           giveni={J\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=137e02c303c52b05e5d51abcc35a6f73}{%
+           family={Oshman},
+           familyi={O\bibinitperiod},
+           given={Yaakov},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \list{publisher}{2}{%
+        {American Institute of Aeronautics}%
+        {Astronautics (AIAA)}%
+      }
+      \strng{namehash}{d30101ffdda39a7f772ad0149b4b0992}
+      \strng{fullhash}{9e2c8ab1a0cd4688b715992ed831a6a2}
+      \strng{bibnamehash}{9e2c8ab1a0cd4688b715992ed831a6a2}
+      \strng{authorbibnamehash}{9e2c8ab1a0cd4688b715992ed831a6a2}
+      \strng{authornamehash}{d30101ffdda39a7f772ad0149b4b0992}
+      \strng{authorfullhash}{9e2c8ab1a0cd4688b715992ed831a6a2}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1533-3884}
+      \field{journaltitle}{Journal of Guidance, Control, and Dynamics}
+      \field{number}{4}
+      \field{title}{Averaging Quaternions}
+      \field{volume}{30}
+      \field{year}{2007}
+      \field{pages}{1193\bibrangedash 1197}
+      \range{pages}{5}
+      \verb{doi}
+      \verb 10.2514/1.28949
+      \endverb
+    \endentry
+    \entry{Shoemake1985}{article}{}
+      \name{author}{1}{}{%
+        {{hash=9fd9e5679f436b146a68cd07db44781b}{%
+           family={Shoemake},
+           familyi={S\bibinitperiod},
+           given={Ken},
+           giveni={K\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York, NY, USA}%
+      }
+      \list{publisher}{1}{%
+        {Association for Computing Machinery}%
+      }
+      \strng{namehash}{9fd9e5679f436b146a68cd07db44781b}
+      \strng{fullhash}{9fd9e5679f436b146a68cd07db44781b}
+      \strng{bibnamehash}{9fd9e5679f436b146a68cd07db44781b}
+      \strng{authorbibnamehash}{9fd9e5679f436b146a68cd07db44781b}
+      \strng{authornamehash}{9fd9e5679f436b146a68cd07db44781b}
+      \strng{authorfullhash}{9fd9e5679f436b146a68cd07db44781b}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Solid bodies roll and tumble through space. In computer animation, so do cameras. The rotations of these objects are best described using a four coordinate system, quaternions, as is shown in this paper. Of all quaternions, those on the unit sphere are most suitable for animation, but the question of how to construct curves on spheres has not been much explored. This paper gives one answer by presenting a new kind of spline curve, created on a sphere, suitable for smoothly in-betweening (i.e. interpolating) sequences of arbitrary rotations. Both theory and experiment show that the motion generated is smooth and natural, without quirks found in earlier methods.}
+      \field{issn}{0097-8930}
+      \field{journaltitle}{SIGGRAPH Comput. Graph.}
+      \field{month}{7}
+      \field{number}{3}
+      \field{title}{Animating rotation with quaternion curves}
+      \field{volume}{19}
+      \field{year}{1985}
+      \field{pages}{245\bibrangedash 254}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1145/325165.325242
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1145/325165.325242
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1145/325165.325242
+      \endverb
+      \keyw{spline,spherical geometry,rotation,quaternion,interpolation,in-betweening,approximation,animation,B-spline,Bézier curve}
+    \endentry
+    \entry{Bradski2008}{book}{}
+      \name{author}{2}{}{%
+        {{hash=a780b2fbd99e4f7ce78d33324e39d4c2}{%
+           family={Bradski},
+           familyi={B\bibinitperiod},
+           given={Gary},
+           giveni={G\bibinitperiod}}}%
+        {{hash=656736e2b93f260c9619384b02d7cdf4}{%
+           family={Kaehler},
+           familyi={K\bibinitperiod},
+           given={Adrian},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {O'Reilly Media}%
+      }
+      \strng{namehash}{28773b192aefb3555440671fe8536f6c}
+      \strng{fullhash}{28773b192aefb3555440671fe8536f6c}
+      \strng{bibnamehash}{28773b192aefb3555440671fe8536f6c}
+      \strng{authorbibnamehash}{28773b192aefb3555440671fe8536f6c}
+      \strng{authornamehash}{28773b192aefb3555440671fe8536f6c}
+      \strng{authorfullhash}{28773b192aefb3555440671fe8536f6c}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-0596516130}
+      \field{title}{Learning OpenCV: Computer Vision with the OpenCV Library}
+      \field{year}{2008}
+      \verb{urlraw}
+      \verb https://learning.oreilly.com/library/view/learning-opencv/9780596516130/ch11s05.html
+      \endverb
+      \verb{url}
+      \verb https://learning.oreilly.com/library/view/learning-opencv/9780596516130/ch11s05.html
+      \endverb
+    \endentry
+    \entry{Dai2015a}{article}{}
+      \name{author}{1}{}{%
+        {{hash=4b89bdaf258b8a1ec4c768e087024ad8}{%
+           family={Dai},
+           familyi={D\bibinitperiod},
+           given={Jian\bibnamedelima S.},
+           giveni={J\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \strng{namehash}{4b89bdaf258b8a1ec4c768e087024ad8}
+      \strng{fullhash}{4b89bdaf258b8a1ec4c768e087024ad8}
+      \strng{bibnamehash}{4b89bdaf258b8a1ec4c768e087024ad8}
+      \strng{authorbibnamehash}{4b89bdaf258b8a1ec4c768e087024ad8}
+      \strng{authornamehash}{4b89bdaf258b8a1ec4c768e087024ad8}
+      \strng{authorfullhash}{4b89bdaf258b8a1ec4c768e087024ad8}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{This paper reviews the Euler–Rodrigues formula in the axis–angle representation of rotations, studies its variations and derivations in different mathematical forms as vectors, quaternions and Lie groups and investigates their intrinsic connections. The Euler–Rodrigues formula in the Taylor series expansion is presented and its use as an exponential map of Lie algebras is discussed particularly with a non-normalized vector. The connection between Euler–Rodrigues parameters and the Euler–Rodrigues formula is then demonstrated through quaternion conjugation and the equivalence between quaternion conjugation and an adjoint action of the Lie group is subsequently presented. The paper provides a rich reference for the Euler–Rodrigues formula, the variations and their connections and for their use in rigid body kinematics, dynamics and computer graphics.}
+      \field{issn}{0094-114X}
+      \field{journaltitle}{Mechanism and Machine Theory}
+      \field{title}{Euler–Rodrigues formula variations, quaternion conjugation and intrinsic connections}
+      \field{volume}{92}
+      \field{year}{2015}
+      \field{pages}{144\bibrangedash 152}
+      \range{pages}{9}
+      \verb{doi}
+      \verb https://doi.org/10.1016/j.mechmachtheory.2015.03.004
+      \endverb
+      \verb{urlraw}
+      \verb https://www.sciencedirect.com/science/article/pii/S0094114X15000415
+      \endverb
+      \verb{url}
+      \verb https://www.sciencedirect.com/science/article/pii/S0094114X15000415
+      \endverb
+      \keyw{Euler–Rodrigues formula,Quaternions,Exponential map,Lie groups,Lie algebras,Kinematics}
+    \endentry
+    \entry{Lynch2017}{book}{}
+      \name{author}{2}{}{%
+        {{hash=ab9086b1452a1a9813fc6765151b4f61}{%
+           family={Lynch},
+           familyi={L\bibinitperiod},
+           given={Kevin\bibnamedelima M.},
+           giveni={K\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=66f19f2d439b6eb60c024ab622b0389f}{%
+           family={Park},
+           familyi={P\bibinitperiod},
+           given={Frank\bibnamedelima C.},
+           giveni={F\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{8d01efb70f6cec86f711e78e22f97a48}
+      \strng{fullhash}{8d01efb70f6cec86f711e78e22f97a48}
+      \strng{bibnamehash}{8d01efb70f6cec86f711e78e22f97a48}
+      \strng{authorbibnamehash}{8d01efb70f6cec86f711e78e22f97a48}
+      \strng{authornamehash}{8d01efb70f6cec86f711e78e22f97a48}
+      \strng{authorfullhash}{8d01efb70f6cec86f711e78e22f97a48}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9781316609842}
+      \field{month}{5}
+      \field{title}{Modern Robotics: Mechanics, Planning, and Control}
+      \field{year}{2017}
+      \verb{doi}
+      \verb 10.1017/9781316661239
       \endverb
     \endentry
     \entry{kalman1960}{article}{}
@@ -487,8 +847,8 @@
       \strng{authorbibnamehash}{905a0fe021951b4ebc06e4e1bb70bd26}
       \strng{authornamehash}{905a0fe021951b4ebc06e4e1bb70bd26}
       \strng{authorfullhash}{905a0fe021951b4ebc06e4e1bb70bd26}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Transactions of the ASME -- Journal of Basic Engineering}
@@ -537,8 +897,8 @@
       \strng{editorbibnamehash}{93c652eae1541f988673af68fa891562}
       \strng{editornamehash}{93c652eae1541f988673af68fa891562}
       \strng{editorfullhash}{93c652eae1541f988673af68fa891562}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Introduction and Implementations of the Kalman Filter}
@@ -555,239 +915,7 @@
       \verb https://doi.org/10.5772/intechopen.80600
       \endverb
     \endentry
-    \entry{MendozaMendoza2020}{book}{}
-      \name{author}{5}{}{%
-        {{hash=0c7e63f89d053b8cd29f091f80ef3a51}{%
-           family={Mendoza-Mendoza},
-           familyi={M\bibinithyphendelim M\bibinitperiod},
-           given={Julio\bibnamedelima Alberto},
-           giveni={J\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
-        {{hash=7ec06a628448daf9b068ae9184aced67}{%
-           family={Gonzalez-Villela},
-           familyi={G\bibinithyphendelim V\bibinitperiod},
-           given={Victor\bibnamedelima Javier},
-           giveni={V\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
-        {{hash=a5bbc18bc5098d4c3f6a5f22ee5c4678}{%
-           family={Sepulveda-Cervantes},
-           familyi={S\bibinithyphendelim C\bibinitperiod},
-           given={Gabriel},
-           giveni={G\bibinitperiod}}}%
-        {{hash=6bff8fe51c8c7ed9da7371b4d2a93815}{%
-           family={Mendez-Martinez},
-           familyi={M\bibinithyphendelim M\bibinitperiod},
-           given={Mauricio},
-           giveni={M\bibinitperiod}}}%
-        {{hash=fd9f9fa39791a7ecc4ecd9289b7bb574}{%
-           family={Sossa-Azuela},
-           familyi={S\bibinithyphendelim A\bibinitperiod},
-           given={Humberto},
-           giveni={H\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Apress}%
-      }
-      \strng{namehash}{d7925c68a9f3bb6a89d0ce88db90df3a}
-      \strng{fullhash}{f9acef8bdf9a20bf4d9efb1e56dd256a}
-      \strng{bibnamehash}{f9acef8bdf9a20bf4d9efb1e56dd256a}
-      \strng{authorbibnamehash}{f9acef8bdf9a20bf4d9efb1e56dd256a}
-      \strng{authornamehash}{d7925c68a9f3bb6a89d0ce88db90df3a}
-      \strng{authorfullhash}{f9acef8bdf9a20bf4d9efb1e56dd256a}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{isbn}{9781484255315}
-      \field{title}{Advanced Robotic Vehicles Programming: An Ardupilot and Pixhawk Approach}
-      \field{year}{2020}
-      \verb{doi}
-      \verb 10.1007/978-1-4842-5531-5
-      \endverb
-    \endentry
-    \entry{px4_pixhawk6x_doc}{misc}{}
-      \name{author}{1}{}{%
-        {{hash=b52b778c63203841cf2cbbd45551085d}{%
-           family={{PX4 Development Team}},
-           familyi={P\bibinitperiod}}}%
-      }
-      \strng{namehash}{b52b778c63203841cf2cbbd45551085d}
-      \strng{fullhash}{b52b778c63203841cf2cbbd45551085d}
-      \strng{bibnamehash}{b52b778c63203841cf2cbbd45551085d}
-      \strng{authorbibnamehash}{b52b778c63203841cf2cbbd45551085d}
-      \strng{authornamehash}{b52b778c63203841cf2cbbd45551085d}
-      \strng{authorfullhash}{b52b778c63203841cf2cbbd45551085d}
-      \field{extraname}{2}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{howpublished}{\url{https://docs.px4.io/v1.16/en/flight_controller/pixhawk6x}}
-      \field{note}{Abgerufen am 04.06.2026}
-      \field{title}{Holybro Pixhawk 6X}
-    \endentry
-    \entry{Ko2018}{article}{}
-      \name{author}{5}{}{%
-        {{hash=e5c38b60ae281563c6334925c5e32b7d}{%
-           family={Ko},
-           familyi={K\bibinitperiod},
-           given={Nak\bibnamedelima Yong},
-           giveni={N\bibinitperiod\bibinitdelim Y\bibinitperiod}}}%
-        {{hash=96194ba726ce60c889169fd18758d910}{%
-           family={Youn},
-           familyi={Y\bibinitperiod},
-           given={Wonkeun},
-           giveni={W\bibinitperiod}}}%
-        {{hash=5766fba07e5f150c3186d2ed97fd8ca9}{%
-           family={Choi},
-           familyi={C\bibinitperiod},
-           given={In\bibnamedelima Ho},
-           giveni={I\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
-        {{hash=834bc0824945ad46bb4237af8fcbeb37}{%
-           family={Song},
-           familyi={S\bibinitperiod},
-           given={Gyeongsub},
-           giveni={G\bibinitperiod}}}%
-        {{hash=ee617ba89509a340d9eda824b945169f}{%
-           family={Kim},
-           familyi={K\bibinitperiod},
-           given={Tae\bibnamedelima Sik},
-           giveni={T\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {MDPI AG}%
-      }
-      \strng{namehash}{a4e73360316c89c960965f44afdc0e98}
-      \strng{fullhash}{786a3de92dbad58f2dcddcb05d904683}
-      \strng{bibnamehash}{786a3de92dbad58f2dcddcb05d904683}
-      \strng{authorbibnamehash}{786a3de92dbad58f2dcddcb05d904683}
-      \strng{authornamehash}{a4e73360316c89c960965f44afdc0e98}
-      \strng{authorfullhash}{786a3de92dbad58f2dcddcb05d904683}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{issn}{1424-8220}
-      \field{journaltitle}{Sensors}
-      \field{month}{8}
-      \field{number}{9}
-      \field{title}{Features of Invariant Extended Kalman Filter Applied to Unmanned Aerial Vehicle Navigation}
-      \field{volume}{18}
-      \field{year}{2018}
-      \field{pages}{2855}
-      \range{pages}{1}
-      \verb{doi}
-      \verb 10.3390/s18092855
-      \endverb
-    \endentry
-    \entry{px4_architecture}{misc}{}
-      \name{author}{1}{}{%
-        {{hash=b52b778c63203841cf2cbbd45551085d}{%
-           family={{PX4 Development Team}},
-           familyi={P\bibinitperiod}}}%
-      }
-      \strng{namehash}{b52b778c63203841cf2cbbd45551085d}
-      \strng{fullhash}{b52b778c63203841cf2cbbd45551085d}
-      \strng{bibnamehash}{b52b778c63203841cf2cbbd45551085d}
-      \strng{authorbibnamehash}{b52b778c63203841cf2cbbd45551085d}
-      \strng{authornamehash}{b52b778c63203841cf2cbbd45551085d}
-      \strng{authorfullhash}{b52b778c63203841cf2cbbd45551085d}
-      \field{extraname}{3}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{howpublished}{\url{https://docs.px4.io/main/en/concept/architecture.html}}
-      \field{note}{Abgerufen am 07.06.2026}
-      \field{title}{{PX4 Architectural Overview}}
-      \field{year}{2025}
-    \endentry
-    \entry{MAVLink}{misc}{}
-      \name{author}{1}{}{%
-        {{hash=064e5723b786627483d345a99909d5b6}{%
-           family={{MAVLink Development Team}},
-           familyi={M\bibinitperiod}}}%
-      }
-      \strng{namehash}{064e5723b786627483d345a99909d5b6}
-      \strng{fullhash}{064e5723b786627483d345a99909d5b6}
-      \strng{bibnamehash}{064e5723b786627483d345a99909d5b6}
-      \strng{authorbibnamehash}{064e5723b786627483d345a99909d5b6}
-      \strng{authornamehash}{064e5723b786627483d345a99909d5b6}
-      \strng{authorfullhash}{064e5723b786627483d345a99909d5b6}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{howpublished}{\url{https://mavlink.io/en/}}
-      \field{note}{Erstveröffentlichung 2009 durch Lorenz Meier; abgerufen am 07.06.2026}
-      \field{title}{{MAVLink Developer Guide}}
-      \field{year}{2009}
-    \endentry
-    \entry{px4_mavlink}{misc}{}
-      \name{author}{1}{}{%
-        {{hash=b52b778c63203841cf2cbbd45551085d}{%
-           family={{PX4 Development Team}},
-           familyi={P\bibinitperiod}}}%
-      }
-      \strng{namehash}{b52b778c63203841cf2cbbd45551085d}
-      \strng{fullhash}{b52b778c63203841cf2cbbd45551085d}
-      \strng{bibnamehash}{b52b778c63203841cf2cbbd45551085d}
-      \strng{authorbibnamehash}{b52b778c63203841cf2cbbd45551085d}
-      \strng{authornamehash}{b52b778c63203841cf2cbbd45551085d}
-      \strng{authorfullhash}{b52b778c63203841cf2cbbd45551085d}
-      \field{extraname}{4}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{howpublished}{\url{https://docs.px4.io/main/en/middleware/mavlink.html}}
-      \field{note}{Abgerufen am 07.06.2026}
-      \field{title}{{MAVLink Messaging -- PX4 Autopilot Documentation}}
-      \field{year}{2025}
-    \endentry
-    \entry{px4_ulog}{misc}{}
-      \name{author}{1}{}{%
-        {{hash=b52b778c63203841cf2cbbd45551085d}{%
-           family={{PX4 Development Team}},
-           familyi={P\bibinitperiod}}}%
-      }
-      \strng{namehash}{b52b778c63203841cf2cbbd45551085d}
-      \strng{fullhash}{b52b778c63203841cf2cbbd45551085d}
-      \strng{bibnamehash}{b52b778c63203841cf2cbbd45551085d}
-      \strng{authorbibnamehash}{b52b778c63203841cf2cbbd45551085d}
-      \strng{authornamehash}{b52b778c63203841cf2cbbd45551085d}
-      \strng{authorfullhash}{b52b778c63203841cf2cbbd45551085d}
-      \field{extraname}{5}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{howpublished}{\url{https://docs.px4.io/main/en/dev_log/ulog_file_format.html}}
-      \field{note}{Abgerufen am 07.06.2026}
-      \field{title}{{ULog File Format -- PX4 Autopilot Documentation}}
-      \field{year}{2025}
-    \endentry
-    \entry{px4_flight_reporting}{misc}{}
-      \name{author}{1}{}{%
-        {{hash=b52b778c63203841cf2cbbd45551085d}{%
-           family={{PX4 Development Team}},
-           familyi={P\bibinitperiod}}}%
-      }
-      \strng{namehash}{b52b778c63203841cf2cbbd45551085d}
-      \strng{fullhash}{b52b778c63203841cf2cbbd45551085d}
-      \strng{bibnamehash}{b52b778c63203841cf2cbbd45551085d}
-      \strng{authorbibnamehash}{b52b778c63203841cf2cbbd45551085d}
-      \strng{authornamehash}{b52b778c63203841cf2cbbd45551085d}
-      \strng{authorfullhash}{b52b778c63203841cf2cbbd45551085d}
-      \field{extraname}{6}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{howpublished}{\url{https://docs.px4.io/main/en/getting_started/flight_reporting.html}}
-      \field{note}{Abgerufen am 07.06.2026}
-      \field{title}{{Flight Reporting -- PX4 Autopilot Documentation}}
-      \field{year}{2025}
-    \endentry
-    \entry{RANSAC_Fischler1987}{inbook}{}
+    \entry{RANSAC_Fischler1981}{book}{}
       \name{author}{2}{}{%
         {{hash=53af7a5ea8715d6c3922933be034062f}{%
            family={Fischler},
@@ -816,7 +944,7 @@
       \field{booktitle}{Readings in Computer Vision}
       \field{isbn}{9780080515816}
       \field{title}{Random Sample Consensus: A Paradigm for Model Fitting with Applications to Image Analysis and Automated Cartography}
-      \field{year}{1987}
+      \field{year}{1981}
       \field{pages}{726\bibrangedash 740}
       \range{pages}{15}
       \verb{doi}
@@ -959,8 +1087,8 @@
       \strng{authorbibnamehash}{2b93b076cd4766a7164acbba340ebb0c}
       \strng{authornamehash}{2b93b076cd4766a7164acbba340ebb0c}
       \strng{authorfullhash}{319543a9a05a7d3110354b0e77fb574c}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{2662-1363}
@@ -1151,6 +1279,69 @@
       \endverb
       \keyw{Location awareness;Visualization;Simultaneous localization and mapping;Real-time systems;Hardware;Complexity theory;Mobile robots;Simultaneous Localization and Mapping;Deep Learning Visual Odometry;Features;Localization;Mapping;Local Bundle Adjustment;Extended Kalman Filter}
     \endentry
+    \entry{CAI2024127760_core_modules_slam}{article}{}
+      \name{author}{6}{}{%
+        {{hash=c0fb0e97bbe68cad763a8e7f5c8d97d9}{%
+           family={Cai},
+           familyi={C\bibinitperiod},
+           given={Dupeng},
+           giveni={D\bibinitperiod}}}%
+        {{hash=23ab5ab77febd7209f4236130fc79811}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Ruoqing},
+           giveni={R\bibinitperiod}}}%
+        {{hash=5b1b8abf90087af91842785abef93392}{%
+           family={Hu},
+           familyi={H\bibinitperiod},
+           given={Zhuhua},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=388339acf6d209ea2f6dfb8c3a605dc3}{%
+           family={Lu},
+           familyi={L\bibinitperiod},
+           given={Junlin},
+           giveni={J\bibinitperiod}}}%
+        {{hash=bdc284c8ef8bcf1cb6af181afe9e54c2}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Shijiang},
+           giveni={S\bibinitperiod}}}%
+        {{hash=9180952e76327f0d2a2bc849cf4fe88e}{%
+           family={Zhao},
+           familyi={Z\bibinitperiod},
+           given={Yaochi},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \strng{namehash}{5f0619841020e468c25afad60a614d1f}
+      \strng{fullhash}{c7e838524599fd5df0d661fc41d28306}
+      \strng{bibnamehash}{c7e838524599fd5df0d661fc41d28306}
+      \strng{authorbibnamehash}{c7e838524599fd5df0d661fc41d28306}
+      \strng{authornamehash}{5f0619841020e468c25afad60a614d1f}
+      \strng{authorfullhash}{c7e838524599fd5df0d661fc41d28306}
+      \field{extraname}{1}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Visual Simultaneous Localization and Mapping (VSLAM) technology has become a key technology in autonomous driving and robot navigation. Relying on camera sensors, VSLAM can provide a richer and more precise perception means, and its advancement has accelerated in recent years. However, current review studies are often limited to in-depth analysis of a specific module and lack a comprehensive review of the entire VSLAM framework. The VSLAM system consists of five core components: (1) The camera sensor module is responsible for capturing visual information about the surrounding environment. (2) The front-end module uses image data to roughly estimate the camera’s position and orientation. (3) The back-end module optimizes and processes the pose information estimated by the front-end. (4) The loop detection module is used to correct accumulated errors in the system. (5) The mapping module is responsible for generating environmental maps. This review provides a systematic and comprehensive analysis of the SLAM framework by taking the core components of VSLAM as the entry point. Deep learning brings new development opportunities for VSLAM, but it still needs to solve the problems of data dependence, cost and real-time in practical application. We deeply explore the challenges of combining VSLAM with deep learning and feasible solutions. This review provides a valuable reference for the development of VSLAM. This will help push VSLAM technology to become smarter and more efficient. Thus, it can better meet the needs of future intelligent autonomous systems in multiple fields.}
+      \field{issn}{0925-2312}
+      \field{journaltitle}{Neurocomputing}
+      \field{title}{A comprehensive overview of core modules in visual SLAM framework}
+      \field{volume}{590}
+      \field{year}{2024}
+      \field{pages}{127760}
+      \range{pages}{1}
+      \verb{doi}
+      \verb https://doi.org/10.1016/j.neucom.2024.127760
+      \endverb
+      \verb{urlraw}
+      \verb https://www.sciencedirect.com/science/article/pii/S0925231224005319
+      \endverb
+      \verb{url}
+      \verb https://www.sciencedirect.com/science/article/pii/S0925231224005319
+      \endverb
+      \keyw{Visual SLAM,SLAM framework,Localization and mapping,Navigation,Environmental sensing}
+    \endentry
     \entry{gong_loop_closure}{misc}{}
       \name{author}{1}{}{%
         {{hash=affdab3a604f89e98e239aa8dab684cf}{%
@@ -1281,6 +1472,7 @@
       \strng{authorbibnamehash}{c7e838524599fd5df0d661fc41d28306}
       \strng{authornamehash}{5f0619841020e468c25afad60a614d1f}
       \strng{authorfullhash}{c7e838524599fd5df0d661fc41d28306}
+      \field{extraname}{2}
       \field{sortinit}{7}
       \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
@@ -1335,8 +1527,8 @@
       \strng{authorbibnamehash}{f3e557e3175be5bfd7ac82a67d76426e}
       \strng{authornamehash}{64357f2b478ba206a20e1cef46a7ec2d}
       \strng{authorfullhash}{f3e557e3175be5bfd7ac82a67d76426e}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{International Journal of Robotic Research - IJRR}
@@ -1367,8 +1559,8 @@
       \strng{authorbibnamehash}{44074d3cb57c174a8b15ccc9a576ac0d}
       \strng{authornamehash}{44074d3cb57c174a8b15ccc9a576ac0d}
       \strng{authorfullhash}{44074d3cb57c174a8b15ccc9a576ac0d}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Factor Graphs and {GTSAM}: A Hands-on Introduction}
@@ -1400,8 +1592,8 @@
       \strng{authorbibnamehash}{4881dcc47c24cb2150e496066d0b1461}
       \strng{authornamehash}{4881dcc47c24cb2150e496066d0b1461}
       \strng{authorfullhash}{4881dcc47c24cb2150e496066d0b1461}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{eprintclass}{cs.RO}
@@ -1439,8 +1631,8 @@
       \strng{authorbibnamehash}{e77c05ad6f12ef1e1fd1cba7c2771650}
       \strng{authornamehash}{e77c05ad6f12ef1e1fd1cba7c2771650}
       \strng{authorfullhash}{e77c05ad6f12ef1e1fd1cba7c2771650}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{LiDAR-based SLAM for robotic mapping: state of the art and new frontiers}
@@ -1493,8 +1685,8 @@
       \strng{authorbibnamehash}{1706de37ec1c6e8f22081681f5edb0cd}
       \strng{authornamehash}{288f14f017934f36c50a3331f71e78c6}
       \strng{authorfullhash}{1706de37ec1c6e8f22081681f5edb0cd}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{1573-0409}
@@ -1592,8 +1784,8 @@
       \strng{authorbibnamehash}{094486b9bf66b2d238e3937cc49fca84}
       \strng{authornamehash}{094486b9bf66b2d238e3937cc49fca84}
       \strng{authorfullhash}{094486b9bf66b2d238e3937cc49fca84}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{2005 IEEE Computer Society Conference on Computer Vision and Pattern Recognition (CVPR 05)}
@@ -1621,8 +1813,8 @@
       \strng{authorbibnamehash}{8f743eebb2f64f75592e54ba06f94320}
       \strng{authornamehash}{8f743eebb2f64f75592e54ba06f94320}
       \strng{authorfullhash}{8f743eebb2f64f75592e54ba06f94320}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{2011 IEEE International Conference on Robotics and Automation}
@@ -1634,39 +1826,6 @@
       \verb 10.1109/ICRA.2011.5979561
       \endverb
       \keyw{Encoding;Visualization;Robustness;Payloads;Detectors;Image segmentation;Robots}
-    \endentry
-    \entry{Wang7759617}{inproceedings}{}
-      \name{author}{2}{}{%
-        {{hash=91b0ceddefe1df2be88f9c70c4507e4b}{%
-           family={Wang},
-           familyi={W\bibinitperiod},
-           given={John},
-           giveni={J\bibinitperiod}}}%
-        {{hash=8f743eebb2f64f75592e54ba06f94320}{%
-           family={Olson},
-           familyi={O\bibinitperiod},
-           given={Edwin},
-           giveni={E\bibinitperiod}}}%
-      }
-      \strng{namehash}{8f9eb108db0b2c60537d5a530b64d28a}
-      \strng{fullhash}{8f9eb108db0b2c60537d5a530b64d28a}
-      \strng{bibnamehash}{8f9eb108db0b2c60537d5a530b64d28a}
-      \strng{authorbibnamehash}{8f9eb108db0b2c60537d5a530b64d28a}
-      \strng{authornamehash}{8f9eb108db0b2c60537d5a530b64d28a}
-      \strng{authorfullhash}{8f9eb108db0b2c60537d5a530b64d28a}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{booktitle}{2016 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)}
-      \field{title}{AprilTag 2: Efficient and robust fiducial detection}
-      \field{year}{2016}
-      \field{pages}{4193\bibrangedash 4198}
-      \range{pages}{6}
-      \verb{doi}
-      \verb 10.1109/IROS.2016.7759617
-      \endverb
-      \keyw{Detectors;Image edge detection;Image segmentation;Robustness;Robots;Decoding;Visualization}
     \endentry
     \entry{GARRIDOJURADO20142280}{article}{}
       \name{author}{4}{}{%
@@ -1790,6 +1949,67 @@
       \endverb
       \verb{url}
       \verb https://www.seeedstudio.com/reComputer-Mini-J3011-p-6356.html
+      \endverb
+    \endentry
+    \entry{pichler_redpower_xt5400}{online}{}
+      \name{author}{1}{}{%
+        {{hash=58b0113f41097b8f191a815affbf2856}{%
+           family={{PICHLER GmbH}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{58b0113f41097b8f191a815affbf2856}
+      \strng{fullhash}{58b0113f41097b8f191a815affbf2856}
+      \strng{bibnamehash}{58b0113f41097b8f191a815affbf2856}
+      \strng{authorbibnamehash}{58b0113f41097b8f191a815affbf2856}
+      \strng{authornamehash}{58b0113f41097b8f191a815affbf2856}
+      \strng{authorfullhash}{58b0113f41097b8f191a815affbf2856}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{LiPo Akku RED POWER XT 5400 -- 14,8\,V}
+      \field{urlday}{14}
+      \field{urlmonth}{6}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://pichler.de/LiPo-Akku-RED-POWER-XT-5400-148V
+      \endverb
+      \verb{url}
+      \verb https://pichler.de/LiPo-Akku-RED-POWER-XT-5400-148V
+      \endverb
+    \endentry
+    \entry{holybro_pm02}{online}{}
+      \name{author}{1}{}{%
+        {{hash=d46501ffe44acace5a42144aac4ae5ca}{%
+           family={{Holybro}},
+           familyi={H\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {{PX4} User Guide}%
+      }
+      \strng{namehash}{d46501ffe44acace5a42144aac4ae5ca}
+      \strng{fullhash}{d46501ffe44acace5a42144aac4ae5ca}
+      \strng{bibnamehash}{d46501ffe44acace5a42144aac4ae5ca}
+      \strng{authorbibnamehash}{d46501ffe44acace5a42144aac4ae5ca}
+      \strng{authornamehash}{d46501ffe44acace5a42144aac4ae5ca}
+      \strng{authorfullhash}{d46501ffe44acace5a42144aac4ae5ca}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Abgerufen am 14.~Juni~2026}
+      \field{title}{{PM02} (V3) Power Module}
+      \field{urlday}{14}
+      \field{urlmonth}{6}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://docs.px4.io/main/en/power_module/holybro_pm02.html
+      \endverb
+      \verb{url}
+      \verb https://docs.px4.io/main/en/power_module/holybro_pm02.html
       \endverb
     \endentry
     \entry{aerodrohm}{online}{}
@@ -2081,12 +2301,6 @@
       \keyw{Cameras;Calibration;Computer vision;Layout;Lenses;Nonlinear distortion;Closed-form solution;Maximum likelihood estimation;Computer simulation;Testing}
     \endentry
   \enddatalist
-  \missing{ROS2Humble}
-  \missing{ali_camera}
-  \missing{holybro_pdb}
-  \missing{holybro_pm02}
-  \missing{pichler_lipo}
-  \missing{vslam_core_modules_2024}
 \endrefsection
 \endinput
 

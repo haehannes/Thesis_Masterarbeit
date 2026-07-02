@@ -427,8 +427,8 @@ first={VIO},%
 firstplural={VIOs},%
 text={VIO},%
 plural={VIOs},%
-description={Visuelle inertial odometrie},%
-descriptionplural={Visuelle inertial odometrie},%
+description={Visuell-inertiale Odometrie},%
+descriptionplural={Visuell-inertiale Odometrie},%
 symbol={\relax },%
 symbolplural={\relax },%
 user1={},%
@@ -437,8 +437,8 @@ user3={},%
 user4={},%
 user5={},%
 user6={},%
-long={Visuelle inertial odometrie},%
-longplural={Visuelle inertial odometries},%
+long={Visuell-inertiale Odometrie},%
+longplural={Visuell-inertiale Odometries},%
 short={VIO},%
 shortplural={VIOs},%
 counter={page},%
@@ -1197,6 +1197,34 @@ long={Rot-Grün-Blau},%
 longplural={Rot-Grün-Blaus},%
 short={RGB},%
 shortplural={RGBs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{pwm}%
+{%
+name={\acronymfont {\glsentryshort {pwm}}},%
+sort={PWM},%
+type={acronym},%
+first={PWM},%
+firstplural={PWMs},%
+text={PWM},%
+plural={PWMs},%
+description={Pulsweitenmodulation},%
+descriptionplural={Pulsweitenmodulation},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Pulsweitenmodulation},%
+longplural={Pulsweitenmodulations},%
+short={PWM},%
+shortplural={PWMs},%
 counter={page},%
 parent={},%
 %

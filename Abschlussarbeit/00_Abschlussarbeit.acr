@@ -114,10 +114,13 @@
 \glsgroupheading{O}\relax\glsresetentrylist
 \glossentry{oic}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{26}\delimN 
-\glsXpageXglsnumberformat{}{62}}}\relax\glsresetentrylist
+\glsXpageXglsnumberformat{}{61}}}\relax\glsresetentrylist
 \glossentry{orb-slam3}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{18}}}\glsgroupskip
 \glsgroupheading{P}\relax\glsresetentrylist
+\glossentry{pwm}{\glossaryentrynumbers{\relax 
+\glsXpageXglsnumberformat{}{5}\delimN 
+\glsXpageXglsnumberformat{}{24}}}\relax\glsresetentrylist
 \glossentry{px4}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{3}\delimR 
 \glsXpageXglsnumberformat{}{5}\delimN 
@@ -134,6 +137,7 @@
 \glsgroupheading{R}\relax\glsresetentrylist
 \glossentry{ransac}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{12}\delimN 
+\glsXpageXglsnumberformat{}{13}\delimN 
 \glsXpageXglsnumberformat{}{46}}}\relax\glsresetentrylist
 \glossentry{rgb}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{32}}}\relax\glsresetentrylist
@@ -143,6 +147,7 @@
 \glsXpageXglsnumberformat{}{21}\delimN 
 \glsXpageXglsnumberformat{}{31}\delimN 
 \glsXpageXglsnumberformat{}{35}\delimN 
+\glsXpageXglsnumberformat{}{38}\delimN 
 \glsXpageXglsnumberformat{}{41}\delimN 
 \glsXpageXglsnumberformat{}{42}\delimN 
 \glsXpageXglsnumberformat{}{45}}}\glsgroupskip
@@ -158,8 +163,8 @@
 \glsXpageXglsnumberformat{}{44}\delimN 
 \glsXpageXglsnumberformat{}{45}\delimN 
 \glsXpageXglsnumberformat{}{47}\delimN 
-\glsXpageXglsnumberformat{}{62}\delimN 
-\glsXpageXglsnumberformat{}{63}, 
+\glsXpageXglsnumberformat{}{61}\delimN 
+\glsXpageXglsnumberformat{}{62}, 
 \glsXpageXglsnumberformat{}{III}}}\relax\glsresetentrylist
 \glossentry{slerp}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{9}\delimN 

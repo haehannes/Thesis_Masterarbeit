@@ -302,7 +302,7 @@ also der Punkt auf dem Bildsensor, an dem die optische Achse senkrecht auftrifft
 Idealerweise läge dieser in der Bildmitte (bei $960;\ 540$), die reale Lage
 weicht jedoch fertigungsbedingt geringfügig davon ab.
 
-Der \textbf{Verzeichnungsvektor} (Geichung~\ref{eq:verzeichnungsvektor}) beschreibt, wie stark das reale Objektiv vom
+Der \textbf{Verzeichnungsvektor} (Gleichung~\ref{eq:verzeichnungsvektor}) beschreibt, wie stark das reale Objektiv vom
 idealen Lochkameramodell abweicht, in der Reihenfolge $(k_1, k_2, p_1, p_2, k_3)$~\cite{Bradski2008}.
 Die radialen Koeffizienten $k_1, k_2, k_3$ erfassen die zur Bildmitte symmetrische Verzeichnung, die durch die Krümmung der Linse entsteht~\cite{Bradski2008}.
 Sie bewirkt, dass gerade Linien zum Bildrand hin zunehmend gekrümmt erscheinen, während die Bildmitte nahezu unverzeichnet bleibt~\cite{Bradski2008}.
@@ -332,7 +332,7 @@ Die Implementierung der Kartierung wird am Beispiel der Logitech~C922 im Folgend
 Die Bildaufnahme erfolgt über einen gscam-Knoten, der in das Launch-File der ersten Stufe eingebunden ist.
 Die wichtigsten Einstellungen sind die Auflösung von $1920 \times 1080$ Pixeln und die Bildfrequenz von $15$ \gls{fps}.
 Die Bildfrequenz ist bewusst niedrig gewählt, um die Dekodierung durch \texttt{jpegdec} auf der CPU nicht zu überfordern und eine stabile Bildrate zu erhalten.
-Über den Parameter \texttt{camera\_info\_url} werden die zuvor ermittelten Kalibrierparameter geladen, die zusammen mit dem Bild auf den Topics \texttt{/camera/image\_raw} und \texttt{/camera/camera\_info} von gscam veröffentlicht werden.
+Über den Parameter \texttt{camera\_info\_url} werden die zuvor ermittelten Kalibrierparameter geladen, die zusammen mit dem Bild auf den Topics \texttt{/camera/image\_raw} und \texttt{/camera/camera\_rect} von gscam veröffentlicht werden.
 Im Anschluss an die Aufnahme werden die Bilder direkt entzerrt.
 
 \subsection{Entzerrung}
@@ -368,8 +368,7 @@ Dieser benötigt zwei Konfigurationsdateien, auf diese wird in Abschnitt \ref{se
 Die Datei \texttt{cameras.yaml} enthält die Intrinsics der Kamera.
 Da der Knoten auf dem bereits entzerrten Bild \topic{/camera/image_rect} arbeitet, werden hier die Werte der Projektionsmatrix aus 
 Abschnitt~\ref{sec:Kamera_Kalibrierung} eingetragen und die Verzeichnungskoeffizienten entsprechend des vorherigen Kapitels auf null gesetzt.
-Neben den Intrinsics legt die Datei die Auflösung, die verwendeten Topics (\texttt{image\_topic}, \texttt{camera\_info\_topic}, 
-\texttt{tag\_topic}) fest.
+Neben den Intrinsics legt die Datei die Auflösung und die verwendeten Topics (\texttt{image\_topic}, \texttt{camera\_info\_topic}, \texttt{tag\_topic}) fest.
 Aus der Tag\gls{slam}-Konfiguration \texttt{tagslam.yaml} liest der Knoten die Liste der bekannten Marker mit ihren 
 Identifikationsnummern und physischen Größen aus.
 Diese Information macht es möglich, Karten mit verschieden großen Tags aufzunehmen. 
@@ -382,7 +381,7 @@ Die Detektionen werden zusammen mit den Bildern, den Kameraparametern, den stati
 und der Zeit aus dem Eingangs-Bag (anstelle der Systemzeit) in einem zweiten, kombinierten Bag aufgezeichnet:
 \begin{itemize}
 \item \topic{/camera/image_rect} -- das entzerrte Bild,
-\item \topic{/camera/camera_info} -- die zugehörigen Kameraparameter,
+\item \topic{/camera/camera_info_rect} -- die zugehörigen Kameraparameter,
 \item \topic{/tagslam/tag_detections} -- die Markerdetektionen,
 \item \topic{/tf_static} -- die statischen Koordinatentransformationen,
 \item \topic{/clock} -- die Zeit aus dem Eingangs-Bag, anstelle der Systemzeit.
@@ -397,12 +396,12 @@ Dieser kombinierte Bag enthält alle Eingangsdaten für die nachfolgende Kartene
 \label{sec:kartierung_konfiguration_tagslam}
 Die eigentliche Karte wird mit dem Knoten \texttt{tagslam\_from\_bag} aus dem Paket Tag\gls{slam} erstellt.
 Dieser liest den kombinierten Bag aus der vorigen Stufe ein und schätzt aus den enthaltenen Markerdetektionen die Lage aller Marker zueinander.
-Die Optimierung der Karte erfolgt nach dem in den Abschnit~\ref{sec:Faktorgraph} beschriebenen Prinzip.
+Die Optimierung der Karte erfolgt nach dem im Abschnitt~\ref{sec:Faktorgraph} beschriebenen Prinzip.
 Dieser Knoten ist ausschließlich für \gls{ros2} Jazzy implementiert und setzt diese Version zwingend voraus.
 
 Der Knoten benötigt drei Konfigurationsdateien: \texttt{cameras.yaml} mit den Kamera-Intrinsics, \texttt{camera\_poses.yaml} mit der Pose 
 der Kamera sowie \texttt{tagslam.yaml} mit den Parametern der Optimierung und den Startwerten der Marker.
-Die Datei \texttt{cameras.yaml} entspricht der bereits in Abschnitt~\ref{sec:kartierung_bildaufnahme} beschriebenen Datei.
+Die Datei \texttt{cameras.yaml} entspricht der bereits in Abschnitt~\ref{sec:offline_detektion_apriltags} beschriebenen Datei.
 
 %\subsubsection{Konfiguration der Kamerapose in TagSLAM}
 Die Datei \texttt{camera\_poses.yaml} gibt über eine $6 \times 6$-Kovarianzmatrix \texttt{R} an, wie starr die Kamera während der Kartierung gehalten wird.
@@ -413,7 +412,7 @@ Ein großer Wert entspricht einer großen Unsicherheit, sodass die vorgegebene N
 und die Kamerapose allein aus den Markerbeobachtungen bestimmt wird.
 
 %\subsubsection{Konfiguration der Optimierung in TagSLAM}
-Die Datei \texttt{tagslam.yaml} enthält neben den bereits in Abschnitt~\ref{sec:kartierung_entzerrung} beschriebenen Angaben 
+Die Datei \texttt{tagslam.yaml} enthält neben den bereits in Abschnitt~\ref{sec:offline_detektion_apriltags} beschriebenen Angaben 
 (Tag-Identifikationsnummer und zugehörige Größe) die Parameter der Optimierung.
 Die wesentlichen Parameter sind in Tabelle~\ref{tab:tagslam_params} zusammengefasst.
 
@@ -442,7 +441,7 @@ Die wesentlichen Parameter sind in Tabelle~\ref{tab:tagslam_params} zusammengefa
 Für jeden Marker werden eine Startlage sowie das zugehörige Positions- und Rotationsrauschen (\texttt{position\_noise}, 
 \texttt{rotation\_noise}) jeweils für alle drei Achsen angegeben.
 Das Rauschen bestimmt, wie stark ein Marker an seine vorgegebene Lage gebunden wird. 
-Ein kleines Rauschen hält den Marker nahezu fest an der angegeben Position, ein großes Rauschen lässt seine Lage während der Optimierung frei.
+Ein kleines Rauschen hält den Marker nahezu fest an der angegebenen Position, ein großes Rauschen lässt seine Lage während der Optimierung frei.
 Über den Eintrag \texttt{fixed: true} kann ein Marker vollständig fixiert werden.
 
 Auf diese Weise wird ein Marker als fester Ursprung definiert, der als globale Referenz dient, auf die alle übrigen Marker bezogen werden.
@@ -473,7 +472,7 @@ tags:
 \end{lstlisting}
 
 
-Die von Tag\gls{slam} erzeugte Karte ist im selben ROS-standardisierten ENU-Weltkoordinatensystem angelegt, dem auch die in Abschnitt~\ref{sec:pos_detektion_apriltags} beschriebene Positionierung folgt.
+Die von Tag\gls{slam} erzeugte Karte ist im selben ROS-standardisierten ENU-Weltkoordinatensystem angelegt, dem auch die in Kapitel~\ref{cap:implementierung_positionsbestimmung} beschriebene Positionierung folgt.
 Die Position eines Markers ist in Metern relativ zum Ursprung angegeben, die Orientierung im Rodrigues-Format als Rotationsvektor
 (siehe Abschnitt~\ref{sec:rodrigues_parameter}).
 Das zu jedem Marker ausgegebene Rauschen beschreibt die verbleibende Unsicherheit der geschätzten Lage und bildet die Referenz für die spätere Lokalisierung.

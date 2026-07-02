@@ -19,9 +19,9 @@
 \contentsline {section}{\numberline {2.4}Vergleich von Welt-, Roboter-, Kamera- und Fiducialkoordinatensystem}{5}{section.2.4}%
 \contentsline {section}{\numberline {2.5}Repräsentation von Position und Orientierung}{6}{section.2.5}%
 \contentsline {subsection}{\numberline {2.5.1}Quaternionen}{7}{subsection.2.5.1}%
-\contentsline {subsection}{\numberline {2.5.2}Mittelung von Quaternionen}{8}{subsection.2.5.2}%
+\contentsline {subsection}{\numberline {2.5.2}Mittelung von Quaternionen}{9}{subsection.2.5.2}%
 \contentsline {subsection}{\numberline {2.5.3}Sphärische lineare Interpolation von Quaternionen}{9}{subsection.2.5.3}%
-\contentsline {subsection}{\numberline {2.5.4}Rodrigues-Parameter}{9}{subsection.2.5.4}%
+\contentsline {subsection}{\numberline {2.5.4}Rodrigues-Parameter}{10}{subsection.2.5.4}%
 \contentsline {section}{\numberline {2.6}Transformation von Koordinatensystemen}{10}{section.2.6}%
 \contentsline {section}{\numberline {2.7}Extended Kalman Filter}{11}{section.2.7}%
 \contentsline {section}{\numberline {2.8}Random Sample Consensus (RANSAC)}{12}{section.2.8}%
@@ -80,11 +80,11 @@
 \contentsline {section}{\numberline {7.2}Konfiguration der Kartierung}{52}{section.7.2}%
 \contentsline {section}{\numberline {7.3}Durchführung der Kartierung}{52}{section.7.3}%
 \contentsline {section}{\numberline {7.4}Evaluation der Kartierung}{52}{section.7.4}%
-\contentsline {section}{\numberline {7.5}Konfiguration der Positionierung}{52}{section.7.5}%
+\contentsline {section}{\numberline {7.5}Konfiguration der Positionierung}{53}{section.7.5}%
 \contentsline {section}{\numberline {7.6}Durchführung der Positionierung}{53}{section.7.6}%
-\contentsline {section}{\numberline {7.7}Evalution der Positionierung}{53}{section.7.7}%
+\contentsline {section}{\numberline {7.7}Evaluation der Positionierung}{53}{section.7.7}%
 \contentsline {chapter}{\numberline {8}Test}{54}{chapter.8}%
 \contentsline {section}{\numberline {8.1}Test2}{54}{section.8.1}%
 \contentsline {chapter}{\numberline {9}Zusammenfassung und Ausblick}{55}{chapter.9}%
-\contentsline {chapter}{\numberline {10}Anhang}{65}{chapter.10}%
+\contentsline {chapter}{\numberline {10}Anhang}{64}{chapter.10}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

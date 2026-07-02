@@ -17,11 +17,13 @@ Damit \gls{px4} diesen Wechsel akzeptiert, streamt die Konsole von Beginn an kon
 Sobald sich \gls{px4} nicht mehr im Offboard-Modus befindet, stellt die Konsole das Senden ein und übergibt die Kontrolle vollständig an den Piloten.
 Da die Konsole intern in der ENU-Konvention der Karte arbeitet, werden die Sollwerte vor dem Senden nach NED gedreht und die angezeigte Position entsprechend zurückgerechnet.
 
-Die Konsole empfängt von \gls{px4} den Fahrzeugstatus auf \topic{/fmu/out/vehicle_status_v1} (unter anderem Arm-Zustand und Navigationsmodus), die aktuelle Position auf \topic{/fmu/out/vehicle_local_position} sowie die Bodenkontakterkennung auf \topic{/fmu/out/vehicle_land_detected}.
-Die Kamerabilder werden zur Verfügbarkeitsanzeige auf \topic{/camera_1/image_raw} und \topic{/camera_2/image_raw} sowie den zugehörigen entzerrten Topics \topic{/camera_1/image_rect} und \topic{/camera_2/image_rect} abonniert.
-An \gls{px4} sendet die Konsole den Positions-Sollwert auf \topic{/fmu/in/trajectory_setpoint} und den zugehörigen Offboard-Steuermodus auf \topic{/fmu/in/offboard_control_mode}.
-Arm- und Disarm-Befehle werden auf \topic{/fmu/in/vehicle_command} übergeben.
 
+\begin{sloppypar}
+Die Konsole empfängt von \gls{px4} den Fahrzeugstatus auf \topic{/fmu/\allowbreak out/\allowbreak vehicle_status_v1} (unter anderem Arm-Zustand und Navigationsmodus), die aktuelle Position auf \topic{/fmu/\allowbreak out/\allowbreak vehicle_local_position} sowie die Bodenkontakterkennung auf \topic{/fmu/\allowbreak out/\allowbreak vehicle_land_detected}.
+Die Kamerabilder werden zur Verfügbarkeitsanzeige auf \topic{/camera_1/\allowbreak image_raw} und \topic{/camera_2/\allowbreak image_raw} sowie den zugehörigen entzerrten Topics \topic{/camera_1/\allowbreak image_rect} und \topic{/camera_2/\allowbreak image_rect} abonniert.
+An \gls{px4} sendet die Konsole den Positions-Sollwert auf \topic{/fmu/\allowbreak in/\allowbreak trajectory_setpoint} und den zugehörigen Offboard-Steuermodus auf \topic{/fmu/\allowbreak in/\allowbreak offboard_control_mode}.
+Arm- und Disarm-Befehle werden auf \topic{/fmu/\allowbreak in/\allowbreak vehicle_command} übergeben.
+\end{sloppypar}
 
 \section{Konfiguration der Kartierung}
 --> Konfigruation der Kartierung noch anfügen und erklären.
@@ -36,7 +38,7 @@ Hier nochmal überlegen, evtl auch zusammen mit Positionierung.
 
 \section{Durchführung der Positionierung}
 
-\section{Evalution der Positionierung}
+\section{Evaluation der Positionierung}
 --> Nochmal überlegen, ob mit Kartierung zusammen oder getrennt. 
 
 

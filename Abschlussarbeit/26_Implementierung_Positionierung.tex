@@ -2,7 +2,7 @@
 \chapter{Implementierung der Positionierung}
 \label{cap:implementierung_positionsbestimmung}
 Dieses Kapitel beschreibt die im Flug ablaufende Positionsbestimmung des Multikopters.
-Im Gegensatz zur Kartierung (Kapitel~\ref{cap:kartierung}) läuft die Verarbeitung hier zur Laufzeit auf dem Companion-Computer.
+Im Gegensatz zur Kartierung (Kapitel~\ref{cap:implementierung_kartierung}) läuft die Verarbeitung hier zur Laufzeit auf dem Companion-Computer.
 Die Kette folgt dem in Abschnitt~\ref{sec:softwarearchitektur} dargestellten Datenfluss: Bildaufnahme, Entzerrung, Bildverarbeitung, Positionsbestimmung, 
 Kommunikation mit der Flugsteuerung und schließlich die Flugsteuerung selbst.
 Die ersten drei Schritte entsprechen methodisch denen der Kartierung, werden aber mit höherer Bildrate und auf der GPU des Jetson ausgeführt.
@@ -60,7 +60,6 @@ Ob diese Kovarianzen überhaupt bereitgestellt werden, bestimmt der in Abschnitt
 \subsection{Höhenreferenz}
 Mit \texttt{EKF2\_HGT\_REF}${}=3$ wird die Vision als primäre Höhenquelle festgelegt.
 Das Barometer bleibt über \texttt{EKF2\_BARO\_CTRL}${}=1$ aktiv, dient jedoch nicht als Referenz, sondern lediglich als Rückfallebene bei Ausfall der Vision.
-Das Barometer wird lediglich als Rückfallebene genutzt, da es im Innenraum empfindlich auf Luftdruckschwankungen reagiert.
 So konnte bei Versuchen beobachtet werden, dass das Öffnen oder Schließen von Türen in der Halle zu Druckschwankungen und damit zu Unsicherheiten 
 in der barometrischen Höhenmessung führt.
 
@@ -76,9 +75,9 @@ Der Parameter \texttt{SYS\_HAS\_MAG}${}=1$ gibt lediglich an, dass Magnetometer-
 \section{Softwarearchitektur der Positionsbestimmung}
 \label{sec:softwarearchitektur_positionierung}
 Die Positionierung ist auf zwei Ausführungsumgebungen aufgeteilt, den Host des Compa\-nion-Compu\-ters und einen Container.
-Diese Trennung ergibt sich aus der Verwendung von Isaac~ROS für die hardwarebeschleunigten Schritte.
+Diese Trennung ergibt sich aus der Verwendung von Isaac~\gls{ros2} für die hardwarebeschleunigten Schritte.
 Die Beschleunigung ist notwendig, um der geforderten Übertragungsrate des \gls{px4} gerecht zu werden.
-Isaac~ROS ist eine von NVIDIA bereitgestellte Sammlung von ROS2-Paketen, die für die Ausführung auf den \glspl{gpu} der Jetson-Plattform optimiert sind.
+Isaac~ROS ist eine von NVIDIA bereitgestellte Sammlung von \gls{ros2}-Paketen, die für die Ausführung auf den \glspl{gpu} der Jetson-Plattform optimiert sind.
 Die Pakete werden in einem vorkonfigurierten Container ausgeführt, der die benötigten Bibliotheken und Treiber bereitstellt.
 Innerhalb dieses Containers werden die Entzerrung und die Markererkennung auf der \gls{gpu} ausgeführt, was gegenüber 
 einer CPU-basierten Verarbeitung eine höhere Bildrate ermöglicht.
@@ -329,7 +328,7 @@ Bezeichnet \glsadd{sym:aM}$a_{\mathrm{M}}$ die Kantenlänge des Markers und \gls
 
 Die Referenz-Markergröße $a_{\mathrm{ref}}$ wird über den Parameter \texttt{isaac\_reference\_size} übergeben.
 Die Orientierung bleibt dabei unberührt, da die Größe des Markers keinen Einfluss darauf hat.
-Der Isaac~Ros Detektor gibt die Orientierung in einer anderen Konvention aus als das in \textbf{Tag\gls{slam}} verwendete \gls{ros2}-Standardpaket.
+Der Isaac~\gls{ros2} Detektor gibt die Orientierung in einer anderen Konvention aus als das in \textbf{Tag\gls{slam}} verwendete \gls{ros2}-Standardpaket.
 Daher muss vor der weiteren Verarbeitung die detektierte Orientierung $^{\mathrm{C}}\mathbf{q}_{\mathrm{M}}$ durch eine feste
 Drehung um $180^\circ$ um die $x$-Achse des Markers an die Konvention der Karte angeglichen werden.
 

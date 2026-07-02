@@ -58,7 +58,7 @@ Die Sensorfusion, also die Kombination der Daten mehrerer Sensoren, ermöglicht 
 Das Pixhawk-Projekt wurde ursprünglich als studentisches Projekt an der ETH Zürich gestartet 
 \cite{MendozaMendoza2020} und hat sich seitdem zu einem weit verbreiteten Open-Source-Standard 
 in der \gls{uav}-Forschung und -Industrie entwickelt.
-Der in dieser Arbeit verwendete Pixhawk 6X basiert auf dem Pixhawk FMUv6X-Standard~\cite{px4_pixhawk6x_doc}.
+Der in dieser Arbeit verwendete Pixhawk 6X basiert auf dem Pixhawk FMU-V6X-Standard~\cite{px4_pixhawk6x_doc}.
 
 Der Flugcontroller besteht aus zwei Teilen, dem Baseboard V2A und dem FMU-6X-Modul.
 Das \gls{fmu}-Modul wird auf das Baseboard aufgesteckt und verschraubt.
@@ -145,8 +145,8 @@ Der Zustandsvektor des \gls{ekf2} umfasst 24 Zustände, darunter die Lage als Qu
 Geschwindigkeit, Position, die Bias-Werte von \gls{imu}, das 
 Erdmagnetfeld, den Magnetometer-Bias sowie die horizontale Windgeschwindigkeit~\cite{Ko2018}.
 Im Standardfall bezieht der \gls{ekf2} seine externe Positionsreferenz aus einem \gls{gnss}.
-Ziel dieser Arbeit ist es, dem \gls{ekf2} \gls{uav} stattdessen eine alternative externe Positionsschätzung bereitzustellen
-und anstelle der \gls{gnss}-Daten als Referenz in den \gls{ekf2} einzuspeisen. 
+Ziel dieser Arbeit ist es, dem \gls{ekf2} stattdessen eine alternative externe 
+Positionsschätzung bereitzustellen und diese anstelle der \gls{gnss}-Daten als Referenz einzuspeisen.
 Das Verhalten des \gls{ekf2} lässt sich über eine Reihe von Parametern konfigurieren, 
 welche unter anderem festlegen, welche Sensorquellen zur Positions- und Höhenbestimmung 
 herangezogen werden.
@@ -165,7 +165,7 @@ an den \gls{ekf} übermittelt wird.
 Die genaue Anbindung wird in Abschnitt~\ref{cap:systembeschreibung} beschrieben.
 Über den USB-Anschluss erfolgt die Parametrierung und Kalibrierung des Flugcontrollers 
 mittels der Bodenstationssoftware QGroundControl.
-Die PWM-Ausgänge des Baseboards steuern die Elektromotoren des \gls{uav} an.
+Die \gls{pwm}-Ausgänge des Baseboards steuern die Elektromotoren des \gls{uav} an.
 Darüber hinaus stehen weitere Schnittstellen wie UART, CAN, I\textsuperscript{2}C und SPI zur 
 Anbindung zusätzlicher Sensoren und Peripherie zur Verfügung, die in dieser Arbeit jedoch 
 nicht verwendet werden.~\cite{px4_pixhawk6x_doc}
@@ -210,7 +210,7 @@ Der Ursprung befindet sich im optischen Zentrum der Kamera~\cite{Szeliski2022}.
 
 Das Fiducialkoordinatensystem ist in dieser Arbeit so definiert, dass sich der Ursprung im Mittelpunkt der Fiducialmarke befindet.
 Die Z-Achse zeigt senkrecht aus der Markerebene heraus, die X-Achse verläuft nach rechts und die Y-Achse nach oben in der Markerebene.
-Die in den Kapitel~\ref{cap:implementierung_kartierung} und~\ref{cap:implementierung_positionsbestimmung} beschriebenen Implementierungen 
+Die in den Kapiteln~\ref{cap:implementierung_kartierung} und~\ref{cap:implementierung_positionsbestimmung} beschriebenen Implementierungen
 folgen der in \gls{ros2} standardisierten \gls{enu}/\gls{flu}-Konvention.
 
 

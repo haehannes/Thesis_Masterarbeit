@@ -125,8 +125,7 @@ Die Kommunikation zwischen dem Flugcontroller und der Bodenstation
 erfolgt über ein Holybro Telemetrie-Set (433\,MHz).
 Als Bodenstation dient ein Laptop mit Ubuntu~24.04.4 LTS, auf dem die 
 Bodenstationssoftware QGroundControl betrieben wird.
-Zur satellitengestützten Positionsbestimmung wäre ein Holybro M9N 
-GPS-Modul verbaut. 
+Zur satellitengestützten Positionsbestimmung ist ein Holybro M9N GPS-Modul verbaut.
 Die Verbindung zwischen dem Flugcontroller und dem Companion-Computer 
 wird über die Ethernet-Schnittstelle hergestellt, über die mittels \gls{uxrce} die 
 extern berechnete Positionsschätzung an den \gls{px4} übermittelt wird.
@@ -168,10 +167,10 @@ Bodenstation         & Laptop / QGroundControl        & --      & Ubuntu~24.04.4
 
 In Abbildung~\ref{fig:Verkabelung} ist der zuvor beschriebene Hardwareaufbau des Gesamtsystems als Blockschaltbild mit Anschlussverdrahtung dargestellt.
 Schwarze Linien kennzeichnen dabei Daten- und Signalverbindungen, rote Linien die Energieversorgung.
-Auf der Signalseite werden die drei Kameras über \gls{usb} mit dem Companion-Computer verbunden, 
+Auf der Signalseite werden die zwei Kameras über \gls{usb} mit dem Companion-Computer verbunden, 
 der die berechnete Positionsschätzung über die Ethernet-Schnittstelle an den Flugcontroller übergibt.
 Am Flugcontroller sind zudem das Telemetriemodul, das GPS-Modul sowie der Empfänger der Fernsteuerung angeschlossen.
-Die vier Motoren werden über die PWM-Ausgänge des Flugcontrollers angesteuert.
+Die vier Motoren werden über die \gls{pwm}-Ausgänge des Flugcontrollers angesteuert.
 
 Auf der Energieseite versorgt der \gls{lipo}-Akku das Gesamtsystem.
 Er ist über einen XT90-Stecker mit dem Powermodul verbunden, das die Versorgungsspannung an den Flugcontroller und das Verteilerboard weitergibt.
