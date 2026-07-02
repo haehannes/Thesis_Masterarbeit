@@ -1,7 +1,7 @@
 %!TeX root=20_Hauptteil.tex
 
 \chapter{Theoretische Grundlagen}
-
+\label{cap:theoretische_grundlagen}
 Zum besseren Verständnis der vorliegenden Arbeit werden im folgenden Kapitel die theoretischen Grundlagen erläutert.
 Es werden grundlegende Begriffe aus den Bereichen der Robotik, der Sensorik sowie der visuellen Navigation eingeführt.
 Darüber hinaus wird auf den verwendeten Flugcontroller, die zugrundeliegenden Koordinatensysteme, mathematische Grundlagen sowie die relevanten Transformationen eingegangen. 
@@ -101,19 +101,18 @@ Sie ermöglichen eine detaillierte Analyse des Systemverhaltens nach dem Flug~\c
 
 
 
-\subsection{Onbaord Sensorik}
+\subsection{Onboard-Sensorik}
 Um die Zuverlässigkeit zu erhöhen, verfügt der Pixhawk über eine dreifach redundante \gls{imu} sowie zwei redundante 
 Barometer, die auf getrennten Bussen mit unabhängiger Stromversorgung betrieben werden.
 Die Messungen der \gls{imu} bilden die Grundlage der Odometrie.
 Unter Odometrie versteht man die Schätzung der Positions- und Lageänderung eines Systems aus dessen Bewegungssensoren über die Zeit.
 Erkennt der \gls{px4} einen Sensorausfall, schaltet das System auf einen funktionierenden Sensor um, um die Flugsteuerung 
 aufrechtzuerhalten~\cite{px4_pixhawk6x_doc}.
-Erkennt der PX4 einen Sensorausfall, wechselt das System auf einen funktionierenden Sensor, um die Flugsteuerung aufrechtzuerhalten~[8].
 Die IMUs sind vibrationsisoliert gelagert und werden über Heizwiderstände auf einer konstanten Betriebstemperatur gehalten, 
 wodurch temperaturbedingte Messabweichungen reduziert werden~[8].
-Weiterhin ist zur Lagebestimmung ein Magnetometer verbaut, dieses wird in dieser Arbeit jedoch verwendet (siehe Abschnitt~\ref{sec:ekf2}).
+Weiterhin ist zur Lagebestimmung ein Magnetometer verbaut, dieses wird in dieser Arbeit jedoch nicht verwendet (siehe Abschnitt~\ref{sec:ekf2}).
 Die Sensoren sind, wie in Abschnitt~\ref{sec:sensorik} beschrieben, mit einer 
-Messunsicherheit behaftet, weshalb im \gls{ekf2} eine Sensorfusion mit externen Positionsdaten im \gls{ekf} notwendig ist.
+Messunsicherheit behaftet, weshalb im \gls{ekf2} eine Sensorfusion mit externen Positionsdaten notwendig ist.
 
 Die in der eingesetzten Revision verbauten Sensoren sind in Tabelle 
 \ref{tab:pixhawk_sensoren} aufgeführt.
@@ -186,7 +185,7 @@ Mathematisch wird der Zusammenhang durch
 \label{eq:rechte_hand_regel}
 \end{equation}
 dargestellt.
-Die Achse werden entsprechend des informellen Industriestandards wie folgt dargestellt: X-Achse in Rot, Y-Achse in Grün und Z-Achse in Blau.
+Die Achsen werden entsprechend des informellen Industriestandards wie folgt dargestellt: X-Achse in Rot, Y-Achse in Grün und Z-Achse in Blau.
 Ein Überblick über die verwendeten Koordinatensysteme ist in Abbildung~\ref{fig:Koordinatensysteme} dargestellt.
 \begin{figure}[htbp]
 \centering
@@ -211,7 +210,7 @@ Der Ursprung befindet sich im optischen Zentrum der Kamera~\cite{Szeliski2022}.
 
 Das Fiducialkoordinatensystem ist in dieser Arbeit so definiert, dass sich der Ursprung im Mittelpunkt der Fiducialmarke befindet.
 Die Z-Achse zeigt senkrecht aus der Markerebene heraus, die X-Achse verläuft nach rechts und die Y-Achse nach oben in der Markerebene.
-Die in den Kapitel~\ref{cap:kartierung} und~\ref{cap:lokalisierung} beschriebenen Implementierungen 
+Die in den Kapitel~\ref{cap:implementierung_kartierung} und~\ref{cap:implementierung_positionsbestimmung} beschriebenen Implementierungen 
 folgen der in \gls{ros2} standardisierten \gls{enu}/\gls{flu}-Konvention.
 
 
@@ -548,7 +547,7 @@ Die grundlegende Kommunikationseinheit in \gls{ros2} ist der \textit{Node}, der 
 beispielsweise die Kamerabildverarbeitung.
 Nodes tauschen Daten über \textit{Topics} nach dem Publish-Subscribe-Prinzip aus.
 Ein Node, der Daten erzeugt, veröffentlicht diese als \textit{Publisher} auf einem Topic. 
-Ein oder mehrere \textit{Subscriber}-Nodes empfangen die Nachrichten asynchron.
+Ein oder mehrere Nodes empfangen die Nachrichten über eine \textit{Subscription} asynchron.
 Topics sind typisiert, das heißt jedes Topic überträgt Nachrichten eines fest definierten Nachrichtentyps, beispielsweise 
 \texttt{geometry\_msgs/PoseStamped} für Positionsdaten oder \texttt{sensor\_msgs/Image} für Kamerabilder~\cite{ROS2Nodes,ROS2Topics}.
 

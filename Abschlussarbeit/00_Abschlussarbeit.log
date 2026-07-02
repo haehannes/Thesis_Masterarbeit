@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.11.7)  1 JUL 2026 22:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.11.7)  2 JUL 2026 09:47
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1482,13 +1482,18 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 156.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (./02_Abstract.tex [2{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc} <./Bilder/ohm_logo_crop.png>]
-Package cleveref Info: loaded `ngerman' language definitions on input line 26.
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 28.
+ (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
+File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
+)
+Package cleveref Info: loaded `ngerman' language definitions on input line 39.
+Package cleveref Info: loaded `ngerman' language definitions on input line 57.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 29.
+(Font)              <10.95> on input line 58.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 29.
+(Font)              <8> on input line 58.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 29.
+(Font)              <6> on input line 58.
 
 
 Package scrlayer-scrpage Warning: \headheight to low.
@@ -1498,18 +1503,19 @@ Package scrlayer-scrpage Warning: \headheight to low.
 (scrlayer-scrpage)                processing, but you should do this yourself,
 (scrlayer-scrpage)                e.g., setting geometry's option
 (scrlayer-scrpage)                `head=16.49675pt'.
-(scrlayer-scrpage)                I'll also decrease \topmargin on input line 29.
+(scrlayer-scrpage)                I'll also decrease \topmargin on input line 58.
 
 
 Overfull \vbox (2.49675pt too high) has occurred while \output is active []
 
  [3
 
-])
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}])
 Package cleveref Info: loaded `ngerman' language definitions on input line 171.
  [4
 
 ] (./00_Abschlussarbeit.toc
+Package cleveref Info: loaded `ngerman' language definitions on input line 3.
 Package cleveref Info: loaded `ngerman' language definitions on input line 4.
 Package cleveref Info: loaded `ngerman' language definitions on input line 6.
  [5
@@ -1522,8 +1528,12 @@ Package cleveref Info: loaded `ngerman' language definitions on input line 6.
 \@gls@deffile=\write10
 \openout10 = `00_Abschlussarbeit.glsdefs'.
 
+
+
+Package glossaries Warning: Entry `udp' has already been defined in the document environment (ignoring new definition) on input line 47.
+
 ) (./00_Abschlussarbeit.acr
-Overfull \hbox (12.0pt too wide) in alignment at lines 25--201
+Overfull \hbox (12.0pt too wide) in alignment at lines 25--215
  [] [] 
  []
 
@@ -1549,183 +1559,202 @@ chapter 2.
 [2
 
 ]
-<Bilder/Basebord_und_cube.png, id=362, 560.64pt x 253.821pt>
+<Bilder/Basebord_und_cube.png, id=383, 560.64pt x 253.821pt>
 File: Bilder/Basebord_und_cube.png Graphic file (type png)
 <use Bilder/Basebord_und_cube.png>
 Package pdftex.def Info: Bilder/Basebord_und_cube.png  used on input line 72.
 (pdftex.def)             Requested size: 364.19667pt x 164.88486pt.
- [3 <./Bilder/Basebord_und_cube.png>] [4] [5]
-<Bilder/Koordinatensysteme.png, id=440, 733.212pt x 453.768pt>
+ [3 <./Bilder/Basebord_und_cube.png>] [4]
+<Bilder/Koordinatensysteme.png, id=453, 733.212pt x 453.768pt>
 File: Bilder/Koordinatensysteme.png Graphic file (type png)
 <use Bilder/Koordinatensysteme.png>
-Package pdftex.def Info: Bilder/Koordinatensysteme.png  used on input line 193.
+Package pdftex.def Info: Bilder/Koordinatensysteme.png  used on input line 192.
 (pdftex.def)             Requested size: 455.24411pt x 281.74869pt.
- [6 <./Bilder/Koordinatensysteme.png>]
-<Bilder/Roll_Yaw_Pitch.png, id=471, 726.204pt x 477.858pt>
+ [5] [6 <./Bilder/Koordinatensysteme.png>]
+<Bilder/Roll_Yaw_Pitch.png, id=491, 726.204pt x 477.858pt>
 File: Bilder/Roll_Yaw_Pitch.png Graphic file (type png)
 <use Bilder/Roll_Yaw_Pitch.png>
-Package pdftex.def Info: Bilder/Roll_Yaw_Pitch.png  used on input line 235.
+Package pdftex.def Info: Bilder/Roll_Yaw_Pitch.png  used on input line 234.
 (pdftex.def)             Requested size: 386.96027pt x 254.62704pt.
- [7 <./Bilder/Roll_Yaw_Pitch.png>] [8{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathex.enc}] [9] [10]
+ [7 <./Bilder/Roll_Yaw_Pitch.png>] [8{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathex.enc}] [9]
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10.95> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 413.
- [11] [12]
-LaTeX Font Info:    Trying to load font information for T1+pcr on input line 553.
- (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
-File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-)
-Overfull \hbox (2.09583pt too wide) in paragraph at lines 558--560
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 412.
+ [10] [11] [12]
+Overfull \hbox (2.09583pt too wide) in paragraph at lines 557--559
 [][][]\T1/lmss/m/n/10.95 ROS2[][] er-mög-licht die Auf-zeich-nung von Topic-Daten in \T1/lmss/m/sl/10.95 Bag-Dateien \T1/lmss/m/n/10.95 mit-tels des Werk-zeugs \T1/pcr/m/n/10.95 rosbag2\T1/lmss/m/n/10.95 .
  []
 
-[13{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}]) (./23_Stand_der_Technik.tex [14]
+) (./23_Stand_der_Technik.tex [13]
 chapter 3.
-[15
+[14
 
-] [16]
-<Bilder/Loop_Closure.png, id=706, 438.219pt x 219.438pt>
+] [15]
+<Bilder/Loop_Closure.png, id=720, 438.219pt x 219.438pt>
 File: Bilder/Loop_Closure.png Graphic file (type png)
 <use Bilder/Loop_Closure.png>
-Package pdftex.def Info: Bilder/Loop_Closure.png  used on input line 127.
+Package pdftex.def Info: Bilder/Loop_Closure.png  used on input line 128.
 (pdftex.def)             Requested size: 364.19667pt x 182.38126pt.
- [17]
-<Bilder/Faktorgraph_vereinfacht.png, id=732, 813.804pt x 348.648pt>
+ [16]
+<Bilder/Faktorgraph_vereinfacht.png, id=746, 813.804pt x 348.648pt>
 File: Bilder/Faktorgraph_vereinfacht.png Graphic file (type png)
 <use Bilder/Faktorgraph_vereinfacht.png>
-Package pdftex.def Info: Bilder/Faktorgraph_vereinfacht.png  used on input line 168.
+Package pdftex.def Info: Bilder/Faktorgraph_vereinfacht.png  used on input line 169.
 (pdftex.def)             Requested size: 455.24411pt x 195.03938pt.
- [18 <./Bilder/Loop_Closure.png>] [19 <./Bilder/Faktorgraph_vereinfacht.png>]
-<Bilder/Uebersicht_Marker.png, id=783, 848.187pt x 225.57pt>
+ [17 <./Bilder/Loop_Closure.png>] [18 <./Bilder/Faktorgraph_vereinfacht.png>]
+<Bilder/Uebersicht_Marker.png, id=798, 848.187pt x 225.57pt>
 File: Bilder/Uebersicht_Marker.png Graphic file (type png)
 <use Bilder/Uebersicht_Marker.png>
-Package pdftex.def Info: Bilder/Uebersicht_Marker.png  used on input line 235.
+Package pdftex.def Info: Bilder/Uebersicht_Marker.png  used on input line 236.
 (pdftex.def)             Requested size: 455.24411pt x 121.07285pt.
- [20 <./Bilder/Uebersicht_Marker.png>]) (./24_Systembeschreibung.tex [21]
+ [19 <./Bilder/Uebersicht_Marker.png>]) (./24_Systembeschreibung.tex [20]
 chapter 4.
 LaTeX Font Info:    Trying to load font information for TS1+lmss on input line 21.
 (/usr/share/texmf/tex/latex/lm/ts1lmss.fd
 File: ts1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) [22
+) [21
 
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}]
-<Bilder/Hardwareaufbau_drohne.png, id=857, 646.269pt x 308.352pt>
+<Bilder/Hardwareaufbau_drohne.png, id=872, 646.269pt x 308.352pt>
 File: Bilder/Hardwareaufbau_drohne.png Graphic file (type png)
 <use Bilder/Hardwareaufbau_drohne.png>
 Package pdftex.def Info: Bilder/Hardwareaufbau_drohne.png  used on input line 51.
 (pdftex.def)             Requested size: 364.19667pt x 173.77222pt.
- [23 <./Bilder/Hardwareaufbau_drohne.png>]
+ [22 <./Bilder/Hardwareaufbau_drohne.png>]
 Overfull \hbox (28.68596pt too wide) in paragraph at lines 140--162
  [][] 
  []
 
-[24]
-<Bilder/Verkabelung.png, id=903, 766.938pt x 397.485pt>
+[23]
+<Bilder/Verkabelung.png, id=918, 766.938pt x 397.485pt>
 File: Bilder/Verkabelung.png Graphic file (type png)
 <use Bilder/Verkabelung.png>
 Package pdftex.def Info: Bilder/Verkabelung.png  used on input line 183.
 (pdftex.def)             Requested size: 455.24411pt x 235.94548pt.
- [25]
-<Bilder/Softwarearchitektur.png, id=910, 975.645pt x 317.331pt>
+ [24]
+<Bilder/Softwarearchitektur.png, id=925, 975.645pt x 317.331pt>
 File: Bilder/Softwarearchitektur.png Graphic file (type png)
 <use Bilder/Softwarearchitektur.png>
 Package pdftex.def Info: Bilder/Softwarearchitektur.png  used on input line 202.
 (pdftex.def)             Requested size: 455.24411pt x 148.07063pt.
- [26 <./Bilder/Verkabelung.png> <./Bilder/Softwarearchitektur.png>]
-<Bilder/aerodrohm.png, id=928, 1144.275pt x 572.1375pt>
+ [25 <./Bilder/Verkabelung.png> <./Bilder/Softwarearchitektur.png>]
+<Bilder/aerodrohm.png, id=942, 1144.275pt x 572.1375pt>
 File: Bilder/aerodrohm.png Graphic file (type png)
 <use Bilder/aerodrohm.png>
 Package pdftex.def Info: Bilder/aerodrohm.png  used on input line 235.
 (pdftex.def)             Requested size: 409.71692pt x 204.86061pt.
-) (./25_Implementierung_Kartierung.tex [27 <./Bilder/aerodrohm.png>]
+) (./25_Implementierung_Kartierung.tex [26 <./Bilder/aerodrohm.png>]
 chapter 5.
-[28
+[27
 
 ]
-<Bilder/Paarweiser_Vergleich_SLAM.png, id=950, 1519.6775pt x 812.03375pt>
+<Bilder/Paarweiser_Vergleich_SLAM.png, id=965, 1519.6775pt x 812.03375pt>
 File: Bilder/Paarweiser_Vergleich_SLAM.png Graphic file (type png)
 <use Bilder/Paarweiser_Vergleich_SLAM.png>
 Package pdftex.def Info: Bilder/Paarweiser_Vergleich_SLAM.png  used on input line 63.
 (pdftex.def)             Requested size: 455.24411pt x 243.25267pt.
- [29 <./Bilder/Paarweiser_Vergleich_SLAM.png>]
-<Bilder/Nutzwertanalyse_slam.png, id=1008, 1421.31pt x 913.4125pt>
+ [28 <./Bilder/Paarweiser_Vergleich_SLAM.png>]
+<Bilder/Nutzwertanalyse_slam.png, id=1023, 1421.31pt x 913.4125pt>
 File: Bilder/Nutzwertanalyse_slam.png Graphic file (type png)
 <use Bilder/Nutzwertanalyse_slam.png>
 Package pdftex.def Info: Bilder/Nutzwertanalyse_slam.png  used on input line 122.
 (pdftex.def)             Requested size: 455.24411pt x 292.56279pt.
- [30]
+ [29]
 Overfull \hbox (1.10464pt too wide) in paragraph at lines 135--141
 \T1/lmss/m/n/10.95 Detektor und un-ter-stützt aus-schlieÿ-lich AprilTag-Familien [[][]45[][]]. Ein Wech-sel zu ei-nem an-de-ren Marker-
  []
 
-[31 <./Bilder/Nutzwertanalyse_slam.png>] [32] [33] [34] [35] [36]
+[30 <./Bilder/Nutzwertanalyse_slam.png>] [31] [32] [33] [34] [35]
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 457.
-) (./26_Implementierung_Positionierung.tex [37]
+) (./26_Implementierung_Positionierung.tex [36]
 chapter 6.
-[38
 
-] [39]
-<Bilder/Architektur_Positionierung.png, id=1164, 529.104pt x 910.164pt>
+LaTeX Warning: Reference `cap:kartierung' on page 37 undefined on input line 5.
+
+[37
+
+] [38]
+<Bilder/Architektur_Positionierung.png, id=1175, 529.104pt x 910.164pt>
 File: Bilder/Architektur_Positionierung.png Graphic file (type png)
 <use Bilder/Architektur_Positionierung.png>
-Package pdftex.def Info: Bilder/Architektur_Positionierung.png  used on input line 98.
+Package pdftex.def Info: Bilder/Architektur_Positionierung.png  used on input line 100.
 (pdftex.def)             Requested size: 409.71692pt x 704.8004pt.
 
 
-LaTeX Warning: Float too large for page by 25.61731pt on input line 101.
+LaTeX Warning: Float too large for page by 25.61731pt on input line 103.
 
-[40] [41 <./Bilder/Architektur_Positionierung.png>] [42] [43]
-<Bilder/Kalibrierbox.png, id=1235, 712.188pt x 427.269pt>
+[39] [40 <./Bilder/Architektur_Positionierung.png>] [41]
+<Bilder/Kalibrierbox.png, id=1226, 712.188pt x 427.269pt>
 File: Bilder/Kalibrierbox.png Graphic file (type png)
 <use Bilder/Kalibrierbox.png>
-Package pdftex.def Info: Bilder/Kalibrierbox.png  used on input line 211.
+Package pdftex.def Info: Bilder/Kalibrierbox.png  used on input line 200.
 (pdftex.def)             Requested size: 409.71692pt x 245.81468pt.
- [44 <./Bilder/Kalibrierbox.png>]
+ [42] [43 <./Bilder/Kalibrierbox.png>]
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <9> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 257.
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 248.
 
-Underfull \hbox (badness 10000) in paragraph at lines 272--273
+Underfull \hbox (badness 10000) in paragraph at lines 263--264
 []|\T1/lmss/m/n/9 Pfad zur YAML mit den Kamera-zu-Drohnenmittelpunkt-
  []
 
 
-Underfull \hbox (badness 1558) in paragraph at lines 310--311
+Underfull \hbox (badness 1558) in paragraph at lines 301--302
 []|\T1/lmss/m/n/9 Referenzgröÿe zur Trans-la-ti-ons-kor-rek-tur bei ab-wei-chen-den Tag-
  []
 
-[45] [46]
-Overfull \hbox (6.72238pt too wide) in paragraph at lines 364--369
-\T1/lmss/m/n/10.95 Jeder sicht-ba-re Mar-ker lie-fert auf die-se Wei-se ei-ne voll-stän-di-ge Schät-zung der Ka-me-ra-po-se $[][]\OT1/lmr/bx/n/10.95 t[]\OML/lmm/m/it/10.95 ;  [][]$\T1/lmss/m/n/10.95 .
+[44] [45]
+Overfull \hbox (6.72238pt too wide) in paragraph at lines 355--357
+\T1/lmss/m/n/10.95 Jeder sicht-ba-re Mar-ker lie-fert auf die-se Wei-se ei-ne voll-stän-di-ge Schät-zung der Ka-me-ra-po-se $[][]\OT1/lmr/bx/n/10.95 t[]\OML/lmm/m/it/10.95 ;  [][]$\T1/lmss/m/n/10.95 . 
  []
 
-[47] [48] [49] [50]
-LaTeX Font Info:    Trying to load font information for OT1+lmtt on input line 512.
+[46] [47] [48]
+LaTeX Font Info:    Trying to load font information for OT1+lmtt on input line 504.
  (/usr/share/texmf/tex/latex/lm/ot1lmtt.fd
 File: ot1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) [51{/usr/share/texmf/fonts/enc/dvips/lm/lm-rmtt.enc}]) (./27_Evaluation.tex [52]
+) [49{/usr/share/texmf/fonts/enc/dvips/lm/lm-rmtt.enc}]
+Overfull \hbox (1.05643pt too wide) in paragraph at lines 560--562
+[]\T1/lmss/m/n/10.95 Für je-den Mar-ker $\OML/lmm/m/it/10.95 i$ \T1/lmss/m/n/10.95 wird aus ei-ner Basis-Standardabweichung ei-ne Pro-Marker-Standardabweichung
+ []
+
+
+Overfull \hbox (28.71884pt too wide) in paragraph at lines 560--562
+\T1/lmss/m/n/10.95 die Di-stanz des Markers, $\OML/lmm/m/it/10.95 d[]$ \T1/lmss/m/n/10.95 die Re-fe-renz-di-stanz (Pa-ra-me-ter \T1/pcr/m/n/10.95 covariance_reference_distance_m\T1/lmss/m/n/10.95 ),
+ []
+
+
+Overfull \hbox (51.76802pt too wide) in paragraph at lines 560--562
+\OML/lmm/m/it/10.95 a[]$ \T1/lmss/m/n/10.95 die Mar-ker-grö-ÿe und $\OML/lmm/m/it/10.95 a[]$ \T1/lmss/m/n/10.95 die Referenz-Markergröÿe (Pa-ra-me-ter \T1/pcr/m/n/10.95 covariance_reference_tag_size_m\T1/lmss/m/n/10.95 ),
+ []
+
+[50]
+Overfull \hbox (10.50076pt too wide) in paragraph at lines 565--569
+\OML/lmm/m/it/10.95 a[]=a[]$\T1/lmss/m/n/10.95 . Bei-de Fak-to-ren sind nach oben durch die Pa-ra-me-ter \T1/pcr/m/n/10.95 covariance_max_distance_factor
+ []
+
+) (./27_Evaluation.tex [51]
 chapter 7.
-)
-Overfull \hbox (12.56552pt too wide) in paragraph at lines 18--16
+
+Overfull \hbox (12.56552pt too wide) in paragraph at lines 20--24
 \T1/lmss/m/n/10.95 (un-ter an-de-rem Arm-Zustand und Na-vi-ga-ti-ons-mo-dus), die ak-tu-el-le Po-si-ti-on auf $\T1/pcr/m/n/10.95 /fmu / out / vehicle _
  []
 
 
-Overfull \hbox (11.3779pt too wide) in paragraph at lines 18--16
+Overfull \hbox (11.3779pt too wide) in paragraph at lines 20--24
 \T1/pcr/m/n/10.95 local _ position$ \T1/lmss/m/n/10.95 so-wie die Bo-den-kon-tak-ter-ken-nung auf $\T1/pcr/m/n/10.95 /fmu / out / vehicle _ land _ detected$\T1/lmss/m/n/10.95 .
  []
 
 
-Overfull \hbox (7.30133pt too wide) in paragraph at lines 18--16
+Overfull \hbox (7.30133pt too wide) in paragraph at lines 20--24
 \T1/pcr/m/n/10.95 2 / image _ raw$ \T1/lmss/m/n/10.95 so-wie den zu-ge-hö-ri-gen ent-zerr-ten To-pics $\T1/pcr/m/n/10.95 /camera _ 1 / image _ rect$ \T1/lmss/m/n/10.95 und $\T1/pcr/m/n/10.95 /camera _
  []
 
 
-Overfull \hbox (0.28998pt too wide) in paragraph at lines 18--16
+Overfull \hbox (0.28998pt too wide) in paragraph at lines 20--24
 \T1/pcr/m/n/10.95 trajectory _ setpoint$ \T1/lmss/m/n/10.95 und den zu-ge-hö-ri-gen Offboard-Steuermodus auf $\T1/pcr/m/n/10.95 /fmu / in / offboard _
  []
 
-(./28_Evaluation_Greifen.tex [53
+) (./28_Evaluation_Greifen.tex [52
 
-]
+] [53]
 chapter 8.
 )) (./30_Schluss.tex [54
 
@@ -1764,6 +1793,7 @@ Overfull \hbox (14.67226pt too wide) in paragraph at lines 246--246
 [60] [61] (./00_Abschlussarbeit.lof
 Package cleveref Info: loaded `ngerman' language definitions on input line 3.
 Package cleveref Info: loaded `ngerman' language definitions on input line 4.
+Package cleveref Info: loaded `ngerman' language definitions on input line 5.
 )
 \tf@lof=\write11
 \openout11 = `00_Abschlussarbeit.lof'.
@@ -1773,6 +1803,7 @@ Package cleveref Info: loaded `ngerman' language definitions on input line 4.
 ] (./00_Abschlussarbeit.lot
 Package cleveref Info: loaded `ngerman' language definitions on input line 3.
 Package cleveref Info: loaded `ngerman' language definitions on input line 4.
+Package cleveref Info: loaded `ngerman' language definitions on input line 5.
 )
 \tf@lot=\write12
 \openout12 = `00_Abschlussarbeit.lot'.
@@ -1782,6 +1813,7 @@ Package cleveref Info: loaded `ngerman' language definitions on input line 4.
 ] (./00_Abschlussarbeit.lol
 Package cleveref Info: loaded `ngerman' language definitions on input line 3.
 Package cleveref Info: loaded `ngerman' language definitions on input line 4.
+Package cleveref Info: loaded `ngerman' language definitions on input line 5.
 )
 \tf@lol=\write13
 \openout13 = `00_Abschlussarbeit.lol'.
@@ -1793,13 +1825,18 @@ chapter 10.
 ) [65
 
 ] (./00_Abschlussarbeit.aux
-Package cleveref Info: loaded `ngerman' language definitions on input line 24.
-Package cleveref Info: loaded `ngerman' language definitions on input line 27.
+Package cleveref Info: loaded `ngerman' language definitions on input line 22.
+Package cleveref Info: loaded `ngerman' language definitions on input line 23.
+Package cleveref Info: loaded `ngerman' language definitions on input line 26.
 )
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2020/03/25>
  ***********
+
+
+LaTeX Warning: There were undefined references.
+
 Package rerunfilecheck Info: File `00_Abschlussarbeit.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 Package logreq Info: Writing requests to '00_Abschlussarbeit.run.xml'.
@@ -1807,18 +1844,18 @@ Package logreq Info: Writing requests to '00_Abschlussarbeit.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 48604 strings out of 474222
- 982163 string characters out of 5748733
- 2035975 words of memory out of 5000000
- 69708 multiletter control sequences out of 15000+600000
- 638615 words of font info for 101 fonts, out of 8000000 for 9000
+ 48613 strings out of 474222
+ 982381 string characters out of 5748733
+ 2032975 words of memory out of 5000000
+ 69726 multiletter control sequences out of 15000+600000
+ 639369 words of font info for 103 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
- 108i,20n,107p,10958b,4148s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 108i,20n,107p,10958b,4150s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmss10.pfb></usr/share/texmf/fonts/type1/public/lm/lmss12.pfb></usr/share/texmf/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf/fonts/type1/public/lm/lmss8.pfb></usr/share/texmf/fonts/type1/public/lm/lmss9.pfb></usr/share/texmf/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsso10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsso8.pfb></usr/share/texmf/fonts/type1/public/lm/lmsso9.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on 00_Abschlussarbeit.pdf (76 pages, 16439474 bytes).
+Output written on 00_Abschlussarbeit.pdf (76 pages, 16442564 bytes).
 PDF statistics:
- 2010 PDF objects out of 2073 (max. 8388607)
- 1822 compressed objects within 19 object streams
- 446 named destinations out of 1000 (max. 500000)
- 700 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2042 PDF objects out of 2073 (max. 8388607)
+ 1854 compressed objects within 19 object streams
+ 436 named destinations out of 1000 (max. 500000)
+ 748 words of extra memory for PDF output out of 10000 (max. 10000000)
 

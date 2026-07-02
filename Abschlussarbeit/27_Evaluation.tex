@@ -3,7 +3,9 @@
 \chapter{Versuchsdurchführung und Evaluation}
 \label{cap:versuchsdurchführung}
 
-\section{Bedienkonsole}
+
+
+\section{Senden von Positions-Sollwerten an PX4}
 \label{sec:bedienkonsole}
 Zum Betrieb des Fluggeräts während der Versuche dient eine textbasierte Bedienkonsole, die über uXRCE-DDS direkt mit \gls{px4} kommuniziert.
 Sie zeigt den Fahrzeugstatus, die aktuelle Position sowie an, ob die Kameras Bilder liefern, und sendet kontinuierlich Positions-Sollwerte.
@@ -19,3 +21,23 @@ Die Konsole empfängt von \gls{px4} den Fahrzeugstatus auf \topic{/fmu/out/vehic
 Die Kamerabilder werden zur Verfügbarkeitsanzeige auf \topic{/camera_1/image_raw} und \topic{/camera_2/image_raw} sowie den zugehörigen entzerrten Topics \topic{/camera_1/image_rect} und \topic{/camera_2/image_rect} abonniert.
 An \gls{px4} sendet die Konsole den Positions-Sollwert auf \topic{/fmu/in/trajectory_setpoint} und den zugehörigen Offboard-Steuermodus auf \topic{/fmu/in/offboard_control_mode}.
 Arm- und Disarm-Befehle werden auf \topic{/fmu/in/vehicle_command} übergeben.
+
+
+\section{Konfiguration der Kartierung}
+--> Konfigruation der Kartierung noch anfügen und erklären.
+
+\section{Durchführung der Kartierung}
+
+\section{Evaluation der Kartierung}
+Hier nochmal überlegen, evtl auch zusammen mit Positionierung.
+
+\section{Konfiguration der Positionierung}
+--> Konfigruation der Positionierung noch anfügen und erklären.
+
+\section{Durchführung der Positionierung}
+
+\section{Evalution der Positionierung}
+--> Nochmal überlegen, ob mit Kartierung zusammen oder getrennt. 
+
+
+

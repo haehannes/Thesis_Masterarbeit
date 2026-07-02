@@ -17,9 +17,9 @@
 
 
 \chapter{Implementierung der Kartierung}
-\label{cap:kartierung}
+\label{cap:implementierung_kartierung}
 In diesem Kapitel werden die Schritte beschrieben, die zur Implementierung der Kartierung notwendig sind.
-Hierbei werden Festlegungen getroffen, die auch direkten Einfluss auf die in Kapitel~\ref{cap:lokalisierung} beschriebene Lokalisierung haben.
+Hierbei werden Festlegungen getroffen, die auch direkten Einfluss auf die in Kapitel~\ref{cap:implementierung_positionsbestimmung} beschriebene Lokalisierung haben.
 Im weiteren Verlauf der Arbeit wird auf diese Abhängigkeiten hingewiesen.
 
 \section{Auswahl der Algorithmik}
@@ -72,7 +72,7 @@ Zur Auswahl der SLAM-Variante werden die in Abschnitt~\ref{sec:slam_varianten} v
 anhand einer Nutzwertanalyse gegenübergestellt.
 
 Die Auswahl der SLAM-Variante hat sowohl auf die Kartierung als auch auf die Positionierung direkten Einfluss.
-Da der Hauptaugenmerk auf der Positionierung liegt, werden die Varianten im Positionierungsmodus gegen eine zuvor erstellte Karte betrachtet.
+Da das Hauptaugenmerk dieser Arbeit auf der Positionsbestimmung liegt, werden die Varianten im Positionierungsmodus gegen eine zuvor erstellte Karte betrachtet.
 In der Nutzwertanalyse (Tabelle~\ref{tab:nutzwertanalyse_slam}) wird jede Variante in jedem Kriterium auf einer Skala von $0$ (Kriterium nicht erfüllt) 
 bis $5$ (Kriterium vollständig erfüllt) bewertet.
 Der gewichtete Wert ergibt sich aus dem Produkt von Bewertung und Kriteriengewicht, die Summe dieser Werte bildet den Gesamtnutzwert.
@@ -106,7 +106,7 @@ wie der Livox~Mid-360S mit 589~Euro deutlich teurer und schwerer ist als eine ve
 Bei der \textbf{Kostengünstigkeit} erreicht Tag\gls{slam} mit $5$ die höchste Bewertung, da für kamerabasierte Verfahren bereits eine Logitech~C922 für unter 100~Euro im Handel erhältlich ist~\cite{logitech_c922}.
 \gls{vslam} wird mit $3$ bewertet, da ein für \gls{vslam} ausgelegtes Stereomodul wie die ZED~Mini mit ab 399~Euro zwar höher liegt, aber deutlich 
 unter dem Preisniveau eines \gls{lidar}-Sensors bleibt~\cite{zed_mini}.
-Beim \textbf{Leichtbau} erreicht \gls{vslam} mit $5$ die höchste Bewertung, da die ZED~Mini leichter ist als eine Logitech~C922 ist.
+Beim \textbf{Leichtbau} erreicht \gls{vslam} mit $5$ die höchste Bewertung, da die ZED~Mini leichter ist als eine Logitech~C922.
 Tag\gls{slam} wird mit $4$ bewertet.
 
 Tag\gls{slam} wird beim \textbf{geringen Vorbereitungsaufwand} mit $3$ bewertet, da die Marker einmalig angebracht werden müssen, 
@@ -393,11 +393,11 @@ Dieser kombinierte Bag enthält alle Eingangsdaten für die nachfolgende Kartene
 
 
 
-\subsection{Kartenerstellung und Konfiguration von Tagslam}
+\subsection{Kartenerstellung und Konfiguration von TagSLAM}
 \label{sec:kartierung_konfiguration_tagslam}
 Die eigentliche Karte wird mit dem Knoten \texttt{tagslam\_from\_bag} aus dem Paket Tag\gls{slam} erstellt.
 Dieser liest den kombinierten Bag aus der vorigen Stufe ein und schätzt aus den enthaltenen Markerdetektionen die Lage aller Marker zueinander.
-Die Optimierung der Karte erfolgt nach dem in den Abschnitten~\ref{sec:Faktorgraph} und~\ref{sec:slam_varianten} beschriebenen Prinzip.
+Die Optimierung der Karte erfolgt nach dem in den Abschnit~\ref{sec:Faktorgraph} beschriebenen Prinzip.
 Dieser Knoten ist ausschließlich für \gls{ros2} Jazzy implementiert und setzt diese Version zwingend voraus.
 
 Der Knoten benötigt drei Konfigurationsdateien: \texttt{cameras.yaml} mit den Kamera-Intrinsics, \texttt{camera\_poses.yaml} mit der Pose 

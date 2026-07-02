@@ -2,19 +2,21 @@
 \babel@toc {english}{}\relax 
 \babel@toc {ngerman}{}\relax 
 \babel@toc {ngerman}{}\relax 
+\babel@toc {ngerman}{}\relax 
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {2.1}{\ignorespaces Sensorbestückung des Pixhawk 6X~\blx@tocontentsinit {0}\cite {px4_pixhawk6x_doc}}}{5}{table.caption.9}%
+\contentsline {table}{\numberline {2.1}{\ignorespaces Sensorbestückung des Pixhawk 6X~\blx@tocontentsinit {0}\cite {px4_pixhawk6x_doc}}}{4}{table.caption.9}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces Übersicht der eingesetzten Hardwarekomponenten mit Gewicht und Betriebssystem}}{25}{table.caption.28}%
+\contentsline {table}{\numberline {4.1}{\ignorespaces Übersicht der eingesetzten Hardwarekomponenten mit Gewicht und Betriebssystem}}{24}{table.caption.28}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces Paarweiser Vergleich Bewertungskriterien der \gls {slam}-Varianten}}{29}{table.caption.32}%
-\contentsline {table}{\numberline {5.2}{\ignorespaces Nutzwertanalyse der \gls {slam}-Varianten}}{31}{table.caption.33}%
-\contentsline {table}{\numberline {5.3}{\ignorespaces Wesentliche Parameter der Optimierung in \texttt {tagslam.yaml}}}{37}{table.caption.34}%
+\contentsline {table}{\numberline {5.1}{\ignorespaces Paarweiser Vergleich Bewertungskriterien der \gls {slam}-Varianten}}{28}{table.caption.32}%
+\contentsline {table}{\numberline {5.2}{\ignorespaces Nutzwertanalyse der \gls {slam}-Varianten}}{30}{table.caption.33}%
+\contentsline {table}{\numberline {5.3}{\ignorespaces Wesentliche Parameter der Optimierung in \texttt {tagslam.yaml}}}{36}{table.caption.34}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {6.1}{\ignorespaces Wesentliche EKF2-Parameter zur visionsgestützten Zustandsschätzung}}{38}{table.caption.35}%
-\contentsline {table}{\numberline {6.2}{\ignorespaces Startparameter des Knotens \texttt {vision\_pose\_uxrce\_node}}}{45}{table.6.2}%
+\contentsline {table}{\numberline {6.1}{\ignorespaces Wesentliche EKF2-Parameter zur visionsgestützten Zustandsschätzung}}{37}{table.caption.35}%
+\contentsline {table}{\numberline {6.2}{\ignorespaces Wesentliche Einstellungen des gscam-Nodes zur Bildaufnahme im Flug}}{41}{table.caption.37}%
+\contentsline {table}{\numberline {6.3}{\ignorespaces Startparameter des Nodes \texttt {vision\_pose\_uxrce\_node}}}{44}{table.6.3}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

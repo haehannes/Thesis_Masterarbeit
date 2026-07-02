@@ -1,6 +1,7 @@
 %!TeX root=20_Hauptteil.tex
 
 \chapter{Stand der Technik}
+\label{cap:stand_der_technik}
 
 Dieses Kapitel gibt einen Überblick über den aktuellen Stand der Technik im Bereich 
 der \gls{gnss}-freien Lokalisierung von \gls{uav} und ordnet die in dieser Arbeit 
@@ -201,7 +202,7 @@ Anstelle natürlicher Bildmerkmale werden AprilTag-Marker als definierte
 Referenzpunkte verwendet.
 Da die Geometrie der Marker bekannt ist, entfällt die aufwendige Merkmalsbeschreibung und das Matching.
 Stattdessen liefert jede Markerdetektion eine direkte Posenmessung relativ zur Kamera.
-TagSLAM nutzt als Backend GTSAM zur Faktorgraph-Optimierung und ermöglicht neben vollständigem SLAM auch eine reine Posenschätzung bei bekannter Tag-Anordnung~\cite{pfrommer2019tagslam}.
+\textbf{Tag\gls{slam}} nutzt als Backend GTSAM zur Faktorgraph-Optimierung und ermöglicht neben vollständigem SLAM auch eine reine Posenschätzung bei bekannter Tag-Anordnung~\cite{pfrommer2019tagslam}.
 
 %\textbf{ORB-SLAM} ist ein weit verbreitetes Open-Source-SLAM-System, 
 %das ORB-Merkmale zur Merkmalserkennung verwendet und Mono-, Stereo-, 

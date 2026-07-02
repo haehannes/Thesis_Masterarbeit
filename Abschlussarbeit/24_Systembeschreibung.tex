@@ -214,11 +214,11 @@ Für jedes Merkmal liefert die Bildverarbeitung die relative Position zwischen K
 Die Kartierung erzeugt die Karte, auf die sich die Positionsbestimmung stützt.
 Sie nutzt dieselbe Aufnahme- und Verarbeitungskette wie die Lokalisierung, bestimmt daraus aber nicht die \gls{uav}-Pose, sondern die Lage der Merkmale zueinander.
 Das Ergebnis ist eine konsistente Karte aller Merkmale, die einmalig erzeugt und anschließend im Flug verwendet wird.
-Die Umsetzung wird in Kapitel~\ref{cap:kartierung} beschrieben.
+Die Umsetzung wird in Kapitel~\ref{cap:implementierung_kartierung} beschrieben.
 Die Positionsbestimmung bildet den Kern der Lokalisierung.
 Sie verknüpft die erkannten Merkmale mit der vorab erstellten Karte und berechnet daraus die Pose der Kamera im Kartenkoordinatensystem.
 Anschließend wird die Kamerapose zum Roboterkoordinatensystem transformiert.
-Die Umsetzung der Lokalisierung wird in Kapitel~\ref{cap:lokalisierung} erläutert.
+Die Umsetzung der Lokalisierung wird in Kapitel~\ref{cap:implementierung_positionsbestimmung} erläutert.
 Die Kommunikation übermittelt die endgültige Pose an die Flugsteuerung und versieht sie mit einem dazu konsistenten Zeitstempel.
 Die Flugsteuerung läuft auf dem PX4-Flugcontroller und regelt das Fluggerät.
 Sie fusioniert die eingespeiste Pose im Zustandsschätzer mit den Daten der \gls{imu} und überbrückt damit mittels \gls{drl} kurze Phasen, in denen keine Position bestimmt werden kann.
