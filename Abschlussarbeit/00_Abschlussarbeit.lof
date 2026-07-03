@@ -14,13 +14,13 @@
 \contentsline {figure}{\numberline {3.3}{\ignorespaces Übersicht gängiger Fiducial-Marker: a) ARTag; b) AprilTag; c) ArUco; d) STag~\blx@tocontentsinit {0}\cite {STag_Loipfuehrer2022,Artag_Bild}}}{19}{figure.caption.20}%
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {4.1}{\ignorespaces Physischer Aufbau des Fluggeräts mit den verbauten Komponenten}}{22}{figure.caption.21}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Hardware-Blockschaltbild mit Anschlussverdrahtung}}{25}{figure.caption.29}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Softwarearchitektur mit den Strängen zur Lokalisierung und zur Kartierung}}{25}{figure.caption.30}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Flughalle AerodrOhm am \gls {oic} der Technischen Hochschule Nürnberg~\blx@tocontentsinit {0}\cite {aerodrohm}}}{26}{figure.caption.31}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Hardware-Blockschaltbild mit Anschlussverdrahtung}}{25}{figure.caption.30}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Softwarearchitektur mit den Strängen zur Lokalisierung und zur Kartierung}}{25}{figure.caption.31}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Flughalle AerodrOhm am \gls {oic} der Technischen Hochschule Nürnberg~\blx@tocontentsinit {0}\cite {aerodrohm}}}{26}{figure.caption.32}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Nodes und Topics der Positionierung, aufgeteilt nach Host und Container}}{40}{figure.caption.36}%
-\contentsline {figure}{\numberline {6.2}{\ignorespaces Drohne in der Kalibrierbox mit von Hand vermessenen Tags und den Wandmarkierungen zur Ausrichtung}}{43}{figure.caption.38}%
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Nodes und Topics der Positionierung, aufgeteilt nach Host und Container}}{40}{figure.caption.37}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Drohne in der Kalibrierbox mit von Hand vermessenen Tags und den Wandmarkierungen zur Ausrichtung}}{43}{figure.caption.39}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

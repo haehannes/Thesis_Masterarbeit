@@ -275,14 +275,14 @@ q_1 \cdot q_2 = &(w_1 w_2 - x_1 x_2 - y_1 y_2 - z_1 z_2) \\
 \label{eq:quaternion_multiplikation}
 \end{equation}
 
-Das Einheitsquaternion \gls{sym:q} beschreibt eine Rotation um den Winkel \gls{sym:phiRot} über eine normierte Rotationsachse
+Das Einheitsquaternion \gls{sym:q} beschreibt eine Rotation um den Winkel \gls{sym:roll} über eine normierte Rotationsachse
 $\mathbf{v} = (v_x, v_y, v_z)^T$ und wird durch Gleichung~\eqref{eq:einheitsquaternion} beschrieben~\cite{2016}.
 \begin{equation}
 \mathbf{q} = \left(\cos\frac{\phi}{2},\ \mathbf{v} \cdot \sin\frac{\phi}{2}\right) = \left(\cos\frac{\phi}{2},\ v_x \sin\frac{\phi}{2},\ v_y \sin\frac{\phi}{2},\ v_z \sin\frac{\phi}{2}\right)
 \label{eq:einheitsquaternion}
 \end{equation}
 
-Der Winkel \gls{sym:thetaQuat} zwischen zwei Einheitsquaternionen $\mathbf{q}_1$ und $\mathbf{q}_2$ ergibt sich aus deren Skalarprodukt gemäß Gleichung~\eqref{eq:quaternion_winkel}.
+Der Winkel \(\theta\) zwischen zwei Einheitsquaternionen $\mathbf{q}_1$ und $\mathbf{q}_2$ ergibt sich aus deren Skalarprodukt gemäß Gleichung~\eqref{eq:quaternion_winkel}.
 \begin{equation}
 \theta = \arccos\!\left(w_1 w_2 + x_1 x_2 + y_1 y_2 + z_1 z_2\right)
 \label{eq:quaternion_winkel}
@@ -349,7 +349,7 @@ Die nachfolgende Formel beschreibt diese Operation~\cite{Shoemake1985}.
 \operatorname{slerp}(\mathbf{q}_0, \mathbf{q}_1, \alpha) = \frac{\sin\!\bigl((1-\alpha)\,\theta\bigr)}{\sin\theta}\,\mathbf{q}_0 + \frac{\sin(\alpha\,\theta)}{\sin\theta}\,\mathbf{q}_1.
 \label{eq:slerp}
 \end{equation}
-Dabei ist \gls{sym:thetaQuat} der Winkel zwischen den beiden Quaternionen und \gls{sym:alpha} $\in [0,1]$ der Interpolationsparameter.
+Dabei ist \(\theta\) der Winkel zwischen den beiden Quaternionen und \gls{sym:alpha} $\in [0,1]$ der Interpolationsparameter.
 Für $\alpha = 0$ liefert sie $\mathbf{q}_0$, für $\alpha = 1$ entsprechend $\mathbf{q}_1$.
 Da ein Quaternion und sein Negatives dieselbe Rotation beschreiben, wird zunächst sichergestellt, dass
 entlang des kürzeren Bogens interpoliert wird, indem das Vorzeichen von $\mathbf{q}_1$ bei negativem
@@ -362,7 +362,7 @@ Für sehr kleine Winkel $\theta$ geht $\sin\theta$ gegen null, wodurch Gleichung
 Ein Rodrigues-Vektor ist eine alternative Möglichkeit, eine Rotation im Raum zu beschreiben.
 Die Rotation wird durch einen Vektor \glsadd{sym:r}$\mathbf{r} = (r_x, r_y, r_z)^T$ beschrieben,
 dessen Richtung die Rotationsachse und dessen Betrag den Rotationswinkel angibt~\cite{Bradski2008}.
-Der Rotationswinkel \gls{sym:phiRot} ergibt sich aus dem Betrag des Rodrigues-Vektors gemäß Gleichung~\eqref{eq:rodrigues_parameter_betrag} und wird 
+Der Rotationswinkel \gls{sym:roll} ergibt sich aus dem Betrag des Rodrigues-Vektors gemäß Gleichung~\eqref{eq:rodrigues_parameter_betrag} und wird 
 gegen den Uhrzeigersinn um die Rotationsachse gemessen~\cite{Dai2015a}.
 \begin{equation}
 \phi = \|\mathbf{r}\| = \sqrt{r_x^2 + r_y^2 + r_z^2}

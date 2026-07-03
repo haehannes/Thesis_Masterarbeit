@@ -1,163 +1,144 @@
-% ===== Vergleich der Koordinatensysteme =====
-\newglossaryentry{sym:O0}{type=symbols, name={\ensuremath{O_0}}, description={Ursprung des Weltkoordinatensystems}, sort={O0}}
-\newglossaryentry{sym:X0}{type=symbols, name={\ensuremath{X_0}}, description={X-Achse des Weltkoordinatensystems}, sort={X0}}
-\newglossaryentry{sym:Y0}{type=symbols, name={\ensuremath{Y_0}}, description={Y-Achse des Weltkoordinatensystems}, sort={Y0}}
-\newglossaryentry{sym:Z0}{type=symbols, name={\ensuremath{Z_0}}, description={Z-Achse des Weltkoordinatensystems}, sort={Z0}}
+% =====================================================================
+% Symbolverzeichnis - thematisch geordnet nach Vorbild
+% Reihenfolge und Gruppierung ueber die sort-Schluessel festgelegt:
+%   Buchstaben-Praefix (A, B, C, ...) = Kategorie -> eigene Gruppe,
+%   Ziffern (010, 020, ...)           = Reihenfolge innerhalb der Kategorie.
+% Die Kategorieueberschriften werden in der Praeambel ueber \symgroupname
+% dem jeweiligen Buchstaben zugeordnet (Stil symstyle).
+% =====================================================================
 
-\newglossaryentry{sym:Ou}{type=symbols, name={\ensuremath{O_u}}, description={Ursprung des körperfesten UAV-Koordinatensystems}, sort={Ou}}
-\newglossaryentry{sym:Xu}{type=symbols, name={\ensuremath{X_u}}, description={X-Achse des UAV-Koordinatensystems}, sort={Xu}}
-\newglossaryentry{sym:Yu}{type=symbols, name={\ensuremath{Y_u}}, description={Y-Achse des UAV-Koordinatensystems}, sort={Yu}}
-\newglossaryentry{sym:Zu}{type=symbols, name={\ensuremath{Z_u}}, description={Z-Achse des UAV-Koordinatensystems}, sort={Zu}}
+% =====================================================================
+% OPTIONAL: Typografische Konvention (nach Vorbild vorangestellt)
+% -- vorgeschlagene Ergaenzung, bei Bedarf auskommentieren/loeschen --
+% =====================================================================
+% \newglossaryentry{sym:convScalar}{type=symbols, name={\ensuremath{x}}, description={Skalar (kursiver Buchstabe)}, sort={A010}}
+% \newglossaryentry{sym:convVec}{type=symbols, name={\ensuremath{\mathbf{x}}}, description={Vektor (fettgedruckter Kleinbuchstabe)}, sort={A020}}
+% \newglossaryentry{sym:convMat}{type=symbols, name={\ensuremath{\mathbf{X}}}, description={Matrix (fettgedruckter Grossbuchstabe)}, sort={A030}}
+% \newglossaryentry{sym:convHat}{type=symbols, name={\ensuremath{\hat{x}}}, description={geschaetzte Groesse}, sort={A040}}
+% \newglossaryentry{sym:convBar}{type=symbols, name={\ensuremath{\bar{x}}}, description={gemittelte Groesse}, sort={A050}}
+% \newglossaryentry{sym:convTilde}{type=symbols, name={\ensuremath{\tilde{x}}}, description={detektierte (unskalierte) Groesse}, sort={A060}}
+% \newglossaryentry{sym:convFrame}{type=symbols, name={\ensuremath{^{b}\square_{a}}}, description={Groesse von System \(a\) nach System \(b\) (linker Hochindex bezeichnet das Zielsystem)}, sort={A070}}
+% \newglossaryentry{sym:convQuat}{type=symbols, name={\ensuremath{\mathbf{q}=(w,x,y,z)}}, description={Quaternion in Skalar-zuerst-Konvention}, sort={A080}}
 
-\newglossaryentry{sym:Oc}{type=symbols, name={\ensuremath{O_c}}, description={Ursprung des Kamerakoordinatensystems}, sort={Oc}}
-\newglossaryentry{sym:Xc}{type=symbols, name={\ensuremath{X_c}}, description={X-Achse des Kamerakoordinatensystems}, sort={Xc}}
-\newglossaryentry{sym:Yc}{type=symbols, name={\ensuremath{Y_c}}, description={Y-Achse des Kamerakoordinatensystems}, sort={Yc}}
-\newglossaryentry{sym:Zc}{type=symbols, name={\ensuremath{Z_c}}, description={Z-Achse des Kamerakoordinatensystems}, sort={Zc}}
-
-\newglossaryentry{sym:Of}{type=symbols, name={\ensuremath{O_f}}, description={Ursprung des Fiducialkoordinatensystems}, sort={Of}}
-\newglossaryentry{sym:Xf}{type=symbols, name={\ensuremath{X_f}}, description={X-Achse des Fiducialkoordinatensystems}, sort={Xf}}
-\newglossaryentry{sym:Yf}{type=symbols, name={\ensuremath{Y_f}}, description={Y-Achse des Fiducialkoordinatensystems}, sort={Yf}}
-\newglossaryentry{sym:Zf}{type=symbols, name={\ensuremath{Z_f}}, description={Z-Achse des Fiducialkoordinatensystems}, sort={Zf}}
-
-% ===== Repräsentation von Position und Orientierung =====
-\newglossaryentry{sym:roll}{type=symbols, name={\ensuremath{\phi}}, description={Roll-Winkel (Drehung um die X-Achse)}, sort={phi1}}
-\newglossaryentry{sym:pitch}{type=symbols, name={\ensuremath{\theta}}, description={Pitch-Winkel (Drehung um die Y-Achse)}, sort={theta1}}
-\newglossaryentry{sym:yaw}{type=symbols, name={\ensuremath{\psi}}, description={Yaw-Winkel (Drehung um die Z-Achse)}, sort={psi}}
-
-% ===== Quaternionen =====
-\newglossaryentry{sym:q}{type=symbols, name={\ensuremath{\mathbf{q}}}, description={Quaternion}, sort={q}}
-\newglossaryentry{sym:v}{type=symbols, name={\ensuremath{\mathbf{v}}}, description={normierte Rotationsachse}, sort={v}}
-\newglossaryentry{sym:phiRot}{type=symbols, name={\ensuremath{\phi}}, description={Rotationswinkel um die Rotationsachse}, sort={phi2}}
-\newglossaryentry{sym:thetaQuat}{type=symbols, name={\ensuremath{\theta}}, description={Winkel zwischen zwei Einheitsquaternionen}, sort={theta2}}
-
-% ===== Mittelung von Quaternionen =====
-\newglossaryentry{sym:qref}{type=symbols, name={\ensuremath{\mathbf{q}_{\mathrm{ref}}}}, description={Referenzquaternion zur Vorzeichenangleichung}, sort={qref}}
-\newglossaryentry{sym:weight}{type=symbols, name={\ensuremath{w_i}}, description={Gewicht der \(i\)-ten Orientierungsschätzung}, sort={wi}}
-\newglossaryentry{sym:qbar}{type=symbols, name={\ensuremath{\bar{\mathbf{q}}}}, description={gemitteltes Quaternion}, sort={qbar}}
-
-% ===== Sphärische lineare Interpolation von Quaternionen =====
-\newglossaryentry{sym:alpha}{type=symbols, name={\ensuremath{\alpha}}, description={Interpolationsparameter der SLERP, \(\alpha \in [0,1]\)}, sort={alpha}}
-
-% ===== Rodrigues-Parameter =====
-\newglossaryentry{sym:r}{type=symbols, name={\ensuremath{\mathbf{r}}}, description={Rodrigues-Vektor}, sort={r}}
-\newglossaryentry{sym:vhat}{type=symbols, name={\ensuremath{\hat{\mathbf{v}}}}, description={normierte Rotationsachse}, sort={vhat}}
-
-% ===== Transformation von Koordinatensystemen =====
-\newglossaryentry{sym:point}{type=symbols, name={\ensuremath{^{a}\mathbf{r}}}, description={Punkt, ausgedrückt im Koordinatensystem \(a\)}, sort={ar}}
-\newglossaryentry{sym:Rot}{type=symbols, name={\ensuremath{^{b}\mathbf{R}_{a}}}, description={Rotationsmatrix von System \(a\) nach System \(b\)}, sort={R1}}
-\newglossaryentry{sym:trans}{type=symbols, name={\ensuremath{^{b}\mathbf{t}_{a}}}, description={Translationsvektor von System \(a\) nach System \(b\)}, sort={t1}}
-\newglossaryentry{sym:Tmat}{type=symbols, name={\ensuremath{^{b}\mathbf{T}_{a}}}, description={homogene Transformationsmatrix von System \(a\) nach System \(b\)}, sort={T}}
-
-% ===== Extended Kalman Filter =====
-\newglossaryentry{sym:state}{type=symbols, name={\ensuremath{\mathbf{x}}}, description={Zustandsvektor des Systems}, sort={x}}
-\newglossaryentry{sym:stateHat}{type=symbols, name={\ensuremath{\hat{\mathbf{x}}}}, description={Schätzung des Zustandsvektors}, sort={xhat}}
-\newglossaryentry{sym:P}{type=symbols, name={\ensuremath{\mathbf{P}}}, description={Zustandskovarianzmatrix}, sort={P}}
-\newglossaryentry{sym:u}{type=symbols, name={\ensuremath{\mathbf{u}}}, description={Steuereingabe}, sort={u}}
-\newglossaryentry{sym:f}{type=symbols, name={\ensuremath{f}}, description={nichtlineare Modellfunktion}, sort={f}}
-\newglossaryentry{sym:F}{type=symbols, name={\ensuremath{\mathbf{F}}}, description={Jacobi-Matrix der Modellfunktion}, sort={F}}
-\newglossaryentry{sym:Q}{type=symbols, name={\ensuremath{\mathbf{Q}}}, description={Prozessrauschkovarianzmatrix}, sort={Q}}
-\newglossaryentry{sym:z}{type=symbols, name={\ensuremath{\mathbf{z}}}, description={Messwert}, sort={z}}
-\newglossaryentry{sym:K}{type=symbols, name={\ensuremath{\mathbf{K}}}, description={Kalman-Gain}, sort={K}}
-\newglossaryentry{sym:H}{type=symbols, name={\ensuremath{\mathbf{H}}}, description={Jacobi-Matrix der Messfunktion}, sort={H}}
-\newglossaryentry{sym:Rmeas}{type=symbols, name={\ensuremath{\mathbf{R}}}, description={Messrauschkovarianzmatrix}, sort={R2}}
-\newglossaryentry{sym:h}{type=symbols, name={\ensuremath{h}}, description={Messfunktion}, sort={h}}
+% ===== Koordinatensysteme und Frames =====
+\newglossaryentry{sym:O0}{type=symbols, name={\ensuremath{O_0}}, description={Ursprung des Weltkoordinatensystems}, sort={B010}}
+\newglossaryentry{sym:X0}{type=symbols, name={\ensuremath{X_0}}, description={X-Achse des Weltkoordinatensystems}, sort={B020}}
+\newglossaryentry{sym:Y0}{type=symbols, name={\ensuremath{Y_0}}, description={Y-Achse des Weltkoordinatensystems}, sort={B030}}
+\newglossaryentry{sym:Z0}{type=symbols, name={\ensuremath{Z_0}}, description={Z-Achse des Weltkoordinatensystems}, sort={B040}}
 
 
+% ===== Orientierungsdarstellung (Euler-Winkel, Quaternionen, Rodrigues) =====
+\newglossaryentry{sym:roll}{type=symbols, name={\ensuremath{\phi}}, description={Roll-Winkel (Drehung um die X-Achse)}, sort={C010}}
+\newglossaryentry{sym:pitch}{type=symbols, name={\ensuremath{\theta}}, description={Pitch-Winkel (Drehung um die Y-Achse)}, sort={C020}}
+\newglossaryentry{sym:yaw}{type=symbols, name={\ensuremath{\psi}}, description={Yaw-Winkel (Drehung um die Z-Achse)}, sort={C030}}
 
+\newglossaryentry{sym:q}{type=symbols, name={\ensuremath{\mathbf{q}}}, description={Quaternion}, sort={C040}}
+\newglossaryentry{sym:v}{type=symbols, name={\ensuremath{\mathbf{v}}}, description={normierte Rotationsachse}, sort={C050}}
 
-% ===== Random Sample Consensus (RANSAC) =====
-\newglossaryentry{sym:tthr}{type=symbols, name={\ensuremath{t}}, description={Schwellenwert für die Inlier-Zuordnung}, sort={t2}}
-\newglossaryentry{sym:model}{type=symbols, name={\ensuremath{\mathcal{M}}}, description={geschätztes Modell}, sort={M}}
+\newglossaryentry{sym:qref}{type=symbols, name={\ensuremath{\mathbf{q}_{\mathrm{ref}}}}, description={Referenzquaternion zur Vorzeichenangleichung}, sort={C080}}
+\newglossaryentry{sym:weight}{type=symbols, name={\ensuremath{w_i}}, description={Gewicht der \(i\)-ten Orientierungsschätzung}, sort={C090}}
+\newglossaryentry{sym:qbar}{type=symbols, name={\ensuremath{\bar{\mathbf{q}}}}, description={gemitteltes Quaternion}, sort={C100}}
 
+\newglossaryentry{sym:alpha}{type=symbols, name={\ensuremath{\alpha}}, description={Interpolationsparameter der SLERP, \(\alpha \in [0,1]\)}, sort={C110}}
 
-% ===== Dead Reckoning Localization =====
-\newglossaryentry{sym:sigmavel}{type=symbols, name={\ensuremath{\sigma_{\text{vel}}}}, description={Standardabweichung der geschätzten Geschwindigkeit}, sort={sigmavel}}
+\newglossaryentry{sym:r}{type=symbols, name={\ensuremath{\mathbf{r}}}, description={Rodrigues-Vektor}, sort={C120}}
+\newglossaryentry{sym:vhat}{type=symbols, name={\ensuremath{\hat{\mathbf{v}}}}, description={normierte Rotationsachse}, sort={C130}}
 
-% ===== Faktorgraph Optimierung =====
-\newglossaryentry{sym:pose}{type=symbols, name={\ensuremath{x_j}}, description={Variablenknoten einer UAV-Pose im Faktorgraphen}, sort={xpose}}
-\newglossaryentry{sym:landmark}{type=symbols, name={\ensuremath{t_i}}, description={Variablenknoten einer Landmarke (Tag) im Faktorgraphen}, sort={tlandmark}}
+% ===== Koordinatentransformationen =====
+\newglossaryentry{sym:point}{type=symbols, name={\ensuremath{^{a}\mathbf{r}}}, description={Punkt, ausgedrückt im Koordinatensystem \(a\)}, sort={D010}}
+\newglossaryentry{sym:Rot}{type=symbols, name={\ensuremath{^{b}\mathbf{R}_{a}}}, description={Rotationsmatrix von System \(a\) nach System \(b\)}, sort={D020}}
+\newglossaryentry{sym:trans}{type=symbols, name={\ensuremath{^{b}\mathbf{t}_{a}}}, description={Translationsvektor von System \(a\) nach System \(b\)}, sort={D030}}
+\newglossaryentry{sym:Tmat}{type=symbols, name={\ensuremath{^{b}\mathbf{T}_{a}}}, description={homogene Transformationsmatrix von System \(a\) nach System \(b\)}, sort={D040}}
 
-
+% ===== Extrinsische Kalibrierung =====
+\newglossaryentry{sym:TDC}{type=symbols, name={\ensuremath{^{\mathrm{D}}\mathbf{T}_{\mathrm{C}}}}, description={Transformation vom Drohnenmittelpunkt zur Kamera}, sort={E010}}
+\newglossaryentry{sym:TWD}{type=symbols, name={\ensuremath{^{\mathrm{W}}\mathbf{T}_{\mathrm{D}}}}, description={Pose des Drohnenmittelpunkts im Kalibrierbox-Koordinatensystem}, sort={E020}}
+\newglossaryentry{sym:TWC}{type=symbols, name={\ensuremath{^{\mathrm{W}}\mathbf{T}_{\mathrm{C}}}}, description={Pose der Kamera im Kalibrierbox-Koordinatensystem}, sort={E030}}
 
 % ===== Kamera-Kalibrierung =====
-\newglossaryentry{sym:Kcam}{type=symbols, name={\ensuremath{\mathbf{K}}}, description={Kameramatrix (intrinsische Parameter)}, sort={Kcam}}
-\newglossaryentry{sym:dvec}{type=symbols, name={\ensuremath{\mathbf{d}}}, description={Verzeichnungsvektor}, sort={d}}
-\newglossaryentry{sym:Rrect}{type=symbols, name={\ensuremath{\mathbf{R}}}, description={Rektifizierungsmatrix}, sort={R3}}
-\newglossaryentry{sym:Pproj}{type=symbols, name={\ensuremath{\mathbf{P}}}, description={Projektionsmatrix des entzerrten Bildes}, sort={P2}}
+\newglossaryentry{sym:Kcam}{type=symbols, name={\ensuremath{\mathbf{K}}}, description={Kameramatrix (intrinsische Parameter)}, sort={F010}}
+\newglossaryentry{sym:dvec}{type=symbols, name={\ensuremath{\mathbf{d}}}, description={Verzeichnungsvektor}, sort={F020}}
+\newglossaryentry{sym:Rrect}{type=symbols, name={\ensuremath{\mathbf{R}}}, description={Rektifizierungsmatrix}, sort={F030}}
+\newglossaryentry{sym:Pproj}{type=symbols, name={\ensuremath{\mathbf{P}}}, description={Projektionsmatrix des entzerrten Bildes}, sort={F040}}
 
+% ===== Extended Kalman Filter =====
+\newglossaryentry{sym:state}{type=symbols, name={\ensuremath{\mathbf{x}}}, description={Zustandsvektor des Systems}, sort={G010}}
+\newglossaryentry{sym:stateHat}{type=symbols, name={\ensuremath{\hat{\mathbf{x}}}}, description={Schätzung des Zustandsvektors}, sort={G020}}
+\newglossaryentry{sym:P}{type=symbols, name={\ensuremath{\mathbf{P}}}, description={Zustandskovarianzmatrix}, sort={G030}}
+\newglossaryentry{sym:u}{type=symbols, name={\ensuremath{\mathbf{u}}}, description={Steuereingabe}, sort={G040}}
+\newglossaryentry{sym:f}{type=symbols, name={\ensuremath{f}}, description={nichtlineare Modellfunktion}, sort={G050}}
+\newglossaryentry{sym:F}{type=symbols, name={\ensuremath{\mathbf{F}}}, description={Jacobi-Matrix der Modellfunktion}, sort={G060}}
+\newglossaryentry{sym:Q}{type=symbols, name={\ensuremath{\mathbf{Q}}}, description={Prozessrauschkovarianzmatrix}, sort={G070}}
+\newglossaryentry{sym:z}{type=symbols, name={\ensuremath{\mathbf{z}}}, description={Messwert}, sort={G080}}
+\newglossaryentry{sym:K}{type=symbols, name={\ensuremath{\mathbf{K}}}, description={Kalman-Gain}, sort={G090}}
+\newglossaryentry{sym:H}{type=symbols, name={\ensuremath{\mathbf{H}}}, description={Jacobi-Matrix der Messfunktion}, sort={G100}}
+\newglossaryentry{sym:Rmeas}{type=symbols, name={\ensuremath{\mathbf{R}}}, description={Messrauschkovarianzmatrix}, sort={G110}}
+\newglossaryentry{sym:h}{type=symbols, name={\ensuremath{h}}, description={Messfunktion}, sort={G120}}
 
+% ===== Faktorgraph-Optimierung =====
+\newglossaryentry{sym:pose}{type=symbols, name={\ensuremath{x_j}}, description={Variablenknoten einer UAV-Pose im Faktorgraphen}, sort={H010}}
+\newglossaryentry{sym:landmark}{type=symbols, name={\ensuremath{t_i}}, description={Variablenknoten einer Landmarke (Tag) im Faktorgraphen}, sort={H020}}
 
-% ===== Frames der Positionierung =====
-\newglossaryentry{sym:frameK}{type=symbols, name={\ensuremath{\mathrm{K}}}, description={Kartenkoordinatensystem (ENU)}, sort={frameK}}
-\newglossaryentry{sym:frameC}{type=symbols, name={\ensuremath{\mathrm{C}}}, description={Kamerakoordinatensystem}, sort={frameC}}
-\newglossaryentry{sym:frameM}{type=symbols, name={\ensuremath{\mathrm{M}}}, description={Markerkoordinatensystem}, sort={frameM}}
-\newglossaryentry{sym:frameD}{type=symbols, name={\ensuremath{\mathrm{D}}}, description={Koordinatensystem des Drohnenmittelpunkts}, sort={frameD}}
-\newglossaryentry{sym:frameW}{type=symbols, name={\ensuremath{\mathrm{W}}}, description={Koordinatensystem der Kalibrierbox}, sort={frameW}}
+% ===== Posenberechnung je Marker =====
+\newglossaryentry{sym:TKM}{type=symbols, name={\ensuremath{^{\mathrm{K}}\mathbf{T}_{\mathrm{M}}}}, description={Lage des Markers im Kartenkoordinatensystem}, sort={I010}}
+\newglossaryentry{sym:TKC}{type=symbols, name={\ensuremath{^{\mathrm{K}}\mathbf{T}_{\mathrm{C}}}}, description={Pose der Kamera im Kartenkoordinatensystem}, sort={I020}}
+\newglossaryentry{sym:TMC}{type=symbols, name={\ensuremath{^{\mathrm{M}}\mathbf{T}_{\mathrm{C}}}}, description={Lage der Kamera relativ zum Marker}, sort={I030}}
+\newglossaryentry{sym:tCMtilde}{type=symbols, name={\ensuremath{^{\mathrm{C}}\tilde{\mathbf{t}}_{\mathrm{M}}}}, description={detektierter (unskalierter) Translationsvektor Kamera--Marker}, sort={I040}}
+\newglossaryentry{sym:tCM}{type=symbols, name={\ensuremath{^{\mathrm{C}}\mathbf{t}_{\mathrm{M}}}}, description={skalierter Translationsvektor Kamera--Marker}, sort={I050}}
+\newglossaryentry{sym:qCM}{type=symbols, name={\ensuremath{^{\mathrm{C}}\mathbf{q}_{\mathrm{M}}}}, description={detektierte Orientierung des Markers im Kamerakoordinatensystem}, sort={I060}}
+\newglossaryentry{sym:aM}{type=symbols, name={\ensuremath{a_{\mathrm{M}}}}, description={Kantenlänge des Markers}, sort={I070}}
+\newglossaryentry{sym:aref}{type=symbols, name={\ensuremath{a_{\mathrm{ref}}}}, description={Referenz-Markergröße}, sort={I080}}
+\newglossaryentry{sym:dtilde}{type=symbols, name={\ensuremath{\tilde{d}}}, description={Pixel-Proxy-Distanz (Norm der unskalierten Translation)}, sort={I090}}
+\newglossaryentry{sym:wgeo}{type=symbols, name={\ensuremath{w^{\mathrm{geo}}}}, description={geometrisches Gewicht einer Markerschätzung nach scheinbarer Bildgröße}, sort={I100}}
+\newglossaryentry{sym:wgewicht}{type=symbols, name={\ensuremath{w}}, description={kombiniertes Gewicht einer Markerschätzung aus scheinbarer Bildgröße und Kartenunsicherheit}, sort={I110}}
 
-%extrinsische Kalibrierung
-\newglossaryentry{sym:TDC}{type=symbols, name={\ensuremath{^{\mathrm{D}}\mathbf{T}_{\mathrm{C}}}}, description={Transformation vom Drohnenmittelpunkt zur Kamera}, sort={TDC}}
-\newglossaryentry{sym:TWD}{type=symbols, name={\ensuremath{^{\mathrm{W}}\mathbf{T}_{\mathrm{D}}}}, description={Pose des Drohnenmittelpunkts im Kalibrierbox-Koordinatensystem}, sort={TWD}}
-\newglossaryentry{sym:TWC}{type=symbols, name={\ensuremath{^{\mathrm{W}}\mathbf{T}_{\mathrm{C}}}}, description={Pose der Kamera im Kalibrierbox-Koordinatensystem}, sort={TWC}}
+% ===== Kartenunsicherheit in der Gewichtung =====
+\newglossaryentry{sym:sigmamap}{type=symbols, name={\ensuremath{\sigma_{\mathrm{map}}}}, description={mittlere Positionsunsicherheit eines Markers in der TagSLAM-Karte}, sort={J010}}
+\newglossaryentry{sym:sigmaref}{type=symbols, name={\ensuremath{\sigma_{\mathrm{ref}}}}, description={Referenz-Standardabweichung der Kartenunsicherheit}, sort={J020}}
+\newglossaryentry{sym:qmap}{type=symbols, name={\ensuremath{q}}, description={Qualitätsfaktor eines Markers aus der Kartenunsicherheit}, sort={J030}}
 
+% ===== Ausreißerfilterung mit RANSAC =====
+\newglossaryentry{sym:tthr}{type=symbols, name={\ensuremath{t}}, description={Schwellenwert für die Inlier-Zuordnung}, sort={K010}}
+\newglossaryentry{sym:model}{type=symbols, name={\ensuremath{\mathcal{M}}}, description={geschätztes Modell}, sort={K020}}
+\newglossaryentry{sym:dbar}{type=symbols, name={\ensuremath{\bar{d}}}, description={mittlere Markerdistanz}, sort={K030}}
+\newglossaryentry{sym:dref}{type=symbols, name={\ensuremath{d_{\mathrm{ref}}}}, description={Referenzdistanz des adaptiven Schwellenwerts}, sort={K040}}
+\newglossaryentry{sym:tau0}{type=symbols, name={\ensuremath{\tau_0}}, description={Basisschwelle der Inlier-Zuordnung}, sort={K050}}
+\newglossaryentry{sym:tau}{type=symbols, name={\ensuremath{\tau}}, description={adaptiver Inlier-Schwellenwert}, sort={K060}}
+\newglossaryentry{sym:fscale}{type=symbols, name={\ensuremath{f}}, description={distanzabhängiger Skalierungsfaktor des Schwellenwerts}, sort={K070}}
+\newglossaryentry{sym:fmax}{type=symbols, name={\ensuremath{f_{\max}}}, description={obere Schranke des Skalierungsfaktors}, sort={K080}}
+\newglossaryentry{sym:nschaetz}{type=symbols, name={\ensuremath{n}}, description={Anzahl der vorliegenden Schätzungen}, sort={K090}}
+\newglossaryentry{sym:nmin}{type=symbols, name={\ensuremath{n_{\min}}}, description={erforderliche Mindestgröße der Konsensmenge}, sort={K100}}
+\newglossaryentry{sym:nTags}{type=symbols, name={\ensuremath{n_{\mathrm{Tags}}}}, description={Mindestmarkeranzahl pro Frame}, sort={K110}}
+\newglossaryentry{sym:rratio}{type=symbols, name={\ensuremath{r}}, description={Mindestanteil konsistenter Schätzungen}, sort={K120}}
+\newglossaryentry{sym:Iset}{type=symbols, name={\ensuremath{\mathcal{I}}}, description={Konsensmenge (Inlier)}, sort={K130}}
 
-%Posenberechnung je marker
-\newglossaryentry{sym:TKM}{type=symbols, name={\ensuremath{^{\mathrm{K}}\mathbf{T}_{\mathrm{M}}}}, description={Lage des Markers im Kartenkoordinatensystem}, sort={TKM}}
-\newglossaryentry{sym:TKC}{type=symbols, name={\ensuremath{^{\mathrm{K}}\mathbf{T}_{\mathrm{C}}}}, description={Pose der Kamera im Kartenkoordinatensystem}, sort={TKC}}
-\newglossaryentry{sym:TMC}{type=symbols, name={\ensuremath{^{\mathrm{M}}\mathbf{T}_{\mathrm{C}}}}, description={Lage der Kamera relativ zum Marker}, sort={TMC}}
-\newglossaryentry{sym:tCMtilde}{type=symbols, name={\ensuremath{^{\mathrm{C}}\tilde{\mathbf{t}}_{\mathrm{M}}}}, description={detektierter (unskalierter) Translationsvektor Kamera--Marker}, sort={tCMtilde}}
-\newglossaryentry{sym:tCM}{type=symbols, name={\ensuremath{^{\mathrm{C}}\mathbf{t}_{\mathrm{M}}}}, description={skalierter Translationsvektor Kamera--Marker}, sort={tCM}}
-\newglossaryentry{sym:qCM}{type=symbols, name={\ensuremath{^{\mathrm{C}}\mathbf{q}_{\mathrm{M}}}}, description={detektierte Orientierung des Markers im Kamerakoordinatensystem}, sort={qCM}}
-\newglossaryentry{sym:aM}{type=symbols, name={\ensuremath{a_{\mathrm{M}}}}, description={Kantenlänge des Markers}, sort={aM}}
-\newglossaryentry{sym:aref}{type=symbols, name={\ensuremath{a_{\mathrm{ref}}}}, description={Referenz-Markergröße}, sort={aref}}
-\newglossaryentry{sym:dtilde}{type=symbols, name={\ensuremath{\tilde{d}}}, description={Pixel-Proxy-Distanz (Norm der unskalierten Translation)}, sort={dtilde}}
-\newglossaryentry{sym:wgeo}{type=symbols, name={\ensuremath{w^{\mathrm{geo}}}}, description={geometrisches Gewicht einer Markerschätzung nach scheinbarer Bildgröße}, sort={wgeo}}
-\newglossaryentry{sym:wgewicht}{type=symbols, name={\ensuremath{w}}, description={kombiniertes Gewicht einer Markerschätzung aus scheinbarer Bildgröße und Kartenunsicherheit}, sort={wgew}}
+% ===== Kamerafusion und Glättung =====
+\newglossaryentry{sym:TKD}{type=symbols, name={\ensuremath{^{\mathrm{K}}\mathbf{T}_{\mathrm{D}}}}, description={Pose des Drohnenmittelpunkts im Kartenkoordinatensystem}, sort={L010}}
+\newglossaryentry{sym:TCD}{type=symbols, name={\ensuremath{^{\mathrm{C}}\mathbf{T}_{\mathrm{D}}}}, description={feste Transformation von der Kamera zum Drohnenmittelpunkt}, sort={L020}}
+\newglossaryentry{sym:wcam}{type=symbols, name={\ensuremath{w_1,\,w_2}}, description={feste Gewichtungsfaktoren der beiden Kameras}, sort={L030}}
+\newglossaryentry{sym:alphat}{type=symbols, name={\ensuremath{\alpha_{\mathrm{t}}}}, description={Glättungsfaktor des EMA-Filters (Position)}, sort={L040}}
+\newglossaryentry{sym:alphaq}{type=symbols, name={\ensuremath{\alpha_{\mathrm{q}}}}, description={Interpolationsfaktor der SLERP-Glättung (Orientierung)}, sort={L050}}
+\newglossaryentry{sym:ktakt}{type=symbols, name={\ensuremath{k}}, description={Taktindex der Ausgabe}, sort={L060}}
 
-
-%Kartenunsicherheit in der Gewichtung
-\newglossaryentry{sym:sigmamap}{type=symbols, name={\ensuremath{\sigma_{\mathrm{map}}}}, description={mittlere Positionsunsicherheit eines Markers in der TagSLAM-Karte}, sort={sigmamap}}
-\newglossaryentry{sym:sigmaref}{type=symbols, name={\ensuremath{\sigma_{\mathrm{ref}}}}, description={Referenz-Standardabweichung der Kartenunsicherheit}, sort={sigmaref}}
-\newglossaryentry{sym:qmap}{type=symbols, name={\ensuremath{q}}, description={Qualitätsfaktor eines Markers aus der Kartenunsicherheit}, sort={qmap}}
-
-
-%Ausreißerfilterung mit Ransac
-\newglossaryentry{sym:dbar}{type=symbols, name={\ensuremath{\bar{d}}}, description={mittlere Markerdistanz}, sort={dbar}}
-\newglossaryentry{sym:dref}{type=symbols, name={\ensuremath{d_{\mathrm{ref}}}}, description={Referenzdistanz des adaptiven Schwellenwerts}, sort={dref}}
-\newglossaryentry{sym:tau0}{type=symbols, name={\ensuremath{\tau_0}}, description={Basisschwelle der Inlier-Zuordnung}, sort={tau0}}
-\newglossaryentry{sym:tau}{type=symbols, name={\ensuremath{\tau}}, description={adaptiver Inlier-Schwellenwert}, sort={tau}}
-\newglossaryentry{sym:fscale}{type=symbols, name={\ensuremath{f}}, description={distanzabhängiger Skalierungsfaktor des Schwellenwerts}, sort={fscale}}
-\newglossaryentry{sym:fmax}{type=symbols, name={\ensuremath{f_{\max}}}, description={obere Schranke des Skalierungsfaktors}, sort={fmax}}
-\newglossaryentry{sym:nschaetz}{type=symbols, name={\ensuremath{n}}, description={Anzahl der vorliegenden Schätzungen}, sort={n}}
-\newglossaryentry{sym:nmin}{type=symbols, name={\ensuremath{n_{\min}}}, description={erforderliche Mindestgröße der Konsensmenge}, sort={nmin}}
-\newglossaryentry{sym:nTags}{type=symbols, name={\ensuremath{n_{\mathrm{Tags}}}}, description={Mindestmarkeranzahl pro Frame}, sort={nTags}}
-\newglossaryentry{sym:rratio}{type=symbols, name={\ensuremath{r}}, description={Mindestanteil konsistenter Schätzungen}, sort={rratio}}
-\newglossaryentry{sym:Iset}{type=symbols, name={\ensuremath{\mathcal{I}}}, description={Konsensmenge (Inlier)}, sort={Iset}}
-
-
-%Kamerafusion und Glättung
-\newglossaryentry{sym:TKD}{type=symbols, name={\ensuremath{^{\mathrm{K}}\mathbf{T}_{\mathrm{D}}}}, description={Pose des Drohnenmittelpunkts im Kartenkoordinatensystem}, sort={TKD}}
-\newglossaryentry{sym:TCD}{type=symbols, name={\ensuremath{^{\mathrm{C}}\mathbf{T}_{\mathrm{D}}}}, description={feste Transformation von der Kamera zum Drohnenmittelpunkt}, sort={TCD}}
-\newglossaryentry{sym:wcam}{type=symbols, name={\ensuremath{w_1,\,w_2}}, description={feste Gewichtungsfaktoren der beiden Kameras}, sort={wcam}}
-\newglossaryentry{sym:alphat}{type=symbols, name={\ensuremath{\alpha_{\mathrm{t}}}}, description={Glättungsfaktor des EMA-Filters (Position)}, sort={alphat}}
-\newglossaryentry{sym:alphaq}{type=symbols, name={\ensuremath{\alpha_{\mathrm{q}}}}, description={Interpolationsfaktor der SLERP-Glättung (Orientierung)}, sort={alphaq}}
-\newglossaryentry{sym:ktakt}{type=symbols, name={\ensuremath{k}}, description={Taktindex der Ausgabe}, sort={ktakt}}
-
-%Kovarianz berechnen
+% ===== Kovarianzschätzung =====
 \newglossaryentry{sym:sigmapos0}{
   type=symbols,
   name={\ensuremath{\sigma_{\mathrm{pos},0}}},
-  sort={sigma pos 0},
+  sort={M010},
   description={Basis-Standardabweichung der Position unter Referenzbedingungen}
 }
 \newglossaryentry{sym:dsigma}{
   type=symbols,
   name={\ensuremath{d_{\sigma}}},
-  sort={d sigma},
+  sort={M020},
   description={Referenzdistanz der Kovarianzschätzung}
 }
 \newglossaryentry{sym:asigma}{
   type=symbols,
   name={\ensuremath{a_{\sigma}}},
-  sort={a sigma},
+  sort={M030},
   description={Referenz-Tag-Größe der Kovarianzschätzung}
 }
+
+% ===== Dead-Reckoning-Lokalisierung =====
+\newglossaryentry{sym:sigmavel}{type=symbols, name={\ensuremath{\sigma_{\text{vel}}}}, description={Standardabweichung der geschätzten Geschwindigkeit}, sort={N010}}

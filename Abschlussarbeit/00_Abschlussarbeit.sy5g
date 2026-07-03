@@ -1,0 +1,27 @@
+;; This logfile was generated automatically by `xindy'
+;; at 03.07.2026  19:16:24
+;; Indexstyle: "/tmp/7pj6LKHDoL", Rawindex: "/tmp/lbBFK6VjAr", Output: "00_Abschlussarbeit.sy5i"
+
+
+Building indexentry-tree:
+Hierdepth of index is :TREE
+
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+
+Forming letter-groups:
+Letter-group: "®†€»" -> "K"
+Letter-group: "" -> "D"
+Letter-group: "Ë3" -> "R"
+Letter-group: "È2" -> "P"
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+Letter-group: "" -> "D"
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+Letter-group: "®†€»" -> "K"
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+Letter-group: "È2" -> "P"
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+Letter-group: "Ë3" -> "R"
+WARNING: location-reference "{}{X}" did match multiple location-classes! (taking first one)

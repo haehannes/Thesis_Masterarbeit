@@ -201,6 +201,29 @@
 % Wichtig: description-Umgebung braucht \item, sonst kommt "missing \item".
 \usepackage{longtable}
 
+% Zuordnung der Buchstaben-Gruppen (aus den sort-Schlüsseln in 04_Symbole.tex)
+% zu den Kategorieüberschriften des Symbolverzeichnisses.
+% Unbekannte Buchstaben werden unverändert ausgegeben (Fallback).
+\makeatletter
+\newcommand*{\symgroupname}[1]{%
+  \ifcsname symgrp@#1\endcsname\csname symgrp@#1\endcsname\else#1\fi
+}
+\@namedef{symgrp@A}{Typografische Konvention}
+\@namedef{symgrp@B}{Koordinatensysteme und Frames}
+\@namedef{symgrp@C}{Orientierungsdarstellung}
+\@namedef{symgrp@D}{Koordinatentransformationen}
+\@namedef{symgrp@E}{Extrinsische Kalibrierung}
+\@namedef{symgrp@F}{Kamera-Kalibrierung}
+\@namedef{symgrp@G}{Extended Kalman Filter}
+\@namedef{symgrp@H}{Faktorgraph-Optimierung}
+\@namedef{symgrp@I}{Posenberechnung je Marker}
+\@namedef{symgrp@J}{Kartenunsicherheit in der Gewichtung}
+\@namedef{symgrp@K}{Ausreißerfilterung mit RANSAC}
+\@namedef{symgrp@L}{Kamerafusion und Glättung}
+\@namedef{symgrp@M}{Kovarianzschätzung}
+\@namedef{symgrp@N}{Dead-Reckoning-Lokalisierung}
+\makeatother
+
 % Kompakter, tabellenartiger Stil für das Symbolverzeichnis
 \newglossarystyle{symstyle}{
   \renewenvironment{theglossary}
@@ -216,8 +239,13 @@
     \glossentry{##2}{##3}%
   }
 
-  % Keine Gruppierungsüberschriften wie X, Y, Z
-  \renewcommand*{\glsgroupheading}[1]{}
+  % Benannte Kategorieüberschriften (Titel via \symgroupname aus dem Gruppen-Buchstaben)
+  \renewcommand*{\glsgroupheading}[1]{%
+    \multicolumn{2}{@{}l}{%
+      \rule{0pt}{4.2ex}%
+      \normalfont\sffamily\bfseries\large\color{chapterblue}\symgroupname{##1}%
+    }\\[0.5em]%
+  }
   \renewcommand*{\glsgroupskip}{}
 }
 
@@ -304,5 +332,5 @@
     \DABetreuerA{Prof. Dr. rer. nat. Pfitzner}
     \DABetreuerB{Prof. Dr.-Ing. Schröder}
     \DAOrt{Abgabe: Nürnberg}
-    \DAAbgabedatum{??.\,Juni\,2026}
+    \DAAbgabedatum{??.\,Juli 2026}
     \DAAbgabesemester{Sommersemester 2026}

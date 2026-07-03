@@ -136,30 +136,38 @@ Komponenten mit Bezeichnung, Gewicht und Betriebssystem.
 
 \begin{table}[htbp]
 \centering
+\begin{threeparttable}
+\caption{Übersicht der eingesetzten Hardwarekomponenten mit Gewicht und Betriebssystem}
+\label{tab:hardwarekomponenten}
 \begin{tabular}{llll}
 \toprule
 \textbf{Komponente} & \textbf{Bezeichnung} & \textbf{Gewicht} & \textbf{Betriebssystem} \\
 \midrule
-Flugplattform        & Holybro X650                   & 2000\,g & --                          \\
-Companion-Computer   & reComputer Mini J3011          & ???      & JetPack~6.2 (Ubuntu~22.04)  \\
-Flugcontroller       & Pixhawk 6X                     & ???      & PX4~v1.16.1 (NuttX)         \\
-Kamera 1             & Logitech C920                  & ???      & --                          \\
-Kamera 2             & Logitech C922                  & ???     & --                          \\
-%Kamera 4             & Stereolabs ZED Mini            & 62,9\,g & --                          \\
-Fernsteuerung        & Radiolink AT9S Pro / R9DS      & ???      & --                          \\
-Akku                 & Pichler RED POWER XT 5400 (4S) & ???      & --                          \\
-Powermodul           & Holybro PM02 V3                & 20\,g   & --                          \\
-Stromverteilung      & Holybro Mini-PDB               & --      & --                          \\
-Telemetrie           & Holybro Telemetrie-Set 433\,MHz & ???     & --                          \\
-GPS-Modul            & Holybro M9N GPS                & ???      & --                          \\
-WLAN-Karte           & M.2 Wi-Fi~6 Adapter            & --      & --                          \\
-Bodenstation         & Laptop / QGroundControl        & --      & Ubuntu~24.04.4~LTS          \\
+Flugplattform        & Holybro X650                    & 2076\,g          & --                         \\
+Companion-Computer   & reComputer Mini J3011           & 380\,g           & JetPack~6.2 (Ubuntu~22.04) \\
+Flugcontroller       & Pixhawk 6X                      & \tnote{*}        & PX4~v1.16.1 (NuttX)        \\
+Kamera 1             & Logitech C920                   & 149\,g           & --                         \\
+Kamera 2             & Logitech C922                   & 162\,g           & --                         \\
+%Kamera 4            & Stereolabs ZED Mini             & 62,9\,g          & --                         \\
+Fernsteuerung        & Radiolink AT9S Pro / R9DS       & \tnote{*}        & --                         \\
+Akku                 & Pichler RED POWER XT 5400 (4S)  & 480\,g           & --                         \\
+Powermodul           & Holybro PM02 V3                 & \tnote{*}        & --                         \\
+Stromverteilung      & Holybro Mini-PDB                & \tnote{*}        & --                         \\
+Telemetrie           & Holybro Telemetrie-Set 433\,MHz & \tnote{*}        & --                         \\
+GPS-Modul            & Holybro M9N GPS                 & \tnote{*}        & --                         \\
+WLAN-Karte           & M.2 Wi-Fi~6 Adapter             & \tnote{**}       & --                         \\
+Ethernet-Adapter     & renkforce                       & 32\,g            & --                         \\
+Bodenstation         & Laptop / QGroundControl         & --               & Ubuntu~24.04.4~LTS         \\
 \midrule
-\textbf{Gesamtgewicht} &                              & \textbf{???\,g} & --               \\
+\textbf{Gesamtgewicht} &                               & \textbf{3279\,g} & --                         \\
 \bottomrule
 \end{tabular}
-\caption{Übersicht der eingesetzten Hardwarekomponenten mit Gewicht und Betriebssystem}
-\label{tab:hardwarekomponenten}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item[*] bei Flugplattform enthalten
+\item[**] bei Companion-Computer enthalten
+\end{tablenotes}
+\end{threeparttable}
 \end{table}
 \FloatBarrier
 
