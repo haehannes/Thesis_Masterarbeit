@@ -1230,6 +1230,34 @@ parent={},%
 %
 }%
 
+\glsdefs@newdocentry{gb}%
+{%
+name={\acronymfont {\glsentryshort {gb}}},%
+sort={GB},%
+type={acronym},%
+first={GB},%
+firstplural={GBs},%
+text={GB},%
+plural={GBs},%
+description={Gigabyte},%
+descriptionplural={Gigabyte},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Gigabyte},%
+longplural={Gigabytes},%
+short={GB},%
+shortplural={GBs},%
+counter={page},%
+parent={},%
+%
+}%
+
 \glsdefs@newdocentry{sym:O0}%
 {%
 name={\ensuremath {O_0}},%
@@ -1745,90 +1773,6 @@ text={\protect \ensuremath  {^{b}\protect \mathbf  {T}_{a}}},%
 plural={\protect \ensuremath  {^{b}\protect \mathbf  {T}_{a}}s},%
 description={homogene Transformationsmatrix von System \(a\) nach System \(b\)},%
 descriptionplural={homogene Transformationsmatrix von System \(a\) nach System \(b\)},%
-symbol={\relax },%
-symbolplural={\relax },%
-user1={},%
-user2={},%
-user3={},%
-user4={},%
-user5={},%
-user6={},%
-long={},%
-longplural={},%
-short={},%
-shortplural={},%
-counter={page},%
-parent={},%
-%
-}%
-
-\glsdefs@newdocentry{sym:TDC}%
-{%
-name={\ensuremath {^{\mathrm {D}}\mathbf {T}_{\mathrm {C}}}},%
-sort={E010},%
-type={symbols},%
-first={\protect \ensuremath  {^{\protect \mathrm  {D}}\protect \mathbf  {T}_{\protect \mathrm  {C}}}},%
-firstplural={\protect \ensuremath  {^{\protect \mathrm  {D}}\protect \mathbf  {T}_{\protect \mathrm  {C}}}s},%
-text={\protect \ensuremath  {^{\protect \mathrm  {D}}\protect \mathbf  {T}_{\protect \mathrm  {C}}}},%
-plural={\protect \ensuremath  {^{\protect \mathrm  {D}}\protect \mathbf  {T}_{\protect \mathrm  {C}}}s},%
-description={Transformation vom Drohnenmittelpunkt zur Kamera},%
-descriptionplural={Transformation vom Drohnenmittelpunkt zur Kamera},%
-symbol={\relax },%
-symbolplural={\relax },%
-user1={},%
-user2={},%
-user3={},%
-user4={},%
-user5={},%
-user6={},%
-long={},%
-longplural={},%
-short={},%
-shortplural={},%
-counter={page},%
-parent={},%
-%
-}%
-
-\glsdefs@newdocentry{sym:TWD}%
-{%
-name={\ensuremath {^{\mathrm {W}}\mathbf {T}_{\mathrm {D}}}},%
-sort={E020},%
-type={symbols},%
-first={\protect \ensuremath  {^{\protect \mathrm  {W}}\protect \mathbf  {T}_{\protect \mathrm  {D}}}},%
-firstplural={\protect \ensuremath  {^{\protect \mathrm  {W}}\protect \mathbf  {T}_{\protect \mathrm  {D}}}s},%
-text={\protect \ensuremath  {^{\protect \mathrm  {W}}\protect \mathbf  {T}_{\protect \mathrm  {D}}}},%
-plural={\protect \ensuremath  {^{\protect \mathrm  {W}}\protect \mathbf  {T}_{\protect \mathrm  {D}}}s},%
-description={Pose des Drohnenmittelpunkts im Kalibrierbox-Koordinatensystem},%
-descriptionplural={Pose des Drohnenmittelpunkts im Kalibrierbox-Koordinatensystem},%
-symbol={\relax },%
-symbolplural={\relax },%
-user1={},%
-user2={},%
-user3={},%
-user4={},%
-user5={},%
-user6={},%
-long={},%
-longplural={},%
-short={},%
-shortplural={},%
-counter={page},%
-parent={},%
-%
-}%
-
-\glsdefs@newdocentry{sym:TWC}%
-{%
-name={\ensuremath {^{\mathrm {W}}\mathbf {T}_{\mathrm {C}}}},%
-sort={E030},%
-type={symbols},%
-first={\protect \ensuremath  {^{\protect \mathrm  {W}}\protect \mathbf  {T}_{\protect \mathrm  {C}}}},%
-firstplural={\protect \ensuremath  {^{\protect \mathrm  {W}}\protect \mathbf  {T}_{\protect \mathrm  {C}}}s},%
-text={\protect \ensuremath  {^{\protect \mathrm  {W}}\protect \mathbf  {T}_{\protect \mathrm  {C}}}},%
-plural={\protect \ensuremath  {^{\protect \mathrm  {W}}\protect \mathbf  {T}_{\protect \mathrm  {C}}}s},%
-description={Pose der Kamera im Kalibrierbox-Koordinatensystem},%
-descriptionplural={Pose der Kamera im Kalibrierbox-Koordinatensystem},%
 symbol={\relax },%
 symbolplural={\relax },%
 user1={},%
@@ -3341,34 +3285,6 @@ text={\protect \ensuremath  {a_{\sigma }}},%
 plural={\protect \ensuremath  {a_{\sigma }}s},%
 description={Referenz-Tag-Größe der Kovarianzschätzung},%
 descriptionplural={Referenz-Tag-Größe der Kovarianzschätzung},%
-symbol={\relax },%
-symbolplural={\relax },%
-user1={},%
-user2={},%
-user3={},%
-user4={},%
-user5={},%
-user6={},%
-long={},%
-longplural={},%
-short={},%
-shortplural={},%
-counter={page},%
-parent={},%
-%
-}%
-
-\glsdefs@newdocentry{sym:sigmavel}%
-{%
-name={\ensuremath {\sigma _{\text {vel}}}},%
-sort={N010},%
-type={symbols},%
-first={\protect \ensuremath  {\sigma _{\protect \text  {vel}}}},%
-firstplural={\protect \ensuremath  {\sigma _{\protect \text  {vel}}}s},%
-text={\protect \ensuremath  {\sigma _{\protect \text  {vel}}}},%
-plural={\protect \ensuremath  {\sigma _{\protect \text  {vel}}}s},%
-description={Standardabweichung der geschätzten Geschwindigkeit},%
-descriptionplural={Standardabweichung der geschätzten Geschwindigkeit},%
 symbol={\relax },%
 symbolplural={\relax },%
 user1={},%

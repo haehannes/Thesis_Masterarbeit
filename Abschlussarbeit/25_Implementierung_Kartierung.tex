@@ -378,15 +378,15 @@ Für jeden erkannten Marker werden Identifikationsnummer und Bildkoordinaten der
 bestimmt und als Topic \topic{/tagslam/tag_detections} ausgegeben.
 
 Die Detektionen werden zusammen mit den Bildern, den Kameraparametern, den statischen Transformationen 
-und der Zeit aus dem Eingangs-Bag (anstelle der Systemzeit) in einem zweiten, kombinierten Bag aufgezeichnet:
+und der Zeit aus dem Eingangs-Bag (anstelle der Systemzeit) in einem zweiten, Bag aufgezeichnet:
 \begin{itemize}
-\item \topic{/camera/image_rect} -- das entzerrte Bild,
-\item \topic{/camera/camera_info_rect} -- die zugehörigen Kameraparameter,
+%\item \topic{/camera/image_rect} -- das entzerrte Bild,
+%\item \topic{/camera/camera_info_rect} -- die zugehörigen Kameraparameter,
 \item \topic{/tagslam/tag_detections} -- die Markerdetektionen,
-\item \topic{/tf_static} -- die statischen Koordinatentransformationen,
+%\item \topic{/tf_static} -- die statischen Koordinatentransformationen,
 \item \topic{/clock} -- die Zeit aus dem Eingangs-Bag, anstelle der Systemzeit.
 \end{itemize}
-Dieser kombinierte Bag enthält alle Eingangsdaten für die nachfolgende Kartenerstellung.
+Dieser Bag enthält nur noch die Eingangsdaten, dier nachfolgend zur Kartenerstellung notwendig sind.
 
 
 

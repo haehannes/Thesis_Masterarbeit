@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.11.7)  3 JUL 2026 21:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.11.7)  10 JUL 2026 14:23
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1219,7 +1219,92 @@ Package csquotes Info: Redefining alias 'default' -> 'english'.
 LaTeX Font Info:    Trying to load font information for T1+lmss on input line 148.
  (/usr/share/texmf/tex/latex/lm/t1lmss.fd
 File: t1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) (./00_Abschlussarbeit.aux)
+) (./00_Abschlussarbeit.aux
+
+LaTeX Warning: Label `subsec:pos_parametrierung' multiply defined.
+
+
+LaTeX Warning: Label `subsec:pos_parametrierung@cref' multiply defined.
+
+
+LaTeX Warning: Label `eq:sigma_scaling' multiply defined.
+
+
+LaTeX Warning: Label `eq:sigma_scaling@cref' multiply defined.
+
+
+LaTeX Warning: Label `cap:versuchsdurchfÃ¼hrung' multiply defined.
+
+
+LaTeX Warning: Label `cap:versuchsdurchfÃ¼hrung@cref' multiply defined.
+
+
+LaTeX Warning: Label `sec:durchfuehrung_kartierung' multiply defined.
+
+
+LaTeX Warning: Label `sec:durchfuehrung_kartierung@cref' multiply defined.
+
+
+LaTeX Warning: Label `sec:anbringen_karte' multiply defined.
+
+
+LaTeX Warning: Label `sec:anbringen_karte@cref' multiply defined.
+
+
+LaTeX Warning: Label `fig:tag_karte_oic' multiply defined.
+
+
+LaTeX Warning: Label `fig:tag_karte_oic@cref' multiply defined.
+
+
+LaTeX Warning: Label `sec:aufnahme_karte' multiply defined.
+
+
+LaTeX Warning: Label `sec:aufnahme_karte@cref' multiply defined.
+
+
+LaTeX Warning: Label `sec:parametrierung_tagslam' multiply defined.
+
+
+LaTeX Warning: Label `sec:parametrierung_tagslam@cref' multiply defined.
+
+
+LaTeX Warning: Label `tab:tagslam_params_laeufe' multiply defined.
+
+
+LaTeX Warning: Label `tab:tagslam_params_laeufe@cref' multiply defined.
+
+
+LaTeX Warning: Label `subsec:pos_parametrierung' multiply defined.
+
+
+LaTeX Warning: Label `subsec:pos_parametrierung@cref' multiply defined.
+
+
+LaTeX Warning: Label `eq:sigma_scaling' multiply defined.
+
+
+LaTeX Warning: Label `eq:sigma_scaling@cref' multiply defined.
+
+
+LaTeX Warning: Label `eq:ransac_scaling' multiply defined.
+
+
+LaTeX Warning: Label `eq:ransac_scaling@cref' multiply defined.
+
+
+LaTeX Warning: Label `sec:bedienkonsole' multiply defined.
+
+
+LaTeX Warning: Label `sec:bedienkonsole@cref' multiply defined.
+
+
+LaTeX Warning: Label `tab:konsole_tasten' multiply defined.
+
+
+LaTeX Warning: Label `tab:konsole_tasten@cref' multiply defined.
+
+)
 \openout1 = `00_Abschlussarbeit.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 148.
@@ -1584,7 +1669,7 @@ Package cleveref Info: loaded `ngerman' language definitions on input line 6.
 Package glossaries Warning: Entry `udp' has already been defined in the document environment (ignoring new definition) on input line 47.
 
 ) (./00_Abschlussarbeit.acr
-Overfull \hbox (12.0pt too wide) in alignment at lines 25--220
+Overfull \hbox (12.0pt too wide) in alignment at lines 25--250
  [] [] 
  []
 
@@ -1593,7 +1678,7 @@ Overfull \hbox (12.0pt too wide) in alignment at lines 25--220
 
 
 ]) [10] (./04_Symbole.tex) (./00_Abschlussarbeit.syi
-Overfull \hbox (3.46408pt too wide) in alignment at lines 25--139
+Overfull \hbox (3.46408pt too wide) in alignment at lines 25--133
  [] [] 
  []
 
@@ -1610,19 +1695,19 @@ chapter 2.
 [2
 
 ]
-<Bilder/Basebord_und_cube.png, id=559, 560.64pt x 253.821pt>
+<Bilder/Basebord_und_cube.png, id=611, 560.64pt x 253.821pt>
 File: Bilder/Basebord_und_cube.png Graphic file (type png)
 <use Bilder/Basebord_und_cube.png>
 Package pdftex.def Info: Bilder/Basebord_und_cube.png  used on input line 72.
 (pdftex.def)             Requested size: 364.19667pt x 164.88486pt.
  [3 <./Bilder/Basebord_und_cube.png>] [4]
-<Bilder/Koordinatensysteme.png, id=628, 733.212pt x 453.768pt>
+<Bilder/Koordinatensysteme.png, id=680, 733.212pt x 453.768pt>
 File: Bilder/Koordinatensysteme.png Graphic file (type png)
 <use Bilder/Koordinatensysteme.png>
 Package pdftex.def Info: Bilder/Koordinatensysteme.png  used on input line 192.
 (pdftex.def)             Requested size: 455.24411pt x 281.74869pt.
  [5] [6 <./Bilder/Koordinatensysteme.png>]
-<Bilder/Roll_Yaw_Pitch.png, id=666, 521.658pt x 456.177pt>
+<Bilder/Roll_Yaw_Pitch.png, id=719, 521.658pt x 456.177pt>
 File: Bilder/Roll_Yaw_Pitch.png Graphic file (type png)
 <use Bilder/Roll_Yaw_Pitch.png>
 Package pdftex.def Info: Bilder/Roll_Yaw_Pitch.png  used on input line 234.
@@ -1640,19 +1725,19 @@ chapter 3.
 [14
 
 ] [15]
-<Bilder/Loop_Closure.png, id=893, 727.518pt x 321.711pt>
+<Bilder/Loop_Closure.png, id=946, 727.518pt x 321.711pt>
 File: Bilder/Loop_Closure.png Graphic file (type png)
 <use Bilder/Loop_Closure.png>
 Package pdftex.def Info: Bilder/Loop_Closure.png  used on input line 128.
 (pdftex.def)             Requested size: 364.19667pt x 161.05145pt.
  [16]
-<Bilder/Faktorgraph_vereinfacht.png, id=919, 813.804pt x 348.648pt>
+<Bilder/Faktorgraph_vereinfacht.png, id=973, 813.804pt x 348.648pt>
 File: Bilder/Faktorgraph_vereinfacht.png Graphic file (type png)
 <use Bilder/Faktorgraph_vereinfacht.png>
 Package pdftex.def Info: Bilder/Faktorgraph_vereinfacht.png  used on input line 169.
 (pdftex.def)             Requested size: 455.24411pt x 195.03938pt.
  [17 <./Bilder/Loop_Closure.png>] [18 <./Bilder/Faktorgraph_vereinfacht.png>]
-<Bilder/Uebersicht_Marker.png, id=971, 848.187pt x 225.57pt>
+<Bilder/Uebersicht_Marker.png, id=1024, 848.187pt x 225.57pt>
 File: Bilder/Uebersicht_Marker.png Graphic file (type png)
 <use Bilder/Uebersicht_Marker.png>
 Package pdftex.def Info: Bilder/Uebersicht_Marker.png  used on input line 236.
@@ -1665,7 +1750,7 @@ File: ts1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) [21
 
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}]
-<Bilder/Hardwareaufbau_drohne.png, id=1045, 642.765pt x 328.5pt>
+<Bilder/Hardwareaufbau_drohne.png, id=1099, 642.765pt x 328.5pt>
 File: Bilder/Hardwareaufbau_drohne.png Graphic file (type png)
 <use Bilder/Hardwareaufbau_drohne.png>
 Package pdftex.def Info: Bilder/Hardwareaufbau_drohne.png  used on input line 51.
@@ -1681,19 +1766,19 @@ Overfull \hbox (28.68596pt too wide) in paragraph at lines 140--171
  []
 
 [23]
-<Bilder/Verkabelung.png, id=1097, 766.938pt x 397.485pt>
+<Bilder/Verkabelung.png, id=1150, 766.938pt x 397.485pt>
 File: Bilder/Verkabelung.png Graphic file (type png)
 <use Bilder/Verkabelung.png>
 Package pdftex.def Info: Bilder/Verkabelung.png  used on input line 190.
 (pdftex.def)             Requested size: 455.24411pt x 235.94548pt.
  [24]
-<Bilder/Softwarearchitektur.png, id=1106, 975.645pt x 317.331pt>
+<Bilder/Softwarearchitektur.png, id=1159, 975.645pt x 317.331pt>
 File: Bilder/Softwarearchitektur.png Graphic file (type png)
 <use Bilder/Softwarearchitektur.png>
 Package pdftex.def Info: Bilder/Softwarearchitektur.png  used on input line 209.
 (pdftex.def)             Requested size: 455.24411pt x 148.07063pt.
  [25 <./Bilder/Verkabelung.png> <./Bilder/Softwarearchitektur.png>]
-<Bilder/aerodrohm.png, id=1124, 1144.275pt x 572.1375pt>
+<Bilder/aerodrohm.png, id=1177, 1144.275pt x 572.1375pt>
 File: Bilder/aerodrohm.png Graphic file (type png)
 <use Bilder/aerodrohm.png>
 Package pdftex.def Info: Bilder/aerodrohm.png  used on input line 242.
@@ -1703,13 +1788,13 @@ chapter 5.
 [27
 
 ]
-<Bilder/Paarweiser_Vergleich_SLAM.png, id=1146, 1139.75812pt x 586.44093pt>
+<Bilder/Paarweiser_Vergleich_SLAM.png, id=1200, 1139.75812pt x 586.44093pt>
 File: Bilder/Paarweiser_Vergleich_SLAM.png Graphic file (type png)
 <use Bilder/Paarweiser_Vergleich_SLAM.png>
 Package pdftex.def Info: Bilder/Paarweiser_Vergleich_SLAM.png  used on input line 63.
 (pdftex.def)             Requested size: 455.24411pt x 234.23216pt.
  [28 <./Bilder/Paarweiser_Vergleich_SLAM.png>]
-<Bilder/Nutzwertanalyse_slam.png, id=1205, 1421.31pt x 913.4125pt>
+<Bilder/Nutzwertanalyse_slam.png, id=1258, 1421.31pt x 913.4125pt>
 File: Bilder/Nutzwertanalyse_slam.png Graphic file (type png)
 <use Bilder/Nutzwertanalyse_slam.png>
 Package pdftex.def Info: Bilder/Nutzwertanalyse_slam.png  used on input line 122.
@@ -1726,7 +1811,7 @@ chapter 6.
 [37
 
 ] [38]
-<Bilder/Architektur_Positionierung.png, id=1359, 529.104pt x 910.164pt>
+<Bilder/Architektur_Positionierung.png, id=1413, 529.104pt x 910.164pt>
 File: Bilder/Architektur_Positionierung.png Graphic file (type png)
 <use Bilder/Architektur_Positionierung.png>
 Package pdftex.def Info: Bilder/Architektur_Positionierung.png  used on input line 99.
@@ -1736,7 +1821,7 @@ Package pdftex.def Info: Bilder/Architektur_Positionierung.png  used on input li
 LaTeX Warning: Float too large for page by 25.61731pt on input line 102.
 
 [39] [40 <./Bilder/Architektur_Positionierung.png>] [41]
-<Bilder/Kalibrierbox.png, id=1411, 712.188pt x 427.269pt>
+<Bilder/Kalibrierbox.png, id=1464, 712.188pt x 427.269pt>
 File: Bilder/Kalibrierbox.png Graphic file (type png)
 <use Bilder/Kalibrierbox.png>
 Package pdftex.def Info: Bilder/Kalibrierbox.png  used on input line 199.
@@ -1785,50 +1870,108 @@ Overfull \hbox (10.50076pt too wide) in paragraph at lines 564--568
 
 ) (./27_Evaluation.tex [51]
 chapter 7.
-
-Underfull \hbox (badness 4193) in paragraph at lines 22--26
-[]\T1/lmss/m/n/10.95 Die Kon-so-le emp-fängt von [][][]PX4[][] den Fahr-zeug-sta-tus auf $\T1/pcr/m/n/10.95 /fmu / \allowbreakout /
- []
-
-
-Underfull \hbox (badness 2762) in paragraph at lines 22--26
-\T1/lmss/m/n/10.95 so-wie die Bo-den-kon-tak-ter-ken-nung auf $\T1/pcr/m/n/10.95 /fmu / \allowbreakout / \allowbreakvehicle _
- []
-
-
-Underfull \hbox (badness 3179) in paragraph at lines 22--26
-\T1/pcr/m/n/10.95 land _ detected$\T1/lmss/m/n/10.95 . Die Ka-me-ra-bil-der wer-den zur Ver-füg-bar-keits-an-zei-ge auf $\T1/pcr/m/n/10.95 /camera _ 1 /
- []
-
-
-Underfull \hbox (badness 6625) in paragraph at lines 22--26
-\T1/pcr/m/n/10.95 \allowbreakimage _ raw$ \T1/lmss/m/n/10.95 und $\T1/pcr/m/n/10.95 /camera _ 2 / \allowbreakimage _ raw$ \T1/lmss/m/n/10.95 so-wie den zu-
- []
-
-
-Underfull \hbox (badness 4193) in paragraph at lines 22--26
-\T1/lmss/m/n/10.95 ge-hö-ri-gen ent-zerr-ten To-pics $\T1/pcr/m/n/10.95 /camera _ 1 / \allowbreakimage _ rect$ \T1/lmss/m/n/10.95 und $\T1/pcr/m/n/10.95 /camera _ 2 /
- []
-
-
-Underfull \hbox (badness 1248) in paragraph at lines 22--26
-\T1/pcr/m/n/10.95 \allowbreakimage _ rect$ \T1/lmss/m/n/10.95 abon-niert. An [][][]PX4[][] sen-det die Kon-so-le den Positions-Sollwert
- []
-
-
-Underfull \hbox (badness 6725) in paragraph at lines 22--26
-\T1/lmss/m/n/10.95 auf $\T1/pcr/m/n/10.95 /fmu / \allowbreakin / \allowbreaktrajectory _ setpoint$ \T1/lmss/m/n/10.95 und den zu-ge-hö-ri-
- []
-
+<Bilder/Karte_mit_Pfeilen.png, id=1616, 574.875pt x 448.293pt>
+File: Bilder/Karte_mit_Pfeilen.png Graphic file (type png)
+<use Bilder/Karte_mit_Pfeilen.png>
+Package pdftex.def Info: Bilder/Karte_mit_Pfeilen.png  used on input line 37.
+(pdftex.def)             Requested size: 364.19667pt x 284.01305pt.
 [52
 
-]) (./28_Evaluation_Greifen.tex [53]
+] [53 <./Bilder/Karte_mit_Pfeilen.png>] [54] [55] [56] [57] [58] [59]) (./28_Evaluation_Greifen.tex [60]
 chapter 8.
-)) (./30_Schluss.tex [54
+
+Overfull \hbox (106.25375pt too wide) in paragraph at lines 26--30
+\T1/lmss/m/n/10.95 Flug-hö-he und da-mit die zu er-war-ten-de Mar-ker-di-stanz. Als Re-fe-renz-grö-ÿe wird \T1/pcr/m/n/10.95 covariance_reference_tag_size_m $\OT1/lmr/m/n/10.95 =
+ []
+
+
+Overfull \hbox (6.91371pt too wide) in paragraph at lines 26--30
+\OT1/lmr/m/n/10.95 0[]16$ \T1/lmss/m/n/10.95 m ge-wählt, ent-spre-chend dem Standard-Marker. Der No-de bil-det die Pro-Tag-Standardabweichung
+ []
+
+
+Overfull \hbox (31.09695pt too wide) in paragraph at lines 41--44
+[] \T1/lmss/bx/n/10.95 8.2.1.0.3 Basis-Standardabweichung der Po-si-ti-on[][] \T1/lmss/m/n/10.95 Der Wert \T1/pcr/m/n/10.95 covariance_pos_base_sigma_m $\OT1/lmr/m/n/10.95 =
+ []
+
+[61
 
 ]
+Overfull \hbox (66.56819pt too wide) in paragraph at lines 61--63
+[] \T1/lmss/bx/n/10.95 8.2.1.0.4 Basis-Standardabweichung der Ori-en-tie-rung[][] \T1/lmss/m/n/10.95 Der Wert \T1/pcr/m/n/10.95 covariance_rot_base_sigma_rad $\OT1/lmr/m/n/10.95 =
+ []
+
+
+Overfull \hbox (3.89967pt too wide) in paragraph at lines 76--83
+\T1/lmss/m/n/10.95 kei-ne Aus-rei-ÿer mehr ver-wor-fen. Die Re-fe-renz wird da-her auf \T1/pcr/m/n/10.95 ransac_reference_distance_m $\OT1/lmr/m/n/10.95 =
+ []
+
+[62] [63]
 chapter 9.
-) [55
+File: Bilder/Karte_mit_Pfeilen.png Graphic file (type png)
+<use Bilder/Karte_mit_Pfeilen.png>
+Package pdftex.def Info: Bilder/Karte_mit_Pfeilen.png  used on input line 139.
+(pdftex.def)             Requested size: 364.19667pt x 284.01305pt.
+[64
+
+] [65] [66]
+Overfull \hbox (130.33707pt too wide) in paragraph at lines 235--241
+\T1/lmss/m/n/10.95 ge-ben sich aus der für bei-de Läu-fe iden-ti-schen Auf-nah-me-geo-me-trie. Die Pa-ra-me-ter \T1/pcr/m/n/10.95 subgraph_abs_prior_position_noise
+ []
+
+
+Overfull \hbox (16.63948pt too wide) in paragraph at lines 235--241
+\T1/lmss/m/n/10.95 und \T1/pcr/m/n/10.95 subgraph_abs_prior_rotation_noise \T1/lmss/m/n/10.95 wer-den ent-spre-chend der Tag[][][]SLAM[][]-Dokumentation
+ []
+
+
+Overfull \hbox (3.34712pt too wide) in paragraph at lines 235--241
+\T1/lmss/m/n/10.95 auf ih-rem Stan-dard-wert be-las-sen, da kein An-pas-sungs-be-darf be-steht. Der \T1/pcr/m/n/10.95 use_approximate_sync
+ []
+
+[67] [68]
+Overfull \hbox (71.04068pt too wide) in paragraph at lines 323--325
+\T1/lmss/m/n/10.95 Zum Be-trieb des Flug-ge-räts wäh-rend der Ver-su-che dient ein spe-zi-ell ent-wi-ckel-ter No-de \T1/pcr/m/n/10.95 control_console_uxrce\T1/lmss/m/n/10.95 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 333--336
+\T1/lmss/m/n/10.95 Von [][][]PX4[][] emp-fängt die Kon-so-le den Fahr-zeug-sta-tus auf $\T1/pcr/m/n/10.95 /fmu / \allowbreakout /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 333--336
+\T1/pcr/m/n/10.95 \allowbreakvehicle _ local _ position$ \T1/lmss/m/n/10.95 so-wie die Bo-den-kon-tak-ter-ken-nung auf
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 333--336
+\T1/pcr/m/n/10.95 /fmu / \allowbreakout / \allowbreakvehicle _ land _ detected$\T1/lmss/m/n/10.95 . Zur Ver-füg-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 333--336
+\T1/lmss/m/n/10.95 bar-keits-an-zei-ge der Ka-me-ras sind die To-pics $\T1/pcr/m/n/10.95 /camera _ 1 / \allowbreakimage _ raw$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 333--336
+\T1/lmss/m/n/10.95 und $\T1/pcr/m/n/10.95 /camera _ 2 / \allowbreakimage _ raw$ \T1/lmss/m/n/10.95 so-wie die zu-ge-hö-ri-gen ent-zerr-ten To-pics
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 333--336
+\T1/pcr/m/n/10.95 /camera _ 1 / \allowbreakimage _ rect$ \T1/lmss/m/n/10.95 und $\T1/pcr/m/n/10.95 /camera _ 2 / \allowbreakimage _ rect$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 333--336
+\T1/pcr/m/n/10.95 \allowbreaktrajectory _ setpoint$\T1/lmss/m/n/10.95 , den zu-ge-hö-ri-gen Offboard-Steuermodus auf
+ []
+
+[69] [70])) (./30_Schluss.tex [71]
+chapter 10.
+) [72
 
 ]
 LaTeX Font Info:    Trying to load font information for T1+lmr on input line 245.
@@ -1839,9 +1982,9 @@ File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 LaTeX Font Warning: Font shape `T1/lmss/m/sc' in size <10.95> not available
 (Font)              Font shape `T1/lmr/m/sc' tried instead on input line 245.
 
-[56
+[73
 
-] [57] [58] [59]
+] [74] [75] [76]
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <8> not available
 (Font)              Font shape `T1/lmss/m/sl' tried instead on input line 245.
 LaTeX Font Info:    Font shape `TS1/lmss/m/it' in size <8> not available
@@ -1853,7 +1996,7 @@ Overfull \hbox (14.67226pt too wide) in paragraph at lines 246--246
 \T1/pcr/m/n/10.95 forschung -[] innovation / forschungseinrichtungen / ohm -[] innovation -[] center /
  []
 
-[60] (./00_Abschlussarbeit.lof
+[77] (./00_Abschlussarbeit.lof
 Package cleveref Info: loaded `ngerman' language definitions on input line 3.
 Package cleveref Info: loaded `ngerman' language definitions on input line 4.
 Package cleveref Info: loaded `ngerman' language definitions on input line 5.
@@ -1861,7 +2004,7 @@ Package cleveref Info: loaded `ngerman' language definitions on input line 5.
 \tf@lof=\write11
 \openout11 = `00_Abschlussarbeit.lof'.
 
- [61
+ [78
 
 ] (./00_Abschlussarbeit.lot
 Package cleveref Info: loaded `ngerman' language definitions on input line 3.
@@ -1871,7 +2014,7 @@ Package cleveref Info: loaded `ngerman' language definitions on input line 5.
 \tf@lot=\write12
 \openout12 = `00_Abschlussarbeit.lot'.
 
- [62
+ [79
 
 ] (./00_Abschlussarbeit.lol
 Package cleveref Info: loaded `ngerman' language definitions on input line 3.
@@ -1881,11 +2024,11 @@ Package cleveref Info: loaded `ngerman' language definitions on input line 5.
 \tf@lol=\write13
 \openout13 = `00_Abschlussarbeit.lol'.
 
- (./40_Anhang.tex [63
+ (./40_Anhang.tex [80
 
 ]
-chapter 10.
-) [64
+chapter 11.
+) [81
 
 ] (./00_Abschlussarbeit.aux
 Package cleveref Info: loaded `ngerman' language definitions on input line 22.
@@ -1896,6 +2039,10 @@ Package cleveref Info: loaded `ngerman' language definitions on input line 26.
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2020/03/25>
  ***********
+
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package rerunfilecheck Info: File `00_Abschlussarbeit.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 Package logreq Info: Writing requests to '00_Abschlussarbeit.run.xml'.
@@ -1903,18 +2050,18 @@ Package logreq Info: Writing requests to '00_Abschlussarbeit.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 48134 strings out of 474222
- 973061 string characters out of 5748733
+ 48211 strings out of 474222
+ 973979 string characters out of 5748733
  2031975 words of memory out of 5000000
- 69237 multiletter control sequences out of 15000+600000
- 653259 words of font info for 115 fonts, out of 8000000 for 9000
+ 69225 multiletter control sequences out of 15000+600000
+ 653883 words of font info for 117 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  108i,20n,107p,10958b,4150s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmss10.pfb></usr/share/texmf/fonts/type1/public/lm/lmss12.pfb></usr/share/texmf/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf/fonts/type1/public/lm/lmss8.pfb></usr/share/texmf/fonts/type1/public/lm/lmss9.pfb></usr/share/texmf/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsso10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsso8.pfb></usr/share/texmf/fonts/type1/public/lm/lmsso9.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on 00_Abschlussarbeit.pdf (76 pages, 15161846 bytes).
+</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi9.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr9.pfb></usr/share/texmf/fonts/type1/public/lm/lmss10.pfb></usr/share/texmf/fonts/type1/public/lm/lmss12.pfb></usr/share/texmf/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf/fonts/type1/public/lm/lmss8.pfb></usr/share/texmf/fonts/type1/public/lm/lmss9.pfb></usr/share/texmf/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsso10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsso8.pfb></usr/share/texmf/fonts/type1/public/lm/lmsso9.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb>
+Output written on 00_Abschlussarbeit.pdf (93 pages, 15444700 bytes).
 PDF statistics:
- 2223 PDF objects out of 2487 (max. 8388607)
- 1974 compressed objects within 20 object streams
- 436 named destinations out of 1000 (max. 500000)
- 768 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2599 PDF objects out of 2984 (max. 8388607)
+ 2323 compressed objects within 24 object streams
+ 524 named destinations out of 1000 (max. 500000)
+ 989 words of extra memory for PDF output out of 10000 (max. 10000000)
 

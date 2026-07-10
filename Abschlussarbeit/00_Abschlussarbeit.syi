@@ -64,9 +64,6 @@
 \glsXpageXglsnumberformat{}{10}}}\relax\glsresetentrylist
 \glossentry{sym:Tmat}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{11}}}\glsgroupskip
-\glsgroupheading{E}\relax\glsresetentrylist
-\glossentry{sym:TDC}{\glossaryentrynumbers{\relax 
-\glsXpageXglsnumberformat{}{42}}}\glsgroupskip
 \glsgroupheading{F}\relax\glsresetentrylist
 \glossentry{sym:Kcam}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{32}}}\relax\glsresetentrylist
@@ -132,8 +129,5 @@
 \glossentry{sym:tau0}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{47}}}\relax\glsresetentrylist
 \glossentry{sym:tau}{\glossaryentrynumbers{\relax 
-\glsXpageXglsnumberformat{}{47}}}\glsgroupskip
-\glsgroupheading{N}\relax\glsresetentrylist
-\glossentry{sym:sigmavel}{\glossaryentrynumbers{\relax 
-\glsXpageXglsnumberformat{}{15}}}%
+\glsXpageXglsnumberformat{}{47}}}%
 \end{theglossary}\glossarypostamble

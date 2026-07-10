@@ -2,44 +2,370 @@
 
 \chapter{Versuchsdurchführung und Evaluation}
 \label{cap:versuchsdurchführung}
+Dieses Kapitel beschreibt die praktische Durchführung der Versuche und die Auswertung der Ergebnisse.
+Es baut auf den in den Kapiteln~\ref{cap:implementierung_kartierung} und~\ref{cap:implementierung_positionsbestimmung} beschriebenen Implementierungen auf und gliedert sich in die beiden Teilaufgaben Kartierung und Positionierung.
+Beide werden zunächst in ihrer Durchführung und anschließend in ihrer Evaluation behandelt.
 
 
 
-\section{Senden von Positions-Sollwerten an PX4}
-\label{sec:bedienkonsole}
-Zum Betrieb des Fluggeräts während der Versuche dient eine textbasierte Bedienkonsole, die über uXRCE-DDS direkt mit \gls{px4} kommuniziert.
-Sie zeigt den Fahrzeugstatus, die aktuelle Position sowie an, ob die Kameras Bilder liefern, und sendet kontinuierlich Positions-Sollwerte.
-Über die Tastatur lässt sich das Fluggerät armen sowie der Sollwert in Position und Gierwinkel verschieben.
-Ist das Fluggerät bereits armiert, löst dieselbe Taste eine Landung an Ort und Stelle aus, bei der die horizontale Position und der Gierwinkel gehalten und die Höhe langsam abgesenkt werden, bis bei Bodenkontakt automatisch disarmiert wird.
-
-Der Offboard-Modus wird dabei nicht von der Konsole gesetzt, sondern extern über die Fernsteuerung oder die Bodenstation geschaltet.
-Damit \gls{px4} diesen Wechsel akzeptiert, streamt die Konsole von Beginn an kontinuierlich Sollwerte, da \gls{px4} hierfür einen Sollwertstrom von mindestens \SI{2}{\hertz} voraussetzt.
-Sobald sich \gls{px4} nicht mehr im Offboard-Modus befindet, stellt die Konsole das Senden ein und übergibt die Kontrolle vollständig an den Piloten.
-Da die Konsole intern in der ENU-Konvention der Karte arbeitet, werden die Sollwerte vor dem Senden nach NED gedreht und die angezeigte Position entsprechend zurückgerechnet.
-
-
-\begin{sloppypar}
-Die Konsole empfängt von \gls{px4} den Fahrzeugstatus auf \topic{/fmu/\allowbreak out/\allowbreak vehicle_status_v1} (unter anderem Arm-Zustand und Navigationsmodus), die aktuelle Position auf \topic{/fmu/\allowbreak out/\allowbreak vehicle_local_position} sowie die Bodenkontakterkennung auf \topic{/fmu/\allowbreak out/\allowbreak vehicle_land_detected}.
-Die Kamerabilder werden zur Verfügbarkeitsanzeige auf \topic{/camera_1/\allowbreak image_raw} und \topic{/camera_2/\allowbreak image_raw} sowie den zugehörigen entzerrten Topics \topic{/camera_1/\allowbreak image_rect} und \topic{/camera_2/\allowbreak image_rect} abonniert.
-An \gls{px4} sendet die Konsole den Positions-Sollwert auf \topic{/fmu/\allowbreak in/\allowbreak trajectory_setpoint} und den zugehörigen Offboard-Steuermodus auf \topic{/fmu/\allowbreak in/\allowbreak offboard_control_mode}.
-Arm- und Disarm-Befehle werden auf \topic{/fmu/\allowbreak in/\allowbreak vehicle_command} übergeben.
-\end{sloppypar}
-
-\section{Konfiguration der Kartierung}
---> Konfigruation der Kartierung noch anfügen und erklären.
 
 \section{Durchführung der Kartierung}
+\label{sec:durchfuehrung_kartierung}
+Dieser Abschnitt beschreibt die Erstellung und Anbringung der physischen Karte.
+Anschließend wird über die Aufzeichnung der Marker mit Tag\gls{slam} die digitale Karte erzeugt, die zur Lokalisierung dient.
+
+\subsection{Erstellen und Anbringen der physischenKarte}
+\label{sec:anbringen_karte}
+Die Karte wird auf eine matte Klebefolie mit der Breite von $~1,3~m$ geplottet.
+Die vollständige Karte besteht aus drei Bögen mit jeweils $~5,0~m$ Länge, sodass sich eine Gesamtgröße von 5~m~$\times$~3,9~m ergibt.
+Die Bögen werden mithilfe von Passmarkierungen exakt aneinander ausgerichtet und anschließend auf den Boden der Flughalle geklebt. 
+Die zugehörige PDF-Vorlage wird maschinell erzeugt, sodass Lage und Größe aller Marker exakt festgelegt sind.
+
+Insgesamt kommen vier verschiedene Markergrößen zum Einsatz: 0,170~m, 0,300~m, 1,0~m und 0,12~m.
+Geplottet werden 10 Marker der Größe 0,170~m, 10 Marker der Größe 0,300~m sowie vier Marker der Größe 1,0~m.
+Die Größe 0,12~m ist nur ein einziges Mal (\gls{id}~1) vorhanden und dient dem Starten des \gls{uav}s.
+Bei dem Start wären die anderen Marker zu groß, sodass die Bodenkamera sie nicht vollständig erfassen könnte und keine Lokalisierung möglich wäre.
+Eine Abbildung der aufgebrachten Karte ist in Abbildung~\ref{fig:tag_karte_oic} dargestellt.
+Der Ursprung der Karte liegt im Zentrum und ist als Marker mit der Identifikationsnummer~0 definiert und in Abbildung~\ref{fig:tag_karte_oic} grün umrandet.
+
+Durch das Plotten und das genaue Ausrichten der einzelnen Bögen zueinander entsteht zugleich eine Ground-Truth-Referenz der Karte. 
+Die Abstände und Größen der Marker zueinander sind bereits aus der PDF-Erstellung bekannt und damit ohne zusätzliche Messung exakt gegeben.
+Diese Ground-Truth-Referenz kann später zur Bewertung der Qualität der mit Tag\gls{slam} erzeugten Karte herangezogen werden.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Bilder/Karte_mit_Pfeilen.png}
+    \caption{Tag-Karte der OIC-Flughalle. Der Kartenursprung (Tag~0) ist grün umrandet, die roten Pfeile zeigen exemplarisch das sternförmige Abgehen zur Erzeugung von Loop-Closures.}
+    \label{fig:tag_karte_oic}
+\end{figure}
+\FloatBarrier
+
+\subsection{Aufzeichnung und Kartenerstellung}
+\label{sec:aufnahme_karte}
+Die eigentlich Aufzeichnung der physischen Karte erfolgt wie in Abschnitt \ref{sec:ablauf_kartierung} beschrieben, in drei Schritten.
+Dabei wird zuerst ein Bag aufgezeichnet und die Kamera (Logitech C922) wird von Hand über die Karte bewegt.
+Die Kamera wird mit 15~\gls{fps} und einer Auflösung von 1280~$\times$~720 betrieben, was der gleichen Auflösung entspricht, 
+die auch während des Flugbetriebs verwendet wird.
+Beim Führen der Kamera ist drauf zu achten, dass die Kamera möglichst senkrecht zum Boden gehalten wird und möglichst viele Marker gleichzeitig im Bild sind.
+Die Kameraführung erfolgt in einem sternförmigen Muster, es wird also vom Mittelpunkt der Karte ausgehend in Richtung der Ränder gegangen und anschließend wieder zurück.
+Durch das wiederholte Abgehen der Karte in verschiedenen Richtungen werden Loop-Closures erzeugt, die die spätere Optimierung der Karte verbessern.
+Zum Ende der Aufnahme wird einmal rund um die Karte herumgegangen, um auch hier noch Loop-Closures zu erzeugen.
+Es wurde insgesamt Material von 10~min Länge aufgezeichnet, was bei 15~\gls{fps} rund 10~\gls{gb} entspricht.
+
+Der erste Bag wird nach \ref{sec:sync_detect_bag} dem Node \texttt{sync\_and\_detect\_node} übergeben, der die Marker detektiert und die Zeitstempel synchronisiert.
+Aus der Aufnahme des ersten Schritts wurden 10 Frames der Kameraaufzeichnung untersucht und dabei 10 Marker detektiert.
+Dieser Bag bildet die Eingangsgröße für die eigentliche Kartenerstellung mit Tag\gls{slam}.
+
+
+Der Sync-and-Detect-Bag geht schließlich in die unter \ref{sec:kartierung_konfiguration_tagslam} beschriebene Kartenerstellung ein.
+Er wird mit dem Knoten \texttt{tagslam\_from\_bag} in der nachfolgend beschriebenen Optimierung verarbeitet.
+
+
+\subsubsection*{Optimierung und Parametrierung von TagSLAM.}
+\label{sec:parametrierung_tagslam}
+Der letzte Schritt der Kartierung, die Optimierung mit Tag\gls{slam}, wird in Versuchen mit unterschiedlicher Parametrierung durchgeführt.
+Die Ergebnisse dieser Versuche werden miteinander verglichen, um die Qualität der jeweiligen Karte zu bewerten.
+Alle Läufe verarbeiten denselben Detektions-Bag, unterscheiden sich daher nur in den Einstellungen von Tag\gls{slam}.
+
+Eine einzelne, durchgehend genaue Optimierung über alle zunächst unbekannten Markerlagen ist bei einer großen Karte rechenintensiv
+und liefert ohne gute Startschätzung leicht eine fehlerhafte Lösung.
+Aus diesem Grund werden drei Versuche durchgeführt, die dieses Verhältnis unterschiedlich abwägen.
+Der erste Versuch erzeugt zunächst eine grobe, aber vollständige Startschätzung der Markerlagen.
+Der zweite Versuch baut auf dieser Schätzung auf, übernimmt sie und bindet die Markerlagen stärker, um die Karte nachzuoptimieren.
+Der dritte Versuch übernimmt stattdessen von einigen Markern die Fixierungen aus der Ground Truth.
+Versuch eins ist auf eine kurze Laufzeit ausgelegt, während Versuch zwei und drei auf Genauigkeit optimiert sind. 
+
+\textbf{Versuch~1 -- grobe Orientierung.}
+Im ersten Versuch sind die Markerlagen frei, damit sich ihre grobe Anordnung allein aus den Beobachtungen ergibt.
+Dies wird über die \texttt{body\_defaults} erreicht, indem bei \texttt{position\_noise} und \texttt{rotation\_noise} den Tags kein Wert mitgegeben wird.
+Damit erhalten die Tags die Größt mögliche Freiheit und der Algorithmus kann die Markerlagen frei schätzen. 
+Lediglich Tag~0 bleibt als globaler Ursprung fixiert.
+
+\textbf{Versuch~2 -- Bindung an die Bodenebene.}
+Im zweiten Versuch werden die im ersten Versuch geschätzten Positionen als Startlagen übernommen und über Einträge in \texttt{tagslam.yaml} gebunden.
+Da alle Marker in der selben Ebene wie der Ursprung liegen, wird ihre Höhe mit $z=0$ vorgegeben und 
+über ein sehr kleines \texttt{position\_noise} in $z$ von~$10^{-6}$ fixiert.
+Ebenso werden die Verkippungen um die $x$- und $y$-Achse auf~$0$ gesetzt und über ein \texttt{rotation\_noise} von~$10^{-6}$ in diesen beiden Achsen fixiert.
+Die verbleibenden Freiheitsgrade, also die Lage in der $x$-$y$-Ebene und die Drehung um die $z$-Achse, bleiben schätzbar.
+Das \texttt{position\_noise} in $x$ und $y$ sowie das \texttt{rotation\_noise} um die $z$-Achse werden mit~$0{,}05$ schwach an die übernommene Startlage gebunden.
+Tag~0 bleibt weiterhin der fixierte Ursprung und wird in allen Achsen über ein \texttt{position\_noise} und \texttt{rotation\_noise} von~$10^{-6}$ festgehalten.
+Der grundsätzliche Aufbau dieser Fixierung ist in Listing~\ref{lst:tagslam_tag_noise} für \gls{id}~0 bis \gls{id}~2 dargestellt.
+
+\begin{lstlisting}[caption={Tagweise Fixierung der Markerlagen in \texttt{tagslam.yaml}. Tag~0 ist als Ursprung in allen Achsen fixiert, 
+  die übrigen Tags sind in $z$ sowie in der Verkippung um $x$ und $y$ fixiert.},label={lst:tagslam_tag_noise}]
+tags:
+  - id: 0
+    size: 0.167
+    pose:
+      position: {x: 0.0, y: 0.0, z: 0.0}
+      rotation: {x: 0.0, y: 0.0, z: 0.0}
+    position_noise: {x: 1.0e-06, y: 1.0e-06, z: 1.0e-06}
+    rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 1.0e-06}
+  - id: 1
+    size: 0.167
+    pose:
+      position: {x: 0.00372471, y: 0.6, z: 0.0}
+      rotation: {x: 0.0, y: 0.0, z: 0.03614926}
+    position_noise: {x: 0.05, y: 0.05, z: 1.0e-06}
+    rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.5}
+  - id: 2
+    size: 0.167
+    pose:
+      position: {x: -0.00762273, y: -0.6, z: 0.0}
+      rotation: {x: 0.0, y: 0.0, z: -0.01182566}
+    position_noise: {x: 0.05, y: 0.05, z: 1.0e-06}
+    rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.5}
+\end{lstlisting}
+
+\textbf{Versuch~3 -- Verankerung an dem Ground Truth.}
+Der dritte Versuch verwendet dieselbe Parametrierung wie Versuch zwei, baut jedoch nicht auf den in Versuch eins und Versuch zwei geschätzten Markerlagen auf.
+Stattdessen wird simuliert, dass einzelne Tags bereits vor der Kartenerstellung ausgemessen werden können, um der Optimierung zusätzliche Fixpunkte vorzugeben.
+Die dafür verwendeten Werte stammen aus der Ground-Truth-Karte.
+Wie in Versuch zwei bleiben alle Marker über $z=0$ sowie die auf~$0$ gesetzten Verkippungen um die $x$- und $y$-Achse an die Bodenebene gebunden.
+Zusätzlich werden von der Mitte der Karte zum Rand hin ausgewählte Tags mit ihren Werten aus der Ground Truth belegt und über ein sehr kleines \texttt{position\_noise} und \texttt{rotation\_noise} in allen Achsen vollständig fixiert.
+Die Übrigen Marker werden in X- und Y-Richtung sowie Drehung um die Z-Achse geschätzt.
+Die Parametrierung der jeweiligen Versuche kann nachfolgender Tabelle entnommen werden.
+\begin{table}[htbp]
+\centering
+\begin{tabular}{lccc}
+\toprule
+\textbf{Parameter} & \textbf{Versuch~1} & \textbf{Versuch~2} & \textbf{Versuch~3} \\
+\midrule
+\texttt{optimizer\_mode}            & \texttt{fast} & \texttt{slow} & \texttt{slow} \\
+\texttt{max\_num\_incremental\_opt} & $50{,}0$          & $10{,}0$          & $10{,}0$ \\
+\texttt{max\_subgraph\_error}       & $50{,}0$      & $10{,}0$      & $10{,}0$ \\
+\midrule
+\texttt{minimum\_viewing\_angle}                & \multicolumn{3}{c}{$15{,}0$} \\
+\texttt{minimum\_tag\_area}                     & \multicolumn{3}{c}{$2500$} \\
+\texttt{pixel\_noise}                           & \multicolumn{3}{c}{$1{,}0$} \\
+\texttt{subgraph\_abs\_prior\_position\_noise}  & \multicolumn{3}{c}{$0{,}15$} \\
+\texttt{subgraph\_abs\_prior\_rotation\_noise}  & \multicolumn{3}{c}{$0{,}15$} \\
+\texttt{use\_approximate\_sync}                 & \multicolumn{3}{c}{\texttt{true}} \\
+\texttt{drop\_time\_fraction}                   & \multicolumn{3}{c}{$0{,}0$} \\
+\bottomrule
+\end{tabular}
+\caption{Parametrierung der drei Versuche}
+\label{tab:tagslam_params_laeufe}
+\end{table}
+\FloatBarrier
+Der Parameter \texttt{optimizer\_mode} bestimmt, wie aufwendig die Optimierung rechnet.
+Im Modus \texttt{fast} wird der Graph ausschließlich inkrementell aktualisiert und der dabei entstehende Fehler nicht geprüft.
+Das ist am schnellsten, kann aber unbemerkt ungenaue Lösungen zulassen.
+Aus diesem Grund wird dieser Modus für den ersten Versuch gewählt.
+Im Modus \texttt{slow} wird ebenfalls inkrementell gerechnet, der Fehler jedoch fortlaufend geprüft und bei zu großer Abweichung eine vollständige 
+Optimierung ausgeführt, was langsamer, aber genauer ist.
+Diese Einstellung wird für den zweiten und dritten Versuch verwendet.
+
+Der Parameter \texttt{max\_num\_incremental\_opt} gibt an, 
+nach wie vielen inkrementellen Aktualisierungen eine vollständige Neuoptimierung des gesamten Graphen ausgeführt wird, 
+um den bei rein inkrementeller Rechnung auflaufenden Fehler zurückzusetzen.
+Im ersten Versuch wird er auf~$50{,}0$ gesetzt, sodass die vollständige Neuoptimierung nur selten erfolgt und die grobe Startschätzung schnell entsteht.
+Im zweiten und dritten Versuch sorgt der Wert~$10{,}0$ für häufigere vollständige Neuoptimierungen und damit eine genauere Karte.
+
+Der Parameter \texttt{max\_subgraph\_error} legt fest, bis zu welchem Fehler eine Teillösung noch akzeptiert wird.
+Bevor eine neue Markerbeobachtung in den Gesamtgraphen aufgenommen wird, wird sie zusammen mit dem notwendigen Teil des bestehenden Graphen separat optimiert.
+Ihr Fehler wird bewertet, was einer Modellvalidierung ähnlich dem RANSAC-Verfahren entspricht~\cite{pfrommer2019tagslam}.
+Liegt der Fehler über dem Schwellwert, wird die Beobachtung verworfen.
+Im ersten Versuch wird der Standardwert von~$50{,}0$ belassen, sodass die grobe Startschätzung kaum Beobachtungen verwirft.
+Im zweiten und dritten Versuch sorgt der strengere Wert~$10{,}0$ dafür, dass fehlerhafte Beobachtungen die genaue Karte nicht verfälschen.
+
+Der \texttt{minimum\_viewing\_angle} beschreibt den Winkel zwischen Sichtstrahl und Markerfläche und ist auf~$15^\circ$ gesetzt, 
+sodass frontaler betrachtete Marker verwertet und flacher als~$15^\circ$ gesehene Marker mit unzuverlässiger Lage verworfen werden.
+
+Die \texttt{minimum\_tag\_area} beschreibt die vom Marker im Bild eingenommene Fläche in Pixeln und ist auf~$2500\,\text{px}^2$ gesetzt, 
+sodass zu klein abgebildete und damit zu weit entfernte Marker verworfen werden.
+
+Das \texttt{pixel\_noise} gibt die angenommene Standardabweichung der Eckpunktdetektion in Pixeln an und normiert damit die Reprojektionsfehler, 
+also den Pixelabstand zwischen gemessenem und vorhergesagtem Markerpunkt, im Optimierungsgraphen.
+Als Eigenschaft des Detektors wird es auf dem empfohlenen Standardwert von~$1{,}0$ belassen.
+
+Die Parameter \texttt{subgraph\_\allowbreak abs\_\allowbreak prior\_\allowbreak position\_\allowbreak noise} und \texttt{subgraph\_\allowbreak abs\_\allowbreak prior\_\allowbreak rotation\_\allowbreak noise} 
+werden entsprechend der Tag\gls{slam}-Dokumentation auf ihrem Standardwert belassen, da kein Anpassungsbedarf besteht.
+
+Der \texttt{use\_approximate\_sync} bleibt aktiviert, falls die Zeitstempel der synchronisierten Topics nicht exakt übereinstimmen.
+
+Das \texttt{drop\_time\_fraction} bleibt bei~$0{,}0$, sodass in allen Versuchen alle aufgezeichneten Detektionen verwendet werden.
 
 \section{Evaluation der Kartierung}
-Hier nochmal überlegen, evtl auch zusammen mit Positionierung.
+%Hier wird im späteren Verlauf die Karte in den verschiedenen Stadien gegen den Ground Truth verglichen und Ergebnisse gesammelt.
 
-\section{Konfiguration der Positionierung}
---> Konfigruation der Positionierung noch anfügen und erklären.
+
+
 
 \section{Durchführung der Positionierung}
+Dieser Abschnitt beschreibt den Ablauf der Positionierungsversuche.
+Dazu gehören die Bedienung des Fluggeräts und die anschließende Wahl der Startparameter für den Flugbetrieb.
+
+\subsection{Senden von Positions-Sollwerten an PX4}
+\label{sec:bedienkonsole}
+Zum Betrieb des Fluggeräts während der Versuche kommen zwei Bedienwege zum Einsatz.
+Die eigentliche Flugführung übernimmt der eigens entwickelte Node \texttt{control\_\allowbreak console\_\allowbreak uxrce}, der in einem Terminal auf dem Companion-Computer ausgeführt wird und über \gls{uxrce} direkt mit \gls{px4} kommuniziert.
+Ergänzend wird die Fernsteuerung genutzt, allerdings nicht zum Steuern des Fluggeräts, sondern ausschließlich zum Umschalten der Flugmodi und zum Eingriff bei Fehlfunktionen.
+Über sie wird der Offboard-Modus als regulärer Betriebsmodus aktiviert, in dem die Konsole die Sollwerte vorgibt.
+Für den Notfall stehen zwei weitere Schalter bereit.
+Der Modus Auto.Land ermöglicht einen händischen Eingriff, mit dem sich das Fluggerät gezielt landen lässt.
+Der Kill-Switch stoppt bei Betätigung die Rotoren abrupt und dient als letzte Sicherungsmaßnahme.
+Die reguläre Steuerung verbleibt damit vollständig beim Node, während die Fernsteuerung nur im Problemfall eingreift.
+Ergänzend ist der \gls{px4} so konfiguriert, dass das Fluggerät automatisch landet, sobald die Verbindung zur Fernsteuerung oder zum Node verloren geht.
+
+Diese Bedienkonsole erfüllt zwei Aufgaben.
+Zum einen zeigt sie fortlaufend den Zustand des Systems an, zum anderen sendet sie kontinuierlich Positions-Sollwerte und nimmt Bedienbefehle über die Tastatur entgegen.
+Die Konsole zeigt den Fahrzeugstatus mit Verbindung, Arm-Zustand, Bedienmodus, die aktuelle Position sowie die Zielposition mit dem jeweils aktiven Sollwert-Modus an.
+Zusätzlich wird angezeigt, ob die beiden Kameras Bilder liefern und ob \gls{px4} Bodenkontakt erkennt.
+Position und Zielposition werden dabei in der \gls{enu}-Konvention der Karte ausgegeben.
+
+Von \gls{px4} bezieht die Konsole den Fahrzeugstatus, die aktuelle Position sowie die Bodenkontakterkennung.
+Diese Größen werden über die \gls{uxrce}-Brücke bereitgestellt, die die \gls{px4}-internen Nachrichten als ROS2-Topics verfügbar macht.
+Für die Verfügbarkeitsanzeige der Kameras greift die Konsole zusätzlich die Kamerabilder ab, die von den \texttt{gscam}-Nodes bereitgestellt und von den zugehörigen Rectify-Nodes entzerrt werden.
+An \gls{px4} sendet die Konsole über dieselbe \gls{uxrce}-Brücke den Positions-Sollwert sowie Arm- und Disarm-Befehle.
+
+Die Steuerung erfolgt vollständig über die Tastatur, deren Belegung Tabelle~\ref{tab:konsole_tasten} zusammenfasst.
+Die Bewegungstasten wirken nur im armierten Zustand und weder während der Landung noch im Demo-Modus.
+\begin{table}[htbp]
+\centering
+\caption{Tastenbelegung der Bedienkonsole.}
+\label{tab:konsole_tasten}
+\begin{tabular}{ll}
+\toprule
+Taste & Funktion \\
+\midrule
+\texttt{a}/\texttt{d} & Sollwert in $x$ verschieben \\
+\texttt{w}/\texttt{s} & Sollwert in $y$ verschieben \\
+\texttt{o}/\texttt{l} & Sollwert in $z$ verschieben \\
+\texttt{q}/\texttt{e} & Gierwinkel-Sollwert verstellen \\
+\texttt{SPACE} & armen; wenn armiert, Landung an Ort und Stelle; während der Landung, Abbruch \\
+\texttt{g} & Demo-Modus starten; erneut \texttt{g}, abbrechen \\
+\texttt{ESC} & Konsole beenden \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Über die Leertaste wird das Fluggerät armiert.
+Ist es bereits armiert, löst dieselbe Taste eine Landung an Ort und Stelle aus, 
+bei der horizontale Position und Gierwinkel gehalten und die Höhe langsam abgesenkt werden, bis bei Bodenkontakt automatisch disarmiert wird.
+
+Über die Taste \texttt{g} lässt sich ein autonomer Demo-Modus starten, in dem das Fluggerät ein Quadrat abfliegt.
+Es fliegt dazu mit konstanter Geschwindigkeit die nächstgelegene Ecke an, fliegt das Quadrat einmal ab und schwebt anschließend wieder an dieser Startecke.
+Höhe und Gierwinkel bleiben während der gesamten Bewegung fest.
+Erneutes Drücken von \texttt{g} bricht den Demo-Modus ab und hält die aktuelle Position.
+Kantenlänge sowie Geschwindigkeit kann über die Startparameter des Noedes eingestellt werden.
+
+Sowohl die manuellen Sollwertänderungen als auch die Bewegung im Demo-Modus sind in ihrer Geschwindigkeit begrenzt.
+Eine besondere Rolle spielt dabei die Giergeschwindigkeit, die gegenüber der PX4-internen Grenze deutlich gedrosselt ist.
+Der über die Tasten \texttt{q}/\texttt{e} vorgegebene Gierwinkel wird nicht sprunghaft übernommen, sondern mit begrenzter Winkelgeschwindigkeit angefahren.
+Ein Multicopter giert, indem er das Reaktionsmoment der Rotoren gezielt verstimmt, wozu ein Teil der Motoren beschleunigt und der andere verlangsamt wird.
+Je schneller gegiert werden soll, desto größer fällt diese Drehzahldifferenz aus und desto höher steigt die geforderte Drehzahl der beschleunigenden Motoren.
+Ein schneller Gierbefehl treibt sie dann in die Sättigung, sodass sie das für das Giermoment und den Auftrieb gleichzeitig benötigte Drehmoment nicht mehr aufbringen können.
+Der Gesamtschub sackt in der Folge ab und die Flughöhe kann während des Gierens nicht mehr gehalten werden.
+Die maximale Giergeschwindigkeit wird daher bewusst niedrig auf (Geschwindigkeit noch eintragen) gewählt.
+
+\subsection{Wahl der Startparameter für den Flugbetrieb}
+\label{subsec:pos_parametrierung}
+Die Startparameter des Nodes \texttt{vision\_pose\_uxrce\_node} wurden auf den geplanten Flugbetrieb abgestimmt.
+Ausschlaggebend sind eine nominelle Flughöhe von etwa 2~m, eine senkrecht nach unten gerichtete Kamera und ein gestaffelter Marker-Satz mit Kantenlängen von 16~cm, 23~cm und 60~cm, wobei die großen Marker für größere Flughöhen vorgesehen sind.
+Da die Kamera nach unten blickt, entspricht der Abstand zwischen Marker und Kamera näherungsweise der Flughöhe.
+Vorerst wird nur die Bodenkamera genutzt, weshalb die zweite Kamera über \texttt{cam2\_weight}~$=0$ aus der Fusion ausgeschlossen ist.
+Die konkret gewählten Werte sind in Tabelle~\ref{tab:vision_pose_werte} zusammengefasst; die Bedeutung der einzelnen Parameter ist in Tabelle~\ref{tab:vision_pose_params} erläutert.
+
+{\footnotesize
+\begin{longtable}{@{}l r@{}}
+\caption{Für den Flugbetrieb gewählte Startwerte des Nodes \texttt{vision\_pose\_uxrce\_node}.}
+\label{tab:vision_pose_werte} \\
+\toprule
+\textbf{Parameter} & \textbf{Wert} \\
+\midrule
+\endfirsthead
+
+\multicolumn{2}{@{}l}{\footnotesize\itshape Fortsetzung von Tabelle~\ref{tab:vision_pose_werte}} \\
+\toprule
+\textbf{Parameter} & \textbf{Wert} \\
+\midrule
+\endhead
+
+\midrule
+\multicolumn{2}{r@{}}{\footnotesize\itshape Fortsetzung auf der nächsten Seite} \\
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+\multicolumn{2}{@{}l}{\textit{Kamerafusion}} \\
+\texttt{cam1\_weight}                        & $1{,}0$ \\
+\texttt{cam2\_weight}                        & $0{,}0$ \\
+\addlinespace
+\multicolumn{2}{@{}l}{\textit{Takt und Zeit}} \\
+\texttt{publish\_rate\_hz}                   & $60$ \\
+\texttt{max\_estimate\_age\_s}               & $0{,}15$ \\
+\texttt{min\_tags\_required}                 & $1$ \\
+\addlinespace
+\multicolumn{2}{@{}l}{\textit{Ausreißerfilterung (RANSAC)}} \\
+\texttt{ransac\_base\_threshold\_m}          & $0{,}015$ \\
+\texttt{ransac\_reference\_distance\_m}      & $0{,}30$ \\
+\texttt{ransac\_min\_inliers\_ratio}         & $0{,}7$ \\
+\texttt{ransac\_max\_iterations}             & $20$ \\
+\texttt{ransac\_refinement\_iterations}      & $2$ \\
+\texttt{ransac\_max\_distance\_factor}       & $50{,}0$ \\
+\addlinespace
+\multicolumn{2}{@{}l}{\textit{Kovarianzschätzung}} \\
+\texttt{use\_covariance}                     & \texttt{true} \\
+\texttt{covariance\_pos\_base\_sigma\_m}     & $0{,}015$ \\
+\texttt{covariance\_rot\_base\_sigma\_rad}   & $0{,}0122$ \\
+\texttt{covariance\_reference\_distance\_m}  & $2{,}0$ \\
+\texttt{covariance\_reference\_tag\_size\_m} & $0{,}16$ \\
+\addlinespace
+\multicolumn{2}{@{}l}{\textit{Glättung}} \\
+\texttt{position\_smoothing\_alpha}          & $0{,}2$ \\
+\texttt{rotation\_smoothing\_alpha}          & $0{,}2$ \\
+\end{longtable}
+}
+
+Die Markererkennung erfolgt für jedes Kamerabild einzeln, sodass die Rechenlast in erster Linie von der Bildrate der Kamera und nicht von der Ausgaberate abhängt.
+Die Bodenkamera wird daher auf 30~Hz betrieben, eine von der Kamera nativ unterstützte Bildrate, was die Rechenlast gegenüber 60~Hz deutlich senkt.
+Die Ausgaberate wird demgegenüber über \texttt{publish\_rate\_hz}~$=60$~Hz höher gewählt.
+In Versuchen übernahm der \gls{ekf2} die Vision-Posen bei einer Ausgaberate von 30~Hz nicht zuverlässig; erst mit 60~Hz wurden die Messungen stabil in die Zustandsschätzung aufgenommen.
+Da die Ausgaberate über der Bildrate liegt, wird dieselbe Erkennung mitunter in aufeinanderfolgenden Takten gemeldet, was zugunsten der zuverlässigen Fusion in Kauf genommen wird.
+
+Der Node schätzt für jede gemeldete Pose eine Unsicherheit, die der \gls{ekf2} zur Gewichtung nutzt.
+Da der \gls{px4}-Parameter \texttt{EKF2\_EV\_NOISE\_MD} auf $0$ steht, wertet der \gls{ekf2} diese gemeldete Unsicherheit tatsächlich aus, weshalb sie bewusst realistisch gewählt wird.
+Die Schätzung geht von Bezugsbedingungen aus und skaliert von diesen ausgehend mit dem tatsächlichen Markerabstand und der tatsächlichen Markergröße.
+Als Bezugsabstand wird die nominelle Flughöhe von 2~m angesetzt, als Bezugsgröße der Standard-Marker mit 16~cm Kantenlänge.
+Die Standardabweichung eines einzelnen Markers ergibt sich zu
+\begin{equation}
+\sigma = \sigma_\text{Basis}\cdot\left(\frac{d}{d_\text{Bezug}}\right)^{2}\cdot\frac{s_\text{Bezug}}{s},
+\label{eq:sigma_scaling}
+\end{equation}
+mit dem Markerabstand $d$ und der Markergröße $s$.
+Der quadratische Abstandsterm bildet ab, dass die Genauigkeit mit zunehmender Entfernung abnimmt.
+Der größenabhängige Term bildet ab, dass ein größerer Marker im Bild feiner aufgelöst ist und daher genauer vermessen wird.
+Bei gleichem Abstand ergibt sich der Größenfaktor $s_\text{Bezug}/s$ zu $1{,}00$ für den 16-cm-Marker, $0{,}70$ für den 23-cm-Marker und $0{,}27$ für den 60-cm-Marker.
+Die großen Marker werden dadurch als genauer bewertet, was ihren Einsatz in größeren Höhen sinnvoll abbildet.
+
+Die Basiswerte gelten unter den genannten Bezugsbedingungen, also für einen 16-cm-Marker aus 2~m Entfernung.
+Die Genauigkeit der Posenschätzung aus AprilTags wurde experimentell untersucht und liegt in diesem Bereich typischerweise im Bereich weniger Millimeter bis Zentimeter für die Position und deutlich unter einem Grad für die Orientierung~\cite{Kalaitzakis2021}.
+Ausschlaggebend ist die Blickrichtung.
+Quer zur Kamera ist die Position sehr genau, während die Entfernungsrichtung die größte Unsicherheit trägt.
+Der Grund ist, dass die Entfernung aus der scheinbaren Größe des Markers im Bild abgeleitet wird, und ein 16-cm-Marker aus 2~m nur rund 72~Pixel groß erscheint.
+Für die Position wird daher ein leicht konservativer Basiswert von \texttt{covariance\_pos\_base\_sigma\_m}~$=0{,}015$~m angesetzt, der die dominierende Entfernungsrichtung abdeckt.
+Für die Orientierung wird \texttt{covariance\_rot\_base\_sigma\_rad}~$=0{,}0122$~rad, also etwa $0{,}7^\circ$, verwendet.
+Dieser Wert liegt oberhalb der aus der Eckgenauigkeit abschätzbaren Winkelunsicherheit und ist damit ebenfalls bewusst konservativ.
+
+Der Node prüft die einzelnen Marker-Schätzungen mittels RANSAC auf Konsistenz und verwirft Ausreißer.
+Die dafür genutzte Schwelle wird auf einen Bezugsabstand bezogen und wächst quadratisch mit der Entfernung.
+\begin{equation}
+t(d) = t_\text{Basis}\cdot\left(\frac{d}{d_\text{Bezug}}\right)^{2}.
+\label{eq:ransac_scaling}
+\end{equation}
+Als Bezugsabstand wird \texttt{ransac\_reference\_distance\_m}~$=0{,}30$~m mit einer Basisschwelle \texttt{ransac\_base\_threshold\_m}~$=0{,}015$~m verwendet.
+Diese Werte wurden für den vorliegenden Aufbau empirisch bestimmt; größere Bezugsabstände erwiesen sich im praktischen Betrieb als ungeeignet.
+
+Der Parameter \texttt{max\_estimate\_age\_s}~$=0{,}15$~s ist auf den 30-Hz-Takt der Kamera abgestimmt.
+Bei 30~Hz beträgt der zeitliche Abstand zweier Bilder etwa 33~ms, sodass 0{,}15~s rund vier bis fünf aufeinanderfolgende Bilder überbrückt.
+Kurze Verdeckungen werden damit toleriert, während bei längerem Ausfall keine veraltete Schätzung mehr ausgegeben wird und der \gls{ekf2} die Lücke über die \gls{imu} überbrückt.
+Der Parameter \texttt{min\_tags\_required}~$=1$ erlaubt die Positionsbestimmung bereits mit einem einzigen sichtbaren Marker und deckt damit Bereiche der Karte ab, in denen zeitweise nur ein Marker im Bild liegt.
+Bei nur einem Marker kann die Ausreißerfilterung allerdings nicht gegenprüfen, sodass eine einzelne Fehlerkennung unmittelbar in die Pose eingeht.
+Dieser Kompromiss wird zugunsten einer durchgängigen Verfügbarkeit bewusst in Kauf genommen.
+
+
 
 \section{Evaluation der Positionierung}
---> Nochmal überlegen, ob mit Kartierung zusammen oder getrennt. 
-
-
-
+%Hier kommt die Auswertung mehrerer Flüge im Demo-Modus sowie im manuellen Modus in dem einfach in der Luft gehalten wird.

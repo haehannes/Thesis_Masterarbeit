@@ -76,15 +76,42 @@
 \contentsline {subsection}{\numberline {6.8.7}Schätzung der Kovarianz}{50}{subsection.6.8.7}%
 \contentsline {subsection}{\numberline {6.8.8}Transformation in das PX4-Koordinatensystem und Ausgabe}{51}{subsection.6.8.8}%
 \contentsline {chapter}{\numberline {7}Versuchsdurchführung und Evaluation}{52}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Senden von Positions-Sollwerten an PX4}{52}{section.7.1}%
-\contentsline {section}{\numberline {7.2}Konfiguration der Kartierung}{52}{section.7.2}%
-\contentsline {section}{\numberline {7.3}Durchführung der Kartierung}{52}{section.7.3}%
-\contentsline {section}{\numberline {7.4}Evaluation der Kartierung}{52}{section.7.4}%
-\contentsline {section}{\numberline {7.5}Konfiguration der Positionierung}{53}{section.7.5}%
-\contentsline {section}{\numberline {7.6}Durchführung der Positionierung}{53}{section.7.6}%
-\contentsline {section}{\numberline {7.7}Evaluation der Positionierung}{53}{section.7.7}%
-\contentsline {chapter}{\numberline {8}Test}{54}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Test2}{54}{section.8.1}%
-\contentsline {chapter}{\numberline {9}Zusammenfassung und Ausblick}{55}{chapter.9}%
-\contentsline {chapter}{\numberline {10}Anhang}{64}{chapter.10}%
+\contentsline {section}{\numberline {7.1}Durchführung der Kartierung}{52}{section.7.1}%
+\contentsline {subsection}{\numberline {7.1.1}Erstellen und Anbringen der physischenKarte}{52}{subsection.7.1.1}%
+\contentsline {subsection}{\numberline {7.1.2}Aufzeichnung und Kartenerstellung}{53}{subsection.7.1.2}%
+\contentsline {section}{\numberline {7.2}Evaluation der Kartierung}{56}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Durchführung der Positionierung}{56}{section.7.3}%
+\contentsline {subsection}{\numberline {7.3.1}Senden von Positions-Sollwerten an PX4}{56}{subsection.7.3.1}%
+\contentsline {subsection}{\numberline {7.3.2}Wahl der Startparameter für den Flugbetrieb}{58}{subsection.7.3.2}%
+\contentsline {section}{\numberline {7.4}Evaluation der Positionierung}{60}{section.7.4}%
+\contentsline {chapter}{\numberline {8}Test}{61}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Test2}{61}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Konfiguration der Positionierung}{61}{section.8.2}%
+\contentsline {subsection}{\numberline {8.2.1}Wahl der Startparameter für den Flugbetrieb}{61}{subsection.8.2.1}%
+\contentsline {paragraph}{\numberline {8.2.1.0.1}Publikations- und Kameratakt}{61}{paragraph.8.2.1.0.1}%
+\contentsline {paragraph}{\numberline {8.2.1.0.2}Referenzbedingungen der Kovarianz}{61}{paragraph.8.2.1.0.2}%
+\contentsline {paragraph}{\numberline {8.2.1.0.3}Basis-Standardabweichung der Position}{62}{paragraph.8.2.1.0.3}%
+\contentsline {paragraph}{\numberline {8.2.1.0.4}Basis-Standardabweichung der Orientierung}{62}{paragraph.8.2.1.0.4}%
+\contentsline {paragraph}{\numberline {8.2.1.0.5}Ausreißerschwelle (RANSAC)}{62}{paragraph.8.2.1.0.5}%
+\contentsline {paragraph}{\numberline {8.2.1.0.6}Maximales Schätzungsalter}{63}{paragraph.8.2.1.0.6}%
+\contentsline {paragraph}{\numberline {8.2.1.0.7}Mindestzahl sichtbarer Marker}{63}{paragraph.8.2.1.0.7}%
+\contentsline {chapter}{\numberline {9}Versuchsdurchführung und Evaluation}{64}{chapter.9}%
+\contentsline {section}{\numberline {9.1}Durchführung der Kartierung}{64}{section.9.1}%
+\contentsline {subsection}{\numberline {9.1.1}Erstellen und Anbringen der Karte}{64}{subsection.9.1.1}%
+\contentsline {subsection}{\numberline {9.1.2}Aufnahme der Karte}{65}{subsection.9.1.2}%
+\contentsline {subsection}{\numberline {9.1.3}Sync-and-Detect-Bag}{65}{subsection.9.1.3}%
+\contentsline {subsection}{\numberline {9.1.4}Kartenerstellung}{65}{subsection.9.1.4}%
+\contentsline {subsection}{\numberline {9.1.5}Zweistufige Optimierung und Parametrierung von TagSLAM}{66}{subsection.9.1.5}%
+\contentsline {section}{\numberline {9.2}Evaluation der Kartierung}{67}{section.9.2}%
+\contentsline {subsection}{\numberline {9.2.1}Wahl der Startparameter für den Flugbetrieb}{67}{subsection.9.2.1}%
+\contentsline {paragraph}{\numberline {9.2.1.0.1}Kamera- und Publikationstakt}{68}{paragraph.9.2.1.0.1}%
+\contentsline {paragraph}{\numberline {9.2.1.0.2}Bezugsgrößen der Unsicherheitsschätzung}{68}{paragraph.9.2.1.0.2}%
+\contentsline {paragraph}{\numberline {9.2.1.0.3}Basiswerte der Unsicherheit}{68}{paragraph.9.2.1.0.3}%
+\contentsline {paragraph}{\numberline {9.2.1.0.4}Ausreißerfilterung}{68}{paragraph.9.2.1.0.4}%
+\contentsline {paragraph}{\numberline {9.2.1.0.5}Zeitliches Verhalten und Mindestanzahl}{69}{paragraph.9.2.1.0.5}%
+\contentsline {section}{\numberline {9.3}Durchführung der Positionierung}{69}{section.9.3}%
+\contentsline {subsection}{\numberline {9.3.1}Senden von Positions-Sollwerten an PX4}{69}{subsection.9.3.1}%
+\contentsline {section}{\numberline {9.4}Evaluation der Positionierung}{71}{section.9.4}%
+\contentsline {chapter}{\numberline {10}Zusammenfassung und Ausblick}{72}{chapter.10}%
+\contentsline {chapter}{\numberline {11}Anhang}{81}{chapter.11}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

@@ -1,13 +1,11 @@
 ;; This logfile was generated automatically by `xindy'
-;; at 03.07.2026  21:22:47
-;; Indexstyle: "/tmp/2hnp88ZL8z", Rawindex: "/tmp/g0UCGqY4kb", Output: "00_Abschlussarbeit.syi"
+;; at 10.07.2026  14:23:19
+;; Indexstyle: "/tmp/Co12XyYNJ0", Rawindex: "/tmp/a4tEifd020", Output: "00_Abschlussarbeit.syi"
 
 
 Building indexentry-tree:
 Hierdepth of index is :TREE
 
-sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
-sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
@@ -90,14 +88,12 @@ Letter-group: "120" -> "G"
 Letter-group: "110" -> "G"
 Letter-group: "®010" -> "K"
 Letter-group: "®020" -> "K"
-Letter-group: "¼010" -> "N"
 Letter-group: "¤010" -> "H"
 Letter-group: "¤020" -> "H"
 Letter-group: "œ010" -> "F"
 Letter-group: "œ020" -> "F"
 Letter-group: "œ030" -> "F"
 Letter-group: "œ040" -> "F"
-Letter-group: "—010" -> "E"
 Letter-group: "¨070" -> "I"
 Letter-group: "¨080" -> "I"
 Letter-group: "®030" -> "K"
@@ -115,8 +111,6 @@ Letter-group: "†010" -> "C"
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 Letter-group: "010" -> "D"
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
-Letter-group: "—010" -> "E"
-sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 Letter-group: "œ010" -> "F"
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 Letter-group: "010" -> "G"
@@ -128,5 +122,3 @@ sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 Letter-group: "¬010" -> "J"
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 Letter-group: "®010" -> "K"
-sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
-Letter-group: "¼010" -> "N"
