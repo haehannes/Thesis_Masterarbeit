@@ -32,8 +32,8 @@ Flugcontroller Pixhawk 6X und der Companion-Computer reComputer Mini J3011,
 sind zur Verfügung gestellt und werden nicht im Rahmen dieser Arbeit 
 entwickelt.
 
-Die Ansteuerung der Sensorik, die Lokalisierung des \gls{uav}, 
-die Kartierung der Versuchsumgebung sowie die Anbindung der Positionsschätzung an die Flugsteuerung 
+Die Ansteuerung der Sensorik, 
+die Kartierung der Versuchsumgebung, die Lokalisierung des \gls{uav} sowie die Anbindung der Positionsschätzung an die Flugsteuerung 
 sind jedoch Teil der Arbeit und werden in dieser entwickelt.
 
 
@@ -84,18 +84,12 @@ benötigte ROS2- und Bildverarbeitungssoftware betreiben zu können.
 \subsection*{Flugcontroller}
 Die Flugsteuerung übernimmt der Flugcontroller Pixhawk 6X (FMU-V6X), auf
 dem der Autopilot \gls{px4} ausgeführt wird.
-In dieser Arbeit wird \gls{px4} in der Version~1.16.1 betrieben, die auf
-dem Echtzeitbetriebssystem NuttX~v11.0.0 aufsetzt.
-\gls{px4} verwendet die \gls{ned}/\gls{frd}-Konvention.
+In dieser Arbeit wird \gls{px4} in der Version~1.16.1 betrieben.
 
 \subsection*{Kamerasysteme}
-Zur Lokalisierung stehen mehrere handelsübliche \gls{usb}-Kameras zur 
-Verfügung, aus denen je nach Aufbau ausgewählt werden kann:
-\begin{itemize}
-\item eine Logitech C920,
-\item eine Logitech C922.
-\end{itemize}
-Die Kameras werden über \gls{usb} an den Companion-Computer angeschlossen.
+Zur Bildaufnahme stehen mit einer Logitech C920 und einer Logitech C922 mehrere handelsübliche \gls{usb}-Kameras zur Verfügung, 
+aus denen je nach Aufbau ausgewählt werden kann.
+Beide werden über \gls{usb} an den Companion-Computer angeschlossen.
 
 %Zusätzlich steht eine Stereolabs ZED Mini zur Verfügung.
 %Im Gegensatz zu den zuvor genannten Mono-Kameras handelt es sich um eine Stereokamera und steht somit für einen Visual-SLAM zur Verfügung.
@@ -175,32 +169,23 @@ Bodenstation         & Laptop / QGroundControl         & --               & Ubun
 
 In Abbildung~\ref{fig:Verkabelung} ist der zuvor beschriebene Hardwareaufbau des Gesamtsystems als Blockschaltbild mit Anschlussverdrahtung dargestellt.
 Schwarze Linien kennzeichnen dabei Daten- und Signalverbindungen, rote Linien die Energieversorgung.
-Auf der Signalseite werden die zwei Kameras über \gls{usb} mit dem Companion-Computer verbunden, 
-der die berechnete Positionsschätzung über die Ethernet-Schnittstelle an den Flugcontroller übergibt.
-Am Flugcontroller sind zudem das Telemetriemodul, das GPS-Modul sowie der Empfänger der Fernsteuerung angeschlossen.
-Die vier Motoren werden über die \gls{pwm}-Ausgänge des Flugcontrollers angesteuert.
-
-Auf der Energieseite versorgt der \gls{lipo}-Akku das Gesamtsystem.
-Er ist über einen XT90-Stecker mit dem Powermodul verbunden, das die Versorgungsspannung an den Flugcontroller und das Verteilerboard weitergibt.
-Vom Verteilerboard wird die Energie über XT30-Anschlüsse an die vier Motoren verteilt; 
-parallel dazu wird der Companion-Computer über einen eigenen XT30-Anschluss mit Strom versorgt.
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=1.0\textwidth]{Bilder/Verkabelung.png}
+    \includegraphics[width=0.90\textwidth]{Bilder/Verkabelung.png}
     \caption{Hardware-Blockschaltbild mit Anschlussverdrahtung}
     \label{fig:Verkabelung}
 \end{figure}
 \FloatBarrier
 
-
+\newpage
 
 \section{Softwarearchitektur Kartierung und Positionierung}
 \label{sec:softwarearchitektur}
 In diesem Abschnitt wird die Softwarearchitektur des Gesamtsystems beschrieben.
 Die Verarbeitung gliedert sich in zwei Stränge.
-Ein Strang übernimmt die Lokalisierung, die im Flug die Pose des Fluggeräts bestimmt, ein zweiter die Kartierung, die vorab die benötigte Karte erzeugt.
-Während die Kartierung auf einem externen Laptop läuft, erfolgt die Lokalisierung auf dem Companion-Computer.
+Ein Strang übernimmt die Kartierung, die vorab die benötigte Karte erzeugt, ein zweiter die Lokalisierung, die im Flug die Pose des Fluggeräts bestimmt.
+Während die Kartierung auf dem externen Laptop läuft, erfolgt die Lokalisierung auf dem Companion-Computer zur Laufzeit.
 Beide Stränge teilen sich die vorgelagerten Schritte Bildaufnahme, Entzerrung und Bildverarbeitung.
 Getrennt davon läuft die Flugsteuerung auf dem Flugcontroller.
 Der Aufbau ist in Abbildung~\ref{fig:softwarearchitektur} dargestellt.
@@ -213,23 +198,28 @@ Der Aufbau ist in Abbildung~\ref{fig:softwarearchitektur} dargestellt.
 \FloatBarrier
 Die Bildaufnahme bildet die Schnittstelle zu den am Fluggerät montierten Kameras.
 Über dieses Modul werden die Kamerabilder aufgenommen und für die weitere Verarbeitung bereitgestellt.
+
 Die Entzerrung korrigiert die durch das Kameraobjektiv verursachte Verzeichnung anhand der zuvor bestimmten Kalibrierparameter.
 Ohne diese Korrektur würden die Bildkoordinaten der erkannten Merkmale systematisch verfälscht und die daraus berechnete Pose verzerrt.
 Die Grundlagen des Kameramodells und der Kalibrierung werden in Abschnitt~\ref{sec:Kamera_Kalibrierung} behandelt.
 Die Bildverarbeitung detektiert und extrahiert die markanten Bildmerkmale aus dem entzerrten Kamerastream. 
 Für jedes Merkmal liefert die Bildverarbeitung die relative Position zwischen Kamera und Merkmal.
+
 Die Kartierung erzeugt die Karte, auf die sich die Positionsbestimmung stützt.
 Sie nutzt dieselbe Aufnahme- und Verarbeitungskette wie die Lokalisierung, bestimmt daraus aber nicht die \gls{uav}-Pose, sondern die Lage der Merkmale zueinander.
-Das Ergebnis ist eine konsistente Karte aller Merkmale, die einmalig erzeugt und anschließend im Flug verwendet wird.
+Das Ergebnis ist eine konsistente Karte aller Merkmale, die einmalig erzeugt und anschließend im Flug verwendet werden kann.
 Die Umsetzung wird in Kapitel~\ref{cap:implementierung_kartierung} beschrieben.
-Die Positionsbestimmung bildet den Kern der Lokalisierung.
+
+Die Positionsbestimmung bildet den Kern der Lokalisierung und wird auf dem Companion-Computer zur Laufzeit durchgeführt.
 Sie verknüpft die erkannten Merkmale mit der vorab erstellten Karte und berechnet daraus die Pose der Kamera im Kartenkoordinatensystem.
 Anschließend wird die Kamerapose zum Roboterkoordinatensystem transformiert.
 Die Umsetzung der Lokalisierung wird in Kapitel~\ref{cap:implementierung_positionsbestimmung} erläutert.
+
 Die Kommunikation übermittelt die endgültige Pose an die Flugsteuerung und versieht sie mit einem dazu konsistenten Zeitstempel.
 Die Flugsteuerung läuft auf dem PX4-Flugcontroller und regelt das Fluggerät.
-Sie fusioniert die eingespeiste Pose im Zustandsschätzer mit den Daten der \gls{imu} und überbrückt damit mittels \gls{drl} kurze Phasen, in denen keine Position bestimmt werden kann.
-Das Senden der Sollpositionen läuft parallel zur Positionsbestimmung des \gls{uav}.
+Sie fusioniert die eingespeiste Pose im Zustandsschätzer mit den Daten der \gls{imu}.
+
+Das Senden der Sollpositionen läuft parallel zur Positionsbestimmung des \gls{uav}s und wird indirekt per SSH-Zugriff auf dem Laptop bzw. dem Companion-Computer betrieben.
 Die Funktionsweise ist in Abschnitt~\ref{sec:bedienkonsole} beschrieben.
 
 

@@ -2,74 +2,76 @@
 \chapter{Implementierung der Positionierung}
 \label{cap:implementierung_positionsbestimmung}
 Dieses Kapitel beschreibt die im Flug ablaufende Positionsbestimmung des Multikopters.
-Im Gegensatz zur Kartierung (Kapitel~\ref{cap:implementierung_kartierung}) läuft die Verarbeitung hier zur Laufzeit auf dem Companion-Computer.
+Im Gegensatz zur Kartierung läuft die Verarbeitung hier zur Laufzeit auf dem Companion-Computer.
 Die Kette folgt dem in Abschnitt~\ref{sec:softwarearchitektur} dargestellten Datenfluss: Bildaufnahme, Entzerrung, Bildverarbeitung, Positionsbestimmung, 
 Kommunikation mit der Flugsteuerung und schließlich die Flugsteuerung selbst.
 Die ersten drei Schritte entsprechen methodisch denen der Kartierung, werden aber mit höherer Bildrate und auf der GPU des Jetson ausgeführt.
-Die gesamte Positionsbestimmung erfolgt im \gls{enu}/\gls{flu}-System, in dem auch die Karte vorliegt, und wird erst am 
+Die gesamte Positionsbestimmung erfolgt im \gls{enu}/\gls{flu}-System, in dem auch die Karte vorliegt und wird erst am 
 Ende der Verarbeitungskette in das von PX4 benötigte \gls{ned}/\gls{frd}-System transformiert.
 
 \section{Konfiguration des PX4 zur visionsgestützten Zustandsschätzung}
-\label{sec:pos_ekf2_konfiguration}
+\label{sec:pos_ekf_konfiguration}
 Auf dem Flugcontroller werden die nach Abschnitt~\ref{subsec:pos_frame_ausgabe} auf dem Topic \topic{/fmu/in/vehicle_visual_odometry} übergebenen 
-Daten im Zustandsschätzer, dem \gls{ekf2}, verarbeitet.
-Damit der Schätzer die Vision als Stützgröße nutzt und nicht auf die im Innenraum nicht verfügbaren Sensoren GPS und Magnetometer zurückgreift, 
+Daten im Zustandsschätzer verarbeitet.
+Damit der Schätzer die Vision als Stützgröße nutzt und nicht auf die Sensoren \gls{gps} und Magnetometer zurückgreift, 
 muss seine Parametrierung an die Einsatzumgebung angepasst werden.
-Tabelle~\ref{tab:ekf2_params} fasst die hierfür wesentlichen Parameter zusammen.
+Tabelle~\ref{tab:ekf_params} fasst die hierfür wesentlichen Parameter zusammen.
 
 \begin{table}[htbp]
 \centering
-\caption{Wesentliche EKF2-Parameter zur visionsgestützten Zustandsschätzung}
-\label{tab:ekf2_params}
+\caption{Wesentliche ekf-Parameter zur visionsgestützten Zustandsschätzung}
+\label{tab:ekf_params}
 \begin{tabular}{@{}l c p{0.52\textwidth}@{}}
 \toprule
 \textbf{Parameter} & \textbf{Wert} & \textbf{Bedeutung} \\
 \midrule
 \multicolumn{3}{@{}l}{\textit{Vision-Stützung}} \\
-\texttt{EKF2\_EV\_CTRL}     & $11$  & Bitmaske der genutzten Vision-Daten \\
-\texttt{EKF2\_EV\_NOISE\_MD} & $0$   & Quelle des Vision-Messrauschens \\
-\texttt{EKF2\_EVP\_NOISE}   & $0{,}1$ & Standardabweichung der Position [\si{\meter}] \\
-\texttt{EKF2\_EVA\_NOISE}   & $0{,}1$ & Standardabweichung der Orientierung [\si{\radian}] \\
+\texttt{ekf\_EV\_CTRL}     & $11$  & Bitmaske der genutzten Vision-Daten \\
+\texttt{ekf\_EV\_NOISE\_MD} & $0$   & Quelle des Vision-Messrauschens \\
+\texttt{ekf\_EVP\_NOISE}   & $0{,}1$ & Standardabweichung der Position [\si{\meter}] \\
+\texttt{ekf\_EVA\_NOISE}   & $0{,}1$ & Standardabweichung der Orientierung [\si{\radian}] \\
 \addlinespace
 \multicolumn{3}{@{}l}{\textit{Höhenreferenz}} \\
-\texttt{EKF2\_HGT\_REF}     & $3$   & Primäre Höhenquelle: Vision \\
-\texttt{EKF2\_BARO\_CTRL}   & $1$   & Barometer als Rückfallebene aktiv \\
+\texttt{ekf\_HGT\_REF}     & $3$   & Primäre Höhenquelle: Vision \\
+\texttt{ekf\_BARO\_CTRL}   & $1$   & Barometer als Rückfallebene aktiv \\
 \addlinespace
 \multicolumn{3}{@{}l}{\textit{Koppelnavigation (Dead Reckoning)}} \\
-\texttt{EKF2\_NOAID\_TOUT}  & $5\,000\,000$ & Maximale Dauer der Koppelnavigation ohne Stützmessung [\si{\micro\second}], entspricht $5$~\si{\second} \\
+\texttt{ekf\_NOAID\_TOUT}  & $5\,000\,000$ & Maximale Dauer der Koppelnavigation ohne Stützmessung [\si{\micro\second}], entspricht $5$~\si{\second} \\
 \addlinespace
 \multicolumn{3}{@{}l}{\textit{Deaktivierte Sensoren}} \\
-\texttt{EKF2\_GPS\_CTRL}    & $0$   & GPS-Stützung vollständig deaktiviert \\
-\texttt{COM\_ARM\_WO\_GPS}  & $1$   & Armieren ohne GPS erlaubt \\
-\texttt{EKF2\_MAG\_TYPE}    & $5$   & keine Magnetometerfusion \\
+\texttt{ekf\_\gls{gps}\_CTRL}    & $0$   & \gls{gps}-Stützung vollständig deaktiviert \\
+\texttt{COM\_ARM\_WO\_\gls{gps}}  & $1$   & Armieren ohne \gls{gps} erlaubt \\
+\texttt{ekf\_MAG\_TYPE}    & $5$   & keine Magnetometerfusion \\
 \texttt{SYS\_HAS\_MAG}      & $1$   & Magnetometer-Hardware vorhanden, ungenutzt \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 \subsection{Vision-Stützung}
-Der Parameter \texttt{EKF2\_EV\_CTRL} legt als Bitmaske fest, welche Anteile der Vision-Daten fusion\-iert werden.
+Der Parameter \texttt{ekf\_EV\_CTRL} legt als Bitmaske fest, welche Anteile der Vision-Daten fusion\-iert werden.
 Der Wert $11$ entspricht binär $1011$ und aktiviert die horizontale Position (Bit~0), die vertikale Position (Bit~1) sowie den Yaw-Winkel (Bit~3).
-Die Geschwindigkeitsstützung (Bit~2) bleibt deaktiviert, da der Node keine Geschwindigkeit, sondern ausschließlich eine Pose liefert.
+Die Geschwindigkeitsstützung (Bit~2) bleibt deaktiviert, da die Implementierung keine Geschwindigkeit, sondern ausschließlich eine Pose liefert.
 Die Orientierung um die Hochachse wird damit allein aus der Vision bezogen und ersetzt die sonst übliche Magnetometer-Stützung.
-Über \texttt{EKF2\_EV\_NOISE\_MD} wird die Quelle der Messunsicherheit bestimmt.
-Der Wert $0$ bewirkt, dass die in der Nachricht enthaltenen Kovarianzen verwendet werden, sofern sie gesetzt sind, andernfalls greift das EKF2 auf die festen Parameter \texttt{EKF2\_EVP\_NOISE} und \texttt{EKF2\_EVA\_NOISE} zurück.
+Über \texttt{ekf\_EV\_NOISE\_MD} wird die Quelle der Messunsicherheit bestimmt.
+Der Wert $0$ bewirkt, dass die in der Nachricht enthaltenen Kovarianzen verwendet werden, sofern sie gesetzt sind, andernfalls greift das ekf auf die festen Parameter \texttt{ekf\_EVP\_NOISE} und \texttt{ekf\_EVA\_NOISE} zurück.
 Ob diese Kovarianzen überhaupt bereitgestellt werden, bestimmt der in Abschnitt~\ref{subsec:pos_frame_ausgabe} beschriebene Positions-Node über den Parameter \texttt{use\_covariance}.
-
+Die externe Pose muss dem \gls{px4} mit mindestens $30$~\gls{fps} übergeben werden, um eines stabile Fusion zu gewährleisten. 
+Wobei dieser Wert als untere Grenze zu verstehen ist.
 
 \subsection{Höhenreferenz}
-Mit \texttt{EKF2\_HGT\_REF}${}=3$ wird die Vision als primäre Höhenquelle festgelegt.
-Das Barometer bleibt über \texttt{EKF2\_BARO\_CTRL}${}=1$ aktiv, dient jedoch nicht als Referenz, sondern lediglich als Rückfallebene bei Ausfall der Vision.
+Mit \texttt{ekf\_HGT\_REF}${}=3$ wird die Vision als primäre Höhenquelle festgelegt.
+Das Barometer bleibt über \texttt{ekf\_BARO\_CTRL}${}=1$ aktiv, dient jedoch nicht als Referenz, sondern lediglich als Rückfallebene bei Ausfall der Vision.
 So konnte bei Versuchen beobachtet werden, dass das Öffnen oder Schließen von Türen in der Halle zu Druckschwankungen und damit zu Unsicherheiten 
 in der barometrischen Höhenmessung führt.
 
 \subsection{Deaktivierte Sensoren}
-Da im Innenraum kein zuverlässiger GPS-Empfang besteht, wird die GPS-Stützung über \texttt{EKF2\_\allowbreak GPS\_\allowbreak CTRL\,=\,0} vollständig deaktiviert.
-Damit der Schätzer und die Flugsteuerung ohne GPS-Fix initialisieren und armieren können, wird zusätzlich \texttt{COM\_ARM\_WO\_GPS}${}=1$ gesetzt.
-Das Magnetometer wird über \texttt{EKF2\_MAG\_TYPE}${}=5$ von der Fusion ausgeschlossen, da das Magnetfeld in der Versuchsumgebung stark schwankte.
+Da im Innenraum kein zuverlässiger \gls{gps}-Empfang besteht, wird die \gls{gps}-Stützung über \texttt{ekf\_\allowbreak GPS\_\allowbreak CTRL\,=\,0} vollständig deaktiviert.
+Damit der Schätzer und die Flugsteuerung ohne \gls{gps}-Empfang initialisieren und armieren können, wird zusätzlich \texttt{COM\_ARM\_WO\_GPS}${}=1$ gesetzt.
+Das Magnetometer wird über \texttt{ekf\_MAG\_TYPE}${}=5$ von der Fusion ausgeschlossen, da das Magnetfeld in der Versuchsumgebung stark schwankte.
 Die Magnetometermessung war dadurch unzuverlässig und führte mal zu funktionierenden, mal zu fehlerhaften Ergebnissen, ohne dass sich die Ursache der Schwankungen ermitteln ließ.
 Wie zuvor beschrieben, wird der Yaw-Winkel stattdessen aus der Vision gewonnen.
-Der Parameter \texttt{SYS\_HAS\_MAG}${}=1$ gibt lediglich an, dass Magnetometer-Hardware verbaut ist. Auf die Zustandsschätzung wirkt sich dies aufgrund der deaktivierten Fusion nicht aus.
+Der Parameter \texttt{SYS\_HAS\_MAG}${}=1$ gibt lediglich an, dass Magnetometer-Hardware verbaut ist. 
+Auf die Zustandsschätzung wirkt sich dies aufgrund der deaktivierten Fusion nicht aus.
 
 
 \section{Softwarearchitektur der Positionsbestimmung}
@@ -77,7 +79,7 @@ Der Parameter \texttt{SYS\_HAS\_MAG}${}=1$ gibt lediglich an, dass Magnetometer-
 Die Positionierung ist auf zwei Ausführungsumgebungen aufgeteilt, den Host des Compa\-nion-Compu\-ters und einen Container.
 Diese Trennung ergibt sich aus der Verwendung von Isaac~\gls{ros2} für die hardwarebeschleunigten Schritte.
 Die Beschleunigung ist notwendig, um der geforderten Übertragungsrate des \gls{px4} gerecht zu werden.
-Isaac~ROS ist eine von NVIDIA bereitgestellte Sammlung von \gls{ros2}-Paketen, die für die Ausführung auf den \glspl{gpu} der Jetson-Plattform optimiert sind.
+Isaac~ROS ist eine von NVIDIA bereitgestellte Sammlung von \gls{ros2}-Paketen, die für die Ausführung auf der \gls{gpu} der Jetson-Plattform optimiert ist.
 Die Pakete werden in einem vorkonfigurierten Container ausgeführt, der die benötigten Bibliotheken und Treiber bereitstellt.
 Innerhalb dieses Containers werden die Entzerrung und die Markererkennung auf der \gls{gpu} ausgeführt, was gegenüber 
 einer CPU-basierten Verarbeitung eine höhere Bildrate ermöglicht.
@@ -86,13 +88,13 @@ Dort erfolgen die Bildaufnahme über gscam, die Positionsbestimmung aus den Mark
 Container und Host kommunizieren über ROS2-Topics.
 Die Bildaufnahme stellt für jede der beiden Kameras das Kamerabild auf \topic{/camera_1/image_raw} bzw. \topic{/camera_2/image_raw} 
 mit den zugehörigen Parametern auf dem jeweiligen \topic{camera_info}-Topic bereit.
-Im Container entzerrt je ein \texttt{RectifyNode} das Bild und gibt es als \topic{/camera_x/image_rect} aus.
-Darauf detektiert je ein \texttt{AprilTagNode} die Marker und veröffentlicht die Detektionen auf \topic{/camera_x/tag_detections}.
-Auf dem Host bestimmt der Node \texttt{vision\_pose\_uxrce\_node} aus den Detektionen beider Kameras die Pose des Fluggeräts und übergibt sie 
-über \topic{/fmu/in/vehicle_visual_odometry} an die Flugsteuerung.
+Im Container entzerrt ein \texttt{RectifyNode} das Bild jeder Kamera und gibt es als \topic{/camera_x/image_rect} aus.
+Darauf detektiert ein \texttt{AprilTagNode} die Marker und veröffentlicht die Detektionen auf \topic{/camera_x/tag_detections}.
+Der Positionierungsmodus von Tag\gls{slam} lieferte dabei keine ausreichend schnellen und zuverlässigen Ergebnisse, weshalb die Positionsbestimmung in einem eigenen Node umgesetzt wurde.
+Dieser Node \texttt{vision\_pose\_uxrce\_node} bestimmt auf dem Host aus den Detektionen beider Kameras die Pose des Fluggeräts.
+Diese übergibt er über das Topic \topic{/fmu/in/vehicle_visual_odometry} an die Flugsteuerung.
 Vor der eigentlichen Positionierung wird eine extrinsische Kalibrierung der verwendeten Kameras durchgeführt.
 Abbildung~\ref{fig:architektur_positionierung} zeigt die Architektur der Implementierung zur Positionierung.
-
 
 \begin{figure}[htbp]
 \centering
@@ -104,10 +106,10 @@ Abbildung~\ref{fig:architektur_positionierung} zeigt die Architektur der Impleme
 
 \section{Kommunikation zwischen ROS2 und PX4}
 \label{subsec:kommunikation_ros2_px4}
-Für die Kommunikation zwischen \gls{ros2} und \gls{px4} stehen zwei Schnittstellen zur Verfügung: MAVROS und \gls{uxrce}.
+Für die Kommunikation zwischen \gls{ros2} und \gls{px4} stehen mit MAVROS und \gls{uxrce} zwei Schnittstellen zur Verfügung.
 Im Rahmen dieser Arbeit wurden beide Schnittstellen umgesetzt.
 Im Folgenden wird jedoch ausschließlich auf \gls{uxrce} eingegangen, da diese Schnittstelle künftig weiter unterstützt wird, 
-während die zukünftige Unterstützung von MAVROS nicht gesichert ist.
+während dies für MAVROS nicht gesichert ist.
 Auf \gls{px4} läuft dabei der \gls{uxrce}-Client, auf dem Companion-Computer der zugehörige Agent.
 Der Agent wird über das Launch-File als Prozess \texttt{MicroXRCEAgent} gestartet und kommuniziert per \gls{udp} über die Ethernet-Verbindung auf einem konfigurierbaren Port.
 Über diese Verbindung werden die internen Publish-Subscribe-Topics von \gls{px4}, die in Abschnitt \ref{sec:Px4_Betriebssystem} beschriebenen \gls{uorb}-Topics, als \gls{ros2}-Topics bereitgestellt und umgekehrt.
@@ -117,14 +119,12 @@ So kann der Positionierungs-Node die geschätzte Pose als \texttt{VehicleOdometr
 
 \section{Bildaufnahme Positionierung}
 \label{sec:pos_bildaufnahme}
-Die Bildaufnahme erfolgt wie bei der Kartierung (Abschnitt~\ref{sec:kartierung_bildaufnahme}) über einen gscam-Node.
-Auch hier wird wie bei der Implementierung der Kartierung exemplarisch die Logitech~C922 verwendet.
+Die Bildaufnahme erfolgt wie bei der Kartierung über einen gscam-Node.
+Auch hier wird exemplarisch die Logitech~C922 verwendet.
 Wie in Abschnitt~\ref{sec:Kamera_Kalibrierung} beschrieben, muss die Kalibrierung für jede Kamera und für die hier verwendete Auflösung von $1280 \times 720$ Pixeln durchgeführt werden.
 Tabelle~\ref{tab:gscam_pos} fasst die wesentlichen Einstellungen zusammen.
 \begin{table}[htbp]
 \centering
-\caption{Wesentliche Einstellungen des gscam-Nodes zur Bildaufnahme im Flug}
-\label{tab:gscam_pos}
 \begin{tabular}{@{}l l@{}}
 \toprule
 \textbf{Einstellung} & \textbf{Wert} \\
@@ -134,6 +134,8 @@ Bildrate    & $60$ \gls{fps} \\
 Dekodierung & hardwarebeschleunigt über \texttt{nvv4l2decoder} und \texttt{nvvidconv} auf der \gls{gpu} \\
 \bottomrule
 \end{tabular}
+\caption{Wesentliche Einstellungen des gscam-Nodes zur Bildaufnahme im Flug}
+\label{tab:gscam_pos}
 \end{table}
 \FloatBarrier
 Die beiden wesentlichen Unterschiede zur Kartierung betreffen die Bildrate und die Dekodierung.
@@ -145,7 +147,7 @@ Ohne die hardwarebeschleunigte Dekodierung sinkt die Bildrate über die Zeit, da
 
 \section{Entzerrung}
 \label{sec:pos_entzerrung}
-Die Entzerrung erfolgt nach demselben Prinzip wie bei der Kartierung (Abschnitt~\ref{sec:kartierung_entzerrung}).
+Die Entzerrung erfolgt nach demselben Prinzip wie bei der Kartierung.
 Im Unterschied dazu wird sie jedoch nicht über \texttt{rectify\_node} aus dem Paket image\_proc, sondern über den Node \texttt{RectifyNode} aus 
 dem Paket isaac\_ros\_image\_proc umgesetzt.
 Dieser läuft \gls{gpu}-beschleunigt innerhalb des Isaac-Containers.
@@ -153,14 +155,14 @@ Dieser läuft \gls{gpu}-beschleunigt innerhalb des Isaac-Containers.
 Der Node liest das Bild von \topic{/camera_x/image_raw} mit den zugehörigen Parametern von \topic{/camera_x/camera_info} ein und gibt das 
 entzerrte Bild als \topic{/camera_x/image_rect} mit den Parametern \topic{/camera_x/camera_info_rect} aus.
 Wie bei der Kartierung entsprechen die intrinsischen Parameter des entzerrten Bildes der Projektionsmatrix aus 
-Gleichung~\eqref{eq:Projektionsmatrix}, und die Verzeichnungskoeffizienten sind null.
+Gleichung~\eqref{eq:Projektionsmatrix} und die Verzeichnungskoeffizienten sind null.
 
 
 
 \section{Detektion von AprilTags}
 \label{sec:pos_detektion_apriltags}
-Im Gegensatz zur Kartierung (Abschnitt~\ref{sec:offline_detektion_apriltags}) erfolgt die Detektion hier nicht offline, sondern fortlaufend während des Flugs.
-Verwendet wird daher nicht \texttt{sync\_and\_detect\_node} aus dem Paket \textbf{Tag\gls{slam}}, sondern der Node \texttt{AprilTagNode} aus dem Paket \texttt{isaac\_ros\_apriltag}.
+Im Gegensatz zur Kartierung erfolgt die Detektion hier nicht offline, sondern fortlaufend während des Flugs.
+Verwendet wird daher nicht \texttt{sync\_and\_detect\_node} aus dem Paket Tag\gls{slam}, sondern der Node \texttt{AprilTagNode} aus dem Paket \texttt{isaac\_ros\_apriltag}.
 Dieser läuft ebenfalls \gls{gpu}-beschleunigt innerhalb des Isaac-Containers und ermöglicht so die Detektion bei voller Bildrate.
 In Versuchen konnten dabei unabhängig von der Anzahl der im Bild sichtbaren Tags stabil $60$ \gls{fps} geliefert werden, ohne merklichen Anstieg der Auslastung des Companion-Computers.
 Der Node liest das entzerrte Bild von \topic{/camera_x/image_rect} mit den Parametern von \topic{/camera_x/camera_info_rect} ein und detektiert
@@ -184,20 +186,20 @@ Die so bestimmte relative Markerpose bildet die Eingangsgröße für die Positio
 \label{subsec:extrinsische_kalibrierung_2}
 Die extrinsische Kalibrierung bestimmt für beide Kameras die statische Transformation vom \gls{px4}-Mittelpunkt zur Kamera,
 $^{\mathrm{D}}\mathbf{T}_{\mathrm{C}}$.
-Diese Transformationsmatrizen werden zur Laufzeit von der Positionsbestimmung (Abschnitt~\ref{sec:pos_positionsbestimmung}) benötigt.
+Diese Transformationsmatrizen werden zur Laufzeit von der Positionsbestimmung benötigt.
 Die Kalibrierung findet zur Reproduzierbarkeit in einer Kalibrierbox statt.
 Der Multikopter wird in dieser Box durch Markierungen an der Wand fest an einer vorgesehenen Position platziert und ausgerichtet
 (Abbildung~\ref{fig:kalibrierbox}).
 In der Box befinden sich zwei Tags, ein Tag am Boden ($\mathrm{tag}_1$) und ein Tag an der Wand ($\mathrm{tag}_2$).
 Die untere Kamera~$\mathrm{C}_1$ ist auf den Boden-Tag gerichtet, die vordere Kamera~$\mathrm{C}_2$ auf den Wand-Tag.
 Die Lage der beiden Tags sowie des \gls{px4}-Mittelpunkts wurde von Hand vermessen.
-Die so bestimmten Koordinaten, bestehend aus Position und Orientierung, werden dem Node in einer YAML-Datei übergeben.
+Die so bestimmten Koordinaten, bestehend aus Position und Orientierung, werden dem Positionsbestimmungsnode in einer YAML-Datei übergeben.
 Aus diesen Koordinaten berechnet der Kalibriernode anschließend die festen Transformationen $^{\mathrm{tag}_1}\mathbf{T}_{\mathrm{D}}$ und $^{\mathrm{tag}_2}\mathbf{T}_{\mathrm{D}}$ gemäß Gleichung~\eqref{eq:trafo_matrix}, wobei die Rotationsmatrix nach Gleichung~\eqref{eq:rotationsmatrix_quaternion} aus dem jeweiligen Quaternion gebildet wird.
-Zum Starten der Kalibrierung müssen zusätzlich \texttt{gscam} und \texttt{rectify} für beide Kameras gestartet werden.
+Für die Kalibrierung müssen zusätzlich \texttt{gscam} und \texttt{rectify} für beide Kameras gestartet werden.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.9\textwidth]{Bilder/Kalibrierbox.png}
-\caption{Drohne in der Kalibrierbox mit von Hand vermessenen Tags und den Wandmarkierungen zur Ausrichtung}
+\caption{Drohne in der Kalibrierbox}
 \label{fig:kalibrierbox}
 \end{figure}
 \FloatBarrier
@@ -307,7 +309,7 @@ Im Folgenden werden die wichtigsten Operationen nach und nach erläutert.
 
 \subsection{Posenberechnung je Marker}
 \label{subsec:pos_posenberechnung}
-Jeder im Kamerabild erkannte Marker liefert eine eigenständige Schätzung der Kamerapose im Kartenkoordinatensystem.
+Wie bereits erwähnt, liefert jeder im Kamerabild erkannte Marker eine eigenständige Schätzung der Kamerapose im Kartenkoordinatensystem.
 Die Größe und Lage eines Markers~$\mathrm{M}$ ist durch die beim Programmstart geladene Karte bekannt.
 Die Lage wird im Kartenkoordinatensystem~$\mathrm{K}$ als $^{\mathrm{K}}\mathbf{T}_{\mathrm{M}}$ beschrieben.
 Die Orientierung der Marker ist in der Karte als Rodrigues-Vektor hinterlegt und wird beim Laden gemäß
@@ -328,7 +330,7 @@ Bezeichnet \glsadd{sym:aM}$a_{\mathrm{M}}$ die Kantenlänge des Markers und \gls
 
 Die Referenz-Markergröße $a_{\mathrm{ref}}$ wird über den Parameter \texttt{isaac\_reference\_size} übergeben.
 Die Orientierung bleibt dabei unberührt, da die Größe des Markers keinen Einfluss darauf hat.
-Der Isaac~\gls{ros2} Detektor gibt die Orientierung in einer anderen Konvention aus als das in \textbf{Tag\gls{slam}} verwendete \gls{ros2}-Standardpaket.
+Der Isaac~\gls{ros2} Detektor gibt die Orientierung in einer anderen Konvention aus als das in Tag\gls{slam} verwendete \gls{ros2}-Standardpaket.
 Daher muss vor der weiteren Verarbeitung die detektierte Orientierung $^{\mathrm{C}}\mathbf{q}_{\mathrm{M}}$ durch eine feste
 Drehung um $180^\circ$ um die $x$-Achse des Markers an die Konvention der Karte angeglichen werden.
 
@@ -352,7 +354,8 @@ wobei die Orientierungen nach Gleichung~\eqref{eq:quaternion_multiplikation} mul
 ^{\mathrm{K}}\mathbf{q}_{\mathrm{C}} &= {^{\mathrm{K}}\mathbf{q}_{\mathrm{M}}} \cdot {^{\mathrm{M}}\mathbf{q}_{\mathrm{C}}}, \label{eq:pos_kompose_q}\\
 ^{\mathrm{K}}\mathbf{t}_{\mathrm{C}} &= {^{\mathrm{K}}\mathbf{t}_{\mathrm{M}}} + {^{\mathrm{K}}\mathbf{q}_{\mathrm{M}}} \cdot {^{\mathrm{M}}\mathbf{t}_{\mathrm{C}}} \cdot {^{\mathrm{K}}\bar{\mathbf{q}}_{\mathrm{M}}}. \label{eq:pos_kompose_t}
 \end{align}
-Jeder sichtbare Marker liefert auf diese Weise eine vollständige Schätzung der Kamerapose $\bigl(^{\mathrm{K}}\mathbf{t}_{\mathrm{C}},\,{^{\mathrm{K}}\mathbf{q}_{\mathrm{C}}}\bigr)$.
+Jeder sichtbare Marker liefert auf diese Weise eine vollständige Schätzung der Kamerapose $\bigl(^{\mathrm{K}}\mathbf{t}_{\mathrm{C}},\,{^{\mathrm{K}}\mathbf{q}_{\mathrm{C}}}\bigr)$
+im Kartenkoordinatensystem.
 
 Marker, die im Bild größer erscheinen, erlauben eine genauere Schätzung als kleiner erscheinende, da sie auf mehr Pixel abgebildet werden.
 Jeder Schätzung wird daher ein Gewicht zugeordnet, das mit der scheinbaren Größe des Markers im Bild zunimmt.
@@ -366,6 +369,7 @@ ist die Norm $\tilde{d}$ kein Maß für die tatsächliche Entfernung, sondern f�
 So wird abgebildet, dass im Bild große Marker aufgrund der höheren Genauigkeit mit einem größeren Gewicht in die Schätzung einfließen, 
 als kleinere Marker mit geringerer Genauigkeit.
 Die Gewichtung der Marker erfolgt dadurch nur auf Basis der Pixelgröße, unabhängig von der tatsächlichen Entfernung des Markers zum Objektiv.
+Auf die Gewichtete Fusion der Detektionen wird im weiteren Verlauf noch eingegangen.
 
 
 
@@ -396,7 +400,7 @@ f_{\max} & \text{falls } \left(\dfrac{\bar{d}}{d_{\mathrm{ref}}}\right)^{2} > f_
 \label{eq:pos_ransac_schwelle}
 \end{equation}
 Die untere Schranke verhindert einen unrealistisch kleinen Schwellenwert bei sehr nahen Markern, 
-die obere Schranke $f_{\max}$ (Parameter \texttt{ransac\_max\_distance\_factor}) begrenzt ihn bei großer Distanz.
+die obere Schranke $f_{\max}$ begrenzt ihn bei großer Distanz.
 Die weitere Verarbeitung hängt von der Anzahl~$n$ der vorliegenden Schätzungen ab.
 
 Wird in einem Bild nur ein einzelner Marker detektiert, ist kein Vergleich möglich. 
@@ -552,7 +556,7 @@ festgelegt und wirkt analog zu $\alpha_{\mathrm{t}}$.
 
 \subsection{Schätzung der Kovarianz}
 \label{subsec:pos_kovarianz}
-Der \gls{ekf2} des \gls{px4} kann die eingehende Vision-Pose adaptiv gewichten, sofern ihr eine Kovarianzmatrix beigefügt ist, die die Unsicherheit der Schätzung angibt.
+Der \gls{ekf} des \gls{px4} kann die eingehende Vision-Pose adaptiv gewichten, sofern ihr eine Kovarianzmatrix beigefügt ist, die die Unsicherheit der Schätzung angibt.
 Ob diese Kovarianz berechnet und in die Nachricht geschrieben wird, legt der Parameter \texttt{use\_covariance} fest.
 Die Schätzung erfolgt pro Marker zum Zeitpunkt der Detektion und wird anschließend über alle Marker der Konsensmenge zusammengefasst.
 
@@ -572,17 +576,17 @@ Dadurch dominieren große, nahe Marker mit geringer Varianz die Gesamtschätzung
 \sigma_{\mathrm{pos}}^{2} = \left(\sum_{i \in \mathcal{I}} \frac{1}{\sigma_{\mathrm{pos},i}^{2}}\right)^{-1}.
 \label{eq:pos_cov_inverse_varianz}
 \end{equation}
-Die so bestimmten Varianzen für Position und Orientierung werden auf die Diagonale der $6 \times 6$-Kovarianzmatrix geschrieben, die zusammen mit der Pose an den \gls{ekf2} übergeben wird.
+Die so bestimmten Varianzen für Position und Orientierung werden auf die Diagonale der $6 \times 6$-Kovarianzmatrix geschrieben, die zusammen mit der Pose an den \gls{ekf} übergeben wird.
 
 
 \subsection{Transformation in das PX4-Koordinatensystem und Ausgabe}
 \label{subsec:pos_frame_ausgabe}
 Die bisher bestimmte geglättete Pose $\bigl(^{\mathrm{K}}\hat{\mathbf{t}}_{\mathrm{D}},\,{^{\mathrm{K}}\hat{\mathbf{q}}_{\mathrm{D}}}\bigr)$
-liegt im Kartenkoordinatensystem vor, das der in Abschnitt~\ref{sec:vergleich_koordinatensysteme} eingeführten ENU/FLU-Konvention folgt.
+liegt im Kartenkoordinatensystem vor, das der in Abschnitt~\ref{sec:vergleich_koordinatensysteme} eingeführten \gls{enu}/\gls{flu}-Konvention folgt.
 Da PX4 die Pose im \gls{ned}/\gls{frd}-System benötigt, wird sie vor der Ausgabe von \gls{enu}/\gls{flu} nach \gls{ned}/\gls{frd} umgerechnet.
 
 Zusätzlich zur Pose wird der Nachricht eine Unsicherheit für Position und Orientierung beigegeben.
-Über den Parameter \texttt{use\_covariance} lässt sich ihre Ausgabe aktivieren, andernfalls verwendet \gls{ekf2} fest parametrierte Werte.
+Über den Parameter \texttt{use\_covariance} lässt sich ihre Ausgabe aktivieren.
 Da die geschätzte Kovarianz auf allen Achsen identische Varianzen ohne Kreuzterme enthält, 
 bleibt sie unter der als reine Achsenvertauschung wirkenden Umrechnung unverändert und muss nicht gesondert transformiert werden.
 Anschließend wird die umgerechnete Pose über die \gls{uxrce}-Schnittstelle auf dem Topic \topic{/fmu/in/vehicle\_visual\_odometry} an PX4 übergeben.

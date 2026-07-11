@@ -4,7 +4,7 @@
 \label{cap:stand_der_technik}
 
 Dieses Kapitel gibt einen Überblick über den aktuellen Stand der Technik im Bereich 
-der \gls{gnss}-freien Lokalisierung von \gls{uav} und ordnet die in dieser Arbeit 
+der \gls{gnss}-freien Lokalisierung von \gls{uav}s und ordnet die in dieser Arbeit 
 gewählten Methoden in den wissenschaftlichen Kontext ein.
 Zunächst werden bestehende Lokalisierungsansätze ohne \gls{gnss} vorgestellt und hinsichtlich ihrer Eignung für Innenraumanwendungen bewertet.
 Anschließend werden verschiedene Fiducial-Marker-Systeme verglichen und deren Eigenschaften im Hinblick auf die Anforderungen dieser Arbeit diskutiert.
@@ -19,26 +19,26 @@ Diese Methoden gleichen den akkumulierten Fehler durch absolute oder relative Lo
 
 
 \subsection{Absolute Lokalisierung}
-Absolute Lokalisierungsverfahren spielen eine wichtige Rolle, wenn die genaue Position eines \gls{uav} bezogen auf einen globalen Referenzrahmen bekannt sein muss~\cite{Jarraya2025}.
+Absolute Lokalisierungsverfahren spielen eine wichtige Rolle, wenn die genaue Position eines \gls{uav}s bezogen auf einen globalen Referenzrahmen bekannt sein muss~\cite{Jarraya2025}.
 Die gängigste Methode zur Umsetzung einer absoluten Lokalisierung ist ein satellitengestütztes System wie \gls{gps} oder Galileo.
 Da in der für diese Arbeit relevanten Flugumgebung kein ausreichender Satellitenempfang herrscht, finden diese Systeme keine Anwendung.
 Eine weitere Möglichkeit der absoluten Lokalisierung bieten Template- und Feature-basierte Verfahren sowie Semantic Mapping.
 
-Bei Template- beziehungsweise Feature-basierten Verfahren werden Aufnahmen des \gls{uav} mit bekannten Referenzbildern oder gespeicherten Merkmalen verglichen.
+Bei Template- beziehungsweise Feature-basierten Verfahren werden Aufnahmen des \gls{uav}s mit bekannten Referenzbildern oder gespeicherten Merkmalen verglichen.
 Diese Systeme berücksichtigen ausschließlich visuelle Merkmale, ohne semantische Beziehungen einzubeziehen~\cite{Jarraya2025}.
 Im Sinne einer globalen absoluten Lokalisierung im Weltkoordinatensystem sind Template- und Feature-basierte Verfahren für Innenraumanwendungen jedoch wenig geeignet, 
-da geeignete Referenzdaten schwer zu erfassen sind~\cite{Jarraya2025}.
+da sich passende Referenzdaten nur schwer erfassen lassen~\cite{Jarraya2025}.
 
 Semantic Mapping verfolgt einen ähnlichen Ansatz, bei dem zunächst Referenzdaten erstellt werden, die anschließend mit aktuell erfassten Daten abgeglichen werden.
 Der Unterschied liegt darin, dass nicht nur visuelle Merkmale, sondern auch semantische Beziehungen berücksichtigt werden, so wird beispielsweise ein Tisch als Tisch und eine Treppe als Treppe interpretiert~\cite{Jarraya2025}.
 Als globale Referenz ist das Verfahren im Innenraum jedoch kaum sinnvoll anwendbar und käme allenfalls als lokales System in Frage.
-In der vorliegenden Arbeit findet es keine Anwendung, da die Erkennungsleistung stark von der Stabilität der jeweiligen Umgebung abhängig ist.
+In der vorliegenden Arbeit findet es keine Anwendung, da seine Erkennungsleistung eine über die Zeit unveränderliche Umgebung voraussetzt, die im Innenraum nicht garantiert werden kann.
 
 Da die angestrebte Anwendung im Innenraum stattfindet, bieten absolute Verfahren mit Bezug auf einen globalen Referenzrahmen keinen Mehrwert.
 Aus diesem Grund wird in dieser Arbeit auf die globale Lokalisierung verzichtet und der Fokus auf relative Lokalisierungsmethoden gelegt.
 Die grundlegende Methodik der zuvor vorgestellten Verfahren findet dabei ebenfalls Anwendung, jedoch ohne Bezug zu einem globalen Referenzrahmen.
 
-\subsection*{Relative Lokalisierung}
+\subsection{Relative Lokalisierung}
 \label{sec:relative_lokalisierung}
 Die relative Lokalisierung zielt darauf ab, die Position und Orientierung eines \gls{uav} innerhalb eines lokalen Koordinatensystems zu bestimmen.
 Die Position wird dabei bezogen auf einen definierten Referenzpunkt ermittelt.
@@ -57,16 +57,16 @@ Aus diesem Grund ist eine Filterung der Eingangsdaten notwendig.
 Am weitesten verbreitet sind hierbei verschiedene Abwandlungen des Kalman-Filters.
 
 Experimentelle Untersuchungen mit dem \gls{px4}-Autopiloten und einem handelsüblichen
-Pixhawk-Flugregler zeigen, dass der \gls{ekf2} bereits nach 7 Sekunden eine
+Pixhawk-Flugcontroller zeigen, dass der \gls{ekf} ohne externe Referenzbereits nach 7 Sekunden eine
 Geschwindigkeitsabweichung von $\sigma_{\text{vel}} \approx 0{,}024$~m/s aufweist,
 sodass der Positionsfehler in dieser Zeit bereits in den Dezimeterbereich anwächst~\cite{9172736}.
-Verschiedene Arbeiten zeigen, dass sich der Drift durch Nutzung anderer, für den vorliegenden \gls{px4} nicht verfügbarer 
-Algorithmen wie dem \gls{iekf} reduzieren lässt~\cite{9982087,9172736,Ko2018}.
+Verschiedene Arbeiten zeigen, dass sich der Drift durch andere Algorithmen wie den \gls{iekf} zwar verringern lässt, 
+ein Restdrift jedoch bestehen bleibt~\cite{9982087,9172736,Ko2018}.
 
 Grundsätzlich ist \gls{drl} für den Innenraum nur zeitlich begrenzt geeignet und als 
 primäre Positionsquelle nicht ausreichend.
 Im Normalfall wird \gls{drl} daher als Fallback-Strategie genutzt, wenn die primäre 
-Positionsquelle nicht verfügbar ist~\cite{9172736}.
+Positionsquelle kurzfristig nicht verfügbar ist~\cite{9172736}.
 
 
 \subsubsection*{Visuelle Odometrie und optischer Fluss}
@@ -75,7 +75,7 @@ Die \gls{vo} schätzt die Bewegung einer Kamera anhand sequenzieller Bilddaten, 
 Dabei werden markante Bildpunkte, auch Landmarken genannt, zwischen aufeinanderfolgenden Frames verfolgt und aus deren Verschiebung auf die Kamerabewegung geschlossen~\cite{Jarraya2025}.
 
 Darüber hinaus existieren \gls{vio}-Ansätze, die die Robustheit der \gls{vo} durch Einbeziehen von \gls{imu}-Informationen verbessern~\cite{9836067}.
-Die visuellen Daten können dabei den Drift der \gls{imu} reduzieren, während die \gls{imu}-Daten den metrischen Maßstab sowie Roll- und Nickwinkel aus den visuellen 
+Die visuellen Daten können dabei den Drift der \gls{imu} reduzieren, während die Sensoren den metrischen Maßstab sowie Roll- und Nickwinkel aus den visuellen 
 Daten wiederherstellen können~\cite{9836067}.
 Es gibt sowohl mono- als auch stereokamerabasierte Ansätze, wobei Stereokameras aufgrund der direkten Tiefenschätzung eine höhere Genauigkeit erzielen~\cite{9836067}.
 Die Fusion von \gls{imu} und \gls{vo} zu \gls{vio} erfolgt typischerweise über einen \gls{ekf}~\cite{9836067}.
@@ -92,7 +92,7 @@ Dabei geht es um die selbstständige Erstellung einer Karte einer unbekannten Um
 innerhalb dieser Umgebung~\cite{10169695}.
 Kartierung und Positionsbestimmung müssen parallel erfolgen, da jede Aufgabe die andere voraussetzt~\cite{10169695}.
 Die Lösung dieses Problems erfolgt üblicherweise durch filterbasierte Methoden, wie den \gls{ekf}, 
-oder durch optimierungsbasierte Ansätze, die im Folgenden näher beschrieben werden~\cite{10169695}.
+oder durch optimierungsbasierte Ansätze~\cite{10169695}.
 
 Filterbasierte \gls{slam} Algorithmen verarbeiten Messungen sequenziell und lassen keine Korrektur von vergangenen Messungen zu.
 Insbesondere fehlt filterbasierten Methoden die Fähigkeit zur globalen Kartenkorrektur durch Loop Closure, 
@@ -119,8 +119,8 @@ Aus diesen Zuordnungen werden erste Kartenpunkte sowie deren räumliche Position
 Die Map Initialization bildet die Grundlage, auf der alle weiteren Kartenpunkte und Posenschätzungen aufgebaut werden~\cite{CAI2024127760_core_modules_slam}.
 
 \textbf{Loop Closure} bezeichnet die Erkennung bereits besuchter Orte.
-Wird ein solcher Ort erkannt, wird die akkumulierte Abweichung anhand gespeicherter Merkmale berechnet und als zusätzlicher 
-Constraint in einen in Abschnitt~\ref{sec:Faktorgraph} beschriebenen Faktorgraphen eingetragen.
+Wird ein solcher Ort erkannt, wird die akkumulierte Abweichung anhand gespeicherter Merkmale berechnet und als zusätzlicher Constraint in einen in Abschnitt~\ref{sec:Faktorgraph} beschriebenen Faktorgraphen eingetragen.
+Ein Constraint ist dabei eine Bedingung, die die räumliche Beziehung zwischen zwei Größen im Faktorgraphen beschreibt und mit einer zugehörigen Unsicherheit versehen ist.
 Die anschließende globale Optimierung verbessert die Konsistenz der gesamten Karte erheblich~\cite{10169695}.
 Der schematische Ablauf von Loop Closure ist in Abbildung~\ref{fig:loop_closure} dargestellt.
 \begin{figure}[htbp]
@@ -144,25 +144,11 @@ Im folgenden Abschnitt wird der Faktorgraph nur schematisch erläutert, um ein g
 Genaue Herleitungen sowie die Mathematik hinter dem Prinzip können den Quellen~\cite{Lai2022,Dellaert2017,Cai2024} entnommen werden.
 
 Ein Faktorgraph ist eine grafische Darstellung eines Schätzproblems und besteht aus den beiden Knotenarten der Variablen- und Faktorknoten~\cite{Lai2022}.
-Die Variablenknoten sind die unbekannten Größen, die geschätzt werden sollen -- bei \gls{slam} die Pose des \gls{uav} und die Position der Landmarken~\cite{Lai2022}.
+Die Variablenknoten sind die unbekannten Größen, die geschätzt werden sollen, bei \gls{slam} die Pose des \gls{uav} und die Position der Landmarken~\cite{Lai2022}.
 Die Faktorknoten verbinden diese Variablen und repräsentieren die Messungen oder das Vorwissen~\cite{Lai2022}.
 
 Der Faktorgraph in Abbildung~\ref{fig:Faktorgraph_vereinfacht} zeigt die grundlegende Struktur eines \gls{slam}-Problems.
-Hierbei ist der Faktorgraph stark vereinfacht. Auf mathematische Beziehungen wird verzichtet.
-Die blauen Kreise repräsentieren die Variablenknoten der \gls{uav}-Posen \glsadd{sym:pose}$x_1$ bis $x_4$, also die gesuchten Positionen und Orientierungen des \gls{uav} 
-zu aufeinanderfolgenden Zeitpunkten.
-Die grünen Kreise \glsadd{sym:landmark}$t_1$ bis $t_3$ stellen die Landmarken dar, deren Positionen im Weltkoordinatensystem ebenfalls als Variablenknoten geschätzt werden.
-
-Es werden zwei Arten von Faktorknoten (Constraints) unterschieden.
-Die violetten Quadrate repräsentieren Odometrie-Constraints, die jeweils zwei aufeinanderfolgende Posen verbinden und die relative Bewegung zwischen diesen beschreiben.
-Die orangen Quadrate sind Messungs-Constraints und verbinden eine \gls{uav}-Pose mit einer Landmarke.
-Eine Landmarke ist ein ortsfestes, wiedererkennbares Merkmal der Umgebung, dessen Position als Variablenknoten geschätzt wird.
-Die Messungs-Constraints repräsentieren die Beobachtung, dass Landmarke $t_i$ von Pose $x_j$ aus detektiert wurde.
-
-Wird die Pose $x_4$ als bereits bekannter Ort -- identisch mit $x_1$ -- wiedererkannt, entsteht ein Loop-Closure-Constraint, der $x_1$ und $x_4$ im 
-Faktorgraphen verbindet, wie durch den roten Pfeil in Abbildung~\ref{fig:Faktorgraph_vereinfacht} dargestellt.
-Dieser zusätzliche Constraint schließt die Schleife und ermöglicht dem Optimierer, 
-den über die Trajektorie akkumulierten Drift rückwirkend über alle Posen zu korrigieren~\cite{Kaess2012}.
+Hierbei ist der Faktorgraph stark vereinfacht.
 
 \begin{figure}[htbp]
     \centering
@@ -172,6 +158,23 @@ den über die Trajektorie akkumulierten Drift rückwirkend über alle Posen zu k
     \label{fig:Faktorgraph_vereinfacht}
 \end{figure}
 \FloatBarrier
+
+Die blauen Kreise repräsentieren die Variablenknoten der \gls{uav}-Posen \glsadd{sym:pose}$x_1$ bis $x_4$, also die gesuchten Positionen und Orientierungen des \gls{uav}s 
+zu aufeinanderfolgenden Zeitpunkten.
+Die grünen Kreise \glsadd{sym:landmark}$t_1$ bis $t_3$ stellen die Landmarken dar, deren Positionen im Weltkoordinatensystem ebenfalls als Variablenknoten geschätzt werden.
+
+Es werden zwei Arten von Faktorknoten (Constraints) unterschieden.
+Die violetten Quadrate repräsentieren Odometrie-Constraints, die jeweils zwei aufeinanderfolgende Posen verbinden und die relative Bewegung zwischen diesen beschreiben.
+Die orangen Quadrate sind Messungs-Constraints und verbinden eine \gls{uav}-Pose mit einer Landmarke.
+Eine Landmarke ist ein ortsfestes, wiedererkennbares Merkmal der Umgebung, dessen Position als Variablenknoten geschätzt wird.
+Die Messungs-Constraints repräsentieren die Beobachtung, dass Landmarke $t_i$ von Pose $x_j$ aus detektiert wurde.
+
+Wird die Pose $x_4$ als bereits bekannter Ort wiedererkannt, der identisch mit $x_1$ ist, entsteht ein Loop-Closure-Constraint, der $x_1$ und $x_4$ im Faktorgraphen verbindet.
+Dargestellt ist dies durch den roten Pfeil in Abbildung~\ref{fig:Faktorgraph_vereinfacht}.
+Dieser zusätzliche Constraint schließt die Schleife und ermöglicht dem Optimierer, 
+den über die Trajektorie akkumulierten Drift rückwirkend über alle Posen zu korrigieren~\cite{Kaess2012}.
+
+
 
 Das Ziel der Optimierung ist die Maximum-a-posteriori-Schätzung -- also die Konfiguration aller Variablen (Posen und Landmarken) zu finden, die die 
 Gesamtwahrscheinlichkeit aller Beobachtungen maximiert. Äquivalent dazu wird der Gesamtfehler über alle Constraints minimiert~\cite{dellaert2012factor}.
@@ -239,7 +242,7 @@ Im Folgenden werden die in Abbildung \ref{fig:Uebersicht_Marker} dargestellten g
 \end{figure}
 \FloatBarrier
 
-\subsection{ARTag Marker}
+\subsection*{ARTag Marker}
 ARTag wurde 2005 als Weiterentwicklung von ARToolKit vorgestellt~\cite{Fiala1467495}.
 Es verwendet digitale Kodierungsverfahren, wodurch ARTag im Vergleich zu früheren Systemen niedrigere und quantifizierbare Fehlerraten aufweist~\cite{Fiala1467495}.
 Ein ARTag besteht aus einem quadratischen Rand, der ein binäres Raster aus schwarzen und weißen Zellen umschließt, welches eine eindeutige \gls{id} kodiert~\cite{Fiala1467495}.
@@ -248,7 +251,7 @@ ARTag verwendet keine einheitliche minimale Hammingdistanz zwischen den Codewör
 Aus einer Aufnahme des Markers lässt sich eine 6D-Pose bestimmen~\cite{Fiala1467495}.
 ARTag ist das einzige vorgestellte System, welches nicht vollständig Open-Source ist.
 
-\subsection{AprilTag Marker}
+\subsection*{AprilTag Marker}
 \label{sec:april_tag}
 AprilTag wurde 2011 an der University of Michigan vorgestellt~\cite{Olson5979561}.
 AprilTag stellt eine schnellere und robustere Neuimplementierung des ARTag-Ansatzes dar~\cite{Olson5979561}.
@@ -259,12 +262,12 @@ Verzerrung und Linsenverzeichnung~\cite{Olson5979561}.
 Marker sind in verschiedene Familien unterteilt. 
 Das Namensschema \texttt{TagNNhM} beschreibt dabei \texttt{NN} als die Gesamtzahl der 
 Datenbits und \texttt{hM} als die minimale Hammingdistanz~\cite{Olson5979561}.
-Die Familie \texttt{tag36h11} verwendet ein 6$\times$6-Raster mit einer minimalen Hammingdistanz von 11, die Familie \texttt{tag16h5} ein 
+So verwendet die Familie \texttt{tag36h11} ein 6$\times$6-Raster mit einer minimalen Hammingdistanz von 11, die Familie \texttt{tag16h5} ein 
 4$\times$4-Raster mit einer minimalen Hammingdistanz von 5~\cite{Olson5979561}.
 Aufgrund der größeren Pixelgröße lässt sich \texttt{tag16h5} prinzipiell aus größerer Entfernung erkennen, jedoch mit höherer Unsicherheit~\cite{Olson5979561}.
 
 
-\subsection{ArUco Marker}
+\subsection*{ArUco Marker}
 ArUco wurde 2014 vorgestellt~\cite{GARRIDOJURADO20142280}.
 Ein ArUco-Marker ist ähnlich wie ARTag und AprilTag aufgebaut.
 Er ist ebenfalls quadratisch und besitzt einen breiten Rand, in dessen Innerem sich eine Binärmatrix befindet, welche die Identifikationsnummer 
@@ -273,10 +276,9 @@ ArUco-Marker sind ebenfalls in Familien eingeteilt.
 Das Namensschema \texttt{DICT\_NxN\_M} beschreibt dabei \texttt{NxN} als die Rastergröße 
 der Datenbits und \texttt{M} als die maximale Anzahl der Marker im Dictionary~\cite{GARRIDOJURADO20142280}.
 Je kleiner das Dictionary, desto höher die Hammingdistanz zwischen den Markern~\cite{GARRIDOJURADO20142280}.
-ArUco ist in die Bibliothek OpenCV integriert~\cite{GARRIDOJURADO20142280}.
 
 
-\subsection{STag Marker}
+\subsection*{STag Marker}
 STag wurde 2019 vorgestellt~\cite{Benligiray2019}.
 Im Gegensatz zu den rein quadratischen Systemen verwendet STag eine kreisförmige Randstruktur, die eine stabilere Posenschätzung 
 ermöglicht~\cite{Benligiray2019}.
@@ -287,7 +289,7 @@ Je höher die Hammingdistanz, desto kleiner ist die Anzahl an möglichen Tags~\c
 
 
 
-\subsection{Detektion von Fiducial-Markern}
+\subsection*{Detektion von Fiducial-Markern}
 \label{sec:marker_detektion}
 Alle vorgestellten Fiducial-Marker-Systeme stellen Bibliotheken zur Detektion bereit.
 Die Detektion eines Fiducial-Markers gliedert sich in zwei Hauptkomponenten.

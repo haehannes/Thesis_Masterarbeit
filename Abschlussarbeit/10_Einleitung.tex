@@ -49,13 +49,13 @@
 Unbemannte Luftfahrzeuge finden zunehmend Eingang in zivile Anwendungsgebiete.
 Für eine autonome Flugführung ist eine zuverlässige Schätzung der eigenen Position unerlässlich.
 Im Außenbereich wird diese Positionsreferenz in der Regel durch ein Global Navigation Satellite System (GNSS) bereitgestellt.
-In Innenräumen steht ein solches System jedoch nicht zur Verfügung, da kein ausreichender Satellitenempfang gewährleistet ist.
+In Innenräumen steht ein solches System jedoch nicht zur Verfügung, da meist kein ausreichender Satellitenempfang gewährleistet ist.
 Ohne eine externe Referenz muss die Position allein aus der Integration der Inertialmessungen geschätzt werden, was zu einem zeitlich anwachsenden Positionsfehler führt.
 Für einen stabilen Flug im Innenraum ist daher eine alternative Positionsreferenz erforderlich.
 Ziel dieser Arbeit ist es, ein Unmanned Aerial Vehicle (UAV) in einer GPS-freien Innenraumumgebung zu lokalisieren und diese Positionsschätzung als externe Referenz in die Flugsteuerung einzuspeisen.
 Als Referenz dienen fiducialbasierte Marker, die in der Versuchsumgebung angebracht und in einer Karte hinterlegt werden.
 Aus der Detektion dieser Marker wird die Pose des Fluggeräts bestimmt und dem Pixhawk (PX4)-Flugcontroller bereitgestellt.
-Das System soll dabei aus quelloffener Software und handelsüblicher Hardware aufgebaut sein.
+Das System wird dabei aus quelloffener Software und handelsüblicher Hardware aufgebaut sein.
 Die Arbeit gliedert sich in mehrere Teile.
 Zunächst werden in Kapitel~\ref{cap:theoretische_grundlagen} die theoretischen Grundlagen aus den Bereichen der Flugrobotik, der Sensorik, der Koordinatensysteme sowie der verwendeten mathematischen Verfahren erläutert.
 Anschließend gibt Kapitel~\ref{cap:stand_der_technik} einen Überblick über den Stand der Technik der GNSS-freien Lokalisierung und der Fiducial-Marker-Systeme.
