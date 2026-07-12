@@ -70,7 +70,7 @@ Dieser ist mit einem NVIDIA Jetson Orin Nano 8\,GB Modul ausgestattet
 und erreicht eine KI-Rechenleistung von bis zu 40\,\gls{tops}~\cite{reComputerMiniJ3011}.
 Der Companion-Computer übernimmt die Ansteuerung der Kameras, die 
 Bildverarbeitung sowie die Berechnung der Positionsschätzung.
-Der Companion-Computer unterstützt eine direkte Eingangsspannung von \SI{12}{\volt} bis \SI{54}{\volt} DC ~\cite{reComputerMiniJ3011}.
+Der Companion-Computer unterstützt eine direkte Eingangsspannung von \SI{12}{\volt} bis \SI{54}{\volt} DC~\cite{reComputerMiniJ3011}.
 Für die drahtlose Anbindung des Companion-Computers ist dieser mit einer 
 M.2-WLAN-Karte (Wi-Fi~6) nachgerüstet.
 
@@ -131,14 +131,12 @@ Komponenten mit Bezeichnung, Gewicht und Betriebssystem.
 \begin{table}[htbp]
 \centering
 \begin{threeparttable}
-\caption{Übersicht der eingesetzten Hardwarekomponenten mit Gewicht und Betriebssystem}
-\label{tab:hardwarekomponenten}
 \begin{tabular}{llll}
 \toprule
 \textbf{Komponente} & \textbf{Bezeichnung} & \textbf{Gewicht} & \textbf{Betriebssystem} \\
 \midrule
 Flugplattform        & Holybro X650                    & 2076\,g          & --                         \\
-Companion-Computer   & reComputer Mini J3011           & 380\,g           & JetPack~6.2 (Ubuntu~22.04) \\
+Companion-Computer   & reComputer Mini J3011           & 380\,g           & JetPack~6.2.1 (Ubuntu~22.04.5 LTS) \\
 Flugcontroller       & Pixhawk 6X                      & \tnote{*}        & PX4~v1.16.1 (NuttX)        \\
 Kamera 1             & Logitech C920                   & 149\,g           & --                         \\
 Kamera 2             & Logitech C922                   & 162\,g           & --                         \\
@@ -161,6 +159,8 @@ Bodenstation         & Laptop / QGroundControl         & --               & Ubun
 \item[*] bei Flugplattform enthalten
 \item[**] bei Companion-Computer enthalten
 \end{tablenotes}
+\caption{Übersicht der eingesetzten Hardwarekomponenten mit Gewicht und Betriebssystem}
+\label{tab:hardwarekomponenten}
 \end{threeparttable}
 \end{table}
 \FloatBarrier

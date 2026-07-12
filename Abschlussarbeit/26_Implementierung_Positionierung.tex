@@ -19,8 +19,6 @@ Tabelle~\ref{tab:ekf_params} fasst die hierfür wesentlichen Parameter zusammen.
 
 \begin{table}[htbp]
 \centering
-\caption{Wesentliche ekf-Parameter zur visionsgestützten Zustandsschätzung}
-\label{tab:ekf_params}
 \begin{tabular}{@{}l c p{0.52\textwidth}@{}}
 \toprule
 \textbf{Parameter} & \textbf{Wert} & \textbf{Bedeutung} \\
@@ -45,6 +43,8 @@ Tabelle~\ref{tab:ekf_params} fasst die hierfür wesentlichen Parameter zusammen.
 \texttt{SYS\_HAS\_MAG}      & $1$   & Magnetometer-Hardware vorhanden, ungenutzt \\
 \bottomrule
 \end{tabular}
+\caption{Wesentliche ekf-Parameter zur visionsgestützten Zustandsschätzung}
+\label{tab:ekf_params}
 \end{table}
 
 \subsection{Vision-Stützung}
@@ -53,10 +53,9 @@ Der Wert $11$ entspricht binär $1011$ und aktiviert die horizontale Position (B
 Die Geschwindigkeitsstützung (Bit~2) bleibt deaktiviert, da die Implementierung keine Geschwindigkeit, sondern ausschließlich eine Pose liefert.
 Die Orientierung um die Hochachse wird damit allein aus der Vision bezogen und ersetzt die sonst übliche Magnetometer-Stützung.
 Über \texttt{ekf\_EV\_NOISE\_MD} wird die Quelle der Messunsicherheit bestimmt.
-Der Wert $0$ bewirkt, dass die in der Nachricht enthaltenen Kovarianzen verwendet werden, sofern sie gesetzt sind, andernfalls greift das ekf auf die festen Parameter \texttt{ekf\_EVP\_NOISE} und \texttt{ekf\_EVA\_NOISE} zurück.
+Der Wert $0$ bewirkt, dass die in der Nachricht enthaltenen Kovarianzen verwendet werden, sofern sie gesetzt sind, andernfalls greift der \gls{ekf} auf die festen Parameter \texttt{ekf\_EVP\_NOISE} und \texttt{ekf\_EVA\_NOISE} zurück.
 Ob diese Kovarianzen überhaupt bereitgestellt werden, bestimmt der in Abschnitt~\ref{subsec:pos_frame_ausgabe} beschriebene Positions-Node über den Parameter \texttt{use\_covariance}.
-Die externe Pose muss dem \gls{px4} mit mindestens $30$~\gls{fps} übergeben werden, um eines stabile Fusion zu gewährleisten. 
-Wobei dieser Wert als untere Grenze zu verstehen ist.
+Die externe Pose muss dem \gls{px4} mit mindestens $30$~\gls{fps} übergeben werden, um eine stabile Fusion zu gewährleisten, wobei dieser Wert als untere Grenze zu verstehen ist.
 
 \subsection{Höhenreferenz}
 Mit \texttt{ekf\_HGT\_REF}${}=3$ wird die Vision als primäre Höhenquelle festgelegt.
@@ -175,7 +174,7 @@ Für jeden erkannten Marker liefert der Node dessen Identifikationsnummer, den M
 Marker, die im Bild groß dargestellt werden, lassen sich dabei zuverlässiger detektieren als kleine.
 Aus den Eckpunkten und der bekannten Markergröße schätzt der Detektor zusätzlich die relative Pose des Markers im Kamerakoordinatensystem.
 Diese Pose setzt sich aus einem Translationsvektor und einer als Quaternion kodierten Orientierung zusammen. 
-Der Node gibt (abweichend vom \gls{ros2} Standardpaket) keine Kovarianzmatrix aus, die angibt, wie vertrauenswürdig die Schätzung ist.
+Der Node gibt (abweichend vom \gls{ros2}-Standardpaket) keine Kovarianzmatrix aus, die angibt, wie vertrauenswürdig die Schätzung ist.
 Alle genannten Größen werden gebündelt als Nachricht vom Typ \texttt{AprilTagDetectionArray} auf dem Topic \topic{/camera_x/tag_detections} ausgegeben.
 Die so bestimmte relative Markerpose bildet die Eingangsgröße für die Positionsbestimmung in Abschnitt~\ref{sec:pos_positionsbestimmung}.
 
@@ -239,8 +238,6 @@ Tabelle~\ref{tab:vision_pose_params} fasst diese Parameter thematisch geordnet z
 
 {\footnotesize
 \begin{longtable}{@{}l p{0.58\textwidth}@{}}
-\caption{Startparameter des Nodes \texttt{vision\_pose\_uxrce\_node}}
-\label{tab:vision_pose_params} \\
 \toprule
 \textbf{Parameter} & \textbf{Bedeutung} \\
 \midrule
@@ -257,6 +254,8 @@ Tabelle~\ref{tab:vision_pose_params} fasst diese Parameter thematisch geordnet z
 \endfoot
 
 \bottomrule
+\caption{Startparameter des Nodes \texttt{vision\_pose\_uxrce\_node}}
+\label{tab:vision_pose_params} \\
 \endlastfoot
 
 \multicolumn{2}{@{}l}{\textit{Karte und Kalibrierung}} \\
@@ -330,7 +329,7 @@ Bezeichnet \glsadd{sym:aM}$a_{\mathrm{M}}$ die Kantenlänge des Markers und \gls
 
 Die Referenz-Markergröße $a_{\mathrm{ref}}$ wird über den Parameter \texttt{isaac\_reference\_size} übergeben.
 Die Orientierung bleibt dabei unberührt, da die Größe des Markers keinen Einfluss darauf hat.
-Der Isaac~\gls{ros2} Detektor gibt die Orientierung in einer anderen Konvention aus als das in Tag\gls{slam} verwendete \gls{ros2}-Standardpaket.
+Der Isaac~\gls{ros2}-Detektor gibt die Orientierung in einer anderen Konvention aus als das in Tag\gls{slam} verwendete \gls{ros2}-Standardpaket.
 Daher muss vor der weiteren Verarbeitung die detektierte Orientierung $^{\mathrm{C}}\mathbf{q}_{\mathrm{M}}$ durch eine feste
 Drehung um $180^\circ$ um die $x$-Achse des Markers an die Konvention der Karte angeglichen werden.
 
@@ -342,7 +341,7 @@ Gleichungen~\eqref{eq:trafo_verkettung} und~\eqref{eq:trafo_inverse}:
 \label{eq:pos_kamera_in_karte}
 \end{equation}
 Hierfür wird zunächst die detektierte Pose invertiert, um die Lage der Kamera relativ zum Marker, $^{\mathrm{M}}\mathbf{T}_{\mathrm{C}}$, zu erhalten.
-Die inverse Orientierung ergibt sich als Konjugation nach Gleichung~\eqref{eq:quaternion_konjungiert}, die inverse Translation durch Rotation
+Die inverse Orientierung ergibt sich als Konjugation nach Gleichung~\eqref{eq:quaternion_konjugiert}, die inverse Translation durch Rotation
 des negierten Vektors mit dieser Orientierung nach Gleichung~\eqref{eq:quaternion_rotation}:
 \begin{align}
 ^{\mathrm{M}}\mathbf{q}_{\mathrm{C}} &= {^{\mathrm{C}}\bar{\mathbf{q}}_{\mathrm{M}}}, \label{eq:pos_inverse_q}\\
@@ -361,7 +360,7 @@ Marker, die im Bild größer erscheinen, erlauben eine genauere Schätzung als k
 Jeder Schätzung wird daher ein Gewicht zugeordnet, das mit der scheinbaren Größe des Markers im Bild zunimmt.
 Als Maß hierfür dient die Norm der unmittelbar detektierten, \emph{unskalierten} Translation $^{\mathrm{C}}\tilde{\mathbf{t}}_{\mathrm{M}}$:
 \begin{equation}
-\tilde{d} = \lVert{^{\mathrm{C}}\tilde{\mathbf{t}}_{\mathrm{M}}}\rVert, \qquad w^{\mathrm{geo}} = \frac{1}{\tilde{d}^{2}}.
+\tilde{d} = \lVert{^{\mathrm{C}}\tilde{\mathbf{t}}_{\mathrm{M}}}\rVert, \qquad w_i^{\mathrm{geo}} = \frac{1}{\tilde{d}^{2}}.
 \label{eq:pos_gewicht}
 \end{equation}
 Da der Detektor die Translation für alle Marker mit der festen Referenzgröße $a_{\mathrm{ref}}$ berechnet, 
@@ -369,7 +368,7 @@ ist die Norm $\tilde{d}$ kein Maß für die tatsächliche Entfernung, sondern f�
 So wird abgebildet, dass im Bild große Marker aufgrund der höheren Genauigkeit mit einem größeren Gewicht in die Schätzung einfließen, 
 als kleinere Marker mit geringerer Genauigkeit.
 Die Gewichtung der Marker erfolgt dadurch nur auf Basis der Pixelgröße, unabhängig von der tatsächlichen Entfernung des Markers zum Objektiv.
-Auf die Gewichtete Fusion der Detektionen wird im weiteren Verlauf noch eingegangen.
+Auf die gewichtete Fusion der Detektionen wird im weiteren Verlauf noch eingegangen.
 
 
 
@@ -534,7 +533,7 @@ Taktzeitpunkt aus den jeweils aktuellsten Kameraschätzungen neu bestimmt.
 Dadurch übertragen sich das Rauschen der einzelnen Detektionen und kleine Sprünge zwischen aufeinanderfolgenden Schätzungen unmittelbar auf die ausgegebene Pose.
 Um diese hochfrequenten Anteile zu dämpfen, wird die fusionierte Pose vor der Ausgabe zeitlich geglättet.
 
-Die Position wird durch einen exponentiell gewichteten gleitenden Mittelwert, \gls{ema} geglättet.
+Die Position wird durch einen exponentiell gewichteten gleitenden Mittelwert (\gls{ema}) geglättet.
 Bezeichnet $^{\mathrm{K}}\mathbf{t}_{\mathrm{D}}[k]$ die fusionierte Position zum Taktzeitpunkt~$k$ und $^{\mathrm{K}}\hat{\mathbf{t}}_{\mathrm{D}}[k]$ die geglättete Position, so ergibt sich diese rekursiv aus dem vorherigen geglätteten Wert und der aktuellen Schätzung:
 \begin{equation}
 ^{\mathrm{K}}\hat{\mathbf{t}}_{\mathrm{D}}[k] = {^{\mathrm{K}}\hat{\mathbf{t}}_{\mathrm{D}}[k-1]} + \alpha_{\mathrm{t}}\left({^{\mathrm{K}}\mathbf{t}_{\mathrm{D}}[k]} - {^{\mathrm{K}}\hat{\mathbf{t}}_{\mathrm{D}}[k-1]}\right).

@@ -847,8 +847,8 @@
       \strng{authorbibnamehash}{905a0fe021951b4ebc06e4e1bb70bd26}
       \strng{authornamehash}{905a0fe021951b4ebc06e4e1bb70bd26}
       \strng{authorfullhash}{905a0fe021951b4ebc06e4e1bb70bd26}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Transactions of the ASME -- Journal of Basic Engineering}
@@ -1030,8 +1030,8 @@
       \strng{authornamehash}{6d2ee5676b068857db569005a9c6205a}
       \strng{authorfullhash}{6d2ee5676b068857db569005a9c6205a}
       \field{extraname}{4}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.html}}
@@ -1527,8 +1527,8 @@
       \strng{authorbibnamehash}{f3e557e3175be5bfd7ac82a67d76426e}
       \strng{authornamehash}{64357f2b478ba206a20e1cef46a7ec2d}
       \strng{authorfullhash}{f3e557e3175be5bfd7ac82a67d76426e}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{International Journal of Robotic Research - IJRR}
@@ -1685,8 +1685,8 @@
       \strng{authorbibnamehash}{1706de37ec1c6e8f22081681f5edb0cd}
       \strng{authornamehash}{288f14f017934f36c50a3331f71e78c6}
       \strng{authorfullhash}{1706de37ec1c6e8f22081681f5edb0cd}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{1573-0409}

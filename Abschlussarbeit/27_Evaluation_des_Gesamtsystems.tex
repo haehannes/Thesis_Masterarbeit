@@ -14,7 +14,7 @@ Beide werden zunächst in ihrer Durchführung und anschließend in ihrer Evaluat
 Dieser Abschnitt beschreibt die Erstellung und Anbringung der physischen Karte.
 Anschließend wird über die Aufzeichnung der Marker mit Tag\gls{slam} die digitale Karte erzeugt, die zur Lokalisierung dient.
 
-\subsection{Erstellen und Anbringen der physischenKarte}
+\subsection{Erstellen und Anbringen der physischen Karte}
 \label{sec:anbringen_karte}
 Die Karte wird auf eine matte Klebefolie mit der Breite von $~1,3~m$ geplottet.
 Die vollständige Karte besteht aus drei Bögen mit jeweils $~5,0~m$ Länge, sodass sich eine Gesamtgröße von 5~m~$\times$~3,9~m ergibt.
@@ -22,11 +22,12 @@ Die Bögen werden mithilfe von Passmarkierungen exakt aneinander ausgerichtet un
 Die zugehörige PDF-Vorlage wird maschinell erzeugt, sodass Lage und Größe aller Marker exakt festgelegt sind.
 
 Insgesamt kommen vier verschiedene Markergrößen zum Einsatz: 0,170~m, 0,300~m, 1,0~m und 0,12~m.
-Geplottet werden 10 Marker der Größe 0,170~m, 10 Marker der Größe 0,300~m sowie vier Marker der Größe 1,0~m.
+Geplottet werden 68 Marker der Größe 0,170~m, 24 Marker der Größe 0,300~m sowie vier Marker der Größe 1,0~m.
 Die Größe 0,12~m ist nur ein einziges Mal (\gls{id}~1) vorhanden und dient dem Starten des \gls{uav}s.
 Bei dem Start wären die anderen Marker zu groß, sodass die Bodenkamera sie nicht vollständig erfassen könnte und keine Lokalisierung möglich wäre.
 Eine Abbildung der aufgebrachten Karte ist in Abbildung~\ref{fig:tag_karte_oic} dargestellt.
 Der Ursprung der Karte liegt im Zentrum und ist als Marker mit der Identifikationsnummer~0 definiert und in Abbildung~\ref{fig:tag_karte_oic} grün umrandet.
+Der Marker zum starten des \gls{uav}s ist im geometrischen Zentrum der Karte und rot markiert. 
 
 Durch das Plotten und das genaue Ausrichten der einzelnen Bögen zueinander entsteht zugleich eine Ground-Truth-Referenz der Karte. 
 Die Abstände und Größen der Marker zueinander sind bereits aus der PDF-Erstellung bekannt und damit ohne zusätzliche Messung exakt gegeben.
@@ -42,11 +43,11 @@ Diese Ground-Truth-Referenz kann später zur Bewertung der Qualität der mit Tag
 
 \subsection{Aufzeichnung und Kartenerstellung}
 \label{sec:aufnahme_karte}
-Die eigentlich Aufzeichnung der physischen Karte erfolgt wie in Abschnitt \ref{sec:ablauf_kartierung} beschrieben, in drei Schritten.
+Die eigentliche Aufzeichnung der physischen Karte erfolgt wie in Abschnitt \ref{sec:ablauf_kartierung} beschrieben, in drei Schritten.
 Dabei wird zuerst ein Bag aufgezeichnet und die Kamera (Logitech C922) wird von Hand über die Karte bewegt.
 Die Kamera wird mit 15~\gls{fps} und einer Auflösung von 1280~$\times$~720 betrieben, was der gleichen Auflösung entspricht, 
 die auch während des Flugbetriebs verwendet wird.
-Beim Führen der Kamera ist drauf zu achten, dass die Kamera möglichst senkrecht zum Boden gehalten wird und möglichst viele Marker gleichzeitig im Bild sind.
+Beim Führen der Kamera ist darauf zu achten, dass die Kamera möglichst senkrecht zum Boden gehalten wird und möglichst viele Marker gleichzeitig im Bild sind.
 Die Kameraführung erfolgt in einem sternförmigen Muster, es wird also vom Mittelpunkt der Karte ausgehend in Richtung der Ränder gegangen und anschließend wieder zurück.
 Durch das wiederholte Abgehen der Karte in verschiedenen Richtungen werden Loop-Closures erzeugt, die die spätere Optimierung der Karte verbessern.
 Zum Ende der Aufnahme wird einmal rund um die Karte herumgegangen, um auch hier noch Loop-Closures zu erzeugen.
@@ -78,12 +79,12 @@ Versuch eins ist auf eine kurze Laufzeit ausgelegt, während Versuch zwei und dr
 \textbf{Versuch~1 -- grobe Orientierung.}
 Im ersten Versuch sind die Markerlagen frei, damit sich ihre grobe Anordnung allein aus den Beobachtungen ergibt.
 Dies wird über die \texttt{body\_defaults} erreicht, indem bei \texttt{position\_noise} und \texttt{rotation\_noise} den Tags kein Wert mitgegeben wird.
-Damit erhalten die Tags die Größt mögliche Freiheit und der Algorithmus kann die Markerlagen frei schätzen. 
+Damit erhalten die Tags die größtmögliche Freiheit und der Algorithmus kann die Markerlagen frei schätzen. 
 Lediglich Tag~0 bleibt als globaler Ursprung fixiert.
 
 \textbf{Versuch~2 -- Bindung an die Bodenebene.}
 Im zweiten Versuch werden die im ersten Versuch geschätzten Positionen als Startlagen übernommen und über Einträge in \texttt{tagslam.yaml} gebunden.
-Da alle Marker in der selben Ebene wie der Ursprung liegen, wird ihre Höhe mit $z=0$ vorgegeben und 
+Da alle Marker in derselben Ebene wie der Ursprung liegen, wird ihre Höhe mit $z=0$ vorgegeben und 
 über ein sehr kleines \texttt{position\_noise} in $z$ von~$10^{-6}$ fixiert.
 Ebenso werden die Verkippungen um die $x$- und $y$-Achse auf~$0$ gesetzt und über ein \texttt{rotation\_noise} von~$10^{-6}$ in diesen beiden Achsen fixiert.
 Die verbleibenden Freiheitsgrade, also die Lage in der $x$-$y$-Ebene und die Drehung um die $z$-Achse, bleiben schätzbar.
@@ -92,7 +93,7 @@ Tag~0 bleibt weiterhin der fixierte Ursprung und wird in allen Achsen über ein 
 Der grundsätzliche Aufbau dieser Fixierung ist in Listing~\ref{lst:tagslam_tag_noise} für \gls{id}~0 bis \gls{id}~2 dargestellt.
 
 \begin{lstlisting}[caption={Tagweise Fixierung der Markerlagen in \texttt{tagslam.yaml}. Tag~0 ist als Ursprung in allen Achsen fixiert, 
-  die übrigen Tags sind in $z$ sowie in der Verkippung um $x$ und $y$ fixiert.},label={lst:tagslam_tag_noise}]
+  die übrigen Tags sind in $z$ sowie in der Verkippung um $x$ und $y$ fixiert.},label={lst:tagslam_tag_noise},captionpos=b]
 tags:
   - id: 0
     size: 0.167
@@ -123,7 +124,7 @@ Stattdessen wird simuliert, dass einzelne Tags bereits vor der Kartenerstellung 
 Die dafür verwendeten Werte stammen aus der Ground-Truth-Karte.
 Wie in Versuch zwei bleiben alle Marker über $z=0$ sowie die auf~$0$ gesetzten Verkippungen um die $x$- und $y$-Achse an die Bodenebene gebunden.
 Zusätzlich werden von der Mitte der Karte zum Rand hin ausgewählte Tags mit ihren Werten aus der Ground Truth belegt und über ein sehr kleines \texttt{position\_noise} und \texttt{rotation\_noise} in allen Achsen vollständig fixiert.
-Die Übrigen Marker werden in X- und Y-Richtung sowie Drehung um die Z-Achse geschätzt.
+Die übrigen Marker werden in x- und y-Richtung sowie Drehung um die z-Achse geschätzt.
 Die Parametrierung der jeweiligen Versuche kann nachfolgender Tabelle entnommen werden.
 \begin{table}[htbp]
 \centering
@@ -248,7 +249,7 @@ bei der horizontale Position und Gierwinkel gehalten und die Höhe langsam abges
 Es fliegt dazu mit konstanter Geschwindigkeit die nächstgelegene Ecke an, fliegt das Quadrat einmal ab und schwebt anschließend wieder an dieser Startecke.
 Höhe und Gierwinkel bleiben während der gesamten Bewegung fest.
 Erneutes Drücken von \texttt{g} bricht den Demo-Modus ab und hält die aktuelle Position.
-Kantenlänge sowie Geschwindigkeit kann über die Startparameter des Noedes eingestellt werden.
+Kantenlänge sowie Geschwindigkeit können über die Startparameter des Nodes eingestellt werden.
 
 Sowohl die manuellen Sollwertänderungen als auch die Bewegung im Demo-Modus sind in ihrer Geschwindigkeit begrenzt.
 Eine besondere Rolle spielt dabei die Giergeschwindigkeit, die gegenüber der PX4-internen Grenze deutlich gedrosselt ist.

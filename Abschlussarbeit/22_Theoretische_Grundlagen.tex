@@ -123,7 +123,7 @@ Erkennt der \gls{px4} einen Sensorausfall, schaltet das System auf einen funktio
 Die Messungen der \gls{imu} bilden die Grundlage der Odometrie.
 Unter Odometrie versteht man die Schätzung der Positions- und Lageänderung eines Systems aus dessen Bewegungssensoren über die Zeit.
 Die IMUs sind vibrationsisoliert gelagert und werden über Heizwiderstände auf einer konstanten Betriebstemperatur gehalten, 
-wodurch temperaturbedingte Messabweichungen reduziert werden~[8].
+wodurch temperaturbedingte Messabweichungen reduziert werden~\cite{px4_pixhawk6x_doc}.
 Weiterhin ist zur Lagebestimmung ein Magnetometer verbaut, dieses wird in vorliegender Arbeit jedoch nicht verwendet (siehe Abschnitt~\ref{sec:ekf}).
 Wie in Abschnitt~\ref{sec:sensorik} beschrieben, sind die Sensoren mit einer Messunsicherheit behaftet.
 Die allein daraus berechnete Odometrie driftet ohne externe Positionsreferenz mit der Zeit, weshalb eine Sensorfusion mit externen Positionsdaten notwendig ist.
@@ -151,7 +151,7 @@ Die in der eingesetzten Revision verbauten Sensoren sind in Tabelle
 
 
 \subsection{Zustandsschätzung und Sensorfusion im Flugcontroller}
-\label{sec:ekf}
+\label{sec:ekf_px4}
 Die Zustandsschätzung des \gls{px4} erfolgt über den \gls{ekf}, einen in Abschnitt~\ref{sec:ekf} beschriebenen zeitdiskreten Zustandsschätzer.
 Der \gls{ekf} fusioniert die Messungen der bordeigenen Sensoren mit externen 
 Referenzen, um Lage, Geschwindigkeit und Position des \gls{uav} zu schätzen.
@@ -290,10 +290,10 @@ Der Winkel \(\theta\) zwischen zwei Einheitsquaternionen $\mathbf{q}_1$ und $\ma
 \label{eq:quaternion_winkel}
 \end{equation}
 
-Die Konjugation eines Quaternions ist analog zu den komplexen Zahlen durch Gleichung~\eqref{eq:quaternion_konjungiert} definiert.
+Die Konjugation eines Quaternions ist analog zu den komplexen Zahlen durch Gleichung~\eqref{eq:quaternion_konjugiert} definiert.
 \begin{equation}
 \bar{\mathbf{q}} = (w, -x, -y, -z)
-\label{eq:quaternion_konjungiert}
+\label{eq:quaternion_konjugiert}
 \end{equation}
 
 Für die Rotation eines beliebigen Punktes $\mathbf{p} = (0, p_x, p_y, p_z)$ mittels eines Rotationsquaternions $\mathbf{q}$ wird Gleichung~\eqref{eq:quaternion_rotation} angewendet.~\cite{Quan2017}
@@ -454,7 +454,7 @@ Sind die Transformationen $^c\mathbf{T}_b$ (von~$b$ nach~$c$) und $^b\mathbf{T}_
 
 
 
-\section{Extended Kalman Filter(EKF)}
+\section{Extended Kalman Filter (EKF)}
 \label{sec:ekf}
 In dieser Arbeit wird nicht näher auf die konkrete Umsetzung der Sensorfusion eingegangen, da der \gls{ekf} bereits vollständig im Flugcontroller implementiert ist.
 Auch die speziell im \gls{px4} zugrundeliegenden mathematischen Modelle werden nicht weiter erläutert.
@@ -534,7 +534,7 @@ Ein Datenpunkt gilt als konsistent, wenn sein Abstand zum Modell einen festgeleg
     \label{eq:ransac_inlier}
 \end{equation}
 wobei $d(\mathbf{x}_i, \mathcal{M})$ den Abstand des Punktes $\mathbf{x}_i$ zum Modell \glsadd{sym:model}$\mathcal{M}$ bezeichnet.
-Die Menge aller konsistenter Punkte wird als Konsensmenge bezeichnet, ihre Elemente als Inlier, die übrigen Punkte gelten als Ausreißer~\cite{RANSAC_Fischler1981}.
+Die Menge aller konsistenten Punkte wird als Konsensmenge bezeichnet, ihre Elemente als Inlier, die übrigen Punkte gelten als Ausreißer~\cite{RANSAC_Fischler1981}.
 
 
 \section{Robot Operating System 2 (ROS2)}

@@ -1,22 +1,22 @@
 [0] Config.pm:307> INFO - This is Biber 2.19
 [0] Config.pm:310> INFO - Logfile is '00_Abschlussarbeit.blg'
-[44] biber:340> INFO - === Sa Jul 11, 2026, 22:01:37
+[44] biber:340> INFO - === So Jul 12, 2026, 20:51:54
 [54] Biber.pm:419> INFO - Reading '00_Abschlussarbeit.bcf'
 [102] Biber.pm:979> INFO - Found 64 citekeys in bib section 0
 [110] Biber.pm:4419> INFO - Processing section 0
-[116] Biber.pm:4610> INFO - Looking for bibtex file 'Literatur.bib' for section 0
-[119] bibtex.pm:1713> INFO - LaTeX decoding ...
-[155] bibtex.pm:1519> INFO - Found BibTeX data source 'Literatur.bib'
-[423] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[423] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[423] Biber.pm:4239> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-US'
-[423] Biber.pm:4245> INFO - No sort tailoring available for locale 'en-US'
-[447] bbl.pm:660> INFO - Writing '00_Abschlussarbeit.bbl' with encoding 'UTF-8'
-[462] bbl.pm:763> INFO - Output to 00_Abschlussarbeit.bbl
-[462] Biber.pm:131> WARN - BibTeX subsystem: /tmp/biber_tmp_nPH6/fe6d16e8a0935a16f008a64fa11444f8_61826.utf8, line 17, warning: undefined macro "June"
-[462] Biber.pm:131> WARN - BibTeX subsystem: /tmp/biber_tmp_nPH6/fe6d16e8a0935a16f008a64fa11444f8_61826.utf8, line 205, warning: undefined macro "Sept"
-[462] Biber.pm:131> WARN - BibTeX subsystem: /tmp/biber_tmp_nPH6/fe6d16e8a0935a16f008a64fa11444f8_61826.utf8, line 288, warning: undefined macro "July"
-[462] Biber.pm:131> WARN - BibTeX subsystem: /tmp/biber_tmp_nPH6/fe6d16e8a0935a16f008a64fa11444f8_61826.utf8, line 504, warning: undefined macro "Sept"
-[462] Biber.pm:131> WARN - BibTeX subsystem: /tmp/biber_tmp_nPH6/fe6d16e8a0935a16f008a64fa11444f8_61826.utf8, line 567, warning: undefined macro "July"
-[462] Biber.pm:131> WARN - BibTeX subsystem: /tmp/biber_tmp_nPH6/fe6d16e8a0935a16f008a64fa11444f8_61826.utf8, line 667, warning: undefined macro "July"
-[462] Biber.pm:133> INFO - WARNINGS: 6
+[118] Biber.pm:4610> INFO - Looking for bibtex file 'Literatur.bib' for section 0
+[121] bibtex.pm:1713> INFO - LaTeX decoding ...
+[162] bibtex.pm:1519> INFO - Found BibTeX data source 'Literatur.bib'
+[399] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[399] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[399] Biber.pm:4239> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-US'
+[399] Biber.pm:4245> INFO - No sort tailoring available for locale 'en-US'
+[421] bbl.pm:660> INFO - Writing '00_Abschlussarbeit.bbl' with encoding 'UTF-8'
+[435] bbl.pm:763> INFO - Output to 00_Abschlussarbeit.bbl
+[435] Biber.pm:131> WARN - BibTeX subsystem: /tmp/biber_tmp__G5f/fe6d16e8a0935a16f008a64fa11444f8_5759.utf8, line 17, warning: undefined macro "June"
+[435] Biber.pm:131> WARN - BibTeX subsystem: /tmp/biber_tmp__G5f/fe6d16e8a0935a16f008a64fa11444f8_5759.utf8, line 205, warning: undefined macro "Sept"
+[435] Biber.pm:131> WARN - BibTeX subsystem: /tmp/biber_tmp__G5f/fe6d16e8a0935a16f008a64fa11444f8_5759.utf8, line 288, warning: undefined macro "July"
+[435] Biber.pm:131> WARN - BibTeX subsystem: /tmp/biber_tmp__G5f/fe6d16e8a0935a16f008a64fa11444f8_5759.utf8, line 504, warning: undefined macro "Sept"
+[435] Biber.pm:131> WARN - BibTeX subsystem: /tmp/biber_tmp__G5f/fe6d16e8a0935a16f008a64fa11444f8_5759.utf8, line 567, warning: undefined macro "July"
+[435] Biber.pm:131> WARN - BibTeX subsystem: /tmp/biber_tmp__G5f/fe6d16e8a0935a16f008a64fa11444f8_5759.utf8, line 667, warning: undefined macro "July"
+[435] Biber.pm:133> INFO - WARNINGS: 6

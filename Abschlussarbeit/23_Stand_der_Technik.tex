@@ -57,7 +57,7 @@ Aus diesem Grund ist eine Filterung der Eingangsdaten notwendig.
 Am weitesten verbreitet sind hierbei verschiedene Abwandlungen des Kalman-Filters.
 
 Experimentelle Untersuchungen mit dem \gls{px4}-Autopiloten und einem handelsüblichen
-Pixhawk-Flugcontroller zeigen, dass der \gls{ekf} ohne externe Referenzbereits nach 7 Sekunden eine
+Pixhawk-Flugcontroller zeigen, dass der \gls{ekf} ohne externe Referenz bereits nach 7 Sekunden eine
 Geschwindigkeitsabweichung von $\sigma_{\text{vel}} \approx 0{,}024$~m/s aufweist,
 sodass der Positionsfehler in dieser Zeit bereits in den Dezimeterbereich anwächst~\cite{9172736}.
 Verschiedene Arbeiten zeigen, dass sich der Drift durch andere Algorithmen wie den \gls{iekf} zwar verringern lässt, 
@@ -81,7 +81,7 @@ Es gibt sowohl mono- als auch stereokamerabasierte Ansätze, wobei Stereokameras
 Die Fusion von \gls{imu} und \gls{vo} zu \gls{vio} erfolgt typischerweise über einen \gls{ekf}~\cite{9836067}.
 
 Da \gls{vo} und \gls{vio} keinen absoluten Positionsbezug besitzen, akkumulieren diese Verfahren über die Zeit einen Drift und sind damit nur bedingt für eine langfristig stabile Innenraumlokalisierung geeignet~\cite{Jarraya2025}.
-Weiterhin setzt visuelle Odometrie strukturierte Umgebungen voraus, welche in der in Abschnitt ~\ref{sec:versuchsumgebung} beschriebenen Versuchsumgebung nicht ohne weiteres gegeben sind. 
+Weiterhin setzt visuelle Odometrie strukturierte Umgebungen voraus, welche in der in Abschnitt~\ref{sec:versuchsumgebung} beschriebenen Versuchsumgebung nicht ohne Weiteres gegeben sind. 
 
 
 
@@ -94,14 +94,14 @@ Kartierung und Positionsbestimmung müssen parallel erfolgen, da jede Aufgabe di
 Die Lösung dieses Problems erfolgt üblicherweise durch filterbasierte Methoden, wie den \gls{ekf}, 
 oder durch optimierungsbasierte Ansätze~\cite{10169695}.
 
-Filterbasierte \gls{slam} Algorithmen verarbeiten Messungen sequenziell und lassen keine Korrektur von vergangenen Messungen zu.
+Filterbasierte \gls{slam}-Algorithmen verarbeiten Messungen sequenziell und lassen keine Korrektur von vergangenen Messungen zu.
 Insbesondere fehlt filterbasierten Methoden die Fähigkeit zur globalen Kartenkorrektur durch Loop Closure, 
 was zu einer geringeren Kartierungsgenauigkeit im Vergleich zu optimierungsbasierten Methoden führt.
 In der Lokalisierung sind filterbasierte Methoden aufgrund ihrer geringeren Rechenkomplexität jedoch schneller~\cite{10169695}.
 In der aktuellen Literatur dominieren optimierungsbasierte Methoden, und neuere Arbeiten orientieren sich zunehmend an diesem Ansatz.
  
 
-\subsubsection*{Phasen optimierungsbasierter SLAM Methoden}
+\subsubsection*{Phasen optimierungsbasierter SLAM-Methoden}
 \label{sec:phasen_slam}
 Der allgemeine optimierungsbasierte \gls{slam}-Prozess lässt sich in folgende Phasen unterteilen:
 
@@ -138,7 +138,7 @@ Der schematische Ablauf von Loop Closure ist in Abbildung~\ref{fig:loop_closure}
 
 
 
-\subsubsection*{Faktorgraph Optimierung}
+\subsubsection*{Faktorgraph-Optimierung}
 \label{sec:Faktorgraph}
 Im folgenden Abschnitt wird der Faktorgraph nur schematisch erläutert, um ein grundsätzliches Verständnis dieser Methodik zu erlangen.
 Genaue Herleitungen sowie die Mathematik hinter dem Prinzip können den Quellen~\cite{Lai2022,Dellaert2017,Cai2024} entnommen werden.
@@ -178,7 +178,7 @@ den über die Trajektorie akkumulierten Drift rückwirkend über alle Posen zu k
 
 Das Ziel der Optimierung ist die Maximum-a-posteriori-Schätzung -- also die Konfiguration aller Variablen (Posen und Landmarken) zu finden, die die 
 Gesamtwahrscheinlichkeit aller Beobachtungen maximiert. Äquivalent dazu wird der Gesamtfehler über alle Constraints minimiert~\cite{dellaert2012factor}.
-Bildlich bedeutet das, dass der Optimierer die Variablen solange ``verschiebt'', bis der Gesamtfehler über allen Messungen minimal ist.
+Bildlich bedeutet das, dass der Optimierer die Variablen so lange ``verschiebt'', bis der Gesamtfehler über allen Messungen minimal ist.
 Bekannte Bibliotheken zur graphbasierten Optimierung sind \gls{gtsam} und \gls{g2o}.
 
 
@@ -246,7 +246,7 @@ Im Folgenden werden die in Abbildung \ref{fig:Uebersicht_Marker} dargestellten g
 ARTag wurde 2005 als Weiterentwicklung von ARToolKit vorgestellt~\cite{Fiala1467495}.
 Es verwendet digitale Kodierungsverfahren, wodurch ARTag im Vergleich zu früheren Systemen niedrigere und quantifizierbare Fehlerraten aufweist~\cite{Fiala1467495}.
 Ein ARTag besteht aus einem quadratischen Rand, der ein binäres Raster aus schwarzen und weißen Zellen umschließt, welches eine eindeutige \gls{id} kodiert~\cite{Fiala1467495}.
-Es lassen sich aus 36 Bits 2048 (Mit schwarzen bzw. weißen Rahmen) unterschiedliche \gls{id}s erzeugen, wobei 10 Bits für die Marker-\gls{id} und 26 Bits zur Redundanz genutzt werden~\cite{Fiala1467495}.
+Es lassen sich aus 36 Bits 2048 (mit schwarzen beziehungsweise weißen Rahmen) unterschiedliche \gls{id}s erzeugen, wobei 10 Bits für die Marker-\gls{id} und 26 Bits zur Redundanz genutzt werden~\cite{Fiala1467495}.
 ARTag verwendet keine einheitliche minimale Hammingdistanz zwischen den Codewörtern~\cite{Fiala1467495}.
 Aus einer Aufnahme des Markers lässt sich eine 6D-Pose bestimmen~\cite{Fiala1467495}.
 ARTag ist das einzige vorgestellte System, welches nicht vollständig Open-Source ist.

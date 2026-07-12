@@ -220,7 +220,7 @@ Die Kalibrierung wird in diesem Abschnitt beispielhaft mit der Logitech~C922 in 
 Die Kalibrierung wird mit dem ROS2-Paket \texttt{camera\_calibration} umgesetzt.
 Um den Kalibriervorgang zu starten, muss zunächst die Kamera bereitgestellt werden.
 Hierfür wird das Paket \texttt{gscam} genutzt, das die Kamera über eine GStreamer-Pipeline anbindet.
-Beim Start des Nodes im Terminalmüssen mehrere Einstellungen mitgegeben werden.
+Beim Start des Nodes im Terminal müssen mehrere Einstellungen mitgegeben werden.
 Dazu zählen das Videogerät, die Auflösung von $1920\times1080$ und die Bildrate.
 Zusätzlich wird festgelegt, dass das Bild vom \gls{mjpeg}-Format in ein \gls{rgb}-Rohbild dekodiert wird.
 
@@ -316,7 +316,7 @@ Die Implementierung der Kartierung wird am Beispiel der Logitech~C922 im Folgend
 Die Bildaufnahme erfolgt über einen gscam-Knoten, der in das Launch-File der ersten Stufe eingebunden ist.
 Die wichtigsten Einstellungen sind die Auflösung von $1920 \times 1080$ Pixeln und die Bildfrequenz von $15$ \gls{fps}.
 Die Bildfrequenz ist bewusst niedrig gewählt, um die Dekodierung durch \texttt{jpegdec} auf der CPU nicht zu überfordern und eine stabile Bildrate zu erhalten.
-Über den Parameter \texttt{camera\_info\_url} werden die zuvor ermittelten Kalibrierparameter geladen, die zusammen mit dem Bild auf den Topics \texttt{/camera/image\_raw} und \texttt{/camera/camera\_rect} von gscam veröffentlicht werden.
+Über den Parameter \texttt{camera\_info\_url} werden die zuvor ermittelten Kalibrierparameter geladen, die zusammen mit dem Bild auf den Topics \texttt{/camera/image\_raw} und \texttt{/camera/camera\_ino} von gscam veröffentlicht werden.
 Im Anschluss an die Aufnahme werden die Bilder direkt entzerrt.
 
 \subsection{Entzerrung des Kamerabildes}
@@ -332,12 +332,12 @@ Anschließend wird ein ROS2-Bag aufgezeichnet, der die für die nachfolgende Stu
 benötigten Topics enthält:
 \begin{itemize}
     \item \texttt{/camera/image\_rect} -- das entzerrte Bild,
-    \item \texttt{/camera/camera\_info} -- die zugehörigen Kameraparameter,
+    \item \texttt{/camera/camera\_rect} -- die zugehörigen Kameraparameter,
     \item \texttt{/tf\_static} -- die statischen Koordinatentransformationen.
 \end{itemize}
 
 
-\subsection{Offline Detektion von AprilTags}
+\subsection{Offline-Detektion von AprilTags}
 \label{sec:offline_detektion_apriltags}
 Die Markererkennung wird offline auf dem in der ersten Stufe aufgezeichneten Bag mit den entzerrten Bildern ausgeführt.
 Die Detektion ist absichtlich von Aufnahme und Entzerrung entkoppelt, um die genutzte Hardware nicht zu überfordern.
@@ -362,7 +362,7 @@ Für jeden erkannten Marker werden Identifikationsnummer und Bildkoordinaten der
 bestimmt und als Topic \topic{/tagslam/tag_detections} ausgegeben.
 
 Die Detektionen werden zusammen mit den Bildern, den Kameraparametern, den statischen Transformationen 
-und der Zeit aus dem Eingangs-Bag (anstelle der Systemzeit) in einem zweiten, Bag aufgezeichnet:
+und der Zeit aus dem Eingangs-Bag (anstelle der Systemzeit) in einem zweiten Bag aufgezeichnet:
 \begin{itemize}
 %\item \topic{/camera/image_rect} -- das entzerrte Bild,
 %\item \topic{/camera/camera_info_rect} -- die zugehörigen Kameraparameter,
@@ -370,7 +370,7 @@ und der Zeit aus dem Eingangs-Bag (anstelle der Systemzeit) in einem zweiten, Ba
 %\item \topic{/tf_static} -- die statischen Koordinatentransformationen,
 \item \topic{/clock} -- die Zeit aus dem Eingangs-Bag, anstelle der Systemzeit.
 \end{itemize}
-Dieser Bag enthält nur noch die Eingangsdaten, der nachfolgend zur Kartenerstellung notwendig sind.
+Dieser Bag enthält nur noch die Eingangsdaten, die nachfolgend zur Kartenerstellung notwendig sind.
 
 
 
@@ -437,7 +437,7 @@ Grundsätzlich können auch mehrere Marker fixiert werden, etwa wenn deren relat
 Das Ergebnis von \texttt{tagslam\_from\_bag} ist eine konsistente Karte, die für jeden Marker dessen Identifikationsnummer, Größe, Lage und das verbleibende Rauschen enthält.
 Quellcode~\ref{lst:karte} zeigt einen Auszug am Beispiel zweier Marker.
 
-\begin{lstlisting}[caption={Auszug einer erzeugten Karte}, label={lst:karte}]
+\begin{lstlisting}[caption={Auszug einer erzeugten Karte}, label={lst:karte}, captionpos=b]
 tags:
   - id: 0
     size: 0.16700000
