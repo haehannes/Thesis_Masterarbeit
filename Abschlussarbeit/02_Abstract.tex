@@ -21,23 +21,40 @@
 %Finally, a prototype application is presented that can be used to control the aircraft.
 
 %\end{abstract}
+%\chapter*{Abstract}
+%This thesis addresses the implementation of a fiducial-based localization system for an \gls{uav} in indoor environments.
+%Indoors, no \gls{gnss} is available, so the absolute position reference usually relied upon by the flight controller is absent.
+%The aim of this work is to localize a \gls{uav} in a GPS-denied indoor environment and to feed this position estimate into the flight controller as an external reference.
+%The system is based on AprilTag markers of the \texttt{tag36h11} family, whose poses are stored in a map created beforehand.
+%The map is generated in a three-stage offline process using \gls{slam}.
+%During flight, the companion computer continuously determines the pose of the aircraft from the marker detections of two cameras and transmits it via \gls{uxrce} to the \gls{px4} flight controller, where it is processed in the \gls{ekf2} as an external position reference.
+%The system is built entirely from open-source software and off-the-shelf hardware.
+%The thesis describes the selection of the mapping and marker methodology, the camera calibration, the map creation, and the in-flight pose estimation together with its integration into the flight controller.
+
 \chapter*{Abstract}
-This thesis addresses the implementation of a fiducial-based localization system for an \gls{uav} in indoor environments.
-Indoors, no \gls{gnss} is available, so the absolute position reference usually relied upon by the flight controller is absent.
-The aim of this work is to localize a \gls{uav} in a GPS-denied indoor environment and to feed this position estimate into the flight controller as an external reference.
-The system is based on AprilTag markers of the \texttt{tag36h11} family, whose poses are stored in a map created beforehand.
-The map is generated in a three-stage offline process using \gls{slam}.
-During flight, the companion computer continuously determines the pose of the aircraft from the marker detections of two cameras and transmits it via \gls{uxrce} to the \gls{px4} flight controller, where it is processed in the \gls{ekf2} as an external position reference.
-The system is built entirely from open-source software and off-the-shelf hardware.
-The thesis describes the selection of the mapping and marker methodology, the camera calibration, the map creation, and the in-flight pose estimation together with its integration into the flight controller.
+%\addcontentsline{toc}{chapter}{Abstract}
+\noindent
+% TEXT ENGLISCH %
+This thesis deals with the implementation of a marker-based localization system for an unmanned aerial vehicle in an indoor environment.
+Satellite navigation is not available indoors, so the absolute position reference normally used for flight control is not available.
+The goal of this thesis is to localize an unmanned aerial vehicle in an indoor environment without satellite navigation and to feed this position estimate 
+into the flight control system as an external reference.
+The process is based on \texttt{tag36h11} tags from the AprilTag family, whose positions are stored in a pre-generated map.
+The map is created in a three-step, upstream process for simultaneous localization and mapping.
+During flight, the onboard computer mounted on the aircraft continuously determines the aircraft’s pose based on marker detections from two cameras and transmits this information to the flight controller via the communication interface.
+There, it is processed as an external position reference in the flight control system’s extended Kalman filter.
+The system is built entirely from open-source software and standard components.
+This thesis describes the selection of mapping and marker methods, the calibration of the cameras, the map creation process, as well as the in-flight position determination and its integration with the flight control system.
+The evaluation includes three mapping experiments in which different parameterizations—each requiring varying levels of computational effort—are compared with one another and with a known reference map.
+The results show that map generation is reliably possible using the parameterizations examined.
+In addition, a test flight is conducted in which the aircraft flies a square trajectory with a side length of 1.5~m.
+The aircraft reliably follows the specified edges.
+However, continuous control movements are noticeable during flight, leading to slight deviations from the specified flight path.
 
+%\end{abstract}
 
-
-
-
-
-\selectlanguage{ngerman}
-\renewcommand{\abstractname}{Kurzfassung}
+%\selectlanguage{ngerman}
+%\renewcommand{\abstractname}{Kurzfassung}
 %\begin{abstract}
 %\chapter*{Kurzfassung - Noch nicht überarbeitet, Erste Fassung}
 %\addcontentsline{toc}{chapter}{Kurzfassung}
@@ -54,15 +71,35 @@ The thesis describes the selection of the mapping and marker methodology, the ca
 %Das Gesamtsystem ermöglicht eine GPS-unabhängige Lokalisierung, die für den Einsatz in Innenräumen ausgelegt ist.
 %Abschließend wird eine prototypische Anwendung vorgestellt, die zur Steuerung des Luftfahrzeugs eingesetzt werden kann.
 
+%\selectlanguage{ngerman}
+%\chapter*{Kurzfassung}
+%\addcontentsline{toc}{chapter}{Kurzfassung}
+%\noindent
+%Die vorliegende Arbeit befasst sich mit der Implementierung eines fiducialbasierten Lokalisierungssystems für ein Unmanned Aerial Vehicle (UAV) im Innenraum.
+%In Innenräumen steht kein Global Navigation Satellite System (GNSS) zur Verfügung, sodass die sonst übliche absolute Positionsreferenz für die Flugsteuerung entfällt.
+%Ziel der Arbeit ist es, ein UAV in einer GPS-freien Innenraumumgebung zu lokalisieren und diese Positionsschätzung als externe Referenz in die Flugsteuerung einzuspeisen.
+%Als Grundlage dienen AprilTag-Marker der Familie \texttt{tag36h11}, deren Lage in einer vorab erstellten Karte hinterlegt ist.
+%Die Karte wird in einem dreistufigen Offline-Verfahren mit Simultaneous Localization and Mapping (SLAM) erstellt.
+%Im Flug bestimmt der Companion-Computer aus den Markerdetektionen zweier Kameras fortlaufend die Pose des Fluggeräts und übergibt sie über micro eXtremely Resource Constrained Environments Data Distribution Service (uXRCE-DDS) an den Pixhawk (PX4)-Flugcontroller, wo sie im Extended Kalman Filter 2 (EKF2) als externe Positionsreferenz verarbeitet wird.
+%Das System ist vollständig aus quelloffener Software und handelsüblicher Hardware aufgebaut.
+%Die Arbeit beschreibt die Auswahl der Kartierungs- und Markermethodik, die Kalibrierung der Kameras, die Kartenerstellung sowie die im Flug ablaufende Positionsbestimmung und deren Anbindung an die Flugsteuerung.
+
 \selectlanguage{ngerman}
 \chapter*{Kurzfassung}
 \addcontentsline{toc}{chapter}{Kurzfassung}
 \noindent
-Die vorliegende Arbeit befasst sich mit der Implementierung eines fiducialbasierten Lokalisierungssystems für ein Unmanned Aerial Vehicle (UAV) im Innenraum.
-In Innenräumen steht kein Global Navigation Satellite System (GNSS) zur Verfügung, sodass die sonst übliche absolute Positionsreferenz für die Flugsteuerung entfällt.
-Ziel der Arbeit ist es, ein UAV in einer GPS-freien Innenraumumgebung zu lokalisieren und diese Positionsschätzung als externe Referenz in die Flugsteuerung einzuspeisen.
-Als Grundlage dienen AprilTag-Marker der Familie \texttt{tag36h11}, deren Lage in einer vorab erstellten Karte hinterlegt ist.
-Die Karte wird in einem dreistufigen Offline-Verfahren mit Simultaneous Localization and Mapping (SLAM) erstellt.
-Im Flug bestimmt der Companion-Computer aus den Markerdetektionen zweier Kameras fortlaufend die Pose des Fluggeräts und übergibt sie über micro eXtremely Resource Constrained Environments Data Distribution Service (uXRCE-DDS) an den Pixhawk (PX4)-Flugcontroller, wo sie im Extended Kalman Filter 2 (EKF2) als externe Positionsreferenz verarbeitet wird.
-Das System ist vollständig aus quelloffener Software und handelsüblicher Hardware aufgebaut.
+Die vorliegende Arbeit befasst sich mit der Umsetzung eines passmarkenbasierten Lokalisierungssystems für ein unbemanntes Fluggerät im Innenraum.
+In Innenräumen steht keine Satellitennavigation zur Verfügung, sodass die sonst übliche absolute Positionsreferenz für die Flugsteuerung entfällt.
+Ziel der Arbeit ist es, ein unbemanntes Fluggerät in einer Innenraumumgebung ohne Satellitennavigation zu lokalisieren und diese Positionsschätzung 
+als externe Referenz in die Flugsteuerung einzuspeisen.
+Als Grundlage dienen Passmarken des Typs \texttt{tag36h11} aus der AprilTag-Familie, deren Lage in einer vorab erstellten Karte hinterlegt ist.
+Die Karte wird in einem dreistufigen, vorgelagerten Verfahren zur simultanen Lokalisierung und Kartierung erstellt.
+Im Flug bestimmt der, auf dem Fluggerät befstigte Begleitrechner, aus den Markerdetektionen zweier Kameras fortlaufend die Pose des Fluggeräts und übergibt sie über die Kommunikationsschnittstelle an den Flugregler.
+Dort wird sie im erweiterten Kalman-Filter der Flugsteuerung als externe Positionsreferenz verarbeitet.
+Das System ist vollständig aus quelloffener Software und gängigen Komponenten aufgebaut.
 Die Arbeit beschreibt die Auswahl der Kartierungs- und Markermethodik, die Kalibrierung der Kameras, die Kartenerstellung sowie die im Flug ablaufende Positionsbestimmung und deren Anbindung an die Flugsteuerung.
+Die Evaluierung umfasst drei Versuche zur Erstellung der Karte, bei denen unterschiedliche Parametrierungen mit verschieden hohem Berechnungsaufwand miteinander sowie mit einer bekannten Referenzkarte verglichen werden.
+Die Ergebnisse zeigen, dass die Kartenerstellung mit den untersuchten Parametrierungen zuverlässig möglich ist.
+Zusätzlich wird ein Testflug durchgeführt, bei dem das Fluggerät eine quadratische Flugbahn mit einer Kantenlänge von 1,5~m abfliegt.
+Dabei folgt das Fluggerät den vorgegebenen Kanten zuverlässig.
+Während des Fluges sind jedoch kontinuierliche Regelbewegungen erkennbar, die zu geringfügigen Abweichungen von der vorgegebenen Flugbahn führen.

@@ -338,6 +338,50 @@
       \field{title}{{PX4 Architectural Overview}}
       \field{year}{2025}
     \endentry
+    \entry{px4_ulog}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=b52b778c63203841cf2cbbd45551085d}{%
+           family={{PX4 Development Team}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{b52b778c63203841cf2cbbd45551085d}
+      \strng{fullhash}{b52b778c63203841cf2cbbd45551085d}
+      \strng{bibnamehash}{b52b778c63203841cf2cbbd45551085d}
+      \strng{authorbibnamehash}{b52b778c63203841cf2cbbd45551085d}
+      \strng{authornamehash}{b52b778c63203841cf2cbbd45551085d}
+      \strng{authorfullhash}{b52b778c63203841cf2cbbd45551085d}
+      \field{extraname}{3}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://docs.px4.io/main/en/dev_log/ulog_file_format.html}}
+      \field{note}{Abgerufen am 07.06.2026}
+      \field{title}{{ULog File Format -- PX4 Autopilot Documentation}}
+      \field{year}{2025}
+    \endentry
+    \entry{px4_flight_reporting}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=b52b778c63203841cf2cbbd45551085d}{%
+           family={{PX4 Development Team}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{b52b778c63203841cf2cbbd45551085d}
+      \strng{fullhash}{b52b778c63203841cf2cbbd45551085d}
+      \strng{bibnamehash}{b52b778c63203841cf2cbbd45551085d}
+      \strng{authorbibnamehash}{b52b778c63203841cf2cbbd45551085d}
+      \strng{authornamehash}{b52b778c63203841cf2cbbd45551085d}
+      \strng{authorfullhash}{b52b778c63203841cf2cbbd45551085d}
+      \field{extraname}{4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://docs.px4.io/main/en/getting_started/flight_reporting.html}}
+      \field{note}{Abgerufen am 07.06.2026}
+      \field{title}{{Flight Reporting -- PX4 Autopilot Documentation}}
+      \field{year}{2025}
+    \endentry
     \entry{MAVLink}{misc}{}
       \name{author}{1}{}{%
         {{hash=064e5723b786627483d345a99909d5b6}{%
@@ -371,7 +415,7 @@
       \strng{authorbibnamehash}{b52b778c63203841cf2cbbd45551085d}
       \strng{authornamehash}{b52b778c63203841cf2cbbd45551085d}
       \strng{authorfullhash}{b52b778c63203841cf2cbbd45551085d}
-      \field{extraname}{3}
+      \field{extraname}{5}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
@@ -379,50 +423,6 @@
       \field{howpublished}{\url{https://docs.px4.io/main/en/middleware/mavlink.html}}
       \field{note}{Abgerufen am 07.06.2026}
       \field{title}{{MAVLink Messaging -- PX4 Autopilot Documentation}}
-      \field{year}{2025}
-    \endentry
-    \entry{px4_ulog}{misc}{}
-      \name{author}{1}{}{%
-        {{hash=b52b778c63203841cf2cbbd45551085d}{%
-           family={{PX4 Development Team}},
-           familyi={P\bibinitperiod}}}%
-      }
-      \strng{namehash}{b52b778c63203841cf2cbbd45551085d}
-      \strng{fullhash}{b52b778c63203841cf2cbbd45551085d}
-      \strng{bibnamehash}{b52b778c63203841cf2cbbd45551085d}
-      \strng{authorbibnamehash}{b52b778c63203841cf2cbbd45551085d}
-      \strng{authornamehash}{b52b778c63203841cf2cbbd45551085d}
-      \strng{authorfullhash}{b52b778c63203841cf2cbbd45551085d}
-      \field{extraname}{4}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{howpublished}{\url{https://docs.px4.io/main/en/dev_log/ulog_file_format.html}}
-      \field{note}{Abgerufen am 07.06.2026}
-      \field{title}{{ULog File Format -- PX4 Autopilot Documentation}}
-      \field{year}{2025}
-    \endentry
-    \entry{px4_flight_reporting}{misc}{}
-      \name{author}{1}{}{%
-        {{hash=b52b778c63203841cf2cbbd45551085d}{%
-           family={{PX4 Development Team}},
-           familyi={P\bibinitperiod}}}%
-      }
-      \strng{namehash}{b52b778c63203841cf2cbbd45551085d}
-      \strng{fullhash}{b52b778c63203841cf2cbbd45551085d}
-      \strng{bibnamehash}{b52b778c63203841cf2cbbd45551085d}
-      \strng{authorbibnamehash}{b52b778c63203841cf2cbbd45551085d}
-      \strng{authornamehash}{b52b778c63203841cf2cbbd45551085d}
-      \strng{authorfullhash}{b52b778c63203841cf2cbbd45551085d}
-      \field{extraname}{5}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{howpublished}{\url{https://docs.px4.io/main/en/getting_started/flight_reporting.html}}
-      \field{note}{Abgerufen am 07.06.2026}
-      \field{title}{{Flight Reporting -- PX4 Autopilot Documentation}}
       \field{year}{2025}
     \endentry
     \entry{Ko2018}{article}{}

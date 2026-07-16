@@ -45,7 +45,6 @@ rechenintensive Bildverarbeitung übernimmt, und der Sensorik, die zur
 Lokalisierung eingesetzt wird.
 
 Abbildung~\ref{fig:drohnenaufbau} zeigt den physischen Aufbau des Fluggeräts mit den verbauten Komponenten.
-
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.8\textwidth]{Bilder/Hardwareaufbau_drohne.png}
@@ -53,10 +52,6 @@ Abbildung~\ref{fig:drohnenaufbau} zeigt den physischen Aufbau des Fluggeräts mi
     \label{fig:drohnenaufbau}
 \end{figure}
 \FloatBarrier
-
-
-
-
 \subsection*{Flugplattform}
 Die bereits in den Grundlagen vorgestellte Flugplattform Holybro X650 dient als Basis des Systems.
 Die Plattform wird in der ARF-Variante (Almost Ready to Fly) verwendet, die bereits mit Motoren und Reglern vorkonfektioniert ist.
@@ -127,7 +122,6 @@ extern berechnete Positionsschätzung an den \gls{px4} übermittelt wird.
 
 Tabelle~\ref{tab:hardwarekomponenten} gibt eine Übersicht aller eingesetzten
 Komponenten mit Bezeichnung, Gewicht und Betriebssystem.
-
 \begin{table}[htbp]
 \centering
 \begin{threeparttable}
@@ -164,12 +158,8 @@ Bodenstation         & Laptop / QGroundControl         & --               & Ubun
 \end{threeparttable}
 \end{table}
 \FloatBarrier
-
-
-
 In Abbildung~\ref{fig:Verkabelung} ist der zuvor beschriebene Hardwareaufbau des Gesamtsystems als Blockschaltbild mit Anschlussverdrahtung dargestellt.
 Schwarze Linien kennzeichnen dabei Daten- und Signalverbindungen, rote Linien die Energieversorgung.
-
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.90\textwidth]{Bilder/Verkabelung.png}
@@ -223,7 +213,7 @@ Das Senden der Sollpositionen läuft parallel zur Positionsbestimmung des \gls{u
 Die Funktionsweise ist in Abschnitt~\ref{sec:bedienkonsole} beschrieben.
 
 
-\section{Versuchsumgebung}
+\section{Beschreibung der Versuchsumgebung}
 \label{sec:versuchsumgebung}
 Die Versuche werden im AerodrOhm der Technischen Hochschule Nürnberg durchgeführt, einer Indoor-Flughalle am Ohm Innovation Center~\cite{aerodrohm}.
 Die Halle bietet eine Grundfläche von $280\,\text{m}^2$ bei einer nutzbaren Flughöhe von bis zu $12\,\text{m}$.
@@ -236,5 +226,5 @@ Die Halle bietet eine Grundfläche von $280\,\text{m}^2$ bei einer nutzbaren Flu
 \FloatBarrier
 Der Hallenboden ist mit einem spiegelnden Belag ausgestattet.
 Zwei der vier Hallenwände bestehen aus unverputztem Ziegelmauerwerk und weisen daher eine strukturierte Oberfläche auf.
-Die übrigen zwei Wände sind mit großflächigen Fenstern versehen, deren Jalousien je nach Zustand geöffnet oder geschlossen sein können.
+Die übrigen zwei Wände sind mit großflächigen Fenstern versehen, deren Jalousien geöffnet oder geschlossen sein können.
 Bei geöffneten Jalousien kann einfallendes Tageslicht zu Gegenlicht führen.

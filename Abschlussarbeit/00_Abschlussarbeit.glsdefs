@@ -166,34 +166,6 @@ parent={},%
 %
 }%
 
-\glsdefs@newdocentry{ekf2}%
-{%
-name={\acronymfont {\glsentryshort {ekf2}}},%
-sort={EKF2},%
-type={acronym},%
-first={EKF2},%
-firstplural={EKF2s},%
-text={EKF2},%
-plural={EKF2s},%
-description={Extended Kalman Filter 2},%
-descriptionplural={Extended Kalman Filter 2},%
-symbol={\relax },%
-symbolplural={\relax },%
-user1={},%
-user2={},%
-user3={},%
-user4={},%
-user5={},%
-user6={},%
-long={Extended Kalman Filter 2},%
-longplural={Extended Kalman Filter 2s},%
-short={EKF2},%
-shortplural={EKF2s},%
-counter={page},%
-parent={},%
-%
-}%
-
 \glsdefs@newdocentry{ekf}%
 {%
 name={\acronymfont {\glsentryshort {ekf}}},%
@@ -399,8 +371,8 @@ first={VO},%
 firstplural={VOs},%
 text={VO},%
 plural={VOs},%
-description={Visuelle Odometrie},%
-descriptionplural={Visuelle Odometrie},%
+description={Visual Odometry},%
+descriptionplural={Visual Odometry},%
 symbol={\relax },%
 symbolplural={\relax },%
 user1={},%
@@ -409,8 +381,8 @@ user3={},%
 user4={},%
 user5={},%
 user6={},%
-long={Visuelle Odometrie},%
-longplural={Visuelle Odometries},%
+long={Visual Odometry},%
+longplural={Visual Odometrys},%
 short={VO},%
 shortplural={VOs},%
 counter={page},%
@@ -427,8 +399,8 @@ first={VIO},%
 firstplural={VIOs},%
 text={VIO},%
 plural={VIOs},%
-description={Visuell-inertiale Odometrie},%
-descriptionplural={Visuell-inertiale Odometrie},%
+description={Visual-inertial Odometry},%
+descriptionplural={Visual-inertial Odometry},%
 symbol={\relax },%
 symbolplural={\relax },%
 user1={},%
@@ -437,8 +409,8 @@ user3={},%
 user4={},%
 user5={},%
 user6={},%
-long={Visuell-inertiale Odometrie},%
-longplural={Visuell-inertiale Odometries},%
+long={Visual-inertial Odometry},%
+longplural={Visual-inertial Odometrys},%
 short={VIO},%
 shortplural={VIOs},%
 counter={page},%
@@ -2667,8 +2639,8 @@ first={\protect \ensuremath  {w^{\protect \mathrm  {geo}}}},%
 firstplural={\protect \ensuremath  {w^{\protect \mathrm  {geo}}}s},%
 text={\protect \ensuremath  {w^{\protect \mathrm  {geo}}}},%
 plural={\protect \ensuremath  {w^{\protect \mathrm  {geo}}}s},%
-description={geometrisches Gewicht einer Markerschätzung nach scheinbarer Bildgröße},%
-descriptionplural={geometrisches Gewicht einer Markerschätzung nach scheinbarer Bildgröße},%
+description={geometrisches Gewicht einer Markerschätzung nach Bildgröße},%
+descriptionplural={geometrisches Gewicht einer Markerschätzung nach Bildgröße},%
 symbol={\relax },%
 symbolplural={\relax },%
 user1={},%
@@ -2695,8 +2667,8 @@ first={\protect \ensuremath  {w}},%
 firstplural={\protect \ensuremath  {w}s},%
 text={\protect \ensuremath  {w}},%
 plural={\protect \ensuremath  {w}s},%
-description={kombiniertes Gewicht einer Markerschätzung aus scheinbarer Bildgröße und Kartenunsicherheit},%
-descriptionplural={kombiniertes Gewicht einer Markerschätzung aus scheinbarer Bildgröße und Kartenunsicherheit},%
+description={kombiniertes Gewicht einer Markerschätzung Bildgröße und Kartenunsicherheit},%
+descriptionplural={kombiniertes Gewicht einer Markerschätzung Bildgröße und Kartenunsicherheit},%
 symbol={\relax },%
 symbolplural={\relax },%
 user1={},%

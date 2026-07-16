@@ -2,25 +2,24 @@
 
 \chapter{Theoretische Grundlagen}
 \label{cap:theoretische_grundlagen}
-Zum besseren Verständnis der vorliegenden Arbeit werden im folgenden Kapitel die theoretischen Grundlagen erläutert.
-Es werden grundlegende Begriffe aus den Bereichen der Robotik, der Sensorik sowie der visuellen Navigation eingeführt.
+Dieses Kapitel behandelt grundlegende Begriffe aus den Bereichen der Robotik, 
+der Sensorik sowie der visuellen Navigation.
 Darüber hinaus wird auf den verwendeten Flugcontroller, die zugrundeliegenden Koordinatensysteme, mathematische Grundlagen sowie die relevanten Transformationen eingegangen. 
 
 
 \section{Grundlagen Unbemannter Flugroboter}
 \label{sec:grundlagen_uav}
-Unter einem \gls{uav}, umgangssprachlich auch als Drohne bezeichnet, versteht man ein Fluggerät, welches ohne einen menschlichen Piloten an Bord betrieben werden kann.
+Ein \gls{uav}, umgangssprachlich auch als Drohne bezeichnet, ist ein Fluggerät, welches ohne einen menschlichen Piloten an Bord betrieben werden kann.
 Dabei können \gls{uav}s entweder ferngesteuert von einem menschlichen Operator oder vollständig autonom durch einen bordeigenen Computer geführt werden.
 Die Anfänge unbemannter Luftfahrzeuge reichen bis in die 1910er Jahre zurück, in denen sie vorrangig für militärische Zwecke eingesetzt wurden.
 Ab den 2000er Jahren fanden \gls{uav}s zunehmend Eingang in zivile Anwendungsgebiete, wie beispielsweise die Katastrophenhilfe~\cite{Studiawan2026}.
 
-\subsection{Aufbau eines Flugroboters am Beispiel der Holybro X650}
+Der grundlegende Aufbau eines Flugroboters wird im Folgenden am Beispiel der Holybro X650 erläutert.
 Der Grundrahmen eines \gls{uav} dient als mechanische Basis für die Montage aller weiteren Komponenten.
 Das Design des Rahmens beeinflusst maßgeblich die Flugeigenschaften des Geräts.
 Das in dieser Arbeit verwendete Modell ist als Senkrechtstarter konzipiert und basiert auf einem X-förmigen Quadcopter-Rahmen.
 Die wesentlichen Bestandteile des Rahmens umfassen die Ausleger, das Landegestell sowie die zentrale Montageplattform für die Elektronik.
-Abbildung~\ref{fig:roll_pitch_yaw} zeigt unter anderem den in dieser Arbeit verwendeten Grundrahmen mit Anbauteilen
-~\cite{Wu2021, holybro_x650}.
+Abbildung~\ref{fig:roll_pitch_yaw} zeigt unter anderem den in dieser Arbeit verwendeten Grundrahmen mit Anbauteilen~\cite{Wu2021, holybro_x650}.
 
 Das Antriebssystem besteht aus vier Elektromotoren, die jeweils an einem der Ausleger montiert sind.
 An den Motoren sind Propeller befestigt, welche den erforderlichen Auftrieb erzeugen.
@@ -30,7 +29,7 @@ Er setzt eingehende Steuerbefehle in konkrete Ansteuersignale um, die an die Mot
 In Abschnitt~\ref{sec:Pixhawk_6X} wird näher auf den verwendeten Flugcontroller eingegangen.
 
 Die Energieversorgung erfolgt über einen \gls{lipo}.
-Dieser versorgt sowohl die Steuerelektronik als auch die Motoren. 
+Dieser versorgt sowohl die Steuerelektronik als auch die Motoren.
 
 
 \section{Interne Sensoren eines Flugcontrollers}
@@ -38,35 +37,36 @@ Dieser versorgt sowohl die Steuerelektronik als auch die Motoren.
 Zum besseren Verständnis der Arbeit werden in diesem Abschnitt die relevanten Sensortypen vorgestellt.
 
 Die zentrale Sensoreinheit für ein \gls{uav} ist die \gls{imu}, welche Beschleunigungen und Winkelgeschwindigkeiten misst.
-Die \gls{imu} besteht typischerweise aus einem 3-Achsen-Beschleunigungssensor und einem 3-Achsen-Gyroskop.
+Eine \gls{imu} besteht typischerweise aus einem 3-Achsen-Beschleunigungssensor und einem 3-Achsen-Gyroskop.
 In einigen Fällen kann auch ein 3-Achsen-Magnetometer integriert sein, um die Orientierung relativ zum Erdmagnetfeld zu bestimmen.
 Ein weiterer Sensortyp ist das Barometer zur Bestimmung der Höhe, indem es den aktuellen Luftdruck misst.
 Weiterhin kann auch die Motordrehzahl oder Motorlast als Sensorinformation genutzt werden, um Rückschlüsse auf den aktuellen Bewegungszustand zu ziehen~\cite{Siciliano2009}.
+
 All diese Sensoren liefern nicht direkt die Position oder Orientierung des Roboters, reagieren jedoch schnell auf Bewegungsänderungen.
 Jeder dieser Sensoren ist mit einer gewissen Messunsicherheit behaftet, die durch Rauschen, Kalibrierungsfehler oder Umwelteinflüsse unterschiedlich stark ausgeprägt sein kann.
 Diese Messunsicherheiten lassen sich grundsätzlich in deterministische und stochastische Fehleranteile unterteilen~\cite{Capuano2023}.
+
 Ein wesentlicher deterministischer Fehler ist der Bias, ein systematischer Messfehler in Form eines konstanten Versatzes, der die Messung selbst dann verfälscht, wenn keine physikalische Größe anliegt.
 Ein ruhendes Gyroskop gibt daher trotz fehlender Drehung einen von null abweichenden Wert aus.
 Dem gegenüber steht das Rauschen als stochastischer, mittelwertfreier Fehleranteil.
-Die Sensorfusion, also die Kombination der Daten mehrerer Sensoren, ermöglicht es, die Genauigkeit der Messungen insgesamt zu verbessern~\cite{chen2024deep}.
+Die Sensorfusion, also die Kombination der Daten mehrerer Sensoren, ermöglicht es, die Genauigkeit der Messungen zu verbessern~\cite{chen2024deep}.
 
 
 
 \section{Flugcontroller Pixhawk 6X}
 \label{sec:Pixhawk_6X}
-\gls{px4} ist ein Open-Source-Autopilot-Flugstack, der die Flugsteuerung, Zustandsschätzung und Kommunikation eines \gls{uav} übernimmt.
+Pixhawk ist ein Open-Source-Autopilot-Flugstack, der die Flugsteuerung, Zustandsschätzung und Kommunikation eines \gls{uav} übernimmt.
 Das Pixhawk-Projekt wurde ursprünglich als studentisches Projekt an der ETH Zürich gestartet 
 und hat sich seitdem zu einem weit verbreiteten Open-Source-Standard 
 in der \gls{uav}-Forschung und -Industrie entwickelt~\cite{MendozaMendoza2020}.
 Der in dieser Arbeit verwendete Pixhawk 6X basiert auf dem Pixhawk FMU-V6X-Standard~\cite{px4_pixhawk6x_doc}.
 
-Der Flugcontroller besteht aus zwei Teilen, dem Baseboard V2A und dem FMU-6X-Modul.
+Der Flugcontroller besteht aus zwei Teilen, dem Baseboard (V2A) und dem \gls{fmu}-Modul (FMUv6X).
 Das \gls{fmu}-Modul wird auf das Baseboard aufgesteckt und verschraubt.
 Die Komponenten sind in Abbildung~\ref{fig:aufbau_flugcontroller} dargestellt.
-Das \gls{fmu} stellt die zentrale Recheneinheit des Flugcontrollers dar, auf der der Hauptprozessor (STM32H753) sowie die PX4-Firmware betrieben werden.
-Das Baseboard stellt vor allem die Schnittstellen zu Sensoren, anderen Komponenten und der Stromversorgung bereit.
+Das \gls{fmu} stellt die zentrale Recheneinheit des Flugcontrollers dar, auf dem der Hauptprozessor (STM32H753) sowie die PX4-Firmware betrieben werden.
+Das Baseboard stellt vor Schnittstellen zu Sensoren, anderen Komponenten und der Stromversorgung bereit.
 Im weiteren Verlauf der Arbeit wird dieser Zusammenschluss aus Baseboard und \gls{fmu}-Modul als Flugcontroller oder \gls{px4} bezeichnet.
-
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.8\textwidth]{Bilder/Basebord_und_cube.png}
@@ -77,14 +77,9 @@ Im weiteren Verlauf der Arbeit wird dieser Zusammenschluss aus Baseboard und \gl
 
 \subsection{Flugcontroller-Betriebssystem}
 \label{sec:Px4_Betriebssystem}
-Der Pixhawk 6X betreibt auf dem Hauptprozessor das Echtzeitbetriebssystem NuttX, auf dem die PX4-Firmware ausgeführt wird.
-Dieses stellt sicher, dass zeitkritische Steuerungsaufgaben innerhalb garantierter Zeitschranken ausgeführt werden~\cite{px4_architecture}.
+Der Pixhawk betreibt auf dem Hauptprozessor das Echtzeitbetriebssystem NuttX, auf dem die \gls{px4}-Firmware ausgeführt wird.
+Dieses stellt sicher, dass zeitkritische Steuerungsaufgaben innerhalb garantierter Zeitfenster ausgeführt werden~\cite{px4_architecture}.
 
-Die Kommunikation mit der Bodenstation erfolgt über das MAVLink-Protokoll.
-MAVLink ist ein leichtgewichtiges Nachrichtenprotokoll, das speziell für die 
-Kommunikation zwischen Flugcontrollern und Bodenstationen entwickelt wurde.
-Es serialisiert Telemetriedaten, Steuerbefehle und Sensorwerte in Binärpakete, 
-die über serielle Schnittstellen oder \gls{udp} übertragen werden~\cite{MAVLink,px4_mavlink}.
 Innerhalb der PX4-Firmware kommunizieren die einzelnen Module nicht direkt miteinander, 
 sondern tauschen ihre Daten über das interne Publish-Subscribe-System \gls{uorb} aus.
 Ein Modul, das Daten erzeugt, veröffentlicht diese als Publisher auf einem \gls{uorb}-Topic, 
@@ -103,14 +98,19 @@ Sie ermöglichen eine detaillierte Analyse des Systemverhaltens nach einem Flug~
 \label{sec:px4_schnittstellen}
 Der Flugcontroller stellt über das Baseboard eine Vielzahl von Schnittstellen zur Anbindung 
 externer Komponenten bereit.
-Für diese Arbeit sind insbesondere die folgenden Schnittstellen relevant.
+Für diese Arbeit sind die folgenden Schnittstellen relevant.
 Die Ethernet-Schnittstelle dient der Kommunikation zwischen dem 
 Flugcontroller und dem Companion-Computer, über welche die extern berechnete Positionsschätzung 
 an den Zustandsschätzer übermittelt wird.
-Die genaue Anbindung wird in Abschnitt~\ref{cap:systembeschreibung} beschrieben.
-Über den USB-Anschluss erfolgt die Parametrierung und Kalibrierung des Flugcontrollers 
-mittels der Bodenstationssoftware QGroundControl.
-Die \gls{pwm}-Ausgänge des Baseboards steuern die Elektromotoren des \gls{uav} an.
+Die genaue Anbindung wird in Kapitel~\ref{cap:systembeschreibung} beschrieben.
+Die Kommunikation mit der Bodenstation erfolgt über das MAVLink-Protokoll.
+MAVLink ist ein leichtgewichtiges Nachrichtenprotokoll, das speziell für die 
+Kommunikation zwischen Flugcontrollern und Bodenstationen entwickelt wurde.
+Es serialisiert Telemetriedaten, Steuerbefehle und Sensorwerte in Binärpakete, 
+die über serielle Schnittstellen oder \gls{udp} übertragen werden~\cite{MAVLink,px4_mavlink}.
+Mithilfe der Bodenstationssoftware QGroundControl erfolgt die Parametrierung und Kalibrierung des Flugcontrollers.
+
+Die \gls{pwm}-Ausgänge des Baseboards steuern die Elektromotoren des \gls{uav}s an.
 Darüber hinaus stehen weitere Schnittstellen wie \gls{uart}, \gls{can}, \gls{i2c} und \gls{spi} zur 
 Anbindung zusätzlicher Sensoren und Peripherie zur Verfügung, die in dieser Arbeit jedoch 
 nicht verwendet werden~\cite{px4_pixhawk6x_doc}.
@@ -120,17 +120,18 @@ nicht verwendet werden~\cite{px4_pixhawk6x_doc}.
 Um die Zuverlässigkeit zu erhöhen, verfügt der Pixhawk über eine dreifach redundante \gls{imu} sowie zwei redundante 
 Barometer, die auf getrennten Bussen mit unabhängiger Stromversorgung betrieben werden.
 Erkennt der \gls{px4} einen Sensorausfall, schaltet das System auf einen funktionierenden Sensor um und hält so die Flugsteuerung aufrecht~\cite{px4_pixhawk6x_doc}.
+
 Die Messungen der \gls{imu} bilden die Grundlage der Odometrie.
 Unter Odometrie versteht man die Schätzung der Positions- und Lageänderung eines Systems aus dessen Bewegungssensoren über die Zeit.
 Die IMUs sind vibrationsisoliert gelagert und werden über Heizwiderstände auf einer konstanten Betriebstemperatur gehalten, 
 wodurch temperaturbedingte Messabweichungen reduziert werden~\cite{px4_pixhawk6x_doc}.
-Weiterhin ist zur Lagebestimmung ein Magnetometer verbaut, dieses wird in vorliegender Arbeit jedoch nicht verwendet (siehe Abschnitt~\ref{sec:ekf}).
-Wie in Abschnitt~\ref{sec:sensorik} beschrieben, sind die Sensoren mit einer Messunsicherheit behaftet.
-Die allein daraus berechnete Odometrie driftet ohne externe Positionsreferenz mit der Zeit, weshalb eine Sensorfusion mit externen Positionsdaten notwendig ist.
 
+Weiterhin ist zur Lagebestimmung ein Magnetometer verbaut, dieses kann aufgrund der Versuchsumgebung jedoch nicht verwendet werden (siehe Abschnitt~\ref{sec:deatkvierte_sensoren}).
+Wie in Abschnitt~\ref{sec:sensorik} beschrieben, sind die Sensoren mit einer Messunsicherheit behaftet.
+
+Die allein daraus berechnete Odometrie driftet ohne externe Positionsreferenz mit der Zeit, weshalb eine Sensorfusion mit externen Positionsdaten notwendig ist.
 Die in der eingesetzten Revision verbauten Sensoren sind in Tabelle 
 \ref{tab:pixhawk_sensoren} aufgeführt.
-
 \begin{table}[htbp]
 \centering
 \begin{tabular}{ll}
@@ -148,20 +149,19 @@ Die in der eingesetzten Revision verbauten Sensoren sind in Tabelle
 \label{tab:pixhawk_sensoren}
 \end{table}
 \FloatBarrier
-
-
 \subsection{Zustandsschätzung und Sensorfusion im Flugcontroller}
 \label{sec:ekf_px4}
 Die Zustandsschätzung des \gls{px4} erfolgt über den \gls{ekf}, einen in Abschnitt~\ref{sec:ekf} beschriebenen zeitdiskreten Zustandsschätzer.
 Der \gls{ekf} fusioniert die Messungen der bordeigenen Sensoren mit externen 
 Referenzen, um Lage, Geschwindigkeit und Position des \gls{uav} zu schätzen.
-Der Zustandsvektor des \gls{ekf} umfasst 24 Zustände, darunter die Lage, 
+Der Zustandsvektor des \gls{ekf}s umfasst 24 Zustände, darunter die Lage, 
 Geschwindigkeit, Position, die Bias-Werte von \gls{imu}, das 
 Erdmagnetfeld, den Magnetometer-Bias sowie die horizontale Windgeschwindigkeit~\cite{Ko2018}.
+
 Im Standardfall bezieht der \gls{ekf} seine externe Positionsreferenz aus einem \gls{gnss}.
 %Ziel dieser Arbeit ist es, dem \gls{ekf} stattdessen eine alternative externe 
 %Positionsschätzung bereitzustellen und diese anstelle der \gls{gnss}-Daten als Referenz einzuspeisen.
-Das Verhalten des \gls{ekf} lässt sich über eine Reihe von Parametern konfigurieren, 
+Das Verhalten des \gls{ekf}s lässt sich über eine Reihe von Parametern konfigurieren, 
 welche unter anderem festlegen, welche Sensorquellen zur Positions- und Höhenbestimmung 
 fusioniert werden.
 Die konkrete Parametrierung für den in dieser Arbeit notwendigen \gls{gnss}-freien Betrieb mit externer Positionsreferenz 
@@ -174,7 +174,7 @@ wird in Abschnitt~\ref{sec:pos_ekf_konfiguration} erläutert.
 \label{sec:vergleich_koordinatensysteme}
 Dieser Abschnitt behandelt die für diese Arbeit relevanten Koordinatensysteme.
 Dabei wird zwischen dem Welt-, Roboter-, Kamera- und Fiducialkoordinatensystem unterschieden.
-Das Weltkoordinatensystem ist einem als Referenz dienenden Kartenkoordinatensystem gleichzusetzen.
+Das Weltkoordinatensystem entspricht in dieser Arbeit dem Koordinatensystem, welches durch eine Karte repräsentiert wird.
 
 Ein Koordinatensystem ist ein mathematisches Konstrukt, das zur eindeutigen Beschreibung der Lage von Punkten im Raum verwendet wird.
 Zur Beschreibung von Bewegungen ist die Festlegung eines Koordinatensystems von entscheidender Bedeutung.
@@ -185,9 +185,10 @@ Mathematisch wird der Zusammenhang durch
 \mathbf{Z} = \mathbf{X} \times \mathbf{Y}
 \label{eq:rechte_hand_regel}
 \end{equation}
-dargestellt.
-Die Achsen werden entsprechend des informellen Industriestandards wie folgt dargestellt: X-Achse in Rot, Y-Achse in Grün und Z-Achse in Blau.
-Ein Überblick über die verwendeten Koordinatensysteme ist in Abbildung~\ref{fig:Koordinatensysteme} dargestellt.
+
+beschrieben.
+Die Achsen folgen dem informellen Industriestandard, nach dem die X-Achse rot, die Y-Achse grün und die Z-Achse blau eingefärbt wird.
+Einen Überblick über die verwendeten Koordinatensysteme gibt Abbildung~\ref{fig:Koordinatensysteme}.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=1.0\textwidth]{Bilder/Koordinatensysteme.png}
@@ -196,13 +197,13 @@ Ein Überblick über die verwendeten Koordinatensysteme ist in Abbildung~\ref{fi
 \end{figure}
 \FloatBarrier
 
-Das Weltkoordinatensystem dient als globaler Referenzrahmen, in dem die Position aller Objekte beschrieben wird.
+Das Weltkoordinatensystem dient als globaler Referenzrahmen, welche die Position aller Objekte beschreibt.
 Der Ursprung dieses Koordinatensystems kann frei gewählt werden und wird durch die Variable \gls{sym:O0} repräsentiert.
 Die Achsen werden durch \gls{sym:X0}, \gls{sym:Y0} und \gls{sym:Z0} dargestellt~\cite{ISO9787}.
 
-Das UAV-Koordinatensystem ist in der Regel vom Hersteller vorgegeben und richtet sich in diesem konkreten Fall nach dem Flugcontroller.
-Der verwendete Flugcontroller nutzt die \gls{ned}/\gls{frd}-Konvention, bei der das Navigationskoordinatensystem nach Norden, Osten und unten ausgerichtet ist.
-Das körperfeste Koordinatensystem hat seinen Ursprung im Mittelpunkt des Flugcontrollers.
+Das \gls{uav}-Koordinatensystem ist in der Regel vom Hersteller vorgegeben und richtet sich in diesem konkreten Fall nach dem Flugcontroller.
+Der verwendete Flugcontroller nutzt die \gls{ned}/\gls{frd}-Konvention, bei der das Koordinatensystem nach Norden, Osten und unten ausgerichtet ist.
+Dieses körperfeste Koordinatensystem hat seinen Ursprung im Mittelpunkt des Flugcontrollers.
 Ausgehend von der Flugrichtung entlang der X-Achse zeigt diese nach vorne, die Y-Achse nach rechts und die Z-Achse nach unten~\cite{PX4Frames}.
 
 Das Kamerakoordinatensystem ist so definiert, dass die Z-Achse entlang der optischen Achse der Kamera verläuft, 
@@ -224,6 +225,7 @@ Die Position eines Körpers wird durch den Vektor
 \mathbf{p} = (x, y, z)^T
 \label{eq:position_vektor}
 \end{equation}
+
 beschrieben, wobei die Koordinaten einem bestimmten Koordinatensystem zugeordnet sind.
 
 Die Orientierung eines Körpers kann auf verschiedene Weisen dargestellt werden.
@@ -242,7 +244,7 @@ Die Pfeilrichtungen entsprechen der positiven Achs- oder Drehrichtung im rechtsh
 \subsection{Quaternionen}
 Die Orientierung im Raum kann als Quaternion dargestellt werden.
 Quaternionen bieten gegenüber Euler-Winkeln den Vorteil, dass sie keine Singularitäten (Gimbal Lock) aufweisen.
-Quaternionen stellen eine Erweiterung des komplexen Zahlenraums dar und werden durch Gleichung~\eqref{eq:quaternion} definiert~\cite{Siciliano2009}.
+Quaternionen stellen eine Erweiterung des komplexen Zahlenraums dar und werden durch Gleichung~\eqref{eq:quaternion} definiert~\cite{Siciliano2009},
 \begin{equation}
 \mathbf{q} = w + ix + jy + kz
 \label{eq:quaternion}
@@ -420,6 +422,7 @@ Die zugehörige \emph{homogene Transformationsmatrix} \glsadd{sym:Tmat}$^b\mathb
 \in \mathbb{R}^{4 \times 4}.
 \label{eq:trafo_matrix}
 \end{equation}
+
 Ihre Inverse $\left(^b\mathbf{T}_a\right)^{-1} = {^a\mathbf{T}_b}$ ergibt sich in geschlossener Form zu
 \begin{equation}
 \left(^b\mathbf{T}_a\right)^{-1} =
@@ -429,12 +432,14 @@ Ihre Inverse $\left(^b\mathbf{T}_a\right)^{-1} = {^a\mathbf{T}_b}$ ergibt sich i
 \end{bmatrix},
 \label{eq:trafo_inverse}
 \end{equation}
+
 sodass keine allgemeine Matrixinversion erforderlich ist~\cite{Lynch2017}.
 Damit lässt sich Gleichung~\eqref{eq:trafo_punkt} kompakt schreiben als
 \begin{equation}
 ^b\tilde{\mathbf{r}} = {^b\mathbf{T}_a}\,{^a\tilde{\mathbf{r}}}.
 \label{eq:trafo_homogen}
 \end{equation}
+
 Die Rotationsmatrix $^b\mathbf{R}_a$ kann dabei aus einem Einheitsquaternion $\mathbf{q} = (w, x, y, z)$ berechnet werden:
 \begin{equation}
 R(\mathbf{q}) = 
@@ -445,6 +450,7 @@ R(\mathbf{q}) =
 \end{bmatrix}.
 \label{eq:rotationsmatrix_quaternion}
 \end{equation}
+
 Eine wesentliche Eigenschaft homogener Transformationsmatrizen ist ihre Verkettbarkeit.
 Sind die Transformationen $^c\mathbf{T}_b$ (von~$b$ nach~$c$) und $^b\mathbf{T}_a$ (von~$a$ nach~$b$) bekannt, so ergibt sich die direkte Transformation von~$a$ nach~$c$ durch
 \begin{equation}
@@ -452,9 +458,7 @@ Sind die Transformationen $^c\mathbf{T}_b$ (von~$b$ nach~$c$) und $^b\mathbf{T}_
 \label{eq:trafo_verkettung}
 \end{equation}
 
-
-
-\section{Extended Kalman Filter (EKF)}
+\section{Extended Kalman Filter}
 \label{sec:ekf}
 In dieser Arbeit wird nicht näher auf die konkrete Umsetzung der Sensorfusion eingegangen, da der \gls{ekf} bereits vollständig im Flugcontroller implementiert ist.
 Auch die speziell im \gls{px4} zugrundeliegenden mathematischen Modelle werden nicht weiter erläutert.
@@ -516,7 +520,7 @@ Die aktualisierten Größen $\hat{\mathbf{x}}_k^{+}$ und $\mathbf{P}_k^{+}$ dien
 
 
 
-\section{Random Sample Consensus (RANSAC)}
+\section{Random Sample Consensus}
 \label{sec:ransac}
 Der \gls{ransac} ist ein iteratives Verfahren zur robusten Schätzung von Modellparametern aus einem Datensatz, 
 der einen erheblichen Anteil an Ausreißern enthält.
@@ -533,11 +537,12 @@ Ein Datenpunkt gilt als konsistent, wenn sein Abstand zum Modell einen festgeleg
     d(\mathbf{x}_i, \mathcal{M}) < t,
     \label{eq:ransac_inlier}
 \end{equation}
+
 wobei $d(\mathbf{x}_i, \mathcal{M})$ den Abstand des Punktes $\mathbf{x}_i$ zum Modell \glsadd{sym:model}$\mathcal{M}$ bezeichnet.
 Die Menge aller konsistenten Punkte wird als Konsensmenge bezeichnet, ihre Elemente als Inlier, die übrigen Punkte gelten als Ausreißer~\cite{RANSAC_Fischler1981}.
 
 
-\section{Robot Operating System 2 (ROS2)}
+\section{Robot Operating System 2}
 \label{sec:ros2}
 
 \gls{ros2} ist ein Open-Source-Framework für die Entwicklung modularer, verteilter Anwendungen in der Robotik.

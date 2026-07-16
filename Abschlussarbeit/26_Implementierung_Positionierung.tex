@@ -58,12 +58,13 @@ Ob diese Kovarianzen überhaupt bereitgestellt werden, bestimmt der in Abschnitt
 Die externe Pose muss dem \gls{px4} mit mindestens $30$~\gls{fps} übergeben werden, um eine stabile Fusion zu gewährleisten, wobei dieser Wert als untere Grenze zu verstehen ist.
 
 \subsection{Höhenreferenz}
-Mit \texttt{ekf\_HGT\_REF}${}=3$ wird die Vision als primäre Höhenquelle festgelegt.
-Das Barometer bleibt über \texttt{ekf\_BARO\_CTRL}${}=1$ aktiv, dient jedoch nicht als Referenz, sondern lediglich als Rückfallebene bei Ausfall der Vision.
-So konnte bei Versuchen beobachtet werden, dass das Öffnen oder Schließen von Türen in der Halle zu Druckschwankungen und damit zu Unsicherheiten 
-in der barometrischen Höhenmessung führt.
+Mit \texttt{ekf\_HGT\_REF}${}=0$ das Barometer als primäre Höhenquelle festgelegt.
+Die Information der Höhe aus der Positionierung wird nur als Rückfallebene bei Ausfall oder Problemen mit dem Barometer verwendet.
+In Versuchen hat sich herausgestellt, dass die Höhe durch Nutzung des Barometers besser halten ließ, als durch die reine Referenz durch die Positionierung.
+Es gilt jedoch zu beachten, dass das Öffnen von Türen in der Flugumgebung Einfluss auf den Luftdruck und damit Einfluss auf einen aktiven Flug nehmen kann.
 
 \subsection{Deaktivierte Sensoren}
+\label{sec:deatkvierte_sensoren}
 Da im Innenraum kein zuverlässiger \gls{gps}-Empfang besteht, wird die \gls{gps}-Stützung über \texttt{ekf\_\allowbreak GPS\_\allowbreak CTRL\,=\,0} vollständig deaktiviert.
 Damit der Schätzer und die Flugsteuerung ohne \gls{gps}-Empfang initialisieren und armieren können, wird zusätzlich \texttt{COM\_ARM\_WO\_GPS}${}=1$ gesetzt.
 Das Magnetometer wird über \texttt{ekf\_MAG\_TYPE}${}=5$ von der Fusion ausgeschlossen, da das Magnetfeld in der Versuchsumgebung stark schwankte.
@@ -144,7 +145,7 @@ Möglich wird die hohe Bildrate durch die hardwarebeschleunigte Dekodierung des 
 Ohne die hardwarebeschleunigte Dekodierung sinkt die Bildrate über die Zeit, da die CPU mit der Dekodierung nicht hinterherkommt und ein Puffer in der Pipeline vollläuft.
 
 
-\section{Entzerrung}
+\section{Entzerrung des Kamerabildes}
 \label{sec:pos_entzerrung}
 Die Entzerrung erfolgt nach demselben Prinzip wie bei der Kartierung.
 Im Unterschied dazu wird sie jedoch nicht über \texttt{rectify\_node} aus dem Paket image\_proc, sondern über den Node \texttt{RectifyNode} aus 

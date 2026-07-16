@@ -2,14 +2,13 @@
 \babel@toc {english}{}\relax 
 \babel@toc {ngerman}{}\relax 
 \babel@toc {ngerman}{}\relax 
-\babel@toc {ngerman}{}\relax 
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Komponenten des Pixhawk 6X: FMU-Modul und Baseboard V2A~\blx@tocontentsinit {0}\cite {holybro_x650}}}{3}{figure.caption.8}%
 \contentsline {figure}{\numberline {2.2}{\ignorespaces Vergleich der Koordinatensysteme~\blx@tocontentsinit {0}\cite {holybro_x650}}}{6}{figure.caption.10}%
 \contentsline {figure}{\numberline {2.3}{\ignorespaces Roll, Pitch und Yaw am Beispiel Holybro X650~\blx@tocontentsinit {0}\cite {holybro_x650}}}{7}{figure.caption.11}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Veranschaulichung des Loop-Closure-Effekts: (a) Reale Trajektorie ohne akkumulierten Fehler. (b) Geschätzte Trajektorie mit akkumuliertem Drift ohne Loop Closure. (c) Korrigierte Trajektorie nach Anwendung von Loop Closure mit reduziertem akkumuliertem Drift. vgl.~\blx@tocontentsinit {0}\cite {gong_loop_closure}}}{17}{figure.caption.18}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Veranschaulichung des Loop Closure-Effekts: (a) Reale Trajektorie ohne akkumulierten Fehler. (b) Geschätzte Trajektorie mit akkumuliertem Drift ohne Loop Closure. (c) Korrigierte Trajektorie nach Anwendung von Loop Closure mit reduziertem akkumuliertem Drift. vgl.~\blx@tocontentsinit {0}\cite {gong_loop_closure}}}{17}{figure.caption.18}%
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Vereinfachter Faktorgraph eines \gls {slam}-Problems, vgl.~\blx@tocontentsinit {0}\cite {Lai2022,Dellaert2017,Cai2024}}}{17}{figure.caption.20}%
 \contentsline {figure}{\numberline {3.3}{\ignorespaces Übersicht gängiger Fiducial-Marker: a) ARTag; b) AprilTag; c) ArUco; d) STag~\blx@tocontentsinit {0}\cite {STag_Loipfuehrer2022,Artag_Bild}}}{19}{figure.caption.22}%
 \addvspace {10\p@ }
@@ -18,11 +17,14 @@
 \contentsline {figure}{\numberline {4.3}{\ignorespaces Softwarearchitektur mit den Strängen zur Lokalisierung und zur Kartierung}}{25}{figure.caption.38}%
 \contentsline {figure}{\numberline {4.4}{\ignorespaces Flughalle AerodrOhm am \gls {oic} der Technischen Hochschule Nürnberg~\blx@tocontentsinit {0}\cite {aerodrohm}}}{26}{figure.caption.39}%
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Dreistufiger Ablauf der Offline-Kartierung}}{31}{figure.caption.46}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Nodes und Topics der Positionierung, aufgeteilt nach Host und Container}}{40}{figure.caption.48}%
-\contentsline {figure}{\numberline {6.2}{\ignorespaces Drohne in der Kalibrierbox}}{43}{figure.caption.50}%
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Nodes und Topics der Positionierung, aufgeteilt nach Host und Container}}{41}{figure.caption.49}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Drohne in der Kalibrierbox}}{44}{figure.caption.51}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {7.1}{\ignorespaces Tag-Karte der OIC-Flughalle. Der Kartenursprung (Tag~0) ist grün umrandet, die roten Pfeile zeigen exemplarisch das sternförmige Abgehen zur Erzeugung von Loop-Closures.}}{53}{figure.caption.51}%
+\contentsline {figure}{\numberline {7.1}{\ignorespaces Tag-Karte der OIC-Flughalle. Der Kartenursprung (Tag~0) ist grün umrandet, die roten Pfeile zeigen exemplarisch das sternförmige Abgehen zur Erzeugung von Loop-Closures.}}{54}{figure.caption.52}%
+\contentsline {figure}{\numberline {7.2}{\ignorespaces Überlagerung der in Versuch~1 erzeugten Karte mit der Sollkarte in der Draufsicht.}}{58}{figure.caption.57}%
+\contentsline {figure}{\numberline {7.3}{\ignorespaces Überlagerung der in Versuch~2 erzeugten Karte mit der Sollkarte in der Draufsicht.}}{59}{figure.caption.58}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

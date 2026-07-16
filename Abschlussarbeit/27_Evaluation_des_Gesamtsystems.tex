@@ -5,58 +5,74 @@
 Dieses Kapitel beschreibt die praktische Durchführung der Versuche und die Auswertung der Ergebnisse.
 Es baut auf den in den Kapiteln~\ref{cap:implementierung_kartierung} und~\ref{cap:implementierung_positionsbestimmung} beschriebenen Implementierungen auf und gliedert sich in die beiden Teilaufgaben Kartierung und Positionierung.
 Beide werden zunächst in ihrer Durchführung und anschließend in ihrer Evaluation behandelt.
+Die Berechnungen werden aufgrund der \gls{ros2}-Restriktion auf einem Lenovo ThinkPad mit einem Intel~Core~i5-1145G7 (11.~Generation), $16\,\text{GB}$ 
+Arbeitsspeicher und integrierter Intel~Iris~Xe-Grafik unter Ubuntu~24.04 durchgeführt.
 
 
 
-
-\section{Durchführung der Kartierung}
+\section{Durchführung der Kartierung und Evaluation}
 \label{sec:durchfuehrung_kartierung}
-Dieser Abschnitt beschreibt die Erstellung und Anbringung der physischen Karte.
-Anschließend wird über die Aufzeichnung der Marker mit Tag\gls{slam} die digitale Karte erzeugt, die zur Lokalisierung dient.
+Dieser Abschnitt beschreibt, wie die physische Karte entsteht und wie sie in der Versuchsumgebung angebracht wird.
+Anschließend wird das Vorgehen zum Aufzeichnen und erstellen der digitalen Karte beschrieben.
+Im Letzten Teil wird die Qualität und das Vorgehen der Kartierung bewertet.
 
 \subsection{Erstellen und Anbringen der physischen Karte}
 \label{sec:anbringen_karte}
-Die Karte wird auf eine matte Klebefolie mit der Breite von $~1,3~m$ geplottet.
-Die vollständige Karte besteht aus drei Bögen mit jeweils $~5,0~m$ Länge, sodass sich eine Gesamtgröße von 5~m~$\times$~3,9~m ergibt.
-Die Bögen werden mithilfe von Passmarkierungen exakt aneinander ausgerichtet und anschließend auf den Boden der Flughalle geklebt. 
-Die zugehörige PDF-Vorlage wird maschinell erzeugt, sodass Lage und Größe aller Marker exakt festgelegt sind.
+Zunächst wurde die digitale Sollkarte konstruiert und aus ihr eine druckfähige Datei abgeleitet.
+Der Entwurf ist so angelegt, dass drei nebeneinander ausgelegte Streifen die zusammenhängende Karte bilden.
+Jeder Bogen trägt aufgedruckte Passermarken, die eine lagerichtige Ausrichtung der Streifen zueinander sicherstellen.
+Die Bögen weisen eine Länge von jeweils 5,0~m auf, woraus sich für die vollständige Karte eine Ausdehnung von $5{,}0$~m~$\times$~$3{,}9$~m ergibt.
+Als Trägermaterial dient eine matte Klebefolie, auf die die Marker gedruckt wurden.
 
 Insgesamt kommen vier verschiedene Markergrößen zum Einsatz: 0,170~m, 0,300~m, 1,0~m und 0,12~m.
 Geplottet werden 68 Marker der Größe 0,170~m, 24 Marker der Größe 0,300~m sowie vier Marker der Größe 1,0~m.
 Die Größe 0,12~m ist nur ein einziges Mal (\gls{id}~1) vorhanden und dient dem Starten des \gls{uav}s.
-Bei dem Start wären die anderen Marker zu groß, sodass die Bodenkamera sie nicht vollständig erfassen könnte und keine Lokalisierung möglich wäre.
+Bei dem Start wären die anderen Marker zu groß, sodass die Bodenkamera sie nicht vollständig erfassen könnte und zu Beginn keine Lokalisierung möglich wäre.
+Die Anordnung und Größe der Marker ist so gewählt, dass bei einer Flughöhe von 2,0~m stets mindestens zwei Marker im Sichtfeld liegen.
+Eine Ausnahme bilden die Eckbereiche, in denen die dort platzierten großformatigen Marker das Sichtfeld bereits weitgehend ausfüllen.
+
 Eine Abbildung der aufgebrachten Karte ist in Abbildung~\ref{fig:tag_karte_oic} dargestellt.
 Der Ursprung der Karte liegt im Zentrum und ist als Marker mit der Identifikationsnummer~0 definiert und in Abbildung~\ref{fig:tag_karte_oic} grün umrandet.
 Der Marker zum starten des \gls{uav}s ist im geometrischen Zentrum der Karte und rot markiert. 
-
-Durch das Plotten und das genaue Ausrichten der einzelnen Bögen zueinander entsteht zugleich eine Ground-Truth-Referenz der Karte. 
-Die Abstände und Größen der Marker zueinander sind bereits aus der PDF-Erstellung bekannt und damit ohne zusätzliche Messung exakt gegeben.
-Diese Ground-Truth-Referenz kann später zur Bewertung der Qualität der mit Tag\gls{slam} erzeugten Karte herangezogen werden.
-
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.8\textwidth]{Bilder/Karte_mit_Pfeilen.png}
+    \includegraphics[width=0.76\textwidth]{Bilder/Karte_mit_Pfeilen.png}
     \caption{Tag-Karte der OIC-Flughalle. Der Kartenursprung (Tag~0) ist grün umrandet, die roten Pfeile zeigen exemplarisch das sternförmige Abgehen zur Erzeugung von Loop-Closures.}
     \label{fig:tag_karte_oic}
 \end{figure}
 \FloatBarrier
 
+Beim Aufbringen der Klebefolie auf den Boden der Versuchsumgebung wurde besonderes Augenmerk auf eine exakte Ausrichtung gelegt.
+Dennoch lässt sich zwischen den Zentren der Eckmarker mit den Kennungen 200 bis 203 ein Versatz von etwa $5$~mm messen.
+Der Versatz quer zur Bahnrichtung, also zwischen den Markern 200 und 201 beziehungsweise 202 und 203, ist darauf zurückzuführen, dass sich die Folie nach dem Abziehen der Trägerschicht geringfügig zusammengezogen hat.
+Der Versatz zwischen den Markern 200 und 203 beziehungsweise 201 und 202 resultiert aus der großen Bahnlänge und der damit verbundenen erschwerten Handhabung beim Aufbringen.
+
+Die digitale Konstruktion der Karte liefert unmittelbar eine Referenz mit bekannten Sollwerten, deren Genauigkeit durch die genannten Abweichungen nach oben begrenzt ist.
+Die Abstände und Kantenlängen der Marker sind bereits aus der Erstellung der Druckvorlage bekannt und müssen daher nicht nachträglich von Hand vermessen werden.
+Damit lässt sich diese Referenz zur späteren Bewertung der Qualität derjenigen Karten heranziehen, die mit TagSLAM erzeugt wurden, solange die zu bewertenden Abweichungen deutlich oberhalb der genannten $5$~mm liegen.
+
+
+
 \subsection{Aufzeichnung und Kartenerstellung}
 \label{sec:aufnahme_karte}
 Die eigentliche Aufzeichnung der physischen Karte erfolgt wie in Abschnitt \ref{sec:ablauf_kartierung} beschrieben, in drei Schritten.
-Dabei wird zuerst ein Bag aufgezeichnet und die Kamera (Logitech C922) wird von Hand über die Karte bewegt.
-Die Kamera wird mit 15~\gls{fps} und einer Auflösung von 1280~$\times$~720 betrieben, was der gleichen Auflösung entspricht, 
-die auch während des Flugbetriebs verwendet wird.
-Beim Führen der Kamera ist darauf zu achten, dass die Kamera möglichst senkrecht zum Boden gehalten wird und möglichst viele Marker gleichzeitig im Bild sind.
-Die Kameraführung erfolgt in einem sternförmigen Muster, es wird also vom Mittelpunkt der Karte ausgehend in Richtung der Ränder gegangen und anschließend wieder zurück.
-Durch das wiederholte Abgehen der Karte in verschiedenen Richtungen werden Loop-Closures erzeugt, die die spätere Optimierung der Karte verbessern.
-Zum Ende der Aufnahme wird einmal rund um die Karte herumgegangen, um auch hier noch Loop-Closures zu erzeugen.
-Es wurde insgesamt Material von 10~min Länge aufgezeichnet, was bei 15~\gls{fps} rund 10~\gls{gb} entspricht.
+Dabei entsteht zunächst ein \gls{ros2}-Bag, während die Kamera (Logitech C922) von Hand über die Karte geführt wird.
+Die Kamera arbeitet mit 15~\gls{fps} und einer Auflösung von 1920~$\times$~1080.
 
-Der erste Bag wird nach \ref{sec:sync_detect_bag} dem Node \texttt{sync\_and\_detect\_node} übergeben, der die Marker detektiert und die Zeitstempel synchronisiert.
-Aus der Aufnahme des ersten Schritts wurden 10 Frames der Kameraaufzeichnung untersucht und dabei 10 Marker detektiert.
+Entscheidend beim Führen der Kamera sind eine möglichst senkrechte Ausrichtung zum Boden sowie eine hohe Zahl gleichzeitig erfasster Marker.
+Jeder Marker muss im Verlauf der Aufnahme mindestens einmal erfasst werden, da nur beobachtete Marker in die Karte eingehen.
+Besondere Aufmerksamkeit erfordern dabei die Eckmarker, deren große Kantenlänge eine vollständige Erfassung im Bild erschwert.
+
+Die Kameraführung folgt einem sternförmigen Muster, verläuft also vom Mittelpunkt der Karte aus in Richtung der Ränder und anschließend wieder zurück.
+Das wiederholte Abgehen der Karte in verschiedenen Richtungen erzeugt Loop Closure-Constraint, welche die spätere Optimierung der Karte verbessern.
+Zum Ende der Aufnahme führt der Weg einmal um die Karte herum, um auch dort Loop Closure-Constraint zu erzeugen.
+Insgesamt umfasst das aufgezeichnete Material eine Dauer von 166~min, was bei 15~\gls{fps} rund 13,9~\gls{gb} entspricht.
+
+\subsection*{Offline Marker Detektion}
+\label{sec:sync_and_detect}
+Der erste Bag wird nach \ref{sec:offline_detektion_apriltags} dem Node \texttt{sync\_and\_detect\_node} übergeben, der die Marker detektiert und die Zeitstempel synchronisiert.
+Aus der Aufnahme des ersten Schritts wurden 2390 Frames der Kameraaufzeichnung untersucht und dabei 46443 Marker detektiert.
 Dieser Bag bildet die Eingangsgröße für die eigentliche Kartenerstellung mit Tag\gls{slam}.
-
 
 Der Sync-and-Detect-Bag geht schließlich in die unter \ref{sec:kartierung_konfiguration_tagslam} beschriebene Kartenerstellung ein.
 Er wird mit dem Knoten \texttt{tagslam\_from\_bag} in der nachfolgend beschriebenen Optimierung verarbeitet.
@@ -64,34 +80,67 @@ Er wird mit dem Knoten \texttt{tagslam\_from\_bag} in der nachfolgend beschriebe
 
 \subsubsection*{Optimierung und Parametrierung von TagSLAM.}
 \label{sec:parametrierung_tagslam}
-Der letzte Schritt der Kartierung, die Optimierung mit Tag\gls{slam}, wird in Versuchen mit unterschiedlicher Parametrierung durchgeführt.
-Die Ergebnisse dieser Versuche werden miteinander verglichen, um die Qualität der jeweiligen Karte zu bewerten.
-Alle Läufe verarbeiten denselben Detektions-Bag, unterscheiden sich daher nur in den Einstellungen von Tag\gls{slam}.
+Der letzte Schritt der Kartierung, die Optimierung mit Tag\gls{slam} durchgeführt.
 
-Eine einzelne, durchgehend genaue Optimierung über alle zunächst unbekannten Markerlagen ist bei einer großen Karte rechenintensiv
-und liefert ohne gute Startschätzung leicht eine fehlerhafte Lösung.
-Aus diesem Grund werden drei Versuche durchgeführt, die dieses Verhältnis unterschiedlich abwägen.
-Der erste Versuch erzeugt zunächst eine grobe, aber vollständige Startschätzung der Markerlagen.
-Der zweite Versuch baut auf dieser Schätzung auf, übernimmt sie und bindet die Markerlagen stärker, um die Karte nachzuoptimieren.
-Der dritte Versuch übernimmt stattdessen von einigen Markern die Fixierungen aus der Ground Truth.
-Versuch eins ist auf eine kurze Laufzeit ausgelegt, während Versuch zwei und drei auf Genauigkeit optimiert sind. 
 
-\textbf{Versuch~1 -- grobe Orientierung.}
-Im ersten Versuch sind die Markerlagen frei, damit sich ihre grobe Anordnung allein aus den Beobachtungen ergibt.
-Dies wird über die \texttt{body\_defaults} erreicht, indem bei \texttt{position\_noise} und \texttt{rotation\_noise} den Tags kein Wert mitgegeben wird.
-Damit erhalten die Tags die größtmögliche Freiheit und der Algorithmus kann die Markerlagen frei schätzen. 
-Lediglich Tag~0 bleibt als globaler Ursprung fixiert.
+Eine einzelne, durchgehende Optimierung sämtlicher zunächst unbekannter Markerlagen ist bei einer Karte dieser Größe rechenintensiv 
+und liefert ohne Startschätzung leicht eine fehlerhafte Lösung.
+Aus diesem Grund erfolgt die Kartierung in drei Versuchen mit unterschiedlicher Parametrierung.
+Ziel ist es, eine Parametrierung zu ermitteln, die sich künftig zur Kartierung unbekannter 
+Umgebungen eignet und dabei einen tragfähigen Kompromiss zwischen Rechenaufwand und Genauigkeit bietet.
+Alle Läufe verarbeiten denselben Detektions-Bag und unterscheiden sich ausschließlich in der Parametrierung von TagSLAM.
+Die wichtigsten Parameter der jeweiligen Läufe können Tabelle~\ref{tab:tagslam_params} entnommen werden.
+Nicht aufgeführte Parameter wurden ensprechend der Default-Werte der Tag\gls{slam}-Dokumentation gesetzt.
+\begin{table}[htbp]
+\centering
+\begin{tabular}{lccc}
+\toprule
+\textbf{Parameter} & \textbf{Versuch~1} & \textbf{Versuch~2} & \textbf{Versuch~3} \\
+\midrule
+\texttt{optimizer\_mode}            & \texttt{fast} & \texttt{fast} & \texttt{slow} \\
+\texttt{max\_subgraph\_error}       & $50$            & $10$            & $10$ \\
+\texttt{max\_num\_incremental\_opt} & $50$          & $10$          & $50$ \\
+\texttt{Fixierung der Marker}                & keine         & $z$, Rollen, Nicken & $z$, Rollen, Nicken \\
+\midrule
+\texttt{minimum\_viewing\_angle}                & \multicolumn{3}{c}{$15{,}0$} \\
+\texttt{minimum\_tag\_area}                     & \multicolumn{3}{c}{$2500$} \\
+\texttt{use\_approximate\_sync}                 & \multicolumn{3}{c}{\texttt{true}} \\
+\bottomrule
+\end{tabular}
+\caption[Parametrierung der drei Versuche]{Parametrierung der drei Versuche.}
+\label{tab:tagslam_params_laeufe}
+\end{table}
+\FloatBarrier
 
-\textbf{Versuch~2 -- Bindung an die Bodenebene.}
-Im zweiten Versuch werden die im ersten Versuch geschätzten Positionen als Startlagen übernommen und über Einträge in \texttt{tagslam.yaml} gebunden.
-Da alle Marker in derselben Ebene wie der Ursprung liegen, wird ihre Höhe mit $z=0$ vorgegeben und 
-über ein sehr kleines \texttt{position\_noise} in $z$ von~$10^{-6}$ fixiert.
-Ebenso werden die Verkippungen um die $x$- und $y$-Achse auf~$0$ gesetzt und über ein \texttt{rotation\_noise} von~$10^{-6}$ in diesen beiden Achsen fixiert.
-Die verbleibenden Freiheitsgrade, also die Lage in der $x$-$y$-Ebene und die Drehung um die $z$-Achse, bleiben schätzbar.
-Das \texttt{position\_noise} in $x$ und $y$ sowie das \texttt{rotation\_noise} um die $z$-Achse werden mit~$0{,}05$ schwach an die übernommene Startlage gebunden.
-Tag~0 bleibt weiterhin der fixierte Ursprung und wird in allen Achsen über ein \texttt{position\_noise} und \texttt{rotation\_noise} von~$10^{-6}$ festgehalten.
-Der grundsätzliche Aufbau dieser Fixierung ist in Listing~\ref{lst:tagslam_tag_noise} für \gls{id}~0 bis \gls{id}~2 dargestellt.
+\newpage
 
+
+\textbf{Versuch~1:}
+Der erste Lauf dient allein der schnellen Gewinnung einer Startschätzung, weshalb \texttt{optimizer\_mode} auf \texttt{fast} steht.
+Die Schwelle \texttt{max\_subgraph\_error} bleibt mit $50$ tolerant, da einzelne fehlerhafte Messungen die angestrebte grobe Schätzung nicht wesentlich beeinträchtigen.
+Ebenso ist \texttt{max\_num\_incremental\_opt} mit $50$ hoch angesetzt, sodass der Graph nur selten vollständig optimiert wird.
+Eine Fixierung der Marker entfällt, weil die Kartengeometrie zu diesem Zeitpunkt noch nicht bekannt ist.
+Im ersten Versuch bleiben die Markerlagen ungebunden, sodass sich ihre grobe Anordnung allein aus den Beobachtungen ergibt und der Lauf eine vollständige Startschätzung liefert.
+Lediglich der Marker mit der Kennung 0 bleibt als globaler Ursprung fixiert.
+Der Mindestbetrachtungswinkel \texttt{minimum\_viewing\_angle} von $15{,}0$ stellt sicher, dass nur hinreichend senkrecht erfasste Marker in die Optimierung eingehen.
+Die näherungsweise zeitliche Zuordnung über \texttt{use\_approximate\_sync} ist aktiviert, um abweichende Zeitstempel zwischen den Nachrichten des Bags auszugleichen.
+Die Laufzeit des Versuchs betrug etwa 45~min.
+
+
+\textbf{Versuch~2:}
+Der zweite Lauf übernimmt die gemeinsamen Einstellungen des ersten und verschärft die Optimierung, während er zugleich auf dessen Startschätzung zurückgreift.
+Der Betriebsmodus verbleibt auf \texttt{fast}, sodass die Rechenzeit trotz der strengeren Vorgaben begrenzt bleibt.
+Die Schwelle \texttt{max\_subgraph\_error} wird auf $10$ herabgesetzt, um fehlerhafte Messungen von der Karte fernzuhalten.
+Zugleich sinkt \texttt{max\_num\_incremental\_opt} auf $10$, wodurch der Graph häufiger vollständig optimiert wird und die Lösung an Genauigkeit gewinnt.
+
+Die im ersten Versuch geschätzten Positionen dienen als Startlagen und werden über Einträge in \texttt{tagslam.yaml} gebunden.
+Da alle Marker flach auf dem Boden und damit in derselben Ebene wie der Ursprung liegen, wird ihre Höhe mit $z=0$ vorgegeben und über ein sehr kleines \texttt{position\_noise} in $z$ von $10^{-6}$ fixiert.
+Ebenso werden die Verkippungen um die $x$- und $y$-Achse auf $0$ gesetzt und über ein \texttt{rotation\_noise} von $10^{-6}$ in diesen beiden Achsen fixiert.
+Die verbleibenden Freiheitsgrade, also die Lage in der $x$-$y$-Ebene und die Drehung um die $z$-Achse, bleiben schätzbar, werden jedoch über \texttt{position\_noise} in $x$ und $y$ von $0{,}2$ schwach an die übernommene Startlage gebunden.
+Auf diese Weise geht die tatsächliche Geometrie der Karte als Vorwissen in die Optimierung ein.
+Der Marker mit der Kennung 0 bleibt weiterhin der fixierte Ursprung und wird in allen Achsen über ein \texttt{position\_noise} und \texttt{rotation\_noise} von $10^{-6}$ festgehalten.
+Der grundsätzliche Aufbau dieser Fixierung ist in Quellcode~\ref{lst:tagslam_tag_noise} für die Kennungen 0 bis 2 dargestellt.
+Die Laufzeit des Versuchs betrug etwa 2~h.
 \begin{lstlisting}[caption={Tagweise Fixierung der Markerlagen in \texttt{tagslam.yaml}. Tag~0 ist als Ursprung in allen Achsen fixiert, 
   die übrigen Tags sind in $z$ sowie in der Verkippung um $x$ und $y$ fixiert.},label={lst:tagslam_tag_noise},captionpos=b]
 tags:
@@ -103,96 +152,110 @@ tags:
     position_noise: {x: 1.0e-06, y: 1.0e-06, z: 1.0e-06}
     rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 1.0e-06}
   - id: 1
-    size: 0.167
+    size: 0.120
     pose:
-      position: {x: 0.00372471, y: 0.6, z: 0.0}
-      rotation: {x: 0.0, y: 0.0, z: 0.03614926}
-    position_noise: {x: 0.05, y: 0.05, z: 1.0e-06}
+      position: {x: -0.242321, y: -0.000951, z: 0.0}
+      rotation: {x: 0.0, y: 0.0, z: -0.000313}
+    position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
     rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.5}
   - id: 2
-    size: 0.167
+    size: 0.170
     pose:
-      position: {x: -0.00762273, y: -0.6, z: 0.0}
-      rotation: {x: 0.0, y: 0.0, z: -0.01182566}
-    position_noise: {x: 0.05, y: 0.05, z: 1.0e-06}
+      position: {x: -0.241930, y: 0.241503, z: 0.0}
+      rotation: {x: 0.0, y: 0.0, z: -0.001375}
+    position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
     rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.5}
 \end{lstlisting}
 
-\textbf{Versuch~3 -- Verankerung an dem Ground Truth.}
-Der dritte Versuch verwendet dieselbe Parametrierung wie Versuch zwei, baut jedoch nicht auf den in Versuch eins und Versuch zwei geschätzten Markerlagen auf.
-Stattdessen wird simuliert, dass einzelne Tags bereits vor der Kartenerstellung ausgemessen werden können, um der Optimierung zusätzliche Fixpunkte vorzugeben.
-Die dafür verwendeten Werte stammen aus der Ground-Truth-Karte.
-Wie in Versuch zwei bleiben alle Marker über $z=0$ sowie die auf~$0$ gesetzten Verkippungen um die $x$- und $y$-Achse an die Bodenebene gebunden.
-Zusätzlich werden von der Mitte der Karte zum Rand hin ausgewählte Tags mit ihren Werten aus der Ground Truth belegt und über ein sehr kleines \texttt{position\_noise} und \texttt{rotation\_noise} in allen Achsen vollständig fixiert.
-Die übrigen Marker werden in x- und y-Richtung sowie Drehung um die z-Achse geschätzt.
-Die Parametrierung der jeweiligen Versuche kann nachfolgender Tabelle entnommen werden.
+
+\textbf{Versuch~3:}
+Der dritte Lauf behält die Einstellungen des zweiten weitgehend bei, wechselt jedoch in den Betriebsmodus \texttt{slow}, um die Genauigkeit weiter zu steigern.
+Um die Rechenzeit dabei nicht ausufern zu lassen, wird \texttt{max\_num\_incremental\_opt} wieder auf $50$ angehoben, sodass der Graph seltener vollständig optimiert wird.
+Die Schwelle \texttt{max\_subgraph\_error} verbleibt bei $10$.
+
+Wie der zweite Lauf übernimmt auch der dritte die im ersten Versuch geschätzten Positionen als Startlagen und bindet alle Marker über $z=0$ sowie die auf $0$ gesetzten Verkippungen um die $x$- und $y$-Achse an die Bodenebene.
+Zusätzlich wird der Fall nachgebildet, dass einzelne Marker bereits vor der Kartenerstellung ausgemessen vorliegen und der Optimierung als Fixpunkte dienen.
+
+Die Laufzeit des Versuchs betrug etwa 10~h.
+
+Aufgrund der guten Ergebnisse und der hohen Laufzeit im Betriebsmodus \texttt{slow} wurde auf einen Vergleichslauf mit \texttt{fast} verzichtet.
+
+
+\section{Evaluation der Kartierung}
+\label{sec:evaluation_kartierung}
+Zur Bewertung der Kartierung dienen die in Abschnitt~\ref{sec:anbringen_karte} beschriebene Sollkarte als Referenz und das Skript \texttt{karten\_vergleich.py}, das die Markerlagen der erzeugten Karten den Sollwerten gegenüberstellt.
+Verglichen werden die Abweichungen der Markerzentren in den einzelnen Achsen sowie deren Betrag in der Kartenebene.
+Als Kennzahlen werden der Mittelwert, der quadratische Mittelwert und der Maximalwert über alle gemeinsamen Marker ausgewiesen.
+
+Von den 97 aufgebrachten Markern erfassen die Karten aus Versuch~1 und Versuch~2 jeweils 96.
+Der Marker mit der Kennung 201 fehlt in beiden Fällen, da er augenscheinlich während der Aufzeichnung nicht erfasst wurde.
+Es handelt sich um einen der Eckmarker mit einer Kantenlänge von 1,0~m, für dessen vollständige Abbildung im Bild ein entsprechend großer Abstand zum Boden erforderlich ist.
+Die Kamera wurde an dieser Stelle offenbar nicht hoch genug geführt.
+Dies unterstreicht, wie sorgfältig die Aufzeichnung durchgeführt werden muss, denn ein nicht erfasster Marker fehlt in der Karte und steht der späteren Positionsbestimmung nicht zur Verfügung.
+
 \begin{table}[htbp]
 \centering
 \begin{tabular}{lccc}
 \toprule
-\textbf{Parameter} & \textbf{Versuch~1} & \textbf{Versuch~2} & \textbf{Versuch~3} \\
+\textbf{Kennzahl} & \textbf{Versuch~1} & \textbf{Versuch~2} & \textbf{Versuch~3} \\
 \midrule
-\texttt{optimizer\_mode}            & \texttt{fast} & \texttt{slow} & \texttt{slow} \\
-\texttt{max\_num\_incremental\_opt} & $50{,}0$          & $10{,}0$          & $10{,}0$ \\
-\texttt{max\_subgraph\_error}       & $50{,}0$      & $10{,}0$      & $10{,}0$ \\
+Gemeinsame Marker            & $96$      & $96$      & \textcolor{red}{TBD} \\
 \midrule
-\texttt{minimum\_viewing\_angle}                & \multicolumn{3}{c}{$15{,}0$} \\
-\texttt{minimum\_tag\_area}                     & \multicolumn{3}{c}{$2500$} \\
-\texttt{pixel\_noise}                           & \multicolumn{3}{c}{$1{,}0$} \\
-\texttt{subgraph\_abs\_prior\_position\_noise}  & \multicolumn{3}{c}{$0{,}15$} \\
-\texttt{subgraph\_abs\_prior\_rotation\_noise}  & \multicolumn{3}{c}{$0{,}15$} \\
-\texttt{use\_approximate\_sync}                 & \multicolumn{3}{c}{\texttt{true}} \\
-\texttt{drop\_time\_fraction}                   & \multicolumn{3}{c}{$0{,}0$} \\
+$d_{xy}$ Mittelwert in mm    & $11{,}58$ & $9{,}98$  & \textcolor{red}{TBD} \\
+$d_{xy}$ quadr. Mittel in mm & $13{,}20$ & $11{,}24$ & \textcolor{red}{TBD} \\
+$d_{xy}$ Maximum in mm       & $27{,}47$ & $20{,}76$ & \textcolor{red}{TBD} \\
+\midrule
+$d_{z}$ Mittelwert in mm     & $4{,}74$  & $0{,}00$  & \textcolor{red}{TBD} \\
+$d_{z}$ Maximum in mm        & $19{,}11$ & $0{,}00$  & \textcolor{red}{TBD} \\
 \bottomrule
 \end{tabular}
-\caption{Parametrierung der drei Versuche}
-\label{tab:tagslam_params_laeufe}
+\caption[Abweichungen der erzeugten Karten gegenüber der Sollkarte]{Abweichungen der erzeugten Karten gegenüber der Sollkarte.
+Die Höhenabweichung in Versuch~2 beträgt null, da die Marker dort über \texttt{position\_noise} in $z$ an die Bodenebene gebunden wurden.}
+\label{tab:karten_evaluation}
 \end{table}
 \FloatBarrier
-Der Parameter \texttt{optimizer\_mode} bestimmt, wie aufwendig die Optimierung rechnet.
-Im Modus \texttt{fast} wird der Graph ausschließlich inkrementell aktualisiert und der dabei entstehende Fehler nicht geprüft.
-Das ist am schnellsten, kann aber unbemerkt ungenaue Lösungen zulassen.
-Aus diesem Grund wird dieser Modus für den ersten Versuch gewählt.
-Im Modus \texttt{slow} wird ebenfalls inkrementell gerechnet, der Fehler jedoch fortlaufend geprüft und bei zu großer Abweichung eine vollständige 
-Optimierung ausgeführt, was langsamer, aber genauer ist.
-Diese Einstellung wird für den zweiten und dritten Versuch verwendet.
 
-Der Parameter \texttt{max\_num\_incremental\_opt} gibt an, 
-nach wie vielen inkrementellen Aktualisierungen eine vollständige Neuoptimierung des gesamten Graphen ausgeführt wird, 
-um den bei rein inkrementeller Rechnung auflaufenden Fehler zurückzusetzen.
-Im ersten Versuch wird er auf~$50{,}0$ gesetzt, sodass die vollständige Neuoptimierung nur selten erfolgt und die grobe Startschätzung schnell entsteht.
-Im zweiten und dritten Versuch sorgt der Wert~$10{,}0$ für häufigere vollständige Neuoptimierungen und damit eine genauere Karte.
+Da sämtliche Marker flach auf dem Boden aufgebracht sind, muss ihre Höhe null betragen.
+Die in Versuch~1 auftretende Höhenabweichung von im Mittel $4{,}74$~mm und maximal $19{,}11$~mm ist daher vollständig als Schätzfehler zu werten.
+In Versuch~2 entfällt diese Größe als Bewertungsmaßstab, weil die Höhe dort nicht geschätzt, sondern über die Bindung an die Bodenebene vorgegeben wurde.
+Ein Vergleich der Läufe ist somit allein über die Abweichung in der Kartenebene aussagekräftig.
 
-Der Parameter \texttt{max\_subgraph\_error} legt fest, bis zu welchem Fehler eine Teillösung noch akzeptiert wird.
-Bevor eine neue Markerbeobachtung in den Gesamtgraphen aufgenommen wird, wird sie zusammen mit dem notwendigen Teil des bestehenden Graphen separat optimiert.
-Ihr Fehler wird bewertet, was einer Modellvalidierung ähnlich dem RANSAC-Verfahren entspricht~\cite{pfrommer2019tagslam}.
-Liegt der Fehler über dem Schwellwert, wird die Beobachtung verworfen.
-Im ersten Versuch wird der Standardwert von~$50{,}0$ belassen, sodass die grobe Startschätzung kaum Beobachtungen verwirft.
-Im zweiten und dritten Versuch sorgt der strengere Wert~$10{,}0$ dafür, dass fehlerhafte Beobachtungen die genaue Karte nicht verfälschen.
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Bilder/karten_vergleich_ueberlagert_versuch_1.png}
+    \caption{Überlagerung der in Versuch~1 erzeugten Karte mit der Sollkarte in der Draufsicht.}
+    \label{fig:kartenvergleich_versuch1}
+\end{figure}
+\FloatBarrier
 
-Der \texttt{minimum\_viewing\_angle} beschreibt den Winkel zwischen Sichtstrahl und Markerfläche und ist auf~$15^\circ$ gesetzt, 
-sodass frontaler betrachtete Marker verwertet und flacher als~$15^\circ$ gesehene Marker mit unzuverlässiger Lage verworfen werden.
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Bilder/karten_vergleich_ueberlagert_Versuch_2.png}
+    \caption{Überlagerung der in Versuch~2 erzeugten Karte mit der Sollkarte in der Draufsicht.}
+    \label{fig:kartenvergleich_versuch2}
+\end{figure}
+\FloatBarrier
 
-Die \texttt{minimum\_tag\_area} beschreibt die vom Marker im Bild eingenommene Fläche in Pixeln und ist auf~$2500\,\text{px}^2$ gesetzt, 
-sodass zu klein abgebildete und damit zu weit entfernte Marker verworfen werden.
+% TODO: Abbildung Versuch 3 ergaenzen, sobald der Lauf ausgewertet ist.
 
-Das \texttt{pixel\_noise} gibt die angenommene Standardabweichung der Eckpunktdetektion in Pixeln an und normiert damit die Reprojektionsfehler, 
-also den Pixelabstand zwischen gemessenem und vorhergesagtem Markerpunkt, im Optimierungsgraphen.
-Als Eigenschaft des Detektors wird es auf dem empfohlenen Standardwert von~$1{,}0$ belassen.
+Bereits die Karte aus Versuch~1 liegt mit einer mittleren Abweichung von $11{,}58$~mm in der Kartenebene nahe an der Sollkarte.
+Die Überlagerung in Abbildung~\ref{fig:kartenvergleich_versuch1} zeigt über die gesamte Fläche hinweg keine erkennbare systematische Verformung.
+Dieses Ergebnis wird bei einer Laufzeit von etwa 45~min und ohne jedes Vorwissen über die Kartengeometrie erreicht.
 
-Die Parameter \texttt{subgraph\_\allowbreak abs\_\allowbreak prior\_\allowbreak position\_\allowbreak noise} und \texttt{subgraph\_\allowbreak abs\_\allowbreak prior\_\allowbreak rotation\_\allowbreak noise} 
-werden entsprechend der Tag\gls{slam}-Dokumentation auf ihrem Standardwert belassen, da kein Anpassungsbedarf besteht.
+Versuch~2 senkt die mittlere Abweichung auf $9{,}98$~mm und den Maximalwert von $27{,}47$~mm auf $20{,}76$~mm, bei einer Laufzeit von etwa 2~h.
+Dieser Gewinn beruht allerdings auf der Annahme, dass alle Marker in einer gemeinsamen Ebene liegen.
+Diese Voraussetzung ist an das konkrete Vorwissen über die Versuchsumgebung gebunden und lässt sich nicht auf beliebige Umgebungen übertragen, in denen Marker beispielsweise an Wänden oder auf unterschiedlichen Höhen angebracht sind.
 
-Der \texttt{use\_approximate\_sync} bleibt aktiviert, falls die Zeitstempel der synchronisierten Topics nicht exakt übereinstimmen.
+% TODO: Bewertung von Versuch 3 und Vergleich der Betriebsmodi ergaenzen,
+%       sobald die Zahlen vorliegen. Erst dann laesst sich belegen,
+%       ob der Modus slow einen Genauigkeitsvorteil bietet.
 
-Das \texttt{drop\_time\_fraction} bleibt bei~$0{,}0$, sodass in allen Versuchen alle aufgezeichneten Detektionen verwendet werden.
-
-\section{Evaluation der Kartierung}
-%Hier wird im späteren Verlauf die Karte in den verschiedenen Stadien gegen den Ground Truth verglichen und Ergebnisse gesammelt.
-
+Für die künftige Kartierung empfiehlt sich daher die Abfolge aus Versuch~1 und Versuch~2.
+Der erste Lauf liefert ohne Vorwissen eine vollständige Startschätzung, der zweite verbessert die Lösung bei überschaubarem Rechenaufwand, sofern die Marker tatsächlich in einer Ebene liegen.
+Trifft diese Voraussetzung nicht zu, bleibt das Ergebnis des ersten Laufs für sich genommen bereits brauchbar.
 
 
-
+\section{hier ist noch quark}
 \section{Durchführung der Positionierung}
 Dieser Abschnitt beschreibt den Ablauf der Positionierungsversuche.
 Dazu gehören die Bedienung des Fluggeräts und die anschließende Wahl der Startparameter für den Flugbetrieb.
@@ -323,11 +386,11 @@ Die konkret gewählten Werte sind in Tabelle~\ref{tab:vision_pose_werte} zusamme
 Die Markererkennung erfolgt für jedes Kamerabild einzeln, sodass die Rechenlast in erster Linie von der Bildrate der Kamera und nicht von der Ausgaberate abhängt.
 Die Bodenkamera wird daher auf 30~Hz betrieben, eine von der Kamera nativ unterstützte Bildrate, was die Rechenlast gegenüber 60~Hz deutlich senkt.
 Die Ausgaberate wird demgegenüber über \texttt{publish\_rate\_hz}~$=60$~Hz höher gewählt.
-In Versuchen übernahm der \gls{ekf2} die Vision-Posen bei einer Ausgaberate von 30~Hz nicht zuverlässig; erst mit 60~Hz wurden die Messungen stabil in die Zustandsschätzung aufgenommen.
+In Versuchen übernahm der \gls{ekf} die Vision-Posen bei einer Ausgaberate von 30~Hz nicht zuverlässig; erst mit 60~Hz wurden die Messungen stabil in die Zustandsschätzung aufgenommen.
 Da die Ausgaberate über der Bildrate liegt, wird dieselbe Erkennung mitunter in aufeinanderfolgenden Takten gemeldet, was zugunsten der zuverlässigen Fusion in Kauf genommen wird.
 
-Der Node schätzt für jede gemeldete Pose eine Unsicherheit, die der \gls{ekf2} zur Gewichtung nutzt.
-Da der \gls{px4}-Parameter \texttt{EKF2\_EV\_NOISE\_MD} auf $0$ steht, wertet der \gls{ekf2} diese gemeldete Unsicherheit tatsächlich aus, weshalb sie bewusst realistisch gewählt wird.
+Der Node schätzt für jede gemeldete Pose eine Unsicherheit, die der \gls{ekf} zur Gewichtung nutzt.
+Da der \gls{px4}-Parameter \texttt{EKF2\_EV\_NOISE\_MD} auf $0$ steht, wertet der \gls{ekf} diese gemeldete Unsicherheit tatsächlich aus, weshalb sie bewusst realistisch gewählt wird.
 Die Schätzung geht von Bezugsbedingungen aus und skaliert von diesen ausgehend mit dem tatsächlichen Markerabstand und der tatsächlichen Markergröße.
 Als Bezugsabstand wird die nominelle Flughöhe von 2~m angesetzt, als Bezugsgröße der Standard-Marker mit 16~cm Kantenlänge.
 Die Standardabweichung eines einzelnen Markers ergibt sich zu
@@ -361,7 +424,7 @@ Diese Werte wurden für den vorliegenden Aufbau empirisch bestimmt; größere Be
 
 Der Parameter \texttt{max\_estimate\_age\_s}~$=0{,}15$~s ist auf den 30-Hz-Takt der Kamera abgestimmt.
 Bei 30~Hz beträgt der zeitliche Abstand zweier Bilder etwa 33~ms, sodass 0{,}15~s rund vier bis fünf aufeinanderfolgende Bilder überbrückt.
-Kurze Verdeckungen werden damit toleriert, während bei längerem Ausfall keine veraltete Schätzung mehr ausgegeben wird und der \gls{ekf2} die Lücke über die \gls{imu} überbrückt.
+Kurze Verdeckungen werden damit toleriert, während bei längerem Ausfall keine veraltete Schätzung mehr ausgegeben wird und der \gls{ekf} die Lücke über die \gls{imu} überbrückt.
 Der Parameter \texttt{min\_tags\_required}~$=1$ erlaubt die Positionsbestimmung bereits mit einem einzigen sichtbaren Marker und deckt damit Bereiche der Karte ab, in denen zeitweise nur ein Marker im Bild liegt.
 Bei nur einem Marker kann die Ausreißerfilterung allerdings nicht gegenprüfen, sodass eine einzelne Fehlerkennung unmittelbar in die Pose eingeht.
 Dieser Kompromiss wird zugunsten einer durchgängigen Verfügbarkeit bewusst in Kauf genommen.

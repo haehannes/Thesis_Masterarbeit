@@ -57,7 +57,6 @@ Die hardwarebezogenen Kriterien \textbf{Kostengünstigkeit}, \textbf{Leichtbau} 
 erhalten mit jeweils $4{,}76\,\%$ das geringste Gewicht.
 Kostengünstigkeit und geringer Vorbereitungsaufwand sind zwar wünschenswert, für die grundsätzliche Eignung des Verfahrens jedoch von untergeordneter Bedeutung.
 Auch der Leichtbau spielt eine geringere Rolle, da die Nutzlast des verwendeten \gls{uav}s ausreichend ist, um alle betrachteten Hardwarevarianten zu tragen.
-
 \begin{table}[htbp]
     \centering
     \includegraphics[width=1.0\textwidth]{Bilder/Paarweiser_Vergleich_SLAM.png}
@@ -65,8 +64,6 @@ Auch der Leichtbau spielt eine geringere Rolle, da die Nutzlast des verwendeten 
     \label{tab:paarweiser_vergleich_slam}
 \end{table}
 \FloatBarrier
-
-
 \subsection*{Nutzwertanalyse SLAM-Varianten}
 Zur Auswahl der SLAM-Variante werden die in Abschnitt~\ref{sec:slam_varianten} vorgestellten Verfahren \gls{vslam}, Tag\gls{slam} und \gls{lidar}-\gls{slam} 
 anhand einer Nutzwertanalyse gegenübergestellt.
@@ -116,7 +113,6 @@ In Summe erreicht Tag\gls{slam} mit $4{,}24$ den höchsten Gesamtnutzwert, gefol
 Ausschlaggebend ist die hohe Bewertung in den beiden am stärksten gewichteten Kriterien, der Umgebungskompatibilität und der Driftfreiheit.
 Der höhere Vorbereitungsaufwand als einziger nennenswerter Nachteil von Tag\gls{slam} fällt aufgrund der geringen Gewichtung dieses Kriteriums kaum ins Gewicht.
 Aus diesen Gründen wird die Kartierung und Lokalisierung in dieser Arbeit auf Basis von Tag\gls{slam} umgesetzt.
-
 \begin{table}[htbp]
     \centering
     \includegraphics[width=1.0\textwidth]{Bilder/Nutzwertanalyse_slam.png}
@@ -124,8 +120,6 @@ Aus diesen Gründen wird die Kartierung und Lokalisierung in dieser Arbeit auf B
     \label{tab:nutzwertanalyse_slam}
 \end{table}
 \FloatBarrier
-
-
 \subsection*{Auswahl der Fiducial-Marker}
 \label{sec:auswahl_marker}
 Als Fiducial-Marker-System kommen in dieser Arbeit ausschließlich AprilTags
@@ -169,11 +163,41 @@ Glänzende Oberflächen sind zu vermeiden, denn Reflexionen können die Helligke
 
 
 
+%\section{Ablauf der Kartierung}
+%\label{sec:ablauf_kartierung}
+%Für die Kartierung wurden in dieser Arbeit zwei Ansätze verfolgt.
+%Zum einen die Live-Kartierung mittels Tag\gls{slam} während des Flugs und zum anderen die Offline-Kartierung durch 
+%Aufzeichnung von \gls{ros2}-Bags.
+%
+%Der Ansatz der Live-Kartierung wurde nach ersten Versuchen nicht weiter verfolgt.
+%Es hat sich gezeigt, dass sie nur bei kleinen Karten (bis etwa 10 Tags) zuverlässig funktioniert, da die Optimierung bei größeren Karten zu rechenintensiv wird.
+%Die gleichzeitige Kartierung und Lokalisierung ist dann zu langsam, sodass zu viele Frames verworfen werden.
+%Dadurch lässt die Qualität beider Vorgänge stark nach, sodass keine für den Flug nutzbaren Ergebnisse entstehen.
+%Es konnte keine Konfiguration gefunden werden, mit der Tag\gls{slam} eine große Karte in akzeptabler Zeit bewältigt.
+%Aus diesem Grund wird die Karte vorab in einem dreistufigen Offline-Verfahren erstellt.
+%Jede Stufe ist als eigenes Launch-File umgesetzt, die Stufen sind über ROS2-Bags miteinander verbunden.
+%
+%In der ersten Stufe werden die Kamerabilder aufgenommen, entzerrt und gemeinsam mit den Kameraparametern in einem ROS2-Bag aufgezeichnet.
+%In der zweiten Stufe werden die Marker offline aus den aufgezeichneten Bildern detektiert und die Detektionen in einem zweiten Bag abgelegt.
+%In der dritten Stufe werden aus diesen Detektionen mit Tag\gls{slam} die Lagen aller Marker zu einer konsistenten Karte optimiert.
+%
+%Der Offline-Ablauf bietet zwei Vorteile.
+%Da die aufgezeichneten Daten unabhängig von der Echtzeit verarbeitet werden, kann die Detektion mit reduzierter 
+%Abspielgeschwindigkeit erfolgen, sodass jedes Bild ausgewertet wird und keine Detektionen verloren gehen.
+%Zudem ist der gesamte Vorgang reproduzierbar, da er beliebig oft aus denselben Eingangsdaten wiederholt werden kann.
+%Die einzelnen Schritte werden in den folgenden Abschnitten beschrieben.
+%
+%Die Offline-Kartierung erfordert \gls{ros2} Jazzy, da Tag\gls{slam} nur bedingt mit \gls{ros2} Humble kompatibel ist.
+%Der zur Verfügung gestellte reComputer unterstützt jedoch ausschließlich \gls{ros2} Humble, weshalb die Kartierung nicht auf dem Companion-Computer durchgeführt werden kann.
+%Die Offline-Kartierung wird daher auf einem Lenovo ThinkPad
+%mit einem Intel~Core~i5-1145G7 (11.\,Generation), $16\,\text{GB}$ Arbeitsspeicher
+%und integrierter Intel~Iris~Xe-Grafik unter Ubuntu~24.04 mit \gls{ros2}~Jazzy durchgeführt.
+
+
 \section{Ablauf der Kartierung}
 \label{sec:ablauf_kartierung}
 Für die Kartierung wurden in dieser Arbeit zwei Ansätze verfolgt.
-Zum einen die Live-Kartierung mittels Tag\gls{slam} während des Flugs und zum anderen die Offline-Kartierung durch 
-Aufzeichnung von \gls{ros2}-Bags.
+Zum einen die Live-Kartierung mittels Tag\gls{slam} während des Flugs und zum anderen die Offline-Kartierung durch Aufzeichnung von \gls{ros2}-Bags.
 
 Der Ansatz der Live-Kartierung wurde nach ersten Versuchen nicht weiter verfolgt.
 Es hat sich gezeigt, dass sie nur bei kleinen Karten (bis etwa 10 Tags) zuverlässig funktioniert, da die Optimierung bei größeren Karten zu rechenintensiv wird.
@@ -182,22 +206,26 @@ Dadurch lässt die Qualität beider Vorgänge stark nach, sodass keine für den 
 Es konnte keine Konfiguration gefunden werden, mit der Tag\gls{slam} eine große Karte in akzeptabler Zeit bewältigt.
 Aus diesem Grund wird die Karte vorab in einem dreistufigen Offline-Verfahren erstellt.
 Jede Stufe ist als eigenes Launch-File umgesetzt, die Stufen sind über ROS2-Bags miteinander verbunden.
-
+Abbildung~\ref{fig:ablauf_kartierung} zeigt den dreistufigen Offline-Ablauf.
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.4\textwidth]{Bilder/Ablaufdiagramm_Kartierung.png}
+\caption{Dreistufiger Ablauf der Offline-Kartierung}
+\label{fig:ablauf_kartierung}
+\end{figure}
 In der ersten Stufe werden die Kamerabilder aufgenommen, entzerrt und gemeinsam mit den Kameraparametern in einem ROS2-Bag aufgezeichnet.
 In der zweiten Stufe werden die Marker offline aus den aufgezeichneten Bildern detektiert und die Detektionen in einem zweiten Bag abgelegt.
 In der dritten Stufe werden aus diesen Detektionen mit Tag\gls{slam} die Lagen aller Marker zu einer konsistenten Karte optimiert.
 
 Der Offline-Ablauf bietet zwei Vorteile.
-Da die aufgezeichneten Daten unabhängig von der Echtzeit verarbeitet werden, kann die Detektion mit reduzierter 
-Abspielgeschwindigkeit erfolgen, sodass jedes Bild ausgewertet wird und keine Detektionen verloren gehen.
+Da die aufgezeichneten Daten unabhängig von der Echtzeit verarbeitet werden, kann die Detektion mit reduzierter Abspielgeschwindigkeit erfolgen, sodass jedes Bild ausgewertet wird und keine Detektionen verloren gehen.
 Zudem ist der gesamte Vorgang reproduzierbar, da er beliebig oft aus denselben Eingangsdaten wiederholt werden kann.
 Die einzelnen Schritte werden in den folgenden Abschnitten beschrieben.
 
 Die Offline-Kartierung erfordert \gls{ros2} Jazzy, da Tag\gls{slam} nur bedingt mit \gls{ros2} Humble kompatibel ist.
 Der zur Verfügung gestellte reComputer unterstützt jedoch ausschließlich \gls{ros2} Humble, weshalb die Kartierung nicht auf dem Companion-Computer durchgeführt werden kann.
-Die Offline-Kartierung wird daher auf einem Lenovo ThinkPad
-mit einem Intel~Core~i5-1145G7 (11.\,Generation), $16\,\text{GB}$ Arbeitsspeicher
-und integrierter Intel~Iris~Xe-Grafik unter Ubuntu~24.04 mit \gls{ros2}~Jazzy durchgeführt.
+Die Offline-Kartierung muss daher auf einen externen Computer durchgeführt werden.
+
 
 
 \subsection{Kamera-Kalibrierung}
@@ -220,7 +248,7 @@ Die Kalibrierung wird in diesem Abschnitt beispielhaft mit der Logitech~C922 in 
 Die Kalibrierung wird mit dem ROS2-Paket \texttt{camera\_calibration} umgesetzt.
 Um den Kalibriervorgang zu starten, muss zunächst die Kamera bereitgestellt werden.
 Hierfür wird das Paket \texttt{gscam} genutzt, das die Kamera über eine GStreamer-Pipeline anbindet.
-Beim Start des Nodes im Terminal müssen mehrere Einstellungen mitgegeben werden.
+Beim Start des Knoten im Terminal müssen mehrere Einstellungen mitgegeben werden.
 Dazu zählen das Videogerät, die Auflösung von $1920\times1080$ und die Bildrate.
 Zusätzlich wird festgelegt, dass das Bild vom \gls{mjpeg}-Format in ein \gls{rgb}-Rohbild dekodiert wird.
 
@@ -309,7 +337,7 @@ Die vierte Spalte ist bei einer Einzelkamera null und erhält nur im Stereoaufba
 
 
 
-\subsection{Bildaufnahme Kartierung}
+\subsection{Bildaufnahme der Kartierung}
 \label{sec:kartierung_bildaufnahme}
 Die Kartierung kann mit einer beliebigen Kamera durchgeführt werden, wichtig ist die zuvor beschriebene Kalibrierung für die verwendete Kamera durchzuführen.
 Die Implementierung der Kartierung wird am Beispiel der Logitech~C922 im Folgenden erläutert.
@@ -349,10 +377,10 @@ Um der Hardware pro Bild mehr Zeit zur Berechnung zu geben, wird der Eingangsbag
 
 Für die Detektion wird der Knoten \texttt{sync\_and\_detect\_node} aus dem Paket Tag\gls{slam} verwendet.
 Dieser benötigt zwei Konfigurationsdateien, auf diese wird im nächsten Abschnitt nochmals genauer eingegangen.
-Die Datei \texttt{cameras.yaml} enthält die Intrinsics der Kamera.
+Die Datei \texttt{cameras.yaml} enthält die intrinsischen Kameraparameter.
 Da der Knoten auf dem bereits entzerrten Bild \topic{/camera/image_rect} arbeitet, werden hier die Werte der Projektionsmatrix aus 
 Abschnitt~\ref{sec:Kamera_Kalibrierung} eingetragen und die Verzeichnungskoeffizienten entsprechend des vorherigen Kapitels auf null gesetzt.
-Neben den Intrinsics legt die Datei die Auflösung und die verwendeten Topics (\texttt{image\_topic}, \texttt{camera\_info\_topic}, \texttt{tag\_topic}) fest.
+Neben den Kameraparametern legt die Datei die Auflösung und die verwendeten Topics (\texttt{image\_topic}, \texttt{camera\_info\_topic}, \texttt{tag\_topic}) fest.
 Aus der Tag\gls{slam}-Konfiguration \texttt{tagslam.yaml} liest der Knoten die Liste der bekannten Marker mit ihren 
 Identifikationsnummern und physischen Größen aus.
 Diese Information macht es möglich, Karten mit verschieden großen Tags aufzunehmen. 
@@ -381,66 +409,67 @@ Dieser Bag enthält nur noch die Eingangsdaten, die nachfolgend zur Kartenerstel
 Die eigentliche Karte wird mit dem Knoten \texttt{tagslam\_from\_bag} aus dem Paket Tag\gls{slam} erstellt.
 Dieser liest den Bag aus der vorigen Stufe ein und schätzt aus den enthaltenen Markerdetektionen die Lage aller Marker zueinander.
 Die Optimierung der Karte erfolgt nach dem im Abschnitt~\ref{sec:Faktorgraph} beschriebenen Prinzip.
-Dieser Knoten ist ausschließlich für \gls{ros2} Jazzy implementiert und setzt diese Version zwingend voraus.
+Die Implementierung  von \texttt{tagslam\_from\_bag} liegt ausschließlich für \gls{ros2} Jazzy vor und lässt sich daher nicht auf dem Begleitrechner ausführen.
 
-Der Knoten benötigt drei Konfigurationsdateien: \texttt{cameras.yaml} mit den Kamera-Intrinsics, \texttt{camera\_poses.yaml} mit der Pose 
+Der Knoten benötigt drei Konfigurationsdateien: \texttt{cameras.yaml} mit den intrinsischen Kameraprametern, \texttt{camera\_poses.yaml} mit der Pose 
 der Kamera sowie \texttt{tagslam.yaml} mit den Parametern der Optimierung und den Startwerten der Marker.
 Die Datei \texttt{cameras.yaml} entspricht der bereits in Abschnitt~\ref{sec:offline_detektion_apriltags} beschriebenen Datei.
 
 %\subsubsection{Konfiguration der Kamerapose in TagSLAM}
 Die Datei \texttt{camera\_poses.yaml} gibt über eine $6 \times 6$-Kovarianzmatrix \texttt{R} an, wie starr die Kamera während der Kartierung gehalten wird.
 Die sechs Dimensionen entsprechen den drei translatorischen und drei rotatorischen Freiheitsgraden der Kamerapose.
-Da die Kamera bewegt wird und ihre Pose nicht vorab bekannt ist, sind Position und Rotation auf null gesetzt, während 
-die Diagonalwerte der Matrix sehr groß gewählt sind.
+Da die Kamera bewegt wird und ihre Pose nicht vorab bekannt ist, sind Position und Rotation auf null gesetzt, während die Diagonalwerte der Matrix mit 
+$10^{6}$ sehr groß gewählt sind.
 Ein großer Wert entspricht einer großen Unsicherheit, sodass die vorgegebene Nullpose die Optimierung nicht einschränkt 
 und die Kamerapose allein aus den Markerbeobachtungen bestimmt wird.
 
 %\subsubsection{Konfiguration der Optimierung in TagSLAM}
 Die Datei \texttt{tagslam.yaml} enthält neben den bereits in Abschnitt~\ref{sec:offline_detektion_apriltags} beschriebenen Angaben 
-(Tag-Identifikationsnummer und zugehörige Größe) die Parameter der Optimierung.
+(Tag-Identifikationsnummer und zugehörige Größe) die Parameter der Optimierung sowie die Startopositionen.
 Die wesentlichen Parameter sind in Tabelle~\ref{tab:tagslam_params} zusammengefasst.
-
 \begin{table}[htbp]
-    \centering
-    \begin{tabular}{ll}
-        \toprule
-        \textbf{Parameter} & \textbf{Bedeutung} \\
-        \midrule
-        \texttt{optimizer\_mode}           & Wahl zwischen schneller und genauerer Optimierung \\
-        \texttt{minimum\_viewing\_angle}   & Mindestwinkel, unter dem ein Marker noch verwertet wird \\
-        \texttt{minimum\_tag\_area}        & Mindestfläche eines Markers im Bild in Pixeln \\
-        \texttt{max\_num\_incremental\_opt}& Anzahl der inkrementellen Optimierungsschritte \\
-        \texttt{pixel\_noise}              & Angenommenes Messrauschen der Eckpunkte in Pixeln \\
-        \texttt{max\_subgraph\_error}      & Zulässiger Fehler, bis zu dem eine Teillösung akzeptiert wird \\
-        \texttt{use\_approximate\_sync}    & Zeitliche Synchronisierung mit Toleranz \\
-        \bottomrule
-    \end{tabular}
-    \caption{Wesentliche Parameter der Optimierung in \texttt{tagslam.yaml}}
-    \label{tab:tagslam_params}
+\centering
+\begin{tabularx}{\textwidth}{lX}
+\toprule
+\textbf{Parameter} & \textbf{Bedeutung} \\
+\midrule
+\texttt{optimizer\_mode}            & Betriebsmodus der Optimierung \\
+\texttt{max\_subgraph\_error}       & Zulässiger Fehler eines Teilgraphen, oberhalb dessen die Messung verworfen wird \\
+\texttt{minimum\_viewing\_angle}    & Mindestwinkel, unter dem ein Marker noch verwertet wird \\
+\texttt{minimum\_tag\_area}         & Mindestfläche eines Markers im Bild in Pixel\textsuperscript{2} \\
+\texttt{max\_num\_incremental\_opt} & Inkrementelle Aktualisierungen zwischen zwei vollen Optimierungen \\
+\texttt{use\_approximate\_sync}     & Näherungsweise zeitliche Zuordnung der Kameranachrichten, sofern deren Zeitstempel nicht hardwareseitig synchronisiert sind \\
+\bottomrule
+\end{tabularx}
+\caption{Wesentliche Parameter der Optimierung in \texttt{tagslam.yaml}}
+\label{tab:tagslam_params}
 \end{table}
 \FloatBarrier
+Unter den Parametern kommt \texttt{optimizer\_mode} eine besondere Bedeutung zu.
+Er bestimmt, wie neue Messungen in den Graphen aufgenommen werden.
+In der Stufe \texttt{fast} erweitert der Optimierer den bestehenden Graphen fortlaufend und übernimmt jede Messung ungeprüft, was die kürzeste Laufzeit ergibt, zugleich aber Fehldetektionen dauerhaft in die Karte einträgt.
+Die Stufe \texttt{slow} arbeitet ebenfalls fortlaufend, prüft jedoch vor der Übernahme den Fehler der neuen Messung und verwirft sie bei Überschreitung der Schwelle \texttt{max\_subgraph\_error}.
+Die Stufe \texttt{full} berechnet den gesamten Graphen bei jeder Aktualisierung neu und liefert damit die höchste Genauigkeit bei zugleich höchstem Rechenaufwand.
 
-%\subsubsection{Konfiguration der Markerlagen in TagSLAM}
-%\label{sec:konfiguration_der_markerlagen_Tag\gls{slam}}
-Für jeden Marker werden eine Startlage sowie das zugehörige Positions- und Rotationsrauschen (\texttt{position\_noise}, 
+Für jeden Marker werden in \texttt{tagslam.yaml} eine Startlage sowie das zugehörige Positions- und Rotationsrauschen (\texttt{position\_noise}, 
 \texttt{rotation\_noise}) jeweils für alle drei Achsen angegeben.
+Fehlt die Angabe einer Startlage, unterliegt die Lage des Markers keiner Vorgabe und wird allein durch die Optimierung bestimmt.
 Das Rauschen bestimmt, wie stark ein Marker an seine vorgegebene Lage gebunden wird. 
 Ein kleines Rauschen hält den Marker nahezu fest an der angegebenen Position, ein großes Rauschen lässt seine Lage während der Optimierung frei.
-Über den Eintrag \texttt{fixed: true} kann ein Marker vollständig fixiert werden.
+Über den Eintrag \texttt{fixed: true} kann ein Marker für die Optimierung vollständig fixiert werden.
 
-Auf diese Weise wird ein Marker als fester Ursprung definiert, der als globale Referenz dient, auf die alle übrigen Marker bezogen werden.
-In dieser Arbeit übernimmt Tag~0 diese Rolle.
-Grundsätzlich können auch mehrere Marker fixiert werden, etwa wenn deren relative Lage zu Tag~0 bereits genau bekannt ist.
+Auf diese Weise wird der Marker mit der \gls{id}~0 fixiert, dessen Lage den Ursprung des Weltkoordinatensystems festlegt.
+Auf ihn beziehen sich sowohl die übrigen Marker als auch die Position des \gls{uav}.
+
 
 %\subsubsection{Ausgabe der Karte durch Tag\gls{slam}}
 %\label{ausgabe_der_karte_Tag\gls{slam}}
 Das Ergebnis von \texttt{tagslam\_from\_bag} ist eine konsistente Karte, die für jeden Marker dessen Identifikationsnummer, Größe, Lage und das verbleibende Rauschen enthält.
 Quellcode~\ref{lst:karte} zeigt einen Auszug am Beispiel zweier Marker.
-
 \begin{lstlisting}[caption={Auszug einer erzeugten Karte}, label={lst:karte}, captionpos=b]
 tags:
   - id: 0
-    size: 0.16700000
+    size: 0.17000000
     pose:
       position: {x: 0.0, y: 0.0, z: 0.0}
       rotation: {x: 0.0, y: 0.0, z: 0.0}
@@ -449,14 +478,11 @@ tags:
   - id: 1
     size: 0.16700000
     pose:
-      position: {x: 0.00499362, y: 0.60709535, z: -3.0e-08}
-      rotation: {x: 0.0, y: 0.0, z: 0.03398915}
-      position_noise: {x: 0.00012186, y: 0.00007138, z: 1.0e-06}
-      rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.00033940}
+      position: {x: -0.24232102, y: -0.00095146, z: -0.00139689}
+      rotation: {x: -0.00055964, y: -0.00410865, z: -0.00031297}
+      position_noise: {x: 0.00003664, y: 0.00006085, z: 0.00016100}
+      rotation_noise: {x: 0.00106221, y: 0.00107014, z: 0.00036712}
 \end{lstlisting}
-
-
 Die von Tag\gls{slam} erzeugte Karte ist im selben ROS-standardisierten ENU-Weltkoordinatensystem angelegt, dem auch die in Kapitel~\ref{cap:implementierung_positionsbestimmung} beschriebene Positionierung folgt.
-Die Position eines Markers ist in Metern relativ zum Ursprung angegeben, die Orientierung im Rodrigues-Format als Rotationsvektor
-(siehe Abschnitt~\ref{sec:rodrigues_parameter}).
+Die Position eines Markers ist in Metern relativ zum Ursprung angegeben, die Orientierung im Rodrigues-Format als Rotationsvektor.
 Das zu jedem Marker ausgegebene Rauschen beschreibt die verbleibende Unsicherheit der geschätzten Lage und bildet die Referenz für die spätere Lokalisierung.

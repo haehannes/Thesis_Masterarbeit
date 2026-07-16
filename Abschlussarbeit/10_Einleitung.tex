@@ -46,19 +46,58 @@
 
 %!TeX root=00_Abschlussarbeit.tex
 \chapter{Einleitung}
-Unbemannte Luftfahrzeuge finden zunehmend Eingang in zivile Anwendungsgebiete.
-Für eine autonome Flugführung ist eine zuverlässige Schätzung der eigenen Position unerlässlich.
-Im Außenbereich wird diese Positionsreferenz in der Regel durch ein Global Navigation Satellite System (GNSS) bereitgestellt.
-In Innenräumen steht ein solches System jedoch nicht zur Verfügung, da meist kein ausreichender Satellitenempfang gewährleistet ist.
-Ohne eine externe Referenz muss die Position allein aus der Integration der Inertialmessungen geschätzt werden, was zu einem zeitlich anwachsenden Positionsfehler führt.
-Für einen stabilen Flug im Innenraum ist daher eine alternative Positionsreferenz erforderlich.
-Ziel dieser Arbeit ist es, ein Unmanned Aerial Vehicle (UAV) in einer GPS-freien Innenraumumgebung zu lokalisieren und diese Positionsschätzung als externe Referenz in die Flugsteuerung einzuspeisen.
-Als Referenz dienen fiducialbasierte Marker, die in der Versuchsumgebung angebracht und in einer Karte hinterlegt werden.
-Aus der Detektion dieser Marker wird die Pose des Fluggeräts bestimmt und dem Pixhawk (PX4)-Flugcontroller bereitgestellt.
-Das System wird dabei aus quelloffener Software und handelsüblicher Hardware aufgebaut sein.
+%Unbemannte Luftfahrzeuge finden zunehmend Eingang in zivile Anwendungsgebiete.
+%Für eine autonome Flugführung ist eine zuverlässige Schätzung der eigenen Position unerlässlich.
+%Im Außenbereich wird diese Positionsreferenz in der Regel durch ein \gls{gnss} bereitgestellt.
+%In Innenräumen steht ein solches System jedoch nicht zur Verfügung, da meist kein ausreichender Satellitenempfang gewährleistet ist.
+%Ohne eine externe Referenz muss die Position allein aus der Integration der Inertialmessungen geschätzt werden, was zu einem zeitlich anwachsenden Positionsfehler führt.
+%Für einen stabilen Flug im Innenraum ist daher eine alternative Positionsreferenz erforderlich.
+%Ziel dieser Arbeit ist es, ein \gls{uav} in einer \gls{gps}-freien Innenraumumgebung zu lokalisieren und diese Positionsschätzung als externe Referenz in die Flugsteuerung einzuspeisen.
+%Als Referenz dienen fiducialbasierte Marker, die in der Versuchsumgebung angebracht und in einer Karte hinterlegt werden.
+%Aus der Detektion dieser Marker wird die Pose des Fluggeräts bestimmt und dem \gls{px4}-Flugcontroller bereitgestellt.
+%Das System wird dabei aus quelloffener Software und handelsüblicher Hardware aufgebaut sein.
+%Die Arbeit gliedert sich in mehrere Teile.
+%
+%Zunächst werden in Kapitel~\ref{cap:theoretische_grundlagen} die theoretischen Grundlagen aus den Bereichen der Flugrobotik, der Sensorik, der Koordinatensysteme sowie der verwendeten mathematischen Verfahren erläutert.
+%Anschließend gibt Kapitel~\ref{cap:stand_der_technik} einen Überblick über den Stand der Technik der GNSS-freien Lokalisierung und der Fiducial-Marker-Systeme.
+%In Kapitel~\ref{cap:systembeschreibung} werden die Anforderungen an das Gesamtsystem, der Hardwareaufbau, die Softwarearchitektur und die Versuchsumgebung beschrieben.
+%Kapitel~\ref{cap:implementierung_kartierung} behandelt die Implementierung der Kartierung, Kapitel~\ref{cap:implementierung_positionsbestimmung} die im Flug ablaufende Positionsbestimmung.
+%Abschließend werden die Versuchsdurchführung und die Evaluation dargestellt sowie die Ergebnisse zusammengefasst.
+
+
+Unbemannte Fluggeräte werden zunehmend in zivilen Anwendungsbereichen eingesetzt.
+Eine grundlegende Voraussetzung für ihren sicheren Betrieb ist die zuverlässige Kenntnis der eigenen Position.
+Insbesondere bei einer autonomen Flugführung muss das Fluggerät seine Lage im Raum fortlaufend bestimmen, 
+um Kollisionen mit Hindernissen zu vermeiden und einen sicheren Flug zu gewährleisten.
+
+Im Außenbereich wird die dafür benötigte Positionsreferenz in der Regel durch Satellitennavigation bereitgestellt.
+In Innenräumen steht diese jedoch meist nicht zur Verfügung, da der Satellitenempfang durch die Gebäudestruktur eingeschränkt ist.
+Auch in der Einsatzumgebung des Flugroboters herrscht keine ausreichende Signalabdeckung.
+
+Ohne eine externe Positionsreferenz kann die Position nur kurzfristig aus den im Fluggerät verbauten Sensoren geschätzt werden.
+Dabei summieren sich Fehler mit der Zeit auf und führen im Innenraum zwangsläufig zu einer Kollision mit einem Hindernis. 
+Für einen zuverlässigen Flug im Innenraum ist daher eine alternative Positionsreferenz zwingend erforderlich.
+
+Ziel dieser Arbeit ist es, ein unbemanntes Fluggerät zu entwickeln, welches sich ohne Satellitennavigation selbst im Raum lokalisiert und positioniert.
+Das zentrale Element der Umsetzung ist der Flugsteuerungsrechner, dem die externen Positionsdaten für die Flugsteuerung bereitzustellen sind.
+Darüber hinaus ist ein Verfahren zu bestimmen, das eine bestehende Karte um ergänzt oder eine bislang unbekannte Umgebung vollständig erfasst und das Ergebnis der Positionsbestimmung zuführt.
+
+
+Die Grundlage der Positionsreferenz bilden Passmarken, die in der Flugumgebung angebracht sind.
+Die relative Position der Passmarken zueinander ist durch das Kartieren der Marken bekannt. 
+Zur Kartierung wird eine Algorithmus entwickelt, der es ermöglicht diese Karte durch das Abfilmen der Markierungen zu erstellen.
+
+Durch die Detektion der Passmarken mit einer am Fluggerät angebrachten Kamera wird während des 
+Flugs die Position des Fluggeräts relativ zu den Markierungen bestimmt.
+Die Berechnungen der Positionsbestimmung wird auf einem auf dem Fluggerät befestigten Computer durchgeführt und anschließend an den Flugcontroller weitergegeben.
+Durch das implementierte System aus Kartierung und Positionierung ist es möglich, fortlaufend die Position und Orientierung des Fluggeräts während 
+des Flugs innerhalb eines festgelegten Bereichs zu bestimmen.  
+Die entwickelte Lösung ist vollständig aus quelloffener Software und gängigen Komponenten aufgebaut.
+
 Die Arbeit gliedert sich in mehrere Teile.
-Zunächst werden in Kapitel~\ref{cap:theoretische_grundlagen} die theoretischen Grundlagen aus den Bereichen der Flugrobotik, der Sensorik, der Koordinatensysteme sowie der verwendeten mathematischen Verfahren erläutert.
-Anschließend gibt Kapitel~\ref{cap:stand_der_technik} einen Überblick über den Stand der Technik der GNSS-freien Lokalisierung und der Fiducial-Marker-Systeme.
+Zunächst werden in Kapitel~\ref{cap:theoretische_grundlagen} die theoretischen Grundlagen zur Flugrobotik, zur verwendeten Sensorik, 
+zu den Koordinatensystemen sowie zu den benötigten mathematischen Verfahren erläutert.
+Anschließend gibt Kapitel~\ref{cap:stand_der_technik} einen Überblick über bestehende Ansätze zur Lokalisierung ohne Satellitennavigation sowie über verschiedene Passmarkensysteme.
 In Kapitel~\ref{cap:systembeschreibung} werden die Anforderungen an das Gesamtsystem, der Hardwareaufbau, die Softwarearchitektur und die Versuchsumgebung beschrieben.
-Kapitel~\ref{cap:implementierung_kartierung} behandelt die Implementierung der Kartierung, Kapitel~\ref{cap:implementierung_positionsbestimmung} die im Flug ablaufende Positionsbestimmung.
-Abschließend werden die Versuchsdurchführung und die Evaluation dargestellt sowie die Ergebnisse zusammengefasst.
+Kapitel~\ref{cap:implementierung_kartierung} behandelt die Umsetzung der Kartenerstellung, während in Kapitel~\ref{cap:implementierung_positionsbestimmung} die während des Fluges ablaufende Positionsbestimmung beschrieben wird.
+Abschließend werden in Kapitel~\ref{cap:versuchsdurchführung} die Versuchsdurchführung und die Evaluierung dargestellt sowie die Ergebnisse zusammengefasst.

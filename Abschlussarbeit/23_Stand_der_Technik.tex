@@ -85,7 +85,7 @@ Weiterhin setzt visuelle Odometrie strukturierte Umgebungen voraus, welche in de
 
 
 
-\subsection{Simultane Lokalisierung und Kartierung (SLAM)}
+\subsection{Simultane Lokalisierung und Kartierung}
 \label{sec:slam}
 \gls{slam} beschreibt eine Problemstellung an der Schnittstelle von Computer Vision und Robotik.
 Dabei geht es um die selbstständige Erstellung einer Karte einer unbekannten Umgebung bei gleichzeitiger Bestimmung der eigenen Position 
@@ -126,7 +126,7 @@ Der schematische Ablauf von Loop Closure ist in Abbildung~\ref{fig:loop_closure}
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.8\textwidth]{Bilder/Loop_Closure.png}
-    \caption{Veranschaulichung des Loop-Closure-Effekts: 
+    \caption{Veranschaulichung des Loop Closure-Effekts: 
     (a) Reale Trajektorie ohne akkumulierten Fehler. 
     (b) Geschätzte Trajektorie mit akkumuliertem Drift ohne Loop Closure. 
     (c) Korrigierte Trajektorie nach Anwendung von Loop Closure mit 
@@ -149,7 +149,6 @@ Die Faktorknoten verbinden diese Variablen und repräsentieren die Messungen ode
 
 Der Faktorgraph in Abbildung~\ref{fig:Faktorgraph_vereinfacht} zeigt die grundlegende Struktur eines \gls{slam}-Problems.
 Hierbei ist der Faktorgraph stark vereinfacht.
-
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=1.0\textwidth]{Bilder/Faktorgraph_vereinfacht.png}
@@ -169,7 +168,7 @@ Die orangen Quadrate sind Messungs-Constraints und verbinden eine \gls{uav}-Pose
 Eine Landmarke ist ein ortsfestes, wiedererkennbares Merkmal der Umgebung, dessen Position als Variablenknoten geschätzt wird.
 Die Messungs-Constraints repräsentieren die Beobachtung, dass Landmarke $t_i$ von Pose $x_j$ aus detektiert wurde.
 
-Wird die Pose $x_4$ als bereits bekannter Ort wiedererkannt, der identisch mit $x_1$ ist, entsteht ein Loop-Closure-Constraint, der $x_1$ und $x_4$ im Faktorgraphen verbindet.
+Wird die Pose $x_4$ als bereits bekannter Ort wiedererkannt, der identisch mit $x_1$ ist, entsteht ein Loop Closure-Constraint, der $x_1$ und $x_4$ im Faktorgraphen verbindet.
 Dargestellt ist dies durch den roten Pfeil in Abbildung~\ref{fig:Faktorgraph_vereinfacht}.
 Dieser zusätzliche Constraint schließt die Schleife und ermöglicht dem Optimierer, 
 den über die Trajektorie akkumulierten Drift rückwirkend über alle Posen zu korrigieren~\cite{Kaess2012}.
@@ -219,9 +218,9 @@ Deckung gebracht wird, um daraus die aktuelle Pose zu bestimmen.
 Da die Tiefenmessung direkt und metrikgenau erfolgt, ist LiDAR-SLAM im 
 Vergleich zu monokularem \gls{vslam} nicht auf eine Skaleninitialisierung angewiesen und liefert in der Regel robustere Ergebnisse unter 
 wechselnden Lichtverhältnissen~\cite{Yue2023}.
-Gegenüber kamerabasierten Verfahren sind LiDAR-Systeme jedoch deutlich
-teurer, schwerer und energieintensiver, was ihren Einsatz besonders auf kleinen
-\glspl{uav} erschwert.
+Gegenüber kamerabasierten Verfahren sind \gls{lidar}-Systeme jedoch deutlich teurer, schwerer und energieintensiver, 
+was ihren Einsatz besonders auf kleinen \glspl{uav} erschwert.
+Zwar existieren kleinere und leichtere \gls{lidar}-Varianten, diese erreichen jedoch keine vergleichbare Auflösung.
 
 
 
@@ -233,7 +232,6 @@ Fiducial-Marker stellen ein gut unterscheidbares Muster mit starken visuellen Ei
 Sie verfügen in den meisten Fällen auch über eine spezifische Kodierung 
 als Sicherheitsmechanismus gegen Fehlerkennung~\cite{Kalaitzakis2021}.
 Im Folgenden werden die in Abbildung \ref{fig:Uebersicht_Marker} dargestellten gängigen Fiducial-Marker vorgestellt.
-
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=1.0\textwidth]{Bilder/Uebersicht_Marker.png}
