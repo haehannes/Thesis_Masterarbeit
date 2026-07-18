@@ -9,7 +9,7 @@ Darüber hinaus wird auf den verwendeten Flugcontroller, die zugrundeliegenden K
 
 \section{Grundlagen Unbemannter Flugroboter}
 \label{sec:grundlagen_uav}
-Ein \gls{uav}, umgangssprachlich auch als Drohne bezeichnet, ist ein Fluggerät, welches ohne einen menschlichen Piloten an Bord betrieben werden kann.
+Ein \gls{uav}, umgangssprachlich auch als Drohne bezeichnet, ist ein \gls{uav}, welches ohne einen menschlichen Piloten an Bord betrieben werden kann.
 Dabei können \gls{uav}s entweder ferngesteuert von einem menschlichen Operator oder vollständig autonom durch einen bordeigenen Computer geführt werden.
 Die Anfänge unbemannter Luftfahrzeuge reichen bis in die 1910er Jahre zurück, in denen sie vorrangig für militärische Zwecke eingesetzt wurden.
 Ab den 2000er Jahren fanden \gls{uav}s zunehmend Eingang in zivile Anwendungsgebiete, wie beispielsweise die Katastrophenhilfe~\cite{Studiawan2026}.
@@ -75,7 +75,7 @@ Im weiteren Verlauf der Arbeit wird dieser Zusammenschluss aus Baseboard und \gl
 \end{figure}
 \FloatBarrier
 
-\subsection{Flugcontroller-Betriebssystem}
+\subsection*{Flugcontroller-Betriebssystem}
 \label{sec:Px4_Betriebssystem}
 Der Pixhawk betreibt auf dem Hauptprozessor das Echtzeitbetriebssystem NuttX, auf dem die \gls{px4}-Firmware ausgeführt wird.
 Dieses stellt sicher, dass zeitkritische Steuerungsaufgaben innerhalb garantierter Zeitfenster ausgeführt werden~\cite{px4_architecture}.
@@ -85,37 +85,41 @@ sondern tauschen ihre Daten über das interne Publish-Subscribe-System \gls{uorb
 Ein Modul, das Daten erzeugt, veröffentlicht diese als Publisher auf einem \gls{uorb}-Topic, 
 während ein oder mehrere Module die Daten als Subscriber empfangen.
 Auf diese Weise werden beispielsweise Sensorwerte und die Steuerbefehle der Regler innerhalb von \gls{px4} ausgetauscht.
-%Die Kommunikation mit dem Companion-Computer erfolgt dagegen über die \gls{uxrce}-Schnittstelle, 
+%Die Kommunikation mit dem Begleitrechner erfolgt dagegen über die \gls{uxrce}-Schnittstelle, 
 %die die internen \gls{uorb}-Topics von \gls{px4} als ROS2-Topics bereitstellt~\cite{px4_uxrce_dds}.
 
 
 Zur Analyse des Flugverhaltens erzeugt der PX4 während des Betriebs ULog-Dateien, die auf der internen SD-Karte gespeichert werden.
-Diese Log-Dateien enthalten zeitgestempelte Aufzeichnungen aller relevanten Zustandsgrößen und Sensorwerte.
+Diese Protokoll-Dateien enthalten zeitgestempelte Aufzeichnungen aller relevanten Zustandsgrößen und Sensorwerte.
 Sie ermöglichen eine detaillierte Analyse des Systemverhaltens nach einem Flug~\cite{px4_ulog,px4_flight_reporting}.
 
+Zum Auslesen der Protokoll-Dateien und zur Parametrierung sowie Kalibrierung des \gls{px4} ist die Bodenstationssoftware QGroundControl notwendig.
+Diese wird auf einem externen Rechner betrieben.
 
-\subsection{Flugcontroller-Schnittstellen}
+
+\subsection*{Flugcontroller-Schnittstellen}
 \label{sec:px4_schnittstellen}
 Der Flugcontroller stellt über das Baseboard eine Vielzahl von Schnittstellen zur Anbindung 
 externer Komponenten bereit.
 Für diese Arbeit sind die folgenden Schnittstellen relevant.
 Die Ethernet-Schnittstelle dient der Kommunikation zwischen dem 
-Flugcontroller und dem Companion-Computer, über welche die extern berechnete Positionsschätzung 
+Flugcontroller und dem Begleitrechner, über welche die extern berechnete Positionsschätzung 
 an den Zustandsschätzer übermittelt wird.
 Die genaue Anbindung wird in Kapitel~\ref{cap:systembeschreibung} beschrieben.
+ 
 Die Kommunikation mit der Bodenstation erfolgt über das MAVLink-Protokoll.
 MAVLink ist ein leichtgewichtiges Nachrichtenprotokoll, das speziell für die 
 Kommunikation zwischen Flugcontrollern und Bodenstationen entwickelt wurde.
 Es serialisiert Telemetriedaten, Steuerbefehle und Sensorwerte in Binärpakete, 
 die über serielle Schnittstellen oder \gls{udp} übertragen werden~\cite{MAVLink,px4_mavlink}.
-Mithilfe der Bodenstationssoftware QGroundControl erfolgt die Parametrierung und Kalibrierung des Flugcontrollers.
+
 
 Die \gls{pwm}-Ausgänge des Baseboards steuern die Elektromotoren des \gls{uav}s an.
 Darüber hinaus stehen weitere Schnittstellen wie \gls{uart}, \gls{can}, \gls{i2c} und \gls{spi} zur 
 Anbindung zusätzlicher Sensoren und Peripherie zur Verfügung, die in dieser Arbeit jedoch 
 nicht verwendet werden~\cite{px4_pixhawk6x_doc}.
 
-\subsection{Flugcontroller-Onboard-Sensorik}
+\subsection*{Flugcontroller-Onboard-Sensorik}
 \label{sec:pixhawk_sensorik}
 Um die Zuverlässigkeit zu erhöhen, verfügt der Pixhawk über eine dreifach redundante \gls{imu} sowie zwei redundante 
 Barometer, die auf getrennten Bussen mit unabhängiger Stromversorgung betrieben werden.
@@ -149,7 +153,8 @@ Die in der eingesetzten Revision verbauten Sensoren sind in Tabelle
 \label{tab:pixhawk_sensoren}
 \end{table}
 \FloatBarrier
-\subsection{Zustandsschätzung und Sensorfusion im Flugcontroller}
+
+\subsection*{Zustandsschätzung und Sensorfusion im Flugcontroller}
 \label{sec:ekf_px4}
 Die Zustandsschätzung des \gls{px4} erfolgt über den \gls{ekf}, einen in Abschnitt~\ref{sec:ekf} beschriebenen zeitdiskreten Zustandsschätzer.
 Der \gls{ekf} fusioniert die Messungen der bordeigenen Sensoren mit externen 
@@ -170,10 +175,10 @@ wird in Abschnitt~\ref{sec:pos_ekf_konfiguration} erläutert.
 
 
 
-\section{Vergleich von Welt-, Roboter-, Kamera- und Fiducialkoordinatensystem}
+\section{Vergleich von Welt-, Roboter-, Kamera- und  Fiducial-Koordinatensystem}
 \label{sec:vergleich_koordinatensysteme}
 Dieser Abschnitt behandelt die für diese Arbeit relevanten Koordinatensysteme.
-Dabei wird zwischen dem Welt-, Roboter-, Kamera- und Fiducialkoordinatensystem unterschieden.
+Dabei wird zwischen dem Welt-, Roboter-, Kamera- und  Fiducial-Koordinatensystem unterschieden.
 Das Weltkoordinatensystem entspricht in dieser Arbeit dem Koordinatensystem, welches durch eine Karte repräsentiert wird.
 
 Ein Koordinatensystem ist ein mathematisches Konstrukt, das zur eindeutigen Beschreibung der Lage von Punkten im Raum verwendet wird.
@@ -210,7 +215,7 @@ Das Kamerakoordinatensystem ist so definiert, dass die Z-Achse entlang der optis
 die X-Achse nach rechts und die Y-Achse nach unten auf der Bildebene zeigt.
 Der Ursprung befindet sich im optischen Zentrum der Kamera~\cite{Szeliski2022}.
 
-Das Fiducialkoordinatensystem ist in dieser Arbeit so definiert, dass sich der Ursprung im Mittelpunkt der Fiducialmarke befindet.
+Das Fiducial-Koordinatensystem ist in dieser Arbeit so definiert, dass sich der Ursprung im Mittelpunkt der Markermarke befindet.
 Die Z-Achse zeigt senkrecht aus der Markerebene heraus, die X-Achse verläuft nach rechts und die Y-Achse nach oben in der Markerebene.
 Die in den Kapiteln~\ref{cap:implementierung_kartierung} und~\ref{cap:implementierung_positionsbestimmung} beschriebenen Implementierungen
 folgen der in \gls{ros2} standardisierten \gls{enu}/\gls{flu}-Konvention.
@@ -229,28 +234,89 @@ Die Position eines Körpers wird durch den Vektor
 beschrieben, wobei die Koordinaten einem bestimmten Koordinatensystem zugeordnet sind.
 
 Die Orientierung eines Körpers kann auf verschiedene Weisen dargestellt werden.
-Im Folgenden werden die zum Verständnis dieser Arbeit relevanten Darstellungsformen erläutert.
-Grundsätzlich kann sich ein Körper um drei Achsen drehen, was durch die Euler-Winkel Roll (\gls{sym:roll}), Pitch (\gls{sym:pitch}) und Yaw (\gls{sym:yaw}) beschrieben wird.
+Im Folgenden werden die in dieser Arbeit relevanten Darstellungsformen erläutert.
+
+\subsection{Euler-Winkel}
+Zur Beschreibung der Orientierung werden in dieser Arbeit Euerl-Winkel verwendet.
+Dieser repräsentieren die Rotationen um die Hauptachsen des \gls{uav}-Koordinatensystems und werden durch Roll (\gls{sym:roll}), Pitch (\gls{sym:pitch}) und Yaw (\gls{sym:yaw}) charakteriiert.
 Abbildung~\ref{fig:roll_pitch_yaw} zeigt die Definition dieser Winkel am Beispiel der Holybro X650.
 Die Pfeilrichtungen entsprechen der positiven Achs- oder Drehrichtung im rechtshändigen Koordinatensystem.
 \begin{figure}[htbp]
    \centering
-   \includegraphics[width=0.60\textwidth]{Bilder/Roll_Yaw_Pitch.png}
-   \caption{Roll, Pitch und Yaw am Beispiel Holybro X650~\cite{holybro_x650}}
+   \includegraphics[width=0.50\textwidth]{Bilder/Roll_Yaw_Pitch.png}
+   \caption{Rollen, Nicken und Gieren am Beispiel Holybro X650~\cite{holybro_x650}}
    \label{fig:roll_pitch_yaw}
 \end{figure}
 \FloatBarrier
 
 \subsection{Quaternionen}
-Die Orientierung im Raum kann als Quaternion dargestellt werden.
+Die Orientierung im Raum kann ebenfalls als Quaternion dargestellt werden.
 Quaternionen bieten gegenüber Euler-Winkeln den Vorteil, dass sie keine Singularitäten (Gimbal Lock) aufweisen.
-Quaternionen stellen eine Erweiterung des komplexen Zahlenraums dar und werden durch Gleichung~\eqref{eq:quaternion} definiert~\cite{Siciliano2009},
+Beim Gimbal Lock fallen zwei der drei Drehachsen bei einem Nickwinkel von 90~Grad zusammen, 
+wodurch ein Freiheitsgrad der Orientierung verloren geht und die Lage nicht mehr eindeutig beschrieben werden kann.
+Quaternionen stellen eine Erweiterung des komplexen Zahlenraums dar und werden durch die Gleichung~\eqref{eq:quaternion} definiert,
 \begin{equation}
 \mathbf{q} = w + ix + jy + kz
 \label{eq:quaternion}
 \end{equation}
-wobei die Komponenten $w$, $x$, $y$ und $z$ reelle Skalare sind und $i$, $j$ sowie $k$ die imaginären Einheiten darstellen.
-Die imaginären Einheiten erfüllen die folgenden Multiplikationsregeln:
+wobei die Komponenten $w$, $x$, $y$ und $z$ reelle Skalare sind und $i$, $j$ sowie $k$ die imaginären Einheiten darstellen.~\cite{Siciliano2009}
+
+%Abbildung \ref{fig:quaternion_ache_winkel} zeigt die schematische Darstellung eines Quaternions.
+%\begin{figure}[htbp]
+%\centering
+%\begin{tikzpicture}[x={(-0.5cm,-0.35cm)}, y={(1cm,0cm)}, z={(0cm,1cm)},
+%                    >=Stealth, scale=1.0]
+%
+%\pgfmathsetmacro{\R}{2.2}      % Radius des Drehkreises
+%\pgfmathsetmacro{\th}{75}      % Drehwinkel theta in Grad
+%
+%% Orthonormale Basis der Drehebene, beide senkrecht zur Achse n
+%\pgfmathsetmacro{\ux}{0.7071}  \pgfmathsetmacro{\uy}{-0.7071} \pgfmathsetmacro{\uz}{0}
+%\pgfmathsetmacro{\wx}{-0.4082} \pgfmathsetmacro{\wy}{-0.4082} \pgfmathsetmacro{\wz}{0.8165}
+%
+%% Gedrehter Vektor nach der Rodrigues-Formel
+%\pgfmathsetmacro{\vpx}{\R*(cos(\th)*\ux + sin(\th)*\wx)}
+%\pgfmathsetmacro{\vpy}{\R*(cos(\th)*\uy + sin(\th)*\wy)}
+%\pgfmathsetmacro{\vpz}{\R*(cos(\th)*\uz + sin(\th)*\wz)}
+%
+%% Koordinatenachsen
+%\draw[->, gray] (0,0,0) -- (3.2,0,0) node[below left] {$x$};
+%\draw[->, gray] (0,0,0) -- (0,3.2,0) node[right] {$y$};
+%\draw[->, gray] (0,0,0) -- (0,0,3.2) node[above] {$z$};
+%
+%% Drehkreis
+%\draw[dashed, gray!60] plot[domain=0:360, samples=80, variable=\t]
+%  ({\R*(cos(\t)*\ux + sin(\t)*\wx)},
+%   {\R*(cos(\t)*\uy + sin(\t)*\wy)},
+%   {\R*(cos(\t)*\uz + sin(\t)*\wz)});
+%
+%% Drehachse, gebildet aus dem Vektorteil der Quaternion
+%\draw[blue, very thick, ->] (0,0,0) -- (1.62,1.62,1.62)
+%  node[above right] {$\mathbf{n} = (x,\,y,\,z)^{\mathsf{T}} / \lVert\cdot\rVert$};
+%
+%% Ausgangsvektor und gedrehter Vektor
+%\draw[black, thick, ->] (0,0,0) -- ({\R*\ux},{\R*\uy},{\R*\uz})
+%  node[below left] {$\mathbf{v}$};
+%\draw[red, thick, ->] (0,0,0) -- (\vpx,\vpy,\vpz)
+%  node[above left] {$\mathbf{v}'$};
+%
+%% Ueberstrichener Drehwinkel
+%\draw[red, thick, ->] plot[domain=0:\th, samples=40, variable=\t]
+%  ({\R*(cos(\t)*\ux + sin(\t)*\wx)},
+%   {\R*(cos(\t)*\uy + sin(\t)*\wy)},
+%   {\R*(cos(\t)*\uz + sin(\t)*\wz)});
+%\node[red] at (-0.2,-1.55,1.35) {$\theta$};
+%
+%\fill (0,0,0) circle (1.4pt);
+%
+%\end{tikzpicture}
+%\caption{Geometrische Bedeutung einer Einheitsquaternion. Der Vektorteil aus $x$, $y$ und $z$ legt die Drehachse $\mathbf{n}$ fest, der Skalarteil $w$ den halben Drehwinkel über $w = \cos(\theta/2)$. Der Vektor $\mathbf{v}$ wird um die Achse in die Lage $\mathbf{v}'$ überführt.}
+%\label{fig:quaternion_achse_winkel}
+%\end{figure}
+
+
+
+Die imaginären Einheiten erfüllen die Multiplikationsregeln aus \cref{eq:quaternion_regeln,eq:quaternion_regeln2,eq:quaternion_regeln3}.
 \begin{equation}
 ii = jj = kk = ijk = -1
 \label{eq:quaternion_regeln}
@@ -318,7 +384,7 @@ Eine komponentenweise Mittelung der Quaternionen ist dabei nicht ohne Weiteres m
 Da ein Quaternion $\mathbf{q}$ und sein Negatives $-\mathbf{q}$ dieselbe Rotation beschreiben, 
 können sich entgegengesetzt notierte Quaternionen bei einer direkten Summenbildung gegenseitig aufheben.
 Vor der Mittelung wird daher das Vorzeichen aller Quaternionen an ein Referenzquaternion \gls{sym:qref} angeglichen.
-Zur Angleichung werden die Quaternionen als Vektoren aufgefasst.
+Zur Angleichung werden die Quaternionen als Vektoren beschrieben.
 Als Maß für ihre Ausrichtung dient das Skalarprodukt:
 \begin{equation}
 \langle \mathbf{q}_i, \mathbf{q}_{\mathrm{ref}} \rangle =
@@ -328,7 +394,7 @@ Als Maß für ihre Ausrichtung dient das Skalarprodukt:
 = w_i w_{\mathrm{ref}} + x_i x_{\mathrm{ref}} + y_i y_{\mathrm{ref}} + z_i z_{\mathrm{ref}}.
 \label{eq:quaternion_skalarprodukt}
 \end{equation}
-Ist dieses negativ, weist $\mathbf{q}_i$ in die entgegengesetzte Richtung wie $\mathbf{q}_{\mathrm{ref}}$ und wird durch $-\mathbf{q}_i$ ersetzt:
+Ist dieses negativ, zeigt $\mathbf{q}_i$ in die entgegengesetzte Richtung wie $\mathbf{q}_{\mathrm{ref}}$ und wird durch $-\mathbf{q}_i$ ersetzt:
 \begin{equation}
 \mathbf{q}_i \leftarrow
 \begin{cases}
@@ -337,7 +403,7 @@ Ist dieses negativ, weist $\mathbf{q}_i$ in die entgegengesetzte Richtung wie $\
 \end{cases}
 \label{eq:quaternion_vorzeichen}
 \end{equation}
-Nach dieser Angleichung weisen alle Quaternionen in dieselbe Richtung und können gewichtet gemittelt werden.
+Nach dieser Angleichung zeigen alle Quaternionen in dieselbe Richtung und können gewichtet gemittelt werden.
 Mit den Gewichten \gls{sym:weight} $\ge 0$ ergibt sich das gemittelte Quaternion \gls{sym:qbar} aus der gewichteten Summe, die anschließend gemäß Gleichung~\eqref{eq:quaternion_normalisierung} normiert wird:
 \begin{equation}
 \bar{\mathbf{q}} = \frac{\displaystyle\sum_{i} w_i\,\mathbf{q}_i}{\left\lVert \displaystyle\sum_{i} w_i\,\mathbf{q}_i \right\rVert}.
@@ -347,17 +413,58 @@ Diese Mittelung ist lediglich eine lineare Näherung, die für eng beieinanderli
 
 \subsection{Sphärische lineare Interpolation von Quaternionen}
 \label{sec:quaternionen_slerp}
-Durch die \gls{slerp} ist es möglich, zwei Quaternionen ineinander zu überführen.
+Mit der \gls{slerp} ist es möglich, zwei Quaternionen ineinander zu überführen.
 Die nachfolgende Formel beschreibt diese Operation~\cite{Shoemake1985}.
 \begin{equation}
 \operatorname{slerp}(\mathbf{q}_0, \mathbf{q}_1, \alpha) = \frac{\sin\!\bigl((1-\alpha)\,\theta\bigr)}{\sin\theta}\,\mathbf{q}_0 + \frac{\sin(\alpha\,\theta)}{\sin\theta}\,\mathbf{q}_1.
 \label{eq:slerp}
 \end{equation}
+Der Zusammenhang der Gleichung~\ref{eq:slerp} in ist Abbildung~\ref{fig:slerp} dargestellt.
+ \begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[>=Stealth, scale=1.0]
+
+% Winkel der beiden Stuetzquaternionen und des interpolierten Quaternions
+\def\angleA{20}   % q_1
+\def\angleB{115}  % q_0
+\def\angleT{55}   % slerp-Ergebnis
+\def\r{3}         % Radius der Einheitssphaere
+
+% Einheitskreis als Schnitt durch die Einheitssphaere
+\draw[thick] (180:\r) arc (180:0:\r);
+
+% Ursprung
+\fill (0,0) circle (1.6pt);
+
+% Stuetzquaternionen
+\draw[blue, thick, ->] (0,0) -- (\angleA:\r) node[right] {$\mathbf{q}_1$};
+\draw[blue, thick, ->] (0,0) -- (\angleB:\r) node[above] {$\mathbf{q}_0$};
+
+% interpoliertes Quaternion
+\draw[red, thick, ->] (0,0) -- (\angleT:\r) node[above right] {$\operatorname{slerp}(\mathbf{q}_0,\mathbf{q}_1,\alpha)$};
+
+% eingeschlossener Winkel theta
+\draw[blue, ->] (\angleA:1.5) arc (\angleA:\angleB:1.5);
+\node[blue] at (67:1.8) {$\theta$};
+
+% interpolierter Winkelanteil
+\draw[red, ->] (\angleA:0.85) arc (\angleA:\angleT:0.85);
+\node[red] at (38:1.15) {$\alpha\theta$};
+
+\end{tikzpicture}
+\caption{Sphärische lineare Interpolation zwischen den Quaternionen $\mathbf{q}_0$ und $\mathbf{q}_1$~\cite{rohmer_slerp}}
+\label{fig:slerp}
+\end{figure}
+
+
 Dabei ist \(\theta\) der Winkel zwischen den beiden Quaternionen und \gls{sym:alpha} $\in [0,1]$ der Interpolationsparameter.
-Für $\alpha = 0$ liefert sie $\mathbf{q}_0$, für $\alpha = 1$ entsprechend $\mathbf{q}_1$.
+Für $\alpha = 0$ liefert Gleichung \ref{eq:slerp} $\mathbf{q}_0$, für $\alpha = 1$ entsprechend $\mathbf{q}_1$.
 Da ein Quaternion und sein Negatives dieselbe Rotation beschreiben, wird zunächst sichergestellt, dass
 entlang des kürzeren Bogens interpoliert wird, indem das Vorzeichen von $\mathbf{q}_1$ bei negativem
 Skalarprodukt nach Gleichung~\eqref{eq:quaternion_vorzeichen} an $\mathbf{q}_0$ angeglichen wird~\cite{Shoemake1985}.
+
+
+
 Für sehr kleine Winkel $\theta$ geht $\sin\theta$ gegen null, wodurch Gleichung~\eqref{eq:slerp} numerisch instabil wird~\cite{Shoemake1985}.
 
 
@@ -396,10 +503,10 @@ von Rodrigues-Parametern in ein Quaternion durchführen~\cite{Dai2015a}.
 
 \section{Transformation von Koordinatensystemen}
 Um die genaue Position des \gls{uav}s bestimmen zu können, sind mehrere Koordinatentransformationen notwendig.
-Es ist möglich, einen Punkt \glsadd{sym:point}$^a\mathbf{r}$, ausgedrückt relativ zum Koordinatensystem~$a$, relativ zum Koordinatensystem~$b$ auszudrücken,
-sofern Position und Orientierung des Systems~$a$ relativ zum System~$b$ bekannt sind.
+Die Darstellung eines im Koordinatensystem~$a$ gegebenen Punktes \glsadd{sym:point}$^a\mathbf{r}$ im Koordinatensystem~$b$ ist möglich, sofern Position und Orientierung des 
+Koordinatensystems~$a$ relativ zum Koordinatensystem~$b$ bekannt sind.
 Ziel ist es, aus dieser Beziehung eine Transformationsmatrix abzuleiten, die zugleich die Rotation und die Translation zwischen den beiden Systemen beschreibt~\cite{2016}.
-Die Orientierung des Systems~$a$ relativ zum System~$b$ wird durch eine Rotationsmatrix \glsadd{sym:Rot}$^b\mathbf{R}_a$ beschrieben.
+Die Orientierung des Systems~$a$ relativ zum System~$b$ wird durch eine Rotationsmatrix \glsadd{sym:Rot}$^b\mathbf{R}_a \in \mathbb{R}^{3}$ beschrieben.
 Die Lage des Ursprungs von~$a$ relativ zu~$b$ wird durch den Translationsvektor \glsadd{sym:trans}$^b\mathbf{t}_a \in \mathbb{R}^{3}$ angegeben.
 Ein im System~$a$ ausgedrückter Punkt $^a\mathbf{r}$ lässt sich dann mittels
 \begin{equation}
@@ -409,10 +516,10 @@ Ein im System~$a$ ausgedrückter Punkt $^a\mathbf{r}$ lässt sich dann mittels
 
 in das System~$b$ überführen.
 Diese Vorschrift kombiniert eine Drehung und eine anschließende Verschiebung in einem einzigen Schritt.
-Durch Einführung homogener Koordinaten
+Durch die Einführung homogener Koordinaten
 $^a\tilde{\mathbf{r}} = \begin{bmatrix} {^a\mathbf{r}}^\top & 1 \end{bmatrix}^\top$
 lässt sich die Drehung und Verschiebung in eine einzige Matrix überführen.
-Die zugehörige \emph{homogene Transformationsmatrix} \glsadd{sym:Tmat}$^b\mathbf{T}_a$ ist definiert als
+Die zugehörige homogene Transformationsmatrix \glsadd{sym:Tmat}$^b\mathbf{T}_a$ ist definiert als
 \begin{equation}
 ^b\mathbf{T}_a =
 \begin{bmatrix}
@@ -469,23 +576,28 @@ die Kombination von Vorhersagen aus einem mathematischen Modell und Messungen vo
 Der \gls{ekf} ist ein rekursiver Filter, wodurch er kontinuierlich neue Messwerte verarbeiten kann.
 
 Der Filter besteht im Wesentlichen aus drei Phasen, der Initialisierung, der Prädiktion und der Korrektur.
+Die Initialisierung legt den Anfangszustand und dessen Unsicherheit fest und bildet damit den Ausgangspunkt.
+Die Prädiktion schreibt den Zustand über das Systemmodell auf den nächsten Zeitschritt fort, wobei die Unsicherheit der Schätzung zunimmt.
+Die Korrektur zieht eine Messung heran und verschiebt den prädizierten Zustand in deren Richtung, wodurch die Unsicherheit wieder abnimmt.
+Prädiktion und Korrektur werden fortlaufend wiederholt, während die Initialisierung nur einmal zu Beginn durchlaufen wird.~\cite{Bang18}
+
 In der Literatur wird zwischen zwei Arten von Zustandsschätzungen unterschieden.
 Der \textit{Prior} $(\cdot)^{-}$ bezeichnet die durch das Systemmodell vorhergesagte Schätzung vor der Einbeziehung einer neuen Messung. 
-Der \textit{Posterior} $(\cdot)^{+}$ bezeichnet die korrigierte Schätzung nach der Einbeziehung der Messung~\cite{Bang18}.
+Der \textit{Posterior} $(\cdot)^{+}$ bezeichnet die korrigierte Schätzung nach der Einbeziehung der Messung.
 Der Operator $\hat{(\cdot)}$ kennzeichnet dabei stets eine Schätzgröße.
-Die Größe \glsadd{sym:stateHat}\glsadd{sym:state}$\hat{\mathbf{x}}$ ist demnach eine Schätzung des wahren Zustands $\mathbf{x}$~\cite{Bang18}.
+Die Größe \glsadd{sym:stateHat}\glsadd{sym:state}$\hat{\mathbf{x}}$ ist demnach eine Schätzung des wahren Zustands $\mathbf{x}$.~\cite{Bang18}
 
-Zu Beginn muss eine Anfangsbedingung festgelegt werden.
+Zu Initialisierung muss eine Anfangsbedingung festgelegt werden.
 Hierfür benötigt das System einen initialen Zustandsschätzwert $\hat{\mathbf{x}}_0^{+}$ sowie die zugehörige Unsicherheit in Form der 
 Zustandskovarianzmatrix \glsadd{sym:P}$\mathbf{P}_0^{+}$~\cite{Bang18}.
 In der Prädiktionsphase wird der Zustand des Systems zum nächsten Zeitpunkt auf Basis eines mathematischen Modells berechnet.
-Der Zustand $\hat{\mathbf{x}}_k^{-}$ wird dabei aus dem vorherigen Zustand $\hat{\mathbf{x}}_{k-1}^{+}$ und der Steuereingabe 
-\glsadd{sym:u}$\mathbf{u}_{k-1}$ über die nichtlineare Modellfunktion \glsadd{sym:f}$f$ prädiziert:
+Der Zustand $\hat{\mathbf{x}}_k^{-}$ wird dabei aus dem vorherigen Zustand $\hat{\mathbf{x}}_{k-1}^{+}$ und der Steuereingabe/Messung 
+\glsadd{sym:u}$\mathbf{u}_{k-1}$ über die nichtlineare Modellfunktion \glsadd{sym:f}$f$ vorhergesagt:
 \begin{equation}
     \hat{\mathbf{x}}_k^{-} = f\left(\hat{\mathbf{x}}_{k-1}^{+}, \mathbf{u}_{k-1}\right)
 \end{equation}
 
-Gleichzeitig wird die Zustandskovarianzmatrix $\mathbf{P}_k^{-}$ fortgeschrieben, die die Unsicherheit der Schätzung beschreibt.
+Gleichzeitig wird die Zustandskovarianzmatrix $\mathbf{P}_k^{-}$ mitgeführt, die die Unsicherheit der Schätzung beschreibt.
 Sie wächst in dieser Phase durch das Prozessrauschen \glsadd{sym:Q}$\mathbf{Q}_{k-1}$ an:
 \begin{equation}
     \mathbf{P}_k^{-} = \mathbf{F}_{k-1}\,\mathbf{P}_{k-1}^{+}\,\mathbf{F}_{k-1}^{\top} + \mathbf{Q}_{k-1}
@@ -495,7 +607,7 @@ Dabei ist \glsadd{sym:F}$\mathbf{F}_{k-1}$ die Jacobi-Matrix der Modellfunktion 
 Das Prozessrauschen $\mathbf{Q}$ beschreibt, wie stark das Systemmodell vom realen Verhalten abweicht.
 Ein hoher Wert bedeutet ein geringeres Vertrauen in das Modell.
 
-In der Korrekturphase wird der prädizierte Zustand auf Basis eines Messwerts \glsadd{sym:z}$\mathbf{z}_k$ korrigiert.
+In der Korrekturphase wird der vorhergesagte Zustand auf Basis eines Messwerts \glsadd{sym:z}$\mathbf{z}_k$ korrigiert.
 Zunächst wird der Kalman-Gain \glsadd{sym:K}$\mathbf{K}_k$ berechnet, der bestimmt, wie stark die Messung in die Schätzung einfließt:
 \begin{equation}
     \mathbf{K}_k = \mathbf{P}_k^{-}\,\mathbf{H}_k^{\top}\left(\mathbf{H}_k\,\mathbf{P}_k^{-}\,\mathbf{H}_k^{\top} + \mathbf{R}_k\right)^{-1}
@@ -506,7 +618,7 @@ $\mathbf{R}$ beschreibt die Unsicherheit der Sensormessungen.
 Ein hoher Wert führt zu einem geringeren Vertrauen in die Messung und damit zu einer schwächeren Korrektur.
 Der Kalman-Gain gewichtet folglich Modellvorhersage und Messung anhand ihrer jeweiligen Unsicherheiten.
 
-Anschließend wird der korrigierte Zustand $\hat{\mathbf{x}}_k^{+}$ aus dem prädizierten Zustand und der gewichteten Differenz zwischen tatsächlicher Messung $\mathbf{z}_k$ und erwarteter Messung $h(\hat{\mathbf{x}}_k^{-})$ – der Innovation – berechnet:
+Anschließend wird der korrigierte Zustand $\hat{\mathbf{x}}_k^{+}$ aus dem vorhergesagten Zustand und der gewichteten Differenz zwischen tatsächlicher Messung $\mathbf{z}_k$ und erwarteter Messung $h(\hat{\mathbf{x}}_k^{-})$ – der Innovation – berechnet:
 \begin{equation}
     \hat{\mathbf{x}}_k^{+} = \hat{\mathbf{x}}_k^{-} + \mathbf{K}_k\left(\mathbf{z}_k - h\left(\hat{\mathbf{x}}_k^{-}\right)\right)
 \end{equation}
@@ -523,13 +635,12 @@ Die aktualisierten Größen $\hat{\mathbf{x}}_k^{+}$ und $\mathbf{P}_k^{+}$ dien
 \section{Random Sample Consensus}
 \label{sec:ransac}
 Der \gls{ransac} ist ein iteratives Verfahren zur robusten Schätzung von Modellparametern aus einem Datensatz, 
-der einen erheblichen Anteil an Ausreißern enthält.
-Der \gls{ransac} unterscheidet sich von klassischen Ausgleichsverfahren dadurch, dass er nicht versucht, 
-alle Datenpunkte gleichzeitig zu berücksichtigen~\cite{RANSAC_Fischler1981}.
+der einen Anteil an Ausreißern enthält.
+Der \gls{ransac}-Algorithmus unterscheidet sich von klassischen Ausgleichsverfahren dadurch, dass er nicht versucht, 
+alle Datenpunkte gleichzeitig zu berücksichtigen.
 Stattdessen wird das Modell aus möglichst kleinen, zufällig gewählten Teilmengen bestimmt und anhand der übrigen Daten bewertet.
-Dadurch bleibt die Schätzung auch dann zuverlässig, wenn ein großer Teil der Daten fehlerhaft ist~\cite{RANSAC_Fischler1981}.
+Dadurch bleibt die Schätzung auch dann zuverlässig, obwohl ein großer Teil der Daten fehlerhaft ist.~\cite{RANSAC_Fischler1981}
 
-Die Grundidee besteht darin, wiederholt eine minimale Teilmenge von Datenpunkten auszuwählen und daraus ein Modell zu berechnen.
 Die Größe dieser Teilmenge entspricht der minimalen Anzahl an Punkten, die zur eindeutigen Bestimmung der Modellparameter erforderlich ist.
 Für jedes so berechnete Modell wird anschließend geprüft, wie viele der übrigen Datenpunkte mit ihm übereinstimmen.
 Ein Datenpunkt gilt als konsistent, wenn sein Abstand zum Modell einen festgelegten Schwellenwert \gls{sym:tthr} unterschreitet:
@@ -546,23 +657,21 @@ Die Menge aller konsistenten Punkte wird als Konsensmenge bezeichnet, ihre Eleme
 \label{sec:ros2}
 
 \gls{ros2} ist ein Open-Source-Framework für die Entwicklung modularer, verteilter Anwendungen in der Robotik.
-Es stellt eine einheitliche Middleware bereit, über die verteilte Software-Komponenten in Form einzelner \textit{Nodes} miteinander kommunizieren~\cite{ROS2MiddlewareHumble}.
-In dieser Arbeit kommen mit \gls{ros2} Humble und \gls{ros2} Jazzy zwei verschiedene Versionen zum Einsatz.
+Es stellt eine einheitliche Middleware bereit, über die verteilte Software-Komponenten in Form einzelner \textit{Nodes} miteinander kommunizieren.
+In dieser Arbeit kommen mit \gls{ros2} Humble und \gls{ros2} Jazzy zwei verschiedene Versionen zum Einsatz.~\cite{ROS2MiddlewareHumble}
 
-\subsection*{Nodes und Topics}
+
 Die grundlegende Kommunikationseinheit in \gls{ros2} ist der \textit{Node}, der eine spezifische Aufgabe übernimmt, 
 beispielsweise die Kamerabildverarbeitung.
-Nodes tauschen Daten über \textit{Topics} nach dem Publish-Subscribe-Prinzip aus.
-Ein Node, der Daten erzeugt, veröffentlicht diese als \textit{Publisher} auf einem Topic. 
-Ein oder mehrere Nodes empfangen die Nachrichten über eine \textit{Subscription} asynchron.
-Topics sind typisiert, das heißt jedes Topic überträgt Nachrichten eines fest definierten Nachrichtentyps, beispielsweise 
-\texttt{geometry\_msgs/PoseStamped} für Positionsdaten oder \texttt{sensor\_msgs/Image} für Kamerabilder~\cite{ROS2Nodes,ROS2Topics}.
+\textit{Nodes} tauschen Daten über \textit{Topics} nach dem Publish-Subscribe-Prinzip aus.
+Ein \textit{Node}, der Daten erzeugt, veröffentlicht diese als \textit{Publisher} auf einem \textit{Topic}. 
+Ein oder mehrere \textit{Nodes} empfangen die Nachrichten über eine \textit{Subscription} asynchron.
+\textit{Topics} sind typisiert, das heißt jedes \textit{Topic} überträgt Nachrichten eines fest definierten Nachrichtentyps, beispielsweise 
+\texttt{geometry\_msgs/PoseStamped} für Positionsdaten oder \texttt{sensor\_msgs/Image} für Kamerabilder.~\cite{ROS2Nodes,ROS2Topics}
 
 
-\subsection*{Bag-Dateien}
-\label{sec:ros_bag}
-\gls{ros2} ermöglicht die Aufzeichnung von Topic-Daten in \textit{Bag-Dateien} mittels des Werkzeugs \texttt{rosbag2}.
-Aufgezeichnete Bags können anschließend offline wiedergegeben werden, wobei die aufgezeichneten Topics wieder auf denselben Topics im System veröffentlicht werden~\cite{ROS2Rosbag2}.
+\gls{ros2} ermöglicht die Aufzeichnung von \textit{Topic}-Daten in \textit{Bag-Dateien} mittels des Werkzeugs \texttt{rosbag2}.
+Aufgezeichnete Bags können anschließend offline wiedergegeben werden, wobei die aufgezeichneten \textit{Topics} wieder auf denselben \textit{Topics} im System veröffentlicht werden.\cite{ROS2Rosbag2}
 
 
 

@@ -1342,6 +1342,90 @@ parent={},%
 %
 }%
 
+\glsdefs@newdocentry{ssh}%
+{%
+name={\acronymfont {\glsentryshort {ssh}}},%
+sort={SSH},%
+type={acronym},%
+first={SSH},%
+firstplural={SSHs},%
+text={SSH},%
+plural={SSHs},%
+description={Secure Shell},%
+descriptionplural={Secure Shell},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Secure Shell},%
+longplural={Secure Shells},%
+short={SSH},%
+shortplural={SSHs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{arf}%
+{%
+name={\acronymfont {\glsentryshort {arf}}},%
+sort={ARF},%
+type={acronym},%
+first={ARF},%
+firstplural={ARFs},%
+text={ARF},%
+plural={ARFs},%
+description={Almost Ready to Fly},%
+descriptionplural={Almost Ready to Fly},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Almost Ready to Fly},%
+longplural={Almost Ready to Flys},%
+short={ARF},%
+shortplural={ARFs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{rc}%
+{%
+name={\acronymfont {\glsentryshort {rc}}},%
+sort={RC},%
+type={acronym},%
+first={RC},%
+firstplural={RCs},%
+text={RC},%
+plural={RCs},%
+description={Radio Control},%
+descriptionplural={Radio Control},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Radio Control},%
+longplural={Radio Controls},%
+short={RC},%
+shortplural={RCs},%
+counter={page},%
+parent={},%
+%
+}%
+
 \glsdefs@newdocentry{sym:O0}%
 {%
 name={\ensuremath {O_0}},%

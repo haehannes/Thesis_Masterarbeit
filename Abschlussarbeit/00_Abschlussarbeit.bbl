@@ -726,6 +726,41 @@
       \endverb
       \keyw{spline,spherical geometry,rotation,quaternion,interpolation,in-betweening,approximation,animation,B-spline,Bézier curve}
     \endentry
+    \entry{rohmer_slerp}{online}{}
+      \name{author}{1}{}{%
+        {{hash=a2df9c2bffe93af1d9d3d0154852e24b}{%
+           family={Rohmer},
+           familyi={R\bibinitperiod},
+           given={Damien},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {EPITA / École Polytechnique}%
+      }
+      \strng{namehash}{a2df9c2bffe93af1d9d3d0154852e24b}
+      \strng{fullhash}{a2df9c2bffe93af1d9d3d0154852e24b}
+      \strng{bibnamehash}{a2df9c2bffe93af1d9d3d0154852e24b}
+      \strng{authorbibnamehash}{a2df9c2bffe93af1d9d3d0154852e24b}
+      \strng{authornamehash}{a2df9c2bffe93af1d9d3d0154852e24b}
+      \strng{authorfullhash}{a2df9c2bffe93af1d9d3d0154852e24b}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{subtitle}{Vorlesungsfolien Animation Descriptive}
+      \field{title}{Interpolation of Quaternion -- SLERP}
+      \field{urlday}{17}
+      \field{urlmonth}{7}
+      \field{urlyear}{2026}
+      \field{year}{2019}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://imagecomputing.net/old_storage/old_website2/teaching/2019_2020/semester_1/EPITA/class/01_animation_descriptive/html/content/107_interpolation_of_quaternion_slerp/index.html
+      \endverb
+      \verb{url}
+      \verb https://imagecomputing.net/old_storage/old_website2/teaching/2019_2020/semester_1/EPITA/class/01_animation_descriptive/html/content/107_interpolation_of_quaternion_slerp/index.html
+      \endverb
+    \endentry
     \entry{Bradski2008}{book}{}
       \name{author}{2}{}{%
         {{hash=a780b2fbd99e4f7ce78d33324e39d4c2}{%
@@ -964,8 +999,8 @@
       \strng{authornamehash}{6d2ee5676b068857db569005a9c6205a}
       \strng{authorfullhash}{6d2ee5676b068857db569005a9c6205a}
       \field{extraname}{1}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://docs.ros.org/en/humble/Concepts/Advanced/About-Middleware-Implementations.html}}
@@ -1319,8 +1354,8 @@
       \strng{authornamehash}{5f0619841020e468c25afad60a614d1f}
       \strng{authorfullhash}{c7e838524599fd5df0d661fc41d28306}
       \field{extraname}{1}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{Visual Simultaneous Localization and Mapping (VSLAM) technology has become a key technology in autonomous driving and robot navigation. Relying on camera sensors, VSLAM can provide a richer and more precise perception means, and its advancement has accelerated in recent years. However, current review studies are often limited to in-depth analysis of a specific module and lack a comprehensive review of the entire VSLAM framework. The VSLAM system consists of five core components: (1) The camera sensor module is responsible for capturing visual information about the surrounding environment. (2) The front-end module uses image data to roughly estimate the camera’s position and orientation. (3) The back-end module optimizes and processes the pose information estimated by the front-end. (4) The loop detection module is used to correct accumulated errors in the system. (5) The mapping module is responsible for generating environmental maps. This review provides a systematic and comprehensive analysis of the SLAM framework by taking the core components of VSLAM as the entry point. Deep learning brings new development opportunities for VSLAM, but it still needs to solve the problems of data dependence, cost and real-time in practical application. We deeply explore the challenges of combining VSLAM with deep learning and feasible solutions. This review provides a valuable reference for the development of VSLAM. This will help push VSLAM technology to become smarter and more efficient. Thus, it can better meet the needs of future intelligent autonomous systems in multiple fields.}
@@ -1527,8 +1562,8 @@
       \strng{authorbibnamehash}{f3e557e3175be5bfd7ac82a67d76426e}
       \strng{authornamehash}{64357f2b478ba206a20e1cef46a7ec2d}
       \strng{authorfullhash}{f3e557e3175be5bfd7ac82a67d76426e}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{International Journal of Robotic Research - IJRR}
@@ -1559,8 +1594,8 @@
       \strng{authorbibnamehash}{44074d3cb57c174a8b15ccc9a576ac0d}
       \strng{authornamehash}{44074d3cb57c174a8b15ccc9a576ac0d}
       \strng{authorfullhash}{44074d3cb57c174a8b15ccc9a576ac0d}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Factor Graphs and {GTSAM}: A Hands-on Introduction}
@@ -1685,8 +1720,8 @@
       \strng{authorbibnamehash}{1706de37ec1c6e8f22081681f5edb0cd}
       \strng{authornamehash}{288f14f017934f36c50a3331f71e78c6}
       \strng{authorfullhash}{1706de37ec1c6e8f22081681f5edb0cd}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{1573-0409}
@@ -1717,8 +1752,8 @@
       \strng{authorbibnamehash}{c6125254a79af02a8918da63fa8ea72e}
       \strng{authornamehash}{c6125254a79af02a8918da63fa8ea72e}
       \strng{authorfullhash}{c6125254a79af02a8918da63fa8ea72e}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{month}{5}
@@ -1757,8 +1792,8 @@
       \strng{authorbibnamehash}{862e73e9fd8d06467d53ea2c9dad8c02}
       \strng{authornamehash}{862e73e9fd8d06467d53ea2c9dad8c02}
       \strng{authorfullhash}{862e73e9fd8d06467d53ea2c9dad8c02}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{The Journal of Engineering}
@@ -1784,8 +1819,8 @@
       \strng{authorbibnamehash}{094486b9bf66b2d238e3937cc49fca84}
       \strng{authornamehash}{094486b9bf66b2d238e3937cc49fca84}
       \strng{authorfullhash}{094486b9bf66b2d238e3937cc49fca84}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{2005 IEEE Computer Society Conference on Computer Vision and Pattern Recognition (CVPR 05)}
@@ -1813,8 +1848,8 @@
       \strng{authorbibnamehash}{8f743eebb2f64f75592e54ba06f94320}
       \strng{authornamehash}{8f743eebb2f64f75592e54ba06f94320}
       \strng{authorfullhash}{8f743eebb2f64f75592e54ba06f94320}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{2011 IEEE International Conference on Robotics and Automation}
@@ -1856,8 +1891,8 @@
       \strng{authorbibnamehash}{6b32e1bf9c7e7852ddf0c09f63d04590}
       \strng{authornamehash}{8bb22dfdadf1d40228ea7f021e8b0711}
       \strng{authorfullhash}{6b32e1bf9c7e7852ddf0c09f63d04590}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{This paper presents a fiducial marker system specially appropriated for camera pose estimation in applications such as augmented reality and robot localization. Three main contributions are presented. First, we propose an algorithm for generating configurable marker dictionaries (in size and number of bits) following a criterion to maximize the inter-marker distance and the number of bit transitions. In the process, we derive the maximum theoretical inter-marker distance that dictionaries of square binary markers can have. Second, a method for automatically detecting the markers and correcting possible errors is proposed. Third, a solution to the occlusion problem in augmented reality applications is shown. To that aim, multiple markers are combined with an occlusion mask calculated by color segmentation. The experiments conducted show that our proposal obtains dictionaries with higher inter-marker distances and lower false negative rates than state-of-the-art systems, and provides an effective solution to the occlusion problem.}
@@ -1907,8 +1942,8 @@
       \strng{authorbibnamehash}{b3ef81b85b0ccccc4b9c20763eab8917}
       \strng{authornamehash}{b3ef81b85b0ccccc4b9c20763eab8917}
       \strng{authorfullhash}{b3ef81b85b0ccccc4b9c20763eab8917}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{0262-8856}
@@ -1934,8 +1969,8 @@
       \strng{authorbibnamehash}{e47a5c22c3c2e012514c9d5a4141b8b9}
       \strng{authornamehash}{e47a5c22c3c2e012514c9d5a4141b8b9}
       \strng{authorfullhash}{e47a5c22c3c2e012514c9d5a4141b8b9}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{{reComputer Mini J3011 -- Intelligent Edge AI Computer with NVIDIA\textsuperscript{®} Jetson\texttrademark{} Orin\texttrademark{} Nano 8GB}}

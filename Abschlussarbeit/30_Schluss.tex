@@ -1,5 +1,73 @@
-%!TeX root=00_Abschlussarbeit.tex
+%!TeX root=20_Hauptteil.tex
 
 \chapter{Zusammenfassung und Ausblick}
+\label{cap:zusammenfassung}
+Ziel dieser Arbeit war es, ein unbemanntes Fluggerät zu entwickeln, das sich ohne Satellitennavigation im Innenraum selbst lokalisiert und positioniert.
+Die dafür benötigte Positionsschätzung sollte extern berechnet und dem Flugcontroller als Referenz bereitgestellt werden.
+Darüber hinaus war ein Verfahren zu bestimmen, das eine unbekannte Umgebung vollständig erfasst oder eine bestehende Karte 
+ergänzt und deren Ergebnis der Positionsbestimmung zuführt.
 
-% TEXT %
+Als Positionsreferenz dienen AprilTags der Familie \texttt{tag36h11}, die auf bedruckter Klebefolie am Boden der Versuchsumgebung ausgebracht sind.
+Die Karte umfasst 97 Marker in vier Größen auf einer Fläche von 5,0~m~$\times$~3,9~m.
+Ihr Entwurf berücksichtigt, dass ab einer Mindestflughöhe von 1~m stets ausreichend Marker im Sichtfeld der Bodenkamera liegen 
+und sieht im Zentrum einen eigenen Startmarker vor.
+
+Zur Kartierung wurde eine Verarbeitungskette aus Bildaufnahme, Entzerrung, Offline-Detektion der Marker und anschließender Optimierung mit Tag\gls{slam} umgesetzt.
+Die Auswahl des Verfahrens erfolgte über eine Nutzwertanalyse der betrachteten \gls{slam}-Varianten.
+Die Kartierung läuft offline auf einem externen Rechner und erzeugt aus einer handgeführten Kameraaufnahme eine konsistente Karte aller Marker.
+Erprobt wurden drei Parametrierungen, deren Ergebnisse mit einer aus der Druckvorlage abgeleiteten Referenz verglichen wurden.
+Der mittlere räumliche Abstand der Markerzentren zur Referenz liegt zwischen 9,57~mm und 12,75~mm.
+
+Für die Positionsbestimmung im Flug wurde der Knoten \texttt{vision\_pose\_uxrce\_node} entwickelt.
+Er berechnet aus den Detektionen jeder Kamera je Marker eine Kamerapose in der Karte, verwirft widersprüchliche Schätzungen über eine Ausreißerfilterung nach dem \gls{ransac}-Prinzip und fusioniert die verbleibende Konsensmenge gewichtet.
+Die Gewichtung berücksichtigt dabei sowohl die Markergröße und den Abstand als auch die Güte der Karte am Ort des jeweiligen Markers.
+Anschließend werden die Kameraposen über die zuvor bestimmte extrinsische Kalibrierung auf den Mittelpunkt des \gls{uav}s transformiert, zeitlich geglättet und in die von \gls{px4} benötigte \gls{ned}/\gls{frd}-Konvention überführt.
+Die Übergabe an die Flugsteuerung erfolgt über \gls{uxrce} mit einer Rate von 50~Hz.
+Die rechenintensiven Schritte der Entzerrung und der Markerdetektion laufen über Isaac~ROS hardwarebeschleunigt auf dem Begleitrechner.
+
+Der Zustandsschätzer des Flugcontrollers wurde so parametriert, dass er die eingespeiste Pose in Position und Gierwinkel als Stützgröße nutzt, während Satellitennavigation und Magnetometer von der Fusion ausgeschlossen sind.
+Zur Flugführung wurde zusätzlich eine Bedienkonsole entwickelt, die Sollpositionen im Kartenkoordinatensystem vorgibt, den Systemzustand anzeigt und einen autonomen Demo-Modus bereitstellt.
+
+Die Erprobung des Gesamtsystems erfolgte in drei Flugversuchen in der Flughalle des \gls{oic}.
+Alle Versuche durchliefen den Ablauf aus Steigflug, Schwebeflug, autonomem Abfliegen eines Quadrats und Landung vollständig und ohne Eingriff über die Fernsteuerung.
+Die Auswertung der Protokolldateien zeigt, dass der Zustandsschätzer die eingespeiste Pose ohne erkennbare Verzerrung übernimmt und die gestützte Navigation zu keinem Zeitpunkt verlässt.
+
+Die Zielsetzung der Arbeit ist damit erreicht.
+Das entwickelte System bestimmt die Pose des \gls{uav}s im Flug allein aus Markerdetektionen und einer vorab erstellten Karte und stellt sie der Flugsteuerung als externe Referenz bereit.
+Ein autonomer Flug innerhalb des kartierten Bereichs ist ohne Satellitennavigation möglich.
+Sämtliche Anforderungen aus Abschnitt~\ref{sec:anforderungen} werden erfüllt, wobei die hardwarebeschleunigte Verarbeitung an die eingesetzte Jetson-Plattform gebunden bleibt.
+Der wesentliche Beitrag liegt im Zusammenführen quelloffener Komponenten zu einer durchgängigen Kette von der Kartierung bis zur Flugführung, deren Aufwand sich auf das Ausbringen der Marker und eine einmalige Aufnahme der Umgebung beschränkt.
+
+Die Grenzen des Systems sind ebenso deutlich.
+Ohne eine unabhängige Referenz der wahren Pose lässt sich die absolute Genauigkeit der Positionsbestimmung nicht quantifizieren, sodass die Bewertung des Flugbetriebs auf der Konsistenz der Fusion und dem erfolgreichen Durchlaufen des Versuchsablaufs beruht.
+Der nutzbare Flugraum ist auf den Bereich über der Karte und auf einen Höhenbereich beschränkt, in dem die Marker weder zu klein noch außerhalb des Sichtfelds liegen.
+Der mit dem Abstand zum Ursprung wachsende Kartenfehler begrenzt zudem die Ausdehnung, bis zu der sich eine Karte ohne zusätzliche Stützstellen sinnvoll erzeugen lässt.
+
+Aus diesen Grenzen ergeben sich mehrere Ansatzpunkte für weiterführende Arbeiten.
+Naheliegend ist, den Positionierungsknoten um eine Schätzung der Kovarianz zu erweitern und diese in der ausgegebenen Nachricht mitzuführen.
+Der Zustandsschätzer könnte die Vision-Stützung dann über \texttt{EKF2\_EV\_NOISE\_MD}~=~0 anhand der je Nachricht übergebenen Unsicherheit gewichten, statt für jede Messung dieselbe Standardabweichung anzusetzen.
+Schätzungen aus wenigen, weit entfernten oder ungünstig erfassten Markern gingen damit schwächer in die Fusion ein als solche aus mehreren gut sichtbaren Markern.
+Von einer solchen Gewichtung ist eine ruhigere Positionsregelung zu erwarten, da der Zustandsschätzer die Güte der einzelnen Messung berücksichtigt.
+
+Für die Kartierung empfiehlt sich das Vorgeben vermessener Referenzen etwa alle zwei bis drei Meter.
+Solche Stützstellen begrenzen die Strecke, über die sich der Positionsfehler gegenüber dem Ursprung aufbauen kann und ermöglichen damit die Kartierung größerer Umgebungen bei gleichbleibender Genauigkeit.
+Ergänzend sollte die Referenz künftig nicht allein aus der Druckvorlage abgeleitet, sondern durch eine unabhängige Vermessung der ausgebrachten Karte gewonnen werden, um den Anteil des Aufbringens am Gesamtfehler zu trennen.
+
+Der nutzbare Flugraum lässt sich durch eine Erweiterung der Karte vergrößern.
+Werden Marker zusätzlich an den Hallenwänden angebracht, kann die bislang über \texttt{cam2\_weight}~=~0 ausgeschlossene Frontkamera in die Fusion einbezogen werden.
+Die Positionsbestimmung ist für diesen Betrieb bereits ausgelegt, da sie die Detektionen beider Kameras unabhängig auswertet und anschließend gewichtet zusammenführt.
+Der Entwurf der Karte ist dabei auf die angestrebte Flughöhe und die eingesetzte Kamera abzustimmen, da Markergröße und Markerabstand gemeinsam mit Öffnungswinkel und Auflösung festlegen, in welchem Höhenbereich eine Lokalisierung möglich ist.
+Eine um größere Marker ergänzte Karte erweitert den Flugraum nach oben, während kleinere Marker den Betrieb in geringerer Höhe erlauben.
+
+Zu beachten bleibt der Zusammenhang zwischen Fluggeschwindigkeit und Sichtfeld.
+Ein Multicopter erzeugt seine translatorische Beschleunigung über eine Auslenkung um die Roll- und die Nickachse, sodass eine schnelle Bewegung mit einer entsprechend großen Neigung der Kamera einhergeht.
+Die Karte kann dabei aus dem Sichtfeld geraten, während die Marker zugleich unter einem flacheren Winkel und damit schlechter detektierbar abgebildet werden.
+Die zulässige Fluggeschwindigkeit ist daher gemeinsam mit der Kartenausdehnung und dem Öffnungswinkel der Kamera zu betrachten und gegebenenfalls zu begrenzen.
+
+Ein weiterführender Ansatz besteht darin, die Lokalisierung von der Karte zu lösen.
+Verfahren der visuell-inertialen Odometrie oder ein \gls{lidar}-gestütztes \gls{slam} bestimmen die Pose aus der natürlichen Struktur der Umgebung und benötigen keine vorab ausgebrachten Marker.
+In Verbindung mit der bestehenden Markerkarte ließe sich beides kombinieren, indem die Marker als absolute und driftfreie Stützstellen dienen, während das kartenunabhängige Verfahren den Flug außerhalb des markierten Bereichs trägt.
+Damit wäre der Betrieb nicht länger auf die kartierte Fläche beschränkt.
+
+Langfristig bildet die entwickelte Positionsreferenz die Grundlage für weiterführende autonome Funktionen im Innenraum.
+Mit einer fortlaufend verfügbaren Pose im Kartenkoordinatensystem lassen sich Flugaufgaben planen und wiederholbar ausführen.

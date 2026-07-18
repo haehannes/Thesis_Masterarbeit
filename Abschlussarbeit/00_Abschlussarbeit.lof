@@ -5,26 +5,35 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Komponenten des Pixhawk 6X: FMU-Modul und Baseboard V2A~\blx@tocontentsinit {0}\cite {holybro_x650}}}{3}{figure.caption.8}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Vergleich der Koordinatensysteme~\blx@tocontentsinit {0}\cite {holybro_x650}}}{6}{figure.caption.10}%
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Roll, Pitch und Yaw am Beispiel Holybro X650~\blx@tocontentsinit {0}\cite {holybro_x650}}}{7}{figure.caption.11}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Vergleich der Koordinatensysteme~\blx@tocontentsinit {0}\cite {holybro_x650}}}{6}{figure.caption.14}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Rollen, Nicken und Gieren am Beispiel Holybro X650~\blx@tocontentsinit {0}\cite {holybro_x650}}}{7}{figure.caption.15}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Sphärische lineare Interpolation zwischen den Quaternionen $\mathbf {q}_0$ und $\mathbf {q}_1$~\blx@tocontentsinit {0}\cite {rohmer_slerp}}}{10}{figure.caption.17}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Veranschaulichung des Loop Closure-Effekts: (a) Reale Trajektorie ohne akkumulierten Fehler. (b) Geschätzte Trajektorie mit akkumuliertem Drift ohne Loop Closure. (c) Korrigierte Trajektorie nach Anwendung von Loop Closure mit reduziertem akkumuliertem Drift. vgl.~\blx@tocontentsinit {0}\cite {gong_loop_closure}}}{17}{figure.caption.18}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Vereinfachter Faktorgraph eines \gls {slam}-Problems, vgl.~\blx@tocontentsinit {0}\cite {Lai2022,Dellaert2017,Cai2024}}}{17}{figure.caption.20}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Übersicht gängiger Fiducial-Marker: a) ARTag; b) AprilTag; c) ArUco; d) STag~\blx@tocontentsinit {0}\cite {STag_Loipfuehrer2022,Artag_Bild}}}{19}{figure.caption.22}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Veranschaulichung des Loop-Closure-Effekts: (a) Reale Trajektorie ohne akkumulierten Fehler. (b) Geschätzte Trajektorie mit akkumuliertem Drift ohne Loop-Closure. (c) Korrigierte Trajektorie nach Anwendung von Loop-Closure mit reduziertem akkumuliertem Drift. vgl.~\blx@tocontentsinit {0}\cite {gong_loop_closure}}}{18}{figure.caption.19}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Vereinfachter Faktorgraph eines \gls {slam}-Problems, vgl.~\blx@tocontentsinit {0}\cite {Lai2022,Dellaert2017,Cai2024}}}{18}{figure.caption.21}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Übersicht gängiger Fiducial-Marker: a) ARTag; b) AprilTag; c) ArUco; d) STag~\blx@tocontentsinit {0}\cite {STag_Loipfuehrer2022,Artag_Bild}}}{20}{figure.caption.23}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Physischer Aufbau des Fluggeräts mit den verbauten Komponenten}}{22}{figure.caption.28}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Hardware-Blockschaltbild mit Anschlussverdrahtung}}{24}{figure.caption.37}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Softwarearchitektur mit den Strängen zur Lokalisierung und zur Kartierung}}{25}{figure.caption.38}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Flughalle AerodrOhm am \gls {oic} der Technischen Hochschule Nürnberg~\blx@tocontentsinit {0}\cite {aerodrohm}}}{26}{figure.caption.39}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Physischer Aufbau des \gls {uav}s mit den verbauten Komponenten}}{23}{figure.caption.29}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Hardware-Blockschaltbild mit Anschlussverdrahtung}}{25}{figure.caption.38}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Softwarearchitektur mit den Strängen zur Lokalisierung und zur Kartierung}}{25}{figure.caption.39}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Informationsfluss im Flugbetrieb}}{27}{figure.caption.40}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Flughalle AerodrOhm am \gls {oic} der Technischen Hochschule Nürnberg~\blx@tocontentsinit {0}\cite {aerodrohm}}}{28}{figure.caption.41}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Dreistufiger Ablauf der Offline-Kartierung}}{31}{figure.caption.46}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Dreistufiger Ablauf der Offline-Kartierung}}{33}{figure.caption.48}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Nodes und Topics der Positionierung, aufgeteilt nach Host und Container}}{41}{figure.caption.49}%
-\contentsline {figure}{\numberline {6.2}{\ignorespaces Drohne in der Kalibrierbox}}{44}{figure.caption.51}%
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Nodes und Topics der Positionierung, aufgeteilt nach Host und Container}}{43}{figure.caption.51}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Drohne in der Kalibrierbox}}{46}{figure.caption.52}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {7.1}{\ignorespaces Tag-Karte der OIC-Flughalle. Der Kartenursprung (Tag~0) ist grün umrandet, die roten Pfeile zeigen exemplarisch das sternförmige Abgehen zur Erzeugung von Loop-Closures.}}{54}{figure.caption.52}%
-\contentsline {figure}{\numberline {7.2}{\ignorespaces Überlagerung der in Versuch~1 erzeugten Karte mit der Sollkarte in der Draufsicht.}}{58}{figure.caption.57}%
-\contentsline {figure}{\numberline {7.3}{\ignorespaces Überlagerung der in Versuch~2 erzeugten Karte mit der Sollkarte in der Draufsicht.}}{59}{figure.caption.58}%
+\contentsline {figure}{\numberline {7.1}{\ignorespaces Tag-Karte der OIC-Flughalle. Der Kartenursprung (Tag~0) ist grün umrandet, die roten Pfeile zeigen exemplarisch das sternförmige Abgehen zur Erzeugung von Loop-Closures.}}{55}{figure.caption.60}%
+\contentsline {figure}{\numberline {7.2}{\ignorespaces Überlagerung der in Versuch~1 erzeugten Karte mit der Ground Truth Referenz}}{59}{figure.caption.67}%
+\contentsline {figure}{\numberline {7.3}{\ignorespaces Überlagerung der in Versuch~2 erzeugten Karte mit der Ground Truth Referenz}}{59}{figure.caption.68}%
+\contentsline {figure}{\numberline {7.4}{\ignorespaces Überlagerung der in Versuch~3 erzeugten Karte mit der Ground Truth Referenz}}{60}{figure.caption.69}%
+\contentsline {figure}{\numberline {7.5}{\ignorespaces Euklidische Distanz der Tag-Positionen zwischen Kartierung und Ground Truth in Abhängigkeit vom Abstand des jeweiligen Markers zum Ursprung. Dargestellt sind alle drei Kartierungsläufe mit je einer Ausgleichsgeraden durch den Ursprung.}}{62}{figure.caption.71}%
+\contentsline {figure}{\numberline {7.6}{\ignorespaces Das \gls {uav} im Schwebeflug über der Markerkarte der OIC-Flughalle.}}{67}{figure.caption.73}%
+\contentsline {figure}{\numberline {7.7}{\ignorespaces Berechnete Flugbahn des Flugcontrollers.}}{68}{figure.caption.74}%
+\contentsline {figure}{\numberline {7.8}{\ignorespaces Zeitliche Belegung der Stützquelen des \gls {ekf}s}}{69}{figure.caption.76}%
+\contentsline {figure}{\numberline {7.9}{\ignorespaces Verlauf des gespeicherten Kalman-Gains der Vision-Stützung.}}{69}{figure.caption.78}%
+\contentsline {figure}{\numberline {7.10}{\ignorespaces Verlauf des aus den geloggten Positionswerten}}{71}{figure.caption.80}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
