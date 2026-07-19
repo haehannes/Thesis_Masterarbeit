@@ -17,7 +17,7 @@ Ab den 2000er Jahren fanden \gls{uav}s zunehmend Eingang in zivile Anwendungsgeb
 Der grundlegende Aufbau eines Flugroboters wird im Folgenden am Beispiel der Holybro X650 erläutert.
 Der Grundrahmen eines \gls{uav} dient als mechanische Basis für die Montage aller weiteren Komponenten.
 Das Design des Rahmens beeinflusst maßgeblich die Flugeigenschaften des Geräts.
-Das in dieser Arbeit verwendete Modell ist als Senkrechtstarter konzipiert und basiert auf einem X-förmigen Quadcopter-Rahmen.
+Das in dieser Arbeit verwendete Modell ist als Senkrechtstarter konzipiert und basiert auf einem X-förmigen Multikopter-Rahmen.
 Die wesentlichen Bestandteile des Rahmens umfassen die Ausleger, das Landegestell sowie die zentrale Montageplattform für die Elektronik.
 Abbildung~\ref{fig:roll_pitch_yaw} zeigt unter anderem den in dieser Arbeit verwendeten Grundrahmen mit Anbauteilen~\cite{Wu2021, holybro_x650}.
 
@@ -105,11 +105,13 @@ Für diese Arbeit sind die folgenden Schnittstellen relevant.
 Die Ethernet-Schnittstelle dient der Kommunikation zwischen dem 
 Flugcontroller und dem Begleitrechner, über welche die extern berechnete Positionsschätzung 
 an den Zustandsschätzer übermittelt wird.
+Die Kommunikation mit dem Begleitrechner erfolgt über die \gls{uxrce}-Schnittstelle, 
+die die internen \gls{uorb}-Topics von \gls{px4} als ROS2-Topics bereitstellt~\cite{px4_uxrce_dds}.
 Die genaue Anbindung wird in Kapitel~\ref{cap:systembeschreibung} beschrieben.
  
-Die Kommunikation mit der Bodenstation erfolgt über das MAVLink-Protokoll.
+Die Kommunikation mit der \gls{qgc} erfolgt über das MAVLink-Protokoll.
 MAVLink ist ein leichtgewichtiges Nachrichtenprotokoll, das speziell für die 
-Kommunikation zwischen Flugcontrollern und Bodenstationen entwickelt wurde.
+Kommunikation zwischen Flugcontrollern und \gls{qgc}en entwickelt wurde.
 Es serialisiert Telemetriedaten, Steuerbefehle und Sensorwerte in Binärpakete, 
 die über serielle Schnittstellen oder \gls{udp} übertragen werden~\cite{MAVLink,px4_mavlink}.
 
@@ -142,7 +144,7 @@ Die in der eingesetzten Revision verbauten Sensoren sind in Tabelle
 \toprule
 \textbf{Sensortyp} & \textbf{Bauteil} \\
 \midrule
-        Beschleunigung/Gyroskop & ICM-20649 / BMI088 \\
+        Beschleunigung/Gyroskop & ICM-20649 oder BMI088 \\
         Beschleunigung/Gyroskop & ICM-42688-P \\
         Beschleunigung/Gyroskop & ICM-42670-P \\
         Barometer & 2$\times$ BMP388 \\
@@ -215,7 +217,7 @@ Das Kamerakoordinatensystem ist so definiert, dass die Z-Achse entlang der optis
 die X-Achse nach rechts und die Y-Achse nach unten auf der Bildebene zeigt.
 Der Ursprung befindet sich im optischen Zentrum der Kamera~\cite{Szeliski2022}.
 
-Das Fiducial-Koordinatensystem ist in dieser Arbeit so definiert, dass sich der Ursprung im Mittelpunkt der Markermarke befindet.
+Das Fiducial-Koordinatensystem ist in dieser Arbeit so definiert, dass sich der Ursprung im Mittelpunkt des Markers befindet.
 Die Z-Achse zeigt senkrecht aus der Markerebene heraus, die X-Achse verläuft nach rechts und die Y-Achse nach oben in der Markerebene.
 Die in den Kapiteln~\ref{cap:implementierung_kartierung} und~\ref{cap:implementierung_positionsbestimmung} beschriebenen Implementierungen
 folgen der in \gls{ros2} standardisierten \gls{enu}/\gls{flu}-Konvention.
@@ -237,8 +239,8 @@ Die Orientierung eines Körpers kann auf verschiedene Weisen dargestellt werden.
 Im Folgenden werden die in dieser Arbeit relevanten Darstellungsformen erläutert.
 
 \subsection{Euler-Winkel}
-Zur Beschreibung der Orientierung werden in dieser Arbeit Euerl-Winkel verwendet.
-Dieser repräsentieren die Rotationen um die Hauptachsen des \gls{uav}-Koordinatensystems und werden durch Roll (\gls{sym:roll}), Pitch (\gls{sym:pitch}) und Yaw (\gls{sym:yaw}) charakteriiert.
+Zur Beschreibung der Orientierung werden in dieser Arbeit Euler-Winkel verwendet.
+Diese repräsentieren die Rotationen um die Hauptachsen des \gls{uav}-Koordinatensystems und werden durch Roll (\gls{sym:roll}), Pitch (\gls{sym:pitch}) und Yaw (\gls{sym:yaw}) charakterisiert.
 Abbildung~\ref{fig:roll_pitch_yaw} zeigt die Definition dieser Winkel am Beispiel der Holybro X650.
 Die Pfeilrichtungen entsprechen der positiven Achs- oder Drehrichtung im rechtshändigen Koordinatensystem.
 \begin{figure}[htbp]
@@ -254,7 +256,7 @@ Die Orientierung im Raum kann ebenfalls als Quaternion dargestellt werden.
 Quaternionen bieten gegenüber Euler-Winkeln den Vorteil, dass sie keine Singularitäten (Gimbal Lock) aufweisen.
 Beim Gimbal Lock fallen zwei der drei Drehachsen bei einem Nickwinkel von 90~Grad zusammen, 
 wodurch ein Freiheitsgrad der Orientierung verloren geht und die Lage nicht mehr eindeutig beschrieben werden kann.
-Quaternionen stellen eine Erweiterung des komplexen Zahlenraums dar und werden durch die Gleichung~\eqref{eq:quaternion} definiert,
+Quaternionen stellen eine Erweiterung des komplexen Zahlenraums dar und werden durch die Gleichung~\ref{eq:quaternion} definiert,
 \begin{equation}
 \mathbf{q} = w + ix + jy + kz
 \label{eq:quaternion}
@@ -330,7 +332,7 @@ ji = -k , \quad kj = -i , \quad ik = -j
 \label{eq:quaternion_regeln3}
 \end{equation}
 
-Addition und Multiplikation von Quaternionen sind durch die Gleichungen~\eqref{eq:quaternion_addition} und~\eqref{eq:quaternion_multiplikation} definiert.
+Addition und Multiplikation von Quaternionen sind durch die Gleichungen~\ref{eq:quaternion_addition} und~\ref{eq:quaternion_multiplikation} definiert.
 \begin{equation}
 q_1 + q_2 = (w_1 + w_2) + i(x_1 + x_2) + j(y_1 + y_2) + k(z_1 + z_2)
 \label{eq:quaternion_addition}
@@ -345,26 +347,26 @@ q_1 \cdot q_2 = &(w_1 w_2 - x_1 x_2 - y_1 y_2 - z_1 z_2) \\
 \label{eq:quaternion_multiplikation}
 \end{equation}
 
-Das Einheitsquaternion \gls{sym:q} beschreibt eine Rotation um den Winkel \gls{sym:roll} über eine normierte Rotationsachse
-$\mathbf{v} = (v_x, v_y, v_z)^T$ und wird durch Gleichung~\eqref{eq:einheitsquaternion} beschrieben~\cite{2016}.
+Das Einheitsquaternion \gls{sym:q} beschreibt eine Rotation um den Winkel \gls{sym:drehwinkel} über eine normierte Rotationsachse
+$\mathbf{v} = (v_x, v_y, v_z)^T$ und wird durch Gleichung~\ref{eq:einheitsquaternion} beschrieben~\cite{2016}.
 \begin{equation}
-\mathbf{q} = \left(\cos\frac{\phi}{2},\ \mathbf{v} \cdot \sin\frac{\phi}{2}\right) = \left(\cos\frac{\phi}{2},\ v_x \sin\frac{\phi}{2},\ v_y \sin\frac{\phi}{2},\ v_z \sin\frac{\phi}{2}\right)
+\mathbf{q} = \left(\cos\frac{\varphi}{2},\ \mathbf{v} \cdot \sin\frac{\varphi}{2}\right) = \left(\cos\frac{\varphi}{2},\ v_x \sin\frac{\varphi}{2},\ v_y \sin\frac{\varphi}{2},\ v_z \sin\frac{\varphi}{2}\right)
 \label{eq:einheitsquaternion}
 \end{equation}
 
-Der Winkel \(\theta\) zwischen zwei Einheitsquaternionen $\mathbf{q}_1$ und $\mathbf{q}_2$ ergibt sich aus deren Skalarprodukt gemäß Gleichung~\eqref{eq:quaternion_winkel}.
+Der Winkel \(\theta\) zwischen zwei Einheitsquaternionen $\mathbf{q}_1$ und $\mathbf{q}_2$ ergibt sich aus deren Skalarprodukt gemäß Gleichung~\ref{eq:quaternion_winkel}.
 \begin{equation}
 \theta = \arccos\!\left(w_1 w_2 + x_1 x_2 + y_1 y_2 + z_1 z_2\right)
 \label{eq:quaternion_winkel}
 \end{equation}
 
-Die Konjugation eines Quaternions ist analog zu den komplexen Zahlen durch Gleichung~\eqref{eq:quaternion_konjugiert} definiert.
+Die Konjugation eines Quaternions ist analog zu den komplexen Zahlen durch Gleichung~\ref{eq:quaternion_konjugiert} definiert.
 \begin{equation}
 \bar{\mathbf{q}} = (w, -x, -y, -z)
 \label{eq:quaternion_konjugiert}
 \end{equation}
 
-Für die Rotation eines beliebigen Punktes $\mathbf{p} = (0, p_x, p_y, p_z)$ mittels eines Rotationsquaternions $\mathbf{q}$ wird Gleichung~\eqref{eq:quaternion_rotation} angewendet.~\cite{Quan2017}
+Für die Rotation eines beliebigen Punktes $\mathbf{p} = (0, p_x, p_y, p_z)$ mittels eines Rotationsquaternions $\mathbf{q}$ wird Gleichung~\ref{eq:quaternion_rotation} angewendet.~\cite{Quan2017}
 \begin{equation}
 \mathbf{p}' = \mathbf{q} \cdot \mathbf{p} \cdot \bar{\mathbf{q}}
 \label{eq:quaternion_rotation}
@@ -404,7 +406,7 @@ Ist dieses negativ, zeigt $\mathbf{q}_i$ in die entgegengesetzte Richtung wie $\
 \label{eq:quaternion_vorzeichen}
 \end{equation}
 Nach dieser Angleichung zeigen alle Quaternionen in dieselbe Richtung und können gewichtet gemittelt werden.
-Mit den Gewichten \gls{sym:weight} $\ge 0$ ergibt sich das gemittelte Quaternion \gls{sym:qbar} aus der gewichteten Summe, die anschließend gemäß Gleichung~\eqref{eq:quaternion_normalisierung} normiert wird:
+Mit den Gewichten \gls{sym:weight} $\ge 0$ ergibt sich das gemittelte Quaternion \gls{sym:qbar} aus der gewichteten Summe, die anschließend gemäß Gleichung~\ref{eq:quaternion_normalisierung} normiert wird:
 \begin{equation}
 \bar{\mathbf{q}} = \frac{\displaystyle\sum_{i} w_i\,\mathbf{q}_i}{\left\lVert \displaystyle\sum_{i} w_i\,\mathbf{q}_i \right\rVert}.
 \label{eq:quaternion_mittelung}
@@ -461,11 +463,11 @@ Dabei ist \(\theta\) der Winkel zwischen den beiden Quaternionen und \gls{sym:al
 Für $\alpha = 0$ liefert Gleichung \ref{eq:slerp} $\mathbf{q}_0$, für $\alpha = 1$ entsprechend $\mathbf{q}_1$.
 Da ein Quaternion und sein Negatives dieselbe Rotation beschreiben, wird zunächst sichergestellt, dass
 entlang des kürzeren Bogens interpoliert wird, indem das Vorzeichen von $\mathbf{q}_1$ bei negativem
-Skalarprodukt nach Gleichung~\eqref{eq:quaternion_vorzeichen} an $\mathbf{q}_0$ angeglichen wird~\cite{Shoemake1985}.
+Skalarprodukt nach Gleichung~\ref{eq:quaternion_vorzeichen} an $\mathbf{q}_0$ angeglichen wird~\cite{Shoemake1985}.
 
 
 
-Für sehr kleine Winkel $\theta$ geht $\sin\theta$ gegen null, wodurch Gleichung~\eqref{eq:slerp} numerisch instabil wird~\cite{Shoemake1985}.
+Für sehr kleine Winkel $\theta$ geht $\sin\theta$ gegen null, wodurch Gleichung~\ref{eq:slerp} numerisch instabil wird~\cite{Shoemake1985}.
 
 
 \subsection{Rodrigues-Parameter}
@@ -473,32 +475,32 @@ Für sehr kleine Winkel $\theta$ geht $\sin\theta$ gegen null, wodurch Gleichung
 Ein Rodrigues-Vektor ist eine alternative Möglichkeit, eine Rotation im Raum zu beschreiben.
 Die Rotation wird durch einen Vektor \glsadd{sym:r}$\mathbf{r} = (r_x, r_y, r_z)^T$ beschrieben,
 dessen Richtung die Rotationsachse und dessen Betrag den Rotationswinkel angibt~\cite{Bradski2008}.
-Der Rotationswinkel \gls{sym:roll} ergibt sich aus dem Betrag des Rodrigues-Vektors gemäß Gleichung~\eqref{eq:rodrigues_parameter_betrag} und wird 
+Der Rotationswinkel \gls{sym:drehwinkel} ergibt sich aus dem Betrag des Rodrigues-Vektors gemäß Gleichung~\ref{eq:rodrigues_parameter_betrag} und wird 
 gegen den Uhrzeigersinn um die Rotationsachse gemessen~\cite{Dai2015a}.
 \begin{equation}
-\phi = \|\mathbf{r}\| = \sqrt{r_x^2 + r_y^2 + r_z^2}
+\varphi = \|\mathbf{r}\| = \sqrt{r_x^2 + r_y^2 + r_z^2}
 \label{eq:rodrigues_parameter_betrag}
 \end{equation}
 
 Für die Umrechnung in ein Quaternion muss die Rotationsachse \glsadd{sym:vhat}$\mathbf{v}$ zunächst normiert werden:
 \begin{equation}
-\hat{\mathbf{v}} = \frac{\mathbf{r}}{\phi} = \left(\frac{r_x}{\phi},\ \frac{r_y}{\phi},\ \frac{r_z}{\phi}\right)^T
+\hat{\mathbf{v}} = \frac{\mathbf{r}}{\varphi} = \left(\frac{r_x}{\varphi},\ \frac{r_y}{\varphi},\ \frac{r_z}{\varphi}\right)^T
 \label{eq:rodrigues_parameter_normierung}
 \end{equation}
 
 Die Umrechnung in ein Einheitsquaternion lässt sich folgendermaßen beschreiben:
 \begin{equation}
-\mathbf{q} = \left(\cos\frac{\phi}{2},\ \hat{v}_x \cdot \sin\frac{\phi}{2},\ \hat{v}_y \cdot \sin\frac{\phi}{2},\ \hat{v}_z \cdot \sin\frac{\phi}{2}\right)
+\mathbf{q} = \left(\cos\frac{\varphi}{2},\ \hat{v}_x \cdot \sin\frac{\varphi}{2},\ \hat{v}_y \cdot \sin\frac{\varphi}{2},\ \hat{v}_z \cdot \sin\frac{\varphi}{2}\right)
 \label{eq:rodrigues_quaternion}
 \end{equation}
 
 Eingesetzt ergibt sich:
 \begin{equation}
-\mathbf{q} = \left(\cos\frac{\phi}{2},\ \frac{r_x}{\phi}\sin\frac{\phi}{2},\ \frac{r_y}{\phi}\sin\frac{\phi}{2},\ \frac{r_z}{\phi}\sin\frac{\phi}{2}\right)
+\mathbf{q} = \left(\cos\frac{\varphi}{2},\ \frac{r_x}{\varphi}\sin\frac{\varphi}{2},\ \frac{r_y}{\varphi}\sin\frac{\varphi}{2},\ \frac{r_z}{\varphi}\sin\frac{\varphi}{2}\right)
 \label{eq:rodrigues_quaternion_eingesetzt}
 \end{equation}
 
-Mit Hilfe der Gleichungen~\eqref{eq:rodrigues_parameter_betrag} und~\eqref{eq:rodrigues_quaternion_eingesetzt} lässt sich die Umrechnung 
+Mit Hilfe der Gleichungen~\ref{eq:rodrigues_parameter_betrag} und~\ref{eq:rodrigues_quaternion_eingesetzt} lässt sich die Umrechnung 
 von Rodrigues-Parametern in ein Quaternion durchführen~\cite{Dai2015a}.
 
 \section{Transformation von Koordinatensystemen}
@@ -506,7 +508,7 @@ Um die genaue Position des \gls{uav}s bestimmen zu können, sind mehrere Koordin
 Die Darstellung eines im Koordinatensystem~$a$ gegebenen Punktes \glsadd{sym:point}$^a\mathbf{r}$ im Koordinatensystem~$b$ ist möglich, sofern Position und Orientierung des 
 Koordinatensystems~$a$ relativ zum Koordinatensystem~$b$ bekannt sind.
 Ziel ist es, aus dieser Beziehung eine Transformationsmatrix abzuleiten, die zugleich die Rotation und die Translation zwischen den beiden Systemen beschreibt~\cite{2016}.
-Die Orientierung des Systems~$a$ relativ zum System~$b$ wird durch eine Rotationsmatrix \glsadd{sym:Rot}$^b\mathbf{R}_a \in \mathbb{R}^{3}$ beschrieben.
+Die Orientierung des Systems~$a$ relativ zum System~$b$ wird durch eine Rotationsmatrix \glsadd{sym:Rot}$^b\mathbf{R}_a \in \mathbb{R}^{3 \times 3}$ beschrieben.
 Die Lage des Ursprungs von~$a$ relativ zu~$b$ wird durch den Translationsvektor \glsadd{sym:trans}$^b\mathbf{t}_a \in \mathbb{R}^{3}$ angegeben.
 Ein im System~$a$ ausgedrückter Punkt $^a\mathbf{r}$ lässt sich dann mittels
 \begin{equation}
@@ -541,7 +543,7 @@ Ihre Inverse $\left(^b\mathbf{T}_a\right)^{-1} = {^a\mathbf{T}_b}$ ergibt sich i
 \end{equation}
 
 sodass keine allgemeine Matrixinversion erforderlich ist~\cite{Lynch2017}.
-Damit lässt sich Gleichung~\eqref{eq:trafo_punkt} kompakt schreiben als
+Damit lässt sich Gleichung~\ref{eq:trafo_punkt} kompakt schreiben als
 \begin{equation}
 ^b\tilde{\mathbf{r}} = {^b\mathbf{T}_a}\,{^a\tilde{\mathbf{r}}}.
 \label{eq:trafo_homogen}
@@ -591,7 +593,7 @@ Zu Initialisierung muss eine Anfangsbedingung festgelegt werden.
 Hierfür benötigt das System einen initialen Zustandsschätzwert $\hat{\mathbf{x}}_0^{+}$ sowie die zugehörige Unsicherheit in Form der 
 Zustandskovarianzmatrix \glsadd{sym:P}$\mathbf{P}_0^{+}$~\cite{Bang18}.
 In der Prädiktionsphase wird der Zustand des Systems zum nächsten Zeitpunkt auf Basis eines mathematischen Modells berechnet.
-Der Zustand $\hat{\mathbf{x}}_k^{-}$ wird dabei aus dem vorherigen Zustand $\hat{\mathbf{x}}_{k-1}^{+}$ und der Steuereingabe/Messung 
+Der Zustand $\hat{\mathbf{x}}_k^{-}$ wird dabei aus dem vorherigen Zustand $\hat{\mathbf{x}}_{k-1}^{+}$ und der Steuereingabe 
 \glsadd{sym:u}$\mathbf{u}_{k-1}$ über die nichtlineare Modellfunktion \glsadd{sym:f}$f$ vorhergesagt:
 \begin{equation}
     \hat{\mathbf{x}}_k^{-} = f\left(\hat{\mathbf{x}}_{k-1}^{+}, \mathbf{u}_{k-1}\right)
@@ -657,21 +659,21 @@ Die Menge aller konsistenten Punkte wird als Konsensmenge bezeichnet, ihre Eleme
 \label{sec:ros2}
 
 \gls{ros2} ist ein Open-Source-Framework für die Entwicklung modularer, verteilter Anwendungen in der Robotik.
-Es stellt eine einheitliche Middleware bereit, über die verteilte Software-Komponenten in Form einzelner \textit{Nodes} miteinander kommunizieren.
+Es stellt eine einheitliche Middleware bereit, über die verteilte Software-Komponenten in Form einzelner Nodes miteinander kommunizieren.
 In dieser Arbeit kommen mit \gls{ros2} Humble und \gls{ros2} Jazzy zwei verschiedene Versionen zum Einsatz.~\cite{ROS2MiddlewareHumble}
 
 
-Die grundlegende Kommunikationseinheit in \gls{ros2} ist der \textit{Node}, der eine spezifische Aufgabe übernimmt, 
+Die grundlegende Kommunikationseinheit in \gls{ros2} ist der Node, der eine spezifische Aufgabe übernimmt, 
 beispielsweise die Kamerabildverarbeitung.
-\textit{Nodes} tauschen Daten über \textit{Topics} nach dem Publish-Subscribe-Prinzip aus.
-Ein \textit{Node}, der Daten erzeugt, veröffentlicht diese als \textit{Publisher} auf einem \textit{Topic}. 
-Ein oder mehrere \textit{Nodes} empfangen die Nachrichten über eine \textit{Subscription} asynchron.
-\textit{Topics} sind typisiert, das heißt jedes \textit{Topic} überträgt Nachrichten eines fest definierten Nachrichtentyps, beispielsweise 
+Nodes tauschen Daten über Topics nach dem Publish-Subscribe-Prinzip aus.
+Ein Node, der Daten erzeugt, veröffentlicht diese als Publisher auf einem Topic. 
+Ein oder mehrere Nodes empfangen die Nachrichten über eine Subscription asynchron.
+Topics sind typisiert, das heißt jedes Topic überträgt Nachrichten eines fest definierten Nachrichtentyps, beispielsweise 
 \texttt{geometry\_msgs/PoseStamped} für Positionsdaten oder \texttt{sensor\_msgs/Image} für Kamerabilder.~\cite{ROS2Nodes,ROS2Topics}
 
 
-\gls{ros2} ermöglicht die Aufzeichnung von \textit{Topic}-Daten in \textit{Bag-Dateien} mittels des Werkzeugs \texttt{rosbag2}.
-Aufgezeichnete Bags können anschließend offline wiedergegeben werden, wobei die aufgezeichneten \textit{Topics} wieder auf denselben \textit{Topics} im System veröffentlicht werden.\cite{ROS2Rosbag2}
+\gls{ros2} ermöglicht die Aufzeichnung von Topic-Daten in Bag-Dateien mittels des Werkzeugs rosbag2.
+Aufgezeichnete Bags können anschließend offline wiedergegeben werden, wobei die aufgezeichneten Topics wieder auf denselben Topics im System veröffentlicht werden.\cite{ROS2Rosbag2}
 
 
 

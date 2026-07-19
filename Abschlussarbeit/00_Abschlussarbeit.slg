@@ -1,11 +1,12 @@
 ;; This logfile was generated automatically by `xindy'
-;; at 18.07.2026  02:12:01
-;; Indexstyle: "/tmp/dGLNY3miza", Rawindex: "/tmp/byzFTGAHDW", Output: "00_Abschlussarbeit.syi"
+;; at 19.07.2026  19:39:56
+;; Indexstyle: "/tmp/wXseTV6a2o", Rawindex: "/tmp/nN8dgIT1NI", Output: "00_Abschlussarbeit.syi"
 
 
 Building indexentry-tree:
 Hierdepth of index is :TREE
 
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
@@ -59,6 +60,7 @@ Letter-group: "†010" -> "C"
 Letter-group: "†020" -> "C"
 Letter-group: "†030" -> "C"
 Letter-group: "†040" -> "C"
+Letter-group: "†035" -> "C"
 Letter-group: "†080" -> "C"
 Letter-group: "†090" -> "C"
 Letter-group: "†100" -> "C"

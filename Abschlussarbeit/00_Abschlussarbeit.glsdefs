@@ -1426,6 +1426,34 @@ parent={},%
 %
 }%
 
+\glsdefs@newdocentry{qgc}%
+{%
+name={\acronymfont {\glsentryshort {qgc}}},%
+sort={QGC},%
+type={acronym},%
+first={QGC},%
+firstplural={QGCs},%
+text={QGC},%
+plural={QGCs},%
+description={QGroundControl},%
+descriptionplural={QGroundControl},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={QGroundControl},%
+longplural={QGroundControls},%
+short={QGC},%
+shortplural={QGCs},%
+counter={page},%
+parent={},%
+%
+}%
+
 \glsdefs@newdocentry{sym:O0}%
 {%
 name={\ensuremath {O_0}},%
@@ -1605,6 +1633,34 @@ text={\protect \ensuremath  {\psi }},%
 plural={\protect \ensuremath  {\psi }s},%
 description={Yaw-Winkel (Drehung um die Z-Achse)},%
 descriptionplural={Yaw-Winkel (Drehung um die Z-Achse)},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{sym:drehwinkel}%
+{%
+name={\ensuremath {\varphi }},%
+sort={C035},%
+type={symbols},%
+first={\protect \ensuremath  {\varphi }},%
+firstplural={\protect \ensuremath  {\varphi }s},%
+text={\protect \ensuremath  {\varphi }},%
+plural={\protect \ensuremath  {\varphi }s},%
+description={Drehwinkel der Achse-Winkel-Darstellung},%
+descriptionplural={Drehwinkel der Achse-Winkel-Darstellung},%
 symbol={\relax },%
 symbolplural={\relax },%
 user1={},%
@@ -3382,91 +3438,4 @@ longplural={},%
 short={},%
 shortplural={},%
 counter={page},%
-parent={},%
-%
-}%
-
-\glsdefs@newdocentry{sym:sigmapos0}%
-{%
-name={\ensuremath {\sigma _{\mathrm {pos},0}}},%
-sort={M010},%
-type={symbols},%
-first={\protect \ensuremath  {\sigma _{\protect \mathrm  {pos},0}}},%
-firstplural={\protect \ensuremath  {\sigma _{\protect \mathrm  {pos},0}}s},%
-text={\protect \ensuremath  {\sigma _{\protect \mathrm  {pos},0}}},%
-plural={\protect \ensuremath  {\sigma _{\protect \mathrm  {pos},0}}s},%
-description={Basis-Standardabweichung der Position unter Referenzbedingungen},%
-descriptionplural={Basis-Standardabweichung der Position unter Referenzbedingungen},%
-symbol={\relax },%
-symbolplural={\relax },%
-user1={},%
-user2={},%
-user3={},%
-user4={},%
-user5={},%
-user6={},%
-long={},%
-longplural={},%
-short={},%
-shortplural={},%
-counter={page},%
-parent={},%
-%
-}%
-
-\glsdefs@newdocentry{sym:dsigma}%
-{%
-name={\ensuremath {d_{\sigma }}},%
-sort={M020},%
-type={symbols},%
-first={\protect \ensuremath  {d_{\sigma }}},%
-firstplural={\protect \ensuremath  {d_{\sigma }}s},%
-text={\protect \ensuremath  {d_{\sigma }}},%
-plural={\protect \ensuremath  {d_{\sigma }}s},%
-description={Referenzdistanz der Kovarianzschätzung},%
-descriptionplural={Referenzdistanz der Kovarianzschätzung},%
-symbol={\relax },%
-symbolplural={\relax },%
-user1={},%
-user2={},%
-user3={},%
-user4={},%
-user5={},%
-user6={},%
-long={},%
-longplural={},%
-short={},%
-shortplural={},%
-counter={page},%
-parent={},%
-%
-}%
-
-\glsdefs@newdocentry{sym:asigma}%
-{%
-name={\ensuremath {a_{\sigma }}},%
-sort={M030},%
-type={symbols},%
-first={\protect \ensuremath  {a_{\sigma }}},%
-firstplural={\protect \ensuremath  {a_{\sigma }}s},%
-text={\protect \ensuremath  {a_{\sigma }}},%
-plural={\protect \ensuremath  {a_{\sigma }}s},%
-description={Referenz-Tag-Größe der Kovarianzschätzung},%
-descriptionplural={Referenz-Tag-Größe der Kovarianzschätzung},%
-symbol={\relax },%
-symbolplural={\relax },%
-user1={},%
-user2={},%
-user3={},%
-user4={},%
-user5={},%
-user6={},%
-long={},%
-longplural={},%
-short={},%
-shortplural={},%
-counter={page},%
-parent={},%
-%
-}%
-
+parent={}

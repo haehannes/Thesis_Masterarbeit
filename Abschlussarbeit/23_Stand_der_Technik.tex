@@ -45,7 +45,7 @@ Die relative Lokalisierung zielt darauf ab, die Position und Orientierung eines 
 Die Position wird dabei bezogen auf einen definierten Referenzpunkt ermittelt.
 Im Folgenden werden die gängigsten Methoden vorgestellt und hinsichtlich ihrer Eignung für die vorliegende Innenraumanwendung bewertet.
 
-\subsubsection{Dead Reckoning Localization}
+\subsubsection*{Dead Reckoning Localization}
 Bei der \gls{drl} handelt es sich um ein Verfahren, bei dem die aktuelle Position eines 
 Objekts ausgehend von einem letzten bekannten Startpunkt kontinuierlich berechnet 
 wird~\cite{9982087}.
@@ -54,7 +54,7 @@ Wie in Abschnitt \ref{sec:sensorik} bereits beschrieben, wirken auf die Sensoren
 Fehler, sodass die direkte Integration der rohen \gls{imu}-Messdaten zu 
 Translationsfehlern führt.
 Aus diesem Grund ist eine Filterung der Eingangsdaten notwendig.
-Am weitesten verbreitet sind hierbei verschiedene Abwandlungen des in Abschnitt~\ref{sec:ekf} \gls{ekf}.
+Am weitesten verbreitet sind hierbei verschiedene Abwandlungen des in Abschnitt~\ref{sec:ekf} beschriebenen \gls{ekf}.
 
 Experimentelle Untersuchungen mit dem \gls{px4}-Autopiloten und einem
 Pixhawk-Flugcontroller zeigen, dass der \gls{ekf} ohne externe Referenz bereits nach sieben Sekunden eine
@@ -66,7 +66,7 @@ ein Restdrift jedoch bestehen bleibt~\cite{9982087,9172736,Ko2018}.
 Grundsätzlich ist \gls{drl} für den Innenraum nur zeitlich begrenzt geeignet und als primäre Positionsquelle nicht ausreichend.
 \gls{drl} kann jedoch als Fallback-Strategie genutzt werden, wenn die primäre Positionsquelle kurzfristig nicht verfügbar ist.~\cite{9172736}
 
-\subsubsection{Visuelle Odometrie und optischer Fluss}
+\subsubsection*{Visuelle Odometrie und optischer Fluss}
 Die \gls{vo} schätzt die Bewegung einer Kamera anhand sequenzieller Bilddaten, ohne eine Karte der Umgebung zu erstellen.
 Dabei werden markante Bildpunkte, auch Landmarken genannt, zwischen aufeinanderfolgenden Frames verfolgt und aus deren Verschiebung auf die Kamerabewegung geschlossen~\cite{Jarraya2025}.
 
@@ -81,7 +81,7 @@ Weiterhin setzt visuelle Odometrie strukturierte Umgebungen voraus, welche in de
 
 
 
-\subsection{Simultane Lokalisierung und Kartierung}
+\subsubsection*{Simultane Lokalisierung und Kartierung}
 \label{sec:slam}
 \gls{slam} beschreibt eine Problemstellung an der Schnittstelle von Computer Vision und Robotik.
 Dabei geht es um die selbstständige Erstellung einer Karte einer unbekannten Umgebung bei gleichzeitiger Bestimmung der eigenen Position 
@@ -105,7 +105,7 @@ Map Initialization bezeichnet die Initialisierung der Karte zu Beginn des \gls{s
 Dabei werden zunächst markante Bildmerkmale aus den ersten Frames extrahiert und 
 einander zugeordnet, um die initiale Struktur der Umgebung zu schätzen.
 Aus diesen Zuordnungen werden erste Kartenpunkte sowie deren räumliche Positionen im dreidimensionalen Raum bestimmt.
-Die Map Initialization bildet die Grundlage, auf der alle weiteren Kartenpunkte und Posenschätzungen aufgebaut werden~\cite{CAI2024127760_core_modules_slam}.
+Die Map Initialization bildet die Grundlage, auf der alle weiteren Kartenpunkte und Posenschätzungen aufgebaut werden~\cite{Cai2024}.
 
 Feature Extraction bezeichnet die Extraktion markanter Merkmale 
 aus den Sensordaten, die als Grundlage für die spätere Zuordnung dienen~\cite{10169695}.
@@ -139,7 +139,7 @@ Der schematische Ablauf von Loop-Closure ist in Abbildung~\ref{fig:loop_closure}
 Im folgenden Abschnitt wird der Faktorgraph nur schematisch erläutert.
 Genaue Herleitungen sowie die mathematischen Grundlagen des Prinzips können den Quellen~\cite{Lai2022,Dellaert2017,Cai2024} entnommen werden. 
 
-EEin Faktorgraph ist eine grafische Darstellung eines Schätzproblems und setzt sich aus den beiden Knotenarten Variablenknoten und Faktorknoten zusammen.
+Ein Faktorgraph ist eine grafische Darstellung eines Schätzproblems und setzt sich aus den beiden Knotenarten Variablenknoten und Faktorknoten zusammen.
 Die Variablenknoten sind die unbekannten Größen, die geschätzt werden sollen, bei \gls{slam} die Pose des \gls{uav} und die Position der Landmarken.
 Die Faktorknoten verbinden diese Variablen und repräsentieren die Messungen.~\cite{Lai2022}
 
@@ -165,7 +165,7 @@ Die Mess-Constraints repräsentieren die Beobachtung, dass die Landmarke $t_i$ v
 
 Wird die Pose $x_4$ als bereits bekannter, mit $x_1$ identischer Ort wiedererkannt, entsteht ein Loop-Closure-Constraint, das $x_1$ und $x_4$ im Faktorgraphen verbindet.
 Dargestellt ist dies durch den roten Pfeil in Abbildung~\ref{fig:Faktorgraph_vereinfacht}.
-Dieser zusätzliche Constraint schließt die Schleife und 
+Dieser zusätzliche Constraint schließt die Schleife und ermöglicht 
 den über die Trajektorie akkumulierten Drift rückwirkend über alle Posen zu korrigieren~\cite{Kaess2012}.
 
 
@@ -188,7 +188,7 @@ als reines \gls{vslam} sowie die Kombination mit einer \gls{imu} als visuell-ine
 Tag\gls{slam} ist eine Spezialisierung von \gls{vslam} für Fiducial-Marker.
 Anstelle natürlicher Bildmerkmale werden AprilTag-Marker als definierte 
 Referenzpunkte verwendet.
-Da die Geometrie der Fiducial-Markerbekannt ist, entfällt die aufwendige Merkmalsbeschreibung und das Matching.
+Da die Geometrie der Fiducial-Marker bekannt ist, entfällt die aufwendige Merkmalsbeschreibung und das Matching.
 Stattdessen liefert jede Markerdetektion eine direkte Posenmessung relativ zur Kamera.
 Tag\gls{slam} nutzt als Backend \gls{gtsam} zur Faktorgraph-Optimierung und ermöglicht neben vollständigem SLAM auch eine reine Posenschätzung bei bekannter Tag-Anordnung~\cite{pfrommer2019tagslam}.
 
@@ -223,14 +223,14 @@ Im Folgenden werden die in Abbildung \ref{fig:Uebersicht_Marker} dargestellten g
 \FloatBarrier
 
 \subsection*{ARTag Marker}
-ARTag wurde 2005 als vorgestellt.
+ARTag wurde 2005 vorgestellt.
 Es verwendet digitale Kodierungsverfahren, wodurch ARTag im Vergleich zu früheren Systemen niedrigere und quantifizierbare Fehlerraten aufweist.
 Ein ARTag setzt sich aus einem quadratischen Rahmen zusammen, in dessen Innerem ein binäres Raster aus schwarzen und weißen Zellen eine eindeutige \gls{id} kodiert.
 Es lassen sich aus 36 Bits 2048 (mit schwarzen beziehungsweise weißen Rahmen) unterschiedliche \gls{id}s erzeugen, wobei 10 Bits für die Marker-\gls{id} und 26 Bits zur Redundanz genutzt werden.
 ARTag verwendet keine einheitliche minimale Hammingdistanz zwischen den Codewörtern.
-Aus einer Aufnahme des Markers kann eine 6D-Pose bestimmt werden. ARTag ist das einzige der in Abbildung\ref{fig:Uebersicht_Marker} gezeigten Systeme, 
+Aus einer Aufnahme des Markers kann eine 6D-Pose bestimmt werden.
+ARTag ist das einzige der in Abbildung~\ref{fig:Uebersicht_Marker} gezeigten Systeme, 
 das nicht vollständig Open Source ist.~\cite{Fiala1467495}
-
 
 \subsection*{AprilTag Marker}
 \label{sec:april_tag}
@@ -246,7 +246,7 @@ Marker sind in verschiedene Familien unterteilt.
 Das Namensschema \texttt{TagNNhM} beschreibt dabei \texttt{NN} als die Gesamtzahl der 
 Datenbits und \texttt{hM} als die minimale Hammingdistanz.
 So verwendet die Familie \texttt{tag36h11} ein 6$\times$6-Raster mit einer minimalen Hammingdistanz von 11, die Familie \texttt{tag16h5} 
-verwendet dagegen ein 4$\times$4-Raster mit einer minimalen Hammingdistanz von 5
+verwendet dagegen ein 4$\times$4-Raster mit einer minimalen Hammingdistanz von 5.
 Aufgrund der größeren Pixelgröße lässt sich \texttt{tag16h5} prinzipiell aus größerer Entfernung erkennen, jedoch mit höherer Unsicherheit.~\cite{Olson5979561,Bradski2008}
 
 
@@ -298,7 +298,7 @@ und der bekannten physischen Markergröße Position und Orientierung des
 Markers im Raum ableiten.
 Abschließend werden die Datenbits des Markers ausgelesen und gegen das
 bekannte Dictionary geprüft, wodurch bestätigt wird, dass es sich tatsächlich um einen
-gültigen Fiducial-Markerhandelt und Falschdetektionen reduziert werden.~\cite{Olson5979561}
+gültigen Fiducial-Marker handelt und Falschdetektionen reduziert werden.~\cite{Olson5979561}
 
 
 
