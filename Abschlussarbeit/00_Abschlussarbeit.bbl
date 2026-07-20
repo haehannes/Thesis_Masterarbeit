@@ -247,6 +247,27 @@
       \verb 2303.03757
       \endverb
     \endentry
+    \entry{px4_pixhawk6x_doc}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=b52b778c63203841cf2cbbd45551085d}{%
+           family={{PX4 Development Team}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{b52b778c63203841cf2cbbd45551085d}
+      \strng{fullhash}{b52b778c63203841cf2cbbd45551085d}
+      \strng{bibnamehash}{b52b778c63203841cf2cbbd45551085d}
+      \strng{authorbibnamehash}{b52b778c63203841cf2cbbd45551085d}
+      \strng{authornamehash}{b52b778c63203841cf2cbbd45551085d}
+      \strng{authorfullhash}{b52b778c63203841cf2cbbd45551085d}
+      \field{extraname}{1}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://docs.px4.io/v1.16/en/flight_controller/pixhawk6x}}
+      \field{note}{Abgerufen am 04.06.2026}
+      \field{title}{Holybro Pixhawk 6X}
+    \endentry
     \entry{MendozaMendoza2020}{book}{}
       \name{author}{5}{}{%
         {{hash=0c7e63f89d053b8cd29f091f80ef3a51}{%
@@ -295,27 +316,6 @@
       \verb 10.1007/978-1-4842-5531-5
       \endverb
     \endentry
-    \entry{px4_pixhawk6x_doc}{misc}{}
-      \name{author}{1}{}{%
-        {{hash=b52b778c63203841cf2cbbd45551085d}{%
-           family={{PX4 Development Team}},
-           familyi={P\bibinitperiod}}}%
-      }
-      \strng{namehash}{b52b778c63203841cf2cbbd45551085d}
-      \strng{fullhash}{b52b778c63203841cf2cbbd45551085d}
-      \strng{bibnamehash}{b52b778c63203841cf2cbbd45551085d}
-      \strng{authorbibnamehash}{b52b778c63203841cf2cbbd45551085d}
-      \strng{authornamehash}{b52b778c63203841cf2cbbd45551085d}
-      \strng{authorfullhash}{b52b778c63203841cf2cbbd45551085d}
-      \field{extraname}{1}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{howpublished}{\url{https://docs.px4.io/v1.16/en/flight_controller/pixhawk6x}}
-      \field{note}{Abgerufen am 04.06.2026}
-      \field{title}{Holybro Pixhawk 6X}
-    \endentry
     \entry{px4_architecture}{misc}{}
       \name{author}{1}{}{%
         {{hash=b52b778c63203841cf2cbbd45551085d}{%
@@ -329,8 +329,8 @@
       \strng{authornamehash}{b52b778c63203841cf2cbbd45551085d}
       \strng{authorfullhash}{b52b778c63203841cf2cbbd45551085d}
       \field{extraname}{2}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://docs.px4.io/main/en/concept/architecture.html}}
@@ -531,8 +531,8 @@
       \strng{authornamehash}{5b512ee8a59deb284ad0a6a035ba10b1}
       \strng{authorfullhash}{5b512ee8a59deb284ad0a6a035ba10b1}
       \field{extraname}{1}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{number}{ISO 8855:2011}
@@ -625,8 +625,8 @@
       \list{publisher}{1}{%
         {Springer International Publishing}%
       }
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labeltitlesource}{title}
       \field{isbn}{9783319325521}
       \field{issn}{2522-8706}
@@ -794,6 +794,43 @@
       \verb https://imagecomputing.net/old_storage/old_website2/teaching/2019_2020/semester_1/EPITA/class/01_animation_descriptive/html/content/107_interpolation_of_quaternion_slerp/index.html
       \endverb
     \endentry
+    \entry{Dai2015a}{article}{}
+      \name{author}{1}{}{%
+        {{hash=4b89bdaf258b8a1ec4c768e087024ad8}{%
+           family={Dai},
+           familyi={D\bibinitperiod},
+           given={Jian\bibnamedelima S.},
+           giveni={J\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \strng{namehash}{4b89bdaf258b8a1ec4c768e087024ad8}
+      \strng{fullhash}{4b89bdaf258b8a1ec4c768e087024ad8}
+      \strng{bibnamehash}{4b89bdaf258b8a1ec4c768e087024ad8}
+      \strng{authorbibnamehash}{4b89bdaf258b8a1ec4c768e087024ad8}
+      \strng{authornamehash}{4b89bdaf258b8a1ec4c768e087024ad8}
+      \strng{authorfullhash}{4b89bdaf258b8a1ec4c768e087024ad8}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{This paper reviews the Euler–Rodrigues formula in the axis–angle representation of rotations, studies its variations and derivations in different mathematical forms as vectors, quaternions and Lie groups and investigates their intrinsic connections. The Euler–Rodrigues formula in the Taylor series expansion is presented and its use as an exponential map of Lie algebras is discussed particularly with a non-normalized vector. The connection between Euler–Rodrigues parameters and the Euler–Rodrigues formula is then demonstrated through quaternion conjugation and the equivalence between quaternion conjugation and an adjoint action of the Lie group is subsequently presented. The paper provides a rich reference for the Euler–Rodrigues formula, the variations and their connections and for their use in rigid body kinematics, dynamics and computer graphics.}
+      \field{issn}{0094-114X}
+      \field{journaltitle}{Mechanism and Machine Theory}
+      \field{title}{Euler–Rodrigues formula variations, quaternion conjugation and intrinsic connections}
+      \field{volume}{92}
+      \field{year}{2015}
+      \field{pages}{144\bibrangedash 152}
+      \range{pages}{9}
+      \verb{doi}
+      \verb https://doi.org/10.1016/j.mechmachtheory.2015.03.004
+      \endverb
+      \verb{urlraw}
+      \verb https://www.sciencedirect.com/science/article/pii/S0094114X15000415
+      \endverb
+      \verb{url}
+      \verb https://www.sciencedirect.com/science/article/pii/S0094114X15000415
+      \endverb
+      \keyw{Euler–Rodrigues formula,Quaternions,Exponential map,Lie groups,Lie algebras,Kinematics}
+    \endentry
     \entry{Bradski2008}{book}{}
       \name{author}{2}{}{%
         {{hash=a780b2fbd99e4f7ce78d33324e39d4c2}{%
@@ -829,43 +866,6 @@
       \verb{url}
       \verb https://learning.oreilly.com/library/view/learning-opencv/9780596516130/ch11s05.html
       \endverb
-    \endentry
-    \entry{Dai2015a}{article}{}
-      \name{author}{1}{}{%
-        {{hash=4b89bdaf258b8a1ec4c768e087024ad8}{%
-           family={Dai},
-           familyi={D\bibinitperiod},
-           given={Jian\bibnamedelima S.},
-           giveni={J\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
-      }
-      \strng{namehash}{4b89bdaf258b8a1ec4c768e087024ad8}
-      \strng{fullhash}{4b89bdaf258b8a1ec4c768e087024ad8}
-      \strng{bibnamehash}{4b89bdaf258b8a1ec4c768e087024ad8}
-      \strng{authorbibnamehash}{4b89bdaf258b8a1ec4c768e087024ad8}
-      \strng{authornamehash}{4b89bdaf258b8a1ec4c768e087024ad8}
-      \strng{authorfullhash}{4b89bdaf258b8a1ec4c768e087024ad8}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{This paper reviews the Euler–Rodrigues formula in the axis–angle representation of rotations, studies its variations and derivations in different mathematical forms as vectors, quaternions and Lie groups and investigates their intrinsic connections. The Euler–Rodrigues formula in the Taylor series expansion is presented and its use as an exponential map of Lie algebras is discussed particularly with a non-normalized vector. The connection between Euler–Rodrigues parameters and the Euler–Rodrigues formula is then demonstrated through quaternion conjugation and the equivalence between quaternion conjugation and an adjoint action of the Lie group is subsequently presented. The paper provides a rich reference for the Euler–Rodrigues formula, the variations and their connections and for their use in rigid body kinematics, dynamics and computer graphics.}
-      \field{issn}{0094-114X}
-      \field{journaltitle}{Mechanism and Machine Theory}
-      \field{title}{Euler–Rodrigues formula variations, quaternion conjugation and intrinsic connections}
-      \field{volume}{92}
-      \field{year}{2015}
-      \field{pages}{144\bibrangedash 152}
-      \range{pages}{9}
-      \verb{doi}
-      \verb https://doi.org/10.1016/j.mechmachtheory.2015.03.004
-      \endverb
-      \verb{urlraw}
-      \verb https://www.sciencedirect.com/science/article/pii/S0094114X15000415
-      \endverb
-      \verb{url}
-      \verb https://www.sciencedirect.com/science/article/pii/S0094114X15000415
-      \endverb
-      \keyw{Euler–Rodrigues formula,Quaternions,Exponential map,Lie groups,Lie algebras,Kinematics}
     \endentry
     \entry{Lynch2017}{book}{}
       \name{author}{2}{}{%
@@ -1032,8 +1032,8 @@
       \strng{authornamehash}{6d2ee5676b068857db569005a9c6205a}
       \strng{authorfullhash}{6d2ee5676b068857db569005a9c6205a}
       \field{extraname}{1}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://docs.ros.org/en/humble/Concepts/Advanced/About-Middleware-Implementations.html}}
@@ -1418,8 +1418,8 @@
       \strng{authorbibnamehash}{affdab3a604f89e98e239aa8dab684cf}
       \strng{authornamehash}{affdab3a604f89e98e239aa8dab684cf}
       \strng{authorfullhash}{affdab3a604f89e98e239aa8dab684cf}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://stevengong.co/notes/Loop-Closure}}
@@ -1563,8 +1563,8 @@
       \strng{authorbibnamehash}{44074d3cb57c174a8b15ccc9a576ac0d}
       \strng{authornamehash}{44074d3cb57c174a8b15ccc9a576ac0d}
       \strng{authorfullhash}{44074d3cb57c174a8b15ccc9a576ac0d}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Factor Graphs and {GTSAM}: A Hands-on Introduction}
@@ -1596,8 +1596,8 @@
       \strng{authorbibnamehash}{4881dcc47c24cb2150e496066d0b1461}
       \strng{authornamehash}{4881dcc47c24cb2150e496066d0b1461}
       \strng{authorfullhash}{4881dcc47c24cb2150e496066d0b1461}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{eprintclass}{cs.RO}
@@ -1635,8 +1635,8 @@
       \strng{authorbibnamehash}{e77c05ad6f12ef1e1fd1cba7c2771650}
       \strng{authornamehash}{e77c05ad6f12ef1e1fd1cba7c2771650}
       \strng{authorfullhash}{e77c05ad6f12ef1e1fd1cba7c2771650}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{LiDAR-based SLAM for robotic mapping: state of the art and new frontiers}
@@ -1689,8 +1689,8 @@
       \strng{authorbibnamehash}{1706de37ec1c6e8f22081681f5edb0cd}
       \strng{authornamehash}{288f14f017934f36c50a3331f71e78c6}
       \strng{authorfullhash}{1706de37ec1c6e8f22081681f5edb0cd}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{1573-0409}
@@ -1788,8 +1788,8 @@
       \strng{authorbibnamehash}{094486b9bf66b2d238e3937cc49fca84}
       \strng{authornamehash}{094486b9bf66b2d238e3937cc49fca84}
       \strng{authorfullhash}{094486b9bf66b2d238e3937cc49fca84}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{2005 IEEE Computer Society Conference on Computer Vision and Pattern Recognition (CVPR 05)}
@@ -1817,8 +1817,8 @@
       \strng{authorbibnamehash}{8f743eebb2f64f75592e54ba06f94320}
       \strng{authornamehash}{8f743eebb2f64f75592e54ba06f94320}
       \strng{authorfullhash}{8f743eebb2f64f75592e54ba06f94320}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{2011 IEEE International Conference on Robotics and Automation}
@@ -1860,8 +1860,8 @@
       \strng{authorbibnamehash}{6b32e1bf9c7e7852ddf0c09f63d04590}
       \strng{authornamehash}{8bb22dfdadf1d40228ea7f021e8b0711}
       \strng{authorfullhash}{6b32e1bf9c7e7852ddf0c09f63d04590}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{This paper presents a fiducial marker system specially appropriated for camera pose estimation in applications such as augmented reality and robot localization. Three main contributions are presented. First, we propose an algorithm for generating configurable marker dictionaries (in size and number of bits) following a criterion to maximize the inter-marker distance and the number of bit transitions. In the process, we derive the maximum theoretical inter-marker distance that dictionaries of square binary markers can have. Second, a method for automatically detecting the markers and correcting possible errors is proposed. Third, a solution to the occlusion problem in augmented reality applications is shown. To that aim, multiple markers are combined with an occlusion mask calculated by color segmentation. The experiments conducted show that our proposal obtains dictionaries with higher inter-marker distances and lower false negative rates than state-of-the-art systems, and provides an effective solution to the occlusion problem.}
@@ -1911,8 +1911,8 @@
       \strng{authorbibnamehash}{b3ef81b85b0ccccc4b9c20763eab8917}
       \strng{authornamehash}{b3ef81b85b0ccccc4b9c20763eab8917}
       \strng{authorfullhash}{b3ef81b85b0ccccc4b9c20763eab8917}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{0262-8856}
@@ -1955,35 +1955,6 @@
       \verb https://www.seeedstudio.com/reComputer-Mini-J3011-p-6356.html
       \endverb
     \endentry
-    \entry{pichler_redpower_xt5400}{online}{}
-      \name{author}{1}{}{%
-        {{hash=58b0113f41097b8f191a815affbf2856}{%
-           family={{PICHLER GmbH}},
-           familyi={P\bibinitperiod}}}%
-      }
-      \strng{namehash}{58b0113f41097b8f191a815affbf2856}
-      \strng{fullhash}{58b0113f41097b8f191a815affbf2856}
-      \strng{bibnamehash}{58b0113f41097b8f191a815affbf2856}
-      \strng{authorbibnamehash}{58b0113f41097b8f191a815affbf2856}
-      \strng{authornamehash}{58b0113f41097b8f191a815affbf2856}
-      \strng{authorfullhash}{58b0113f41097b8f191a815affbf2856}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{LiPo Akku RED POWER XT 5400 -- 14,8\,V}
-      \field{urlday}{14}
-      \field{urlmonth}{6}
-      \field{urlyear}{2026}
-      \field{year}{2026}
-      \field{urldateera}{ce}
-      \verb{urlraw}
-      \verb https://pichler.de/LiPo-Akku-RED-POWER-XT-5400-148V
-      \endverb
-      \verb{url}
-      \verb https://pichler.de/LiPo-Akku-RED-POWER-XT-5400-148V
-      \endverb
-    \endentry
     \entry{holybro_pm02}{online}{}
       \name{author}{1}{}{%
         {{hash=d46501ffe44acace5a42144aac4ae5ca}{%
@@ -1999,8 +1970,8 @@
       \strng{authorbibnamehash}{d46501ffe44acace5a42144aac4ae5ca}
       \strng{authornamehash}{d46501ffe44acace5a42144aac4ae5ca}
       \strng{authorfullhash}{d46501ffe44acace5a42144aac4ae5ca}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{note}{Abgerufen am 14.~Juni~2026}
@@ -2016,6 +1987,35 @@
       \verb https://docs.px4.io/main/en/power_module/holybro_pm02.html
       \endverb
     \endentry
+    \entry{pichler_redpower_xt5400}{online}{}
+      \name{author}{1}{}{%
+        {{hash=58b0113f41097b8f191a815affbf2856}{%
+           family={{PICHLER GmbH}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{58b0113f41097b8f191a815affbf2856}
+      \strng{fullhash}{58b0113f41097b8f191a815affbf2856}
+      \strng{bibnamehash}{58b0113f41097b8f191a815affbf2856}
+      \strng{authorbibnamehash}{58b0113f41097b8f191a815affbf2856}
+      \strng{authornamehash}{58b0113f41097b8f191a815affbf2856}
+      \strng{authorfullhash}{58b0113f41097b8f191a815affbf2856}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{LiPo Akku RED POWER XT 5400 -- 14,8\,V}
+      \field{urlday}{14}
+      \field{urlmonth}{6}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://pichler.de/LiPo-Akku-RED-POWER-XT-5400-148V
+      \endverb
+      \verb{url}
+      \verb https://pichler.de/LiPo-Akku-RED-POWER-XT-5400-148V
+      \endverb
+    \endentry
     \entry{aerodrohm}{online}{}
       \name{author}{1}{}{%
         {{hash=df5d499327d90384fd66d50ad8a5a53a}{%
@@ -2028,8 +2028,8 @@
       \strng{authorbibnamehash}{df5d499327d90384fd66d50ad8a5a53a}
       \strng{authornamehash}{df5d499327d90384fd66d50ad8a5a53a}
       \strng{authorfullhash}{df5d499327d90384fd66d50ad8a5a53a}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{note}{Abgerufen am 12.~Juni~2026}
@@ -2058,8 +2058,8 @@
       \strng{authorbibnamehash}{41932d9cd626314a7b7d95d63adf4b54}
       \strng{authornamehash}{41932d9cd626314a7b7d95d63adf4b54}
       \strng{authorfullhash}{41932d9cd626314a7b7d95d63adf4b54}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{note}{Abgerufen am 13.~Juni~2026}
@@ -2088,8 +2088,8 @@
       \strng{authorbibnamehash}{ff70d460a420205ceeea16f1c13e51b1}
       \strng{authornamehash}{ff70d460a420205ceeea16f1c13e51b1}
       \strng{authorfullhash}{ff70d460a420205ceeea16f1c13e51b1}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{note}{Abgerufen am 13.~Juni~2026}
@@ -2117,8 +2117,8 @@
       \strng{authorbibnamehash}{c210095bbbea4834bd71f6c6c48dec3b}
       \strng{authornamehash}{c210095bbbea4834bd71f6c6c48dec3b}
       \strng{authorfullhash}{c210095bbbea4834bd71f6c6c48dec3b}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{note}{Abgerufen am 13.~Juni~2026}
@@ -2133,6 +2133,49 @@
       \verb{url}
       \verb https://www.stereolabs.com/en-de/store/products/zed-mini
       \endverb
+    \endentry
+    \entry{10588822_RWT_SLAM}{inproceedings}{}
+      \name{author}{4}{}{%
+        {{hash=abf98479a41c8b2228733c4580fb015e}{%
+           family={Peng},
+           familyi={P\bibinitperiod},
+           given={Qihao},
+           giveni={Q\bibinitperiod}}}%
+        {{hash=8f038b31aab73cf09c26b0cb5de3f107}{%
+           family={Zhao},
+           familyi={Z\bibinitperiod},
+           given={Xijun},
+           giveni={X\bibinitperiod}}}%
+        {{hash=e9ee6caa9f98a67ac61ec185a6704417}{%
+           family={Dang},
+           familyi={D\bibinitperiod},
+           given={Ruina},
+           giveni={R\bibinitperiod}}}%
+        {{hash=61415201a35fdef46d998b7a4e27e1fb}{%
+           family={Xiang},
+           familyi={X\bibinitperiod},
+           given={Zhiyu},
+           giveni={Z\bibinitperiod}}}%
+      }
+      \strng{namehash}{1bf10ea682ee95f59d4c739767e245bf}
+      \strng{fullhash}{d6609028bf1b3d54ec8001775524f5c3}
+      \strng{bibnamehash}{d6609028bf1b3d54ec8001775524f5c3}
+      \strng{authorbibnamehash}{d6609028bf1b3d54ec8001775524f5c3}
+      \strng{authornamehash}{1bf10ea682ee95f59d4c739767e245bf}
+      \strng{authorfullhash}{d6609028bf1b3d54ec8001775524f5c3}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2024 IEEE Intelligent Vehicles Symposium (IV)}
+      \field{title}{RWT-SLAM: Robust Visual SLAM for Weakly Textured Environments}
+      \field{year}{2024}
+      \field{pages}{913\bibrangedash 919}
+      \range{pages}{7}
+      \verb{doi}
+      \verb 10.1109/IV55156.2024.10588822
+      \endverb
+      \keyw{Location awareness;Visualization;Simultaneous localization and mapping;Annotations;Interest point detection;Manuals;Feature extraction}
     \endentry
     \entry{Tang2015_lidar}{article}{}
       \name{author}{8}{}{%
@@ -2186,8 +2229,8 @@
       \strng{authorbibnamehash}{5fb2616e70cbca70b28656fcd1dd4f49}
       \strng{authornamehash}{5fb2616e70cbca70b28656fcd1dd4f49}
       \strng{authorfullhash}{ccee23f5dc876066661e4482a16148d2}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{1424-8220}
@@ -2201,49 +2244,6 @@
       \verb{doi}
       \verb 10.3390/s150716710
       \endverb
-    \endentry
-    \entry{10588822_RWT_SLAM}{inproceedings}{}
-      \name{author}{4}{}{%
-        {{hash=abf98479a41c8b2228733c4580fb015e}{%
-           family={Peng},
-           familyi={P\bibinitperiod},
-           given={Qihao},
-           giveni={Q\bibinitperiod}}}%
-        {{hash=8f038b31aab73cf09c26b0cb5de3f107}{%
-           family={Zhao},
-           familyi={Z\bibinitperiod},
-           given={Xijun},
-           giveni={X\bibinitperiod}}}%
-        {{hash=e9ee6caa9f98a67ac61ec185a6704417}{%
-           family={Dang},
-           familyi={D\bibinitperiod},
-           given={Ruina},
-           giveni={R\bibinitperiod}}}%
-        {{hash=61415201a35fdef46d998b7a4e27e1fb}{%
-           family={Xiang},
-           familyi={X\bibinitperiod},
-           given={Zhiyu},
-           giveni={Z\bibinitperiod}}}%
-      }
-      \strng{namehash}{1bf10ea682ee95f59d4c739767e245bf}
-      \strng{fullhash}{d6609028bf1b3d54ec8001775524f5c3}
-      \strng{bibnamehash}{d6609028bf1b3d54ec8001775524f5c3}
-      \strng{authorbibnamehash}{d6609028bf1b3d54ec8001775524f5c3}
-      \strng{authornamehash}{1bf10ea682ee95f59d4c739767e245bf}
-      \strng{authorfullhash}{d6609028bf1b3d54ec8001775524f5c3}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{booktitle}{2024 IEEE Intelligent Vehicles Symposium (IV)}
-      \field{title}{RWT-SLAM: Robust Visual SLAM for Weakly Textured Environments}
-      \field{year}{2024}
-      \field{pages}{913\bibrangedash 919}
-      \range{pages}{7}
-      \verb{doi}
-      \verb 10.1109/IV55156.2024.10588822
-      \endverb
-      \keyw{Location awareness;Visualization;Simultaneous localization and mapping;Annotations;Interest point detection;Manuals;Feature extraction}
     \endentry
     \entry{rcvisard_tagdetect}{online}{}
       \name{author}{1}{}{%

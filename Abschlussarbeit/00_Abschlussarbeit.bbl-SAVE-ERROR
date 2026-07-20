@@ -338,6 +338,83 @@
       \field{title}{{PX4 Architectural Overview}}
       \field{year}{2025}
     \endentry
+    \entry{px4_ulog}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=b52b778c63203841cf2cbbd45551085d}{%
+           family={{PX4 Development Team}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{b52b778c63203841cf2cbbd45551085d}
+      \strng{fullhash}{b52b778c63203841cf2cbbd45551085d}
+      \strng{bibnamehash}{b52b778c63203841cf2cbbd45551085d}
+      \strng{authorbibnamehash}{b52b778c63203841cf2cbbd45551085d}
+      \strng{authornamehash}{b52b778c63203841cf2cbbd45551085d}
+      \strng{authorfullhash}{b52b778c63203841cf2cbbd45551085d}
+      \field{extraname}{3}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://docs.px4.io/main/en/dev_log/ulog_file_format.html}}
+      \field{note}{Abgerufen am 07.06.2026}
+      \field{title}{{ULog File Format -- PX4 Autopilot Documentation}}
+      \field{year}{2025}
+    \endentry
+    \entry{px4_flight_reporting}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=b52b778c63203841cf2cbbd45551085d}{%
+           family={{PX4 Development Team}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{b52b778c63203841cf2cbbd45551085d}
+      \strng{fullhash}{b52b778c63203841cf2cbbd45551085d}
+      \strng{bibnamehash}{b52b778c63203841cf2cbbd45551085d}
+      \strng{authorbibnamehash}{b52b778c63203841cf2cbbd45551085d}
+      \strng{authornamehash}{b52b778c63203841cf2cbbd45551085d}
+      \strng{authorfullhash}{b52b778c63203841cf2cbbd45551085d}
+      \field{extraname}{4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://docs.px4.io/main/en/getting_started/flight_reporting.html}}
+      \field{note}{Abgerufen am 07.06.2026}
+      \field{title}{{Flight Reporting -- PX4 Autopilot Documentation}}
+      \field{year}{2025}
+    \endentry
+    \entry{px4_uxrce_dds}{online}{}
+      \name{author}{1}{}{%
+        {{hash=b52b778c63203841cf2cbbd45551085d}{%
+           family={{PX4 Development Team}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {PX4 Autopilot User Guide}%
+      }
+      \strng{namehash}{b52b778c63203841cf2cbbd45551085d}
+      \strng{fullhash}{b52b778c63203841cf2cbbd45551085d}
+      \strng{bibnamehash}{b52b778c63203841cf2cbbd45551085d}
+      \strng{authorbibnamehash}{b52b778c63203841cf2cbbd45551085d}
+      \strng{authornamehash}{b52b778c63203841cf2cbbd45551085d}
+      \strng{authorfullhash}{b52b778c63203841cf2cbbd45551085d}
+      \field{extraname}{5}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{uXRCE-DDS (PX4-ROS 2/DDS Bridge)}
+      \field{urlday}{23}
+      \field{urlmonth}{6}
+      \field{urlyear}{2026}
+      \field{version}{v1.16}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://docs.px4.io/v1.16/en/middleware/uxrce_dds
+      \endverb
+      \verb{url}
+      \verb https://docs.px4.io/v1.16/en/middleware/uxrce_dds
+      \endverb
+    \endentry
     \entry{MAVLink}{misc}{}
       \name{author}{1}{}{%
         {{hash=064e5723b786627483d345a99909d5b6}{%
@@ -371,7 +448,7 @@
       \strng{authorbibnamehash}{b52b778c63203841cf2cbbd45551085d}
       \strng{authornamehash}{b52b778c63203841cf2cbbd45551085d}
       \strng{authorfullhash}{b52b778c63203841cf2cbbd45551085d}
-      \field{extraname}{3}
+      \field{extraname}{6}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
@@ -379,50 +456,6 @@
       \field{howpublished}{\url{https://docs.px4.io/main/en/middleware/mavlink.html}}
       \field{note}{Abgerufen am 07.06.2026}
       \field{title}{{MAVLink Messaging -- PX4 Autopilot Documentation}}
-      \field{year}{2025}
-    \endentry
-    \entry{px4_ulog}{misc}{}
-      \name{author}{1}{}{%
-        {{hash=b52b778c63203841cf2cbbd45551085d}{%
-           family={{PX4 Development Team}},
-           familyi={P\bibinitperiod}}}%
-      }
-      \strng{namehash}{b52b778c63203841cf2cbbd45551085d}
-      \strng{fullhash}{b52b778c63203841cf2cbbd45551085d}
-      \strng{bibnamehash}{b52b778c63203841cf2cbbd45551085d}
-      \strng{authorbibnamehash}{b52b778c63203841cf2cbbd45551085d}
-      \strng{authornamehash}{b52b778c63203841cf2cbbd45551085d}
-      \strng{authorfullhash}{b52b778c63203841cf2cbbd45551085d}
-      \field{extraname}{4}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{howpublished}{\url{https://docs.px4.io/main/en/dev_log/ulog_file_format.html}}
-      \field{note}{Abgerufen am 07.06.2026}
-      \field{title}{{ULog File Format -- PX4 Autopilot Documentation}}
-      \field{year}{2025}
-    \endentry
-    \entry{px4_flight_reporting}{misc}{}
-      \name{author}{1}{}{%
-        {{hash=b52b778c63203841cf2cbbd45551085d}{%
-           family={{PX4 Development Team}},
-           familyi={P\bibinitperiod}}}%
-      }
-      \strng{namehash}{b52b778c63203841cf2cbbd45551085d}
-      \strng{fullhash}{b52b778c63203841cf2cbbd45551085d}
-      \strng{bibnamehash}{b52b778c63203841cf2cbbd45551085d}
-      \strng{authorbibnamehash}{b52b778c63203841cf2cbbd45551085d}
-      \strng{authornamehash}{b52b778c63203841cf2cbbd45551085d}
-      \strng{authorfullhash}{b52b778c63203841cf2cbbd45551085d}
-      \field{extraname}{5}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{howpublished}{\url{https://docs.px4.io/main/en/getting_started/flight_reporting.html}}
-      \field{note}{Abgerufen am 07.06.2026}
-      \field{title}{{Flight Reporting -- PX4 Autopilot Documentation}}
       \field{year}{2025}
     \endentry
     \entry{Ko2018}{article}{}
@@ -498,8 +531,8 @@
       \strng{authornamehash}{5b512ee8a59deb284ad0a6a035ba10b1}
       \strng{authorfullhash}{5b512ee8a59deb284ad0a6a035ba10b1}
       \field{extraname}{1}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{number}{ISO 8855:2011}
@@ -548,7 +581,7 @@
       \strng{authorbibnamehash}{b52b778c63203841cf2cbbd45551085d}
       \strng{authornamehash}{b52b778c63203841cf2cbbd45551085d}
       \strng{authorfullhash}{b52b778c63203841cf2cbbd45551085d}
-      \field{extraname}{6}
+      \field{extraname}{7}
       \field{sortinit}{2}
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
@@ -592,8 +625,8 @@
       \list{publisher}{1}{%
         {Springer International Publishing}%
       }
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labeltitlesource}{title}
       \field{isbn}{9783319325521}
       \field{issn}{2522-8706}
@@ -621,8 +654,8 @@
       \strng{authorbibnamehash}{c11034bc0e4d5832ffedafaabbd0f18a}
       \strng{authornamehash}{c11034bc0e4d5832ffedafaabbd0f18a}
       \strng{authorfullhash}{c11034bc0e4d5832ffedafaabbd0f18a}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{isbn}{9789811033827}
@@ -726,6 +759,41 @@
       \endverb
       \keyw{spline,spherical geometry,rotation,quaternion,interpolation,in-betweening,approximation,animation,B-spline,Bézier curve}
     \endentry
+    \entry{rohmer_slerp}{online}{}
+      \name{author}{1}{}{%
+        {{hash=a2df9c2bffe93af1d9d3d0154852e24b}{%
+           family={Rohmer},
+           familyi={R\bibinitperiod},
+           given={Damien},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {EPITA / École Polytechnique}%
+      }
+      \strng{namehash}{a2df9c2bffe93af1d9d3d0154852e24b}
+      \strng{fullhash}{a2df9c2bffe93af1d9d3d0154852e24b}
+      \strng{bibnamehash}{a2df9c2bffe93af1d9d3d0154852e24b}
+      \strng{authorbibnamehash}{a2df9c2bffe93af1d9d3d0154852e24b}
+      \strng{authornamehash}{a2df9c2bffe93af1d9d3d0154852e24b}
+      \strng{authorfullhash}{a2df9c2bffe93af1d9d3d0154852e24b}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{subtitle}{Vorlesungsfolien Animation Descriptive}
+      \field{title}{Interpolation of Quaternion -- SLERP}
+      \field{urlday}{17}
+      \field{urlmonth}{7}
+      \field{urlyear}{2026}
+      \field{year}{2019}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://imagecomputing.net/old_storage/old_website2/teaching/2019_2020/semester_1/EPITA/class/01_animation_descriptive/html/content/107_interpolation_of_quaternion_slerp/index.html
+      \endverb
+      \verb{url}
+      \verb https://imagecomputing.net/old_storage/old_website2/teaching/2019_2020/semester_1/EPITA/class/01_animation_descriptive/html/content/107_interpolation_of_quaternion_slerp/index.html
+      \endverb
+    \endentry
     \entry{Bradski2008}{book}{}
       \name{author}{2}{}{%
         {{hash=a780b2fbd99e4f7ce78d33324e39d4c2}{%
@@ -776,8 +844,8 @@
       \strng{authorbibnamehash}{4b89bdaf258b8a1ec4c768e087024ad8}
       \strng{authornamehash}{4b89bdaf258b8a1ec4c768e087024ad8}
       \strng{authorfullhash}{4b89bdaf258b8a1ec4c768e087024ad8}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{This paper reviews the Euler–Rodrigues formula in the axis–angle representation of rotations, studies its variations and derivations in different mathematical forms as vectors, quaternions and Lie groups and investigates their intrinsic connections. The Euler–Rodrigues formula in the Taylor series expansion is presented and its use as an exponential map of Lie algebras is discussed particularly with a non-normalized vector. The connection between Euler–Rodrigues parameters and the Euler–Rodrigues formula is then demonstrated through quaternion conjugation and the equivalence between quaternion conjugation and an adjoint action of the Lie group is subsequently presented. The paper provides a rich reference for the Euler–Rodrigues formula, the variations and their connections and for their use in rigid body kinematics, dynamics and computer graphics.}
@@ -821,8 +889,8 @@
       \strng{authorbibnamehash}{8d01efb70f6cec86f711e78e22f97a48}
       \strng{authornamehash}{8d01efb70f6cec86f711e78e22f97a48}
       \strng{authorfullhash}{8d01efb70f6cec86f711e78e22f97a48}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{isbn}{9781316609842}
@@ -964,8 +1032,8 @@
       \strng{authornamehash}{6d2ee5676b068857db569005a9c6205a}
       \strng{authorfullhash}{6d2ee5676b068857db569005a9c6205a}
       \field{extraname}{1}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://docs.ros.org/en/humble/Concepts/Advanced/About-Middleware-Implementations.html}}
@@ -986,8 +1054,8 @@
       \strng{authornamehash}{6d2ee5676b068857db569005a9c6205a}
       \strng{authorfullhash}{6d2ee5676b068857db569005a9c6205a}
       \field{extraname}{2}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://docs.ros.org/en/humble/Concepts/Basic/About-Nodes.html}}
@@ -1008,8 +1076,8 @@
       \strng{authornamehash}{6d2ee5676b068857db569005a9c6205a}
       \strng{authorfullhash}{6d2ee5676b068857db569005a9c6205a}
       \field{extraname}{3}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://docs.ros.org/en/humble/Concepts/Basic/About-Topics.html}}
@@ -1279,7 +1347,7 @@
       \endverb
       \keyw{Location awareness;Visualization;Simultaneous localization and mapping;Real-time systems;Hardware;Complexity theory;Mobile robots;Simultaneous Localization and Mapping;Deep Learning Visual Odometry;Features;Localization;Mapping;Local Bundle Adjustment;Extended Kalman Filter}
     \endentry
-    \entry{CAI2024127760_core_modules_slam}{article}{}
+    \entry{Cai2024}{article}{}
       \name{author}{6}{}{%
         {{hash=c0fb0e97bbe68cad763a8e7f5c8d97d9}{%
            family={Cai},
@@ -1312,18 +1380,19 @@
            given={Yaochi},
            giveni={Y\bibinitperiod}}}%
       }
+      \list{publisher}{1}{%
+        {Elsevier BV}%
+      }
       \strng{namehash}{5f0619841020e468c25afad60a614d1f}
       \strng{fullhash}{c7e838524599fd5df0d661fc41d28306}
       \strng{bibnamehash}{c7e838524599fd5df0d661fc41d28306}
       \strng{authorbibnamehash}{c7e838524599fd5df0d661fc41d28306}
       \strng{authornamehash}{5f0619841020e468c25afad60a614d1f}
       \strng{authorfullhash}{c7e838524599fd5df0d661fc41d28306}
-      \field{extraname}{1}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{abstract}{Visual Simultaneous Localization and Mapping (VSLAM) technology has become a key technology in autonomous driving and robot navigation. Relying on camera sensors, VSLAM can provide a richer and more precise perception means, and its advancement has accelerated in recent years. However, current review studies are often limited to in-depth analysis of a specific module and lack a comprehensive review of the entire VSLAM framework. The VSLAM system consists of five core components: (1) The camera sensor module is responsible for capturing visual information about the surrounding environment. (2) The front-end module uses image data to roughly estimate the camera’s position and orientation. (3) The back-end module optimizes and processes the pose information estimated by the front-end. (4) The loop detection module is used to correct accumulated errors in the system. (5) The mapping module is responsible for generating environmental maps. This review provides a systematic and comprehensive analysis of the SLAM framework by taking the core components of VSLAM as the entry point. Deep learning brings new development opportunities for VSLAM, but it still needs to solve the problems of data dependence, cost and real-time in practical application. We deeply explore the challenges of combining VSLAM with deep learning and feasible solutions. This review provides a valuable reference for the development of VSLAM. This will help push VSLAM technology to become smarter and more efficient. Thus, it can better meet the needs of future intelligent autonomous systems in multiple fields.}
       \field{issn}{0925-2312}
       \field{journaltitle}{Neurocomputing}
       \field{title}{A comprehensive overview of core modules in visual SLAM framework}
@@ -1332,15 +1401,8 @@
       \field{pages}{127760}
       \range{pages}{1}
       \verb{doi}
-      \verb https://doi.org/10.1016/j.neucom.2024.127760
+      \verb 10.1016/j.neucom.2024.127760
       \endverb
-      \verb{urlraw}
-      \verb https://www.sciencedirect.com/science/article/pii/S0925231224005319
-      \endverb
-      \verb{url}
-      \verb https://www.sciencedirect.com/science/article/pii/S0925231224005319
-      \endverb
-      \keyw{Visual SLAM,SLAM framework,Localization and mapping,Navigation,Environmental sensing}
     \endentry
     \entry{gong_loop_closure}{misc}{}
       \name{author}{1}{}{%
@@ -1430,64 +1492,6 @@
       \verb 10.1561/2300000043
       \endverb
     \endentry
-    \entry{Cai2024}{article}{}
-      \name{author}{6}{}{%
-        {{hash=c0fb0e97bbe68cad763a8e7f5c8d97d9}{%
-           family={Cai},
-           familyi={C\bibinitperiod},
-           given={Dupeng},
-           giveni={D\bibinitperiod}}}%
-        {{hash=23ab5ab77febd7209f4236130fc79811}{%
-           family={Li},
-           familyi={L\bibinitperiod},
-           given={Ruoqing},
-           giveni={R\bibinitperiod}}}%
-        {{hash=5b1b8abf90087af91842785abef93392}{%
-           family={Hu},
-           familyi={H\bibinitperiod},
-           given={Zhuhua},
-           giveni={Z\bibinitperiod}}}%
-        {{hash=388339acf6d209ea2f6dfb8c3a605dc3}{%
-           family={Lu},
-           familyi={L\bibinitperiod},
-           given={Junlin},
-           giveni={J\bibinitperiod}}}%
-        {{hash=bdc284c8ef8bcf1cb6af181afe9e54c2}{%
-           family={Li},
-           familyi={L\bibinitperiod},
-           given={Shijiang},
-           giveni={S\bibinitperiod}}}%
-        {{hash=9180952e76327f0d2a2bc849cf4fe88e}{%
-           family={Zhao},
-           familyi={Z\bibinitperiod},
-           given={Yaochi},
-           giveni={Y\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Elsevier BV}%
-      }
-      \strng{namehash}{5f0619841020e468c25afad60a614d1f}
-      \strng{fullhash}{c7e838524599fd5df0d661fc41d28306}
-      \strng{bibnamehash}{c7e838524599fd5df0d661fc41d28306}
-      \strng{authorbibnamehash}{c7e838524599fd5df0d661fc41d28306}
-      \strng{authornamehash}{5f0619841020e468c25afad60a614d1f}
-      \strng{authorfullhash}{c7e838524599fd5df0d661fc41d28306}
-      \field{extraname}{2}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{issn}{0925-2312}
-      \field{journaltitle}{Neurocomputing}
-      \field{title}{A comprehensive overview of core modules in visual SLAM framework}
-      \field{volume}{590}
-      \field{year}{2024}
-      \field{pages}{127760}
-      \range{pages}{1}
-      \verb{doi}
-      \verb 10.1016/j.neucom.2024.127760
-      \endverb
-    \endentry
     \entry{Kaess2012}{article}{}
       \name{author}{6}{}{%
         {{hash=da701266dff9b3f01fdc8e0d18e5f021}{%
@@ -1527,8 +1531,8 @@
       \strng{authorbibnamehash}{f3e557e3175be5bfd7ac82a67d76426e}
       \strng{authornamehash}{64357f2b478ba206a20e1cef46a7ec2d}
       \strng{authorfullhash}{f3e557e3175be5bfd7ac82a67d76426e}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{International Journal of Robotic Research - IJRR}
@@ -1685,8 +1689,8 @@
       \strng{authorbibnamehash}{1706de37ec1c6e8f22081681f5edb0cd}
       \strng{authornamehash}{288f14f017934f36c50a3331f71e78c6}
       \strng{authorfullhash}{1706de37ec1c6e8f22081681f5edb0cd}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{1573-0409}
@@ -1717,8 +1721,8 @@
       \strng{authorbibnamehash}{c6125254a79af02a8918da63fa8ea72e}
       \strng{authornamehash}{c6125254a79af02a8918da63fa8ea72e}
       \strng{authorfullhash}{c6125254a79af02a8918da63fa8ea72e}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{month}{5}
@@ -1757,8 +1761,8 @@
       \strng{authorbibnamehash}{862e73e9fd8d06467d53ea2c9dad8c02}
       \strng{authornamehash}{862e73e9fd8d06467d53ea2c9dad8c02}
       \strng{authorfullhash}{862e73e9fd8d06467d53ea2c9dad8c02}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{The Journal of Engineering}
@@ -1856,8 +1860,8 @@
       \strng{authorbibnamehash}{6b32e1bf9c7e7852ddf0c09f63d04590}
       \strng{authornamehash}{8bb22dfdadf1d40228ea7f021e8b0711}
       \strng{authorfullhash}{6b32e1bf9c7e7852ddf0c09f63d04590}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{This paper presents a fiducial marker system specially appropriated for camera pose estimation in applications such as augmented reality and robot localization. Three main contributions are presented. First, we propose an algorithm for generating configurable marker dictionaries (in size and number of bits) following a criterion to maximize the inter-marker distance and the number of bit transitions. In the process, we derive the maximum theoretical inter-marker distance that dictionaries of square binary markers can have. Second, a method for automatically detecting the markers and correcting possible errors is proposed. Third, a solution to the occlusion problem in augmented reality applications is shown. To that aim, multiple markers are combined with an occlusion mask calculated by color segmentation. The experiments conducted show that our proposal obtains dictionaries with higher inter-marker distances and lower false negative rates than state-of-the-art systems, and provides an effective solution to the occlusion problem.}
@@ -1907,8 +1911,8 @@
       \strng{authorbibnamehash}{b3ef81b85b0ccccc4b9c20763eab8917}
       \strng{authornamehash}{b3ef81b85b0ccccc4b9c20763eab8917}
       \strng{authorfullhash}{b3ef81b85b0ccccc4b9c20763eab8917}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{0262-8856}
@@ -1934,8 +1938,8 @@
       \strng{authorbibnamehash}{e47a5c22c3c2e012514c9d5a4141b8b9}
       \strng{authornamehash}{e47a5c22c3c2e012514c9d5a4141b8b9}
       \strng{authorfullhash}{e47a5c22c3c2e012514c9d5a4141b8b9}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{{reComputer Mini J3011 -- Intelligent Edge AI Computer with NVIDIA\textsuperscript{®} Jetson\texttrademark{} Orin\texttrademark{} Nano 8GB}}
@@ -2040,6 +2044,94 @@
       \endverb
       \verb{url}
       \verb https://www.th-nuernberg.de/forschung-innovation/forschungseinrichtungen/ohm-innovation-center/forschung-am-oic/aerodrohm/
+      \endverb
+    \endentry
+    \entry{livox_mid360s}{online}{}
+      \name{author}{1}{}{%
+        {{hash=41932d9cd626314a7b7d95d63adf4b54}{%
+           family={{Livox Technology}},
+           familyi={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{41932d9cd626314a7b7d95d63adf4b54}
+      \strng{fullhash}{41932d9cd626314a7b7d95d63adf4b54}
+      \strng{bibnamehash}{41932d9cd626314a7b7d95d63adf4b54}
+      \strng{authorbibnamehash}{41932d9cd626314a7b7d95d63adf4b54}
+      \strng{authornamehash}{41932d9cd626314a7b7d95d63adf4b54}
+      \strng{authorfullhash}{41932d9cd626314a7b7d95d63adf4b54}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Abgerufen am 13.~Juni~2026}
+      \field{title}{Livox {Mid-360S}}
+      \field{urlday}{13}
+      \field{urlmonth}{6}
+      \field{urlyear}{2026}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.livoxtech.com/de/mid-360s
+      \endverb
+      \verb{url}
+      \verb https://www.livoxtech.com/de/mid-360s
+      \endverb
+    \endentry
+    \entry{logitech_c922}{online}{}
+      \name{author}{1}{}{%
+        {{hash=ff70d460a420205ceeea16f1c13e51b1}{%
+           family={{Logitech}},
+           familyi={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{ff70d460a420205ceeea16f1c13e51b1}
+      \strng{fullhash}{ff70d460a420205ceeea16f1c13e51b1}
+      \strng{bibnamehash}{ff70d460a420205ceeea16f1c13e51b1}
+      \strng{authorbibnamehash}{ff70d460a420205ceeea16f1c13e51b1}
+      \strng{authornamehash}{ff70d460a420205ceeea16f1c13e51b1}
+      \strng{authorfullhash}{ff70d460a420205ceeea16f1c13e51b1}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Abgerufen am 13.~Juni~2026}
+      \field{title}{C922 Pro Stream Webcam}
+      \field{urlday}{13}
+      \field{urlmonth}{6}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.logitech.com/de-de/shop/p/c922-pro-stream-webcam
+      \endverb
+      \verb{url}
+      \verb https://www.logitech.com/de-de/shop/p/c922-pro-stream-webcam
+      \endverb
+    \endentry
+    \entry{zed_mini}{online}{}
+      \name{author}{1}{}{%
+        {{hash=c210095bbbea4834bd71f6c6c48dec3b}{%
+           family={{Stereolabs}},
+           familyi={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{c210095bbbea4834bd71f6c6c48dec3b}
+      \strng{fullhash}{c210095bbbea4834bd71f6c6c48dec3b}
+      \strng{bibnamehash}{c210095bbbea4834bd71f6c6c48dec3b}
+      \strng{authorbibnamehash}{c210095bbbea4834bd71f6c6c48dec3b}
+      \strng{authornamehash}{c210095bbbea4834bd71f6c6c48dec3b}
+      \strng{authorfullhash}{c210095bbbea4834bd71f6c6c48dec3b}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Abgerufen am 13.~Juni~2026}
+      \field{title}{{ZED Mini} Stereo Camera}
+      \field{urlday}{13}
+      \field{urlmonth}{6}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.stereolabs.com/en-de/store/products/zed-mini
+      \endverb
+      \verb{url}
+      \verb https://www.stereolabs.com/en-de/store/products/zed-mini
       \endverb
     \endentry
     \entry{Tang2015_lidar}{article}{}
@@ -2152,94 +2244,6 @@
       \verb 10.1109/IV55156.2024.10588822
       \endverb
       \keyw{Location awareness;Visualization;Simultaneous localization and mapping;Annotations;Interest point detection;Manuals;Feature extraction}
-    \endentry
-    \entry{livox_mid360s}{online}{}
-      \name{author}{1}{}{%
-        {{hash=41932d9cd626314a7b7d95d63adf4b54}{%
-           family={{Livox Technology}},
-           familyi={L\bibinitperiod}}}%
-      }
-      \strng{namehash}{41932d9cd626314a7b7d95d63adf4b54}
-      \strng{fullhash}{41932d9cd626314a7b7d95d63adf4b54}
-      \strng{bibnamehash}{41932d9cd626314a7b7d95d63adf4b54}
-      \strng{authorbibnamehash}{41932d9cd626314a7b7d95d63adf4b54}
-      \strng{authornamehash}{41932d9cd626314a7b7d95d63adf4b54}
-      \strng{authorfullhash}{41932d9cd626314a7b7d95d63adf4b54}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{note}{Abgerufen am 13.~Juni~2026}
-      \field{title}{Livox {Mid-360S}}
-      \field{urlday}{13}
-      \field{urlmonth}{6}
-      \field{urlyear}{2026}
-      \field{year}{2025}
-      \field{urldateera}{ce}
-      \verb{urlraw}
-      \verb https://www.livoxtech.com/de/mid-360s
-      \endverb
-      \verb{url}
-      \verb https://www.livoxtech.com/de/mid-360s
-      \endverb
-    \endentry
-    \entry{logitech_c922}{online}{}
-      \name{author}{1}{}{%
-        {{hash=ff70d460a420205ceeea16f1c13e51b1}{%
-           family={{Logitech}},
-           familyi={L\bibinitperiod}}}%
-      }
-      \strng{namehash}{ff70d460a420205ceeea16f1c13e51b1}
-      \strng{fullhash}{ff70d460a420205ceeea16f1c13e51b1}
-      \strng{bibnamehash}{ff70d460a420205ceeea16f1c13e51b1}
-      \strng{authorbibnamehash}{ff70d460a420205ceeea16f1c13e51b1}
-      \strng{authornamehash}{ff70d460a420205ceeea16f1c13e51b1}
-      \strng{authorfullhash}{ff70d460a420205ceeea16f1c13e51b1}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{note}{Abgerufen am 13.~Juni~2026}
-      \field{title}{C922 Pro Stream Webcam}
-      \field{urlday}{13}
-      \field{urlmonth}{6}
-      \field{urlyear}{2026}
-      \field{urldateera}{ce}
-      \verb{urlraw}
-      \verb https://www.logitech.com/de-de/shop/p/c922-pro-stream-webcam
-      \endverb
-      \verb{url}
-      \verb https://www.logitech.com/de-de/shop/p/c922-pro-stream-webcam
-      \endverb
-    \endentry
-    \entry{zed_mini}{online}{}
-      \name{author}{1}{}{%
-        {{hash=c210095bbbea4834bd71f6c6c48dec3b}{%
-           family={{Stereolabs}},
-           familyi={S\bibinitperiod}}}%
-      }
-      \strng{namehash}{c210095bbbea4834bd71f6c6c48dec3b}
-      \strng{fullhash}{c210095bbbea4834bd71f6c6c48dec3b}
-      \strng{bibnamehash}{c210095bbbea4834bd71f6c6c48dec3b}
-      \strng{authorbibnamehash}{c210095bbbea4834bd71f6c6c48dec3b}
-      \strng{authornamehash}{c210095bbbea4834bd71f6c6c48dec3b}
-      \strng{authorfullhash}{c210095bbbea4834bd71f6c6c48dec3b}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{note}{Abgerufen am 13.~Juni~2026}
-      \field{title}{{ZED Mini} Stereo Camera}
-      \field{urlday}{13}
-      \field{urlmonth}{6}
-      \field{urlyear}{2026}
-      \field{urldateera}{ce}
-      \verb{urlraw}
-      \verb https://www.stereolabs.com/en-de/store/products/zed-mini
-      \endverb
-      \verb{url}
-      \verb https://www.stereolabs.com/en-de/store/products/zed-mini
-      \endverb
     \endentry
     \entry{rcvisard_tagdetect}{online}{}
       \name{author}{1}{}{%

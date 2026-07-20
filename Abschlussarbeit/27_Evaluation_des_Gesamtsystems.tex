@@ -5,7 +5,7 @@
 Dieses Kapitel beschreibt die praktische Durchführung der Versuche und die Auswertung der Ergebnisse.
 Es baut auf den in den Kapiteln~\ref{cap:implementierung_kartierung} und~\ref{cap:implementierung_positionsbestimmung} beschriebenen Implementierungen auf und gliedert sich in die beiden Teilaufgaben Kartierung und Positionierung.
 Beide werden zunächst in ihrer Durchführung und anschließend in ihrer Evaluation behandelt.
-Als externer Computer wird ein Lenovo ThinkPad mit einem Intel~Core~i5-1145G7 (11.~Generation), $16\,\text{GB}$ 
+Als externer Computer wird ein Lenovo ThinkPad mit einem Intel~Core~i5-1145G7 (11.~Generation), 16 \gls{gb} 
 Arbeitsspeicher und integrierter Intel~Iris~Xe-Grafik unter Ubuntu~24.04 genutzt.
 
 
@@ -14,8 +14,8 @@ Arbeitsspeicher und integrierter Intel~Iris~Xe-Grafik unter Ubuntu~24.04 genutzt
 \section{Durchführung und Evaluation der Kartierung}
 \label{sec:durchfuehrung_kartierung}
 Dieser Abschnitt beschreibt, wie die physische Karte angefertigt und in der Versuchsumgebung angebracht wird.
-Anschließend wird das Vorgehen zum Aufzeichnen und erstellen der digitalen Karte beschrieben.
-Im Letzten Teil wird die Qualität und das Vorgehen der Kartierung bewertet.
+Anschließend wird das Vorgehen zum Aufzeichnen und Erstellen der digitalen Karte beschrieben.
+Im letzten Teil werden die Qualität und das Vorgehen der Kartierung bewertet.
 
 \subsection{Erstellen und Anbringen der physischen Karte}
 \label{sec:anbringen_karte}
@@ -26,17 +26,17 @@ Jede dieser Bahnen trägt aufgedruckte Markierungen, die eine lagerichtige Ausri
 Die Bahnen weisen eine Länge von jeweils 5,0~m auf, woraus sich für die vollständige Karte eine Ausdehnung von $5{,}0$~m~$\times$~$3{,}9$~m ergibt.
 
 Hauptbestandteil der Karte sind die aufgedruckten AprilTags der Familie \texttt{tag36h11}.
-Insgesamt kommen vier verschiedene Markergrößen zum Einsatz: 0,170~m, 0,300~m, 1,0~m und 0,12~m.
-Geplottet werden 68 Fiducial-Marker der Größe 0,170~m, 24 Fiducial-Marker der Größe 0,300~m sowie vier Fiducial-Marker der Größe 1,0~m.
-Die Größe 0,12~m ist nur ein einziges Mal (\gls{id}~1) vorhanden und dient dem Starten des \gls{uav}s.
+Insgesamt kommen vier verschiedene Markergrößen zum Einsatz: 0,170~m, 0,300~m, 1,000~m und 0,120~m.
+Geplottet werden 68 Fiducial-Marker der Größe 0,170~m, 24 Fiducial-Marker der Größe 0,300~m sowie vier Fiducial-Marker der Größe 1,000~m.
+Die Größe 0,120~m ist nur ein einziges Mal (\gls{id}~1) vorhanden und dient dem Starten des \gls{uav}s.
 Bei dem Start wären die anderen Fiducial-Marker zu groß, sodass die Bodenkamera sie nicht vollständig erfassen könnte und zu Beginn keine Lokalisierung möglich wäre.
 
 Die Anordnung und Größe der Fiducial-Marker ist so gewählt, dass bei einer Flughöhe von 1,0~m stets mindestens zwei Fiducial-Marker im Sichtfeld liegen.
 Eine Ausnahme bilden die Eckbereiche, in denen die dort platzierten großformatigen Fiducial-Marker das Sichtfeld bereits weitgehend ausfüllen.
 Um das Zentrum herum sind die Fiducial-Marker in einem geringeren Abstand zueinander, um bei einer niedrigeren Flughöhe ausreichend Detektionen zu erhalten. 
 
-In Abbildung~\ref{fig:tag_karte_oic} die angebrachte Karte dargestellt.
-Der Fiducial-Marker zum starten des \gls{uav}s ist im geometrischen Zentrum der Karte rot markiert. 
+In Abbildung~\ref{fig:tag_karte_oic} ist die angebrachte Karte dargestellt.
+Der Fiducial-Marker zum Starten des \gls{uav}s ist im geometrischen Zentrum der Karte rot markiert. 
 Der Ursprung der Karte und des Weltkoordinatensystems liegt leicht versetzt zum Zentrum.
 Der Fiducial-Marker mit der \gls{id}~0 definiert diesen Ursprung und ist grün umrandet.
 
@@ -58,15 +58,15 @@ Der Versatz entlang der Bahnrichtung, also zwischen den Markern 200 und 201 bezi
 Der Versatz zwischen den Markern 200 und 203 beziehungsweise 201 und 202 resultiert aus der großen Bahnlänge und der damit verbundenen erschwerten Handhabung beim Anbringen der Karte.
 
 Die digitale Konstruktion der Karte liefert unmittelbar eine Referenz mit bekannten Sollwerten, deren Genauigkeit durch die genannten Abweichungen nach oben begrenzt ist.
-Diese Referenz wird im folgenden als Ground Truth bezeichnet.
+Diese Referenz wird im Folgenden als Ground Truth bezeichnet.
 
 
 
 \subsection{Aufzeichnung und Kartenerstellung}
 \label{sec:aufnahme_karte}
-Die eigentliche Aufzeichnung der physischen Karte erfolgt wie in Abschnitt \ref{sec:ablauf_kartierung} beschrieben, in drei Schritten auf dem externen Computer.
+Die eigentliche Aufzeichnung der physischen Karte erfolgt wie in Abschnitt~\ref{sec:ablauf_kartierung} beschrieben, in drei Schritten auf dem externen Computer.
 Dabei entsteht zunächst ein \gls{ros2}-Bag, während die Kamera (Logitech C922) von Hand über die Karte geführt wird.
-Die Kamera arbeitet mit 15~\gls{fps} und einer Auflösung von 1920~$\times$~1080.
+Die Kamera arbeitet mit 15~\gls{fps} und einer Auflösung von $1920\times1080$.
 
 Entscheidend beim Führen der Kamera ist eine möglichst senkrechte Ausrichtung zum Boden sowie eine hohe Zahl gleichzeitig erfasster Marker.
 Jeder Fiducial-Marker muss im Verlauf der Aufnahme mindestens einmal erfasst werden, da nur beobachtete Fiducial-Marker in die Karte eingehen.
@@ -77,16 +77,16 @@ Das wiederholte Abgehen der Karte in verschiedenen Richtungen erzeugt Loop-Closu
 Zum Ende der Aufnahme führt der Weg einmal um die Karte herum, um dort ebenfalls ein Loop-Closure-Constraint zu erzeugen.
 Insgesamt umfasst das aufgezeichnete Material eine Dauer von 166~Sekunden, was bei 15~\gls{fps} rund 13,9~\gls{gb} entspricht.
 
-\subsection*{Offline Fiducial-Marker Detektion}
+\subsection*{Offline Fiducial-Marker-Detektion}
 \label{sec:sync_and_detect}
-Der erste Bag wird nach \ref{sec:offline_detektion_apriltags} dem Node \texttt{sync\_and\_detect\_node} übergeben, der die Fiducial-Marker detektiert und die Zeitstempel synchronisiert.
-Aus der Aufnahme des ersten Schritts wurden 2390 Frames der Kameraaufzeichnung untersucht und dabei 46443 Fiducial-Marker detektiert.
+Der erste Bag wird nach~\ref{sec:offline_detektion_apriltags} dem Node \texttt{sync\_and\_detect\_node} übergeben, der die Fiducial-Marker detektiert und die Zeitstempel synchronisiert.
+Aus der Aufnahme des ersten Schritts wurden 2490 Frames der Kameraaufzeichnung untersucht und dabei 46443 Fiducial-Marker detektiert.
 Dieser Bag bildet die Eingangsgröße für die eigentliche Kartenerstellung mit Tag\gls{slam}.
 
 
 
 
-\subsubsection*{Optimierung und Parametrierung von TagSLAM.}
+\subsubsection*{Optimierung und Parametrierung von TagSLAM}
 \label{sec:parametrierung_tagslam}
 Der Bag aus der Offline-Detektion wird mit dem Node \texttt{tagslam\_from\_bag} verarbeitet.
 Dabei wird der Fall einer unbekannten Karte zugrunde gelegt, in der keinerlei Vorwissen über die Lage der Fiducial-Marker vorliegt.
@@ -95,7 +95,7 @@ Die Kartierung erfolgt in drei Versuchen mit unterschiedlicher Parametrierung.
 Ziel ist es, eine Parametrierung zu ermitteln, die sich künftig zur Kartierung unbekannter 
 Umgebungen eignet und dabei einen tragfähigen Kompromiss zwischen Rechenaufwand und Genauigkeit bietet.
 Alle Läufe verarbeiten denselben Detektions-Bag und unterscheiden sich ausschließlich in der Parametrierung von TagSLAM.
-Die wichtigsten Parameter der jeweiligen Läufe können Tabelle~\ref{tab:tagslam_params} entnommen werden.
+Die wichtigsten Parameter der jeweiligen Läufe können Tabelle~\ref{tab:tagslam_params_laeufe} entnommen werden.
 Nicht aufgeführte Parameter wurden entsprechend den Vorgabewerten aus der TagSLAM-Dokumentation gesetzt.
 \begin{table}[htbp]
 \centering
@@ -106,7 +106,7 @@ Nicht aufgeführte Parameter wurden entsprechend den Vorgabewerten aus der TagSL
 \texttt{optimizer\_mode}            & \texttt{fast} & \texttt{fast} & \texttt{slow} \\
 \texttt{max\_subgraph\_error}       & $50$            & $10$            & $10$ \\
 \texttt{max\_num\_incremental\_opt} & $50$          & $10$          & $50$ \\
-\texttt{Fixierung der Marker}                & keine         & $z$, $\varphi_x$, $\theta_y$ & $z$, $\varphi_x$, $\theta_y$\\
+Fixierung der Marker                & keine         & $z$, $\varphi_x$, $\theta_y$ & $z$, $\varphi_x$, $\theta_y$\\
 \midrule
 \texttt{minimum\_viewing\_angle}                & \multicolumn{3}{c}{$15{,}0$} \\
 \texttt{minimum\_tag\_area}                     & \multicolumn{3}{c}{$2500$} \\
@@ -136,9 +136,9 @@ Der zweite Versuch übernimmt gemeinsame Einstellungen aus Versuch eins und nutz
 Um fehlerhafte Messungen von der Karte fernzuhalten, wird die Schwelle \texttt{max\_subgraph\_error} auf $10$ herabgesetzt.
 Zugleich sinkt \texttt{max\_num\_incremental\_opt} auf $10$, wodurch der Faktorgraph häufiger vollständig optimiert wird und die Lösung an Genauigkeit gewinnt.
 
-Da alle Fiducial-Marker flach auf dem Boden und damit in derselben Ebene wie der Ursprung liegen, wird ihre Höhe mit $z=0$ vorgegeben und über ein sehr kleines \texttt{position\_noise} in $z$ von $10^{-6}$ fixiert.
+Da alle Fiducial-Marker flach auf dem Boden und damit in derselben Ebene wie der Ursprung liegen, wird ihre Höhe mit $z$=0 vorgegeben und über ein sehr kleines \texttt{position\_noise} in $z$ von $10^{-6}$ fixiert.
 Ebenso werden die Verkippungen um die $x$- und $y$-Achse auf $0$ gesetzt und über ein \texttt{rotation\_noise} von $10^{-6}$ in diesen beiden Achsen fixiert.
-Die verbleibenden Freiheitsgrade, also die Lage in der $x$-$y$-Ebene und die Drehung um die $z$-Achse, bleiben schätzbar, werden jedoch über \texttt{position\_noise} in $x$ und $y$ von $0{,}2$ schwach an die übernommene Startlage gebunden.
+Die verbleibenden Freiheitsgrade, also die Lage in der $x$-$y$-Ebene und die Drehung um die $z$-Achse, bleiben schätzbar, werden jedoch über \texttt{position\_noise} und \texttt{rotation\_noise} in $x$ und $y$ von 0,4 schwach an die übernommene Startlage gebunden.
 Der grundsätzliche Aufbau dieser Fixierung ist in Quellcode~\ref{lst:tagslam_tag_noise} für die Kennungen 0 bis 2 dargestellt.
 \begin{lstlisting}[caption={Tagweise Fixierung der Markerlagen in \texttt{tagslam.yaml}},label={lst:tagslam_tag_noise},captionpos=b]
 tags:
@@ -155,14 +155,14 @@ tags:
       position: {x: -0.242321, y: -0.000951, z: 0.0}
       rotation: {x: 0.0, y: 0.0, z: -0.000313}
     position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
-    rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.5}
+    rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
   - id: 2
     size: 0.170
     pose:
       position: {x: -0.241930, y: 0.241503, z: 0.0}
       rotation: {x: 0.0, y: 0.0, z: -0.001375}
     position_noise: {x: 0.4, y: 0.4, z: 1.0e-06}
-    rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.5}
+    rotation_noise: {x: 1.0e-06, y: 1.0e-06, z: 0.4}
 \end{lstlisting}
 
 
@@ -188,10 +188,10 @@ Verglichen werden die Abweichungen der Markerzentren in der Kartenebene.
 Von den 97 aufgebrachten Markern erfassen die Karten aller drei Versuche jeweils 96.
 Der Fiducial-Marker mit der Kennung 202 fehlt in allen Fällen, da er augenscheinlich während der Aufzeichnung nicht erfasst wurde.
 Es handelt sich um einen der Eckmarker mit einer Kantenlänge von 1,0~m, für dessen vollständige Abbildung im Bild ein entsprechend großer Abstand zum Boden erforderlich ist.
-Als Grund ist eine Fehlerhafte Aufzeichnung im ersten Bag zu nennen. 
+Als Grund ist eine fehlerhafte Aufzeichnung im ersten Bag zu nennen. 
 Dieser Fiducial-Marker wurde nicht sorgfältig genug bei der Aufnahme des Bags betrachtet.
 
-Nachfolgende Abbildungen zeigen den Aufgenommenen Karten aus der Draufsicht und vergleicht diese mit dem Ground Truth.
+Nachfolgende Abbildungen zeigen die aufgenommenen Karten aus der Draufsicht und vergleichen diese mit dem Ground Truth.
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.7\textwidth]{Bilder/karten_vergleich_ueberlagert_versuch_1.png}
@@ -339,7 +339,7 @@ Im letzten Teil werden die Ergebnisse bewertet.
 
 \subsection{Senden von Positions-Sollwerten an PX4}
 \label{sec:bedienkonsole}
-Zur Betrieb des \gls{uav}s während der Versuche kommen zwei Bedienwege zum Einsatz.
+Zum Betrieb des \gls{uav}s während der Versuche kommen zwei Bedienwege zum Einsatz.
 Die eigentliche Flugführung übernimmt der eigens entwickelte Node \texttt{control\_console\_uxrce}, der auf dem Begleitrechner ausgeführt wird.
 Die Bedienung erfolgt über eine \gls{ssh}-Verbindung per W-LAN von dem externen Computer aus. 
 
@@ -393,7 +393,7 @@ Der Gesamtschub sackt in der Folge ab und die Flughöhe kann während des Gieren
 Die maximale Giergeschwindigkeit wird daher bewusst niedrig auf maximal $20^\circ$/s gewählt.
 
 Ergänzend zum Control-Node wird die Fernsteuerung zum Umschalten der Flugmodi und zum Eingriff bei Fehlfunktionen genutzt.
-Über sie wird der \texttt{Offboard} Modus als regulärer Betriebsmodus aktiviert, in dem die Konsole die Sollwerte vorgibt.
+Über sie wird der \texttt{Offboard}-Modus als regulärer Betriebsmodus aktiviert, in dem die Konsole die Sollwerte vorgibt.
 Für den Störfall sind zwei weitere Schalter vorgesehen.
 Der erste wechselt in den Modus \texttt{Auto.Land}, in dem das \gls{uav} selbstständig und gezielt landet.
 Der zweite stoppt als Notausschalter die Rotoren unmittelbar und dient als letzte Sicherungsmaßnahme. 
@@ -402,11 +402,11 @@ Ergänzend ist der \gls{px4} so konfiguriert, dass das \gls{uav} automatisch lan
 \subsection{Wahl der Startparameter für den Flugbetrieb}
 \label{subsec:pos_parametrierung}
 Die Startparameter des Nodes \texttt{vision\_pose\_uxrce\_node} wurden auf den geplanten Flugbetrieb abgestimmt.
-Ausschlaggebend sind eine nominelle Flughöhe von etwa 1,8~m, eine senkrecht nach unten gerichtete Kamera und eine Karte mit unterschiedliche großen Markern.
+Ausschlaggebend sind eine nominelle Flughöhe von etwa 1,8~m, eine senkrecht nach unten gerichtete Kamera und eine Karte mit unterschiedlich großen Markern.
 
 Die Karte liegt im vorliegenden Aufbau ausschließlich am Boden, sodass die Frontkamera keine Fiducial-Marker erfassen kann.
 Sie ist deshalb über \texttt{cam2\_weight}${}=0$ aus der Fusion ausgeschlossen.
-Die konkret gewählten Werte sind in Tabelle~\ref{tab:vision_pose_werte} zusammengefasst, die Bedeutung der einzelnen Parameter sind in Tabelle~\ref{tab:vision_pose_params} erläutert.
+Die konkret gewählten Werte sind in Tabelle~\ref{tab:vision_pose_werte} zusammengefasst, die Bedeutung der einzelnen Parameter ist in Tabelle~\ref{tab:vision_pose_params} erläutert.
 
 {\footnotesize
 \begin{longtable}{@{}l r@{}}
@@ -442,7 +442,7 @@ Die konkret gewählten Werte sind in Tabelle~\ref{tab:vision_pose_werte} zusamme
 \addlinespace
 \multicolumn{2}{@{}l}{\textit{PX4-Anbindung und Zeit}} \\
 \texttt{pose\_frame}                       & $1$ \\
-\texttt{timesync\_topic}                   & \texttt{/fmu/out/timesync\_status} \\
+\texttt{apply\_timesync\_offset}                   & \texttt{/fmu/out/timesync\_status} \\
 \addlinespace
 \multicolumn{2}{@{}l}{\textit{Ausreißerfilterung (RANSAC)}} \\
 \texttt{ransac\_base\_threshold\_m}        & $0{,}06$ \\
@@ -454,6 +454,7 @@ Die konkret gewählten Werte sind in Tabelle~\ref{tab:vision_pose_werte} zusamme
 \multicolumn{2}{@{}l}{\textit{Fusion und Glättung}} \\
 \texttt{publish\_rate\_hz}                 & $50$ \\
 \texttt{max\_estimate\_age\_s}             & $0{,}03$ \\
+\texttt{map\_cov\_reference\_sigma\_m}      & $0{,}02$ \\
 \texttt{cam1\_weight}                      & $1{,}0$ \\
 \texttt{cam2\_weight}                      & $0{,}0$ \\
 \texttt{position\_smoothing\_alpha}        & $0{,}3$ \\
@@ -464,30 +465,34 @@ Die konkret gewählten Werte sind in Tabelle~\ref{tab:vision_pose_werte} zusamme
 }
 
 Die Bodenkamera wird mit einer Auflösung von 1280~$\times$~720 und 60~\gls{fps} betrieben.
-Die Ausgaberate liegt mit \texttt{publish\_rate\_hz}${}=50$~Hz bewusst darunter.
+Die Ausgaberate liegt mit \texttt{publish\_rate\_hz}~=~50~Hz bewusst darunter.
 Damit bleibt die geforderte untere Grenze von 30~\gls{fps} aus Abschnitt~\ref{sec:pos_ekf_konfiguration} deutlich überschritten, während die Reserve zur Bildrate dafür sorgt, dass der Takt auch dann eingehalten wird, 
 wenn einzelne Bilder verzögert eintreffen oder ausfallen.
 
-Der Parameter \texttt{max\_estimate\_age\_s}${}=0{,}03$~s ist auf diesen Bildtakt abgestimmt.
+Der Parameter \texttt{max\_estimate\_age\_s}~=~0,03~s ist auf diesen Bildtakt abgestimmt.
 Der Ausfall eines einzelnen Bildes wird damit toleriert, während bei längerem Ausfall keine veraltete Schätzung mehr ausgegeben wird und der \gls{ekf} die Lücke über \gls{drl} überbrückt.
-Der Parameter \texttt{min\_tags\_required}${}=1$ erlaubt die Positionsbestimmung bereits mit einem einzigen sichtbaren Marker.
+Der Parameter \texttt{min\_tags\_required}~=~1 erlaubt die Positionsbestimmung bereits mit einem einzigen sichtbaren Marker.
 Beim Start liegt lediglich der Startmarker im Sichtfeld, sodass eine höhere Mindestanzahl die Lokalisierung in dieser Phase verhindern würde.
 
-Die Schwelle der Ausreißerfilterung nach Gleichung~\eqref{eq:pos_ransac_schwelle} ergibt sich aus zwei Vorgaben.
-Die Basisschwelle beträgt \texttt{ransac\_base\_threshold\_m}${}=0{,}06$~m, der zugehörige Bezugsabstand \texttt{ransac\_reference\_distance\_m}${}=1{,}4$~m.
+Die Schwelle der Ausreißerfilterung nach Gleichung~\ref{eq:pos_ransac_schwelle} ergibt sich aus zwei Vorgaben.
+Die Basisschwelle beträgt \texttt{ransac\_base\_threshold\_m}~=~0,06~m, der zugehörige Bezugsabstand \texttt{ransac\_reference\_distance\_m}~=~1,4~m.
 Der Bezugsabstand wurde iterativ bestimmt, da bei einem höheren Wert zu viele Detektionen verworfen wurden.
 
 
-Die obere Schranke $f_{\max}$ aus Gleichung~\eqref{eq:pos_ransac_schwelle} wird über \texttt{ransac\_max\_distance\_factor}${}=4{,}0$ vorgegeben und begrenzt den Schwellenwert auf $0{,}24$~m.
-Die untere Schranke begrenzt den Schwellenwert bei Abständen unterhalb von rund $1{,}06$~m auf $0{,}05$~m.
+Die obere Schranke $f_{\max}$ aus Gleichung~\ref{eq:pos_ransac_schwelle} wird über \texttt{ransac\_max\_distance\_factor}~=~4,0 vorgegeben und begrenzt den Schwellenwert auf 0,24~m.
+Die untere Schranke begrenzt den Schwellenwert bei Abständen unterhalb von rund 0,99~m auf 0,03~m.
 
-Der Parameter \texttt{ransac\_max\_iterations}${}=10$ begrenzt die Zahl der Hypothesen.
-Über \texttt{ransac\_min\_inliers\_ratio}${}=0{,}70$ wird nach Gleichung~\eqref{eq:pos_ransac_konsens} gefordert, dass mindestens $70$~Prozent aller Schätzungen der Konsensmenge angehören.
+Der Parameter \texttt{ransac\_max\_iterations}~=~10 begrenzt die Zahl der Hypothesen.
+Über \texttt{ransac\_min\_inliers\_ratio}~=~0,70 wird nach Gleichung~\ref{eq:pos_ransac_konsens} gefordert, dass mindestens $70$~Prozent aller Schätzungen der Konsensmenge angehören.
 
-Die Glättungsfaktoren \texttt{position\_smoothing\_alpha} und \texttt{rotation\_smoothing\_alpha} wurden mit jeweils $0{,}3$ iterativ bestimmt.
-Sie dämpfen nach den Gleichungen~\eqref{eq:pos_ema} und~\eqref{eq:pos_slerp} das Rauschen der einzelnen Detektionen, ohne die Schätzung übermäßig träge werden zu lassen.
+Der Parameter \texttt{map\_cov\_reference\_sigma\_m}~=~0,02~m setzt die Referenz-Standardabweichung $\sigma_{\mathrm{ref}}$ aus Gleichung~\ref{eq:pos_map_quality}.
+Alle Fiducial-Marker der verwendeten Karte weisen eine Kartenunsicherheit von höchstens rund einem Millimeter auf und liegen damit weit unterhalb dieser Referenz.
+Sie erhalten dadurch einen Qualitätsfaktor nahe eins und behalten ihr geometrisches Gewicht nahezu unverändert.
 
-Der Parameter \texttt{isaac\_reference\_size}${}=0{,}170$~m entspricht der Markergröße, mit der die Detektion im Container konfiguriert ist.
+Die Glättungsfaktoren \texttt{position\_smoothing\_alpha} und \texttt{rotation\_smoothing\_alpha} wurden mit jeweils 0,3 iterativ bestimmt.
+Sie dämpfen nach den Gleichungen~\ref{eq:pos_ema} und~\ref{eq:pos_slerp} das Rauschen der einzelnen Detektionen, ohne die Schätzung übermäßig träge werden zu lassen.
+
+Der Parameter \texttt{isaac\_reference\_size}~=~0,170~m entspricht der Markergröße, mit der die Detektion im Container konfiguriert ist.
 Da dort nur eine einzige Größe hinterlegt werden kann, die Karte aber vier verschiedene Kantenlängen enthält, korrigiert der Node die Translation abweichend großer Fiducial-Marker über das Verhältnis zur hinterlegten Bezugsgröße.
 
 
@@ -498,9 +503,9 @@ Im Vorhinein wurden Testflüge mit dem Ground Truth und den Versuchskarten 1 bis
 Bei den aufgezeichneten Karten wurde jeweils der Fiducial-Marker mit der \gls{id}~202 händisch eingetragen.
 Die eigentliche Versuchsdurchführung fand mit der Ground Truth statt. 
 
-Bevor die Flugversuche durchgeführt werden, wird die extrinsische Kalibrierung der Kamera nach Abschnitt\ref{subsec:extrinsische_kalibrierung_2} durchgeführt.
-Sie liefert die Transformation von der Kamera zum Drohnenmittelpunkt, die nach Gleichung~\eqref{eq:pos_drohne} unmittelbar in die Positionsbestimmung eingeht.
-Anschließend werden die Nodes der Verarbeitungskette mit der zuvor beschriebenen Parametern gestartet.
+Bevor die Flugversuche durchgeführt werden, wird die extrinsische Kalibrierung der Kamera nach Abschnitt~\ref{subsec:extrinsische_kalibrierung_2} durchgeführt.
+Sie liefert die Transformation von der Kamera zum Drohnenmittelpunkt, die nach Gleichung~\ref{eq:pos_drohne} unmittelbar in die Positionsbestimmung eingeht.
+Anschließend werden die Nodes der Verarbeitungskette mit den zuvor beschriebenen Parametern gestartet.
 
 Sämtliche Versuche finden bei eingeschalteter Hallenbeleuchtung statt, wodurch die Lichtverhältnisse über alle Flüge hinweg konstant bleiben.
 
@@ -508,7 +513,7 @@ Die Versuche folgen einem festen Ablauf.
 Das \gls{uav} steht zu Beginn über dem Startmarker im geometrischen Zentrum der Karte.
 Über die Leertaste wird es armiert und steigt auf die Flughöhe von 1,8~m.
 Dort verharrt es kurz über dem Kartenmittelpunkt, sodass sich die Zustandsschätzung einschwingen kann.
-Anschließend wird über die Taste \texttt{g} der Demo-Modus aktiviert, in dem das \gls{uav} ein Quadrat mit einer Kantenlänge von 2~m abfliegt und danach an der Startecke schwebt.
+Anschließend wird über die Taste \texttt{g} der Demo-Modus aktiviert, in dem das \gls{uav} ein Quadrat mit einer Kantenlänge von 2,0~m abfliegt und danach an der Startecke schwebt.
 Zum Abschluss löst die Leertaste die Landung an Ort und Stelle aus, bei der das \gls{uav} bei Bodenkontakt automatisch disarmiert.
 Abbildung~\ref{fig:uav_im_flug} zeigt das \gls{uav} während dieses Manövers über der Karte.
 
@@ -537,7 +542,7 @@ Als Datengrundlage dient die Protokolldatei des Flugcontrollers.
 Zwischen den Flügen treten geringfügige Unterschiede in den Protokollen auf, die das grundsätzliche Verhalten des Systems jedoch unberührt lassen.
 
 Der Flug umfasst 77,1~s, wovon sich das \gls{uav} von 1,9~s bis 74,9~s in der Luft befindet.
-Der Steigflug führt auf die Sollhöhe von 1,8~m, der Demo-Modus beginnt bei 23,0~s und fliegt ein Quadrat mit einer Kantenlänge von 2,0~m, bevor der Sinkflug bei 64,6~s einsetzt.
+Der Steigflug führt auf die Sollhöhe von 1,8~m, der Demo-Modus beginnt bei 23,0~s und das \gls{uav} fliegt ein Quadrat mit einer Kantenlänge von 2,0~m, bevor der Sinkflug bei 64,6~s einsetzt.
 Über 97,1~Prozent der Zeit steht das \gls{uav} im Modus \texttt{Offboard}, den es erst zur Landung verlässt.
 
 Abbildung~\ref{fig:Flugbahn} zeigt die vom Flugcontroller berechnete Flugbahn des \gls{uav}s.
@@ -561,7 +566,7 @@ Abbildung~\ref{fig:stuetzquellen} zeigt, welche Bezugsquellen der im Flugcontrol
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=1.0\textwidth]{Bilder/16_stuetzquellen.png}
-\caption{Zeitliche Belegung der Stützquelen des \gls{ekf}s}
+\caption{Zeitliche Belegung der Stützquellen des \gls{ekf}s}
 \label{fig:stuetzquellen}
 \end{figure}
 \FloatBarrier
@@ -571,9 +576,9 @@ Alle drei Flüge weisen während der Flugzeit kurze Aussetzer auf, deren längst
 Bei der Landung unterschreitet das \gls{uav} diejenige Höhe, ab der die Kamera keinen Fiducial-Marker mehr vollständig erfasst, 
 sodass die Positionsbestimmung ab 70,1~s bis zum Aufsetzen ausfällt.
 
-Die Ursache über das Fehlen der Positionswerte kann aus den Protokolldateien nicht abgeleiet werden.
-Während der Aussetzuer wurden von dem Node zur Positionsbestimmung keine Daten gesendet.
-Mögliche Ursachen sind, keine Fiducial-Marker im Bild oder schlechte Markerdetektionen, sodass der Positionierungskonoten keine Daten ausgibt.
+Die Ursache für das Fehlen der Positionswerte kann aus den Protokolldateien nicht abgeleitet werden.
+Während der Aussetzer wurden von dem Node zur Positionsbestimmung keine Daten gesendet.
+Mögliche Ursachen sind fehlende Fiducial-Marker im Bild oder schlechte Markerdetektionen, sodass der Positionierungsnode keine Daten ausgibt.
 
 Während dieser Phasen wechselt der Zustandsschätzer auf \gls{drl} und schreibt die Position allein aus den Messungen der \gls{imu} fort.
 Sämtliche Aussetzer bleiben deutlich unterhalb der Grenze von 5~s, die über \texttt{EKF2\_NOAID\_TOUT} eingestellt ist.
@@ -595,7 +600,7 @@ Das intern verbaute Barometer ist über den gesamten Flug aktiv und liefert kons
 \end{figure}
 \FloatBarrier
 
-Abbildung~\ref{fig:kalman_gain} zeigt den Zeitlichen Verlauf des Klman-Gains während des Testflugs.
+Abbildung~\ref{fig:kalman_gain} zeigt den zeitlichen Verlauf des Kalman-Gains während des Testflugs.
 Über weite Teile des Fluges verläuft der Kalman-Gain auf einem konstanten, niedrigen Niveau.
 Der Filter befindet sich dort im eingeschwungenen Zustand, in dem jedes Update genau so viel Unsicherheit abbaut, wie seit der letzten Korrektur durch das Prozessrauschen $\mathbf{Q}$ hinzugekommen ist.
 Die Zustandskovarianz $\mathbf{P}$ bleibt dadurch klein und stabil.
@@ -625,7 +630,7 @@ Die Vision-Messungen würden dann stärker gewichtet und die Positionsunsicherhe
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=1.0\textwidth]{Bilder/01_position_vision_ekf_sollwert.png}
-\caption{Verlauf des aus den geloggten Positionswerten}
+\caption{Verlauf der geloggten Positionswerte}
 \label{fig:position_vision_ekf}
 \end{figure}
 \FloatBarrier
@@ -711,7 +716,7 @@ Alle folgenden Aussagen sind vor diesem Hintergrund zu lesen.
 
 Aus demselben Grund lässt sich die Richtigkeit der extrinsischen Kalibrierung nicht nachweisen.
 Für den Flugbetrieb ist ihre Genauigkeit allerdings von untergeordneter Bedeutung.
-Für das Vorgehen ist eine Genauigkeit im unteren Millimeterbereich zu erwarten, da sie sich unmittelbar aus der von Hand vermessenen Lage der Tags und des Mittelpunkts ergeben.
+Für das Vorgehen ist eine Genauigkeit im unteren Millimeterbereich zu erwarten, da sie sich unmittelbar aus der von Hand vermessenen Lage der Tags und des Mittelpunkts ergibt.
 Ein bewusst eingebrachter und deutlich größerer Kalibrierfehler blieb in Versuchen zudem ohne erkennbare Auswirkung auf das Flugverhalten.
 Eine Abweichung im Montagewinkel der Kamera wirkt sich unmittelbar auf den Nickwinkel aus, der zur Positionsbestimmung des Zustandsschätzers nicht herangezogen wird.
 Ein Kalibrierfehler in dieser Größe bleibt für die Flugführung damit weitgehend folgenlos.
@@ -720,7 +725,7 @@ Im Flug zeigt das \gls{uav} ein leichtes Schlingern um die Sollposition.
 Diese Beobachtung ist qualitativer Natur und lässt sich aus den Protokolldateien nur bedingt belegen.
 Als Ursache wird die konservativ angesetzte Standardabweichung der Vision-Stützung vermutet.
 Der Parameter \texttt{EKF2\_EVP\_NOISE} gibt nach Abschnitt~\ref{subsec:kalman_gain} eine Standardabweichung von 0,1~m vor, die der Zustandsschätzer wegen \texttt{EKF2\_EV\_NOISE\_MD\,= 1} für jede Messung unverändert ansetzt.
-In diese angenommene Unsicherheit geht neben der Streuung der Markerdetektion die Karte selbst ein, die nach Abschnitt~\ref{subsec:bewertung_kartierung} nicht fehlerfrei ist.
+In diese angenommene Unsicherheit geht neben der Streuung der Markerdetektion die Karte selbst ein, die wie zuvor beschrieben nicht fehlerfrei ist.
 Ihre Fiducial-Marker weichen im Mittel um rund 10~mm und im Einzelfall um bis zu etwa 22~mm von der Sollkarte ab, wobei ein Teil dieser Abweichung bereits beim Aufbringen der Klebefolie entsteht.
 Da sich die Pose des \gls{uav}s auf diese Markerlagen stützt, überträgt sich der Kartenfehler unmittelbar auf die eingespeiste Position.
 Die Summe aus Detektions- und Kartenfehler dürfte gleichwohl deutlich unterhalb der angesetzten 0,1~m liegen, sodass die Messung gegenüber der Prädiktion zu schwach gewichtet wird und die Schätzung der eingespeisten Pose nur träge folgt.
@@ -738,7 +743,7 @@ Die Markeranordnung ist auf eine Mindestflughöhe von 1~m ausgelegt.
 Der geforderte sichere Betrieb ist über mehrere unabhängige Ebenen abgedeckt.
 Über die Fernsteuerung kann jederzeit in den Flug eingegriffen, in den Modus \texttt{Auto.Land} gewechselt oder über den Notausschalter abgeschaltet werden.
 Bei Verlust der Verbindung zur Fernsteuerung oder zum Positionierungs-Node landet das \gls{uav} selbstständig.
-Im Versuch war ein kein Eingriff über eine dieser Ebenen erforderlich.
+Im Versuch war kein Eingriff über eine dieser Ebenen erforderlich.
 
 
 

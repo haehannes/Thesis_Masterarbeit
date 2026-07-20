@@ -2,7 +2,7 @@
 
 \chapter{Zusammenfassung und Ausblick}
 \label{cap:zusammenfassung}
-Ziel dieser Arbeit war es, ein unbemanntes Fluggerät zu entwickeln, das sich ohne Satellitennavigation im Innenraum selbst lokalisiert und positioniert.
+Ziel dieser Arbeit war es, ein \gls{uav} zu entwickeln, das sich ohne Satellitennavigation im Innenraum selbst lokalisiert und positioniert.
 Die dafür benötigte Positionsschätzung sollte extern berechnet und dem Flugcontroller als Referenz bereitgestellt werden.
 Darüber hinaus war ein Verfahren zu bestimmen, das eine unbekannte Umgebung vollständig erfasst oder eine bestehende Karte 
 ergänzt und deren Ergebnis der Positionsbestimmung zuführt.
@@ -43,7 +43,7 @@ Der nutzbare Flugraum ist auf den Bereich über der Karte und auf einen Höhenbe
 Der mit dem Abstand zum Ursprung wachsende Kartenfehler begrenzt zudem die Ausdehnung, bis zu der sich eine Karte ohne zusätzliche Stützstellen sinnvoll erzeugen lässt.
 
 Aus diesen Grenzen ergeben sich mehrere Ansatzpunkte für weiterführende Arbeiten.
-Naheliegend ist, den Positionierungsnodes um eine Schätzung der Kovarianz zu erweitern und diese in der ausgegebenen Nachricht mitzuführen.
+Naheliegend ist, den Positionierungs-Node um eine Schätzung der Kovarianz zu erweitern und diese in der ausgegebenen Nachricht mitzuführen.
 Der Zustandsschätzer könnte die Vision-Stützung dann anhand der je Nachricht übergebenen Unsicherheit gewichten, statt für jede Messung dieselbe Standardabweichung anzusetzen.
 Schätzungen aus wenigen, weit entfernten oder ungünstig erfassten Fiducial-Markern gingen damit schwächer in die Fusion ein als solche aus mehreren gut sichtbaren Fiducial-Markern.
 

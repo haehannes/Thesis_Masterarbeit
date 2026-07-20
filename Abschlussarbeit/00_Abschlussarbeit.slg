@@ -1,6 +1,6 @@
 ;; This logfile was generated automatically by `xindy'
-;; at 19.07.2026  19:39:56
-;; Indexstyle: "/tmp/wXseTV6a2o", Rawindex: "/tmp/nN8dgIT1NI", Output: "00_Abschlussarbeit.syi"
+;; at 20.07.2026  09:18:32
+;; Indexstyle: "/tmp/AxITwDaB72", Rawindex: "/tmp/t3vhsWLdPw", Output: "00_Abschlussarbeit.syi"
 
 
 Building indexentry-tree:
@@ -66,7 +66,7 @@ Letter-group: "†090" -> "C"
 Letter-group: "†100" -> "C"
 Letter-group: "†110" -> "C"
 Letter-group: "†120" -> "C"
-Letter-group: "†130" -> "C"
+Letter-group: "†050" -> "C"
 Letter-group: "010" -> "D"
 Letter-group: "020" -> "D"
 Letter-group: "030" -> "D"

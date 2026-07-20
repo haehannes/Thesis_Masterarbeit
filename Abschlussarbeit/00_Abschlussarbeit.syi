@@ -25,13 +25,13 @@
 \begin{theglossary}\glossaryheader
 \glsgroupheading{B}\relax\glsresetentrylist
 \glossentry{sym:O0}{\glossaryentrynumbers{\relax 
-\glsXpageXglsnumberformat{}{6}}}\relax\glsresetentrylist
+\glsXpageXglsnumberformat{}{7}}}\relax\glsresetentrylist
 \glossentry{sym:X0}{\glossaryentrynumbers{\relax 
-\glsXpageXglsnumberformat{}{6}}}\relax\glsresetentrylist
+\glsXpageXglsnumberformat{}{7}}}\relax\glsresetentrylist
 \glossentry{sym:Y0}{\glossaryentrynumbers{\relax 
-\glsXpageXglsnumberformat{}{6}}}\relax\glsresetentrylist
+\glsXpageXglsnumberformat{}{7}}}\relax\glsresetentrylist
 \glossentry{sym:Z0}{\glossaryentrynumbers{\relax 
-\glsXpageXglsnumberformat{}{6}}}\glsgroupskip
+\glsXpageXglsnumberformat{}{7}}}\glsgroupskip
 \glsgroupheading{C}\relax\glsresetentrylist
 \glossentry{sym:roll}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{8}}}\relax\glsresetentrylist
@@ -44,6 +44,8 @@
 \glsXpageXglsnumberformat{}{11}}}\relax\glsresetentrylist
 \glossentry{sym:q}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{9}}}\relax\glsresetentrylist
+\glossentry{sym:v}{\glossaryentrynumbers{\relax 
+\glsXpageXglsnumberformat{}{11}}}\relax\glsresetentrylist
 \glossentry{sym:qref}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{10}}}\relax\glsresetentrylist
 \glossentry{sym:weight}{\glossaryentrynumbers{\relax 
@@ -53,8 +55,6 @@
 \glossentry{sym:alpha}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{11}}}\relax\glsresetentrylist
 \glossentry{sym:r}{\glossaryentrynumbers{\relax 
-\glsXpageXglsnumberformat{}{11}}}\relax\glsresetentrylist
-\glossentry{sym:vhat}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{11}}}\glsgroupskip
 \glsgroupheading{D}\relax\glsresetentrylist
 \glossentry{sym:point}{\glossaryentrynumbers{\relax 
@@ -99,7 +99,7 @@
 \glossentry{sym:aref}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{48}}}\relax\glsresetentrylist
 \glossentry{sym:wgewicht}{\glossaryentrynumbers{\relax 
-\glsXpageXglsnumberformat{}{50}}}\glsgroupskip
+\glsXpageXglsnumberformat{}{51}}}\glsgroupskip
 \glsgroupheading{J}\relax\glsresetentrylist
 \glossentry{sym:sigmamap}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{50}}}\relax\glsresetentrylist

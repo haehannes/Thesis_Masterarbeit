@@ -4,8 +4,8 @@
 \babel@toc {ngerman}{}\relax 
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Komponenten des Pixhawk 6X: FMU-Modul und Baseboard V2A~\blx@tocontentsinit {0}\cite {holybro_x650}}}{3}{figure.caption.8}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Vergleich der Koordinatensysteme~\blx@tocontentsinit {0}\cite {holybro_x650}}}{6}{figure.caption.14}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Komponenten des Pixhawk 6X: FMU-Modul und Baseboard V2A~\blx@tocontentsinit {0}\cite {holybro_x650}}}{4}{figure.caption.8}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Vergleich der Koordinatensysteme~\blx@tocontentsinit {0}\cite {holybro_x650}}}{7}{figure.caption.14}%
 \contentsline {figure}{\numberline {2.3}{\ignorespaces Rollen, Nicken und Gieren am Beispiel Holybro X650~\blx@tocontentsinit {0}\cite {holybro_x650}}}{8}{figure.caption.15}%
 \contentsline {figure}{\numberline {2.4}{\ignorespaces Sphärische lineare Interpolation zwischen den Quaternionen $\mathbf {q}_0$ und $\mathbf {q}_1$~\blx@tocontentsinit {0}\cite {rohmer_slerp}}}{11}{figure.caption.17}%
 \addvspace {10\p@ }
@@ -22,18 +22,18 @@
 \contentsline {figure}{\numberline {5.1}{\ignorespaces Dreistufiger Ablauf der Offline-Kartierung}}{33}{figure.caption.51}%
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {6.1}{\ignorespaces Nodes und Topics der Positionierung, aufgeteilt nach Host und Container}}{43}{figure.caption.54}%
-\contentsline {figure}{\numberline {6.2}{\ignorespaces Drohne in der Kalibrierbox}}{46}{figure.caption.55}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces \gls {uav} in der Kalibrierbox}}{46}{figure.caption.55}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {7.1}{\ignorespaces Tag-Karte der OIC-Flughalle. Der Kartenursprung (Tag~0) ist grün umrandet, die roten Pfeile zeigen exemplarisch das sternförmige Abgehen zur Erzeugung von Loop-Closures.}}{55}{figure.caption.63}%
-\contentsline {figure}{\numberline {7.2}{\ignorespaces Überlagerung der in Versuch~1 erzeugten Karte mit der Ground Truth}}{59}{figure.caption.70}%
-\contentsline {figure}{\numberline {7.3}{\ignorespaces Überlagerung der in Versuch~2 erzeugten Karte mit der Ground Truth}}{59}{figure.caption.71}%
-\contentsline {figure}{\numberline {7.4}{\ignorespaces Überlagerung der in Versuch~3 erzeugten Karte mit der Ground Truth}}{60}{figure.caption.72}%
-\contentsline {figure}{\numberline {7.5}{\ignorespaces Euklidische Distanz der Tag-Positionen zwischen Kartierung und Ground Truth in Abhängigkeit vom Abstand des jeweiligen Markers zum Ursprung.}}{62}{figure.caption.74}%
-\contentsline {figure}{\numberline {7.6}{\ignorespaces Das \gls {uav} im Schwebeflug über der Markerkarte der OIC-Flughalle.}}{66}{figure.caption.76}%
-\contentsline {figure}{\numberline {7.7}{\ignorespaces Berechnete Flugbahn des Flugcontrollers.}}{67}{figure.caption.77}%
-\contentsline {figure}{\numberline {7.8}{\ignorespaces Zeitliche Belegung der Stützquelen des \gls {ekf}s}}{68}{figure.caption.79}%
-\contentsline {figure}{\numberline {7.9}{\ignorespaces Verlauf des gespeicherten Kalman-Gains der Vision-Stützung.}}{69}{figure.caption.81}%
-\contentsline {figure}{\numberline {7.10}{\ignorespaces Verlauf des aus den geloggten Positionswerten}}{70}{figure.caption.83}%
+\contentsline {figure}{\numberline {7.1}{\ignorespaces Tag-Karte der OIC-Flughalle. Der Kartenursprung (Tag~0) ist grün umrandet, die roten Pfeile zeigen exemplarisch das sternförmige Abgehen zur Erzeugung von Loop-Closures.}}{55}{figure.caption.62}%
+\contentsline {figure}{\numberline {7.2}{\ignorespaces Überlagerung der in Versuch~1 erzeugten Karte mit der Ground Truth}}{59}{figure.caption.69}%
+\contentsline {figure}{\numberline {7.3}{\ignorespaces Überlagerung der in Versuch~2 erzeugten Karte mit der Ground Truth}}{59}{figure.caption.70}%
+\contentsline {figure}{\numberline {7.4}{\ignorespaces Überlagerung der in Versuch~3 erzeugten Karte mit der Ground Truth}}{60}{figure.caption.71}%
+\contentsline {figure}{\numberline {7.5}{\ignorespaces Euklidische Distanz der Tag-Positionen zwischen Kartierung und Ground Truth in Abhängigkeit vom Abstand des jeweiligen Markers zum Ursprung.}}{62}{figure.caption.73}%
+\contentsline {figure}{\numberline {7.6}{\ignorespaces Das \gls {uav} im Schwebeflug über der Markerkarte der OIC-Flughalle.}}{66}{figure.caption.75}%
+\contentsline {figure}{\numberline {7.7}{\ignorespaces Berechnete Flugbahn des Flugcontrollers.}}{67}{figure.caption.76}%
+\contentsline {figure}{\numberline {7.8}{\ignorespaces Zeitliche Belegung der Stützquellen des \gls {ekf}s}}{68}{figure.caption.78}%
+\contentsline {figure}{\numberline {7.9}{\ignorespaces Verlauf des gespeicherten Kalman-Gains der Vision-Stützung.}}{69}{figure.caption.80}%
+\contentsline {figure}{\numberline {7.10}{\ignorespaces Verlauf der geloggten Positionswerte}}{70}{figure.caption.82}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

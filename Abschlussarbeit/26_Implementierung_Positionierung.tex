@@ -9,14 +9,14 @@ Die ersten drei Schritte entsprechen methodisch denen der Kartierung, werden abe
 Die gesamte Positionsbestimmung erfolgt im \gls{enu}/\gls{flu}-System, in dem auch die Karte vorliegt und wird erst am 
 Ende der Verarbeitungskette in das von \gls{px4} benötigte \gls{ned}/\gls{frd}-System transformiert.
 
-\section{Konfiguration des PX4 zur visionsgestützten Zustandsschätzung}
+\section{Konfiguration des PX4 zur visiongestützten Zustandsschätzung}
 \label{sec:pos_ekf_konfiguration}
 Auf dem Flugcontroller werden die auf dem Topic \topic{/fmu/in/vehicle_visual_odometry} 
-übergebenen Daten im Zustandsschätzer verarbeitet. Die genaue Funktionsweise wird in Abschnitt~\ref{subsec:pos_frame_ausgabe} erklärt.
+übergebenen Daten im Zustandsschätzer verarbeitet.
 Damit der Schätzer die externe Position als Stützgröße nutzt und nicht auf die Sensoren \gls{gps} und Magnetometer zurückgreift, 
 muss seine Parametrierung an die Einsatzumgebung angepasst werden.
 Tabelle~\ref{tab:ekf_params} fasst die hierfür wesentlichen Parameter zusammen. 
-Vision ist in diesem Zusammenhang mit externer Positionsschätzung gleich zu setzen.
+Vision ist in diesem Zusammenhang mit externer Positionsschätzung gleichzusetzen.
 
 \begin{table}[htbp]
 \centering
@@ -54,34 +54,34 @@ Vision ist in diesem Zusammenhang mit externer Positionsschätzung gleich zu set
 
 
 Der Parameter \texttt{EKF2\_EV\_CTRL} legt als Bitmaske fest, welche Anteile der Vision-Daten fusion\-iert werden.
-Der gewählte Wert von 11 gibt damit die horizontale Position, die Höhe und der Gierwinkel frei, während die Geschwindigkeit ausgenommen bleibt.
+Der gewählte Wert von 11 gibt damit die horizontale Position, die Höhe und den Gierwinkel frei, während die Geschwindigkeit ausgenommen bleibt.
 Die Orientierung um die Z-Achse wird damit allein aus der Vision bezogen und ersetzt die sonst übliche Magnetometer-Stützung.
 
-Der Parameter \texttt{EKF2\_NOAID\_TOUT} = 5 legt fest, wie lange der Zustandsschätzer die Position bei ausbleibender Vision-Stützung allein über die Koppelnavigation fortschreibt, bevor er selbstständig landet.
+Der Parameter \texttt{EKF2\_NOAID\_TOUT} = 5000000 legt fest, wie lange der Zustandsschätzer die Position bei ausbleibender Vision-Stützung allein über die Koppelnavigation fortschreibt, bevor er selbstständig landet.
 
 Über \texttt{EKF2\_EV\_NOISE\_MD} wird festgelegt, woher der Zustandsschätzer die Unsicherheit der Messung bezieht.
-Bei Modus $0$ entnimmt er sie den Kovarianzfeldern der Nachricht, bei Modus 1 greift er stattdessen auf die Parameter \texttt{EKF2\_EVP\_NOISE} und \texttt{EKF2\_EVA\_NOISE} zurück.
-Gewählt ist Modus $1$, sodass für jede Messung dieselbe Unsicherheit angenommen wird.
+Bei Modus 0 entnimmt er sie den Kovarianzfeldern der Nachricht, bei Modus 1 greift er stattdessen auf die Parameter \texttt{EKF2\_EVP\_NOISE} und \texttt{EKF2\_EVA\_NOISE} zurück.
+Gewählt ist Modus 1, sodass für jede Messung dieselbe Unsicherheit angenommen wird.
 
 Die beiden zugehörigen Parameter \texttt{EKF2\_EVP\_NOISE} und \texttt{EKF2\_EVA\_NOISE} sind mit jeweils 0,1 angesetzt.
-Hierbei handelt es sich um die Standard Einstellungen von \gls{px4}.
+Hierbei handelt es sich um die Standardeinstellungen von \gls{px4}.
 
 Die externe Pose muss dem \gls{px4} mit mindestens 30~\gls{fps} übergeben werden, um eine stabile Fusion zu gewährleisten, wobei dieser Wert als untere Grenze zu verstehen ist.
 
-Mit \texttt{EKF2\_HGT\_REF\,=0} wird das Barometer als primäre Höhenquelle festgelegt.
+Mit \texttt{EKF2\_HGT\_REF}=0 wird das Barometer als primäre Höhenquelle festgelegt.
 Die Information der Höhe aus der externen Positionsschätzung wird nur als Rückfallebene bei Ausfall oder Problemen mit dem Barometer verwendet.
-In Versuchen hat sich herausgestellt, dass sich die Höhe durch Nutzung des Barometers besser halten lässt, als die reine Referenz durch die Positionierung.
+In Versuchen hat sich herausgestellt, dass sich die Höhe durch Nutzung des Barometers besser halten lässt als die reine Referenz durch die Positionierung.
 
 
-Da im Innenraum kein zuverlässiger \gls{gps}-Empfang besteht, wird die \gls{gps}-Stützung über \texttt{EKF2\_\allowbreak GPS\_\allowbreak CTRL\,=\,0} deaktiviert.
-Damit der Schätzer und die Flugsteuerung ohne \gls{gps}-Empfang initialisieren und armieren können, wird zusätzlich \texttt{COM\_ARM\_WO\_GPS\,=\,1} gesetzt.
+Da im Innenraum kein zuverlässiger \gls{gps}-Empfang besteht, wird die \gls{gps}-Stützung über \texttt{EKF2\_\allowbreak GPS\_\allowbreak CTRL}=0 deaktiviert.
+Damit der Schätzer und die Flugsteuerung ohne \gls{gps}-Empfang initialisieren und armieren können, wird zusätzlich \texttt{COM\_ARM\_WO\_GPS}=1 gesetzt.
 Das Armieren bezeichnet die Freigabe der Motoren und damit den Übergang in den startbereiten Zustand.
 
-Das Magnetometer wird über \texttt{EKF2\_MAG\_TYPE\,=5} von der Fusion ausgeschlossen, da das Magnetfeld in der Versuchsumgebung stark schwankte.
+Das Magnetometer wird über \texttt{EKF2\_MAG\_TYPE}=5 von der Fusion ausgeschlossen, da das Magnetfeld in der Versuchsumgebung stark schwankte.
 Infolgedessen war die Magnetometermessung nur eingeschränkt verlässlich und lieferte sowohl funktionierende als auch fehlerhafte Ergebnisse, wobei die Ursache der Schwankungen nicht ermittelt werden konnte.
 Wie zuvor beschrieben, wird der Yaw-Winkel stattdessen aus der Vision gewonnen.
 
-Der Parameter \texttt{SYS\_HAS\_MAG\,=1} gibt lediglich an, dass Magnetometer-Hardware verbaut ist. 
+Der Parameter \texttt{SYS\_HAS\_MAG}=1 gibt lediglich an, dass Magnetometer-Hardware verbaut ist. 
 Auf die Zustandsschätzung wirkt sich dies aufgrund der deaktivierten Fusion nicht aus.
 
 
@@ -99,7 +99,7 @@ einer CPU-basierten Verarbeitung eine höhere Bildrate ermöglicht.
 Die übrigen Schritte laufen direkt auf dem Host des Begleitrechners.
 Dort erfolgen die Bildaufnahme über \texttt{gscam}, die Positionsbestimmung aus den Markerdetektionen sowie die Kommunikation mit der Flugsteuerung.
 Container und Host kommunizieren über \gls{ros2}-Topics.
-Die Bildaufnahme stellt für jede der beiden Kameras das Kamerabild auf \topic{/camera_1/image_raw} bzw. \topic{/camera_2/image_raw} 
+Die Bildaufnahme stellt für jede der beiden Kameras das Kamerabild auf \topic{/camera_1/image_raw} beziehungsweise \topic{/camera_2/image_raw} 
 mit den zugehörigen Parametern auf dem jeweiligen \topic{/camera_info}-Topic bereit.
 
 Im Container entzerrt ein \texttt{rectify\_node} das Bild jeder Kamera und gibt es als \topic{/camera_x/image_rect} aus.
@@ -129,7 +129,7 @@ während dies für MAVROS nicht gesichert ist.
 Auf \gls{px4} läuft dabei der \gls{uxrce}-Client, auf dem Begleitrechner der zugehörige Agent.
 Der Agent wird über das Launch-File als Prozess \texttt{MicroXRCEAgent} gestartet und kommuniziert per \gls{udp} über die Ethernet-Verbindung auf einem konfigurierbaren Port.
 Über diese Verbindung werden die internen Publish-Subscribe-Topics von \gls{px4}, die in Abschnitt~\ref{sec:Px4_Betriebssystem} beschriebenen \gls{uorb}-Topics, als \gls{ros2}-Topics bereitgestellt und umgekehrt.
-So kann der Positionierungs-Node die geschätzte Pose als \texttt{VehicleOdometry} auf dem Topic \topic{/fmu/in/vehicle\_visual\_odometry} an \gls{px4} übergeben.
+So kann der Positionierungs-Node die geschätzte Pose als \texttt{VehicleOdometry} auf dem Topic \topic{/fmu/in/vehicle_visual_odometry} an \gls{px4} übergeben.
 
 
 
@@ -140,8 +140,8 @@ Auch hier wird exemplarisch die Logitech~C922 verwendet.
 Wie in Abschnitt~\ref{sec:Kamera_Kalibrierung} beschrieben, muss die Kalibrierung für jede Kamera und für die jeweils genutzte Auflösung durchgeführt werden.
 
 Gegenüber der Kartierung unterscheiden sich zwei Einstellungen.
-Zum einen wird die Kamera mit $60$~\gls{fps} betrieben, da die Positionsbestimmung im Flug fortlaufend erfolgt und eine geringe Latenz erfordert.
-Die Auflösung von $1280 \times 720$ Pixeln ergibt sich unmittelbar aus dieser Forderung, da die Logitech~C922 die geforderte Bildrate nur in dieser 
+Zum einen wird die Kamera mit 60~\gls{fps} betrieben, da die Positionsbestimmung im Flug fortlaufend erfolgt und eine geringe Latenz erfordert.
+Die Auflösung von $1280\times720$ Pixeln ergibt sich unmittelbar aus dieser Forderung, da die Logitech~C922 die geforderte Bildrate nur in dieser 
 Auflösung liefert.
 Zum anderen wird der \gls{mjpeg}-Datenstrom über \texttt{nvv4l2decoder} und \texttt{nvvidconv} auf der \gls{gpu} des Begleitrechners dekodiert.
 Erst diese Hardwarebeschleunigung ermöglicht die hohe Bildrate im Dauerbetrieb.
@@ -201,7 +201,7 @@ Die Markierungen sind in Abbildung~\ref{fig:kalibrierbox} durch blaue Linien gek
 In der Box befinden sich zwei Tags, ein Tag am Boden $\mathrm{tag}_1$ und ein Tag an der Wand $\mathrm{tag}_2$.
 Die untere Kamera~$\mathrm{C}_1$ ist auf den Boden-Tag gerichtet, die vordere Kamera~$\mathrm{C}_2$ auf den Wand-Tag.
 
-Die Lage der beiden Tags die sowie des \gls{px4}-Mittelpunkts wurde von Hand vermessen.
+Die Lage der beiden Tags sowie des \gls{px4}-Mittelpunkts wurde von Hand vermessen.
 Die so bestimmten Koordinaten, bestehend aus Position und Orientierung, werden dem Node zur Positionsbestimmung in einer YAML-Datei übergeben.
 Aus diesen Koordinaten berechnet der Kalibrier-Node anschließend die festen Transformationen $^{\mathrm{tag}_1}\mathbf{T}_{\mathrm{D}}$ und $^{\mathrm{tag}_2}\mathbf{T}_{\mathrm{D}}$ gemäß Gleichung~\ref{eq:trafo_matrix}, wobei die Rotationsmatrix nach Gleichung~\ref{eq:rotationsmatrix_quaternion} aus dem jeweiligen Quaternion gebildet wird.
 Für die Kalibrierung müssen zusätzlich \texttt{gscam} und \texttt{rectify\_node} für beide Kameras gestartet werden.
@@ -213,13 +213,13 @@ Für die Kalibrierung müssen zusätzlich \texttt{gscam} und \texttt{rectify\_no
 \end{figure}
 \FloatBarrier
 Die Transformation zwischen Kamera und \gls{uav} wird aus diesen bekannten Beziehungen und der jeweiligen Tag-Detektion bestimmt.
-Die AprilTag-Detektion liefert je Kamera die Pose des erkannten Tags im jeweiligen Kamerakoordinatensystem, also $^{\mathrm{C}_1}\mathbf{T}_{\mathrm{tag}_1}$ bzw.\ $^{\mathrm{C}_2}\mathbf{T}_{\mathrm{tag}_2}$.
+Die AprilTag-Detektion liefert je Kamera die Pose des erkannten Tags im jeweiligen Kamerakoordinatensystem, also $^{\mathrm{C}_1}\mathbf{T}_{\mathrm{tag}_1}$ beziehungsweise\ $^{\mathrm{C}_2}\mathbf{T}_{\mathrm{tag}_2}$.
 Durch Verkettung der Tag-Detektion mit der Transformation gemäß Gleichung~\ref{eq:trafo_verkettung} ergibt sich die Pose des \gls{px4}-Mittelpunkts im jeweiligen Kamerakoordinatensystem:
 \begin{align}
 ^{\mathrm{C}_1}\mathbf{T}_{\mathrm{D}} &= {^{\mathrm{C}_1}\mathbf{T}_{\mathrm{tag}_1}}\,{^{\mathrm{tag}_1}\mathbf{T}_{\mathrm{D}}}, \label{eq:extrinsik_cam1}\\
 ^{\mathrm{C}_2}\mathbf{T}_{\mathrm{D}} &= {^{\mathrm{C}_2}\mathbf{T}_{\mathrm{tag}_2}}\,{^{\mathrm{tag}_2}\mathbf{T}_{\mathrm{D}}}. \label{eq:extrinsik_cam2}
 \end{align}
-Die gesuchte Transformation vom \gls{px4}-Mittelpunkt zur Kamera folgt durch Invertieren gemäß Gleichung~\ref{eq:trafo_inverse}:
+Die gesuchte Transformation vo der Kamera zum \gls{px4}-Mittelpunkt folgt durch Invertieren gemäß Gleichung~\ref{eq:trafo_inverse}:
 \begin{equation}
 ^{\mathrm{D}}\mathbf{T}_{\mathrm{C}} = \left(^{\mathrm{C}}\mathbf{T}_{\mathrm{D}}\right)^{-1}.
 \label{eq:extrinsik}
@@ -242,7 +242,7 @@ Der Node ist für den Betrieb mit zwei Kameras konzipiert, deren Detektionen una
 gemeinsamen Schätzung fusioniert werden.
 
 Der Ablauf gliedert sich in mehrere Schritte: die Posenberechnung je Marker, die Ausreißerfilterung durch \gls{ransac}, die gewichtete Fusion der Konsensmenge, 
-die Transformation der Kameraposen zum \gls{uav}nmittelpunkt, die Fusion der Kameraposen, die zeitliche Glättung der fusionierten Pose, 
+die Transformation der Kameraposen zum \gls{uav}-Mittelpunkt, die Fusion der Kameraposen, die zeitliche Glättung der fusionierten Pose 
 und die Transformation in die \gls{ned}/\gls{frd}-Konvention.
 
 Das Verhalten des Nodes wird über eine Reihe von Startparametern gesteuert, die das Laden der Karte, die Fusion beider Kameras,
@@ -280,7 +280,7 @@ Tabelle~\ref{tab:vision_pose_params} fasst diese Parameter thematisch geordnet z
 \texttt{cam1\_topic}, \texttt{cam2\_topic} & Eingangstopics der Tag-Detektionen beider Kameras \\
 \texttt{cam1\_name}, \texttt{cam2\_name}   & Bezeichner der Kameras zur Zuordnung der Kalibrierung \\
 \texttt{publish\_topic}                  & Ausgangstopic der \texttt{VehicleOdometry} an \gls{px4} \\
-\texttt{map\_frame}                      & Name des Karten-Koordinatensystems \\
+\texttt{map\_frame}                      & Name des Kartenkoordinatensystems \\
 \addlinespace
 \multicolumn{2}{@{}l}{\textit{\gls{px4}-Anbindung und Zeit}} \\
 \texttt{pose\_frame}                     & Koordinatenkonvention \\
@@ -296,6 +296,7 @@ Tabelle~\ref{tab:vision_pose_params} fasst diese Parameter thematisch geordnet z
 \multicolumn{2}{@{}l}{\textit{Fusion und Glättung}} \\
 \texttt{publish\_rate\_hz}               & Frequenz, mit der die fusionierte Pose publiziert wird \\
 \texttt{max\_estimate\_age\_s}           & Maximalalter einer Kameraschätzung, bevor sie verworfen wird \\
+\texttt{map\_cov\_reference\_sigma\_m}    & Referenz-Standardabweichung \\
 \texttt{cam1\_weight}, \texttt{cam2\_weight} & Gewichtung der jeweiligen Kamera in der Fusion \\
 \texttt{position\_smoothing\_alpha}      & Glättungsfaktor des \gls{ema}-Filters für die Position \\
 \texttt{rotation\_smoothing\_alpha}      & Glättungsfaktor der Rotationsglättung (SLERP) \\
@@ -319,7 +320,7 @@ Im Folgenden werden die wichtigsten Operationen nach und nach erläutert.
 \subsection*{Posenberechnung je Marker}
 \label{subsec:pos_posenberechnung}
 Wie bereits erwähnt, liefert jeder im Kamerabild erkannte Fiducial-Marker eine eigenständige Schätzung der Kamerapose im Kartenkoordinatensystem.
-Die Größe und Lage eines Markers~$\mathrm{M}$ ist durch die beim Programmstart geladene Karte bekannt.
+Die Größe und Lage eines Markers~$\mathrm{M}$ sind durch die beim Programmstart geladene Karte bekannt.
 Die Lage wird im Kartenkoordinatensystem~$\mathrm{K}$ als $^{\mathrm{K}}\mathbf{T}_{\mathrm{M}}$ beschrieben.
 Die Orientierung der Fiducial-Marker ist in der Karte als Rodrigues-Vektor hinterlegt und wird beim Laden gemäß
 Gleichung~\ref{eq:rodrigues_quaternion_eingesetzt} in ein Einheitsquaternion umgerechnet.
@@ -327,7 +328,7 @@ Wie in Abschnitt~\ref{sec:pos_detektion_apriltags} beschrieben, liefert die Dete
 dessen Lage relativ zum Kamerakoordinatensystem~$\mathrm{C}$ als Translationsvektor $^{\mathrm{C}}\tilde{\mathbf{t}}_{\mathrm{M}}$ und
 Einheitsquaternion $^{\mathrm{C}}\mathbf{q}_{\mathrm{M}}$.
 
-Im ersten Schritt wird aus dem detektierten Translationsvektor $^{\mathrm{C}}\tilde{\mathbf{t}}_{\mathrm{M}}$
+Im ersten Schritt wird aus dem Translationsvektor $^{\mathrm{C}}\tilde{\mathbf{t}}_{\mathrm{M}}$
 der skalierte Vektor $^{\mathrm{C}}\mathbf{t}_{\mathrm{M}}$ berechnet, der für Marker, deren Größe von der
 Referenz-Markergröße abweicht, entsprechend korrigiert wird.
 Bezeichnet \glsadd{sym:aM}$a_{\mathrm{M}}$ die Kantenlänge des Markers und \glsadd{sym:aref}$a_{\mathrm{ref}}$ die Referenz-Markergröße, ergibt sich der skalierte Vektor zu
@@ -341,23 +342,23 @@ Die Referenz-Markergröße $a_{\mathrm{ref}}$ wird über den Parameter \texttt{i
 Die Orientierung bleibt dabei unberührt, da die Größe des Markers keinen Einfluss darauf hat.
 Der Isaac~\gls{ros2}-Detektor gibt die Orientierung in einer anderen Konvention aus als das in Tag\gls{slam} verwendete \gls{ros2}-Standardpaket.
 Daher muss vor der weiteren Verarbeitung die detektierte Orientierung $^{\mathrm{C}}\mathbf{q}_{\mathrm{M}}$ durch eine feste
-Drehung um $180^\circ$ um die $x$-Achse des Markers an die Konvention der Karte angeglichen werden.
+Drehung um 180$^\circ$ um die X-Achse des Markers an die Konvention der Karte angeglichen werden.
 
-Zur Positionsbestimmung ist die Pose der Kamera im Kartenkoordinatensystem, $^{\mathrm{K}}\mathbf{T}_{\mathrm{C}}$ gesucht.
+Zur Positionsbestimmung ist die Transformation der Kamera im Kartenkoordinatensystem, $^{\mathrm{K}}\mathbf{T}_{\mathrm{C}}$ gesucht.
 Konzeptionell entspricht dies der Verkettung der bekannten Markerpose mit der invertierten Detektion gemäß den
-Gleichungen~\ref{eq:trafo_verkettung} und~\ref{eq:trafo_inverse}:
+Gleichungen~\ref{eq:trafo_inverse} und~\ref{eq:trafo_verkettung}:
 \begin{equation}
 ^{\mathrm{K}}\mathbf{T}_{\mathrm{C}} = {^{\mathrm{K}}\mathbf{T}_{\mathrm{M}}}\,\left(^{\mathrm{C}}\mathbf{T}_{\mathrm{M}}\right)^{-1}.
 \label{eq:pos_kamera_in_karte}
 \end{equation}
-Hierfür wird zunächst die detektierte Pose invertiert, um die Lage der Kamera relativ zum Marker, $^{\mathrm{M}}\mathbf{T}_{\mathrm{C}}$, zu erhalten.
-Die inverse Orientierung ergibt sich als Konjugation nach Gleichung~\ref{eq:quaternion_konjugiert}, die inverse Translation durch Rotation
-des negierten Vektors mit dieser Orientierung nach Gleichung~\ref{eq:quaternion_rotation}:
+Hierfür wird zunächst die detektierte Transformation invertiert, um die Lage der Kamera relativ zum Marker, $^{\mathrm{M}}\mathbf{T}_{\mathrm{C}}$, zu erhalten.
+Die inverse Orientierung ergibt sich als Konjugation nach Gleichung~\ref{eq:quaternion_konjugiert}, die inverse Translation durch die Rotation
+des negierten Vektors nach Gleichung~\ref{eq:quaternion_rotation}:
 \begin{align}
 ^{\mathrm{M}}\mathbf{q}_{\mathrm{C}} &= {^{\mathrm{C}}\bar{\mathbf{q}}_{\mathrm{M}}}, \label{eq:pos_inverse_q}\\
 ^{\mathrm{M}}\mathbf{t}_{\mathrm{C}} &= {^{\mathrm{C}}\bar{\mathbf{q}}_{\mathrm{M}}} \cdot \bigl(-{^{\mathrm{C}}\mathbf{t}_{\mathrm{M}}}\bigr) \cdot {^{\mathrm{C}}\mathbf{q}_{\mathrm{M}}}. \label{eq:pos_inverse_t}
 \end{align}
-Durch Verkettung dieser Pose mit der bekannten Markerpose folgt die gesuchte Kamerapose, 
+Durch die Verkettung dieser Pose mit der bekannten Markerpose folgt die gesuchte Kamerapose, 
 wobei die Orientierungen nach Gleichung~\ref{eq:quaternion_multiplikation} multipliziert und die Translation analog zu Gleichung~\ref{eq:trafo_punkt} zusammengesetzt werden:
 \begin{align}
 ^{\mathrm{K}}\mathbf{q}_{\mathrm{C}} &= {^{\mathrm{K}}\mathbf{q}_{\mathrm{M}}} \cdot {^{\mathrm{M}}\mathbf{q}_{\mathrm{C}}}, \label{eq:pos_kompose_q}\\
@@ -367,7 +368,7 @@ Jeder sichtbare Fiducial-Marker liefert auf diese Weise eine vollständige Schä
 im Kartenkoordinatensystem.
 
 
-Jeder Schätzung wird daher ein Gewicht zugeordnet, das mit der scheinbaren Größe des Markers im Bild zunimmt.
+Jeder Schätzung wird nun ein Gewicht zugeordnet, das mit der scheinbaren Größe des Markers im Bild zunimmt.
 Als Maß hierfür dient die Norm der unmittelbar detektierten, unskalierten Translation $^{\mathrm{C}}\tilde{\mathbf{t}}_{\mathrm{M}}$:
 \begin{equation}
 \tilde{d} = \lVert{^{\mathrm{C}}\tilde{\mathbf{t}}_{\mathrm{M}}}\rVert, \qquad w_i^{\mathrm{geo}} = \frac{1}{\tilde{d}^{2}}.
@@ -378,7 +379,7 @@ ist die Norm $\tilde{d}$ kein Maß für die tatsächliche Entfernung, sondern f�
 So wird abgebildet, dass im Bild große Fiducial-Marker aufgrund der höheren Genauigkeit mit einem größeren Gewicht in die Schätzung einfließen 
 als kleinere Fiducial-Marker mit geringerer Genauigkeit.
 Die Gewichtung der Fiducial-Marker erfolgt dadurch nur auf Basis der Pixelgröße, unabhängig von der tatsächlichen Entfernung des Markers zum Objektiv.
-Auf die gewichtete Fusion der Detektionen wird im weiteren Verlauf noch eingegangen.
+Auf die gewichtete Fusion der Detektionen wird im weiteren Verlauf eingegangen.
 
 
 
@@ -386,18 +387,18 @@ Auf die gewichtete Fusion der Detektionen wird im weiteren Verlauf noch eingegan
 \label{subsec:pos_ausreisserfilterung}
 Aus dem vorigen Schritt liegt für jedes Bild und jeden darin sichtbaren Fiducial-Marker eine eigenständige Schätzung
 der Kameraposition $^{\mathrm{K}}\mathbf{t}_{\mathrm{C}}$ im Kartenkoordinatensystem vor.
-Bei korrekten Detektionen stimmen diese Schätzungen überein, da sie dieselbe physische Kamera beschreiben.
+Bei korrekten Detektionen stimmen die Schätzungen miteinander überein, da alle Detektionen dieselbe physische Kamera beschreiben.
 Eine fehlerhafte Detektion oder eine ungenaue Karte führt dagegen zu einer abweichenden Schätzung.
-Zur Bestimmung der größten konsistenten Teilmenge wird das in Abschnitt~\ref{sec:ransac} beschriebene \gls{ransac}-Verfahren angewendet,
-das ausschließlich die Translationen vergleicht.
+Zur Bestimmung der größten konsistenten Teilmenge wird der in Abschnitt~\ref{sec:ransac} beschriebene \gls{ransac}-Algorithmus angewendet,
+der ausschließlich die Translationen vergleicht.
 Da die Translation nach Gleichung~\ref{eq:pos_kompose_t} aus der Rotation berechnet wird, schlägt sich eine fehlerhafte Rotation
 unmittelbar in einer fehlerhaften Translation nieder, sodass beide Fehlerarten berücksichtigt werden.
 
 Die minimale Teilmenge zur Modellbestimmung der Position besteht aus einer einzelnen Schätzung, die als Hypothese für die Kameraposition dient.
 Als Abstand $d(\mathbf{x}_i, \mathcal{M})$ nach Gleichung~\ref{eq:ransac_inlier} dient die euklidische Distanz zwischen einer Schätzung und der Hypothese.
-Da das \gls{uav} unterschiedlich weit von Tags entfernt sein kann, wird der Inlier-Schwellwert variabel zur mittleren Markerdistanz gestaltet.
-Bezeichnet \glsadd{sym:dbar}$\bar{d}$ die mittlere Markerdistanz, \glsadd{sym:dref}$d_{\mathrm{ref}}$ die Referenzdistanz (Parameter \texttt{ransac\_reference\_\-distance\_m})
-und \glsadd{sym:tau0}$\tau_0$ die Basisschwelle (Parameter \texttt{ransac\_base\_\-threshold\_m}), ergibt sich der adaptive Schwellenwert \glsadd{sym:tau}$\tau$ zu
+Da das \gls{uav} unterschiedlich weit von Tags entfernt sein kann, wird der Inlier-Schwellenwert abhängig von der mittleren Markerdistanz gestaltet.
+Bezeichnet \glsadd{sym:dbar}$\bar{d}$ die mittlere Markerdistanz, \glsadd{sym:dref}$d_{\mathrm{ref}}$ die Referenzdistanz (\texttt{ransac\_reference\_\-distance\_m})
+und \glsadd{sym:tau0}$\tau_0$ die Basisschwelle (\texttt{ransac\_base\_\-threshold\_m}), ergibt sich der adaptive Schwellenwert \glsadd{sym:tau}$\tau$ zu
 \begin{equation}
 \tau = \tau_0 \cdot f, \qquad
 f =
@@ -419,7 +420,7 @@ Wird in einem Bild nur ein einzelner Fiducial-Marker detektiert, ist kein Vergle
 Die Schätzung wird unverändert weitergegeben.
 
 Bei genau zwei Schätzungen wird geprüft, ob ihr Abstand den Schwellenwert~$\tau$ unterschreitet. 
-Ist dies der Fall, werden beide übernommen, andernfalls wird keine Konsensmenge ausgegeben und die Schätzungen verworfen.
+Ist dies der Fall, werden beide übernommen, andernfalls wird keine Konsensmenge $\mathcal{I}$ ausgegeben und die Schätzungen verworfen.
 
 Liegen mindestens drei Schätzungen vor, wird in jeder Iteration eine Schätzung als Hypothese herangezogen und gezählt, 
 wie viele der übrigen Schätzungen nach dem Kriterium aus Gleichung~\ref{eq:ransac_inlier} innerhalb des Schwellenwerts $\tau$ liegen.
@@ -428,7 +429,7 @@ Die Hypothese mit der größten Konsensmenge bestimmt die Inlier-Menge.
 
 Die Konsensmenge wird nur dann ausgegeben, wenn sie als ausreichend vertrauenswürdig gilt.
 Die erforderliche Mindestanzahl $n_{\min}$ wird durch zwei Parameter festgelegt. 
-Die Mindestmarkeranzahl $n_{\mathrm{Tags}}$ (Parameter \texttt{min\_tags\_required}) und einen Anteil $r$ aller 
+Dies sind die Mindestmarkeranzahl $n_{\mathrm{Tags}}$ (Parameter \texttt{min\_tags\_required}) und ein Anteil $r$ aller 
 Schätzungen (Parameter \texttt{ransac\_min\_inliers\_ratio}).
 Maßgeblich ist der größere der beiden Werte:
 \begin{equation}
@@ -454,13 +455,14 @@ Diese werden zu einer richtungsunabhängigen mittleren Positionsunsicherheit \gl
 \sigma_{\mathrm{map},i}^{2} = \frac{\sigma_{x,i}^{2} + \sigma_{y,i}^{2} + \sigma_{z,i}^{2}}{3}.
 \label{eq:pos_map_sigma}
 \end{equation}
-Aus dieser Unsicherheit wird ein beschränkter Qualitätsfaktor \gls{sym:qmap} mit $q_i \in (0,1]$ gebildet:
+Aus dieser Unsicherheit wird ein beschränkter Qualitätsfaktor \gls{sym:qmap} mit $q_i \in (0;1]$ gebildet:
 \begin{equation}
 q_i = \frac{\sigma_{\mathrm{ref}}^{2}}{\sigma_{\mathrm{ref}}^{2} + \sigma_{\mathrm{map},i}^{2}}.
 \label{eq:pos_map_quality}
 \end{equation}
-Die Referenz-Standardabweichung \gls{sym:sigmaref} legt fest, ab welcher Kartenunsicherheit ein Fiducial-Marker als halb so vertrauenswürdig gilt.
-Gut eingemessene Fiducial-Marker mit $\sigma_{\mathrm{map},i} \ll \sigma_{\mathrm{ref}}$ erhalten $q_i \approx 1$ und bleiben damit unverändert gewichtet.
+Die Referenz-Standardabweichung \gls{sym:sigmaref} (\texttt{map\_cov\_reference\_sigma\_m}) legt fest, ab welcher Kartenunsicherheit ein Fiducial-Marker als halb so vertrauenswürdig gilt.
+Bei gut eingemessenen Fiducial-Markern gilt $\sigma_{\mathrm{map},i} \ll \sigma_{\mathrm{ref}}$. 
+Diese erhalten dann für $q_i \approx 1$ und bleiben somit gleich gewichtet. 
 Schlecht eingemessene Fiducial-Marker mit $\sigma_{\mathrm{map},i} \gg \sigma_{\mathrm{ref}}$ erhalten $q_i \to 0$ und tragen dadurch kaum zur fusionierten Pose bei.
 Das endgültige Gewicht \gls{sym:wgewicht} ergibt sich als Produkt aus geometrischem Gewicht und Qualitätsfaktor:
 \begin{equation}
@@ -487,41 +489,40 @@ Kamerapose $\bigl(^{\mathrm{K}}\mathbf{t}_{\mathrm{C}},\,{^{\mathrm{K}}\mathbf{q
 
 
 
-\subsection*{Transformation der Kameraposen zum \gls{uav}nmittelpunkt}
-\label{subsec:pos_\gls{uav}nmittelpunkt}
+\subsection*{Transformation der Kameraposen zum UAV-Mittelpunkt}
+\label{subsec:pos_drohnenmittelpunkt}
 Die fusionierte Pose aus den Gleichungen~\ref{eq:pos_fusion_t} und~\ref{eq:pos_fusion_q} beschreibt die Lage der Kamera im Kartenkoordinatensystem.
-Für die Regelung des \gls{uav}s ist jedoch die Pose des \gls{uav}nmittelpunkts~$\mathrm{D}$ maßgeblich.
-Da die Kamera starr an der \gls{uav} montiert ist, ist die Transformation $^{\mathrm{C}}\mathbf{T}_{\mathrm{D}}$ 
-von der jeweiligen Kamera zum \gls{uav}nmittelpunkt fest und aus der Kalibrierung bekannt.
+Für die Regelung des \gls{uav}s ist jedoch die Transformation des \gls{uav}-Mittelpunkts~$\mathrm{D}$ maßgeblich.
+Da die Kamera starr an dem \gls{uav} montiert ist, ist die Transformation $^{\mathrm{C}}\mathbf{T}_{\mathrm{D}}$ 
+von der jeweiligen Kamera zum \gls{uav}-Mittelpunkt unverändert und aus der Kalibrierung bekannt.
 Die gesuchte Pose $^{\mathrm{K}}\mathbf{T}_{\mathrm{D}}$ ergibt sich durch Verkettung der fusionierten 
-Kamerapose mit dieser Transformation gemäß Gleichung~\ref{eq:trafo_verkettung}:
+Kamerapose mit dieser Transformationsmatrix gemäß Gleichung~\ref{eq:trafo_verkettung}:
 \begin{equation}
 ^{\mathrm{K}}\mathbf{T}_{\mathrm{D}} = {^{\mathrm{K}}\mathbf{T}_{\mathrm{C}}}\,{^{\mathrm{C}}\mathbf{T}_{\mathrm{D}}}.
-\label{eq:pos_\gls{uav}}
+\label{eq:pos_drohne}
 \end{equation}
 Die Orientierung wird dabei nach Gleichung~\ref{eq:quaternion_multiplikation} multipliziert und die Translation analog zu Gleichung~\ref{eq:trafo_punkt} zusammengesetzt:
 \begin{align}
-^{\mathrm{K}}\mathbf{q}_{\mathrm{D}} &= {^{\mathrm{K}}\mathbf{q}_{\mathrm{C}}} \cdot {^{\mathrm{C}}\mathbf{q}_{\mathrm{D}}}, \label{eq:pos_\gls{uav}_q}\\
+^{\mathrm{K}}\mathbf{q}_{\mathrm{D}} &= {^{\mathrm{K}}\mathbf{q}_{\mathrm{C}}} \cdot {^{\mathrm{C}}\mathbf{q}_{\mathrm{D}}}, \label{eq:pos_drohne_q}\\
 ^{\mathrm{K}}\mathbf{t}_{\mathrm{D}} &= {^{\mathrm{K}}\mathbf{t}_{\mathrm{C}}} + {^{\mathrm{K}}\mathbf{q}_{\mathrm{C}}} \cdot {^{\mathrm{C}}\mathbf{t}_{\mathrm{D}}} \cdot {^{\mathrm{K}}\bar{\mathbf{q}}_{\mathrm{C}}}.
-\label{eq:pos_\gls{uav}_t}
+\label{eq:pos_drohne_t}
 \end{align}
-Damit liegt für jede Kamera eine Schätzung der Pose des \gls{uav}nmittelpunkts im Kartenkoordinatensystem vor.
+Damit liegt für jede Kamera eine Schätzung der Pose des \gls{uav}-Mittelpunkts im Kartenkoordinatensystem vor.
 
 
 \subsection*{Fusion der Kameraposen}
 \label{subsec:pos_kamerafusion}
-Die bisher beschriebenen Schritte der Positionierung (Detektion, Skalierung, Posenberechnung je Marker, Ausreißerfilterung, 
-gewichtete Fusion der Konsensmenge und Umrechnung auf den \gls{uav}nmittelpunkt) werden für jede Kamera und für jedes Kamerabild durchlaufen.
-Jede Kamera liefert dadurch fortlaufend eine eigene Schätzung der Pose des \gls{uav}nmittelpunkts $^{\mathrm{K}}\mathbf{T}_{\mathrm{D}}$ 
-nach Gleichung~\ref{eq:pos_\gls{uav}} im Kartenkoordinatensystem.
+Die bisher beschriebenen Schritte der Posi\-tionierung werden entsprechend Abbildung~\ref{fig:architektur_positionierung} für jede Kamera und für jedes Kamerabild durchlaufen.
+Jede Kamera liefert dadurch fortlaufend eine eigene Schätzung der Pose des \gls{uav}-Mittelpunkts $^{\mathrm{K}}\mathbf{T}_{\mathrm{D}}$ 
+nach Gleichung~\ref{eq:pos_drohne} im Kartenkoordinatensystem.
 Da die Kameras unabhängig voneinander und mit unterschiedlicher Bildrate arbeiten können, treffen diese Schätzungen asynchron ein.
 
-Die Zusammenführung erfolgt daher nicht bei jeder eingehenden Detektion, sondern in festem Takt mit der Frequenz \texttt{publish\_rate\_hz}.
+Die Zusammenführung erfolgt daher nicht bei jeder eingehenden Schätzung, sondern in festem Takt mit der Frequenz \texttt{publish\_rate\_hz}.
 Bei jedem Aufruf wird je Kamera die jeweils aktuellste Schätzung herangezogen.
 Eine Schätzung wird nur berücksichtigt, wenn ihr Alter den Parameter \texttt{max\_estimate\_age\_s} nicht überschreitet, veraltete Schätzungen werden verworfen.
 Liegt keine gültige Schätzung vor, wird keine Pose ausgegeben.
 
-Den beiden Kameras ist jeweils ein fester Gewichtungsfaktor $w_1$ bzw. $w_2$ zugeordnet (Parameter \texttt{cam1\_weight} bzw. \texttt{cam2\_weight}), über den eine Kamera als zuverlässiger eingestuft werden kann.
+Den beiden Kameras ist jeweils ein fester Gewichtungsfaktor $w_1$ beziehungsweise $w_2$ zugeordnet (Parameter \texttt{cam1\_weight} beziehungsweise \texttt{cam2\_weight}), über den eine Kamera als zuverlässiger eingestuft werden kann.
 Anders als das von der scheinbaren Markergröße abhängige Gewicht aus Gleichung~\ref{eq:pos_gewicht} sind diese beiden Faktoren fest vorgegeben.
 Die fusionierte Position ergibt sich analog zu Gleichung~\ref{eq:pos_fusion_t} als gewichteter Mittelwert der beiden Schätzungen $^{\mathrm{K}}\mathbf{t}_{\mathrm{D}}^{(1)}$ und $^{\mathrm{K}}\mathbf{t}_{\mathrm{D}}^{(2)}$:
 \begin{equation}
@@ -553,7 +554,8 @@ Bezeichnet $^{\mathrm{K}}\mathbf{t}_{\mathrm{D}}[k]$ die fusionierte Position zu
 \label{eq:pos_ema}
 \end{equation}
 Der Glättungsfaktor $\alpha_{\mathrm{t}} \in [0;1]$ wird über den Parameter \texttt{position\_smoothing\_alpha} festgelegt.
-Ein Wert von $\alpha_{\mathrm{t}} = 1$ entspricht keiner Glättung, kleinere Werte dämpfen die Schätzung stärker und erhöhen zugleich deren Trägheit.
+Ein Wert von $\alpha_{\mathrm{t}} = 1$ entspricht keiner Glättung. 
+Kleinere Werte dämpfen die Schätzung stärker und erhöhen zugleich deren Trägheit.
 
 Die Orientierung wird durch \gls{slerp} nach Gleichung~\ref{eq:slerp} zwischen dem vorherigen geglätteten Quaternion $^{\mathrm{K}}\hat{\mathbf{q}}_{\mathrm{D}}[k-1]$ 
 und der aktuellen Schätzung $^{\mathrm{K}}\mathbf{q}_{\mathrm{D}}[k]$ geglättet:
@@ -562,7 +564,7 @@ und der aktuellen Schätzung $^{\mathrm{K}}\mathbf{q}_{\mathrm{D}}[k]$ geglätte
 \label{eq:pos_slerp}
 \end{equation}
 Dabei ist $\theta$ der Winkel zwischen dem vorherigen geglätteten Quaternion und der aktuellen Schätzung.
-Der Interpolationsfaktor $\alpha_{\mathrm{q}} \in [0,1]$ wird über den Parameter \texttt{rotation\_smoothing\_alpha} 
+Der Interpolationsfaktor $\alpha_{\mathrm{q}} \in [0;1]$ wird über den Parameter \texttt{rotation\_smoothing\_alpha} 
 festgelegt und wirkt analog zu $\alpha_{\mathrm{t}}$.
 
 %Lasse ich weg, weil es nicht wirklich funktioniert.
@@ -579,7 +581,7 @@ festgelegt und wirkt analog zu $\alpha_{\mathrm{t}}$.
 %\label{eq:pos_cov_sigma}
 %\end{equation}
 %mit dem distanzabhängigen Faktor $f_{d,i} = \left(d_i / d_{\mathrm{ref}}\right)^{2}$ und dem größenabhängigen Faktor $f_{a,i} = a_{\mathrm{ref}} / a_i$.
-%Beide Faktoren sind nach oben durch die Parameter \texttt{covariance\_max\_distance\_factor} bzw. \texttt{covariance\_max\_size\_factor} begrenzt, um unrealistisch große Werte zu vermeiden.
+%Beide Faktoren sind nach oben durch die Parameter \texttt{covariance\_max\_distance\_factor} beziehungsweise \texttt{covariance\_max\_size\_factor} begrenzt, um unrealistisch große Werte zu vermeiden.
 %Die Standardabweichung der Orientierung $\sigma_{\mathrm{rot},i}$ wird analog aus der Basis-Standardabweichung $\sigma_{\mathrm{rot},0}$ (Parameter \texttt{covariance\_rot\_base\_sigma\_rad}) gebildet.
 %
 %Die Pro-Marker-Varianzen $\sigma_{\mathrm{pos},i}^{2}$ werden anschließend über eine inverse-Varianz-Gewichtung zu einer gemeinsamen Varianz der fusionierten Schätzung zusammengefasst.
@@ -591,9 +593,8 @@ festgelegt und wirkt analog zu $\alpha_{\mathrm{t}}$.
 %Die so bestimmten Varianzen für Position und Orientierung werden auf die Diagonale der $6 \times 6$-Kovarianzmatrix geschrieben, die zusammen mit der Pose an den \gls{ekf} übergeben wird.
 
 
-\subsection*{Transformation in das PX4-Koordinatensystem und Ausgabe}
-\label{subsec:pos_frame_ausgabe}
+
 Die bisher bestimmte geglättete Pose $\bigl(^{\mathrm{K}}\hat{\mathbf{t}}_{\mathrm{D}},\,{^{\mathrm{K}}\hat{\mathbf{q}}_{\mathrm{D}}}\bigr)$
 liegt im Kartenkoordinatensystem vor, das der in Abschnitt~\ref{sec:vergleich_koordinatensysteme} eingeführten \gls{enu}/\gls{flu}-Konvention folgt.
 Da \gls{px4} die Pose im \gls{ned}/\gls{frd}-System benötigt, wird sie vor der Ausgabe von \gls{enu}/\gls{flu} nach \gls{ned}/\gls{frd} umgerechnet.
-Anschließend wird die umgerechnete Pose über die \gls{uxrce}-Schnittstelle auf dem Topic \topic{/fmu/in/vehicle\_visual\_odometry} an \gls{px4} übergeben.
+Anschließend wird die umgerechnete Pose über die \gls{uxrce}-Schnittstelle auf dem Topic \topic{/fmu/in/vehicle_visual_odometry} an \gls{px4} übergeben.

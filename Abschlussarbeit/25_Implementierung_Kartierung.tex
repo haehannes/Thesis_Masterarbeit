@@ -23,7 +23,7 @@ Es werden Festlegungen getroffen, die auch direkten Einfluss auf die in Kapitel~
 Im weiteren Verlauf der Arbeit wird auf diese Abhängigkeiten hingewiesen.
 
 \section{Auswahl der Algorithmik zur Kartierung}
-Da die Karte als spätere Referenz für die Lokalisierung des \gls{uav}s dient, überträgt sich ihre Genauigkeit unmittelbar auf die Präzision der Lokalisierung..
+Da die Karte als spätere Referenz für die Lokalisierung des \gls{uav}s dient, überträgt sich ihre Genauigkeit unmittelbar auf die Präzision der Lokalisierung.
 Um eine möglichst genaue Karte zu erhalten und den relativen Fehler der Karte sowie der Lokalisierung gering zu halten, 
 kommen daher ausschließlich optimierungsbasierte \gls{slam}-Methoden in Frage.
 
@@ -48,19 +48,19 @@ Der Rechenaufwand bewertet die Belastung des Begleitrechners, da die Verarbeitun
 
 \subsection*{Gewichtung durch den paarweisen Vergleich der SLAM-Varianten}
 Im paarweisen Vergleich in Tabelle~\ref{tab:paarweiser_vergleich_slam} wird jedes Kriterium einzeln gegen jedes andere abgewogen.
-Eine~$1$ bedeutet, dass das Kriterium der Zeile gegenüber dem der Spalte als wichtiger eingestuft wird.
+Eine~1 bedeutet, dass das Kriterium der Zeile gegenüber dem der Spalte als wichtiger eingestuft wird.
 Aus der Zeilensumme ergibt sich die relative Gewichtung jedes Kriteriums.
 
-Die höchste Gewichtung erhalten die Umgebungskompatibilität und die Driftfreiheit mit jeweils $23{,}81\,\%$.
+Die höchste Gewichtung erhalten die Umgebungskompatibilität und die Driftfreiheit mit jeweils 23,81\,\%.
 Diese Priorisierung ergibt sich direkt aus dem Ziel der Arbeit, ein Lokalisierungssystem für ein \gls{uav} im Innenraum zu implementieren.
 Ein Verfahren, das in der Versuchsumgebung nicht funktioniert oder stark driftbehaftet ist, wäre für den vorgesehenen Einsatz unabhängig 
 von seinen sonstigen Eigenschaften ungeeignet.
 
-Die \gls{ros2}-Verfügbarkeit und der Rechenaufwand folgen mit jeweils $19{,}05\,\%$.
+Die \gls{ros2}-Verfügbarkeit und der Rechenaufwand folgen mit jeweils 19,05\,\%.
 Beide sind für die praktische Umsetzbarkeit auf der verwendeten Plattform entscheidend, ordnen sich den Anforderungen 
 an die Lokalisierungsqualität jedoch unter.
 Die hardwarebezogenen Kriterien Kostengünstigkeit, Leichtbau und geringer Vorbereitungsaufwand 
-erhalten mit jeweils $4{,}76\,\%$ das geringste Gewicht.
+erhalten mit jeweils 4,76\,\% das geringste Gewicht.
 Kostengünstigkeit und geringer Vorbereitungsaufwand sind zwar wünschenswert, für die grundsätzliche Eignung des Verfahrens jedoch von untergeordneter Bedeutung.
 Auch der Leichtbau spielt eine geringere Rolle, da die Nutzlast des verwendeten \gls{uav}s ausreichend ist, die Hardware für jede der betrachteten Implementierungen zu tragen.
 \begin{table}[htbp]
@@ -78,45 +78,45 @@ anhand einer Nutzwertanalyse gegenübergestellt.
 
 Die Auswahl der SLAM-Variante hat sowohl auf die Kartierung als auch auf die Positionierung direkten Einfluss.
 Da das Hauptaugenmerk dieser Arbeit auf der Positionsbestimmung liegt, werden die Varianten im Positionierungsmodus gegen eine zuvor erstellte Karte betrachtet.
-In der Nutzwertanalyse in Tabelle~\ref{tab:nutzwertanalyse_slam} wird jede Variante in jedem Kriterium auf einer Skala von $0$ (Kriterium nicht erfüllt) 
-bis $5$ (Kriterium vollständig erfüllt) bewertet.
+In der Nutzwertanalyse in Tabelle~\ref{tab:nutzwertanalyse_slam} wird jede Variante in jedem Kriterium auf einer Skala von 0 (Kriterium nicht erfüllt) 
+bis 5 (Kriterium vollständig erfüllt) bewertet.
 Der gewichtete Wert ergibt sich aus dem Produkt von Bewertung und Kriteriengewicht. 
 Die Summe dieser Werte bildet den Gesamtnutzwert.
 
 
-\gls{lidar}-\gls{slam} wird bei Kostengünstigkeit und Leichtbau mit jeweils $2$ am niedrigsten bewertet, da ein kompakter 3D-\gls{lidar}-Sensor 
-wie der Livox~Mid-360S mit 589~Euro deutlich teurer und schwerer ist als eine vergleichbare Stereokamera~\cite{livox_mid360s}.
-Bei der Kostengünstigkeit erreicht Tag\gls{slam} mit $5$ die höchste Bewertung, da für kamerabasierte Verfahren bereits eine Logitech~C922 für unter 100~Euro im Handel erhältlich ist~\cite{logitech_c922}.
-Ein für den Einsatz benötigtes Stereomodul wie die ZED~Mini liegt mit ab 399~Euro zwar höher, bleibt aber deutlich unter dem Preisniveau eines \gls{lidar}-Sensors, weshalb \gls{vslam} mit $3$ bewertet wird~\cite{zed_mini}.
-Beim Leichtbau erreicht \gls{vslam} mit $5$ die höchste Bewertung, da die ZED~Mini leichter ist als eine Logitech~C922.
-Tag\gls{slam} wird deshalb mit $4$ bewertet.
+\gls{lidar}-\gls{slam} wird bei Kostengünstigkeit und Leichtbau mit jeweils 2 am niedrigsten bewertet, da ein kompakter 3D-\gls{lidar}-Sensor 
+wie der Livox~Mid-360S mit 589~Euro deutlich teurer und schwerer ist als eine vergleichbare Stereokamera.
+Bei der Kostengünstigkeit erreicht Tag\gls{slam} mit 5 die höchste Bewertung, da für kamerabasierte Verfahren bereits eine Logitech~C922 für unter 100~Euro im Handel erhältlich ist.
+Ein für den Einsatz benötigtes Stereomodul wie die ZED~Mini liegt mit rund 399~Euro zwar höher, bleibt aber deutlich unter dem Preisniveau eines \gls{lidar}-Sensors, weshalb \gls{vslam} mit 3 bewertet wird.
+Beim Leichtbau erreicht \gls{vslam} mit 5 die höchste Bewertung, da die ZED~Mini leichter ist als eine Logitech~C922.~\cite{livox_mid360s,logitech_c922,zed_mini}
+Tag\gls{slam} wird deshalb mit 4 bewertet.
 
-Tag\gls{slam} wird beim geringen Vorbereitungsaufwand mit $3$ bewertet, da die Fiducial-Marker einmalig angebracht werden müssen, 
-während \gls{vslam} und \gls{lidar}-\gls{slam} mit $5$ keine Umgebungsvorbereitung erfordern.
+Tag\gls{slam} wird beim geringen Vorbereitungsaufwand mit 3 bewertet, da die Fiducial-Marker einmalig angebracht werden müssen, 
+während \gls{vslam} und \gls{lidar}-\gls{slam} mit 5 keine Umgebungsvorbereitung erfordern.
 
-In der Umgebungskompatibilität erreicht Tag\gls{slam} mit $4$ die höchste Bewertung.
+In der Umgebungskompatibilität erreicht Tag\gls{slam} mit 4 die höchste Bewertung.
 Tag\gls{slam} arbeitet unabhängig von der Umgebungstextur und wird daher von strukturarmen Flächen nicht beeinträchtigt.
 Ein weiterer Vorteil von Tag\gls{slam} ist, dass Gegenstände der Umgebung wie Tische oder Gestelle ohne Probleme bewegt werden können, solange die Fiducial-Marker weiterhin sichtbar bleiben.
 Es erhält jedoch nicht die volle Punktzahl, da die Fiducial-Marker zunächst angebracht werden müssen.
 Die Referenzpunkte können dabei frei platziert werden, sodass beispielsweise Gegenlicht durch die Fenster nicht zum Problem wird.
 \gls{lidar}-\gls{slam} und \gls{vslam} können sowohl durch die Fenster der Halle als auch durch eine räumliche Veränderung der Umgebung gestört werden.
-\gls{lidar}-\gls{slam} wird daher mit $3$ bewertet.
-Am niedrigsten fällt mit $2$ die Bewertung von \gls{vslam} aus.
+\gls{lidar}-\gls{slam} wird daher mit 3 bewertet.
+Am niedrigsten fällt mit 2 die Bewertung von \gls{vslam} aus.
 Es ist im Vergleich zu \gls{lidar} nicht metrisch genau, und die unzureichend strukturierte Halle müsste für ein zuverlässiges Ergebnis zusätzlich vorbereitet werden.
 Die Bewertung von \gls{vslam} ließe sich steigern, indem die Umgebung künstlich strukturiert wird, beispielsweise durch Marker, die lediglich als Konturen und nicht als Tags im eigentlichen Sinn dienen.
 
-In der Driftfreiheit erreicht Tag\gls{slam} mit $5$ den höchsten Wert, da jede Markerdetektion eine direkte und absolute Posenmessung gegen die Karte liefert.
-\gls{lidar}-\gls{slam} bindet die Pose über das Registrieren der Punktwolke ebenfalls an die Karte, erhält mit $4$ aber eine geringere Bewertung, 
-da das Scan-Matching in strukturarmen Bereichen mehrdeutig werden kann~\cite{Tang2015_lidar}.
-Die Bewertung von \gls{vslam} mit $3$ ergibt sich daraus, dass die Merkmalswiedererkennung in der strukturarmen Versuchsumgebung weniger zuverlässig 
-gelingt und das Verfahren dadurch häufiger auf die inhärent driftbehaftete visuelle Odometrie angewiesen ist~\cite{10588822_RWT_SLAM}.
+In der Driftfreiheit erreicht Tag\gls{slam} mit 5 den höchsten Wert, da jede Markerdetektion eine direkte und absolute Posenmessung gegen die Karte liefert.
+\gls{lidar}-\gls{slam} bindet die Pose über das Registrieren der Punktwolke ebenfalls an die Karte, erhält mit 4 aber eine geringere Bewertung, 
+da das Scan-Matching in strukturarmen Bereichen mehrdeutig werden kann.
+Die Bewertung von \gls{vslam} mit 3 ergibt sich daraus, dass die Merkmalswiedererkennung in der strukturarmen Versuchsumgebung weniger zuverlässig 
+gelingt und das Verfahren dadurch häufiger auf die inhärent driftbehaftete visuelle Odometrie angewiesen ist.~\cite{10588822_RWT_SLAM,Tang2015_lidar}
 
-Die \gls{ros2}-Verfügbarkeit ist für alle drei Verfahren mit $4$ gleich bewertet, da für jedes einsatzfähige Implementierungen vorliegen, 
+Die \gls{ros2}-Verfügbarkeit ist für alle drei Verfahren mit 4 gleich bewertet, da für jedes einsatzfähige Implementierungen vorliegen, 
 die noch angepasst werden müssen.
 
-Beim Rechenaufwand schneidet Tag\gls{slam} mit $4$ am besten ab, da durch die bekannte Markergeometrie die aufwändige Merkmalsbeschreibung entfällt.
-Mit $3$ bewertet wird \gls{vslam}, da die Merkmalsextraktion und -beschreibung rechenintensiver ist als die Detektion bekannter Marker.
-\gls{lidar}-\gls{slam} wird mit $2$ am niedrigsten bewertet, da die Verarbeitung dichter Punktwolken rechenintensiv ist.
+Beim Rechenaufwand schneidet Tag\gls{slam} mit 4 am besten ab, da durch die bekannte Markergeometrie die aufwändige Merkmalsbeschreibung entfällt.
+Mit 3 bewertet wird \gls{vslam}, da die Merkmalsextraktion und -beschreibung rechenintensiver ist als die Detektion bekannter Marker.
+\gls{lidar}-\gls{slam} wird mit 2 am niedrigsten bewertet, da die Verarbeitung dichter Punktwolken rechenintensiv ist.
 Diese Bewertung ist als qualitative Tendenz zu verstehen, da der tatsächliche Rechenaufwand stark von der jeweiligen Algorithmenimplementierung abhängt.
 
 
@@ -124,8 +124,8 @@ Diese Bewertung ist als qualitative Tendenz zu verstehen, da der tatsächliche R
 
 In Summe erreicht Tag\gls{slam} mit $4{,}24$ den höchsten Gesamtnutzwert, gefolgt von \gls{lidar}-\gls{slam} mit $3{,}24$ und \gls{vslam} mit $3{,}14$.
 Ausschlaggebend ist die hohe Bewertung in den beiden am stärksten gewichteten Kriterien, der Umgebungskompatibilität und der Driftfreiheit.
-Der höhere Vorbereitungsaufwand als einziger nennenswerter Nachteil von Tag\gls{slam} fällt aufgrund der geringen Gewichtung dieses Kriteriums nur einen geringen Einfluss auf das Gesamtergebnis.
-Aus diesen Gründen wird die Kartierung und Lokalisierung in dieser Arbeit auf Basis von Tag\gls{slam} umgesetzt.
+Der höhere Vorbereitungsaufwand als einziger nennenswerter Nachteil von Tag\gls{slam} hat aufgrund der geringen Gewichtung dieses Kriteriums nur einen geringen Einfluss auf das Gesamtergebnis.
+Aus diesen Gründen werden die Kartierung und Lokalisierung in dieser Arbeit auf Basis von Tag\gls{slam} umgesetzt.
 \begin{table}[htbp]
     \centering
     \includegraphics[width=1.0\textwidth]{Bilder/Nutzwertanalyse_slam.png}
@@ -148,24 +148,24 @@ In diesem Fall müsste ein eigenes Paket zur faktorgraphbasierten Kartenerstellu
 Für den Jetson Orin Nano steht mit dem Paket \texttt{isaac\_ros\_apriltag} eine
 \gls{gpu}-beschleunigte Implementierung zur Detektion von AprilTag-Markern zur Verfügung.
 Da AprilTag im Vergleich zu ArUco den höchsten Rechenaufwand bei einer
-CPU-basierten Implementierung aufweist~\cite{Kalaitzakis2021}, ist die
-Hardwarebeschleunigung für den echtzeitfähigen Betrieb auf dem Begleitrechner besonders relevant.
+CPU-basierten Implementierung aufweist, ist die
+Hardwarebeschleunigung für den echtzeitfähigen Betrieb auf dem Begleitrechner besonders relevant~\cite{Kalaitzakis2021}.
 Dies gilt insbesondere bei vielen gleichzeitig sichtbaren Markern, da der Rechenaufwand der Detektion mit deren Anzahl steigt.
 Durch die Auslagerung auf die \gls{gpu} des Begleitrechners wird die CPU entlastet, die dadurch für die übrigen Verarbeitungsschritte wie Positionsbestimmung und Kommunikation zur Verfügung steht.
 Eine vergleichbare Beschleunigung für andere Markersysteme steht im Isaac~ROS-Framework nicht zur Verfügung.
 
 Innerhalb der AprilTag-Familien bietet \texttt{tag36h11} den besten Kompromiss
-aus Detektionsleistung und Robustheit gegenüber Falschdetektionen~\cite{rcvisard_tagdetect}.
+aus Detektionsleistung und Robustheit gegenüber Falschdetektionen.
 Die minimale Hammingdistanz von~$11$ stellt sicher, dass eine große Bitabweichung erforderlich ist, um einen ungültigen Fiducial-Marker als gültig zu akzeptieren.
-Dadurch reduziert sich die Verwechslungsrate gegenüber Familien mit geringerer Hammingdistanz wie \texttt{tag16h5} deutlich~\cite{Olson5979561}.
+Dadurch reduziert sich die Verwechslungsrate gegenüber Familien mit geringerer Hammingdistanz wie \texttt{tag16h5} deutlich.~\cite{Olson5979561,rcvisard_tagdetect}
 
 Für eine präzise Posenschätzung müssen die Fiducial-Marker eben und ohne Wölbung
-angebracht sein, da das Detektionsverfahren eine planare Markergeometrie voraussetzt~\cite{Olson5979561}.
+angebracht sein, da das Detektionsverfahren eine planare Markergeometrie voraussetzt.
 Verformungen des Untergrunds führen zu systematischen Fehlern in der berechneten Pose.
 Aus demselben Grund müssen die Fiducial-Marker gegen den durch die Rotoren des \gls{uav}s erzeugten Wind gesichert werden, um ein Flattern zu vermeiden.
 Weiterhin ist ein ausreichend hoher Kontrast zwischen den schwarzen und weißen
-Zellen des Markers entscheidend, da die Detektion auf Helligkeitsübergängen basiert~\cite{Kalaitzakis2021}.
-Glänzende Oberflächen sind zu vermeiden, denn Reflexionen können die Helligkeitsübergänge verfälschen und zu Detektionsfehlern führen.
+Zellen des Markers entscheidend, da die Detektion auf Helligkeitsübergängen basiert.
+Glänzende Oberflächen sind zu vermeiden, denn Reflexionen können die Helligkeitsübergänge verfälschen und zu Detektionsfehlern führen.~\cite{Olson5979561,Kalaitzakis2021}
 
 
 
@@ -178,7 +178,7 @@ Für die Kartierung wurden in dieser Arbeit zwei Ansätze verfolgt.
 Zum einen die Live-Kartierung mittels Tag\gls{slam} während des Flugs und zum anderen die Offline-Kartierung durch Aufzeichnung von \gls{ros2}-Bags.
 
 Der Ansatz der Live-Kartierung wurde nach ersten Versuchen nicht weiter verfolgt.
-Es hat sich gezeigt, dass sie nur bei kleinen Karten bis etwa 10 Tags zuverlässig funktioniert, da die Optimierung bei größeren Karten zu rechenintensiv wird.
+Es hat sich gezeigt, dass sie nur bei kleinen Karten bis etwa zehn Tags zuverlässig funktioniert, da die Optimierung bei größeren Karten zu rechenintensiv wird.
 Die gleichzeitige Kartierung und Lokalisierung ist dann zu langsam, sodass zu viele Bilder verworfen werden.
 Dadurch lässt die Qualität beider Vorgänge stark nach, sodass keine für den Flug nutzbaren Ergebnisse entstehen.
 Es wurde keine Konfiguration gefunden, mit der Tag\gls{slam} eine große Karte in akzeptabler Zeit zur Verfügung stellt.
@@ -223,9 +223,9 @@ eines planaren Schachbrettmusters, das aus mehreren Blickwinkeln aufgenommen wir
 Die Eckpunkte des Schachbretts werden dabei automatisch detektiert und zur Schätzung der intrinsischen Parameter und der Verzeichnungskoeffizienten verwendet.
 Die ermittelten Parameter gelten nur für die jeweils verwendete Kamera in der jeweils eingestellten Auflösung.
 Daher muss die Kalibrierung für jede Kamera, auch bei baugleichen Modellen, einzeln durchgeführt werden.
-Ebenso ist die Kalibrierung bei jeder Änderung der Auflösung erneut durchzuführen, da Brennweite und Hauptpunkt von der Auflösung abhängen.
+Ebenso ist die Kalibrierung bei jeder Änderung der Auflösung erneut durchzuführen, da Brennweite und Hauptpunkt von der Auflösung abhängen.~\cite{888718_Calibration_Zhang,Bradski2008}
 
-Die Kalibrierung wird in diesem Abschnitt beispielhaft mit der Logitech~C922 in der Auflösung $1920\times1080$ durchgeführt.\cite{888718_Calibration_Zhang,Bradski2008}
+Die Kalibrierung wird in diesem Abschnitt beispielhaft mit der Logitech~C922 in der Auflösung $1920\times1080$ durchgeführt.
 Hierfür wird das \gls{ros2}-Paket \texttt{camera\_calibration} verwendet.
 Um den Kalibriervorgang zu starten, muss zunächst die Kamera in \gls{ros2} bereitgestellt werden.
 Hierfür wird das Paket \texttt{gscam} genutzt, das die Kamera über eine GStreamer-Pipeline anbindet.
@@ -279,7 +279,7 @@ Die ermittelten Werte sind in Gleichung~\ref{eq:verzeichnungsvektor} dargestellt
 
 
 Die Rektifizierungsmatrix in Gleichung~\ref{eq:rektifizierungsmatirx} dient der Ausrichtung mehrerer Kameras in einem Stereoaufbau~\cite{Bradski2008}.
-Da hier eine einzelne Kamera bzw. jede Kamera für sich betrieben wird, entspricht sie der Einheitsmatrix und bewirkt keine Drehung.
+Da hier eine einzelne Kamera beziehungsweise jede Kamera für sich betrieben wird, entspricht sie der Einheitsmatrix und bewirkt keine Drehung.
 \begin{equation}
 \label{eq:rektifizierungsmatirx}
     \mathbf{R} =
@@ -296,8 +296,8 @@ Die Projektionsmatrix in Gleichung~\ref{eq:Projektionsmatrix} enthält diese Par
 Während die Kameramatrix die Abbildung des realen, verzeichneten Objektivs beschreibt, bezieht sich die Projektionsmatrix auf das Bild, nachdem die Verzeichnung rechnerisch entfernt wurde.
 Da das entzerrte Bild einem idealen Lochkameramodell entspricht, enthält sie keine Verzeichnungskoeffizienten mehr.
 In ihren ersten drei Spalten stehen erneut Brennweite und Hauptpunkt.
-Die vierte Spalte ist bei einer Einzelkamera null und erhält nur im Stereoaufbau bei überlappenden Sichtfeld einen von null verschiedenen 
-Eintrag und beschreibt nur im Stereoaufbau die Translation relativ zur zweiten Kamera.
+Die vierte Spalte ist bei einer Einzelkamera null und erhält nur im Stereoaufbau bei überlappendem Sichtfeld einen von null verschiedenen 
+Eintrag und beschreibt die Translation relativ zur zweiten Kamera.
 \begin{equation}
 \label{eq:Projektionsmatrix}
     \mathbf{P} =
@@ -354,7 +354,7 @@ Die Detektion ist absichtlich von Aufnahme und Entzerrung entkoppelt, um die gen
 Es wurden Versuche durchgeführt, bei denen die Detektion Teil der ersten Bag-Aufzeichnung war.
 Dabei führte die zu hohe Rechenlast bei Echtzeit-Abspielgeschwindigkeit dazu, dass Frames verworfen wurden und die Detektion nicht mehr zuverlässig funktionierte.
 Bei leistungsfähigerer Hardware könnten beide Schritte gegebenenfalls gleichzeitig durchgeführt werden.
-Um der Hardware pro Bild mehr Zeit zur Berechnung zu geben, wird der Eingangsbag mit einer Abspielgeschwindigkeit von $0{,}3$ abgespielt.
+Um der Hardware pro Bild mehr Zeit zur Berechnung zu geben, wird der Eingangs-Bag mit einer Abspielgeschwindigkeit von 0,3 abgespielt.
  
 
 Für die Detektion wird der Node \texttt{sync\_and\_detect\_node} aus dem Paket Tag\gls{slam} verwendet.
@@ -389,7 +389,7 @@ Dieser Bag enthält nur noch die Eingangsdaten, die nachfolgend zur Kartenerstel
 \label{sec:kartierung_konfiguration_tagslam}
 Die eigentliche Karte wird mit dem Node \texttt{tagslam\_from\_bag} aus dem Paket Tag\gls{slam} erstellt.
 Dieser liest den Bag aus der vorigen Stufe ein und schätzt aus den enthaltenen Markerdetektionen die Lage aller Fiducial-Marker zueinander.
-Die Optimierung der Karte erfolgt nach dem im Abschnitt~\ref{sec:Faktorgraph} beschriebenen Prinzip.
+Die Optimierung der Karte erfolgt nach dem in Abschnitt~\ref{sec:Faktorgraph} beschriebenen Prinzip.
 Die Implementierung von \texttt{tagslam\_from\_bag} liegt ausschließlich für \gls{ros2} Jazzy vor und lässt sich daher nicht auf dem Begleitrechner ausführen.
 
 Der Node benötigt drei Konfigurationsdateien: \texttt{cameras.yaml} mit den intrinsischen Kameraparametern, \texttt{camera\_poses.yaml} mit der Pose 
@@ -397,7 +397,7 @@ der Kamera sowie \texttt{tagslam.yaml} mit den Parametern der Optimierung und de
 Die Datei \texttt{cameras.yaml} entspricht der bereits in Abschnitt~\ref{sec:offline_detektion_apriltags} beschriebenen Datei.
 
 %\subsubsection{Konfiguration der Kamerapose in TagSLAM}
-Die Datei \texttt{camera\_poses.yaml} gibt über eine $6 \times 6$-Kovarianzmatrix $\mathbf{R}$ an, wie starr die Kamera während der Kartierung gehalten wird.
+Die Datei \texttt{camera\_poses.yaml} gibt über eine $6\times6$-Kovarianzmatrix $\mathbf{R}$ an, wie starr die Kamera während der Kartierung gehalten wird.
 Die sechs Dimensionen entsprechen den drei translatorischen und drei rotatorischen Freiheitsgraden der Kamerapose.
 Da die Kamera bewegt wird und ihre Pose nicht vorab bekannt ist, sind \texttt{Position} und \texttt{Rotation} auf null gesetzt, während die Diagonalwerte der Matrix mit 
 $10^{6}$ sehr groß gewählt sind.
@@ -417,7 +417,7 @@ Die wesentlichen Parameter sind in Tabelle~\ref{tab:tagslam_params} zusammengefa
 \texttt{optimizer\_mode}            & Betriebsmodus der Optimierung \\
 \texttt{max\_subgraph\_error}       & Zulässiger Fehler eines Teilgraphen, oberhalb dessen die Messung verworfen wird \\
 \texttt{minimum\_viewing\_angle}    & Mindestwinkel, unter dem ein Fiducial-Marker noch verwertet wird \\
-\texttt{minimum\_tag\_area}         & Mindestfläche eines Markers im Bild in Pixel\textsuperscript{2} \\
+\texttt{minimum\_tag\_area}         & Mindestfläche eines Markers im Bild in Pixel$^2$ \\
 \texttt{max\_num\_incremental\_opt} & Inkrementelle Aktualisierungen zwischen zwei vollen Optimierungen \\
 \texttt{use\_approximate\_sync}     & Näherungsweise zeitliche Zuordnung der Kameranachrichten, sofern deren Zeitstempel nicht hardwareseitig synchronisiert sind \\
 \bottomrule
@@ -439,7 +439,7 @@ Fehlt die Angabe einer Startlage, unterliegt die Lage des Markers keiner Vorgabe
 Das Rauschen bestimmt, wie stark ein Fiducial-Marker an seine vorgegebene Lage gebunden wird. 
 Ein kleiner Rauschwert hält den Fiducial-Marker nahezu fest an der angegebenen Position, ein großes Rauschen lässt seine Lage während der Optimierung frei.
 Über den Eintrag \texttt{fixed: true} kann ein Fiducial-Marker für die Optimierung vollständig fixiert werden.
-Das kommt einen geringen Rauschen gleich. 
+Das kommt einem geringen Rauschen gleich. 
 
 Auf diese Weise wird der Fiducial-Marker mit der \gls{id}~0 fixiert, dessen Lage den Ursprung des Weltkoordinatensystems festlegt.
 Auf ihn beziehen sich sowohl die übrigen Fiducial-Marker als auch die Position des \gls{uav}s.

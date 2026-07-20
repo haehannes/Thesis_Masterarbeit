@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.11.7)  19 JUL 2026 20:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.11.7)  20 JUL 2026 09:18
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1409,18 +1409,6 @@ LaTeX Font Info:    Trying to load font information for T1+lmss on input line 14
  (/usr/share/texmf/tex/latex/lm/t1lmss.fd
 File: t1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) (./00_Abschlussarbeit.aux)
-Runaway argument?
-{\contentsline {table}{\numberline {6.2}{\ign 
-/home/hannes/Thesis_Masterarbeit/Abschlussarbeit/00_Abschlussarbeit.tex:148: File ended while scanning use of \@writefile.
-<inserted text> 
-                \par 
-l.148 \begin{document}
-                      
-I suspect you have forgotten a `}', causing me
-to read past where you wanted me to stop.
-I'll try to recover; but if the error is serious,
-you'd better type `E' or `X' now and fix your file.
-
 \openout1 = `00_Abschlussarbeit.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 148.
@@ -1452,7 +1440,7 @@ Package scrbase Info: activating english \listfigurename on input line 148.
 Package scrbase Info: activating english \listtablename on input line 148.
 Package scrbase Info: activating english \bibname on input line 148.
 Package scrbase Info: activating english \indexname on input line 148.
-(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+ (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count540
 \scratchdimen=\dimen355
@@ -1643,20 +1631,7 @@ Package: bookmark 2023-12-10 v1.31 PDF bookmarks (HO)
  (/usr/share/texlive/texmf-dist/tex/latex/bookmark/bkm-pdftex.def
 File: bkm-pdftex.def 2023-12-10 v1.31 bookmark driver for pdfTeX and luaTeX (HO)
 \BKM@id=\count547
-)) (./00_Abschlussarbeit.glsdefs)
-Runaway argument?
-{name={\ensuremath {k}},sort={L060},type={symbols},first={\protect \ensuremath \ETC.
-/home/hannes/Thesis_Masterarbeit/Abschlussarbeit/00_Abschlussarbeit.tex:148: File ended while scanning use of \glsdefs@newdocentry.
-<inserted text> 
-                \par 
-l.148 \begin{document}
-                      
-I suspect you have forgotten a `}', causing me
-to read past where you wanted me to stop.
-I'll try to recover; but if the error is serious,
-you'd better type `E' or `X' now and fix your file.
-
-[1
+)) (./00_Abschlussarbeit.glsdefs) [1
 
 \openout5 = `00_Abschlussarbeit.xdy'.
 
@@ -1747,17 +1722,17 @@ Package pdftex.def Info: Erklaerung_Hannes.pdf , page1 used on input line 160.
  [3
 
  <./Erklaerung_Hannes.pdf>] (./02_Abstract.tex
-LaTeX Font Info:    Trying to load font information for T1+pcr on input line 42.
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 43.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
-Package cleveref Info: loaded `ngerman' language definitions on input line 87.
+Package cleveref Info: loaded `ngerman' language definitions on input line 88.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 88.
+(Font)              <10.95> on input line 89.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 88.
+(Font)              <8> on input line 89.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 88.
+(Font)              <6> on input line 89.
 
 
 Package scrlayer-scrpage Warning: \headheight to low.
@@ -1767,7 +1742,7 @@ Package scrlayer-scrpage Warning: \headheight to low.
 (scrlayer-scrpage)                processing, but you should do this yourself,
 (scrlayer-scrpage)                e.g., setting geometry's option
 (scrlayer-scrpage)                `head=16.49675pt'.
-(scrlayer-scrpage)                I'll also decrease \topmargin on input line 88.
+(scrlayer-scrpage)                I'll also decrease \topmargin on input line 89.
 
 
 Overfull \vbox (2.49675pt too high) has occurred while \output is active []
@@ -1778,67 +1753,59 @@ Overfull \vbox (2.49675pt too high) has occurred while \output is active []
 Package cleveref Info: loaded `ngerman' language definitions on input line 171.
  [5
 
-] (./00_Abschlussarbeit.toc)
+] (./00_Abschlussarbeit.toc
+Package cleveref Info: loaded `ngerman' language definitions on input line 3.
+Package cleveref Info: loaded `ngerman' language definitions on input line 5.
+ [6
+
+])
 \tf@toc=\write10
 \openout10 = `00_Abschlussarbeit.toc'.
 
- [6
-
-] (./03_Abkuerzungen.tex
+ [7] (./03_Abkuerzungen.tex
 \@gls@deffile=\write11
 \openout11 = `00_Abschlussarbeit.glsdefs'.
 
-
-
-Package glossaries Warning: Entry `udp' has already been defined in the document environment (ignoring new definition) on input line 46.
-
 ) (./00_Abschlussarbeit.acr
-Overfull \hbox (12.0pt too wide) in alignment at lines 25--297
+Overfull \hbox (12.0pt too wide) in alignment at lines 25--298
  [] [] 
  []
 
-[7
+[8
 
 
 
-]) [8] (./04_Symbole.tex) (./00_Abschlussarbeit.syi
+]) [9] (./04_Symbole.tex) (./00_Abschlussarbeit.syi
 Overfull \hbox (3.46408pt too wide) in alignment at lines 25--123
  [] [] 
  []
 
-[9
+[10
 
 
 
-{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}]) [10] (./10_Einleitung.tex
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}]) [11] (./10_Einleitung.tex
 chapter 1.
+[1
 
-LaTeX Warning: Reference `cap:versuchsdurchfÃ¼hrung' on page 1 undefined on input line 43.
-
-) (./20_Hauptteil.tex (./22_Theoretische_Grundlagen.tex [1
-
-]
+]) (./20_Hauptteil.tex (./22_Theoretische_Grundlagen.tex [2]
 chapter 2.
-[2
+[3
 
 ]
-<Bilder/Basebord_und_cube.png, id=393, 560.64pt x 253.821pt>
+<Bilder/Basebord_und_cube.png, id=501, 560.64pt x 253.821pt>
 File: Bilder/Basebord_und_cube.png Graphic file (type png)
 <use Bilder/Basebord_und_cube.png>
 Package pdftex.def Info: Bilder/Basebord_und_cube.png  used on input line 72.
 (pdftex.def)             Requested size: 364.19667pt x 164.88486pt.
- [3 <./Bilder/Basebord_und_cube.png>]
-
-LaTeX Warning: Reference `sec:deatkvierte_sensoren' on page 4 undefined on input line 135.
-
-[4] [5]
-<Bilder/Koordinatensysteme.png, id=487, 733.212pt x 458.805pt>
+ [4 <./Bilder/Basebord_und_cube.png>] [5] [6]
+<Bilder/Koordinatensysteme.png, id=593, 733.212pt x 458.805pt>
 File: Bilder/Koordinatensysteme.png Graphic file (type png)
 <use Bilder/Koordinatensysteme.png>
 Package pdftex.def Info: Bilder/Koordinatensysteme.png  used on input line 201.
-(pdftex.def)             Requested size: 455.24411pt x 284.87619pt.
- [6 <./Bilder/Koordinatensysteme.png>] [7]
-<Bilder/Roll_Yaw_Pitch.png, id=526, 521.22pt x 456.177pt>
+(pdftex.def)             Requested size: 364.19667pt x 227.89676pt.
+ [7 <./Bilder/Koordinatensysteme.png>]
+<Bilder/Roll_Yaw_Pitch.png, id=628, 521.22pt x 456.177pt>
 File: Bilder/Roll_Yaw_Pitch.png Graphic file (type png)
 <use Bilder/Roll_Yaw_Pitch.png>
 Package pdftex.def Info: Bilder/Roll_Yaw_Pitch.png  used on input line 248.
@@ -1851,19 +1818,19 @@ chapter 3.
 [16
 
 ] [17]
-<Bilder/Loop_Closure.png, id=771, 727.518pt x 321.711pt>
+<Bilder/Loop_Closure.png, id=860, 727.518pt x 321.711pt>
 File: Bilder/Loop_Closure.png Graphic file (type png)
 <use Bilder/Loop_Closure.png>
 Package pdftex.def Info: Bilder/Loop_Closure.png  used on input line 124.
 (pdftex.def)             Requested size: 364.19667pt x 161.05145pt.
  [18]
-<Bilder/Faktorgraph_vereinfacht.png, id=793, 813.804pt x 348.648pt>
+<Bilder/Faktorgraph_vereinfacht.png, id=880, 813.804pt x 348.648pt>
 File: Bilder/Faktorgraph_vereinfacht.png Graphic file (type png)
 <use Bilder/Faktorgraph_vereinfacht.png>
 Package pdftex.def Info: Bilder/Faktorgraph_vereinfacht.png  used on input line 149.
 (pdftex.def)             Requested size: 455.24411pt x 195.03938pt.
  [19 <./Bilder/Loop_Closure.png> <./Bilder/Faktorgraph_vereinfacht.png>]
-<Bilder/Uebersicht_Marker.png, id=846, 848.187pt x 225.57pt>
+<Bilder/Uebersicht_Marker.png, id=936, 848.187pt x 225.57pt>
 File: Bilder/Uebersicht_Marker.png Graphic file (type png)
 <use Bilder/Uebersicht_Marker.png>
 Package pdftex.def Info: Bilder/Uebersicht_Marker.png  used on input line 219.
@@ -1874,7 +1841,7 @@ LaTeX Font Info:    Trying to load font information for TS1+lmss on input line 2
 (/usr/share/texmf/tex/latex/lm/ts1lmss.fd
 File: ts1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-<Bilder/Hardwareaufbau_drohne.png, id=915, 642.765pt x 328.5pt>
+<Bilder/Hardwareaufbau_drohne.png, id=1003, 642.765pt x 328.5pt>
 File: Bilder/Hardwareaufbau_drohne.png Graphic file (type png)
 <use Bilder/Hardwareaufbau_drohne.png>
 Package pdftex.def Info: Bilder/Hardwareaufbau_drohne.png  used on input line 48.
@@ -1886,35 +1853,32 @@ Overfull \hbox (2.27228pt too wide) in paragraph at lines 107--112
 []\T1/lmss/m/n/10.95 Die Kom-mu-ni-ka-ti-on zwi-schen dem Flug-con-trol-ler und der [][][]QGC[][] er-folgt über ein Ho-ly-bro Telemetrie-
  []
 
-<Bilder/Verkabelung.png, id=968, 766.938pt x 397.485pt>
+<Bilder/Verkabelung.png, id=1053, 766.938pt x 397.485pt>
 File: Bilder/Verkabelung.png Graphic file (type png)
 <use Bilder/Verkabelung.png>
 Package pdftex.def Info: Bilder/Verkabelung.png  used on input line 156.
 (pdftex.def)             Requested size: 409.71692pt x 212.35214pt.
 [25]
-<Bilder/Softwarearchitektur.png, id=986, 975.645pt x 317.331pt>
+<Bilder/Softwarearchitektur.png, id=1070, 975.645pt x 317.331pt>
 File: Bilder/Softwarearchitektur.png Graphic file (type png)
 <use Bilder/Softwarearchitektur.png>
 Package pdftex.def Info: Bilder/Softwarearchitektur.png  used on input line 174.
 (pdftex.def)             Requested size: 455.24411pt x 148.07063pt.
  [26 <./Bilder/Verkabelung.png> <./Bilder/Softwarearchitektur.png>]
-
-LaTeX Warning: Reference `sec:bedienkonsole' on page 27 undefined on input line 203.
-
-<Bilder/Informationsfluss_pos.png, id=1006, 415.662pt x 292.803pt>
+<Bilder/Informationsfluss_pos.png, id=1091, 415.662pt x 292.803pt>
 File: Bilder/Informationsfluss_pos.png Graphic file (type png)
 <use Bilder/Informationsfluss_pos.png>
 Package pdftex.def Info: Bilder/Informationsfluss_pos.png  used on input line 212.
 (pdftex.def)             Requested size: 273.14923pt x 192.41508pt.
-[27 <./Bilder/Informationsfluss_pos.png>]
-<Bilder/aerodrohm.png, id=1016, 1144.275pt x 572.1375pt>
+ [27 <./Bilder/Informationsfluss_pos.png>]
+<Bilder/aerodrohm.png, id=1100, 1144.275pt x 572.1375pt>
 File: Bilder/aerodrohm.png Graphic file (type png)
 <use Bilder/aerodrohm.png>
 Package pdftex.def Info: Bilder/aerodrohm.png  used on input line 226.
 (pdftex.def)             Requested size: 409.71692pt x 204.86061pt.
 ) (./25_Implementierung_Kartierung.tex [28 <./Bilder/aerodrohm.png>]
 chapter 5.
-<Bilder/Paarweiser_Vergleich_SLAM.png, id=1036, 1139.75812pt x 586.44093pt>
+<Bilder/Paarweiser_Vergleich_SLAM.png, id=1120, 1139.75812pt x 586.44093pt>
 File: Bilder/Paarweiser_Vergleich_SLAM.png Graphic file (type png)
 <use Bilder/Paarweiser_Vergleich_SLAM.png>
 Package pdftex.def Info: Bilder/Paarweiser_Vergleich_SLAM.png  used on input line 68.
@@ -1922,13 +1886,13 @@ Package pdftex.def Info: Bilder/Paarweiser_Vergleich_SLAM.png  used on input lin
 [29
 
 ] [30 <./Bilder/Paarweiser_Vergleich_SLAM.png>]
-<Bilder/Nutzwertanalyse_slam.png, id=1107, 1421.31pt x 913.4125pt>
+<Bilder/Nutzwertanalyse_slam.png, id=1187, 1421.31pt x 913.4125pt>
 File: Bilder/Nutzwertanalyse_slam.png Graphic file (type png)
 <use Bilder/Nutzwertanalyse_slam.png>
 Package pdftex.def Info: Bilder/Nutzwertanalyse_slam.png  used on input line 131.
 (pdftex.def)             Requested size: 455.24411pt x 292.56279pt.
  [31] [32 <./Bilder/Nutzwertanalyse_slam.png>]
-<Bilder/Ablaufdiagramm_Kartierung.png, id=1141, 393.981pt x 453.111pt>
+<Bilder/Ablaufdiagramm_Kartierung.png, id=1223, 393.981pt x 453.111pt>
 File: Bilder/Ablaufdiagramm_Kartierung.png Graphic file (type png)
 <use Bilder/Ablaufdiagramm_Kartierung.png>
 Package pdftex.def Info: Bilder/Ablaufdiagramm_Kartierung.png  used on input line 190.
@@ -1953,9 +1917,6 @@ Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on in
 ) (./26_Implementierung_Positionierung.tex [39]
 chapter 6.
 
-LaTeX Warning: Reference `subsec:pos_frame_ausgabe' on page 40 undefined on input line 15.
-
-
 Underfull \hbox (badness 6944) in paragraph at lines 31--32
 []|\T1/lmss/m/n/10.95 Standardabweichung der Ori-en-tie-rungs-schät-zung
  []
@@ -1963,7 +1924,7 @@ Underfull \hbox (badness 6944) in paragraph at lines 31--32
 [40
 
 ] [41]
-<Bilder/Architektur_Positionierung.png, id=1288, 529.104pt x 910.164pt>
+<Bilder/Architektur_Positionierung.png, id=1362, 529.104pt x 910.164pt>
 File: Bilder/Architektur_Positionierung.png Graphic file (type png)
 <use Bilder/Architektur_Positionierung.png>
 Package pdftex.def Info: Bilder/Architektur_Positionierung.png  used on input line 116.
@@ -1978,117 +1939,193 @@ Overfull \hbox (8.43483pt too wide) in paragraph at lines 152--156
  []
 
 [44]
-<Bilder/Kalibrierbox.png, id=1336, 788.619pt x 427.269pt>
+<Bilder/Kalibrierbox.png, id=1409, 788.619pt x 427.269pt>
 File: Bilder/Kalibrierbox.png Graphic file (type png)
 <use Bilder/Kalibrierbox.png>
 Package pdftex.def Info: Bilder/Kalibrierbox.png  used on input line 210.
 (pdftex.def)             Requested size: 409.71692pt x 221.98557pt.
  [45] [46 <./Bilder/Kalibrierbox.png>]
-
-LaTeX Warning: Reference `tab:vision_pose_params' on page 47 undefined on input line 250.
-
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <9> not available
 (Font)              Font shape `T1/lmss/m/sl' tried instead on input line 259.
-
-LaTeX Warning: Reference `tab:vision_pose_params' on page 47 undefined on input line 259.
-
 
 Underfull \hbox (badness 1558) in paragraph at lines 275--276
 []|\T1/lmss/m/n/9 Referenzgröÿe zur Trans-la-ti-ons-kor-rek-tur bei ab-wei-chen-den Tag-
  []
 
 [47] [48]
-
-LaTeX Warning: Reference `eq:pos_kompose_t' on page 49 undefined on input line 393.
-
-[49] [50]
-
-LaTeX Warning: Reference `eq:pos_fusion_t' on page 51 undefined on input line 492.
-
-
-LaTeX Warning: Reference `eq:pos_fusion_q' on page 51 undefined on input line 492.
-
-[51]
-./26_Implementierung_Positionierung.tex:516: Missing \endcsname inserted.
-<to be read again> 
-                   \let 
-l.516 nach Gleichung~\ref{eq:pos_\gls{uav}}
-                                            im Kartenkoordinatensystem.
-The control sequence marked <to be read again> should
-not appear between \csname and \endcsname.
-
-
-LaTeX Warning: Reference `' page 52 undefined on input line 516.
-
-./26_Implementierung_Positionierung.tex:516: Argument of \\@gls has an extra }.
-<inserted text> 
-                \par 
-l.516 nach Gleichung~\ref{eq:pos_\gls{uav}}
-                                            im Kartenkoordinatensystem.
-I've run across a `}' that doesn't seem to match anything.
-For example, `\def\a#1{...}' and `\a}' would produce
-this error. If you simply proceed now, the `\par' that
-I've just inserted will cause me to report a runaway
-argument that might be the root of the problem. But if
-your `}' was spurious, just type `2' and it will go away.
-
-Runaway argument?
-./26_Implementierung_Positionierung.tex:516: Paragraph ended before \\@gls was complete.
-<to be read again> 
-                   \par 
-l.516 nach Gleichung~\ref{eq:pos_\gls{uav}}
-                                            im Kartenkoordinatensystem.
-I suspect you've forgotten a `}', causing me to apply this
-control sequence to too much text. How can we recover?
-My plan is to forget the whole thing and hope for the best.
-
-
-Overfull \hbox (35.25899pt too wide) in paragraph at lines 513--516
-\T1/lmss/m/n/10.95 Mar-ker, Aus-rei-ÿer-fil-te-rung, ge-wich-te-te Fu-si-on der Kon-sens-men-ge und Um-rech-nung auf den [][][]UAV[][]nmittelpunkt)
+Overfull \hbox (5.58546pt too wide) in paragraph at lines 397--402
+\T1/lmss/m/n/10.95 (\T1/pcr/m/n/10.95 ransac_reference_-distance_m\T1/lmss/m/n/10.95 ) und []$\OML/lmm/m/it/10.95 ^^\[]$ \T1/lmss/m/n/10.95 die Ba-sis-schwel-le (\T1/pcr/m/n/10.95 ransac_base_-threshold_m\T1/lmss/m/n/10.95 ),
  []
 
-./26_Implementierung_Positionierung.tex:516: Argument of \\@gls has an extra }.
-<inserted text> 
-                \par 
-l.516 nach Gleichung~\ref{eq:pos_\gls{uav}}
-                                            im Kartenkoordinatensystem.
-I've run across a `}' that doesn't seem to match anything.
-For example, `\def\a#1{...}' and `\a}' would produce
-this error. If you simply proceed now, the `\par' that
-I've just inserted will cause me to report a runaway
-argument that might be the root of the problem. But if
-your `}' was spurious, just type `2' and it will go away.
+[49] [50] [51] [52]) (./27_Evaluation_des_Gesamtsystems.tex [53]
+chapter 7.
+<Bilder/Karte_mit_Pfeilen.png, id=1577, 607.506pt x 518.154pt>
+File: Bilder/Karte_mit_Pfeilen.png Graphic file (type png)
+<use Bilder/Karte_mit_Pfeilen.png>
+Package pdftex.def Info: Bilder/Karte_mit_Pfeilen.png  used on input line 45.
+(pdftex.def)             Requested size: 345.98302pt x 295.09784pt.
+[54
 
-Runaway argument?
-./26_Implementierung_Positionierung.tex:516: Paragraph ended before \\@gls was complete.
-<to be read again> 
-                   \par 
-l.516 nach Gleichung~\ref{eq:pos_\gls{uav}}
-                                            im Kartenkoordinatensystem.
-I suspect you've forgotten a `}', causing me to apply this
-control sequence to too much text. How can we recover?
-My plan is to forget the whole thing and hope for the best.
+] [55 <./Bilder/Karte_mit_Pfeilen.png>] [56] [57]
+<Bilder/karten_vergleich_ueberlagert_versuch_1.png, id=1631, 570.6921pt x 451.6875pt>
+File: Bilder/karten_vergleich_ueberlagert_versuch_1.png Graphic file (type png)
+<use Bilder/karten_vergleich_ueberlagert_versuch_1.png>
+Package pdftex.def Info: Bilder/karten_vergleich_ueberlagert_versuch_1.png  used on input line 197.
+(pdftex.def)             Requested size: 318.66948pt x 252.21959pt.
+ [58]
+<Bilder/karten_vergleich_ueberlagert_Versuch_2.png, id=1642, 570.6921pt x 451.9284pt>
+File: Bilder/karten_vergleich_ueberlagert_Versuch_2.png Graphic file (type png)
+<use Bilder/karten_vergleich_ueberlagert_Versuch_2.png>
+Package pdftex.def Info: Bilder/karten_vergleich_ueberlagert_Versuch_2.png  used on input line 205.
+(pdftex.def)             Requested size: 318.66948pt x 252.35411pt.
+ [59 <./Bilder/karten_vergleich_ueberlagert_versuch_1.png> <./Bilder/karten_vergleich_ueberlagert_Versuch_2.png>]
+<Bilder/karten_vergleich_ueberlagert_versuch_3.png, id=1651, 570.6921pt x 451.6875pt>
+File: Bilder/karten_vergleich_ueberlagert_versuch_3.png Graphic file (type png)
+<use Bilder/karten_vergleich_ueberlagert_versuch_3.png>
+Package pdftex.def Info: Bilder/karten_vergleich_ueberlagert_versuch_3.png  used on input line 213.
+(pdftex.def)             Requested size: 318.66948pt x 252.21959pt.
+ [60
 
-./26_Implementierung_Positionierung.tex:516: Extra \endcsname.
-\NR@setref ... \NR@@setref \csname r@#1\endcsname 
-                                                  
-l.516 nach Gleichung~\ref{eq:pos_\gls{uav}}
-                                            im Kartenkoordinatensystem.
-I'm ignoring this, since I wasn't doing a \csname.
+ <./Bilder/karten_vergleich_ueberlagert_versuch_3.png>] [61]
+<Bilder/karten_vergleich_dxyz_ueber_tag0_punkte.png, id=1667, 642.9621pt x 389.5353pt>
+File: Bilder/karten_vergleich_dxyz_ueber_tag0_punkte.png Graphic file (type png)
+<use Bilder/karten_vergleich_dxyz_ueber_tag0_punkte.png>
+Package pdftex.def Info: Bilder/karten_vergleich_dxyz_ueber_tag0_punkte.png  used on input line 286.
+(pdftex.def)             Requested size: 455.24411pt x 275.81712pt.
+ [62 <./Bilder/karten_vergleich_dxyz_ueber_tag0_punkte.png>] [63] [64]
+Overfull \hbox (2.27003pt too wide) in paragraph at lines 482--484
+[]\T1/lmss/m/n/10.95 Die obe-re Schran-ke $\OML/lmm/m/it/10.95 f[]$ \T1/lmss/m/n/10.95 aus Glei-chung [][]6.11[][] wird über \T1/pcr/m/n/10.95 ransac_max_distance_factor \T1/lmss/m/n/10.95 = 4,0
+ []
 
-./26_Implementierung_Positionierung.tex:516: Missing $ inserted.
-<inserted text> 
-                $
-l.516 nach Gleichung~\ref{eq:pos_\gls{uav}} im Ka
-                                                 rtenkoordinatensystem.
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
 
-./26_Implementierung_Positionierung.tex:516: Missing { inserted.
-<to be read again> 
-                   \let 
-l.516 nach Gleichung~\ref{eq:pos_\gls{uav}} im Ka
-                                                 rtenkoordinatensystem.
-A left brace was mandatory here, so I've put one in.
-You might want to delete and/or insert some corrections
-so that 
+Overfull \hbox (14.85507pt too wide) in paragraph at lines 488--491
+[]\T1/lmss/m/n/10.95 Der Pa-ra-me-ter \T1/pcr/m/n/10.95 map_cov_reference_sigma_m \T1/lmss/m/n/10.95 = 0,02 m setzt die Referenz-Standardabweichung
+ []
+
+[65]
+<Bilder/Drohne_schwebeflug.jpeg, id=1725, 661.47125pt x 838.13126pt>
+File: Bilder/Drohne_schwebeflug.jpeg Graphic file (type jpg)
+<use Bilder/Drohne_schwebeflug.jpeg>
+Package pdftex.def Info: Bilder/Drohne_schwebeflug.jpeg  used on input line 522.
+(pdftex.def)             Requested size: 227.62206pt x 288.40105pt.
+ [66 <./Bilder/Drohne_schwebeflug.jpeg>]
+<Bilder/Flugbahn_testversuch.png, id=1740, 343.00453pt x 330.77423pt>
+File: Bilder/Flugbahn_testversuch.png Graphic file (type png)
+<use Bilder/Flugbahn_testversuch.png>
+Package pdftex.def Info: Bilder/Flugbahn_testversuch.png  used on input line 552.
+(pdftex.def)             Requested size: 273.14923pt x 263.40842pt.
+<Bilder/16_stuetzquellen.png, id=1744, 939.51pt x 429.72853pt>
+File: Bilder/16_stuetzquellen.png Graphic file (type png)
+<use Bilder/16_stuetzquellen.png>
+Package pdftex.def Info: Bilder/16_stuetzquellen.png  used on input line 568.
+(pdftex.def)             Requested size: 455.24411pt x 208.22792pt.
+ [67 <./Bilder/Flugbahn_testversuch.png>] [68 <./Bilder/16_stuetzquellen.png>]
+<Bilder/Kalman_Gain.png, id=1764, 939.51pt x 327.43869pt>
+File: Bilder/Kalman_Gain.png Graphic file (type png)
+<use Bilder/Kalman_Gain.png>
+Package pdftex.def Info: Bilder/Kalman_Gain.png  used on input line 597.
+(pdftex.def)             Requested size: 455.24411pt x 158.66267pt.
+
+Overfull \hbox (12.4264pt too wide) in paragraph at lines 618--621
+\T1/lmss/m/n/10.95 als die an-ge-nom-me-nen $\OT1/lmr/m/n/10.95 0[]1$$m$\T1/lmss/m/n/10.95 , kann der Pa-ra-me-ter ab-ge-senkt oder über \T1/pcr/m/n/10.95 EKF2_EV_NOISE_MD=0  \T1/lmss/m/n/10.95 durch
+ []
+
+[69 <./Bilder/Kalman_Gain.png>]
+<Bilder/01_position_vision_ekf_sollwert.png, id=1773, 939.51pt x 794.97pt>
+File: Bilder/01_position_vision_ekf_sollwert.png Graphic file (type png)
+<use Bilder/01_position_vision_ekf_sollwert.png>
+Package pdftex.def Info: Bilder/01_position_vision_ekf_sollwert.png  used on input line 632.
+(pdftex.def)             Requested size: 455.24411pt x 385.2082pt.
+ [70 <./Bilder/01_position_vision_ekf_sollwert.png>] [71]
+Overfull \hbox (3.49693pt too wide) in paragraph at lines 724--733
+\T1/lmss/m/n/10.95 tiv an-ge-setz-te Stan-dard-ab-wei-chung der Vision-Stützung ver-mu-tet. Der Pa-ra-me-ter \T1/pcr/m/n/10.95 EKF2_EVP_NOISE
+ []
+
+[72])) (./30_Schluss.tex [73]
+chapter 8.
+[74
+
+]) [75]
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 245.
+ (/usr/share/texmf/tex/latex/lm/t1lmr.fd
+File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+
+LaTeX Font Warning: Font shape `T1/lmss/m/sc' in size <10.95> not available
+(Font)              Font shape `T1/lmr/m/sc' tried instead on input line 245.
+
+[76
+
+] [77] [78] [79]
+LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <8> not available
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 245.
+LaTeX Font Info:    Font shape `TS1/lmss/m/it' in size <8> not available
+(Font)              Font shape `TS1/lmss/m/sl' tried instead on input line 245.
+LaTeX Font Info:    Font shape `TS1/lmss/m/it' in size <10.95> not available
+(Font)              Font shape `TS1/lmss/m/sl' tried instead on input line 245.
+
+Overfull \hbox (14.67226pt too wide) in paragraph at lines 246--246
+\T1/pcr/m/n/10.95 forschung -[] innovation / forschungseinrichtungen / ohm -[] innovation -[] center /
+ []
+
+[80] (./00_Abschlussarbeit.lof
+Package cleveref Info: loaded `ngerman' language definitions on input line 3.
+Package cleveref Info: loaded `ngerman' language definitions on input line 4.
+)
+\tf@lof=\write12
+\openout12 = `00_Abschlussarbeit.lof'.
+
+ [81
+
+] (./00_Abschlussarbeit.lot
+Package cleveref Info: loaded `ngerman' language definitions on input line 3.
+Package cleveref Info: loaded `ngerman' language definitions on input line 4.
+)
+\tf@lot=\write13
+\openout13 = `00_Abschlussarbeit.lot'.
+
+ [82
+
+] (./00_Abschlussarbeit.lol
+Package cleveref Info: loaded `ngerman' language definitions on input line 3.
+Package cleveref Info: loaded `ngerman' language definitions on input line 4.
+)
+\tf@lol=\write14
+\openout14 = `00_Abschlussarbeit.lol'.
+
+ (./40_Anhang.tex [83
+
+]
+chapter 9.
+) [84
+
+] (./00_Abschlussarbeit.aux
+Package cleveref Info: loaded `ngerman' language definitions on input line 22.
+Package cleveref Info: loaded `ngerman' language definitions on input line 25.
+)
+ ***********
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2020/03/25>
+ ***********
+Package rerunfilecheck Info: File `00_Abschlussarbeit.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+Package logreq Info: Writing requests to '00_Abschlussarbeit.run.xml'.
+\openout1 = `00_Abschlussarbeit.run.xml'.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 58762 strings out of 474222
+ 1209006 string characters out of 5748733
+ 2233030 words of memory out of 5000000
+ 79603 multiletter control sequences out of 15000+600000
+ 660008 words of font info for 113 fonts, out of 8000000 for 9000
+ 1143 hyphenation exceptions out of 8191
+ 108i,20n,107p,10958b,4154s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx9.pfb></usr/share/texmf/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi9.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr9.pfb></usr/share/texmf/fonts/type1/public/lm/lmss10.pfb></usr/share/texmf/fonts/type1/public/lm/lmss12.pfb></usr/share/texmf/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf/fonts/type1/public/lm/lmss8.pfb></usr/share/texmf/fonts/type1/public/lm/lmss9.pfb></usr/share/texmf/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsso10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsso8.pfb></usr/share/texmf/fonts/type1/public/lm/lmsso9.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb>
+Output written on 00_Abschlussarbeit.pdf (95 pages, 17396394 bytes).
+PDF statistics:
+ 2452 PDF objects out of 2487 (max. 8388607)
+ 2145 compressed objects within 22 object streams
+ 499 named destinations out of 1000 (max. 500000)
+ 632 words of extra memory for PDF output out of 10000 (max. 10000000)
+

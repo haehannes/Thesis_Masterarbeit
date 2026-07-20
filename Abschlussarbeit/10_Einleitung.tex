@@ -12,7 +12,6 @@ um Kollisionen mit Hindernissen zu vermeiden und einen sicheren Flug zu gewährl
 
 Im Außenbereich wird die dafür benötigte Positionsreferenz in der Regel durch Satellitennavigation bereitgestellt.
 In Innenräumen steht diese jedoch meist nicht zur Verfügung, da der Satellitenempfang durch die Gebäudestruktur eingeschränkt ist.
-Auch in der Einsatzumgebung des Flugroboters herrscht keine ausreichende Signalabdeckung.
 
 Ohne eine externe Positionsreferenz kann die Position nur kurzfristig aus den im Fluggerät verbauten Sensoren geschätzt werden.
 Dabei summieren sich Fehler mit der Zeit auf und führen im Innenraum zwangsläufig zu einer Kollision mit einem Hindernis. 
@@ -20,24 +19,31 @@ Für einen zuverlässigen Flug im Innenraum ist daher eine alternative Positions
 
 Ziel dieser Arbeit ist es, ein unbemanntes Fluggerät zu entwickeln, welches sich ohne Satellitennavigation selbst im Raum lokalisiert und positioniert.
 Das zentrale Element der Umsetzung ist der Flugsteuerungsrechner, dem die externen Positionsdaten für die Flugsteuerung bereitzustellen sind.
-Darüber hinaus ist ein Verfahren zu bestimmen, das eine bestehende Karte um ergänzt oder eine bislang unbekannte Umgebung vollständig erfasst und das Ergebnis der Positionsbestimmung zuführt.
+Darüber hinaus ist ein Verfahren zu bestimmen, das eine bestehende Karte ergänzt oder eine bislang unbekannte Umgebung vollständig erfasst und das Ergebnis der Positionsbestimmung zuführt.
 
 
 Die Grundlage der Positionsreferenz bilden Passmarken, die in der Flugumgebung angebracht sind.
 Die relative Position der Passmarken zueinander ist durch das Kartieren der Marken bekannt. 
-Zur Kartierung wird eine Algorithmus entwickelt, der es ermöglicht diese Karte durch das Abfilmen der Markierungen zu erstellen.
+Zur Kartierung wird ein Algorithmus entwickelt, der es ermöglicht, diese Karte durch das Abfilmen der Markierungen zu erstellen.
 
 Durch die Detektion der Passmarken mit einer am Fluggerät angebrachten Kamera wird während des 
 Flugs die Position des Fluggeräts relativ zu den Markierungen bestimmt.
-Die Berechnungen der Positionsbestimmung wird auf einem auf dem Fluggerät befestigten Computer durchgeführt und anschließend an den Flugcontroller weitergegeben.
+Die Berechnungen der Positionsbestimmung werden auf einem auf dem Fluggerät befestigten Begleitrechner durchgeführt und anschließend an den Flugcontroller weitergegeben.
 Durch das implementierte System aus Kartierung und Positionierung ist es möglich, fortlaufend die Position und Orientierung des Fluggeräts während 
 des Flugs innerhalb eines festgelegten Bereichs zu bestimmen.  
 Die entwickelte Lösung ist vollständig aus quelloffener Software und gängigen Komponenten aufgebaut.
 
-Die Arbeit gliedert sich in mehrere Teile.
-Zunächst werden in Kapitel~\ref{cap:theoretische_grundlagen} die theoretischen Grundlagen zur Flugrobotik, zur verwendeten Sensorik, 
-zu den Koordinatensystemen sowie zu den benötigten mathematischen Verfahren erläutert.
-Anschließend gibt Kapitel~\ref{cap:stand_der_technik} einen Überblick über bestehende Ansätze zur Lokalisierung ohne Satellitennavigation sowie über verschiedene Passmarkensysteme.
-In Kapitel~\ref{cap:systembeschreibung} werden die Anforderungen an das Gesamtsystem, der Hardwareaufbau, die Softwarearchitektur und die Versuchsumgebung beschrieben.
-Kapitel~\ref{cap:implementierung_kartierung} behandelt die Umsetzung der Kartenerstellung, während in Kapitel~\ref{cap:implementierung_positionsbestimmung} die während des Fluges ablaufende Positionsbestimmung beschrieben wird.
-Abschließend werden in Kapitel~\ref{cap:versuchsdurchführung} die Versuchsdurchführung und die Evaluierung dargestellt sowie die Ergebnisse zusammengefasst.
+Darauf folgt eine Einordnung in den Stand der Technik, die bestehende Verfahren zur Lokalisierung ohne Satellitennavigation vorstellt und hinsichtlich ihrer Eignung für den Innenraum bewertet.
+Ergänzend werden gängige Passmarkensysteme gegenübergestellt und daraus die für diese Arbeit gewählte Marker- und Kartierungsmethodik abgeleitet.
+
+Die anschließende Systembeschreibung führt die Anforderungen an das Gesamtsystem ein und beschreibt darauf aufbauend den Hardwareaufbau des Fluggeräts mit seinen Komponenten.
+Ebenso werden die Softwarearchitektur aus Kartierung und Positionierung sowie die Versuchsumgebung dargestellt, in der die späteren Flugversuche stattfinden.
+
+Die Umsetzung der Kartierung zeigt, wie aus einer handgeführten Kameraaufnahme über die Detektion der Passmarken und eine anschließende Optimierung eine konsistente Karte aller Passmarken entsteht.
+Diese Karte bildet die räumliche Referenz, auf die sich die spätere Positionsbestimmung im Flug stützt.
+
+Die Umsetzung der Positionierung beschreibt die während des Fluges ablaufende Bestimmung von Position und Orientierung des Fluggeräts aus den Markerdetektionen.
+Dabei wird erläutert, wie die einzelnen Schätzungen gefiltert, gewichtet fusioniert und als externe Referenz an den Flugcontroller übergeben werden.
+
+Den Abschluss bilden die Versuchsdurchführung und die Evaluation, die das Gesamtsystem in praktischen Flugversuchen erproben.
+Die erzeugten Karten werden gegen eine bekannte Referenz verglichen und das Verhalten der Positionsbestimmung im Flug anhand der aufgezeichneten Daten bewertet, bevor die Ergebnisse zusammengefasst werden.

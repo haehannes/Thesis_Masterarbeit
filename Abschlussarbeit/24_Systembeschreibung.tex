@@ -7,10 +7,10 @@ Anschließend wird der Hardwareaufbau mit seinen Komponenten beschrieben und auf
 Abschließend wird die Versuchsumgebung vorgestellt.
 
 
+
 \section{Anforderungen an das Gesamtsystem}
 \label{sec:anforderungen}
-In diesem Teilkapitel werden die Anforderungen an das Gesamtsystem erläutert.
-Das Ziel der Arbeit ist es, ein \gls{uav} in einer \gls{gps}-freien 
+Das Ziel der Arbeit ist es, ein \gls{uav} in einer \gls{gnss}-freien 
 Innenraumumgebung zu lokalisieren und diese Positionsschätzung als 
 externe Referenz in die Flugsteuerung einzuspeisen.
 Das System soll dabei so ausgelegt sein, dass das \gls{uav} ohne 
@@ -18,7 +18,7 @@ Rückgriff auf ein \gls{gnss} eine stabile Pose im Raum bestimmen kann.
 
 Daraus ergeben sich die folgenden Anforderungen an das Gesamtsystem:
 \begin{itemize}
-    \item Zur Lokalisierung soll eine Karte der Versuchsumgebung genutzt werden, anhand derer die Position des \gls{uav} im Weltkoordinatensystem bestimmt werden kann.
+    \item Zur Lokalisierung soll eine Karte der Versuchsumgebung genutzt werden, anhand derer die Position des \gls{uav}s im Weltkoordinatensystem bestimmt werden kann.
     \item Die Karte soll erweiterbar sein, sodass der nutzbare Flugbereich bei Bedarf räumlich vergrößert werden kann.
     \item Das System soll kostengünstig aufgebaut sein.
     \item Die verwendete Software soll quelloffen und frei verfügbar sein.
@@ -29,11 +29,11 @@ Daraus ergeben sich die folgenden Anforderungen an das Gesamtsystem:
 
 Die Hardwarekomponenten, wie das \gls{uav} Holybro X650, der 
 Flugcontroller Pixhawk 6X und der Begleitrechner reComputer Mini J3011, 
-sind zur Verfügung gestellt und werden nicht im Rahmen dieser Arbeit 
+wurden zur Verfügung gestellt und werden nicht im Rahmen dieser Arbeit 
 entwickelt.
 
 Die Ansteuerung der Sensorik, 
-die Kartierung der Versuchsumgebung, die Lokalisierung des \gls{uav} sowie die Anbindung der Positionsschätzung an die Flugsteuerung 
+die Kartierung der Versuchsumgebung, die Lokalisierung des \gls{uav}s sowie die Anbindung der Positionsschätzung an die Flugsteuerung 
 sind jedoch Teil der Arbeit und werden in dieser entwickelt.
 
 
@@ -53,22 +53,22 @@ Abbildung~\ref{fig:drohnenaufbau} zeigt den physischen Aufbau des \gls{uav}s mit
 
 \subsection*{Flugplattform}
 Die bereits in den Grundlagen in Abschnitt~\ref{sec:grundlagen_uav} vorgestellte Flugplattform Holybro X650 dient als Basis des verwendeten \gls{uav}s.
-Die Plattform wird in der \gls{arf}-Variante (Almost Ready to Fly) verwendet, die bereits mit vier Motoren und Reglern ausgestattet ist.
-Der Rahmen weist eine Diagonale von 650\,mm auf.
-Das Gesamtgewicht des Kits beträgt ohne Akku rund 2000\,g, die maximale Nutzlast ohne Akku liegt bei etwa 4,3\,kg~\cite{holybro_x650}.
+Die Plattform wird in der \gls{arf}-Variante verwendet, die bereits mit vier Motoren und Reglern ausgestattet ist.
+Der Rahmen weist eine Diagonale von 650~mm auf.
+Das Gesamtgewicht des Kits beträgt ohne Akku rund 2000~g, die maximale Nutzlast ohne Akku liegt bei etwa 4,3~kg~\cite{holybro_x650}.
 
 
 \subsection*{Begleitrechner}
 Als Begleitrechner wird ein reComputer Mini J3011 von Seeed Studio eingesetzt.
-Dieser ist mit einem NVIDIA Jetson Orin Nano 8\,\gls{gb} Modul ausgestattet 
-und erreicht eine Rechenleistung von bis zu 40\,\gls{tops}~\cite{reComputerMiniJ3011}.
+Dieser ist mit einem NVIDIA Jetson Orin Nano 8~\gls{gb} Modul ausgestattet 
+und erreicht eine Rechenleistung von bis zu 40~\gls{tops}~\cite{reComputerMiniJ3011}.
 Der Begleitrechner übernimmt die Ansteuerung der Kameras, die 
 Bildverarbeitung sowie die Berechnung der Positionsschätzung.
-Der Begleitrechner unterstützt eine direkte Eingangsspannung von \SI{12}{\volt} bis \SI{54}{\volt} DC~\cite{reComputerMiniJ3011}.
+Der Begleitrechner unterstützt eine direkte Eingangsspannung von 12~Volt bis 54~Volt~DC~\cite{reComputerMiniJ3011}.
 Für die drahtlose Anbindung des Begleitrechners ist dieser mit einer 
 M.2-WLAN-Karte (Wi-Fi~6) nachgerüstet.
 
-Der NVIDIA Jetson Orin Nano 8\,\gls{gb} wird ab Werk mit NVIDIA JetPack ausgeliefert, das auf einer 
+Der NVIDIA Jetson Orin Nano 8~\gls{gb} wird ab Werk mit NVIDIA JetPack ausgeliefert, das auf einer 
 Ubuntu-Distribution basiert.
 Für den Einsatz in dieser Arbeit wurde das System mit JetPack~6.2.1 
 neu geflasht, das auf Ubuntu~22.04.5 LTS und L4T~R36.4.3 basiert, um die 
@@ -88,7 +88,7 @@ Sie unterscheiden sich in der erreichbaren Bildrate, da die C920 maximal 30~\gls
 
 
 \subsection*{Fernsteuerung}
-Zur manuellen Steuerung des \gls{uav} dient 
+Zur manuellen Steuerung des \gls{uav}s dient 
 eine Radiolink AT9S~Pro Fernsteuerung mit zugehörigem 
 R9DS-Empfänger.
 Der \gls{rc}-Empfänger ist mit dem Flugcontroller verbunden und ermöglicht es, 
@@ -96,17 +96,17 @@ jederzeit manuell in den Flug einzugreifen.
 
 \subsection*{Elektrischer Anschluss der Hardware}
 Die Energieversorgung des Systems erfolgt über einen \gls{lipo}-Akku 
-mit einer Kapazität von 5400\,mAh und einer 
-Nennspannung von 14,8\,V ~\cite{pichler_redpower_xt5400}.
-Der Akku ist über ein Holybro PM02 V3 Powermodul angebunden~\cite{holybro_pm02}.
+mit einer Kapazität von 5400~mAh und einer 
+Nennspannung von 14,8~V.
+Der Akku ist über ein Holybro PM02 V3 Powermodul angebunden.
 Das Powermodul unterstützt Akkus mit verschiedenen Ausgangsspannungen und stellt dem Flugcontroller 
-eine geregelte Spannung von 5,2\,V bereit.
-Zusätzlich liefert es Messwerte zu Batteriespannung und Stromaufnahme~\cite{holybro_pm02}.
-Die Verteilung der Motorströme erfolgt über ein Holybro Mini-Power-Distribution-Board (PDB) mit XT30- und XT60-Stecker.
+eine geregelte Spannung von 5,2~V bereit.
+Zusätzlich liefert es Messwerte zu Batteriespannung und Stromaufnahme.
+Die Verteilung der Motorströme erfolgt über ein Holybro Mini-Power-Distribution-Board (PDB) mit XT30- und XT60-Stecker.~\cite{holybro_pm02,pichler_redpower_xt5400}
 
 Die Kommunikation zwischen dem Flugcontroller und der \gls{qgc} erfolgt über ein Holybro Telemetrie-Set.
 Als Bodenstation dient ein Laptop mit Ubuntu~24.04.4 LTS, auf dem die \gls{qgc} betrieben wird.
-Zur satellitengestützten Positionsbestimmung ist ein Holybro M9N GPS-Modul verbaut.
+Zur satellitengestützten Positionsbestimmung ist ein Holybro M9N \gls{gps}-Modul verbaut.
 Die Verbindung zwischen dem Flugcontroller und dem Begleitrechner 
 wird über eine Ethernet-Schnittstelle hergestellt, über die mittels \gls{uxrce} die extern berechnete Positionsschätzung an den \gls{px4} übermittelt wird.
 
@@ -121,22 +121,22 @@ Komponenten mit Bezeichnung, Gewicht und Betriebssystem.
 \toprule
 \textbf{Komponente} & \textbf{Bezeichnung} & \textbf{Gewicht} & \textbf{Betriebssystem} \\
 \midrule
-Flugplattform        & Holybro X650                    & $2076$\,g   & -- \\
-Begleitrechner       & reComputer Mini J3011           & $380$\,g    & JetPack~6.2.1 (Ubuntu~22.04.5 LTS) \\
+Flugplattform        & Holybro X650                    & 2076~g   & -- \\
+Begleitrechner       & reComputer Mini J3011           & 380~g    & JetPack~6.2.1 (Ubuntu~22.04.5 LTS) \\
 Flugsteuerungsrechner & Pixhawk 6X                     & \tnote{*}   & PX4~v1.16.1 (NuttX) \\
-Kamera 1             & Logitech C920                   & $149$\,g    & -- \\
-Kamera 2             & Logitech C922                   & $162$\,g    & -- \\
+Kamera 1             & Logitech C920                   & 149~g    & -- \\
+Kamera 2             & Logitech C922                   & 162~g    & -- \\
 Fernsteuerung        & Radiolink AT9S Pro / R9DS       & \tnote{*}   & -- \\
-Akku                 & Pichler RED POWER XT 5400 (4S)  & $480$\,g    & -- \\
+Akku                 & Pichler RED POWER XT 5400 (4S)  & 480~g    & -- \\
 Powermodul           & Holybro PM02 V3                 & \tnote{*}   & -- \\
 Stromverteilung      & Holybro Mini-PDB                & \tnote{*}   & -- \\
-Telemetrie           & Holybro Telemetrie-Set 433\,MHz & \tnote{*}   & -- \\
+Telemetrie           & Holybro Telemetrie-Set 433~MHz & \tnote{*}   & -- \\
 Satellitennavigation & Holybro M9N GPS                 & \tnote{*}   & -- \\
 Funknetzwerkkarte    & M.2 Wi-Fi~6 Adapter             & \tnote{**}  & -- \\
-Ethernet-Adapter     & renkforce                       & $32$\,g     & -- \\
+Ethernet-Adapter     & renkforce                       & 32~g     & -- \\
 Bodenstation         & Laptop mit \gls{qgc}       & --          & Ubuntu~24.04.4 LTS \\
 \midrule
-\textbf{Gesamtgewicht} &                               & $\mathbf{3279}$\,\textbf{g} & -- \\
+\textbf{Gesamtgewicht} &                               & $\textbf{3279}$~\textbf{g} & -- \\
 \bottomrule
 \end{tabularx}
 \begin{tablenotes}[flushleft]
@@ -182,7 +182,7 @@ Die Bildaufnahme bildet die Schnittstelle zu den am \gls{uav} montierten Kameras
 Die Entzerrung korrigiert die durch das Kameraobjektiv verursachte Verzerrung anhand der zuvor bestimmten Kalibrierparameter.
 Ohne diese Korrektur würden die Bildkoordinaten der erkannten Merkmale systematisch verfälscht und die daraus berechnete Pose fehlerhaft bestimmt werden.
 Die Grundlagen des Kameramodells und der Kalibrierung werden in Abschnitt~\ref{sec:Kamera_Kalibrierung} behandelt.
-Die Bildverarbeitung detektiert und extrahiert die markanten Bildmerkmale aus dem entzerrten Kamerabildern. 
+Die Bildverarbeitung detektiert und extrahiert die markanten Bildmerkmale aus den entzerrten Kamerabildern. 
 Für jedes Merkmal liefert die Bildverarbeitung die relative Position zwischen Kamera und Merkmal.
 
 Die Kartierung erzeugt die Karte, auf die sich die Positionsbestimmung stützt.
@@ -192,14 +192,14 @@ Die Umsetzung wird in Kapitel~\ref{cap:implementierung_kartierung} beschrieben.
 
 Die Positionsbestimmung bildet den Kern der Lokalisierung und wird auf dem Begleitrechner zur Laufzeit durchgeführt.
 Sie verknüpft die erkannten Merkmale mit der vorab erstellten Karte und berechnet daraus die Pose der Kamera im Weltkoordinatensystem.
-Anschließend werden die Kameraposen zum Roboterkoordinatensystem transformiert.
+Anschließend werden die Kameraposen in das Roboterkoordinatensystem transformiert.
 Die Umsetzung der Lokalisierung wird in Kapitel~\ref{cap:implementierung_positionsbestimmung} erläutert.
 
 Die Kommunikation übermittelt die berechnete Pose an die Flugsteuerung und versieht sie mit einem dazu konsistenten Zeitstempel.
 Die Flugsteuerung läuft auf dem PX4-Flugcontroller und regelt das \gls{uav}.
 Sie fusioniert die eingespeiste Pose im Zustandsschätzer mit den Daten der \gls{imu}.
 
-Das Senden der Sollpositionen läuft parallel zur Positionsbestimmung des \gls{uav}s und wird indirekt per \gls{ssh}-Zugriff auf einem Laptop bzw. dem Begleitrechner betrieben.
+Das Senden der Sollpositionen läuft parallel zur Positionsbestimmung des \gls{uav}s und wird indirekt per \gls{ssh}-Zugriff auf einem Laptop beziehungsweise dem Begleitrechner betrieben.
 Die Funktionsweise ist in Abschnitt~\ref{sec:bedienkonsole} beschrieben.
 
 Abbildung~\ref{fig:informationsfluss_Flugbetrieb} zeigt den angestrebten Informationsfluss im Flugbetrieb.

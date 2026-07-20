@@ -34,7 +34,7 @@
 \newglossaryentry{sym:drehwinkel}{type=symbols, name={\ensuremath{\varphi}}, description={Drehwinkel der Achse-Winkel-Darstellung}, sort={C035}}
 
 \newglossaryentry{sym:q}{type=symbols, name={\ensuremath{\mathbf{q}}}, description={Quaternion}, sort={C040}}
-\newglossaryentry{sym:v}{type=symbols, name={\ensuremath{\mathbf{v}}}, description={normierte Rotationsachse}, sort={C050}}
+\newglossaryentry{sym:v}{type=symbols, name={\ensuremath{\mathbf{v}}}, description={Rotationsachse}, sort={C050}}
 
 \newglossaryentry{sym:qref}{type=symbols, name={\ensuremath{\mathbf{q}_{\mathrm{ref}}}}, description={Referenzquaternion zur Vorzeichenangleichung}, sort={C080}}
 \newglossaryentry{sym:weight}{type=symbols, name={\ensuremath{w_i}}, description={Gewicht der \(i\)-ten Orientierungsschätzung}, sort={C090}}
@@ -80,28 +80,28 @@
 \newglossaryentry{sym:pose}{type=symbols, name={\ensuremath{x_j}}, description={Variablenknoten einer UAV-Pose im Faktorgraphen}, sort={H010}}
 \newglossaryentry{sym:landmark}{type=symbols, name={\ensuremath{t_i}}, description={Variablenknoten einer Landmarke (Tag) im Faktorgraphen}, sort={H020}}
 
-% ===== Posenberechnung je Marker =====
-\newglossaryentry{sym:TKM}{type=symbols, name={\ensuremath{^{\mathrm{K}}\mathbf{T}_{\mathrm{M}}}}, description={Lage des Markers im Kartenkoordinatensystem}, sort={I010}}
+% ===== Posenberechnung je Fiducial-Marker =====
+\newglossaryentry{sym:TKM}{type=symbols, name={\ensuremath{^{\mathrm{K}}\mathbf{T}_{\mathrm{M}}}}, description={Pose des Fiducial-Markers im Kartenkoordinatensystem}, sort={I010}}
 \newglossaryentry{sym:TKC}{type=symbols, name={\ensuremath{^{\mathrm{K}}\mathbf{T}_{\mathrm{C}}}}, description={Pose der Kamera im Kartenkoordinatensystem}, sort={I020}}
-\newglossaryentry{sym:TMC}{type=symbols, name={\ensuremath{^{\mathrm{M}}\mathbf{T}_{\mathrm{C}}}}, description={Lage der Kamera relativ zum Marker}, sort={I030}}
-\newglossaryentry{sym:tCMtilde}{type=symbols, name={\ensuremath{^{\mathrm{C}}\tilde{\mathbf{t}}_{\mathrm{M}}}}, description={detektierter (unskalierter) Translationsvektor Kamera--Marker}, sort={I040}}
-\newglossaryentry{sym:tCM}{type=symbols, name={\ensuremath{^{\mathrm{C}}\mathbf{t}_{\mathrm{M}}}}, description={skalierter Translationsvektor Kamera--Marker}, sort={I050}}
-\newglossaryentry{sym:qCM}{type=symbols, name={\ensuremath{^{\mathrm{C}}\mathbf{q}_{\mathrm{M}}}}, description={detektierte Orientierung des Markers im Kamerakoordinatensystem}, sort={I060}}
-\newglossaryentry{sym:aM}{type=symbols, name={\ensuremath{a_{\mathrm{M}}}}, description={Kantenlänge des Markers}, sort={I070}}
-\newglossaryentry{sym:aref}{type=symbols, name={\ensuremath{a_{\mathrm{ref}}}}, description={Referenz-Markergröße}, sort={I080}}
+\newglossaryentry{sym:TMC}{type=symbols, name={\ensuremath{^{\mathrm{M}}\mathbf{T}_{\mathrm{C}}}}, description={Pose der Kamera relativ zum Fiducial-Marker}, sort={I030}}
+\newglossaryentry{sym:tCMtilde}{type=symbols, name={\ensuremath{^{\mathrm{C}}\tilde{\mathbf{t}}_{\mathrm{M}}}}, description={detektierter (unskalierter) Translationsvektor Kamera--Fiducial-Marker}, sort={I040}}
+\newglossaryentry{sym:tCM}{type=symbols, name={\ensuremath{^{\mathrm{C}}\mathbf{t}_{\mathrm{M}}}}, description={skalierter Translationsvektor Kamera--Fiducial-Marker}, sort={I050}}
+\newglossaryentry{sym:qCM}{type=symbols, name={\ensuremath{^{\mathrm{C}}\mathbf{q}_{\mathrm{M}}}}, description={detektierte Orientierung des Fiducial-Markers im Kamerakoordinatensystem}, sort={I060}}
+\newglossaryentry{sym:aM}{type=symbols, name={\ensuremath{a_{\mathrm{M}}}}, description={Kantenlänge des Fiducial-Markers}, sort={I070}}
+\newglossaryentry{sym:aref}{type=symbols, name={\ensuremath{a_{\mathrm{ref}}}}, description={Referenz-Kantenlänge der Fiducial-Marker}, sort={I080}}
 \newglossaryentry{sym:dtilde}{type=symbols, name={\ensuremath{\tilde{d}}}, description={Pixel-Proxy-Distanz (Norm der unskalierten Translation)}, sort={I090}}
-\newglossaryentry{sym:wgeo}{type=symbols, name={\ensuremath{w^{\mathrm{geo}}}}, description={geometrisches Gewicht einer Markerschätzung nach Bildgröße}, sort={I100}}
-\newglossaryentry{sym:wgewicht}{type=symbols, name={\ensuremath{w}}, description={kombiniertes Gewicht einer Markerschätzung Bildgröße und Kartenunsicherheit}, sort={I110}}
+\newglossaryentry{sym:wgeo}{type=symbols, name={\ensuremath{w^{\mathrm{geo}}}}, description={geometrisches Gewicht einer Fiducial-Markerschätzung nach Bildgröße}, sort={I100}}
+\newglossaryentry{sym:wgewicht}{type=symbols, name={\ensuremath{w}}, description={kombiniertes Gewicht aus einer Fiducial-Markerschätzung Bildgröße und Kartenunsicherheit}, sort={I110}}
 
 % ===== Kartenunsicherheit in der Gewichtung =====
-\newglossaryentry{sym:sigmamap}{type=symbols, name={\ensuremath{\sigma_{\mathrm{map}}}}, description={mittlere Positionsunsicherheit eines Markers in der TagSLAM-Karte}, sort={J010}}
+\newglossaryentry{sym:sigmamap}{type=symbols, name={\ensuremath{\sigma_{\mathrm{map}}}}, description={mittlere Positionsunsicherheit eines Fiducial-Markers in der TagSLAM-Karte}, sort={J010}}
 \newglossaryentry{sym:sigmaref}{type=symbols, name={\ensuremath{\sigma_{\mathrm{ref}}}}, description={Referenz-Standardabweichung der Kartenunsicherheit}, sort={J020}}
-\newglossaryentry{sym:qmap}{type=symbols, name={\ensuremath{q}}, description={Qualitätsfaktor eines Markers aus der Kartenunsicherheit}, sort={J030}}
+\newglossaryentry{sym:qmap}{type=symbols, name={\ensuremath{q}}, description={Qualitätsfaktor eines Fiducial-Markers aus der Kartenunsicherheit}, sort={J030}}
 
 % ===== Ausreißerfilterung mit RANSAC =====
 \newglossaryentry{sym:tthr}{type=symbols, name={\ensuremath{t}}, description={Schwellenwert für die Inlier-Zuordnung}, sort={K010}}
 \newglossaryentry{sym:model}{type=symbols, name={\ensuremath{\mathcal{M}}}, description={geschätztes Modell}, sort={K020}}
-\newglossaryentry{sym:dbar}{type=symbols, name={\ensuremath{\bar{d}}}, description={mittlere Markerdistanz}, sort={K030}}
+\newglossaryentry{sym:dbar}{type=symbols, name={\ensuremath{\bar{d}}}, description={mittlere Fiducial-Markerdistanz}, sort={K030}}
 \newglossaryentry{sym:dref}{type=symbols, name={\ensuremath{d_{\mathrm{ref}}}}, description={Referenzdistanz des adaptiven Schwellenwerts}, sort={K040}}
 \newglossaryentry{sym:tau0}{type=symbols, name={\ensuremath{\tau_0}}, description={Basisschwelle der Inlier-Zuordnung}, sort={K050}}
 \newglossaryentry{sym:tau}{type=symbols, name={\ensuremath{\tau}}, description={adaptiver Inlier-Schwellenwert}, sort={K060}}
@@ -121,25 +121,25 @@
 \newglossaryentry{sym:alphaq}{type=symbols, name={\ensuremath{\alpha_{\mathrm{q}}}}, description={Interpolationsfaktor der SLERP-Glättung (Orientierung)}, sort={L050}}
 \newglossaryentry{sym:ktakt}{type=symbols, name={\ensuremath{k}}, description={Taktindex der Ausgabe}, sort={L060}}
 
-% ===== Kovarianzschätzung =====
-\newglossaryentry{sym:sigmapos0}{
-  type=symbols,
-  name={\ensuremath{\sigma_{\mathrm{pos},0}}},
-  sort={M010},
-  description={Basis-Standardabweichung der Position unter Referenzbedingungen}
-}
-\newglossaryentry{sym:dsigma}{
-  type=symbols,
-  name={\ensuremath{d_{\sigma}}},
-  sort={M020},
-  description={Referenzdistanz der Kovarianzschätzung}
-}
-\newglossaryentry{sym:asigma}{
-  type=symbols,
-  name={\ensuremath{a_{\sigma}}},
-  sort={M030},
-  description={Referenz-Tag-Größe der Kovarianzschätzung}
-}
+%% ===== Kovarianzschätzung =====
+%\newglossaryentry{sym:sigmapos0}{
+%  type=symbols,
+%  name={\ensuremath{\sigma_{\mathrm{pos},0}}},
+%  sort={M010},
+%  description={Basis-Standardabweichung der Position unter Referenzbedingungen}
+%}
+%\newglossaryentry{sym:dsigma}{
+%  type=symbols,
+%  name={\ensuremath{d_{\sigma}}},
+%  sort={M020},
+%  description={Referenzdistanz der Kovarianzschätzung}
+%}
+%\newglossaryentry{sym:asigma}{
+%  type=symbols,
+%  name={\ensuremath{a_{\sigma}}},
+%  sort={M030},
+%  description={Referenz-Tag-Größe der Kovarianzschätzung}
+%}
 
 % ===== Dead-Reckoning-Lokalisierung =====
 %\newglossaryentry{sym:sigmavel}{type=symbols, name={\ensuremath{\sigma_{\text{vel}}}}, description={Standardabweichung der geschätzten Geschwindigkeit}, sort={N010}}
