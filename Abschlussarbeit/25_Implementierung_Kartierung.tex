@@ -88,8 +88,8 @@ Die Summe dieser Werte bildet den Gesamtnutzwert.
 wie der Livox~Mid-360S mit 589~Euro deutlich teurer und schwerer ist als eine vergleichbare Stereokamera.
 Bei der Kostengünstigkeit erreicht Tag\gls{slam} mit 5 die höchste Bewertung, da für kamerabasierte Verfahren bereits eine Logitech~C922 für unter 100~Euro im Handel erhältlich ist.
 Ein für den Einsatz benötigtes Stereomodul wie die ZED~Mini liegt mit rund 399~Euro zwar höher, bleibt aber deutlich unter dem Preisniveau eines \gls{lidar}-Sensors, weshalb \gls{vslam} mit 3 bewertet wird.
-Beim Leichtbau erreicht \gls{vslam} mit 5 die höchste Bewertung, da die ZED~Mini leichter ist als eine Logitech~C922.~\cite{livox_mid360s,logitech_c922,zed_mini}
-Tag\gls{slam} wird deshalb mit 4 bewertet.
+Beim Leichtbau erreicht \gls{vslam} mit 5 die höchste Bewertung, da die ZED~Mini leichter ist als eine Logitech~C922.
+Tag\gls{slam} wird deshalb mit 4 bewertet.~\cite{livox_mid360s,logitech_c922,zed_mini}
 
 Tag\gls{slam} wird beim geringen Vorbereitungsaufwand mit 3 bewertet, da die Fiducial-Marker einmalig angebracht werden müssen, 
 während \gls{vslam} und \gls{lidar}-\gls{slam} mit 5 keine Umgebungsvorbereitung erfordern.
@@ -225,17 +225,17 @@ Die ermittelten Parameter gelten nur für die jeweils verwendete Kamera in der j
 Daher muss die Kalibrierung für jede Kamera, auch bei baugleichen Modellen, einzeln durchgeführt werden.
 Ebenso ist die Kalibrierung bei jeder Änderung der Auflösung erneut durchzuführen, da Brennweite und Hauptpunkt von der Auflösung abhängen.~\cite{888718_Calibration_Zhang,Bradski2008}
 
-Die Kalibrierung wird in diesem Abschnitt beispielhaft mit der Logitech~C922 in der Auflösung $1920\times1080$ durchgeführt.
+Die Kalibrierung wird in diesem Abschnitt beispielhaft mit der Logitech~C922 in der Auflösung 1920$\times$1080 durchgeführt.
 Hierfür wird das \gls{ros2}-Paket \texttt{camera\_calibration} verwendet.
 Um den Kalibriervorgang zu starten, muss zunächst die Kamera in \gls{ros2} bereitgestellt werden.
 Hierfür wird das Paket \texttt{gscam} genutzt, das die Kamera über eine GStreamer-Pipeline anbindet.
 Beim Start des Nodes im Terminal müssen mehrere Einstellungen mitgegeben werden.
-Dazu zählen das Videogerät, die Auflösung von $1920\times1080$ und die Bildrate.
+Dazu zählen das Videogerät, die Auflösung von 1920$\times$1080 und die Bildrate.
 Zusätzlich wird festgelegt, dass das Bild vom \gls{mjpeg}-Format in ein \gls{rgb}-Rohbild dekodiert wird.
 
 Anschließend wird in einem zweiten Terminal der Kalibrier-Node \texttt{cameracalibrator} aus dem Paket \texttt{camera\_calibration} gestartet.
 Beim Start muss dem Node die Geometrie des Schachbretts über zwei Parameter mitgegeben werden.
-Der Parameter für die Größe gibt mit $9\times6$ die Anzahl der inneren Eckpunkte an, der Parameter für die Kantenlänge gibt mit 0,032~m die Seitenlänge eines Schachbrettfelds an.
+Der Parameter für die Größe gibt mit 9$\times$6 die Anzahl der inneren Eckpunkte an, der Parameter für die Kantenlänge gibt mit 0,032~m die Seitenlänge eines Schachbrettfelds an.
 Aus mehreren Aufnahmen des Schachbretts in verschiedenen Lagen werden daraus die Kameraparameter bestimmt.
 
 Die Kameramatrix (Gleichung~\ref{eq:Kameramatrix}) beschreibt, wie ein Punkt aus dem dreidimensionalen Raum auf die zweidimensionale Bildebene projiziert wird.
@@ -278,8 +278,8 @@ Die ermittelten Werte sind in Gleichung~\ref{eq:verzeichnungsvektor} dargestellt
 
 
 
-Die Rektifizierungsmatrix in Gleichung~\ref{eq:rektifizierungsmatirx} dient der Ausrichtung mehrerer Kameras in einem Stereoaufbau~\cite{Bradski2008}.
-Da hier eine einzelne Kamera beziehungsweise jede Kamera für sich betrieben wird, entspricht sie der Einheitsmatrix und bewirkt keine Drehung.
+Die Rektifizierungsmatrix in Gleichung~\ref{eq:rektifizierungsmatirx} dient der Ausrichtung mehrerer Kameras in einem Stereoaufbau.
+Da hier eine einzelne Kamera beziehungsweise jede Kamera für sich betrieben wird, entspricht sie der Einheitsmatrix und bewirkt keine Drehung.~\cite{Bradski2008}
 \begin{equation}
 \label{eq:rektifizierungsmatirx}
     \mathbf{R} =
@@ -287,7 +287,7 @@ Da hier eine einzelne Kamera beziehungsweise jede Kamera für sich betrieben wir
         1 & 0 & 0 \\
         0 & 1 & 0 \\
         0 & 0 & 1
-    \end{bmatrix}.
+    \end{bmatrix}
 \end{equation}
 
 
@@ -325,7 +325,7 @@ Die Kartierung kann mit einer beliebigen Kamera durchgeführt werden, wichtig is
 Die Implementierung der Kartierung wird am Beispiel der Logitech~C922 im Folgenden erläutert.
 
 Die Bildaufnahme mit der Kamera erfolgt über einen \texttt{gscam}-Node, der in das Launch-File der ersten Stufe eingebunden ist.
-Die wichtigsten Einstellungen sind die Auflösung von $1920\times1080$ Pixeln und die Bildrate von $15$~\gls{fps}.
+Die wichtigsten Einstellungen sind die Auflösung von 1920$\times$1080 Pixeln und die Bildrate von $15$~\gls{fps}.
 Die Bildrate ist bewusst niedrig gewählt, um die Auslastung der CPU gering zu halten und Bildausfälle durch Überlastung der Dekodierung zu vermeiden.
 Im Anschluss an die Aufnahme werden die Bilder entzerrt.
 
@@ -397,7 +397,7 @@ der Kamera sowie \texttt{tagslam.yaml} mit den Parametern der Optimierung und de
 Die Datei \texttt{cameras.yaml} entspricht der bereits in Abschnitt~\ref{sec:offline_detektion_apriltags} beschriebenen Datei.
 
 %\subsubsection{Konfiguration der Kamerapose in TagSLAM}
-Die Datei \texttt{camera\_poses.yaml} gibt über eine $6\times6$-Kovarianzmatrix $\mathbf{R}$ an, wie starr die Kamera während der Kartierung gehalten wird.
+Die Datei \texttt{camera\_poses.yaml} gibt über eine 6$\times$6-Kovarianzmatrix $\mathbf{R}$ an, wie starr die Kamera während der Kartierung gehalten wird.
 Die sechs Dimensionen entsprechen den drei translatorischen und drei rotatorischen Freiheitsgraden der Kamerapose.
 Da die Kamera bewegt wird und ihre Pose nicht vorab bekannt ist, sind \texttt{Position} und \texttt{Rotation} auf null gesetzt, während die Diagonalwerte der Matrix mit 
 $10^{6}$ sehr groß gewählt sind.

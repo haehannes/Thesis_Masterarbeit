@@ -10,7 +10,7 @@ ergänzt und deren Ergebnis der Positionsbestimmung zuführt.
 Als Positionsreferenz dienen AprilTags der Familie \texttt{tag36h11}, die auf bedruckter Klebefolie am Boden der Versuchsumgebung ausgebracht sind.
 Die Karte umfasst 97 Fiducial-Marker in vier Größen auf einer Fläche von 5,0~m~$\times$~3,9~m.
 Ihr Entwurf berücksichtigt, dass ab einer Mindestflughöhe von 1~m stets ausreichend Fiducial-Marker im Sichtfeld der Bodenkamera liegen 
-und sieht im Zentrum einen eigenen Startmarker vor.
+und sieht im Zentrum einen eigenen kleineren Startmarker vor.
 
 Zur Kartierung wurde eine Verarbeitungskette aus Bildaufnahme, Entzerrung, Offline-Detektion der Fiducial-Marker und anschließender Optimierung mit Tag\gls{slam} umgesetzt.
 Die Auswahl des Verfahrens erfolgte über eine Nutzwertanalyse der betrachteten \gls{slam}-Varianten.
@@ -19,7 +19,7 @@ Erprobt wurden drei Parametrierungen, deren Ergebnisse mit einer aus der Druckvo
 Der mittlere räumliche Abstand der Fiducial-Markerzentren zur Referenz liegt zwischen 9,57~mm und 12,75~mm.
 
 Für die Positionsbestimmung im Flug wurde ein Node entwickelt.
-Er berechnet aus den Detektionen jeder Kamera je Fiducial-Marker eine Kamerapose in der Karte, verwirft widersprüchliche Schätzungen über eine Ausreißerfilterung nach dem \gls{ransac}-Prinzip und fusioniert die verbleibende Konsensmenge gewichtet.
+Er berechnet aus den Detektionen jeder Kamera je Fiducial-Marker eine Kamerapose in der Karte, verwirft widersprüchliche Schätzungen über eine Ausreißerfilterung nach dem \gls{ransac}-Algorithmus und fusioniert die verbleibende Konsensmenge gewichtet.
 Die Gewichtung berücksichtigt dabei sowohl die Fiducial-Markergröße und den Abstand als auch die Güte der Karte am Ort des jeweiligen Fiducial-Markers.
 Anschließend werden die Kameraposen über die zuvor bestimmte extrinsische Kalibrierung auf den Mittelpunkt des \gls{uav}s transformiert, zeitlich geglättet und in die von \gls{px4} benötigte \gls{ned}/\gls{frd}-Konvention überführt.
 Die Übergabe an die Flugsteuerung erfolgt über \gls{uxrce} mit einer Rate von 50~Hz.
@@ -53,10 +53,10 @@ Solche Stützstellen begrenzen die Strecke, über die sich der Positionsfehler g
 Der nutzbare Flugraum lässt sich durch eine Erweiterung der Karte vergrößern.
 Werden Fiducial-Marker zusätzlich an den Hallenwänden angebracht, kann die bislang ausgeschlossene Frontkamera in die Fusion einbezogen werden.
 
-Ein weiterführender Ansatz besteht darin, die Lokalisierung von der Karte zu lösen.
+Ein weiterführender Ansatz besteht darin, die Lokalisierung um weiter Sensoren zu erweitern.
 Verfahren der visuell-inertialen Odometrie oder ein \gls{lidar}-gestütztes \gls{slam} bestimmen die Pose aus der natürlichen Struktur der Umgebung und benötigen keine vorab ausgebrachten Fiducial-Marker.
 In Verbindung mit der bestehenden Fiducial-Markerkarte ließe sich beides kombinieren, indem die Fiducial-Marker als absolute und driftfreie Stützstellen dienen, während das kartenunabhängige Verfahren den Flug außerhalb des markierten Bereichs trägt.
-Damit wäre der Betrieb nicht länger auf die kartierte Fläche beschränkt.
+Damit wäre der Betrieb nicht länger auf die kartierte Fläche beschränkt. Voraussetzung hierfür ist die Funktionstüchtigkeit in der Versuchsumgebung.
 
 Langfristig bildet die entwickelte Positionsreferenz die Grundlage für weiterführende autonome Funktionen im Innenraum.
 Mit einer fortlaufend verfügbaren Pose im Kartenkoordinatensystem lassen sich Flugaufgaben planen und wiederholbar ausführen.

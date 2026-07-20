@@ -141,7 +141,7 @@ Wie in Abschnitt~\ref{sec:Kamera_Kalibrierung} beschrieben, muss die Kalibrierun
 
 Gegenüber der Kartierung unterscheiden sich zwei Einstellungen.
 Zum einen wird die Kamera mit 60~\gls{fps} betrieben, da die Positionsbestimmung im Flug fortlaufend erfolgt und eine geringe Latenz erfordert.
-Die Auflösung von $1280\times720$ Pixeln ergibt sich unmittelbar aus dieser Forderung, da die Logitech~C922 die geforderte Bildrate nur in dieser 
+Die Auflösung von 1280$\times$720 Pixeln ergibt sich unmittelbar aus dieser Forderung, da die Logitech~C922 die geforderte Bildrate nur in dieser 
 Auflösung liefert.
 Zum anderen wird der \gls{mjpeg}-Datenstrom über \texttt{nvv4l2decoder} und \texttt{nvvidconv} auf der \gls{gpu} des Begleitrechners dekodiert.
 Erst diese Hardwarebeschleunigung ermöglicht die hohe Bildrate im Dauerbetrieb.
@@ -522,7 +522,7 @@ Bei jedem Aufruf wird je Kamera die jeweils aktuellste Schätzung herangezogen.
 Eine Schätzung wird nur berücksichtigt, wenn ihr Alter den Parameter \texttt{max\_estimate\_age\_s} nicht überschreitet, veraltete Schätzungen werden verworfen.
 Liegt keine gültige Schätzung vor, wird keine Pose ausgegeben.
 
-Den beiden Kameras ist jeweils ein fester Gewichtungsfaktor $w_1$ beziehungsweise $w_2$ zugeordnet (Parameter \texttt{cam1\_weight} beziehungsweise \texttt{cam2\_weight}), über den eine Kamera als zuverlässiger eingestuft werden kann.
+Den beiden Kameras ist jeweils ein fester Gewichtungsfaktor $w_1$ beziehungsweise $w_2$ zugeordnet (\texttt{cam1\_weight} und \texttt{cam2\_weight}), über den eine Kamera als zuverlässiger eingestuft werden kann.
 Anders als das von der scheinbaren Markergröße abhängige Gewicht aus Gleichung~\ref{eq:pos_gewicht} sind diese beiden Faktoren fest vorgegeben.
 Die fusionierte Position ergibt sich analog zu Gleichung~\ref{eq:pos_fusion_t} als gewichteter Mittelwert der beiden Schätzungen $^{\mathrm{K}}\mathbf{t}_{\mathrm{D}}^{(1)}$ und $^{\mathrm{K}}\mathbf{t}_{\mathrm{D}}^{(2)}$:
 \begin{equation}
@@ -590,7 +590,7 @@ festgelegt und wirkt analog zu $\alpha_{\mathrm{t}}$.
 %\sigma_{\mathrm{pos}}^{2} = \left(\sum_{i \in \mathcal{I}} \frac{1}{\sigma_{\mathrm{pos},i}^{2}}\right)^{-1}.
 %\label{eq:pos_cov_inverse_varianz}
 %\end{equation}
-%Die so bestimmten Varianzen für Position und Orientierung werden auf die Diagonale der $6 \times 6$-Kovarianzmatrix geschrieben, die zusammen mit der Pose an den \gls{ekf} übergeben wird.
+%Die so bestimmten Varianzen für Position und Orientierung werden auf die Diagonale der $6 $\times$ 6$-Kovarianzmatrix geschrieben, die zusammen mit der Pose an den \gls{ekf} übergeben wird.
 
 
 

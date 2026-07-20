@@ -1,49 +1,36 @@
 
-
-
 \chapter{Einleitung}
-
-
 
 Unbemannte Fluggeräte werden zunehmend in zivilen Anwendungsbereichen eingesetzt.
 Eine grundlegende Voraussetzung für ihren sicheren Betrieb ist die zuverlässige Kenntnis der eigenen Position.
-Insbesondere bei einer autonomen Flugführung muss das Fluggerät seine Lage im Raum fortlaufend bestimmen, 
-um Kollisionen mit Hindernissen zu vermeiden und einen sicheren Flug zu gewährleisten.
+Insbesondere bei einer autonomen Flugführung muss ein Fluggerät seine Lage im Raum fortlaufend bestimmen, um Kollisionen mit Hindernissen zu vermeiden und einen sicheren Flug zu gewährleisten.
 
 Im Außenbereich wird die dafür benötigte Positionsreferenz in der Regel durch Satellitennavigation bereitgestellt.
 In Innenräumen steht diese jedoch meist nicht zur Verfügung, da der Satellitenempfang durch die Gebäudestruktur eingeschränkt ist.
-
-Ohne eine externe Positionsreferenz kann die Position nur kurzfristig aus den im Fluggerät verbauten Sensoren geschätzt werden.
-Dabei summieren sich Fehler mit der Zeit auf und führen im Innenraum zwangsläufig zu einer Kollision mit einem Hindernis. 
+Ohne eine externe Positionsreferenz lässt sich die Position nur kurzzeitig aus den im Fluggerät verbauten Sensoren schätzen.
+Dabei summieren sich Fehler mit der Zeit auf und führen im Innenraum zwangsläufig zu einer Kollision mit einem Hindernis.
 Für einen zuverlässigen Flug im Innenraum ist daher eine alternative Positionsreferenz zwingend erforderlich.
 
-Ziel dieser Arbeit ist es, ein unbemanntes Fluggerät zu entwickeln, welches sich ohne Satellitennavigation selbst im Raum lokalisiert und positioniert.
-Das zentrale Element der Umsetzung ist der Flugsteuerungsrechner, dem die externen Positionsdaten für die Flugsteuerung bereitzustellen sind.
-Darüber hinaus ist ein Verfahren zu bestimmen, das eine bestehende Karte ergänzt oder eine bislang unbekannte Umgebung vollständig erfasst und das Ergebnis der Positionsbestimmung zuführt.
+Das Ziel dieser Arbeit ist es, ein unbemanntes Fluggerät zu entwickeln, das sich ohne Satellitennavigation im Innenraum selbst lokalisiert und positioniert.
+Die extern berechnete Positionsschätzung soll dem Flugcontroller als Referenz für die Flugsteuerung bereitgestellt werden.
+Darüber hinaus ist ein Verfahren zu entwickeln, das eine unbekannte Umgebung vollständig erfasst oder eine bestehende Karte ergänzt und deren Ergebnis der Positionsbestimmung zuführt.
 
 
-Die Grundlage der Positionsreferenz bilden Passmarken, die in der Flugumgebung angebracht sind.
-Die relative Position der Passmarken zueinander ist durch das Kartieren der Marken bekannt. 
-Zur Kartierung wird ein Algorithmus entwickelt, der es ermöglicht, diese Karte durch das Abfilmen der Markierungen zu erstellen.
-
-Durch die Detektion der Passmarken mit einer am Fluggerät angebrachten Kamera wird während des 
-Flugs die Position des Fluggeräts relativ zu den Markierungen bestimmt.
-Die Berechnungen der Positionsbestimmung werden auf einem auf dem Fluggerät befestigten Begleitrechner durchgeführt und anschließend an den Flugcontroller weitergegeben.
-Durch das implementierte System aus Kartierung und Positionierung ist es möglich, fortlaufend die Position und Orientierung des Fluggeräts während 
-des Flugs innerhalb eines festgelegten Bereichs zu bestimmen.  
+Als Grundgerüst dient ein Multikopter des Typs Holybro X650 mit einem Flugcontroller Pixhawk 6X und einem als Begleitrechner eingesetzten NVIDIA Jetson Orin Nano.
+Das Fluggerät ist mit zwei Logitech-Kameras ausgestattet, von denen eine nach unten und eine nach vorne gerichtet ist.
 Die entwickelte Lösung ist vollständig aus quelloffener Software und gängigen Komponenten aufgebaut.
 
-Darauf folgt eine Einordnung in den Stand der Technik, die bestehende Verfahren zur Lokalisierung ohne Satellitennavigation vorstellt und hinsichtlich ihrer Eignung für den Innenraum bewertet.
-Ergänzend werden gängige Passmarkensysteme gegenübergestellt und daraus die für diese Arbeit gewählte Marker- und Kartierungsmethodik abgeleitet.
+Als Grundlage der Positionsreferenz dienen Fiducial-Marker, die in der Flugumgebung angebracht sind.
+Unter den betrachteten Fiducial-Marker-Systemen fiel die Wahl auf AprilTags des Typs \texttt{tag36h11}, da diese sich mit der eingesetzten Kartierungsmethode kombinieren lassen und hardwarebeschleunigt erkannt werden können.
+Die Lage der Fiducial-Marker zueinander wird in einer vorab erstellten Karte hinterlegt.
+Die Auswahl des Kartierungsverfahrens erfolgt über eine Nutzwertanalyse der betrachteten Verfahren zur simultanen Lokalisierung und Kartierung.
 
-Die anschließende Systembeschreibung führt die Anforderungen an das Gesamtsystem ein und beschreibt darauf aufbauend den Hardwareaufbau des Fluggeräts mit seinen Komponenten.
-Ebenso werden die Softwarearchitektur aus Kartierung und Positionierung sowie die Versuchsumgebung dargestellt, in der die späteren Flugversuche stattfinden.
 
-Die Umsetzung der Kartierung zeigt, wie aus einer handgeführten Kameraaufnahme über die Detektion der Passmarken und eine anschließende Optimierung eine konsistente Karte aller Passmarken entsteht.
-Diese Karte bildet die räumliche Referenz, auf die sich die spätere Positionsbestimmung im Flug stützt.
+Während des Flugs berechnet ein auf dem Fluggerät befestigter Begleitrechner aus den Fiducial-Marker-Detektionen einer nach unten gerichteten Kamera fortlaufend die Pose des Fluggeräts relativ zur Karte.
+Die einzelnen Schätzungen werden über eine Ausreißerfilterung bereinigt, anhand der Fiducial-Markergröße, des Abstands und der Güte der Karte gewichtet fusioniert und zeitlich geglättet.
+Die so bestimmte Pose wird über eine Kommunikationsschnittstelle an den Flugcontroller übergeben.
+Dort wird sie in einem zeitdiskreten Zustandsschätzer mit den übrigen Sensordaten fusioniert und als externe Positionsreferenz verwendet, während Satellitennavigation und Magnetometer von der Fusion ausgeschlossen sind.
 
-Die Umsetzung der Positionierung beschreibt die während des Fluges ablaufende Bestimmung von Position und Orientierung des Fluggeräts aus den Markerdetektionen.
-Dabei wird erläutert, wie die einzelnen Schätzungen gefiltert, gewichtet fusioniert und als externe Referenz an den Flugcontroller übergeben werden.
-
-Den Abschluss bilden die Versuchsdurchführung und die Evaluation, die das Gesamtsystem in praktischen Flugversuchen erproben.
-Die erzeugten Karten werden gegen eine bekannte Referenz verglichen und das Verhalten der Positionsbestimmung im Flug anhand der aufgezeichneten Daten bewertet, bevor die Ergebnisse zusammengefasst werden.
+Die Arbeit ordnet zunächst bestehende Verfahren zur Lokalisierung ohne Satellitennavigation in den Stand der Technik ein und leitet daraus die gewählte Marker- und Kartierungsmethodik ab.
+Darauf folgen die Beschreibung des Gesamtsystems, die Umsetzung der Kartierung und die im Flug ablaufende Positionsbestimmung.
+Den Abschluss bilden die Versuchsdurchführung und die Evaluation, in der die erzeugten Karten gegen eine bekannte Referenz verglichen und das Verhalten der Positionsbestimmung in praktischen Flugversuchen bewertet werden.

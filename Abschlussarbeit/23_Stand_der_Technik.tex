@@ -105,10 +105,10 @@ Map Initialization bezeichnet die Initialisierung der Karte zu Beginn des \gls{s
 Dabei werden zunächst markante Bildmerkmale aus den ersten Frames extrahiert und 
 einander zugeordnet, um die initiale Struktur der Umgebung zu schätzen.
 Aus diesen Zuordnungen werden erste Kartenpunkte sowie deren räumliche Positionen im dreidimensionalen Raum bestimmt.
-Die Map Initialization bildet die Grundlage, auf der alle weiteren Kartenpunkte und Posenschätzungen aufgebaut werden~\cite{Cai2024}.
+Die Map Initialization bildet die Grundlage, auf der alle weiteren Kartenpunkte und Posenschätzungen aufgebaut werden.~\cite{Cai2024}
 
 Feature Extraction bezeichnet die Extraktion markanter Merkmale 
-aus den Sensordaten, die als Grundlage für die spätere Zuordnung dienen~\cite{10169695}.
+aus den Sensordaten, die als Grundlage für die spätere Zuordnung dienen.~\cite{10169695}
 
 Feature Matching beschreibt den Abgleich extrahierter Merkmale zwischen 
 aufeinanderfolgenden Frames, um die Bewegung des Systems zu schätzen.
@@ -118,7 +118,7 @@ Loop-Closure bezeichnet die Erkennung bereits besuchter Orte.
 Wird ein solcher Ort erkannt, wird die akkumulierte Abweichung anhand gespeicherter Merkmale berechnet und als zusätzlicher Constraint in den nachfolgend beschriebenen Faktorgraphen eingetragen.
 Ein Constraint ist dabei eine Bedingung, die die räumliche Beziehung zwischen zwei Größen im Faktorgraphen beschreibt und mit einer zugehörigen Unsicherheit versehen ist.
 Die anschließende globale Optimierung verbessert die Konsistenz der gesamten Karte.
-Der schematische Ablauf von Loop-Closure ist in Abbildung~\ref{fig:loop_closure} dargestellt.~\cite{10169695}.
+Der schematische Ablauf von Loop-Closure ist in Abbildung~\ref{fig:loop_closure} dargestellt.~\cite{10169695}
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.8\textwidth]{Bilder/Loop_Closure.png}
@@ -171,9 +171,9 @@ den über die Trajektorie akkumulierten Drift rückwirkend über alle Posen zu k
 
 
 Das Ziel der Optimierung ist die Maximum-a-posteriori-Schätzung, also die Konfiguration aller Variablen (Posen und Landmarken) zu finden, die die 
-Gesamtwahrscheinlichkeit aller Beobachtungen maximiert. Äquivalent dazu wird der Gesamtfehler über alle Constraints minimiert~\cite{dellaert2012factor}.
+Gesamtwahrscheinlichkeit aller Beobachtungen maximiert. Äquivalent dazu wird der Gesamtfehler über alle Constraints minimiert.
 Die Belegung aller Variablenknoten wird dazu iterativ variiert, bis die Summe der gewichteten Residuen über sämtliche Constraints ein Minimum annimmt.
-Bekannte Bibliotheken zur graphbasierten Optimierung sind \gls{gtsam} und \gls{g2o}.
+Bekannte Bibliotheken zur graphbasierten Optimierung sind \gls{gtsam} und \gls{g2o}.~\cite{dellaert2012factor}
 
 
 \subsubsection*{SLAM-Varianten}
@@ -190,7 +190,7 @@ Anstelle natürlicher Bildmerkmale werden AprilTag-Marker als definierte
 Referenzpunkte verwendet.
 Da die Geometrie der Fiducial-Marker bekannt ist, entfällt die aufwendige Merkmalsbeschreibung und das Matching.
 Stattdessen liefert jede Markerdetektion eine direkte Posenmessung relativ zur Kamera.
-Tag\gls{slam} nutzt als Backend \gls{gtsam} zur Faktorgraph-Optimierung und ermöglicht neben vollständigem SLAM auch eine reine Posenschätzung bei bekannter Tag-Anordnung~\cite{pfrommer2019tagslam}.
+Tag\gls{slam} nutzt als Backend \gls{gtsam} zur Faktorgraph-Optimierung und ermöglicht neben vollständigem SLAM auch eine reine Posenschätzung bei bekannter Tag-Anordnung.~\cite{pfrommer2019tagslam}
 
 
 \gls{lidar}-\gls{slam} verwendet einen Laserscanner anstelle einer Kamera als primären Sensor.
@@ -276,8 +276,8 @@ Je höher die Hammingdistanz, desto kleiner ist die Anzahl an möglichen Tags.~\
 \label{sec:marker_detektion}
 Alle vorgestellten Fiducial-Marker-Systeme stellen Bibliotheken zur Detektion bereit.
 Die Detektion eines Fiducial-Markers gliedert sich in zwei Hauptkomponenten.
-Der Detektor schätzt die Position möglicher Fiducial-Marker im Bild und das Kodierungssystem prüft die ausgelesene \gls{id} auf Gültigkeit~\cite{Olson5979561}.
-Im Folgenden wird der Ablauf am Beispiel von AprilTag beschrieben.
+Der Detektor schätzt die Position möglicher Fiducial-Marker im Bild und das Kodierungssystem prüft die ausgelesene \gls{id} auf Gültigkeit.
+Im Folgenden wird der Ablauf am Beispiel von AprilTag beschrieben.~\cite{Olson5979561}
 
 Der Detektor sucht im Bild nach viereckigen, dunklen Flächen mit hellem 
 Rand, den Quads.

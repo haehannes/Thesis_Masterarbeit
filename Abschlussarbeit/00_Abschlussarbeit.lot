@@ -16,9 +16,9 @@
 \contentsline {table}{\numberline {6.1}{\ignorespaces Wesentliche \gls {ekf}-Parameter zur visionsgestützten Zustandsschätzung}}{40}{table.caption.53}%
 \contentsline {table}{\numberline {6.2}{\ignorespaces Startparameter des Nodes \texttt {vision\_pose\_uxrce\_node}}}{47}{table.6.2}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {7.1}{\ignorespaces Parametrierung der drei Versuche}}{56}{table.caption.65}%
-\contentsline {table}{\numberline {7.2}{\ignorespaces Abweichungen der erzeugten Karten gegenüber der Ground Truth Karte}}{61}{table.caption.72}%
-\contentsline {table}{\numberline {7.3}{\ignorespaces Tastenbelegung der Bedienkonsole}}{63}{table.caption.74}%
+\contentsline {table}{\numberline {7.1}{\ignorespaces Parametrierung der drei Versuche}}{56}{table.caption.64}%
+\contentsline {table}{\numberline {7.2}{\ignorespaces Abweichungen der erzeugten Karten gegenüber der Ground Truth Karte}}{61}{table.caption.71}%
+\contentsline {table}{\numberline {7.3}{\ignorespaces Tastenbelegung der Bedienkonsole}}{63}{table.caption.73}%
 \contentsline {table}{\numberline {7.4}{\ignorespaces Für den Flugbetrieb gewählte Startwerte des Nodes \texttt {vision\_pose\_uxrce\_node}}}{65}{table.7.4}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
