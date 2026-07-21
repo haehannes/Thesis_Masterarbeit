@@ -56,8 +56,8 @@
 \contentsline {subsection}{\numberline {7.2.1}Senden von Positions-Sollwerten an PX4}{62}{subsection.7.2.1}%
 \contentsline {subsection}{\numberline {7.2.2}Wahl der Startparameter für den Flugbetrieb}{63}{subsection.7.2.2}%
 \contentsline {subsection}{\numberline {7.2.3}Ablauf der Flugversuche}{65}{subsection.7.2.3}%
-\contentsline {subsection}{\numberline {7.2.4}Evaluation der Positionierung}{66}{subsection.7.2.4}%
-\contentsline {section}{\numberline {7.3}Gesamtbewertung des Systems}{71}{section.7.3}%
-\contentsline {chapter}{\numberline {8}Zusammenfassung und Ausblick}{74}{chapter.8}%
-\contentsline {chapter}{\numberline {9}Anhang}{84}{chapter.9}%
+\contentsline {subsection}{\numberline {7.2.4}Evaluation der Positionierung}{67}{subsection.7.2.4}%
+\contentsline {section}{\numberline {7.3}Gesamtbewertung des Systems}{72}{section.7.3}%
+\contentsline {chapter}{\numberline {8}Zusammenfassung und Ausblick}{75}{chapter.8}%
+\contentsline {chapter}{\numberline {9}Anhang}{85}{chapter.9}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

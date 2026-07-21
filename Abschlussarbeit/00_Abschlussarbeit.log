@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.11.7)  21 JUL 2026 08:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.11.7)  21 JUL 2026 16:15
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1767,7 +1767,7 @@ Package cleveref Info: loaded `ngerman' language definitions on input line 5.
 \openout11 = `00_Abschlussarbeit.glsdefs'.
 
 ) (./00_Abschlussarbeit.acr
-Overfull \hbox (12.0pt too wide) in alignment at lines 25--302
+Overfull \hbox (12.0pt too wide) in alignment at lines 25--300
  [] [] 
  []
 
@@ -1998,40 +1998,46 @@ File: Bilder/Drohne_schwebeflug.jpeg Graphic file (type jpg)
 <use Bilder/Drohne_schwebeflug.jpeg>
 Package pdftex.def Info: Bilder/Drohne_schwebeflug.jpeg  used on input line 509.
 (pdftex.def)             Requested size: 227.62206pt x 288.40105pt.
- [65]
-<Bilder/Flugbahn_testversuch.png, id=1734, 331.88608pt x 315.20839pt>
+ [65] [66 <./Bilder/Drohne_schwebeflug.jpeg>]
+<Bilder/Flugbahn_testversuch.png, id=1739, 331.88608pt x 315.20839pt>
 File: Bilder/Flugbahn_testversuch.png Graphic file (type png)
 <use Bilder/Flugbahn_testversuch.png>
 Package pdftex.def Info: Bilder/Flugbahn_testversuch.png  used on input line 539.
 (pdftex.def)             Requested size: 273.14923pt x 259.42967pt.
- [66 <./Bilder/Drohne_schwebeflug.jpeg>]
-<Bilder/16_stuetzquellen.png, id=1744, 883.9177pt x 429.72853pt>
+ [67 <./Bilder/Flugbahn_testversuch.png>]
+<Bilder/16_stuetzquellen.png, id=1749, 883.9177pt x 429.72853pt>
 File: Bilder/16_stuetzquellen.png Graphic file (type png)
 <use Bilder/16_stuetzquellen.png>
-Package pdftex.def Info: Bilder/16_stuetzquellen.png  used on input line 555.
+Package pdftex.def Info: Bilder/16_stuetzquellen.png  used on input line 558.
 (pdftex.def)             Requested size: 455.24411pt x 221.3225pt.
- [67 <./Bilder/Flugbahn_testversuch.png>] [68 <./Bilder/16_stuetzquellen.png>]
-<Bilder/Kalman_Gain.png, id=1763, 939.51pt x 330.77423pt>
+ [68 <./Bilder/16_stuetzquellen.png>]
+<Bilder/06_ev_innovationen.png, id=1763, 939.51pt x 867.24pt>
+File: Bilder/06_ev_innovationen.png Graphic file (type png)
+<use Bilder/06_ev_innovationen.png>
+Package pdftex.def Info: Bilder/06_ev_innovationen.png  used on input line 586.
+(pdftex.def)             Requested size: 455.24411pt x 420.22714pt.
+ [69 <./Bilder/06_ev_innovationen.png>]
+<Bilder/Kalman_Gain.png, id=1772, 939.51pt x 330.77423pt>
 File: Bilder/Kalman_Gain.png Graphic file (type png)
 <use Bilder/Kalman_Gain.png>
-Package pdftex.def Info: Bilder/Kalman_Gain.png  used on input line 584.
+Package pdftex.def Info: Bilder/Kalman_Gain.png  used on input line 616.
 (pdftex.def)             Requested size: 455.24411pt x 160.27893pt.
- [69 <./Bilder/Kalman_Gain.png>]
-<Bilder/01_position_vision_ekf_sollwert.png, id=1772, 939.51pt x 794.97pt>
+ [70 <./Bilder/Kalman_Gain.png>]
+<Bilder/01_position_vision_ekf_sollwert.png, id=1781, 939.51pt x 794.97pt>
 File: Bilder/01_position_vision_ekf_sollwert.png Graphic file (type png)
 <use Bilder/01_position_vision_ekf_sollwert.png>
-Package pdftex.def Info: Bilder/01_position_vision_ekf_sollwert.png  used on input line 619.
+Package pdftex.def Info: Bilder/01_position_vision_ekf_sollwert.png  used on input line 651.
 (pdftex.def)             Requested size: 455.24411pt x 385.2082pt.
- [70 <./Bilder/01_position_vision_ekf_sollwert.png>] [71]
-Overfull \hbox (3.49693pt too wide) in paragraph at lines 711--720
+ [71 <./Bilder/01_position_vision_ekf_sollwert.png>] [72]
+Overfull \hbox (3.49693pt too wide) in paragraph at lines 743--752
 \T1/lmss/m/n/10.95 tiv an-ge-setz-te Stan-dard-ab-wei-chung der Vision-Stützung ver-mu-tet. Der Pa-ra-me-ter \T1/pcr/m/n/10.95 EKF2_EVP_NOISE
  []
 
-[72])) (./30_Schluss.tex [73]
+[73])) (./30_Schluss.tex [74]
 chapter 8.
-[74
+[75
 
-]) [75]
+]) [76]
 LaTeX Font Info:    Trying to load font information for T1+lmr on input line 245.
  (/usr/share/texmf/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
@@ -2040,9 +2046,9 @@ File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 LaTeX Font Warning: Font shape `T1/lmss/m/sc' in size <10.95> not available
 (Font)              Font shape `T1/lmr/m/sc' tried instead on input line 245.
 
-[76
+[77
 
-] [77] [78] [79]
+] [78] [79] [80]
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <8> not available
 (Font)              Font shape `T1/lmss/m/sl' tried instead on input line 245.
 LaTeX Font Info:    Font shape `TS1/lmss/m/it' in size <8> not available
@@ -2054,14 +2060,14 @@ Overfull \hbox (14.67226pt too wide) in paragraph at lines 246--246
 \T1/pcr/m/n/10.95 forschung -[] innovation / forschungseinrichtungen / ohm -[] innovation -[] center /
  []
 
-[80] (./00_Abschlussarbeit.lof
+[81] (./00_Abschlussarbeit.lof
 Package cleveref Info: loaded `ngerman' language definitions on input line 3.
 Package cleveref Info: loaded `ngerman' language definitions on input line 4.
 )
 \tf@lof=\write12
 \openout12 = `00_Abschlussarbeit.lof'.
 
- [81
+ [82
 
 ] (./00_Abschlussarbeit.lot
 Package cleveref Info: loaded `ngerman' language definitions on input line 3.
@@ -2070,7 +2076,7 @@ Package cleveref Info: loaded `ngerman' language definitions on input line 4.
 \tf@lot=\write13
 \openout13 = `00_Abschlussarbeit.lot'.
 
- [82
+ [83
 
 ] (./00_Abschlussarbeit.lol
 Package cleveref Info: loaded `ngerman' language definitions on input line 3.
@@ -2079,11 +2085,11 @@ Package cleveref Info: loaded `ngerman' language definitions on input line 4.
 \tf@lol=\write14
 \openout14 = `00_Abschlussarbeit.lol'.
 
- (./40_Anhang.tex [83
+ (./40_Anhang.tex [84
 
 ]
 chapter 9.
-) [84
+) [85
 
 ] (./00_Abschlussarbeit.aux
 Package cleveref Info: loaded `ngerman' language definitions on input line 22.
@@ -2100,18 +2106,18 @@ Package logreq Info: Writing requests to '00_Abschlussarbeit.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 58759 strings out of 474222
- 1208948 string characters out of 5748733
- 2270826 words of memory out of 5000000
- 79601 multiletter control sequences out of 15000+600000
+ 58773 strings out of 474222
+ 1209324 string characters out of 5748733
+ 2271073 words of memory out of 5000000
+ 79612 multiletter control sequences out of 15000+600000
  660008 words of font info for 113 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  108i,20n,107p,10958b,4154s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx9.pfb></usr/share/texmf/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr9.pfb></usr/share/texmf/fonts/type1/public/lm/lmss10.pfb></usr/share/texmf/fonts/type1/public/lm/lmss12.pfb></usr/share/texmf/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf/fonts/type1/public/lm/lmss8.pfb></usr/share/texmf/fonts/type1/public/lm/lmss9.pfb></usr/share/texmf/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsso10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsso8.pfb></usr/share/texmf/fonts/type1/public/lm/lmsso9.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on 00_Abschlussarbeit.pdf (95 pages, 17450015 bytes).
+Output written on 00_Abschlussarbeit.pdf (96 pages, 17731571 bytes).
 PDF statistics:
- 2447 PDF objects out of 2487 (max. 8388607)
- 2141 compressed objects within 22 object streams
- 498 named destinations out of 1000 (max. 500000)
- 632 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2458 PDF objects out of 2487 (max. 8388607)
+ 2149 compressed objects within 22 object streams
+ 501 named destinations out of 1000 (max. 500000)
+ 637 words of extra memory for PDF output out of 10000 (max. 10000000)
 

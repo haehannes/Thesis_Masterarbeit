@@ -32,8 +32,9 @@
 \contentsline {figure}{\numberline {7.6}{\ignorespaces Das \gls {uav} im Schwebeflug über der Markerkarte der OIC-Flughalle}}{66}{figure.caption.74}%
 \contentsline {figure}{\numberline {7.7}{\ignorespaces Berechnete Flugbahn des Flugcontrollers.}}{67}{figure.caption.75}%
 \contentsline {figure}{\numberline {7.8}{\ignorespaces Zeitliche Belegung der Stützquellen des \gls {ekf}s eines Testflugs}}{68}{figure.caption.77}%
-\contentsline {figure}{\numberline {7.9}{\ignorespaces Verlauf des gespeicherten Kalman-Gains der Vision-Stützung}}{69}{figure.caption.79}%
-\contentsline {figure}{\numberline {7.10}{\ignorespaces Verlauf der geloggten Positionswerte}}{70}{figure.caption.81}%
+\contentsline {figure}{\numberline {7.9}{\ignorespaces Innovationen der Vision-Stützung mit den zugehörigen Konsistenzgrenzen}}{69}{figure.caption.79}%
+\contentsline {figure}{\numberline {7.10}{\ignorespaces Verlauf des gespeicherten Kalman-Gains der Vision-Stützung}}{70}{figure.caption.81}%
+\contentsline {figure}{\numberline {7.11}{\ignorespaces Verlauf der geloggten Positionswerte}}{71}{figure.caption.83}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

@@ -1,6 +1,6 @@
 ;; This logfile was generated automatically by `xindy'
-;; at 21.07.2026  08:06:34
-;; Indexstyle: "/tmp/oPYCHJ9qeU", Rawindex: "/tmp/5qOZtzoM1l", Output: "00_Abschlussarbeit.acr"
+;; at 21.07.2026  16:15:11
+;; Indexstyle: "/tmp/wfaWl8pr2a", Rawindex: "/tmp/Ngxy4dJk9Z", Output: "00_Abschlussarbeit.acr"
 
 
 Building indexentry-tree:

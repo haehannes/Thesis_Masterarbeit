@@ -426,7 +426,7 @@ Die konkret gewählten Werte sind in Tabelle~\ref{tab:vision_pose_werte} zusamme
 \addlinespace
 \multicolumn{2}{@{}l}{\textit{PX4-Anbindung und Zeit}} \\
 \texttt{pose\_frame}                       & $1$ \\
-\texttt{apply\_timesync\_offset}                   & \texttt{/fmu/out/timesync\_status} \\
+\texttt{timesync\_topic}                   & \texttt{/fmu/out/timesync\_status} \\
 \addlinespace
 \multicolumn{2}{@{}l}{\textit{Ausreißerfilterung (RANSAC)}} \\
 \texttt{ransac\_base\_threshold\_m}        & 0,06 \\
@@ -517,7 +517,7 @@ Maßgeblich ist damit allein, ob das Manöver ohne Eingriff über die Fernsteuer
 Dieses Kriterium bewertet das Zusammenspiel der gesamten Verarbeitungskette, nicht die Genauigkeit der einzelnen Schätzung.
 
 
-
+\newpage
 
 \subsection{Evaluation der Positionierung}
 \label{subsec:evaluation_positionierung}
@@ -547,6 +547,9 @@ An dieser Stelle ist die Reichweite der Auswertung zu benennen.
 Der Flugcontroller verfügt über keine unabhängige Referenz der wahren Pose, weshalb sich die absolute Genauigkeit der Positionsbestimmung aus dem Protokoll nicht bestimmen lässt.
 Bewertet wird stattdessen die Konsistenz der Fusion, also die Frage, ob die eingespeiste Position und die aus der \gls{imu} fortgeschriebene Vorhersage zueinander passen.
 
+
+
+\newpage
 \subsection*{Belegung der Bezugsquellen des Zustandsschätzers}
 Abbildung~\ref{fig:stuetzquellen} zeigt, welche Bezugsquellen der im Flugcontroller implementierte \gls{ekf} über den Flug hinweg zur Positionsschätzung heranzieht.
 
@@ -576,6 +579,35 @@ Das intern verbaute Barometer ist über den gesamten Flug aktiv und liefert kons
 
 
 \newpage
+\subsection*{Innovation der Vision-Stützung}
+\label{subsec:innovation}
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=1.0\textwidth]{Bilder/06_ev_innovationen.png}
+\caption{Innovationen der Vision-Stützung mit den zugehörigen Konsistenzgrenzen}
+\label{fig:ev_innovationen}
+\end{figure}
+\FloatBarrier
+
+Abbildung~\ref{fig:ev_innovationen} zeigt die Innovation der Vision-Stützung für die vier Messgrößen Position~$x$, Position~$y$, Höhe und Gierwinkel.
+Die Innovation bezeichnet die Differenz zwischen der eingespeisten Vision-Messung und dem aus dem Systemmodell vorhergesagten Messwert.
+Sie ist damit das unmittelbare Maß für die Konsistenz der Fusion. 
+
+Der blau hinterlegte Bereich kennzeichnet das Konsistenzintervall von $\pm1\sigma$, das sich aus der Wurzel der Innovationsvarianz $\mathbf{S}$ ergibt.
+Diese setzt sich aus der auf den Messraum abgebildeten Zustandskovarianz $\mathbf{P}$ und der Messrauschkovarianz $\mathbf{R}$ zusammen.
+Ein konsistenter Filter hält seine Innovation innerhalb dieses Intervalls.
+
+Über den gesamten Flug bleibt die Innovation aller vier Messgrößen innerhalb des Konsistenzintervalls.
+Der Filter divergiert zu keinem Zeitpunkt und übernimmt die eingespeiste Pose konsistent.
+Zugleich schöpft die Innovation das Band nur zu einem Bruchteil aus und streut deutlich enger, als es die angesetzte Unsicherheit erwarten ließe.
+Dieses Verhalten deckt sich mit dem nachfolgend beschriebenen niedrigen Kalman-Gain und weist auf die konservativ über \texttt{EKF2\_EVP\_NOISE} angesetzte Messrauschkovarianz hin.
+
+An den orange hinterlegten Aussetzern weitet sich das Konsistenzintervall kurzzeitig auf.
+Während dieser Phasen schreibt der Zustandsschätzer seinen Zustand allein über das Systemmodell fort, wodurch die Zustandskovarianz $\mathbf{P}$ und mit ihr die Innovationsvarianz $\mathbf{S}$ anwächst.
+Die Aufweitung fällt damit mit den Spitzen des Kalman-Gains zusammen.
+
+
+
 
 \subsection*{Kalman-Gain der Vision-Positionsstützung}
 \label{subsec:kalman_gain}
@@ -610,7 +642,7 @@ Die Vision-Messungen würden dann stärker gewichtet werden und die Positionsuns
 
 
 
-\newpage
+
 
 \subsection*{Verlauf der Positionsschätzung}
 \label{subsec:positionsschätzung}
