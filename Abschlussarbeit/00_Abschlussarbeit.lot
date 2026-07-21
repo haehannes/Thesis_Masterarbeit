@@ -4,22 +4,22 @@
 \babel@toc {ngerman}{}\relax 
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {2.1}{\ignorespaces Sensorbestückung des Pixhawk 6X~\blx@tocontentsinit {0}\cite {px4_pixhawk6x_doc}}}{6}{table.caption.12}%
+\contentsline {table}{\numberline {2.1}{\ignorespaces Sensorbestückung des Pixhawk 6X~\blx@tocontentsinit {0}\cite {px4_pixhawk6x_doc}}}{5}{table.caption.12}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces Übersicht der eingesetzten Hardwarekomponenten mit Gewicht und Betriebssystem}}{25}{table.caption.40}%
+\contentsline {table}{\numberline {4.1}{\ignorespaces Übersicht der eingesetzten Hardwarekomponenten mit Gewicht und Betriebssystem}}{24}{table.caption.40}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces Paarweiser Vergleich Bewertungskriterien der \gls {slam}-Varianten}}{30}{table.caption.47}%
-\contentsline {table}{\numberline {5.2}{\ignorespaces Nutzwertanalyse der \gls {slam}-Varianten}}{32}{table.caption.49}%
-\contentsline {table}{\numberline {5.3}{\ignorespaces Wesentliche Parameter der Optimierung in \texttt {tagslam.yaml}}}{38}{table.caption.52}%
+\contentsline {table}{\numberline {5.1}{\ignorespaces Paarweiser Vergleich Bewertungskriterien der \gls {slam}-Varianten}}{29}{table.caption.47}%
+\contentsline {table}{\numberline {5.2}{\ignorespaces Nutzwertanalyse der \gls {slam}-Varianten}}{31}{table.caption.49}%
+\contentsline {table}{\numberline {5.3}{\ignorespaces Wesentliche Parameter der Optimierung in \texttt {tagslam.yaml}}}{37}{table.caption.52}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {6.1}{\ignorespaces Wesentliche \gls {ekf}-Parameter zur visionsgestützten Zustandsschätzung}}{40}{table.caption.53}%
-\contentsline {table}{\numberline {6.2}{\ignorespaces Startparameter des Nodes \texttt {vision\_pose\_uxrce\_node}}}{47}{table.6.2}%
+\contentsline {table}{\numberline {6.1}{\ignorespaces Wesentliche \gls {ekf}-Parameter zur visionsgestützten Zustandsschätzung}}{39}{table.caption.53}%
+\contentsline {table}{\numberline {6.2}{\ignorespaces Startparameter des Nodes \texttt {vision\_pose\_uxrce\_node}}}{46}{table.6.2}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {7.1}{\ignorespaces Parametrierung der drei Versuche}}{56}{table.caption.64}%
-\contentsline {table}{\numberline {7.2}{\ignorespaces Abweichungen der erzeugten Karten gegenüber der Ground Truth Karte}}{61}{table.caption.71}%
-\contentsline {table}{\numberline {7.3}{\ignorespaces Tastenbelegung der Bedienkonsole}}{63}{table.caption.73}%
-\contentsline {table}{\numberline {7.4}{\ignorespaces Für den Flugbetrieb gewählte Startwerte des Nodes \texttt {vision\_pose\_uxrce\_node}}}{65}{table.7.4}%
+\contentsline {table}{\numberline {7.1}{\ignorespaces Parametrierung der drei Versuche}}{55}{table.caption.64}%
+\contentsline {table}{\numberline {7.2}{\ignorespaces Abweichungen der erzeugten Karten gegenüber der Ground Truth Karte}}{60}{table.caption.71}%
+\contentsline {table}{\numberline {7.3}{\ignorespaces Tastenbelegung der Bedienkonsole}}{62}{table.caption.73}%
+\contentsline {table}{\numberline {7.4}{\ignorespaces Für den Flugbetrieb gewählte Startwerte des Nodes \texttt {vision\_pose\_uxrce\_node}}}{64}{table.7.4}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

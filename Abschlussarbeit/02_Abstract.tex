@@ -34,9 +34,6 @@
 \chapter*{Abstract}
 %\addcontentsline{toc}{chapter}{Abstract}
 \noindent
-% TEXT ENGLISCH %
-Diese Arbeit befasst sich mit der Umsetzung eines... % (English abstract below)
-
 This thesis addresses the implementation of a fiducial-marker-based localization system for an unmanned aerial vehicle in indoor environments.
 Indoors, satellite navigation is unavailable, so the absolute position reference otherwise used by the flight controller is missing.
 The aim of this thesis is to localize an unmanned aerial vehicle in an indoor environment without satellite navigation and to feed this position estimate into the flight controller as an external reference.
@@ -89,11 +86,11 @@ During the flight, however, continuous control movements are noticeable, leading
 \chapter*{Kurzfassung}
 \addcontentsline{toc}{chapter}{Kurzfassung}
 \noindent
-Die vorliegende Arbeit befasst sich mit der Umsetzung eines passmarkenbasierten Lokalisierungssystems für ein unbemanntes Fluggerät im Innenraum.
+Die vorliegende Arbeit befasst sich mit der Umsetzung eines Fiducial-Marker basierten Lokalisierungssystems für ein unbemanntes Fluggerät im Innenraum.
 In Innenräumen steht keine Satellitennavigation zur Verfügung, sodass die sonst übliche absolute Positionsreferenz für die Flugsteuerung entfällt.
 Ziel der Arbeit ist es, ein unbemanntes Fluggerät in einer Innenraumumgebung ohne Satellitennavigation zu lokalisieren und diese Positionsschätzung 
 als externe Referenz in die Flugsteuerung einzuspeisen.
-Als Grundlage dienen Passmarken des Typs \texttt{tag36h11} aus der AprilTag-Familie, deren Lage in einer vorab erstellten Karte hinterlegt ist.
+Als Grundlage dienen Fiducial-Marker des Typs \texttt{tag36h11} aus der AprilTag-Familie, deren Lage in einer vorab erstellten Karte hinterlegt ist.
 Die Karte wird in einem dreistufigen, vorgelagerten Verfahren zur simultanen Lokalisierung und Kartierung erstellt.
 Im Flug bestimmt der auf dem Fluggerät befestigt Begleitrechner, aus den Markerdetektionen zweier Kameras fortlaufend die Pose des Fluggeräts und übergibt sie über die Kommunikationsschnittstelle an den Flugregler.
 Dort wird sie im erweiterten Kalman-Filter der Flugsteuerung als externe Positionsreferenz verarbeitet.
@@ -101,6 +98,6 @@ Das System ist vollständig aus quelloffener Software und gängigen Komponenten 
 Die Arbeit beschreibt die Auswahl der Kartierungs- und Markermethodik, die Kalibrierung der Kameras, die Kartenerstellung sowie die im Flug ablaufende Positionsbestimmung und deren Anbindung an die Flugsteuerung.
 Die Evaluierung umfasst Versuche zur Erstellung der Karte, bei denen unterschiedliche Parametrierungen mit verschieden hohem Berechnungsaufwand miteinander sowie mit einer bekannten Referenzkarte verglichen werden.
 Die Ergebnisse zeigen, dass die Kartenerstellung mit den untersuchten Parametrierungen zuverlässig möglich ist.
-Zusätzlich wird ein Testflüge durchgeführt, bei dem das Fluggerät eine quadratische Flugbahn mit einer Kantenlänge von 2,0~m abfliegt.
+Zusätzlich wird ein Testflüge durchgeführt, bei dem das Fluggerät eine quadratische Flugbahn mit einer Seitenlänge von 2,0~m abfliegt.
 Dabei folgt das Fluggerät den vorgegebenen Kanten zuverlässig.
 Während des Fluges sind jedoch kontinuierliche Regelbewegungen erkennbar, die zu geringfügigen Abweichungen von der vorgegebenen Flugbahn führen.

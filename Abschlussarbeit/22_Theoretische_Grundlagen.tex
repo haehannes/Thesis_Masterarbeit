@@ -55,11 +55,11 @@ Die Sensorfusion, also die Kombination der Daten mehrerer Sensoren, ermöglicht 
 
 \section{Flugcontroller Pixhawk 6X}
 \label{sec:Pixhawk_6X}
-Pixhawk ist ein Open-Source-Autopilot-Flugstack, der die Flugsteuerung, Zustandsschätzung und Kommunikation eines \gls{uav} übernimmt.
+Pixhawk ist ein Open-Source-Autopilot-Flugstack, der die Flugsteuerung, die Zustandsschätzung und die Kommunikation eines \gls{uav}s übernimmt.
 Das Pixhawk-Projekt wurde ursprünglich als studentisches Projekt an der ETH Zürich gestartet 
 und hat sich seitdem zu einem weit verbreiteten Open-Source-Standard 
 in der \gls{uav}-Forschung und -Industrie entwickelt.
-Der in dieser Arbeit verwendete Pixhawk 6X basiert auf dem Pixhawk FMU-V6X-Standard~\cite{px4_pixhawk6x_doc, MendozaMendoza2020}.
+Der in dieser Arbeit verwendete Pixhawk 6X basiert auf dem Pixhawk FMU-V6X-Standard.~\cite{px4_pixhawk6x_doc, MendozaMendoza2020}
 
 Der Flugcontroller besteht aus zwei Teilen, dem Baseboard (V2A) und dem \gls{fmu}-Modul (FMUv6X).
 Das \gls{fmu}-Modul wird auf das Baseboard aufgesteckt und verschraubt.
@@ -106,15 +106,14 @@ Die Ethernet-Schnittstelle dient der Kommunikation zwischen dem
 Flugcontroller und dem Begleitrechner, über welche die extern berechnete Positionsschätzung 
 an den Zustandsschätzer übermittelt wird.
 Die Kommunikation mit dem Begleitrechner erfolgt über die \gls{uxrce}-Schnittstelle, 
-die die internen \gls{uorb}-Topics von \gls{px4} als ROS2-Topics bereitstellt.~\cite{px4_uxrce_dds}
-
-Die genaue Anbindung wird in Kapitel~\ref{cap:systembeschreibung} beschrieben.
+die die internen \gls{uorb}-Topics von \gls{px4} als ROS2-Topics bereitstellt.
+Die genaue Anbindung wird in Kapitel~\ref{cap:systembeschreibung} beschrieben.~\cite{px4_uxrce_dds}
  
 Die Kommunikation mit der \gls{qgc} erfolgt über das MAVLink-Protokoll.
 MAVLink ist ein leichtgewichtiges Nachrichtenprotokoll, das speziell für die 
 Kommunikation zwischen Flugcontrollern und \gls{qgc} entwickelt wurde.
 Es serialisiert Telemetriedaten, Steuerbefehle und Sensorwerte in Binärpakete, 
-die über serielle Schnittstellen oder \gls{udp} übertragen werden.~\cite{MAVLink,px4_mavlink}
+die über serielle Schnittstellen oder \gls{udp} übertragen werden~\cite{MAVLink,px4_mavlink}.
 
 
 Die \gls{pwm}-Ausgänge des Baseboards steuern die Elektromotoren des \gls{uav}s an.
@@ -126,17 +125,16 @@ nicht verwendet werden~\cite{px4_pixhawk6x_doc}.
 \label{sec:pixhawk_sensorik}
 Um die Zuverlässigkeit zu erhöhen, verfügt der Pixhawk über eine dreifach redundante \gls{imu} sowie zwei redundante 
 Barometer, die auf getrennten Bussen mit unabhängiger Stromversorgung betrieben werden.
-Erkennt der \gls{px4} einen Sensorausfall, schaltet das System auf einen funktionierenden Sensor um und hält so die Flugsteuerung aufrecht.~\cite{px4_pixhawk6x_doc}
-
-Die Messungen der \gls{imu} bilden die Grundlage der Odometrie.
-Odometrie bezeichnet die Schätzung der Positions- und Lageänderung eines Systems aus dessen Bewegungssensoren über die Zeit.
+Erkennt der \gls{px4} einen Sensorausfall, schaltet das System auf einen funktionierenden Sensor um und hält so die Flugsteuerung aufrecht.
 Die \gls{imu}s sind vibrationsisoliert gelagert und werden über Heizwiderstände auf einer konstanten Betriebstemperatur gehalten, 
 wodurch temperaturbedingte Messabweichungen reduziert werden.~\cite{px4_pixhawk6x_doc}
 
-Weiterhin ist zur Lagebestimmung ein Magnetometer verbaut, dieses kann aufgrund der in der Versuchsumgebung herrschenden Bedingungen jedoch nicht verwendet werden.
-Wie in Abschnitt~\ref{sec:sensorik} beschrieben, sind die Sensoren mit einer Messunsicherheit behaftet.
+Die Messungen der \gls{imu} bilden die Grundlage der Odometrie.
+Odometrie bezeichnet die Schätzung der Positions- und Lageänderung eines Systems aus dessen Bewegungssensoren über die Zeit.
 
-Die allein daraus berechnete Odometrie driftet ohne externe Positionsreferenz mit der Zeit, weshalb eine Sensorfusion mit externen Positionsdaten notwendig ist.
+
+Weiterhin ist zur Lagebestimmung ein Magnetometer verbaut, dieses kann aufgrund der in der Versuchsumgebung herrschenden Bedingungen jedoch nicht verwendet werden.
+
 Die in der eingesetzten Revision verbauten Sensoren sind in Tabelle 
 \ref{tab:pixhawk_sensoren} aufgeführt.
 \begin{table}[htbp]
@@ -156,6 +154,9 @@ Die in der eingesetzten Revision verbauten Sensoren sind in Tabelle
 \label{tab:pixhawk_sensoren}
 \end{table}
 \FloatBarrier
+\noindent
+Da die Sensoren wie zuvor beschrieben einen Fehler aufweisen, driftet die allein daraus berechnete Odometrie ohne externe Referenz mit der Zeit.
+Aus diesem Grund ist eine Sensorfusion mit externen Positionsdaten zur langfristigen Positionsbestimmung notwendig.
 
 \subsection*{Zustandsschätzung und Sensorfusion im Flugcontroller}
 \label{sec:ekf_px4}
@@ -163,7 +164,7 @@ Die Zustandsschätzung des \gls{px4} erfolgt über den \gls{ekf}, einen in Absch
 Der \gls{ekf} fusioniert die Messungen der bordeigenen Sensoren mit externen 
 Referenzen, um Lage, Geschwindigkeit und Position des \gls{uav} zu schätzen.
 Der Zustandsvektor des \gls{ekf}s umfasst 24 Zustände, darunter die Lage, 
-Geschwindigkeit, Position, die Bias-Werte der \gls{imu}, das 
+die Geschwindigkeit,die Position, die Bias-Werte der \gls{imu}, das 
 Erdmagnetfeld, den Magnetometer-Bias sowie die horizontale Windgeschwindigkeit.~\cite{Ko2018}
 
 Im Standardfall bezieht der \gls{ekf} seine externe Positionsreferenz aus einem \gls{gnss}.
@@ -196,6 +197,7 @@ Mathematisch wird der Zusammenhang durch
 \end{equation}
 
 beschrieben.
+
 Die Achsen folgen dem informellen Industriestandard, nach dem die X-Achse rot, die Y-Achse grün und die Z-Achse blau eingefärbt werden.
 Einen Überblick über die verwendeten Koordinatensysteme gibt Abbildung~\ref{fig:Koordinatensysteme}.
 \begin{figure}[htbp]
@@ -220,7 +222,7 @@ die X-Achse nach rechts und die Y-Achse nach unten auf der Bildebene zeigt.
 Der Ursprung befindet sich im optischen Zentrum der Kamera.~\cite{Szeliski2022}
 
 Das Fiducial-Koordinatensystem ist in dieser Arbeit so definiert, dass sich der Ursprung im Mittelpunkt des Markers befindet.
-Die Z-Achse zeigt senkrecht aus der Markerebene heraus, die X-Achse verläuft nach rechts und die Y-Achse nach oben in der Markerebene.
+Die Z-Achse zeigt senkrecht aus der Fiducial-Marker-Ebene heraus, die X-Achse verläuft nach rechts und die Y-Achse nach oben in der Fiducial-Marker-Ebene.
 Die in den Kapiteln~\ref{cap:implementierung_kartierung} und~\ref{cap:implementierung_positionsbestimmung} beschriebenen Implementierungen
 folgen der in \gls{ros2} standardisierten \gls{enu}/\gls{flu}-Konvention.
 
@@ -384,11 +386,12 @@ Die Normalisierung eines Quaternions erfolgt gemäß
 \subsection*{Mittelung von Quaternionen}
 \label{sec:quaternionen_mittelung}
 Liegen für dieselbe Orientierung mehrere Schätzungen als Einheitsquaternionen vor, müssen diese zu einer einzigen Orientierung zusammengefasst werden.
-Eine komponentenweise Mittelung der Quaternionen ist dabei nicht ohne Weiteres möglich~\cite{Markley2007}.
+Eine komponentenweise Mittelung der Quaternionen ist dabei nicht ohne Weiteres möglich.
 Da ein Quaternion $\mathbf{q}$ und sein Negatives $-\mathbf{q}$ dieselbe Rotation beschreiben, 
 können sich entgegengesetzt notierte Quaternionen bei einer direkten Summenbildung gegenseitig aufheben.
 Vor der Mittelung wird daher das Vorzeichen aller Quaternionen an ein Referenzquaternion \gls{sym:qref} angeglichen.
-Zur Angleichung werden die Quaternionen als Vektoren beschrieben.
+Zur Angleichung werden die Quaternionen als Vektoren beschrieben.~\cite{Markley2007}
+
 Als Maß für ihre Ausrichtung dient das Skalarprodukt:
 \begin{equation}
 \langle \mathbf{q}_i, \mathbf{q}_{\mathrm{ref}} \rangle =
@@ -574,7 +577,7 @@ Sind die Transformationen $^c\mathbf{T}_b$ (von~$b$ nach~$c$) und $^b\mathbf{T}_
 \label{sec:ekf}
 In dieser Arbeit wird nicht näher auf die konkrete Umsetzung der Sensorfusion eingegangen, da der \gls{ekf} bereits vollständig im Flugcontroller implementiert ist.
 Auch die speziell im \gls{px4} zugrundeliegenden mathematischen Modelle werden nicht weiter erläutert.
-Zum Verständnis der Positionsbestimmung sowie der Parametrierung des \gls{ekf} ist es jedoch notwendig, die Grundlagen des Kalman-Filters als zugrundeliegendes Sensorfusionsverfahren zu kennen.
+Zum Verständnis der Positionsbestimmung sowie der Parametrierung des \gls{ekf}s ist es jedoch notwendig, die Grundlagen des Kalman-Filters als zugrundeliegendes Sensorfusionsverfahren zu kennen.
 
 Ein Kalman-Filter ist ein Algorithmus zur Schätzung des Zustands eines dynamischen Systems durch 
 die Kombination von Vorhersagen aus einem mathematischen Modell und Messungen von Sensoren.
@@ -623,7 +626,7 @@ $\mathbf{R}$ beschreibt die Unsicherheit der Sensormessungen.
 Ein hoher Wert führt zu einem geringeren Vertrauen in die Messung und damit zu einer schwächeren Korrektur.
 Der Kalman-Gain gewichtet folglich Modellvorhersage und Messung anhand ihrer jeweiligen Unsicherheiten.
 
-Anschließend wird der korrigierte Zustand $\hat{\mathbf{x}}_k^{+}$ aus dem vorhergesagten Zustand und der gewichteten Differenz zwischen tatsächlicher Messung $\mathbf{z}_k$ und erwarteter Messung $h(\hat{\mathbf{x}}_k^{-})$ – der Innovation – berechnet:
+Anschließend wird der korrigierte Zustand $\hat{\mathbf{x}}_k^{+}$ aus dem vorhergesagten Zustand und der gewichteten Innovation berechnet, also der Differenz zwischen tatsächlicher Messung $\mathbf{z}_k$ und erwarteter Messung $h(\hat{\mathbf{x}}_k^{-})$:
 \begin{equation}
     \hat{\mathbf{x}}_k^{+} = \hat{\mathbf{x}}_k^{-} + \mathbf{K}_k\left(\mathbf{z}_k - h\left(\hat{\mathbf{x}}_k^{-}\right)\right)
 \end{equation}
