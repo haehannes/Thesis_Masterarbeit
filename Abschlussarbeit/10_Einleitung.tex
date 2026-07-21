@@ -30,6 +30,13 @@ Die einzelnen Schätzungen werden über eine Ausreißerfilterung bereinigt, anha
 Die so bestimmte Pose wird über eine Kommunikationsschnittstelle an den Flugcontroller übergeben.
 Dort wird sie in einem zeitdiskreten Zustandsschätzer mit den übrigen Sensordaten fusioniert und als externe Positionsreferenz verwendet, während Satellitennavigation und Magnetometer von der Fusion ausgeschlossen sind.
 
-Die Arbeit ordnet zunächst bestehende Verfahren zur Lokalisierung ohne Satellitennavigation in den Stand der Technik ein und leitet daraus die gewählte Marker- und Kartierungsmethodik ab.
-Darauf folgen die Beschreibung des Gesamtsystems, die Umsetzung der Kartierung und die im Flug ablaufende Positionsbestimmung.
-Den Abschluss bilden die Versuchsdurchführung und die Evaluation, in der die erzeugten Karten gegen eine bekannte Referenz verglichen und das Verhalten der Positionsbestimmung in praktischen Flugversuchen bewertet werden.
+Abschließend wird das aufgebaute System evaluiert.
+Die Evaluierung gliedert sich in die beiden Teilaufgaben der Kartierung und der Positionierung.
+
+Diese unterscheiden sich im Rechenaufwand und werden untereinander sowie mit einer bekannten Referenzkarte verglichen.
+Die Ergebnisse zeigen, dass sich mit den untersuchten Parametrierungen zuverlässig eine für die Positionsbestimmung nutzbare Karte erzeugen lässt.
+
+Die Positionierung wird in mehreren Testflügen bewertet, bei denen das Fluggerät eine quadratische Flugbahn mit einer Seitenlänge von 2,0~m abfliegt.
+Dabei durchläuft es den festgelegten Ablauf aus Steigflug, Schwebeflug, Abfliegen der Flugbahn und Landung vollständig und ohne Eingriff über die Fernsteuerung.
+Da dem System keine von der Positionsbestimmung unabhängige Referenz der wahren Pose zur Verfügung steht, beschränkt sich die Bewertung auf die Konsistenz der Fusion im Flugcontroller.
+Das Fluggerät folgt der vorgegebenen Flugbahn zuverlässig, zeigt dabei jedoch kontinuierliche Regelbewegungen, die zu geringfügigen Abweichungen von der Sollbahn führen.

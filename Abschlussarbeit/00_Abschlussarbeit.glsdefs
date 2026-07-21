@@ -2378,6 +2378,34 @@ parent={},%
 %
 }%
 
+\glsdefs@newdocentry{sym:S}%
+{%
+name={\ensuremath {\mathbf {S}}},%
+sort={G115},%
+type={symbols},%
+first={\protect \ensuremath  {\protect \mathbf  {S}}},%
+firstplural={\protect \ensuremath  {\protect \mathbf  {S}}s},%
+text={\protect \ensuremath  {\protect \mathbf  {S}}},%
+plural={\protect \ensuremath  {\protect \mathbf  {S}}s},%
+description={Innovationskovarianzmatrix},%
+descriptionplural={Innovationskovarianzmatrix},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
 \glsdefs@newdocentry{sym:h}%
 {%
 name={\ensuremath {h}},%

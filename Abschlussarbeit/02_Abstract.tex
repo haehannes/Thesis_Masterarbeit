@@ -34,20 +34,20 @@
 \chapter*{Abstract}
 %\addcontentsline{toc}{chapter}{Abstract}
 \noindent
-This thesis addresses the implementation of a fiducial-marker-based localization system for an unmanned aerial vehicle in indoor environments.
-Indoors, satellite navigation is unavailable, so the absolute position reference otherwise used by the flight controller is missing.
-The aim of this thesis is to localize an unmanned aerial vehicle in an indoor environment without satellite navigation and to feed this position estimate into the flight controller as an external reference.
-The approach is based on fiducial markers of type \texttt{tag36h11} from the AprilTag family, whose poses are stored in a previously created map.
-The map is generated in a three-stage, upstream procedure for simultaneous localization and mapping.
-During flight, the companion computer mounted on the aerial vehicle continuously determines the vehicle's pose from the marker detections of two cameras and passes it to the flight controller via the communication interface.
-There, it is processed as an external position reference in the extended Kalman filter of the flight controller.
+This thesis addresses the implementation of a fiducial-marker-based localization system for an unmanned aerial vehicle operating indoors.
+In indoor environments no satellite navigation is available, so the absolute position reference otherwise relied upon by the flight controller is absent.
+The aim of this work is to localize an unmanned aerial vehicle in an indoor environment without satellite navigation and to feed this position estimate into the flight controller as an external reference.
+The system relies on fiducial markers of type \texttt{tag36h11} from the AprilTag family, whose poses are stored in a previously generated map.
+The map is created in a three-stage, preliminary simultaneous localization and mapping procedure.
+There it is processed as an external position reference within the extended Kalman filter of the flight controller.
 The system is built entirely from open-source software and off-the-shelf components.
-This thesis describes the selection of the mapping and marker methodology, the calibration of the cameras, the map generation, as well as the position estimation performed during flight and its integration with the flight controller.
-The evaluation comprises experiments on map generation, in which different parameterizations with varying computational effort are compared with one another and with a known reference map.
-The results show that map generation is reliably possible with the parameterizations examined.
-In addition, a test flight is carried out in which the aerial vehicle flies a square trajectory with an edge length of 2.0\,m.
-In doing so, the aerial vehicle follows the specified edges reliably.
-During the flight, however, continuous control movements are noticeable, leading to minor deviations from the specified trajectory.
+This thesis describes the selection of the mapping and marker methodology, the calibration of the cameras, the map generation, as well as the position estimation performed in flight and its integration into the flight controller.
+The evaluation comprises experiments on map generation in which different parameterizations, entailing different computational costs, are compared with one another and with a known reference map.
+The results show that map generation is reliably feasible with the parameterizations examined.
+In addition, a test flight is conducted in which the aerial vehicle follows a predefined trajectory.
+During this flight the aerial vehicle tracks the specified edges reliably.
+However, continuous control movements are noticeable throughout the flight, causing minor deviations from the predefined trajectory.
+
 
 %\end{abstract}
 
@@ -92,12 +92,11 @@ Ziel der Arbeit ist es, ein unbemanntes Fluggerät in einer Innenraumumgebung oh
 als externe Referenz in die Flugsteuerung einzuspeisen.
 Als Grundlage dienen Fiducial-Marker des Typs \texttt{tag36h11} aus der AprilTag-Familie, deren Lage in einer vorab erstellten Karte hinterlegt ist.
 Die Karte wird in einem dreistufigen, vorgelagerten Verfahren zur simultanen Lokalisierung und Kartierung erstellt.
-Im Flug bestimmt der auf dem Fluggerät befestigt Begleitrechner, aus den Markerdetektionen zweier Kameras fortlaufend die Pose des Fluggeräts und übergibt sie über die Kommunikationsschnittstelle an den Flugregler.
 Dort wird sie im erweiterten Kalman-Filter der Flugsteuerung als externe Positionsreferenz verarbeitet.
 Das System ist vollständig aus quelloffener Software und gängigen Komponenten aufgebaut.
 Die Arbeit beschreibt die Auswahl der Kartierungs- und Markermethodik, die Kalibrierung der Kameras, die Kartenerstellung sowie die im Flug ablaufende Positionsbestimmung und deren Anbindung an die Flugsteuerung.
 Die Evaluierung umfasst Versuche zur Erstellung der Karte, bei denen unterschiedliche Parametrierungen mit verschieden hohem Berechnungsaufwand miteinander sowie mit einer bekannten Referenzkarte verglichen werden.
 Die Ergebnisse zeigen, dass die Kartenerstellung mit den untersuchten Parametrierungen zuverlässig möglich ist.
-Zusätzlich wird ein Testflüge durchgeführt, bei dem das Fluggerät eine quadratische Flugbahn mit einer Seitenlänge von 2,0~m abfliegt.
+Zusätzlich wird ein Testflüge durchgeführt, bei dem das Fluggerät eine vorgegebene Flugbahn abfliegt.
 Dabei folgt das Fluggerät den vorgegebenen Kanten zuverlässig.
 Während des Fluges sind jedoch kontinuierliche Regelbewegungen erkennbar, die zu geringfügigen Abweichungen von der vorgegebenen Flugbahn führen.

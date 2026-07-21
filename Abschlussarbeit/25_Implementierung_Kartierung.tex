@@ -432,8 +432,8 @@ In der Stufe \texttt{fast} erweitert der Optimierer den bestehenden Graphen fort
 Die Stufe \texttt{slow} arbeitet ebenfalls fortlaufend, prüft jedoch vor der Übernahme den Fehler der neuen Messung und verwirft sie bei Überschreitung der Schwelle \texttt{max\_subgraph\_error}.
 Die Stufe \texttt{full} berechnet den gesamten Graphen bei jeder Aktualisierung neu und liefert damit die höchste Genauigkeit bei zugleich höchstem Rechenaufwand.
 
-Für jeden Fiducial-Marker enthält \texttt{tagslam.yaml} eine Startlage aus \texttt{position} und \texttt{rotation}.
-Das zugehörige Positions- und Rotationsrauschen folgt aus \texttt{position\_noise} und \texttt{rotation\_noise}.
+Für jeden Fiducial-Marker hinterlegt \texttt{tagslam.yaml} über \texttt{position} und \texttt{rotation} eine Startlage.
+Das zugehörige Positions- und Rotationsrauschen folgt aus \texttt{position\_\allowbreak noise} und \texttt{rota\allowbreak tion\_\allowbreak noise}.
 Alle vier Angaben werden jeweils für alle drei Achsen gesetzt.
 Fehlt die Angabe einer Startlage, unterliegt die Lage des Markers keiner Vorgabe und wird allein durch die Optimierung bestimmt.
 Das Rauschen bestimmt, wie stark ein Fiducial-Marker an seine vorgegebene Lage gebunden wird. 
