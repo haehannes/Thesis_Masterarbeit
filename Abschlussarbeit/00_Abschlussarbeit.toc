@@ -52,12 +52,12 @@
 \contentsline {subsection}{\numberline {7.1.1}Erstellen und Anbringen der physischen Karte}{54}{subsection.7.1.1}%
 \contentsline {subsection}{\numberline {7.1.2}Aufzeichnung und Kartenerstellung}{55}{subsection.7.1.2}%
 \contentsline {subsection}{\numberline {7.1.3}Evaluation der Kartierung}{58}{subsection.7.1.3}%
-\contentsline {section}{\numberline {7.2}Durchführung und Evaluation der Positionierung}{63}{section.7.2}%
-\contentsline {subsection}{\numberline {7.2.1}Senden von Positions-Sollwerten an PX4}{63}{subsection.7.2.1}%
-\contentsline {subsection}{\numberline {7.2.2}Wahl der Startparameter für den Flugbetrieb}{64}{subsection.7.2.2}%
-\contentsline {subsection}{\numberline {7.2.3}Ablauf der Flugversuche}{66}{subsection.7.2.3}%
-\contentsline {subsection}{\numberline {7.2.4}Evaluation der Positionierung}{68}{subsection.7.2.4}%
-\contentsline {section}{\numberline {7.3}Gesamtbewertung des Systems}{73}{section.7.3}%
-\contentsline {chapter}{\numberline {8}Zusammenfassung und Ausblick}{76}{chapter.8}%
-\contentsline {chapter}{\numberline {9}Anhang}{86}{chapter.9}%
+\contentsline {section}{\numberline {7.2}Durchführung und Evaluation der Positionierung}{62}{section.7.2}%
+\contentsline {subsection}{\numberline {7.2.1}Senden von Positions-Sollwerten an PX4}{62}{subsection.7.2.1}%
+\contentsline {subsection}{\numberline {7.2.2}Wahl der Startparameter für den Flugbetrieb}{63}{subsection.7.2.2}%
+\contentsline {subsection}{\numberline {7.2.3}Ablauf der Flugversuche}{65}{subsection.7.2.3}%
+\contentsline {subsection}{\numberline {7.2.4}Evaluation der Positionierung}{67}{subsection.7.2.4}%
+\contentsline {section}{\numberline {7.3}Gesamtbewertung des Systems}{72}{section.7.3}%
+\contentsline {chapter}{\numberline {8}Zusammenfassung und Ausblick}{75}{chapter.8}%
+\contentsline {chapter}{\numberline {9}Anhang}{85}{chapter.9}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

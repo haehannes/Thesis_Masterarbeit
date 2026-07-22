@@ -25,16 +25,16 @@
 \contentsline {figure}{\numberline {6.2}{\ignorespaces \gls {uav} in der Kalibrierbox}}{46}{figure.caption.55}%
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {7.1}{\ignorespaces Tag-Karte der \gls {oic}-Flughalle. Der Kartenursprung (Tag~0) ist grün umrandet}}{55}{figure.caption.62}%
-\contentsline {figure}{\numberline {7.2}{\ignorespaces Überlagerung der in Versuch~eins erzeugten Karte mit dem Ground Truth}}{59}{figure.caption.68}%
+\contentsline {figure}{\numberline {7.2}{\ignorespaces Überlagerung der in Versuch~eins erzeugten Karte mit dem Ground Truth}}{58}{figure.caption.68}%
 \contentsline {figure}{\numberline {7.3}{\ignorespaces Überlagerung der in Versuch~zwei erzeugten Karte mit dem Ground Truth}}{59}{figure.caption.69}%
-\contentsline {figure}{\numberline {7.4}{\ignorespaces Überlagerung der in Versuch drei erzeugten Karte mit dem Ground Truth}}{60}{figure.caption.70}%
-\contentsline {figure}{\numberline {7.5}{\ignorespaces Euklidische Distanz der Tag-Positionen zwischen Kartierung und Ground Truth in Abhängigkeit vom Abstand des jeweiligen Markers zum Ursprung}}{62}{figure.caption.72}%
-\contentsline {figure}{\numberline {7.6}{\ignorespaces Das \gls {uav} im Schwebeflug über der Markerkarte der OIC-Flughalle}}{67}{figure.caption.74}%
-\contentsline {figure}{\numberline {7.7}{\ignorespaces Berechnete Flugbahn des Flugcontrollers}}{68}{figure.caption.75}%
-\contentsline {figure}{\numberline {7.8}{\ignorespaces Zeitliche Belegung der Stützquellen des \gls {ekf}s eines Testflugs}}{69}{figure.caption.77}%
-\contentsline {figure}{\numberline {7.9}{\ignorespaces Innovationen der Vision-Stützung mit den zugehörigen Konsistenzgrenzen}}{70}{figure.caption.79}%
-\contentsline {figure}{\numberline {7.10}{\ignorespaces Verlauf des gespeicherten Kalman-Gains der Vision-Stützung}}{71}{figure.caption.81}%
-\contentsline {figure}{\numberline {7.11}{\ignorespaces Verlauf der geloggten Positionswerte}}{72}{figure.caption.83}%
+\contentsline {figure}{\numberline {7.4}{\ignorespaces Überlagerung der in Versuch drei erzeugten Karte mit dem Ground Truth}}{59}{figure.caption.70}%
+\contentsline {figure}{\numberline {7.5}{\ignorespaces Euklidische Distanz der Tag-Positionen zwischen Kartierung und Ground Truth in Abhängigkeit vom Abstand des jeweiligen Markers zum Ursprung}}{61}{figure.caption.72}%
+\contentsline {figure}{\numberline {7.6}{\ignorespaces Das \gls {uav} im Schwebeflug über der Markerkarte der OIC-Flughalle}}{66}{figure.caption.74}%
+\contentsline {figure}{\numberline {7.7}{\ignorespaces Berechnete Flugbahn des Flugcontrollers}}{67}{figure.caption.75}%
+\contentsline {figure}{\numberline {7.8}{\ignorespaces Zeitliche Belegung der Stützquellen des \gls {ekf}s eines Testflugs}}{68}{figure.caption.77}%
+\contentsline {figure}{\numberline {7.9}{\ignorespaces Innovationen der Vision-Stützung mit den zugehörigen Konsistenzgrenzen}}{69}{figure.caption.79}%
+\contentsline {figure}{\numberline {7.10}{\ignorespaces Verlauf des gespeicherten Kalman-Gains der Vision-Stützung}}{70}{figure.caption.81}%
+\contentsline {figure}{\numberline {7.11}{\ignorespaces Verlauf der geloggten Positionswerte}}{71}{figure.caption.83}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

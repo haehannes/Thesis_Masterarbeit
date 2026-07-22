@@ -5,7 +5,7 @@ Dieses Kapitel beschreibt die im Flug ablaufende Positionsbestimmung des \gls{ua
 Im Gegensatz zur Kartierung läuft die Verarbeitung hier zur Laufzeit auf dem Begleitrechner.
 Die Kette folgt dem in Abschnitt~\ref{sec:softwarearchitektur} dargestellten 
 Datenfluss.
-Die ersten drei Schritte entsprechen methodisch denen der Kartierung, werden aber mit höherer Bildrate und auf der \gls{gpu} des Begleitrechners ausgeführt.
+Die ersten drei Schritte entsprechen methodisch denen der Kartierung, werden aber mit höherer Bildrate und teilweise auf der \gls{gpu} des Begleitrechners ausgeführt.
 Die gesamte Positionsbestimmung erfolgt im \gls{enu}/\gls{flu}-System, in dem auch die Karte vorliegt und wird erst am 
 Ende der Verarbeitungskette in das von \gls{px4} benötigte \gls{ned}/\gls{frd}-System transformiert.
 
@@ -35,7 +35,7 @@ Vision ist in diesem Zusammenhang mit externer Positionsschätzung gleichzusetze
 \addlinespace
 \addlinespace
 \multicolumn{3}{@{}l}{\textit{Koppelnavigation (Dead Reckoning)}} \\
-\texttt{EKF2\_NOAID\_TOUT}  & $5\,000\,000$ & Maximale Dauer der Koppelnavigation ohne Stützmessung [\si{\micro\second}], entspricht $5$~\si{\second} \\
+\texttt{EKF2\_NOAID\_TOUT}  & $5\,000\,000$ & Maximale Dauer von \gls{drl} ohne Stützmessung [\si{\micro\second}], entspricht $5$~\si{\second} \\
 \addlinespace
 \multicolumn{3}{@{}l}{\textit{Deaktivierte Sensoren}} \\
 \texttt{EKF2\_GPS\_CTRL}    & $0$   & \gls{gps}-Stützung vollständig deaktiviert \\
@@ -57,20 +57,19 @@ Der Parameter \texttt{EKF2\_EV\_CTRL} legt als Bitmaske fest, welche Anteile der
 Der gewählte Wert von 11 gibt damit die horizontale Position, die Höhe und den Gierwinkel frei, während die Geschwindigkeit ausgenommen bleibt.
 Die Orientierung um die Z-Achse wird damit allein aus der Vision bezogen und ersetzt die sonst übliche Magnetometer-Stützung.
 
-Der Parameter \texttt{EKF2\_NOAID\_TOUT} = 5000000 legt fest, wie lange der Zustandsschätzer die Position bei ausbleibender Vision-Stützung allein über die Koppelnavigation fortschreibt, bevor er selbstständig landet.
+Der Parameter \texttt{EKF2\_NOAID\_TOUT} = 5000000 legt fest, wie lange der Zustandsschätzer die Position bei ausbleibender Vision-Stützung allein über \gls{drl} fortschreibt, bevor er selbstständig landet.
 
 Über \texttt{EKF2\_EV\_NOISE\_MD} wird festgelegt, woher der Zustandsschätzer die Unsicherheit der Messung bezieht.
-Bei Modus 0 entnimmt er sie den Kovarianzfeldern der Nachricht, bei Modus 1 greift er stattdessen auf die Parameter \texttt{EKF2\_EVP\_NOISE} und \texttt{EKF2\_EVA\_NOISE} zurück.
+Bei Modus 0 entnimmt er sie den Kovarianzfeldern der eingespeisten Nachricht, bei Modus 1 greift er stattdessen auf die Parameter \texttt{EKF2\_EVP\_NOISE} und \texttt{EKF2\_EVA\_NOISE} zurück.
 Gewählt ist Modus 1, sodass für jede Messung dieselbe Unsicherheit angenommen wird.
 
 Die beiden zugehörigen Parameter \texttt{EKF2\_EVP\_NOISE} und \texttt{EKF2\_EVA\_NOISE} sind mit jeweils 0,1 angesetzt.
 Hierbei handelt es sich um die Standardeinstellungen von \gls{px4}.
 
-Die externe Pose muss dem \gls{px4} mit mindestens 30~\gls{fps} übergeben werden, um eine stabile Fusion zu gewährleisten, wobei dieser Wert als untere Grenze zu verstehen ist.
 
 Mit \texttt{EKF2\_HGT\_REF}=0 wird das Barometer als primäre Höhenquelle festgelegt.
 Die Information der Höhe aus der externen Positionsschätzung wird nur als Rückfallebene bei Ausfall oder Problemen mit dem Barometer verwendet.
-In Versuchen hat sich herausgestellt, dass sich die Höhe durch Nutzung des Barometers besser halten lässt als die reine Referenz durch die Positionierung.
+In Versuchen hat sich herausgestellt, dass sich die Höhe durch Nutzung des Barometers besser halten lässt als durch die reine Referenz der Positionsschätzung.
 
 
 Da im Innenraum kein zuverlässiger \gls{gps}-Empfang besteht, wird die \gls{gps}-Stützung über \texttt{EKF2\_\allowbreak GPS\_\allowbreak CTRL}=0 deaktiviert.
@@ -84,6 +83,7 @@ Wie zuvor beschrieben, wird der Yaw-Winkel stattdessen aus der Vision gewonnen.
 Der Parameter \texttt{SYS\_HAS\_MAG}=1 gibt lediglich an, dass Magnetometer-Hardware verbaut ist. 
 Auf die Zustandsschätzung wirkt sich dies aufgrund der deaktivierten Fusion nicht aus.
 
+Die externe Pose muss dem \gls{px4} mit mindestens 30~\gls{fps} übergeben werden, um eine stabile Fusion zu gewährleisten, wobei dieser Wert als untere Grenze zu verstehen ist.
 
 \section{Softwarearchitektur der Positionsbestimmung}
 \label{sec:softwarearchitektur_positionierung}
@@ -201,7 +201,7 @@ Die Markierungen sind in Abbildung~\ref{fig:kalibrierbox} durch blaue Linien gek
 In der Box befinden sich zwei Tags, ein Tag am Boden $\mathrm{tag}_1$ und ein Tag an der Wand $\mathrm{tag}_2$.
 Die untere Kamera~$\mathrm{C}_1$ ist auf den Boden-Tag gerichtet, die vordere Kamera~$\mathrm{C}_2$ auf den Wand-Tag.
 
-Die Lage der beiden Tags sowie des \gls{px4}-Mittelpunkts wurde von Hand vermessen.
+Die Lage der beiden Tags sowie die Lage des \gls{px4}-Mittelpunkts wurde von Hand vermessen.
 Die so bestimmten Koordinaten, bestehend aus Position und Orientierung, werden dem Node zur Positionsbestimmung in einer YAML-Datei übergeben.
 Aus diesen Koordinaten berechnet der Kalibrier-Node anschließend die festen Transformationen $^{\mathrm{tag}_1}\mathbf{T}_{\mathrm{D}}$ und $^{\mathrm{tag}_2}\mathbf{T}_{\mathrm{D}}$ gemäß Gleichung~\ref{eq:trafo_matrix}, wobei die Rotationsmatrix nach Gleichung~\ref{eq:rotationsmatrix_quaternion} aus dem jeweiligen Quaternion gebildet wird.
 Für die Kalibrierung müssen zusätzlich \texttt{gscam} und \texttt{rectify\_node} für beide Kameras gestartet werden.
@@ -219,7 +219,7 @@ Durch Verkettung der Tag-Detektion mit der Transformation gemäß Gleichung~\ref
 ^{\mathrm{C}_1}\mathbf{T}_{\mathrm{D}} &= {^{\mathrm{C}_1}\mathbf{T}_{\mathrm{tag}_1}}\,{^{\mathrm{tag}_1}\mathbf{T}_{\mathrm{D}}}, \label{eq:extrinsik_cam1}\\
 ^{\mathrm{C}_2}\mathbf{T}_{\mathrm{D}} &= {^{\mathrm{C}_2}\mathbf{T}_{\mathrm{tag}_2}}\,{^{\mathrm{tag}_2}\mathbf{T}_{\mathrm{D}}}. \label{eq:extrinsik_cam2}
 \end{align}
-Die gesuchte Transformation vo der Kamera zum \gls{px4}-Mittelpunkt folgt durch Invertieren gemäß Gleichung~\ref{eq:trafo_inverse}:
+Die gesuchte Transformation von der Kamera zum \gls{px4}-Mittelpunkt folgt durch Invertieren gemäß Gleichung~\ref{eq:trafo_inverse}:
 \begin{equation}
 ^{\mathrm{D}}\mathbf{T}_{\mathrm{C}} = \left(^{\mathrm{C}}\mathbf{T}_{\mathrm{D}}\right)^{-1}.
 \label{eq:extrinsik}
@@ -272,7 +272,7 @@ Tabelle~\ref{tab:vision_pose_params} fasst diese Parameter thematisch geordnet z
 \endlastfoot
 
 \multicolumn{2}{@{}l}{\textit{Karte und Kalibrierung}} \\
-\texttt{isaac\_reference\_size}          & Referenzgröße zur Translationskorrektur bei abweichenden Tag-Größen \\
+\texttt{isaac\_reference\_size}          & Referenzgröße zur Translationskorrektur bei abweichenden Tag Größen \\
 \texttt{map\_file}                       & Pfad zur Tag\gls{slam}-Karte mit den Tag-Posen (Pflichtangabe) \\
 \texttt{calibration\_file}               & Pfad zur YAML mit den $^{\mathrm{D}}\mathbf{T}_{\mathrm{C}}$ Transformationen (Pflichtangabe) \\
 \addlinespace

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.11.7)  22 JUL 2026 07:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.11.7)  22 JUL 2026 22:23
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1769,7 +1769,7 @@ Package cleveref Info: loaded `ngerman' language definitions on input line 5.
 \openout11 = `00_Abschlussarbeit.glsdefs'.
 
 ) (./00_Abschlussarbeit.acr
-Overfull \hbox (12.0pt too wide) in alignment at lines 25--301
+Overfull \hbox (12.0pt too wide) in alignment at lines 25--303
  [] [] 
  []
 
@@ -1896,12 +1896,12 @@ File: Bilder/Ablaufdiagramm_Kartierung.png Graphic file (type png)
 Package pdftex.def Info: Bilder/Ablaufdiagramm_Kartierung.png  used on input line 190.
 (pdftex.def)             Requested size: 182.09486pt x 209.42918pt.
  [33 <./Bilder/Ablaufdiagramm_Kartierung.png>] [34] [35]
-Overfull \hbox (0.4029pt too wide) in paragraph at lines 368--375
+Overfull \hbox (0.4029pt too wide) in paragraph at lines 368--374
 []\T1/lmss/m/n/10.95 Aus der Tag[][][]SLAM[][]-Konfiguration \T1/pcr/m/n/10.95 tagslam.yaml \T1/lmss/m/n/10.95 liest der No-de die Lis-te der be-kann-ten Fiducial-
  []
 
 [36] [37] [38]
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 456.
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 455.
 ) (./26_Implementierung_Positionierung.tex [39]
 chapter 6.
 
@@ -1912,7 +1912,7 @@ Underfull \hbox (badness 6944) in paragraph at lines 31--32
 [40
 
 ] [41]
-<Bilder/Architektur_Positionierung.png, id=1358, 529.104pt x 910.164pt>
+<Bilder/Architektur_Positionierung.png, id=1360, 529.104pt x 910.164pt>
 File: Bilder/Architektur_Positionierung.png Graphic file (type png)
 <use Bilder/Architektur_Positionierung.png>
 Package pdftex.def Info: Bilder/Architektur_Positionierung.png  used on input line 116.
@@ -1927,7 +1927,7 @@ Overfull \hbox (8.43483pt too wide) in paragraph at lines 152--156
  []
 
 [44]
-<Bilder/Kalibrierbox.png, id=1405, 788.619pt x 427.269pt>
+<Bilder/Kalibrierbox.png, id=1407, 788.619pt x 427.269pt>
 File: Bilder/Kalibrierbox.png Graphic file (type png)
 <use Bilder/Kalibrierbox.png>
 Package pdftex.def Info: Bilder/Kalibrierbox.png  used on input line 210.
@@ -1935,101 +1935,90 @@ Package pdftex.def Info: Bilder/Kalibrierbox.png  used on input line 210.
  [45] [46 <./Bilder/Kalibrierbox.png>]
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <9> not available
 (Font)              Font shape `T1/lmss/m/sl' tried instead on input line 259.
-
-Underfull \hbox (badness 1558) in paragraph at lines 275--276
-[]|\T1/lmss/m/n/9 Referenzgröÿe zur Trans-la-ti-ons-kor-rek-tur bei ab-wei-chen-den Tag-
- []
-
-[47] [48]
+ [47] [48]
 Overfull \hbox (5.58546pt too wide) in paragraph at lines 397--402
 \T1/lmss/m/n/10.95 (\T1/pcr/m/n/10.95 ransac_reference_-distance_m\T1/lmss/m/n/10.95 ) und []$\OML/lmm/m/it/10.95 ^^\[]$ \T1/lmss/m/n/10.95 die Ba-sis-schwel-le (\T1/pcr/m/n/10.95 ransac_base_-threshold_m\T1/lmss/m/n/10.95 ),
  []
 
 [49] [50] [51] [52]) (./27_Evaluation_des_Gesamtsystems.tex [53]
 chapter 7.
-<Bilder/Karte_mit_Pfeilen.png, id=1574, 607.506pt x 518.154pt>
+<Bilder/Karte_mit_Pfeilen.png, id=1576, 607.506pt x 518.154pt>
 File: Bilder/Karte_mit_Pfeilen.png Graphic file (type png)
 <use Bilder/Karte_mit_Pfeilen.png>
 Package pdftex.def Info: Bilder/Karte_mit_Pfeilen.png  used on input line 45.
 (pdftex.def)             Requested size: 345.98302pt x 295.09784pt.
 [54
 
-] [55 <./Bilder/Karte_mit_Pfeilen.png>] [56]
-Overfull \hbox (31.2316pt too wide) in paragraph at lines 136--139
-\T1/lmss/m/n/10.95 die Schwel-le \T1/pcr/m/n/10.95 max_subgraph_error \T1/lmss/m/n/10.95 auf 10 her-ab-ge-setzt. Zu-gleich sinkt \T1/pcr/m/n/10.95 max_num_incremental_opt
- []
-
-[57]
-<Bilder/karten_vergleich_ueberlagert_versuch_1.png, id=1636, 570.4512pt x 458.1918pt>
+] [55 <./Bilder/Karte_mit_Pfeilen.png>] [56] [57]
+<Bilder/karten_vergleich_ueberlagert_versuch_1.png, id=1638, 570.4512pt x 458.1918pt>
 File: Bilder/karten_vergleich_ueberlagert_versuch_1.png Graphic file (type png)
 <use Bilder/karten_vergleich_ueberlagert_versuch_1.png>
 Package pdftex.def Info: Bilder/karten_vergleich_ueberlagert_versuch_1.png  used on input line 197.
 (pdftex.def)             Requested size: 318.66948pt x 255.96342pt.
- [58]
-<Bilder/karten_vergleich_ueberlagert_Versuch_2.png, id=1642, 570.4512pt x 458.4327pt>
+<Bilder/karten_vergleich_ueberlagert_Versuch_2.png, id=1639, 570.4512pt x 458.4327pt>
 File: Bilder/karten_vergleich_ueberlagert_Versuch_2.png Graphic file (type png)
 <use Bilder/karten_vergleich_ueberlagert_Versuch_2.png>
 Package pdftex.def Info: Bilder/karten_vergleich_ueberlagert_Versuch_2.png  used on input line 205.
 (pdftex.def)             Requested size: 318.66948pt x 256.09799pt.
- [59 <./Bilder/karten_vergleich_ueberlagert_versuch_1.png> <./Bilder/karten_vergleich_ueberlagert_Versuch_2.png>]
-<Bilder/karten_vergleich_ueberlagert_versuch_3.png, id=1651, 570.4512pt x 458.1918pt>
+ [58 <./Bilder/karten_vergleich_ueberlagert_versuch_1.png>]
+<Bilder/karten_vergleich_ueberlagert_versuch_3.png, id=1647, 570.4512pt x 458.1918pt>
 File: Bilder/karten_vergleich_ueberlagert_versuch_3.png Graphic file (type png)
 <use Bilder/karten_vergleich_ueberlagert_versuch_3.png>
 Package pdftex.def Info: Bilder/karten_vergleich_ueberlagert_versuch_3.png  used on input line 213.
 (pdftex.def)             Requested size: 318.66948pt x 255.96342pt.
- [60
+ [59 <./Bilder/karten_vergleich_ueberlagert_Versuch_2.png> <./Bilder/karten_vergleich_ueberlagert_versuch_3.png>] [60
 
- <./Bilder/karten_vergleich_ueberlagert_versuch_3.png>] [61]
-<Bilder/karten_vergleich_dxyz_ueber_tag0_punkte.png, id=1667, 642.9621pt x 389.5353pt>
+]
+<Bilder/karten_vergleich_dxyz_ueber_tag0_punkte.png, id=1665, 642.9621pt x 389.5353pt>
 File: Bilder/karten_vergleich_dxyz_ueber_tag0_punkte.png Graphic file (type png)
 <use Bilder/karten_vergleich_dxyz_ueber_tag0_punkte.png>
 Package pdftex.def Info: Bilder/karten_vergleich_dxyz_ueber_tag0_punkte.png  used on input line 286.
 (pdftex.def)             Requested size: 455.24411pt x 275.81712pt.
- [62 <./Bilder/karten_vergleich_dxyz_ueber_tag0_punkte.png>] [63] [64] [65]
-<Bilder/Drohne_schwebeflug.jpeg, id=1724, 661.47125pt x 838.13126pt>
+ [61 <./Bilder/karten_vergleich_dxyz_ueber_tag0_punkte.png>] [62] [63] [64]
+<Bilder/Drohne_schwebeflug.jpeg, id=1722, 661.47125pt x 838.13126pt>
 File: Bilder/Drohne_schwebeflug.jpeg Graphic file (type jpg)
 <use Bilder/Drohne_schwebeflug.jpeg>
 Package pdftex.def Info: Bilder/Drohne_schwebeflug.jpeg  used on input line 507.
 (pdftex.def)             Requested size: 227.62206pt x 288.40105pt.
- [66] [67 <./Bilder/Drohne_schwebeflug.jpeg>]
-<Bilder/Flugbahn_testversuch.png, id=1743, 331.88608pt x 315.20839pt>
+ [65] [66 <./Bilder/Drohne_schwebeflug.jpeg>]
+<Bilder/Flugbahn_testversuch.png, id=1741, 331.88608pt x 315.20839pt>
 File: Bilder/Flugbahn_testversuch.png Graphic file (type png)
 <use Bilder/Flugbahn_testversuch.png>
 Package pdftex.def Info: Bilder/Flugbahn_testversuch.png  used on input line 537.
 (pdftex.def)             Requested size: 273.14923pt x 259.42967pt.
- [68 <./Bilder/Flugbahn_testversuch.png>]
-<Bilder/16_stuetzquellen.png, id=1754, 884.47362pt x 429.72853pt>
+ [67 <./Bilder/Flugbahn_testversuch.png>]
+<Bilder/16_stuetzquellen.png, id=1751, 884.47362pt x 429.72853pt>
 File: Bilder/16_stuetzquellen.png Graphic file (type png)
 <use Bilder/16_stuetzquellen.png>
 Package pdftex.def Info: Bilder/16_stuetzquellen.png  used on input line 556.
 (pdftex.def)             Requested size: 455.24411pt x 221.17824pt.
- [69 <./Bilder/16_stuetzquellen.png>]
-<Bilder/06_ev_innovationen.png, id=1767, 939.51pt x 867.24pt>
+ [68 <./Bilder/16_stuetzquellen.png>]
+<Bilder/06_ev_innovationen.png, id=1765, 939.51pt x 867.24pt>
 File: Bilder/06_ev_innovationen.png Graphic file (type png)
 <use Bilder/06_ev_innovationen.png>
 Package pdftex.def Info: Bilder/06_ev_innovationen.png  used on input line 584.
 (pdftex.def)             Requested size: 455.24411pt x 420.22714pt.
- [70 <./Bilder/06_ev_innovationen.png>]
-<Bilder/Kalman_Gain.png, id=1781, 939.51pt x 324.65907pt>
+ [69 <./Bilder/06_ev_innovationen.png>]
+<Bilder/Kalman_Gain.png, id=1779, 939.51pt x 324.65907pt>
 File: Bilder/Kalman_Gain.png Graphic file (type png)
 <use Bilder/Kalman_Gain.png>
 Package pdftex.def Info: Bilder/Kalman_Gain.png  used on input line 614.
 (pdftex.def)             Requested size: 455.24411pt x 157.31578pt.
-<Bilder/01_position_vision_ekf_sollwert.png, id=1787, 939.51pt x 794.97pt>
+<Bilder/01_position_vision_ekf_sollwert.png, id=1785, 939.51pt x 794.97pt>
 File: Bilder/01_position_vision_ekf_sollwert.png Graphic file (type png)
 <use Bilder/01_position_vision_ekf_sollwert.png>
 Package pdftex.def Info: Bilder/01_position_vision_ekf_sollwert.png  used on input line 649.
 (pdftex.def)             Requested size: 455.24411pt x 385.2082pt.
- [71 <./Bilder/Kalman_Gain.png>] [72 <./Bilder/01_position_vision_ekf_sollwert.png>] [73]
+ [70 <./Bilder/Kalman_Gain.png>] [71 <./Bilder/01_position_vision_ekf_sollwert.png>] [72]
 Overfull \hbox (3.49693pt too wide) in paragraph at lines 741--750
 \T1/lmss/m/n/10.95 tiv an-ge-setz-te Stan-dard-ab-wei-chung der Vision-Stützung ver-mu-tet. Der Pa-ra-me-ter \T1/pcr/m/n/10.95 EKF2_EVP_NOISE
  []
 
-[74])) (./30_Schluss.tex [75]
+[73])) (./30_Schluss.tex [74]
 chapter 8.
-[76
+[75
 
-]) [77]
+]) [76]
 LaTeX Font Info:    Trying to load font information for T1+lmr on input line 245.
  (/usr/share/texmf/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
@@ -2038,23 +2027,23 @@ File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 LaTeX Font Warning: Font shape `T1/lmss/m/sc' in size <10.95> not available
 (Font)              Font shape `T1/lmr/m/sc' tried instead on input line 245.
 
-[78
+[77
 
-] [79] [80] [81]
+] [78] [79] [80]
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <8> not available
 (Font)              Font shape `T1/lmss/m/sl' tried instead on input line 245.
 LaTeX Font Info:    Font shape `TS1/lmss/m/it' in size <8> not available
 (Font)              Font shape `TS1/lmss/m/sl' tried instead on input line 245.
 LaTeX Font Info:    Font shape `TS1/lmss/m/it' in size <10.95> not available
 (Font)              Font shape `TS1/lmss/m/sl' tried instead on input line 245.
- [82] (./00_Abschlussarbeit.lof
+ [81] (./00_Abschlussarbeit.lof
 Package cleveref Info: loaded `ngerman' language definitions on input line 3.
 Package cleveref Info: loaded `ngerman' language definitions on input line 4.
 )
 \tf@lof=\write12
 \openout12 = `00_Abschlussarbeit.lof'.
 
- [83
+ [82
 
 ] (./00_Abschlussarbeit.lot
 Package cleveref Info: loaded `ngerman' language definitions on input line 3.
@@ -2063,7 +2052,7 @@ Package cleveref Info: loaded `ngerman' language definitions on input line 4.
 \tf@lot=\write13
 \openout13 = `00_Abschlussarbeit.lot'.
 
- [84
+ [83
 
 ] (./00_Abschlussarbeit.lol
 Package cleveref Info: loaded `ngerman' language definitions on input line 3.
@@ -2072,11 +2061,11 @@ Package cleveref Info: loaded `ngerman' language definitions on input line 4.
 \tf@lol=\write14
 \openout14 = `00_Abschlussarbeit.lol'.
 
- (./40_Anhang.tex [85
+ (./40_Anhang.tex [84
 
 ]
 chapter 9.
-) [86
+) [85
 
 ] (./00_Abschlussarbeit.aux
 Package cleveref Info: loaded `ngerman' language definitions on input line 22.
@@ -2093,18 +2082,18 @@ Package logreq Info: Writing requests to '00_Abschlussarbeit.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 58829 strings out of 474222
- 1210394 string characters out of 5748733
- 2271403 words of memory out of 5000000
+ 58828 strings out of 474222
+ 1210387 string characters out of 5748733
+ 2270404 words of memory out of 5000000
  79662 multiletter control sequences out of 15000+600000
  660008 words of font info for 113 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  108i,20n,107p,10958b,4154s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx9.pfb></usr/share/texmf/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr9.pfb></usr/share/texmf/fonts/type1/public/lm/lmss10.pfb></usr/share/texmf/fonts/type1/public/lm/lmss12.pfb></usr/share/texmf/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf/fonts/type1/public/lm/lmss8.pfb></usr/share/texmf/fonts/type1/public/lm/lmss9.pfb></usr/share/texmf/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsso10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsso8.pfb></usr/share/texmf/fonts/type1/public/lm/lmsso9.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on 00_Abschlussarbeit.pdf (97 pages, 17730370 bytes).
+Output written on 00_Abschlussarbeit.pdf (96 pages, 17730160 bytes).
 PDF statistics:
- 2472 PDF objects out of 2487 (max. 8388607)
- 2162 compressed objects within 22 object streams
- 503 named destinations out of 1000 (max. 500000)
+ 2468 PDF objects out of 2487 (max. 8388607)
+ 2159 compressed objects within 22 object streams
+ 502 named destinations out of 1000 (max. 500000)
  637 words of extra memory for PDF output out of 10000 (max. 10000000)
 

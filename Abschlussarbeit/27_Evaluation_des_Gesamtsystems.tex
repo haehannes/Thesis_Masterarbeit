@@ -88,7 +88,7 @@ Dieser Bag bildet die Eingangsgröße für die eigentliche Kartenerstellung mit 
 \subsubsection*{Optimierung und Parametrierung von TagSLAM}
 \label{sec:parametrierung_tagslam}
 Der Bag aus der Offline-Detektion wird mit dem Node \texttt{tagslam\_from\_bag} verarbeitet.
-Dabei wird der Fall einer unbekannten Karte zugrunde gelegt, in der keinerlei Vorwissen über die Lage der Fiducial-Marker vorliegt.
+Dabei wird der Fall einer unbekannten Karte zugrunde gelegt.
 
 Die Kartierung erfolgt in drei Versuchen mit unterschiedlicher Parametrierung.
 Ziel ist es, eine Parametrierung zu ermitteln, die sich künftig zur Kartierung unbekannter 
@@ -135,7 +135,7 @@ Die näherungsweise zeitliche Zuordnung über \texttt{use\_approximate\_sync} is
 \subsubsection*{Versuch~2:}
 Der zweite Versuch übernimmt gemeinsame Einstellungen aus Versuch eins und nutzt zusätzlich das aus der Optimierung gewonnene Wissen.
 Um fehlerhafte Messungen von der Karte fernzuhalten, wird die Schwelle \texttt{max\_subgraph\_error} auf 10 herabgesetzt.
-Zugleich sinkt \texttt{max\_num\_incremental\_opt} auf 10, wodurch der Faktorgraph häufiger vollständig optimiert wird und die Lösung an Genauigkeit gewinnt.
+Zugleich sinkt \texttt{max\_num\_incremen\-tal\_opt} auf 10, wodurch der Faktorgraph häufiger vollständig optimiert wird und die Lösung an Genauigkeit gewinnt.
 
 Da alle Fiducial-Marker flach auf dem Boden und damit in derselben Ebene wie der Ursprung liegen, wird ihre Höhe mit $z$=0 vorgegeben und über ein sehr kleines \texttt{position\_noise} in $z$ von $10^{-6}$ fixiert.
 Ebenso werden die Verkippungen um die $x$- und $y$-Achse auf 0 gesetzt und über ein \texttt{rotation\_noise} von $10^{-6}$ in diesen beiden Achsen fixiert.
@@ -175,7 +175,7 @@ Die Schwelle \texttt{max\_subgraph\_error} verbleibt bei 10.
 Wie der zweite Lauf übernimmt der dritte die im ersten Versuch geschätzten Positionen als Startlagen und bindet 
 alle Fiducial-Marker über $z$=0 sowie die auf 0 gesetzten Verkippungen um die $x$- und $y$-Achse an die Bodenebene.
 
-Aufgrund der positiven Ergebnisse und der hohen Laufzeit im Betriebsmodus \texttt{slow} wurde auf einen Vergleichslauf mit \texttt{fast} verzichtet.
+Aufgrund der positiven Ergebnisse und der hohen Laufzeit im Betriebsmodus \texttt{slow} wurde auf einen Vergleichslauf mit \texttt{full} verzichtet.
 
 \subsection{Evaluation der Kartierung}
 \label{sec:evaluation_kartierung}
@@ -280,7 +280,7 @@ Abbildung~\ref{fig:dxyz_ueber_abstand} stellt dies anschaulich dar.
 Für jeden Fiducial-Marker ist die euklidische Distanz zwischen seiner Position in der Kartierung und seiner Position in dem Ground Truth aufgetragen.
 Diese Distanz ist über dem Abstand desselben Markers zum Ursprung dargestellt, der durch Tag~0 festgelegt ist.
 Jeder Punkt entspricht damit einem Fiducial-Marker in einem der drei Versuche.
-\newpage
+
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=1.0\textwidth]{Bilder/karten_vergleich_dxyz_ueber_tag0_punkte.png}
@@ -362,7 +362,7 @@ während die Höhe langsam abgesenkt wird, bis das System bei Bodenkontakt autom
 Es fliegt dazu mit konstanter Geschwindigkeit die nächstgelegene Ecke an, fliegt das Quadrat einmal ab und schwebt anschließend wieder an dieser Startecke.
 Höhe und Gierwinkel bleiben während der gesamten Bewegung fest.
 Erneutes Drücken von \texttt{g} bricht den Demo-Modus ab und hält die aktuelle Position.
-Kantenlänge sowie Geschwindigkeit können über die Startparameter des Nodes eingestellt werden.
+Seitenlänge sowie Geschwindigkeit können über die Startparameter des Nodes eingestellt werden.
 
 Sowohl die manuellen Sollwertänderungen als auch die Bewegung im Demo-Modus sind in ihrer Geschwindigkeit begrenzt.
 Translatorisch gilt eine Begrenzung auf 1,5~m/s in der $x$-$y$-Ebene und auf 3,0~m/s in $z$.
@@ -485,7 +485,7 @@ Da dort nur eine einzige Größe hinterlegt werden kann, die Karte aber vier ver
 \subsection{Ablauf der Flugversuche}
 \label{subsec:ablauf_flugversuche}
 Im Vorhinein wurden Testflüge mit dem Ground Truth und den Versuchskarten eins bis drei durchgeführt, ohne einen merklichen Unterschied in der Positioniergenauigkeit festzustellen.
-Bei den aufgezeichneten Karten wurde jeweils der Fiducial-Marker mit der \gls{id}~202 händisch eingetragen.
+Bei den aufgezeichneten Karten wurde jeweils der Fiducial-Marker mit der \gls{id}~202 händisch nachgetragen.
 Die eigentliche Versuchsdurchführung fand mit dem Ground Truth statt. 
 
 Bevor die Flugversuche durchgeführt werden, wird die extrinsische Kalibrierung der Kamera nach Abschnitt~\ref{subsec:extrinsische_kalibrierung_2} durchgeführt.
@@ -566,7 +566,7 @@ sodass die Positionsbestimmung ab 70,1~s bis zum Aufsetzen ausfällt.
 
 Die Ursache für das Fehlen der Positionswerte kann aus den Protokolldateien nicht direkt abgeleitet werden.
 Während der Aussätzer wurden von dem Node zur Positionsbestimmung keine Daten gesendet,
-sodass als Ursache schlechten Markerdetetkionen nahe liegen.
+sodass als Ursache schlechte Markerdetetkionen nahe liegen.
 
 Während dieser Phasen wechselt der Zustandsschätzer auf \gls{drl} und schreibt die Position allein aus den Messungen der \gls{imu} fort.
 Sämtliche Aussetzer bleiben deutlich unterhalb der Grenze von 5~s, die über \texttt{EKF2\_NOAID\_TOUT} eingestellt ist.
@@ -691,7 +691,7 @@ Damit ist die in Abschnitt~\ref{sec:anforderungen} geforderte Karte der Versuchs
 Als tragfähig erweist sich das zweistufige Vorgehen aus Versuch eins und Versuch zwei.
 Der erste Versuch liefert ohne jedes Vorwissen über die Kartengeometrie innerhalb von etwa 45~Minuten eine grobe erste Schätzung, der zweite verfeinert diese unter Einbringen von Wissen über die Karte innerhalb von etwa zwei Stunden.
 Der Betriebsmodus \texttt{slow} aus Versuch drei rechtfertigt den vierfachen Rechenaufwand nicht, da er den mittleren räumlichen Abstand um lediglich 0,41~mm senkt und den Maximalwert sogar leicht anhebt.
-Die Güte der Karte wird damit weniger durch die Rechenzeit als durch das eingebrachte Vorwissen bestimmt.
+Die Güte der Karte wird damit weniger durch den Betriebsmodus als durch das eingebrachte Vorwissen bestimmt.
 Bei der Aufzeichnung weiterer Karten sollte daher sämtliches verfügbare Wissen über die Geometrie der Umgebung in die Parametrierung einfließen.
 
 Aus diesem Vorgehen folgt zugleich die geforderte Erweiterbarkeit der Karte.
@@ -741,7 +741,7 @@ Ein Kalibrierfehler in dieser Größe bleibt für die Flugführung damit weitgeh
 Im Flug zeigt das \gls{uav} ein leichtes Schlingern um die Sollposition.
 Diese Beobachtung ist qualitativer Natur und lässt sich aus den Protokolldateien nur bedingt belegen.
 Als Ursache wird die konservativ angesetzte Standardabweichung der Vision-Stützung vermutet.
-Der Parameter \texttt{EKF2\_EVP\_NOISE} gibt nach Abschnitt~\ref{subsec:kalman_gain} eine Standardabweichung von 0,1~m vor, die der Zustandsschätzer wegen \texttt{EKF2\_EV\_NOISE\_MD}~=~1 für jede Messung unverändert ansetzt.
+Der Parameter \texttt{EKF2\_EVP\_NOISE} gibt eine Standardabweichung von 0,1~m vor, die der Zustandsschätzer für jede Messung unverändert ansetzt.
 In diese angenommene Unsicherheit geht neben der Streuung der Markerdetektion die Karte selbst ein, die wie zuvor beschrieben nicht fehlerfrei ist.
 Ihre Fiducial-Marker weichen im Mittel um rund 10~mm und im Einzelfall um bis zu etwa 22~mm von der Sollkarte ab, wobei ein Teil dieser Abweichung bereits beim Aufbringen der Klebefolie entsteht.
 Da sich die Pose des \gls{uav}s auf diese Markerlagen stützt, überträgt sich der Kartenfehler auf die eingespeiste Position.

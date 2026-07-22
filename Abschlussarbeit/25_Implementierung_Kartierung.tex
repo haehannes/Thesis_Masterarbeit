@@ -342,7 +342,7 @@ Anschließend wird ein \gls{ros2}-Bag aufgezeichnet, der die für die nachfolgen
 benötigten Topics enthält:
 \begin{itemize}
     \item \texttt{/camera/image\_rect} -- das entzerrte Bild
-    \item \texttt{/camera/camera\_rect} -- die zugehörigen Kameraparameter
+    \item \texttt{/camera/camera\_info} -- die zugehörigen Kameraparameter
     \item \texttt{/tf\_static} -- die statischen Koordinatentransformationen
 \end{itemize}
 
@@ -367,7 +367,6 @@ Neben den Kameraparametern legt die Datei die Auflösung und die verwendeten Top
 
 Aus der Tag\gls{slam}-Konfiguration \texttt{tagslam.yaml} liest der Node die Liste der bekannten Fiducial-Marker mit ihren 
 Identifikationsnummern und physischen Größen aus.
-Diese Information macht es möglich, Karten mit verschieden großen Tags aufzunehmen. 
 Der Node synchronisiert die Topics \topic{/camera/image_rect} und \topic{/camera/camera_info_rect} anhand ihrer Zeitstempel 
 und detektiert auf den zugehörigen Bildern die AprilTag-Marker.
 Für jeden erkannten Fiducial-Marker werden die \gls{id} und die Bildkoordinaten der vier Eckpunkte 
