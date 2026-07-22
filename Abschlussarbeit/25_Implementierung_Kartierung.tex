@@ -43,7 +43,7 @@ Die Driftfreiheit bewertet, ob ein Verfahren über die Zeit einen absoluten Posi
 
 Die \gls{ros2}-Verfügbarkeit berücksichtigt, ob für das Verfahren einsatzfähige Implementierungen im verwendeten Framework vorliegen.
 
-Der Rechenaufwand bewertet die Belastung des Begleitrechners, da die Verarbeitung onboard erfolgt.
+Der Rechenaufwand bewertet die Belastung des Begleitrechners, während der Positionierung.
 
 
 \subsection*{Gewichtung durch den paarweisen Vergleich der SLAM-Varianten}
@@ -51,16 +51,16 @@ Im paarweisen Vergleich in Tabelle~\ref{tab:paarweiser_vergleich_slam} wird jede
 Eine~1 bedeutet, dass das Kriterium der Zeile gegenüber dem der Spalte als wichtiger eingestuft wird.
 Aus der Zeilensumme ergibt sich die relative Gewichtung jedes Kriteriums.
 
-Die höchste Gewichtung erhalten die Umgebungskompatibilität und die Driftfreiheit mit jeweils 23,81\,\%.
+Die höchste Gewichtung erhalten die Umgebungskompatibilität und die Driftfreiheit mit jeweils 23,81~\%.
 Diese Priorisierung ergibt sich direkt aus dem Ziel der Arbeit, ein Lokalisierungssystem für ein \gls{uav} im Innenraum zu implementieren.
 Ein Verfahren, das in der Versuchsumgebung nicht funktioniert oder stark driftbehaftet ist, wäre für den vorgesehenen Einsatz unabhängig 
 von seinen sonstigen Eigenschaften ungeeignet.
 
-Die \gls{ros2}-Verfügbarkeit und der Rechenaufwand folgen mit jeweils 19,05\,\%.
+Die \gls{ros2}-Verfügbarkeit und der Rechenaufwand folgen mit jeweils 19,05~\%.
 Beide sind für die praktische Umsetzbarkeit auf der verwendeten Plattform entscheidend, ordnen sich den Anforderungen 
 an die Lokalisierungsqualität jedoch unter.
 Die hardwarebezogenen Kriterien Kostengünstigkeit, Leichtbau und geringer Vorbereitungsaufwand 
-erhalten mit jeweils 4,76\,\% das geringste Gewicht.
+erhalten mit jeweils 4,76~\% das geringste Gewicht.
 Kostengünstigkeit und geringer Vorbereitungsaufwand sind zwar wünschenswert, für die grundsätzliche Eignung des Verfahrens jedoch von untergeordneter Bedeutung.
 Auch der Leichtbau spielt eine geringere Rolle, da die Nutzlast des verwendeten \gls{uav}s ausreichend ist, die Hardware für jede der betrachteten Implementierungen zu tragen.
 \begin{table}[htbp]
@@ -139,15 +139,15 @@ Als Fiducial-Marker-System kommen in dieser Arbeit ausschließlich AprilTags
 der Familie \texttt{tag36h11} zum Einsatz.
 Die Wahl ergibt sich aus drei zusammenwirkenden Gründen.
 
-Kompatibilität mit Tag\gls{slam}:
-Tag\gls{slam} nutzt intern den AprilTag-Detektor und unterstützt ausschließlich AprilTag-Familien~\cite{pfrommer2019tagslam}.
+
+Tag\gls{slam} nutzt intern den AprilTag-Detektor und unterstützt ausschließlich AprilTag-Famil\-ien~\cite{pfrommer2019tagslam}.
 Ein Wechsel zu einem anderen Marker-System würde die Kompatibilität mit
 Tag\gls{slam} aufheben.
 In diesem Fall müsste ein eigenes Paket zur faktorgraphbasierten Kartenerstellung oder eine Adaption des vorhandenen Projekts implementiert werden.
 
 Für den Jetson Orin Nano steht mit dem Paket \texttt{isaac\_ros\_apriltag} eine
 \gls{gpu}-beschleunigte Implementierung zur Detektion von AprilTag-Markern zur Verfügung.
-Da AprilTag im Vergleich zu ArUco den höchsten Rechenaufwand bei einer
+Da AprilTag im Vergleich zu anderen Fiducial-Marker-Systemen den höchsten Rechenaufwand bei einer
 CPU-basierten Implementierung aufweist, ist die
 Hardwarebeschleunigung für den echtzeitfähigen Betrieb auf dem Begleitrechner besonders relevant~\cite{Kalaitzakis2021}.
 Dies gilt insbesondere bei vielen gleichzeitig sichtbaren Markern, da der Rechenaufwand der Detektion mit deren Anzahl steigt.
@@ -202,8 +202,8 @@ Zudem ist der gesamte Vorgang reproduzierbar, da er beliebig oft aus denselben E
 Die einzelnen Schritte werden in den folgenden Abschnitten beschrieben.
 
 Die Offline-Kartierung erfordert \gls{ros2} Jazzy, da Tag\gls{slam} nur bedingt mit \gls{ros2} Humble kompatibel ist.
-Der zur Verfügung gestellte Begleitrechner unterstützt jedoch ausschließlich \gls{ros2} Humble, weshalb die Kartierung nicht auf dem Begleitrechner durchgeführt werden kann.
-Die Offline-Kartierung muss daher auf einem externen Computer durchgeführt werden.
+Der zur Verfügung gestellte Begleitrechner unterstützt jedoch ausschließlich \gls{ros2} Humble, weshalb die Kartierung auf einen externen Computer durchgeführt wird.
+
 
 
 

@@ -13,7 +13,7 @@ Anschließend werden verschiedene Fiducial-Marker-Systeme verglichen und deren E
 \section{GNSS-freie Lokalisierung von UAVs}
 Eine zuverlässige Positionsschätzung erfordert eine relative oder globale Referenz, gegen die die Bewegung des Fahrzeugs gestützt werden kann.
 In der Luftfahrt wird diese Referenz in der Regel durch \gls{gnss} bereitgestellt, das als primäre Quelle absoluter Positionsinformationen dient.
-In dessen Abwesenheit muss die Position allein aus der Integration fehlerbehafteter \gls{imu} geschätzt werden, was, wie in Abschnitt~\ref{sec:sensorik} beschrieben, zu einem zeitlich anwachsenden Positionsfehler führt.
+In dessen Abwesenheit muss die Position allein aus der Integration fehlerbehafteter \gls{imu} geschätzt werden, was zu einem zeitlich anwachsenden Positionsfehler führt.
 
 Da ohne eine externe Referenz keine Korrektur dieses Drifts möglich ist, müssen andere relative oder globale Quellen die Stützinformation bereitstellen.
 Diese Methoden gleichen den akkumulierten Fehler durch absolute oder relative Lokalisierung aus.~\cite{Jarraya2025}
@@ -66,7 +66,7 @@ ein Restdrift jedoch bestehen bleibt.~\cite{9982087,9172736,Ko2018}
 Grundsätzlich ist \gls{drl} für den Innenraum nur zeitlich begrenzt geeignet und als primäre Positionsquelle nicht ausreichend.
 \gls{drl} kann jedoch als Fallback-Strategie genutzt werden, wenn die primäre Positionsquelle kurzfristig nicht verfügbar ist.~\cite{9172736}
 
-\subsubsection*{Visuelle Odometrie und optischer Fluss}
+\subsubsection*{Visuelle Odometrie}
 Die \gls{vo} schätzt die Bewegung einer Kamera anhand sequenzieller Bilddaten, ohne eine Karte der Umgebung zu erstellen.
 Dabei werden markante Bildpunkte, auch Landmarken genannt, zwischen aufeinanderfolgenden Frames verfolgt und aus deren Verschiebung auf die Kamerabewegung geschlossen.~\cite{Jarraya2025}
 
@@ -87,7 +87,7 @@ Weiterhin setzt visuelle Odometrie strukturierte Umgebungen voraus, welche in de
 Dabei geht es um die selbstständige Erstellung einer Karte einer unbekannten Umgebung bei gleichzeitiger Bestimmung der eigenen Position 
 innerhalb dieser Umgebung.
 Kartierung und Positionsbestimmung müssen parallel erfolgen, da jede Aufgabe die andere voraussetzt.
-Die Lösung dieses Problems erfolgt üblicherweise durch filterbasierte Methoden, wie den \gls{ekf}, 
+Die Lösung dieses Problems erfolgt üblicherweise durch filterbasierte Methoden, wie den \gls{ekf} 
 oder durch optimierungsbasierte Ansätze.~\cite{10169695}
 
 Filterbasierte \gls{slam}-Algorithmen verarbeiten Messungen sequenziell und lassen keine Korrektur von vergangenen Messungen zu.
@@ -245,8 +245,8 @@ und über die in Abschnitt~\ref{sec:Kamera_Kalibrierung} beschriebene Kalibrieru
 Marker sind in verschiedene Familien unterteilt. 
 Das Namensschema \texttt{TagNNhM} beschreibt dabei \texttt{NN} als die Gesamtzahl der 
 Datenbits und \texttt{hM} als die minimale Hammingdistanz.
-So verwendet die Familie \texttt{tag36h11} ein 6$\times$6-Raster mit einer minimalen Hammingdistanz von 11, die Familie \texttt{tag16h5} 
-verwendet dagegen ein 4$\times$4-Raster mit einer minimalen Hammingdistanz von 5.
+So verwendet die Familie \texttt{tag36h11} ein 6$\times$6-Raster mit einer minimalen Hammingdistanz von elf, die Familie \texttt{tag16h5} 
+verwendet dagegen ein 4$\times$4-Raster mit einer minimalen Hammingdistanz von fünf.
 Aufgrund der größeren Pixelgröße lässt sich \texttt{tag16h5} prinzipiell aus größerer Entfernung erkennen, jedoch mit höherer Unsicherheit.~\cite{Olson5979561,Bradski2008}
 
 

@@ -813,14 +813,14 @@ parent={},%
 \glsdefs@newdocentry{fps}%
 {%
 name={\acronymfont {\glsentryshort {fps}}},%
-sort={fps},%
+sort={FPS},%
 type={acronym},%
-first={fps},%
-firstplural={fpss},%
-text={fps},%
-plural={fpss},%
-description={frames per second},%
-descriptionplural={frames per second},%
+first={FPS},%
+firstplural={FPSs},%
+text={FPS},%
+plural={FPSs},%
+description={Frames Per Second},%
+descriptionplural={Frames Per Second},%
 symbol={\relax },%
 symbolplural={\relax },%
 user1={},%
@@ -829,10 +829,10 @@ user3={},%
 user4={},%
 user5={},%
 user6={},%
-long={frames per second},%
-longplural={frames per seconds},%
-short={fps},%
-shortplural={fpss},%
+long={Frames Per Second},%
+longplural={Frames Per Seconds},%
+short={FPS},%
+shortplural={FPSs},%
 counter={page},%
 parent={},%
 %
